@@ -10,7 +10,7 @@ on:
 env:
   APACHE_JENA_NAME: apache-jena-5.2.0
   APACHE_JENA_URL: https://dlcdn.apache.org/jena/binaries/apache-jena-5.2.0.tar.gz
-  JENA_HOME: ${GITHUB_WORKSPACE}/apache-jena-5.2.0
+  JENA_HOME: $GITHUB_WORKSPACE/apache-jena-5.2.0
 jobs:
   build:
 
