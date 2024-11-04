@@ -10,6 +10,7 @@ on:
 env:
   APACHE_JENA_NAME: apache-jena-5.2.0
   APACHE_JENA_URL: https://dlcdn.apache.org/jena/binaries/apache-jena-5.2.0.tar.gz
+  JENA_HOME: ${GITHUB_WORKSPACE}/apache-jena-5.2.0
 jobs:
   build:
 
@@ -26,12 +27,8 @@ jobs:
       run: wget $APACHE_JENA_URL -O $APACHE_JENA_NAME.tar.gz
     - name: Unpack Apache Jena
       run: tar -xvzf $APACHE_JENA_NAME.tar.gz
-    - name: Set JENA_HOME
-      run: export JENA_HOME=${GITHUB_WORKSPACE}/$APACHE_JENA_NAME
-    - name: Set PATH
-      run: export PATH=$PATH:$JENA_HOME/bin
     - name: Generate RDF File
-      run: riot --output=RDF/XML core-ontology.ttl > core-ontology.rdf
+      run: ./$APACHE_JENA_NAME/bin/riot --output=RDF/XML core-ontology.ttl > core-ontology.rdf
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
