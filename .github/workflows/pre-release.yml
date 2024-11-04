@@ -29,7 +29,7 @@ jobs:
     - name: Set Envrionment Variables
       run: |
         export JENA_HOME=${GITHUB_WORKSPACE}/$APACHE_JENA_NAME
-        export PATH=$PATH:${JENA_HOME}/bin
+        export PATH=$PATH:$JENA_HOME/bin
     - name: Generate RDF File
       run: riot --output=RDF/XML core-ontology.ttl > core-ontology.rdf
     - name: Create Release
