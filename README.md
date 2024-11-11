@@ -118,7 +118,7 @@ Defining skills in the terms of the core ontology further allows for an automate
 skills with the help of generative AI, making it substantially more likely that such solutions successfully converge to 
 a mutually exclusive and collectively exhaustive set of skills.
 
-#### Factual Relations Inheritance
+#### Relations Inheritance
 
 Defining skills in the terms of the core ontology also allows for skills to inherit all factual relations from the core 
 ontology. As a consequence, the skill ontology only needs to define factual relations that specifically apply to that 
