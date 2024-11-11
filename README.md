@@ -70,9 +70,9 @@ The dimensions are:
 - **Scope:** A relevant involved setting (e.g. _NumbersLarger1000_)
 
 Using the three example terms, we can already be relatively sure that a corresponding learning material would be
-educating, training or testing students about what is regularly referred to as _long multiplication_. The idea of
-core ontology is to be powerful enough to classify learning material in a way that is meaningful to real world data
-applications.
+educating, training or testing students about what is regularly referred to as _long multiplication_. The goal of the
+core ontology is to classify learning materials with only a few terms while leaning into the capabilities of 
+vector databases and embeddings.
 
 #### Taxonomies
 
