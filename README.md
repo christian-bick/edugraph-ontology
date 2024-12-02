@@ -76,25 +76,30 @@ vector databases and embeddings.
 
 #### Taxonomies
 
-All terms are organized in a hierarchy, one hierarchy per dimension. Therefore, a learning material that is annotated
-with covering _IntegerMultiplication_, implicitly also covers _IntegerArithmetic_, _Arithmetic_ and _Mathematics_.
+Each dimension is organized as it's own taxonomy in a hierarchical structure. For example, learning material that covers
+_IntegerMultiplication_, implicitly also covers _IntegerArithmetic_, _Arithmetic_ and _Mathematics_.
 
-This allows for more and less specific descriptions of learning material, e.g. less specific when describing a chapter
-and more specific when describing a specific instruction or exercise.
+This allows for more and less specific descriptions of learning material, e.g. explicitly describing specific instructions 
+and exercises with precise terms while describing chapters or lectures with automatically derived generic terms.
 
-#### Factual Relations
+#### Logical Relations
 
-Moreover, terms in the ontology are not only organized along classic hierarchy relations, but can also form
-factual relations between each other. For example _IntegerMultiplications_ conceptually _expands_ the concept of
-_IntegerAddition_ and therefore indicates a natural learning path where addition would be taught before multiplication.
+However, terms in the ontology are not only organized along classic hierarchical relations, but are further described
+through logical relations between each other. For example _IntegerMultiplications_ conceptually _expands_ the concept of
+_IntegerAddition_. Such relations can be used as indicators for identifying natural learning paths (e.g. suggesting to 
+teach addition before multiplication) or for adaptive testing (e.g. exploring if a student's weakness in executing long 
+multiplication is rooted in multiplying small numbers or in executing long addition).
 
-Such factual relations allow to infer knowledge and lift the ontology beyond a semantic standard of identifiers.
+Such logical elevate the taxonomies of each dimension beyond a semantic standard of identifiers. They allow to infer 
+knowledge independently and define a conceptually shared yet independently operated understanding of how differet areas
+and aspects of learning are connected with each other.
 
 #### Current State
 
 The current data model of the core ontology is fairly well explored and relatively stable. It is designed to be
-discipline agnostic and has been validated against various scenarios. However, the concrete taxonomies and factual 
-relations are work in progress and subject to frequent change.
+applicable to various disciplines and has been validated against a diverse set of scenarios already. However, the 
+concrete taxonomies and teir logical relations are work in progress and likely to change frequently in the forseeable
+future.
 
 ### Skill Ontology
 
@@ -105,12 +110,17 @@ concrete terms for generally accepted solutions to a specific problem domain.
 
 #### Flavors
 
-It is relatively easy to find consent about terminology in the core ontology, but the definition of actual skills is
-more likely to be influenced by purpose, culture and language.
+It is relatively easy to find consent about a mutual exclusive and collectively exhausitve terminology for the core 
+ontology when compared to defining actual skills. Skills typically refer to observable and practically useful
+applications of knowledge and abilities. 
 
-EduGraph's solution is for this issue is to define skills separately, but described by terms from the core ontology. 
-This allows for different flavors of the skill ontology, however makes it easy to map skills between the different 
-flavors.
+Being inherently more likely to be influenced by purpose, culture and language, it is way harder to agree on distinct
+skills that collectively describe areas of learning. Ath the same time, developing concrete skills is a fundamentally  
+important part of learning.
+
+EduGraph's solution is for this issue is to define skills as separate entities and in the terms from the core ontology. 
+This allows for different flavors of skill ontologies, but at the same time makes it easy to map skills between the 
+different flavors.
 
 #### Automated Generation
 
