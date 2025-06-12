@@ -299,7 +299,7 @@ edu:AgileStrength rdf:type owl:NamedIndividual ,
 edu:Algebra rdf:type owl:NamedIndividual ,
                      edu:Area ;
             edu:partOfArea edu:Mathematics ;
-            rdfs:isDefinedBy "A generalization of arithmetic where letters represent unknown numbers, allowing us to explore patterns, solve equations, and model real-world situations." .
+            rdfs:isDefinedBy "The branch of mathematics that generalizes arithmetics and where letters represent unknown numbers, allowing us to explore patterns, solve equations, and model real-world situations." .
 
 
 ###  http://edugraph.io/edu#AnalogClock
@@ -340,7 +340,7 @@ edu:AnalogicalReasoning rdf:type owl:NamedIndividual ,
 edu:Analysis rdf:type owl:NamedIndividual ,
                       edu:Area ;
              edu:partOfArea edu:Mathematics ;
-             rdfs:isDefinedBy "A branch of mathematics that deals with continuous change and investigates concepts like limits, continuity, derivatives, integrals, and infinite series to study functions, their properties, and their behavior." .
+             rdfs:isDefinedBy "The branch of mathematics that deals with continuous change and investigates concepts like limits, continuity, derivatives, integrals, and infinite series to study functions, their properties, and their behavior." .
 
 
 ###  http://edugraph.io/edu#AnalyticalCapability
@@ -393,7 +393,7 @@ edu:ArabicNumerals rdf:type owl:NamedIndividual ,
 edu:Arithmetic rdf:type owl:NamedIndividual ,
                         edu:Area ;
                edu:partOfArea edu:Mathematics ;
-               rdfs:isDefinedBy "The branch of mathematics that deals with the properties and manipulation of numbers." .
+               rdfs:isDefinedBy "The branch of mathematics that deals with the properties and manipulation of numbers, including addition, subtraction, multiplication and division." .
 
 
 ###  http://edugraph.io/edu#Articulation
@@ -510,7 +510,7 @@ Example: Considering diverse perspectives and avoiding stereotypes when writing 
 edu:Calculus rdf:type owl:NamedIndividual ,
                       edu:Area ;
              edu:partOfArea edu:Mathematics ;
-             rdfs:isDefinedBy "The mathematics of change and motion, providing tools for analyzing rates of change and accumulation. It deals with instantaneous rates of change that affect the slopes of curves, as well as with accumulation that affects areas under curves." .
+             rdfs:isDefinedBy "The branch of mathematics that provides tools for analyzing rates of change and accumulation. It deals with instantaneous rates of change that affect the slopes of curves, as well as with accumulation that affects areas under curves." .
 
 
 ###  http://edugraph.io/edu#CardiovascularEndurance
@@ -542,7 +542,7 @@ edu:CommunicationCapability rdf:type owl:NamedIndividual ,
 edu:ComputationalMathematics rdf:type owl:NamedIndividual ,
                                       edu:Area ;
                              edu:partOfArea edu:Mathematics ;
-                             rdfs:isDefinedBy "The development and application of mathematical methods and algorithms for solving problems using computers." .
+                             rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers." .
 
 
 ###  http://edugraph.io/edu#ConceptClassification
@@ -863,7 +863,7 @@ edu:Decrement rdf:type owl:NamedIndividual ,
                        edu:Area ;
               edu:expandsArea edu:Increment ;
               edu:partOfArea edu:BaseOperations ;
-              rdfs:isDefinedBy "Decrement is the act of reducing a quantity by a specific amount." .
+              rdfs:isDefinedBy "Reducing a quantity by a specific amount." .
 
 
 ###  http://edugraph.io/edu#DeductiveReasoning
@@ -908,7 +908,7 @@ edu:Difference rdf:type owl:NamedIndividual ,
                         edu:Area ;
                edu:expandsArea edu:Decrement ;
                edu:partOfArea edu:BaseOperations ;
-               rdfs:isDefinedBy "Difference represents the amount by which one quantity is greater or less than another." .
+               rdfs:isDefinedBy "Determining the difference in quantities of mathematical object, including numbers where difference represents the amount by which one quantity is greater or less than another." .
 
 
 ###  http://edugraph.io/edu#DigitNotation
@@ -1219,7 +1219,7 @@ edu:Geoboard rdf:type owl:NamedIndividual ,
 edu:Geometry rdf:type owl:NamedIndividual ,
                       edu:Area ;
              edu:partOfArea edu:Mathematics ;
-             rdfs:isDefinedBy "The study of shapes, sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids." .
+             rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids." .
 
 
 ###  http://edugraph.io/edu#GeometryRepresentation
@@ -1345,7 +1345,7 @@ edu:HypothesisValidation rdf:type owl:NamedIndividual ,
 edu:Increment rdf:type owl:NamedIndividual ,
                        edu:Area ;
               edu:partOfArea edu:BaseOperations ;
-              rdfs:isDefinedBy "Increment involves raising a quantity by a certain amount." .
+              rdfs:isDefinedBy "Raising a quantity by a certain amount." .
 
 
 ###  http://edugraph.io/edu#InductiveReasoning
@@ -1518,7 +1518,7 @@ edu:Introspection rdf:type owl:NamedIndividual ,
 edu:IntuitiveMathematics rdf:type owl:NamedIndividual ,
                                   edu:Area ;
                          edu:partOfArea edu:Mathematics ;
-                         rdfs:isDefinedBy "Intuitive Mathematics focuses on understanding math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of mathematic concepts." .
+                         rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of mathematic concepts." .
 
 
 ###  http://edugraph.io/edu#LaserRuler
@@ -1594,7 +1594,7 @@ edu:LiquidVolumes rdf:type owl:NamedIndividual ,
 edu:Logic rdf:type owl:NamedIndividual ,
                    edu:Area ;
           edu:partOfArea edu:Mathematics ;
-          rdfs:isDefinedBy "The study of reasoning and valid arguments. It provides a framework for determining whether something is true or false based on given premises. It is the foundation for constructing proofs, ensuring that conclusions follow logically from their premises." .
+          rdfs:isDefinedBy "The branch of mathematics that studies reasoning and valid arguments. It provides a framework for determining whether something is true or false based on given premises. It is the foundation for constructing proofs, ensuring that conclusions follow logically from their premises." .
 
 
 ###  http://edugraph.io/edu#LogicalInference
@@ -1871,7 +1871,7 @@ edu:NumberSense rdf:type owl:NamedIndividual ,
 edu:NumberTheory rdf:type owl:NamedIndividual ,
                           edu:Area ;
                  edu:partOfArea edu:Mathematics ;
-                 rdfs:isDefinedBy "The study of the properties of numbers, particularly integers (whole numbers). It explores things like prime numbers, divisibility, and number patterns." .
+                 rdfs:isDefinedBy "The branch of mathematics that studies the properties of numbers, particularly integers (whole numbers). It explores things like prime numbers, divisibility, and number patterns." .
 
 
 ###  http://edugraph.io/edu#NumberTiles
@@ -2549,7 +2549,7 @@ Example: A student participating in a community service project to help those le
 edu:SetTheory rdf:type owl:NamedIndividual ,
                        edu:Area ;
               edu:partOfArea edu:Mathematics ;
-              rdfs:isDefinedBy "The study of sets, which are collections of objects. It provides a fundamental language and tools for defining and working with mathematical objects." .
+              rdfs:isDefinedBy "The branch of mathematics that studes sets, which are collections of objects. It provides a fundamental language and tools for defining and working with mathematical objects." .
 
 
 ###  http://edugraph.io/edu#ShapeCongruence
@@ -2773,7 +2773,7 @@ edu:StaticBalance rdf:type owl:NamedIndividual ,
 edu:Statistics rdf:type owl:NamedIndividual ,
                         edu:Area ;
                edu:partOfArea edu:Mathematics ;
-               rdfs:isDefinedBy "Statistics provides a framework for collecting, organizing, analyzing, and interpreting data. It provides tools for quantifying and modeling randomness, variability, and uncertainty in data." .
+               rdfs:isDefinedBy "The branch of mathematics that provides a framework for collecting, organizing, analyzing, and interpreting data. It provides tools for quantifying and modeling randomness, variability, and uncertainty in data." .
 
 
 ###  http://edugraph.io/edu#Stopwatch
@@ -2810,7 +2810,7 @@ edu:Sum rdf:type owl:NamedIndividual ,
                  edu:Area ;
         edu:expandsArea edu:Increment ;
         edu:partOfArea edu:BaseOperations ;
-        rdfs:isDefinedBy "Sum represents the total amount obtained by combining quantities." .
+        rdfs:isDefinedBy "Combining quantities to determine their total amount for any type of mathematical object, including numbers." .
 
 
 ###  http://edugraph.io/edu#Sunclock
