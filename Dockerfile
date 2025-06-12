@@ -1,6 +1,6 @@
 FROM eclipse-temurin:21
 
-ARG APACHE_JENA_VERSION=5.2.0
+ARG APACHE_JENA_VERSION=5.4.0
 ARG APACHE_JENA_NAME=apache-jena-${APACHE_JENA_VERSION}
 ARG APACHE_JENA_URL=https://dlcdn.apache.org/jena/binaries/${APACHE_JENA_NAME}.tar.gz
 ARG HOME_DIR=/opt/app
