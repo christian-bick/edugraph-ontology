@@ -781,7 +781,7 @@ edu:DecimalArithmetic rdf:type owl:NamedIndividual ,
                                edu:Area ;
                       edu:expandsArea edu:DecimalNotation ;
                       edu:partOfArea edu:RationalsArithmetic ;
-                      rdfs:isDefinedBy "Arithmetic operations performed on decimals (numbers represented with a decimal point)." .
+                      rdfs:isDefinedBy "Performing arithmetic operations on decimals (numbers represented with a decimal point)." .
 
 
 ###  http://edugraph.io/edu#DecimalDivision
@@ -821,9 +821,9 @@ edu:DecimalMultiplication rdf:type owl:NamedIndividual ,
                           edu:expandsArea edu:DecimalAddition ,
                                           edu:IntegerMultiplication ;
                           edu:partOfArea edu:DecimalArithmetic ;
-                          rdfs:isDefinedBy """Repeated addition of a decimal.
+                          rdfs:isDefinedBy """Multiplying two or more decimals.
 
-Example: 3.5 * 2 = 3.5 + 3.5 = 7""" .
+Example: 3.5 * 2.0 = 7.0""" .
 
 
 ###  http://edugraph.io/edu#DecimalNotation
@@ -833,7 +833,7 @@ edu:DecimalNotation rdf:type owl:NamedIndividual ,
                                     edu:NumerationWithRationals ;
                     edu:partOfArea edu:NumberNotation ,
                                    edu:RationalsArithmetic ;
-                    rdfs:isDefinedBy "Decimal notation is a system of representing numbers using a base-ten place value system and a decimal point to separate whole and fractional parts." .
+                    rdfs:isDefinedBy "Applying the decimal system of representing rational numbers using a base-ten place value system and a decimal point to separate whole and fractional parts." .
 
 
 ###  http://edugraph.io/edu#DecimalRoot
@@ -1117,7 +1117,7 @@ edu:FractionArithmetic rdf:type owl:NamedIndividual ,
                                 edu:Area ;
                        edu:expandsArea edu:FractionNotation ;
                        edu:partOfArea edu:RationalsArithmetic ;
-                       rdfs:isDefinedBy "Arithmetic operations performed on fractions." .
+                       rdfs:isDefinedBy "Performing arithmetic operations on fractions." .
 
 
 ###  http://edugraph.io/edu#FractionDivision
@@ -1408,7 +1408,7 @@ edu:IntegerArithmetic rdf:type owl:NamedIndividual ,
                                edu:Area ;
                       edu:expandsArea edu:IntegerNotation ;
                       edu:partOfArea edu:Arithmetic ;
-                      rdfs:isDefinedBy "Arithmetic operations performed on integers." .
+                      rdfs:isDefinedBy "Performing arithmetic operations on integers." .
 
 
 ###  http://edugraph.io/edu#IntegerDivision
@@ -1446,9 +1446,9 @@ edu:IntegerMultiplication rdf:type owl:NamedIndividual ,
                                    edu:Area ;
                           edu:expandsArea edu:IntegerAdditon ;
                           edu:partOfArea edu:IntegerArithmetic ;
-                          rdfs:isDefinedBy """Repeated addition of an integer.
+                          rdfs:isDefinedBy """Multiplying two or multiple integers.
 
-Example: 4 * 3 = 4 + 4 + 4 = 12""" .
+Example: 4 * 3 = 12""" .
 
 
 ###  http://edugraph.io/edu#IntegerNotation
@@ -1457,7 +1457,7 @@ edu:IntegerNotation rdf:type owl:NamedIndividual ,
                     edu:expandsArea edu:DigitNotation ;
                     edu:partOfArea edu:Arithmetic ,
                                    edu:NumberNotation ;
-                    rdfs:isDefinedBy """The system of symbols used to represent integers.
+                    rdfs:isDefinedBy """Applying the system of symbols used to represent integers.
 
 Example: Using the symbols -3, 0, and 12 to represent integers.""" .
 
@@ -1671,7 +1671,7 @@ edu:LowestCommonDenominator rdf:type owl:NamedIndividual ,
                                      edu:Area ;
                             edu:expandsArea edu:IntegerDivision ;
                             edu:partOfArea edu:FractionArithmetic ;
-                            rdfs:isDefinedBy """The smallest common multiple of the denominators of two or more fractions.
+                            rdfs:isDefinedBy """Finding the smallest common multiple of the denominators of two or more fractions.
 
 Example: The lowest common denominator of 1/4 and 1/6 is 12.""" .
 
@@ -2346,14 +2346,14 @@ edu:RatioInterpretation rdf:type owl:NamedIndividual ,
 edu:RatioNotation rdf:type owl:NamedIndividual ,
                            edu:Area ;
                   edu:partOfArea edu:ProportionAbstraction ;
-                  rdfs:isDefinedBy "Ratio notation is the system of symbols and conventions used to represent ratios." .
+                  rdfs:isDefinedBy "Applying the system of symbols and conventions used to represent ratios." .
 
 
 ###  http://edugraph.io/edu#RationalsArithmetic
 edu:RationalsArithmetic rdf:type owl:NamedIndividual ,
                                  edu:Area ;
                         edu:partOfArea edu:Arithmetic ;
-                        rdfs:isDefinedBy "Arithmetic operations performed on rational numbers (numbers that can be expressed as a fraction)." .
+                        rdfs:isDefinedBy "Performing arithmetic operations on rational numbers (numbers that can be expressed as a fraction)." .
 
 
 ###  http://edugraph.io/edu#ReadingFluency
@@ -2549,28 +2549,28 @@ Example: A student participating in a community service project to help those le
 edu:SetTheory rdf:type owl:NamedIndividual ,
                        edu:Area ;
               edu:partOfArea edu:Mathematics ;
-              rdfs:isDefinedBy "The branch of mathematics that studes sets, which are collections of objects. It provides a fundamental language and tools for defining and working with mathematical objects." .
+              rdfs:isDefinedBy "The branch of mathematics that studies sets, which are collections of objects. It provides a fundamental language and tools for defining and working with mathematical objects." .
 
 
 ###  http://edugraph.io/edu#ShapeCongruence
 edu:ShapeCongruence rdf:type owl:NamedIndividual ,
                              edu:Area ;
                     edu:partOfArea edu:ShapeRecognition ;
-                    rdfs:isDefinedBy "Shape congruence is the understanding that two shapes are identical in size and shape, even if they are oriented differently." .
+                    rdfs:isDefinedBy "Understanding when two shapes are identical in size and shape, independently of their orientation." .
 
 
 ###  http://edugraph.io/edu#ShapeRecognition
 edu:ShapeRecognition rdf:type owl:NamedIndividual ,
                               edu:Area ;
                      edu:partOfArea edu:SpatialSense ;
-                     rdfs:isDefinedBy "Shape recognition is the ability to identify and name different geometric shapes." .
+                     rdfs:isDefinedBy "Identifying and naming different geometric shapes." .
 
 
 ###  http://edugraph.io/edu#ShapeSymmetry
 edu:ShapeSymmetry rdf:type owl:NamedIndividual ,
                            edu:Area ;
                   edu:partOfArea edu:ShapeRecognition ;
-                  rdfs:isDefinedBy "Shape symmetry is the understanding that a shape can be divided into identical halves that mirror each other." .
+                  rdfs:isDefinedBy "Understanding how a shape can be divided into identical halves that mirror each other." .
 
 
 ###  http://edugraph.io/edu#Smaller10
@@ -2681,7 +2681,7 @@ edu:SpatialInterpretation rdf:type owl:NamedIndividual ,
 edu:SpatialModelling rdf:type owl:NamedIndividual ,
                               edu:Area ;
                      edu:partOfArea edu:SpatialSense ;
-                     rdfs:isDefinedBy "Spatial modeling is the ability to create mental or physical representations of objects and their spatial relationships." .
+                     rdfs:isDefinedBy "Creating mental or physical representations of objects and their spatial relationships." .
 
 
 ###  http://edugraph.io/edu#SpatialNavigation
@@ -2715,7 +2715,7 @@ edu:SpatialNumbers rdf:type owl:NamedIndividual ,
 edu:SpatialSense rdf:type owl:NamedIndividual ,
                           edu:Area ;
                  edu:partOfArea edu:IntuitiveMathematics ;
-                 rdfs:isDefinedBy "Spatial sense involves understanding shapes, sizes, positions, and movements in two and three dimensions." .
+                 rdfs:isDefinedBy "Understanding shapes, sizes, positions, and movements in two and three dimensions." .
 
 
 ###  http://edugraph.io/edu#SpatialThinking
