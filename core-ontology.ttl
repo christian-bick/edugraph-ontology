@@ -1888,6 +1888,90 @@ edu:Numberline rdf:type owl:NamedIndividual ,
                rdfs:isDefinedBy "Represents numbers with a numberline." .
 
 
+###  http://edugraph.io/edu#NumbersLarger10
+edu:NumbersLarger10 rdf:type owl:NamedIndividual ,
+                             edu:Scope ;
+                    edu:partOfScope edu:NumericRange ;
+                    rdfs:isDefinedBy "Only involves numbers larger than 10." .
+
+
+###  http://edugraph.io/edu#NumbersLarger100
+edu:NumbersLarger100 rdf:type owl:NamedIndividual ,
+                              edu:Scope ;
+                     edu:partOfScope edu:NumericRange ;
+                     rdfs:isDefinedBy "Only involves numbers larger than 100." .
+
+
+###  http://edugraph.io/edu#NumbersLarger1000
+edu:NumbersLarger1000 rdf:type owl:NamedIndividual ,
+                               edu:Scope ;
+                      edu:partOfScope edu:NumericRange ;
+                      rdfs:isDefinedBy "Only involves numbers larger than 1000." .
+
+
+###  http://edugraph.io/edu#NumbersLarger20
+edu:NumbersLarger20 rdf:type owl:NamedIndividual ,
+                             edu:Scope ;
+                    edu:partOfScope edu:NumericRange ;
+                    rdfs:isDefinedBy "Only Involves numbers larger than 20." .
+
+
+###  http://edugraph.io/edu#NumbersSmaller10
+edu:NumbersSmaller10 rdf:type owl:NamedIndividual ,
+                              edu:Scope ;
+                     edu:partOfScope edu:NumericRange ;
+                     rdfs:isDefinedBy "Only involves numbers smaller than 10" .
+
+
+###  http://edugraph.io/edu#NumbersSmaller100
+edu:NumbersSmaller100 rdf:type owl:NamedIndividual ,
+                               edu:Scope ;
+                      edu:partOfScope edu:NumericRange ;
+                      rdfs:isDefinedBy "Only involves numbers smaller than 100" .
+
+
+###  http://edugraph.io/edu#NumbersSmaller1000
+edu:NumbersSmaller1000 rdf:type owl:NamedIndividual ,
+                                edu:Scope ;
+                       edu:partOfScope edu:NumericRange ;
+                       rdfs:isDefinedBy "Only involves numbers smaller than 1000" .
+
+
+###  http://edugraph.io/edu#NumbersSmaller20
+edu:NumbersSmaller20 rdf:type owl:NamedIndividual ,
+                              edu:Scope ;
+                     edu:partOfScope edu:NumericRange ;
+                     rdfs:isDefinedBy "Only involves numbers smaller than 20" .
+
+
+###  http://edugraph.io/edu#NumbersWIthNegatives
+edu:NumbersWIthNegatives rdf:type owl:NamedIndividual ,
+                                  edu:Scope ;
+                         edu:partOfScope edu:NumericRange ;
+                         rdfs:isDefinedBy "Involves negative numbers." .
+
+
+###  http://edugraph.io/edu#NumbersWithZero
+edu:NumbersWithZero rdf:type owl:NamedIndividual ,
+                             edu:Scope ;
+                    edu:partOfScope edu:NumericRange ;
+                    rdfs:isDefinedBy "Involves zero as a number." .
+
+
+###  http://edugraph.io/edu#NumbersWithoutNegatives
+edu:NumbersWithoutNegatives rdf:type owl:NamedIndividual ,
+                                     edu:Scope ;
+                            edu:partOfScope edu:NumericRange ;
+                            rdfs:isDefinedBy "Does not involve negative numbers." .
+
+
+###  http://edugraph.io/edu#NumbersWithoutZero
+edu:NumbersWithoutZero rdf:type owl:NamedIndividual ,
+                                edu:Scope ;
+                       edu:partOfScope edu:NumericRange ;
+                       rdfs:isDefinedBy "Does not involve zero as a number." .
+
+
 ###  http://edugraph.io/edu#Numerals
 edu:Numerals rdf:type owl:NamedIndividual ,
                       edu:Scope ;
@@ -2573,34 +2657,6 @@ edu:ShapeSymmetry rdf:type owl:NamedIndividual ,
                   rdfs:isDefinedBy "Understanding how a shape can be divided into identical halves that mirror each other." .
 
 
-###  http://edugraph.io/edu#Smaller10
-edu:Smaller10 rdf:type owl:NamedIndividual ,
-                       edu:Scope ;
-              edu:partOfScope edu:NumericRange ;
-              rdfs:isDefinedBy "Only involves numbers smaller than 10" .
-
-
-###  http://edugraph.io/edu#Smaller100
-edu:Smaller100 rdf:type owl:NamedIndividual ,
-                        edu:Scope ;
-               edu:partOfScope edu:NumericRange ;
-               rdfs:isDefinedBy "Only involves numbers smaller than 100" .
-
-
-###  http://edugraph.io/edu#Smaller1000
-edu:Smaller1000 rdf:type owl:NamedIndividual ,
-                         edu:Scope ;
-                edu:partOfScope edu:NumericRange ;
-                rdfs:isDefinedBy "Only involves numbers smaller than 1000" .
-
-
-###  http://edugraph.io/edu#Smaller20
-edu:Smaller20 rdf:type owl:NamedIndividual ,
-                       edu:Scope ;
-              edu:partOfScope edu:NumericRange ;
-              rdfs:isDefinedBy "Only involves numbers smaller than 20" .
-
-
 ###  http://edugraph.io/edu#Smelling
 edu:Smelling rdf:type owl:NamedIndividual ,
                       edu:Ability ;
@@ -3071,20 +3127,6 @@ edu:WeightMeasurement rdf:type owl:NamedIndividual ,
                                edu:Scope ;
                       edu:partOfScope edu:MeasurementScope ;
                       rdfs:isDefinedBy "Involves weight measurement." .
-
-
-###  http://edugraph.io/edu#WithoutNegatives
-edu:WithoutNegatives rdf:type owl:NamedIndividual ,
-                              edu:Scope ;
-                     edu:partOfScope edu:NumericRange ;
-                     rdfs:isDefinedBy "Does not involve negative numbers." .
-
-
-###  http://edugraph.io/edu#WithoutZero
-edu:WithoutZero rdf:type owl:NamedIndividual ,
-                         edu:Scope ;
-                edu:partOfScope edu:NumericRange ;
-                rdfs:isDefinedBy "Does not involve zero as a special number." .
 
 
 ###  http://edugraph.io/edu#WritingFluency
