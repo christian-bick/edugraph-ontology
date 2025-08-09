@@ -831,8 +831,8 @@ edu:DecimalNotation rdf:type owl:NamedIndividual ,
                              edu:Area ;
                     edu:expandsArea edu:IntegerNotation ,
                                     edu:NumerationWithRationals ;
-                    edu:partOfArea edu:NumberNotation ,
-                                   edu:RationalsArithmetic ;
+                    edu:partOfArea edu:DecimalArithmetic ,
+                                   edu:NumberNotation ;
                     rdfs:isDefinedBy "Applying the decimal system of representing rational numbers using a base-ten place value system and a decimal point to separate whole and fractional parts." .
 
 
