@@ -9,3 +9,5 @@
 *.sln
 *.sw?
 core-ontology.properties
+
+dist/

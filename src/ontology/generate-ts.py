@@ -2,7 +2,7 @@ from owlready2 import *
 
 # --- Main Configuration ---
 ONTOLOGY_FILE = "core-ontology.rdf"
-OUTPUT_DIR = "libraries/ts"
+OUTPUT_DIR = "libraries/typescript"
 BASE_IRI = "http://edugraph.io/edu#"
 
 # Define all enums to be generated from the ontology
@@ -11,12 +11,6 @@ ENUM_CONFIGS = [
     {"class_name": "Scope", "output_file": "Scope.ts"},
     {"class_name": "Ability", "output_file": "Ability.ts"},
 ]
-
-def sanitize_for_enum_key(name: str) -> str:
-    """Converts an individual's name to a valid PascalCase TS enum key."""
-    # Handles names like "Read-Data" -> "ReadData"
-    return "".join(word.capitalize() for word in name.replace("-", "_").split("_"))
-
 
 def generate_enum_for_class(ontology, config: dict):
     """Generates a single TypeScript enum file based on a configuration."""
@@ -42,7 +36,7 @@ def generate_enum_for_class(ontology, config: dict):
 
     for individual in individuals:
         # Use the RDFS label if it exists, otherwise fall back to the individual's name
-        enum_key = sanitize_for_enum_key(individual.name)
+        enum_key = individual.name
         iri = individual.iri
 
         print(f"    -> Found: {label} ({iri})")
