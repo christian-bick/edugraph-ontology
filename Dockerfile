@@ -36,6 +36,7 @@ RUN uv run src/ontology/generate-ts.py
 
 FROM scratch AS export
 
+COPY ./libraries/typescript ./typescript
 COPY --from=code-libraries core-ontology.ttl core-ontology.ttl
 COPY --from=code-libraries core-ontology.rdf core-ontology.rdf
 COPY --from=code-libraries dist/ ./

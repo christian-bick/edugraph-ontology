@@ -1,0 +1,78 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - 'main'
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate all ontology files
+        run: docker build . --output dist
+
+      - name: Set Release Version
+        if: startsWith(github.ref, 'refs/tags/')
+        run: echo "PACKAGE_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+
+      - name: Set Pre-release Version
+        if: startsWith(github.ref, 'refs/heads/')
+        run: echo "PACKAGE_VERSION=0.0.0-pre.${{ github.sha }}" >> $GITHUB_ENV
+
+      - name: Update package.json version
+        run: |
+          cd dist/typescript
+          npm version ${{ env.PACKAGE_VERSION }} --no-git-tag-version
+          cd ../..
+
+      - name: Create tarball
+        run: |
+          cd dist
+          tar -czvf ../typescript-package.tgz typescript
+          cd ..
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('0.0.0-pre.{0}', github.sha) }}
+          release_name: ${{ startsWith(github.ref, 'refs/tags/') && format('Release {0}', github.ref_name) || format('Pre-release {0}', github.sha) }}
+          draft: false
+          prerelease: ${{ !startsWith(github.ref, 'refs/tags/') }}
+
+      - name: Upload .ttl
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist/core-ontology.ttl
+          asset_name: core-ontology.ttl
+          asset_content_type: plain/turtle
+
+      - name: Upload .rdf
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist/core-ontology.rdf
+          asset_name: core-ontology.rdf
+          asset_content_type: application/xml+rdf
+
+      - name: Upload TypeScript Package
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./typescript-package.tgz
+          asset_name: typescript-package.tgz
+          asset_content_type: application/gzip

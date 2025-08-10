@@ -1,4 +1,5 @@
 from owlready2 import *
+import os
 
 # --- Main Configuration ---
 ONTOLOGY_FILE = "core-ontology.rdf"
@@ -39,7 +40,7 @@ def generate_enum_for_class(ontology, config: dict):
         enum_key = individual.name
         iri = individual.iri
 
-        print(f"    -> Found: {label} ({iri})")
+        print(f"    -> Found: {enum_key} ({iri})")
 
         enum_content += f'  /** IRI: {iri} */\n'
         enum_content += f'  {enum_key} = "{iri}",\n'
@@ -52,6 +53,22 @@ def generate_enum_for_class(ontology, config: dict):
 
     print(f"  ✅ Successfully generated {output_filename}\n")
 
+def generate_index_file(configs, output_dir):
+    """Generates an index.ts file that exports from all generated enum files."""
+    index_filename = os.path.join(output_dir, "index.ts")
+    print(f"⚙️  Generating index file: {index_filename}")
+
+    # Build the content for the index file
+    index_content = "// This file is auto-generated. Do not edit manually.\n\n"
+    for config in configs:
+        module_name = os.path.splitext(config["output_file"])[0]
+        index_content += f'export * from "./{module_name}";\n'
+
+    # Write the content to the index file
+    with open(index_filename, "w") as f:
+        f.write(index_content)
+
+    print(f"  ✅ Successfully generated {index_filename}\n")
 
 def main():
     """Loads the ontology once and generates all configured enums."""
@@ -66,6 +83,9 @@ def main():
     # Generate an enum for each item in the configuration list
     for config in ENUM_CONFIGS:
         generate_enum_for_class(onto, config)
+
+    # Generate the index file
+    generate_index_file(ENUM_CONFIGS, OUTPUT_DIR)
 
     print("✨ All enums generated successfully.")
 
