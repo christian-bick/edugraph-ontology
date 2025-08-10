@@ -22,7 +22,7 @@ jobs:
 
       - name: Set Pre-release Version
         if: startsWith(github.ref, 'refs/heads/')
-        run: echo "PACKAGE_VERSION=0.0.0-pre.${{ github.sha }}" >> $GITHUB_ENV
+        run: echo "PACKAGE_VERSION=pre-${{ github.sha }}" >> $GITHUB_ENV
 
       - name: Update package.json version
         run: |
@@ -33,7 +33,7 @@ jobs:
       - name: Create tarball
         run: |
           cd dist
-          tar -czvf ../typescript-package.tgz typescript
+          tar -czvf ../edugraph-ts.tgz typescript
           cd ..
 
       - name: Create Release
@@ -73,6 +73,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./typescript-package.tgz
-          asset_name: typescript-package.tgz
+          asset_path: ./edugraph-ts.tgz
+          asset_name: edugraph-ts.tgz
           asset_content_type: application/gzip
