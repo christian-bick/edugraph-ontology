@@ -13,6 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set Short SHA
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short=12 HEAD)" >> $GITHUB_OUTPUT
+
       - name: Generate all ontology files
         run: docker build . --output dist
 
@@ -22,7 +26,7 @@ jobs:
 
       - name: Set Pre-release Version
         if: startsWith(github.ref, 'refs/heads/')
-        run: echo "PACKAGE_VERSION=0.0.0-pre.${{ github.sha }}" >> $GITHUB_ENV
+        run: echo "PACKAGE_VERSION=0.0.0-pre.${{ steps.vars.outputs.sha_short }}" >> $GITHUB_ENV
 
       - name: Update package.json version
         run: |
@@ -42,8 +46,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('preview-{0}', github.sha) }}
-          release_name: ${{ startsWith(github.ref, 'refs/tags/') && format('Release {0}', github.ref_name) || format('Preview {0}', github.sha) }}
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('preview-{0}', steps.vars.outputs.sha_short) }}
+          release_name: ${{ startsWith(github.ref, 'refs/tags/') && format('Release {0}', github.ref_name) || format('Preview {0}', steps.vars.outputs.sha_short) }}
           draft: false
           prerelease: ${{ !startsWith(github.ref, 'refs/tags/') }}
 
@@ -76,3 +80,12 @@ jobs:
           asset_path: ./edugraph-ts.tgz
           asset_name: edugraph-ts.tgz
           asset_content_type: application/gzip
+
+      - name: Clean up older pre-releases
+        uses: dev-drpr/delete-older-releases@v0.10.0
+        with:
+          keep_latest: 3
+          delete_tags: true
+          delete_prerelease: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
