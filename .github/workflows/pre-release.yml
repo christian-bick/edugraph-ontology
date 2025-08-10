@@ -7,10 +7,6 @@ on:
   push:
     branches: [ "main" ]
 
-env:
-  APACHE_JENA_NAME: apache-jena-5.5.0
-  APACHE_JENA_URL: https://dlcdn.apache.org/jena/binaries/apache-jena-5.5.0.tar.gz
-  JENA_HOME: ${{ github.workspace }}/apache-jena-5.5.0
 jobs:
   build:
 
@@ -18,17 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up JDK 21
-      uses: actions/setup-java@v4
-      with:
-        java-version: '21'
-        distribution: 'temurin'
-    - name: Download Apache Jena
-      run: wget $APACHE_JENA_URL -O $APACHE_JENA_NAME.tar.gz
-    - name: Unpack Apache Jena
-      run: tar -xvzf $APACHE_JENA_NAME.tar.gz
-    - name: Generate RDF File
-      run: ./$APACHE_JENA_NAME/bin/riot --output=RDF/XML core-ontology.ttl > core-ontology.rdf
+    - name: Generate all ontology files
+      run: docker build . --output dist
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -40,13 +27,13 @@ jobs:
         draft: true
         prerelease: true
     - name: Upload .ttl
-      id: upload-ttl 
+      id: upload-ttl
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./core-ontology.ttl
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+        asset_path: ./dist/core-ontology.ttl
         asset_name: core-ontology.ttl
         asset_content_type: plain/turtle
     - name: Upload .rdf
@@ -56,7 +43,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./core-ontology.rdf
+        asset_path: ./dist/core-ontology.rdf
         asset_name: core-ontology.rdf
         asset_content_type: application/xml+rdf
       
