@@ -1,0 +1,20 @@
+[project]
+name = "ontology"
+version = "0.1.0"
+description = "Edugraph Ontology"
+authors = [{ name = "Christian Bick", email = "christian.bick@bitsuppliers.com" }]
+requires-python = "~=3.13.0"
+dependencies = [
+    "owlready2>=0.46,<0.47",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.3,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest~=8.3",
+    "assertpy~=1.1",
+]
+
