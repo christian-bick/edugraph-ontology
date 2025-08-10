@@ -22,7 +22,7 @@ jobs:
 
       - name: Set Pre-release Version
         if: startsWith(github.ref, 'refs/heads/')
-        run: echo "PACKAGE_VERSION=pre-${{ github.sha }}" >> $GITHUB_ENV
+        run: echo "PACKAGE_VERSION=0.0.0-pre.${{ github.sha }}" >> $GITHUB_ENV
 
       - name: Update package.json version
         run: |
@@ -42,8 +42,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('0.0.0-pre.{0}', github.sha) }}
-          release_name: ${{ startsWith(github.ref, 'refs/tags/') && format('Release {0}', github.ref_name) || format('Pre-release {0}', github.sha) }}
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('preview-{0}', github.sha) }}
+          release_name: ${{ startsWith(github.ref, 'refs/tags/') && format('Release {0}', github.ref_name) || format('Preview {0}', github.sha) }}
           draft: false
           prerelease: ${{ !startsWith(github.ref, 'refs/tags/') }}
 
