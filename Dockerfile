@@ -28,7 +28,7 @@ ARG JENA_HOME_DIR
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology.ttl core-ontology.ttl
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology.rdf core-ontology.rdf
 COPY pyproject.toml uv.lock ./
-COPY ./.venv ./.venv
+COPY ./.venv* ./.venv
 COPY ./src ./src
 
 RUN uv sync
