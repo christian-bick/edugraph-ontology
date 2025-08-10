@@ -25,6 +25,7 @@ FROM ghcr.io/astral-sh/uv:python3.13-alpine AS code-libraries
 
 ARG JENA_HOME_DIR
 
+COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology.ttl core-ontology.ttl
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology.rdf core-ontology.rdf
 COPY pyproject.toml uv.lock ./
 COPY ./.venv ./.venv
@@ -35,5 +36,6 @@ RUN uv run src/ontology/generate-ts.py
 
 FROM scratch AS export
 
+COPY --from=code-libraries core-ontology.ttl core-ontology.ttl
 COPY --from=code-libraries core-ontology.rdf core-ontology.rdf
-COPY --from=code-libraries libraries/ libraries/
+COPY --from=code-libraries dist/ ./

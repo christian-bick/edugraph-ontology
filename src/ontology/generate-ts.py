@@ -2,7 +2,7 @@ from owlready2 import *
 
 # --- Main Configuration ---
 ONTOLOGY_FILE = "core-ontology.rdf"
-OUTPUT_DIR = "libraries/typescript"
+OUTPUT_DIR = "dist/typescript"
 BASE_IRI = "http://edugraph.io/edu#"
 
 # Define all enums to be generated from the ontology
