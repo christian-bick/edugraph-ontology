@@ -47,8 +47,10 @@ RUN npm run build
 
 FROM scratch AS export
 
-COPY --from=ontology-formats core-ontology.ttl core-ontology.ttl
-COPY --from=ontology-formats core-ontology.rdf core-ontology.rdf
+ARG JENA_HOME_DIR
+
+COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology.ttl core-ontology.ttl
+COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology.rdf core-ontology.rdf
 
 COPY --from=typescript-compiler /app/typescript/dist ./typescript/dist
 COPY --from=typescript-compiler /app/typescript/package.json ./typescript/package.json
