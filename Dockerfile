@@ -21,7 +21,7 @@ RUN riot --output=RDF/XML ${JENA_HOME_DIR}/core-ontology.ttl > core-ontology.rdf
 
 CMD [ "tail", "-f", "/dev/null" ]
 
-FROM ghcr.io/astral-sh/uv:python3.13-alpine AS code-libraries
+FROM ghcr.io/astral-sh/uv:python3.13-alpine AS python-code-gen
 
 ARG JENA_HOME_DIR
 
@@ -34,9 +34,21 @@ COPY ./src ./src
 RUN uv sync
 RUN uv run src/ontology/generate-ts.py
 
+FROM node:20-alpine AS typescript-compiler
+
+WORKDIR /app/typescript
+
+COPY --from=python-code-gen /dist/typescript ./
+COPY ./libraries/typescript/package.json ./package.json
+COPY ./libraries/typescript/tsconfig.json ./tsconfig.json
+
+RUN npm install
+RUN npm run build
+
 FROM scratch AS export
 
-COPY ./libraries/typescript ./typescript
-COPY --from=code-libraries core-ontology.ttl core-ontology.ttl
-COPY --from=code-libraries core-ontology.rdf core-ontology.rdf
-COPY --from=code-libraries dist/ ./
+COPY --from=ontology-formats core-ontology.ttl core-ontology.ttl
+COPY --from=ontology-formats core-ontology.rdf core-ontology.rdf
+
+COPY --from=typescript-compiler /app/typescript/dist ./typescript/dist
+COPY --from=typescript-compiler /app/typescript/package.json ./typescript/package.json
