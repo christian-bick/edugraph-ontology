@@ -1944,8 +1944,8 @@ edu:NumbersSmaller20 rdf:type owl:NamedIndividual ,
                      rdfs:isDefinedBy "Only involves numbers smaller than 20" .
 
 
-###  http://edugraph.io/edu#NumbersWIthNegatives
-edu:NumbersWIthNegatives rdf:type owl:NamedIndividual ,
+###  http://edugraph.io/edu#NumbersWithNegatives
+edu:NumbersWithNegatives rdf:type owl:NamedIndividual ,
                                   edu:Scope ;
                          edu:partOfScope edu:NumericRange ;
                          rdfs:isDefinedBy "Involves negative numbers." .
