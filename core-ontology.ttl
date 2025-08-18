@@ -526,6 +526,13 @@ edu:CartesianCoordinateSystem rdf:type owl:NamedIndividual ,
                               rdfs:isDefinedBy "Represents functions and shapes in the cartesian coordinate system." .
 
 
+###  http://edugraph.io/edu#CentimeterScale
+edu:CentimeterScale rdf:type owl:NamedIndividual ,
+                             edu:Scope ;
+                    edu:partOfScope edu:MetricScale ;
+                    rdfs:isDefinedBy "Involves distances expressed in centimeters." .
+
+
 ###  http://edugraph.io/edu#CircularShapeDrawing
 edu:CircularShapeDrawing rdf:type owl:NamedIndividual ,
                                   edu:Area ;
@@ -952,6 +959,12 @@ edu:DirectUnderstanding rdf:type owl:NamedIndividual ,
                         rdfs:isDefinedBy """Comprehending the literal meaning of information. This involves understanding the explicit message conveyed by words, images, or other forms of communication.
 
 Example: Understanding the definitions of new vocabulary words in a textbook.""" .
+
+
+###  http://edugraph.io/edu#DistanceAbstraction
+edu:DistanceAbstraction rdf:type owl:NamedIndividual ,
+                                 edu:Scope ;
+                        edu:partOfScope edu:AbstractionScope .
 
 
 ###  http://edugraph.io/edu#DivergentCreativity
@@ -1534,6 +1547,13 @@ edu:IntuitiveMathematics rdf:type owl:NamedIndividual ,
                          rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of mathematic concepts." .
 
 
+###  http://edugraph.io/edu#KilometerScale
+edu:KilometerScale rdf:type owl:NamedIndividual ,
+                            edu:Scope ;
+                   edu:partOfScope edu:MetricScale ;
+                   rdfs:isDefinedBy "involves distances expressed in kilometers." .
+
+
 ###  http://edugraph.io/edu#LaserRuler
 edu:LaserRuler rdf:type owl:NamedIndividual ,
                         edu:Scope ;
@@ -1751,6 +1771,34 @@ edu:Messaging rdf:type owl:NamedIndividual ,
 Example: Giving clear and concise instructions for completing a science experiment.""" .
 
 
+###  http://edugraph.io/edu#MeterScale
+edu:MeterScale rdf:type owl:NamedIndividual ,
+                        edu:Scope ;
+               edu:partOfScope edu:MetricScale ;
+               rdfs:isDefinedBy "Involves distance expressed in meters." .
+
+
+###  http://edugraph.io/edu#MetricScale
+edu:MetricScale rdf:type owl:NamedIndividual ,
+                         edu:Scope ;
+                edu:partOfScope edu:DistanceAbstraction ;
+                rdfs:isDefinedBy "Involves distances expressed in meters." .
+
+
+###  http://edugraph.io/edu#MicrometerScale
+edu:MicrometerScale rdf:type owl:NamedIndividual ,
+                             edu:Scope ;
+                    edu:partOfScope edu:MetricScale ;
+                    rdfs:isDefinedBy "involves distances expressed in micrometers." .
+
+
+###  http://edugraph.io/edu#MilimeterScale
+edu:MilimeterScale rdf:type owl:NamedIndividual ,
+                            edu:Scope ;
+                   edu:partOfScope edu:MetricScale ;
+                   rdfs:isDefinedBy "Involves distances expressed in milimeters" .
+
+
 ###  http://edugraph.io/edu#MimicArticulation
 edu:MimicArticulation rdf:type owl:NamedIndividual ,
                                edu:Ability ;
@@ -1826,6 +1874,13 @@ edu:MotoricSpeed rdf:type owl:NamedIndividual ,
 edu:MuscularEndurance rdf:type owl:NamedIndividual ,
                                edu:Ability ;
                       edu:partOfAbility edu:Endurance .
+
+
+###  http://edugraph.io/edu#NanometerScale
+edu:NanometerScale rdf:type owl:NamedIndividual ,
+                            edu:Scope ;
+                   edu:partOfScope edu:MetricScale ;
+                   rdfs:isDefinedBy "Involves distances expressed in nanometers." .
 
 
 ###  http://edugraph.io/edu#Narration
