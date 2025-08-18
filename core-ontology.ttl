@@ -1792,11 +1792,11 @@ edu:MicrometerScale rdf:type owl:NamedIndividual ,
                     rdfs:isDefinedBy "involves distances expressed in micrometers." .
 
 
-###  http://edugraph.io/edu#MilimeterScale
-edu:MilimeterScale rdf:type owl:NamedIndividual ,
-                            edu:Scope ;
-                   edu:partOfScope edu:MetricScale ;
-                   rdfs:isDefinedBy "Involves distances expressed in milimeters" .
+###  http://edugraph.io/edu#MillimeterScale
+edu:MillimeterScale rdf:type owl:NamedIndividual ,
+                             edu:Scope ;
+                    edu:partOfScope edu:MetricScale ;
+                    rdfs:isDefinedBy "Involves distances expressed in milimeters" .
 
 
 ###  http://edugraph.io/edu#MimicArticulation
