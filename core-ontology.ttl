@@ -2069,11 +2069,11 @@ edu:PassiveVocabulary rdf:type owl:NamedIndividual ,
 Example: Understanding the meaning of words from a specific subject like business administration in a foreign language.""" .
 
 
-###  http://edugraph.io/edu#Patternbloks
-edu:Patternbloks rdf:type owl:NamedIndividual ,
-                          edu:Scope ;
-                 edu:partOfScope edu:PhysicalGeometry ;
-                 rdfs:isDefinedBy "Represents geometric shapes with a pattern block." .
+###  http://edugraph.io/edu#Patternblocks
+edu:Patternblocks rdf:type owl:NamedIndividual ,
+                           edu:Scope ;
+                  edu:partOfScope edu:PhysicalGeometry ;
+                  rdfs:isDefinedBy "Represents geometric shapes with a pattern block." .
 
 
 ###  http://edugraph.io/edu#PeerAwareness
@@ -2919,6 +2919,13 @@ edu:TemperatureMeasurement rdf:type owl:NamedIndividual ,
                                     edu:Scope ;
                            edu:partOfScope edu:MeasurementScope ;
                            rdfs:isDefinedBy "Involves temperature measurement." .
+
+
+###  http://edugraph.io/edu#TenFrame
+edu:TenFrame rdf:type owl:NamedIndividual ,
+                      edu:Scope ;
+             edu:partOfScope edu:VisualNumbers ;
+             rdfs:isDefinedBy "Involves a ten frame: Typically a table with 2 rows and 5 columns where numbers are indicated by filled cells starting at the top left." .
 
 
 ###  http://edugraph.io/edu#Termometer
