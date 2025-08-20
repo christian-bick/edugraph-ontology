@@ -197,7 +197,7 @@ edu:Attribute rdf:type owl:Class ;
                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                     owl:onClass edu:Area
                                   ] ;
-              rdfs:comment "An observable combination of learning abiltiies within a learning area and optionaly a learning context." .
+              rdfs:comment "An observable combination of learning abilities within a learning area and optionally a learning context." .
 
 
 ###  http://edugraph.io/edu#Descriptor
@@ -267,7 +267,7 @@ edu:AbstractionScope rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#ActiveVocabulary
 edu:ActiveVocabulary rdf:type owl:NamedIndividual ,
                               edu:Ability ;
-                     edu:partOfAbility edu:LingusticArticulation ;
+                     edu:partOfAbility edu:LinguisticArticulation ;
                      rdfs:isDefinedBy """Using a wide range of words in speaking and writing. This involves actively employing diverse vocabulary to express ideas precisely and effectively.
 
 Example: Using subject-specific terminology correctly in a class discussion or written assignment.""" .
@@ -285,7 +285,7 @@ Example: A student modifying their design for a school project after receiving f
 ###  http://edugraph.io/edu#AdditiveCount
 edu:AdditiveCount rdf:type owl:NamedIndividual ,
                            edu:Scope ;
-                  edu:partOfScope edu:QuantitiyMeasurement ;
+                  edu:partOfScope edu:QuantityMeasurement ;
                   rdfs:isDefinedBy "Counts manifested objects additively." .
 
 
@@ -436,7 +436,7 @@ edu:AxiomDefinition rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#Balance
 edu:Balance rdf:type owl:NamedIndividual ,
                      edu:Ability ;
-            edu:partOfAbility edu:PhyiscalCapability .
+            edu:partOfAbility edu:PhysicalCapability .
 
 
 ###  http://edugraph.io/edu#BalanceScale
@@ -764,7 +764,7 @@ Example: Combing concepts from neuro-biology and computer science to create a ne
 edu:CountingSymbols rdf:type owl:NamedIndividual ,
                              edu:Scope ;
                     edu:partOfScope edu:VisualNumbers ;
-                    rdfs:isDefinedBy "Involves counting sybols." .
+                    rdfs:isDefinedBy "Involves counting symbols." .
 
 
 ###  http://edugraph.io/edu#CreativeCapability
@@ -782,7 +782,7 @@ edu:DayIntervals rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#DecimalAddition
 edu:DecimalAddition rdf:type owl:NamedIndividual ,
                              edu:Area ;
-                    edu:expandsArea edu:IntegerAdditon ;
+                    edu:expandsArea edu:IntegerAddition ;
                     edu:partOfArea edu:DecimalArithmetic ;
                     rdfs:isDefinedBy """Adding two or more decimals together.
 
@@ -903,7 +903,7 @@ edu:DeductiveReasoning rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#DerivedCount
 edu:DerivedCount rdf:type owl:NamedIndividual ,
                           edu:Scope ;
-                 edu:partOfScope edu:QuantitiyMeasurement ;
+                 edu:partOfScope edu:QuantityMeasurement ;
                  rdfs:isDefinedBy "Counts manifested objects based on logical derivation of know facts." .
 
 
@@ -973,7 +973,7 @@ edu:DivergentCreativity rdf:type owl:NamedIndividual ,
                         edu:partOfAbility edu:CreativeCapability ;
                         rdfs:isDefinedBy """The ability to generate a wide range of ideas or solutions. This involves brainstorming multiple possibilities and exploring different avenues before settling on a specific approach.
 
-Example: Exploring the color properties of different materials in water to create an immersive artwork about difusion and reflection.""" .
+Example: Exploring the color properties of different materials in water to create an immersive artwork about diffusion and reflection.""" .
 
 
 ###  http://edugraph.io/edu#DiversityTolerance
@@ -992,7 +992,7 @@ edu:DynamicBalance rdf:type owl:NamedIndividual ,
 
 
 ###  http://edugraph.io/edu#ElipticShapeDrawing
-edu:ElipticShapeDrawing rdf:type owl:NamedIndividual ,
+edu:EllipticShapeDrawing rdf:type owl:NamedIndividual ,
                                  edu:Area ;
                         edu:partOfArea edu:SpatialModelling ;
                         rdfs:isDefinedBy "Elliptical shape drawing is the ability to create drawings or models of elliptical shapes." .
@@ -1041,7 +1041,7 @@ edu:Empathy rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#Endurance
 edu:Endurance rdf:type owl:NamedIndividual ,
                        edu:Ability ;
-              edu:partOfAbility edu:PhyiscalCapability .
+              edu:partOfAbility edu:PhysicalCapability .
 
 
 ###  http://edugraph.io/edu#ErrorCorrection
@@ -1123,7 +1123,7 @@ edu:FourDimensional rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#FractionAddition
 edu:FractionAddition rdf:type owl:NamedIndividual ,
                               edu:Area ;
-                     edu:expandsArea edu:IntegerAdditon ,
+                     edu:expandsArea edu:IntegerAddition ,
                                      edu:LowestCommonDenominator ;
                      edu:partOfArea edu:FractionArithmetic ;
                      rdfs:isDefinedBy """Adding two or more fractions, often requiring finding a common denominator.
@@ -1269,7 +1269,7 @@ Example: Interpreting a classmate's nonverbal cues during a group discussion to 
 ###  http://edugraph.io/edu#GrammaticalPrecision
 edu:GrammaticalPrecision rdf:type owl:NamedIndividual ,
                                   edu:Ability ;
-                         edu:partOfAbility edu:LingusticArticulation ;
+                         edu:partOfAbility edu:LinguisticArticulation ;
                          rdfs:isDefinedBy """Using correct grammar in spoken and written communication. This involves applying grammatical rules accurately to ensure clear and understandable language.
 
 Example: Using proper verb tenses and subject-verb agreement in a research paper.""" .
@@ -1420,7 +1420,7 @@ Example: Extracting key statistics and data from a scientific article to include
 
 
 ###  http://edugraph.io/edu#IntegerAdditon
-edu:IntegerAdditon rdf:type owl:NamedIndividual ,
+edu:IntegerAddition rdf:type owl:NamedIndividual ,
                             edu:Area ;
                    edu:expandsArea edu:Sum ;
                    edu:partOfArea edu:IntegerArithmetic ;
@@ -1470,7 +1470,7 @@ Example: log₃ 81 = 4 because 3 ^ 4 = 81""" .
 ###  http://edugraph.io/edu#IntegerMultiplication
 edu:IntegerMultiplication rdf:type owl:NamedIndividual ,
                                    edu:Area ;
-                          edu:expandsArea edu:IntegerAdditon ;
+                          edu:expandsArea edu:IntegerAddition ;
                           edu:partOfArea edu:IntegerArithmetic ;
                           rdfs:isDefinedBy """Multiplying two or multiple integers.
 
@@ -1502,7 +1502,7 @@ Example: The cube root of 64 is 4 because 4 ^ 3 = 64""" .
 edu:IntegerSubtraction rdf:type owl:NamedIndividual ,
                                 edu:Area ;
                        edu:expandsArea edu:Difference ,
-                                       edu:IntegerAdditon ;
+                                       edu:IntegerAddition ;
                        edu:partOfArea edu:IntegerArithmetic ;
                        rdfs:isDefinedBy """Finding the difference between two integers.
 
@@ -1510,7 +1510,7 @@ Example: 10 - 6 = 4""" .
 
 
 ###  http://edugraph.io/edu#IntentIdentifcation
-edu:IntentIdentifcation rdf:type owl:NamedIndividual ,
+edu:IntentIdentification rdf:type owl:NamedIndividual ,
                                  edu:Ability ;
                         edu:partOfAbility edu:Interpretation ;
                         rdfs:isDefinedBy """Understanding the purpose or goal behind a communication. This involves recognizing the speaker's or writer's intentions and motivations for communicating.
@@ -1528,7 +1528,7 @@ Example:  Interpreting the meaning of a poem.""" .
 
 
 ###  http://edugraph.io/edu#IntervalsWithInfitity
-edu:IntervalsWithInfitity rdf:type owl:NamedIndividual ,
+edu:IntervalsWithInfinity rdf:type owl:NamedIndividual ,
                                    edu:Area ;
                           edu:partOfArea edu:NumerationWithIntervals .
 
@@ -1544,7 +1544,7 @@ edu:Introspection rdf:type owl:NamedIndividual ,
 edu:IntuitiveMathematics rdf:type owl:NamedIndividual ,
                                   edu:Area ;
                          edu:partOfArea edu:Mathematics ;
-                         rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of mathematic concepts." .
+                         rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts." .
 
 
 ###  http://edugraph.io/edu#KilometerScale
@@ -1562,7 +1562,7 @@ edu:LaserRuler rdf:type owl:NamedIndividual ,
 
 
 ###  http://edugraph.io/edu#LateralCreativty
-edu:LateralCreativty rdf:type owl:NamedIndividual ,
+edu:LateralCreativity rdf:type owl:NamedIndividual ,
                               edu:Ability ;
                      edu:partOfAbility edu:CreativeCapability ;
                      rdfs:isDefinedBy """Lateral Creativity: The ability to think outside the box and come up with unconventional ideas. This involves challenging assumptions, breaking free from traditional patterns of thought, and exploring new and unexpected possibilities.
@@ -1585,24 +1585,24 @@ edu:LinearShapeDrawing rdf:type owl:NamedIndividual ,
 
 
 ###  http://edugraph.io/edu#LingusticArticulation
-edu:LingusticArticulation rdf:type owl:NamedIndividual ,
+edu:LinguisticArticulation rdf:type owl:NamedIndividual ,
                                    edu:Ability ;
                           edu:partOfAbility edu:Articulation ,
-                                            edu:LingusticCapability ;
+                                            edu:LinguisticCapability ;
                           rdfs:isDefinedBy """Expressing oneself through spoken or written language. This involves using words, grammar, and syntax to convey meaning.
 
 Example: Expressing thoughts about someone's favorite animal, using complete sentences and appropriate vocabulary.""" .
 
 
 ###  http://edugraph.io/edu#LingusticCapability
-edu:LingusticCapability rdf:type owl:NamedIndividual ,
+edu:LinguisticCapability rdf:type owl:NamedIndividual ,
                                  edu:Ability .
 
 
 ###  http://edugraph.io/edu#LingusticReception
-edu:LingusticReception rdf:type owl:NamedIndividual ,
+edu:LinguisticReception rdf:type owl:NamedIndividual ,
                                 edu:Ability ;
-                       edu:partOfAbility edu:LingusticCapability ,
+                       edu:partOfAbility edu:LinguisticCapability ,
                                          edu:Reception ;
                        rdfs:isDefinedBy """Understanding spoken and written language. This involves comprehending the meaning of words, sentences, and texts, both spoken and written.
 
@@ -1796,7 +1796,7 @@ edu:MicrometerScale rdf:type owl:NamedIndividual ,
 edu:MillimeterScale rdf:type owl:NamedIndividual ,
                              edu:Scope ;
                     edu:partOfScope edu:MetricScale ;
-                    rdfs:isDefinedBy "Involves distances expressed in milimeters" .
+                    rdfs:isDefinedBy "Involves distances expressed in millimeters" .
 
 
 ###  http://edugraph.io/edu#MimicArticulation
@@ -1843,7 +1843,7 @@ Example: Analyzing the mood created by the author's use of language and imagery 
 ###  http://edugraph.io/edu#Motoric
 edu:Motoric rdf:type owl:NamedIndividual ,
                      edu:Ability ;
-            edu:partOfAbility edu:PhyiscalCapability .
+            edu:partOfAbility edu:PhysicalCapability .
 
 
 ###  http://edugraph.io/edu#MotoricFlexibility
@@ -1967,7 +1967,7 @@ edu:NumberTiles rdf:type owl:NamedIndividual ,
 edu:Numberline rdf:type owl:NamedIndividual ,
                         edu:Scope ;
                edu:partOfScope edu:SpatialNumbers ;
-               rdfs:isDefinedBy "Represents numbers with a numberline." .
+               rdfs:isDefinedBy "Represents numbers with a number line." .
 
 
 ###  http://edugraph.io/edu#NumbersLarger10
@@ -2103,7 +2103,7 @@ edu:NumericAbstraction rdf:type owl:NamedIndividual ,
 edu:NumericBase rdf:type owl:NamedIndividual ,
                          edu:Scope ;
                 edu:partOfScope edu:NumericAbstraction ;
-                rdfs:isDefinedBy "Involves numbers with a certain numberic base." .
+                rdfs:isDefinedBy "Involves numbers with a certain numeric base." .
 
 
 ###  http://edugraph.io/edu#NumericComparison
@@ -2145,7 +2145,7 @@ edu:OneDimensional rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#PassiveVocabulary
 edu:PassiveVocabulary rdf:type owl:NamedIndividual ,
                                edu:Ability ;
-                      edu:partOfAbility edu:LingusticReception ;
+                      edu:partOfAbility edu:LinguisticReception ;
                       rdfs:isDefinedBy """The words a person can understand but may not actively use in speaking or writing. This involves recognizing and comprehending a wide range of vocabulary when reading or listening.
 
 Example: Understanding the meaning of words from a specific subject like business administration in a foreign language.""" .
@@ -2195,7 +2195,7 @@ Example: Acting in a school play or delivering a presentation with poise and con
 
 
 ###  http://edugraph.io/edu#PhyiscalCapability
-edu:PhyiscalCapability rdf:type owl:NamedIndividual ,
+edu:PhysicalCapability rdf:type owl:NamedIndividual ,
                                 edu:Ability .
 
 
@@ -2221,7 +2221,7 @@ edu:PhysicalRuler rdf:type owl:NamedIndividual ,
 
 
 ###  http://edugraph.io/edu#PlausabilityEvaluation
-edu:PlausabilityEvaluation rdf:type owl:NamedIndividual ,
+edu:PlausibilityEvaluation rdf:type owl:NamedIndividual ,
                                     edu:Ability ;
                            edu:partOfAbility edu:Evaluation ;
                            rdfs:isDefinedBy """Judging how likely something is to be true. This involves considering the evidence, logic, and context to determine whether a claim or statement is reasonable and believable.
@@ -2488,7 +2488,7 @@ edu:Protractor rdf:type owl:NamedIndividual ,
 
 
 ###  http://edugraph.io/edu#QuantitiyMeasurement
-edu:QuantitiyMeasurement rdf:type owl:NamedIndividual ,
+edu:QuantityMeasurement rdf:type owl:NamedIndividual ,
                                   edu:Scope ;
                          edu:partOfScope edu:MeasurementScope ;
                          rdfs:isDefinedBy "Involves the measurement of object quantities." .
@@ -2650,7 +2650,7 @@ edu:ScientificThinking rdf:type owl:NamedIndividual ,
 edu:SecondIntervals rdf:type owl:NamedIndividual ,
                              edu:Scope ;
                     edu:partOfScope edu:TimeIntervals ;
-                    rdfs:isDefinedBy "Time expressed in intervalls of seconds." .
+                    rdfs:isDefinedBy "Time expressed in intervals of seconds." .
 
 
 ###  http://edugraph.io/edu#Seeing
@@ -2931,7 +2931,7 @@ edu:Stopwatch rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#Strength
 edu:Strength rdf:type owl:NamedIndividual ,
                       edu:Ability ;
-             edu:partOfAbility edu:PhyiscalCapability .
+             edu:partOfAbility edu:PhysicalCapability .
 
 
 ###  http://edugraph.io/edu#SubtextUnderstanding
@@ -2946,7 +2946,7 @@ Example: Understanding the underlying themes and messages in a novel.""" .
 ###  http://edugraph.io/edu#SubtractiveCount
 edu:SubtractiveCount rdf:type owl:NamedIndividual ,
                               edu:Scope ;
-                     edu:partOfScope edu:QuantitiyMeasurement ;
+                     edu:partOfScope edu:QuantityMeasurement ;
                      rdfs:isDefinedBy "Counts manifested objects by counting what's missing." .
 
 
@@ -2994,7 +2994,7 @@ edu:Tangrams rdf:type owl:NamedIndividual ,
 edu:Tapemeter rdf:type owl:NamedIndividual ,
                        edu:Scope ;
               edu:partOfScope edu:LengthMeasurement ;
-              rdfs:isDefinedBy "Involves a tapemeter." .
+              rdfs:isDefinedBy "Involves a tape meter." .
 
 
 ###  http://edugraph.io/edu#Tasting
@@ -3018,16 +3018,16 @@ edu:TenFrame rdf:type owl:NamedIndividual ,
 
 
 ###  http://edugraph.io/edu#Termometer
-edu:Termometer rdf:type owl:NamedIndividual ,
+edu:Thermometer rdf:type owl:NamedIndividual ,
                         edu:Scope ;
                edu:partOfScope edu:TemperatureMeasurement ;
-               rdfs:isDefinedBy "Involves a termometer." .
+               rdfs:isDefinedBy "Involves a thermometer." .
 
 
 ###  http://edugraph.io/edu#TextualArticulation
 edu:TextualArticulation rdf:type owl:NamedIndividual ,
                                  edu:Ability ;
-                        edu:partOfAbility edu:LingusticArticulation ;
+                        edu:partOfAbility edu:LinguisticArticulation ;
                         rdfs:isDefinedBy """Expressing oneself effectively through writing. This involves organizing ideas logically, using appropriate language and style, and adhering to conventions of written communication.
 
 Example: Writing a persuasive essay with a clear introduction, body, and conclusion.""" .
@@ -3036,7 +3036,7 @@ Example: Writing a persuasive essay with a clear introduction, body, and conclus
 ###  http://edugraph.io/edu#TextualReception
 edu:TextualReception rdf:type owl:NamedIndividual ,
                               edu:Ability ;
-                     edu:partOfAbility edu:LingusticReception ;
+                     edu:partOfAbility edu:LinguisticReception ;
                      rdfs:isDefinedBy """Understanding and interpreting written text. This involves reading and comprehending various types of texts, such as books, articles, and online resources.
 
 Example: Reading a book about animals and understanding their differences and commonalities.""" .
@@ -3074,7 +3074,7 @@ edu:TonalArticulation rdf:type owl:NamedIndividual ,
                       edu:partOfAbility edu:Articulation ;
                       rdfs:isDefinedBy """Expressing oneself through vocal tone and inflection. This involves varying the pitch, volume, and rhythm of one's voice to convey meaning and emotion.
 
-Example: An individual sings a song with the intended tonality, volume, rythm and pitch.""" .
+Example: An individual sings a song with the intended tonality, volume, rhythm and pitch.""" .
 
 
 ###  http://edugraph.io/edu#TonalReception
@@ -3161,7 +3161,7 @@ Example: Interpreting a graph in a science textbook to understand the relationsh
 
 
 ###  http://edugraph.io/edu#VisualRecongition
-edu:VisualRecongition rdf:type owl:NamedIndividual ,
+edu:VisualRecognition rdf:type owl:NamedIndividual ,
                                edu:Ability ;
                       edu:partOfAbility edu:VisualReception ;
                       rdfs:isDefinedBy """Identifying and recognizing familiar visual patterns and objects. This involves recalling previously learned visual information and matching it to new visual stimuli.
@@ -3181,10 +3181,10 @@ Example: Visualizing the steps in a mathematical problem or the structure of a m
 ###  http://edugraph.io/edu#VocalArticulation
 edu:VocalArticulation rdf:type owl:NamedIndividual ,
                                edu:Ability ;
-                      edu:partOfAbility edu:LingusticArticulation ;
+                      edu:partOfAbility edu:LinguisticArticulation ;
                       rdfs:isDefinedBy """Expressing oneself through spoke word. This involves pronouncing words clearly and distinctly so that they are easily understood by others.
 
-Example: Reading out aloud a poem, focusing on enunciating each word clearly and maintaining the poem's intended rythm.""" .
+Example: Reading out aloud a poem, focusing on enunciating each word clearly and maintaining the poem's intended rhythm.""" .
 
 
 ###  http://edugraph.io/edu#VocalListeningCapacity
@@ -3217,7 +3217,7 @@ Example: Listening attentively to a debate and identifying the key arguments pre
 ###  http://edugraph.io/edu#VocalReception
 edu:VocalReception rdf:type owl:NamedIndividual ,
                             edu:Ability ;
-                   edu:partOfAbility edu:LingusticReception ;
+                   edu:partOfAbility edu:LinguisticReception ;
                    rdfs:isDefinedBy """Understanding and interpreting spoken language. This involves listening attentively to speech and comprehending the meaning of words, phrases, and sentences.
 
 Example:  Following a teacher's instructions during a class activity.""" .
