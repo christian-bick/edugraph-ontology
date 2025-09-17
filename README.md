@@ -12,13 +12,11 @@ Annotating leaning content in the terms of the ontology allows for programmatica
 - describing learning journeys of students across distributed learning content
 - reasoning about potential root causes of student performance issues
 
-You can explore the ontology here: http://www.edugraph.io
-
 ## Related Projects
 
 EduGraph is more than an ontology. It is also an ecosystem of tools to foster adoption in real world scenarios.
 
-See: https://github.com/christian-bick/edugraph-tools
+See: https://github.com/christian-bick/edugraph-models
 
 ## Releases
 
