@@ -15,8 +15,13 @@ Annotating leaning content in the terms of the ontology allows for programmatica
 ## Related Projects
 
 EduGraph is more than an ontology. It is also an ecosystem of tools to foster adoption in real world scenarios.
+We have trained two model for EduGraph, one that labels learning material in the terms of the ontology and
+another one that generates emebeddings for the those labels that take relationships into account to determine
+similarity/distance between different sets of labels.
 
-See: https://github.com/christian-bick/edugraph-models
+Classification Model: https://github.com/christian-bick/edugraph-qwen3vl
+
+Embedding Model: https://github.com/christian-bick/edugraph-models
 
 ## Releases
 
