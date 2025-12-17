@@ -93,15 +93,14 @@ _IntegerAddition_. Such relations can be used as indicators for identifying natu
 teach addition before multiplication) or for adaptive testing (e.g. exploring if a student's weakness in executing long 
 multiplication is rooted in multiplying small numbers or in executing long addition).
 
-Such logical elevate the taxonomies of each dimension beyond a semantic standard of identifiers. They allow to infer 
-knowledge independently and define a conceptually shared yet independently operated understanding of how differet areas
-and aspects of learning are connected with each other.
+Such logical releations elevate ontologies to be more than a semantic standard of identifiers. They allow us to 
+define a shared yet operationally distributed understanding of how various skills are related with each other.
 
 #### Current State
 
 The current data model of the core ontology is fairly well explored and relatively stable. It is designed to be
 applicable to various disciplines and has been validated against a diverse set of scenarios already. However, the 
-concrete taxonomies and teir logical relations are work in progress and likely to change frequently in the forseeable
+actual taxonomies and their logical relations are work in progress and likely to change frequently in the forseeable
 future.
 
 ### Skill Ontology
@@ -114,29 +113,29 @@ concrete terms for generally accepted solutions to a specific problem domain.
 #### Flavors
 
 It is relatively easy to find consent about a mutual exclusive and collectively exhausitve terminology for the core 
-ontology when compared to defining actual skills. Skills typically refer to observable and practically useful
+ontology when compared to defining skills. Skills typically refer to observable clusters of practically useful
 applications of knowledge and abilities. 
 
 Being inherently more likely to be influenced by purpose, culture and language, it is way harder to agree on distinct
-skills that collectively describe areas of learning. Ath the same time, developing concrete skills is a fundamentally  
+skills that collectively describe areas of learning. Ah the same time, developing practical skills is a fundamentally  
 important part of learning.
 
-EduGraph's solution is for this issue is to define skills as separate entities and in the terms from the core ontology. 
-This allows for different flavors of skill ontologies, but at the same time makes it easy to map skills between the 
+EduGraph's solution for this issue is to define skills as separate concepts, but always in terms from the core ontology. 
+This allows for different flavors of skill ontologies and at the same time makes it easy to map skills between 
 different flavors.
 
 #### Automated Generation
 
 Defining skills in the terms of the core ontology further allows for an automated approach of identifying and naming
-skills with the help of generative AI, making it substantially more likely that such solutions successfully converge to 
+skills with the help of embeddings, making it substantially more likely that such solutions successfully converge to 
 a mutually exclusive and collectively exhaustive set of skills.
 
 #### Relations Inheritance
 
-Defining skills in the terms of the core ontology also allows for skills to inherit all factual relations from the core 
-ontology. As a consequence, the skill ontology only needs to define factual relations that specifically apply to that 
-skill. This drastically reduces the need for relations in the skill ontology and keeps it significantly easier to 
-manage.
+Defining skills in the terms of the core ontology also allows for skills to inherit all logical relations from the core 
+ontology. As a consequence, the skill ontology only needs to define factual relations that specifically apply to  
+skills. This drastically reduces the need for relations in the skill ontology itself and keeps it significantly 
+easier to manage.
 
 #### Current State
 
