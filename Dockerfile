@@ -2,7 +2,7 @@ ARG JENA_HOME_DIR=/opt/app
 
 FROM eclipse-temurin:21 AS ontology-formats
 
-ARG APACHE_JENA_VERSION=5.5.0
+ARG APACHE_JENA_VERSION=5.6.0
 ARG APACHE_JENA_NAME=apache-jena-${APACHE_JENA_VERSION}
 ARG APACHE_JENA_URL=https://dlcdn.apache.org/jena/binaries/${APACHE_JENA_NAME}.tar.gz
 ARG JENA_HOME_DIR
