@@ -1,6 +1,6 @@
 # EduGraph
 
-EduGraph is an Open Education Ontology to describe learning content in a simple and interoperable format. It is an
+EduGraph is an open education ontology to describe learning content in a simple and interoperable format. It is an
 independent open source project to foster collaboration and data exchange across education organizations, both
 non-profit and pro-profit.
 
@@ -19,49 +19,47 @@ We have trained two model for EduGraph, one that labels learning material in the
 another one that generates emebeddings for the those labels that take relationships into account to determine
 similarity/distance between different sets of labels.
 
-Classification Model: https://github.com/christian-bick/edugraph-qwen3vl
+Classification Model: https://github.com/christian-bick/edugraph-classify-qwen3vl
 
-Embedding Model: https://github.com/christian-bick/edugraph-models
+Embedding Model: https://github.com/christian-bick/edugraph-embed
 
 ## Releases
 
 Ontology releases are published [here](https://github.com/christian-bick/edugraph-ontology/releases) on Github.
 
 The ontology is currently published in Turtle (.ttl) and XML/RDF (.rdf) format. The source files use the turtle
-format and all files in different formats are generated from these source files during release. More file formats can
+format and all files for other formats are generated from these source files during release. More file formats can
 be added upon demand.
 
 ## Goals
 
 ### Near Term
 
-- Literacy: Cover basic writing & reading up to typical 4th grade level.
-- Math: Cover basic math up to typical 4th grade level.
+- Math: Cover basic math up to typical 4th grade level
+- Literacy: Cover basic writing & reading up to typical 4th grade level
 
 ### Long Term
 
 - Math: Cover typical curriculums up to 12th grade
 - Physics: Cover typical curriculums up to 12th grade
-- Biology: Cover typical curriculums up to 12th grade
 - Computer Science: Cover typical curriculums up to 12th grade
-- Second Languages: Cover full curriculum for various popular second languages
 
 ## Ontology
 
 EduGraph is an Ontology designed with modern LLM capabilities in mind and intended to be used in tandem with
-generative AI like ChatGPT, Gemini, LLama.
+open source models like Qwen, Gamma or Kimi with excellent vision-language and reasoning capabilities.
 
 It is therefore divided into two layers:
 
-- **Core Ontology:** Curated for describing learning material with a set of terms organized along different dimensions.
-- **Skill Ontology:** Generated for identifying skills that apply specific solutions to a problem domain.
+- **Core Ontology:** Curated for describing learning content with a set of terms organized along different dimensions.
+- **Skill Ontology:** Generated for identifying broad skills that apply specific solutions to a problem domain.
 
 ### Core Ontology
 
 #### Foundations
 
-The core ontology allows for describing learning material with a set of terms that are mutual exclusive and collectively
-exhaustive. Accurately combining terms from different dimensions, learning material can be identified with high
+The core ontology allows for describing learning content with a set of terms that are mutual exclusive and collectively
+exhaustive. Accurately combining terms from different dimensions, learning content can be identified with high
 confidence as equivalent, complementary or related, based on proper annotations alone.
 
 The terms of each dimension are organized and defined within a taxonomy for each dimension.
@@ -72,10 +70,13 @@ The dimensions are:
 - **Ability:** A generally trainable ability (e.g. _ProcedureExecution_)
 - **Scope:** A relevant involved setting (e.g. _NumbersLarger1000_)
 
-Using the three example terms, we can already be relatively sure that a corresponding learning material would be
-educating, training or testing students about what is regularly referred to as _long multiplication_. The goal of the
-core ontology is to classify learning materials with only a few terms while leaning into the capabilities of 
-vector databases and embeddings.
+Using the three example terms from above, we can already be relatively sure that the corresponding learning content would be
+educating, training or testing students about what is regularly referred to as the skill of _long multiplication_. The goal of the
+core ontology is to classify learning content with only a few terms of what is observable while skills describe significant
+clusters of these observables. 
+
+These concepts make it easy to build both classification models and embedding models, allowing AI models to reason over learning
+content with high accuracy and speed. This is the necessary foundation for creating high-value recommendation systems and AI agents. 
 
 #### Taxonomies
 
@@ -108,19 +109,19 @@ future.
 #### Foundations
 
 While the core ontology focuses on a mostly generic approach of describing learning material, the skill ontology uses
-concrete terms for generally accepted solutions to a specific problem domain.
+commonly used terms for well-known solution strategies to a specific problem domain.
 
 #### Flavors
 
-It is relatively easy to find consent about a mutual exclusive and collectively exhausitve terminology for the core 
-ontology when compared to defining skills. Skills typically refer to observable clusters of practically useful
-applications of knowledge and abilities. 
+It is relatively easy to find consent about a mutual exclusive and collectively exhausitve terminology for describing
+what is observable through the core ontology. Skills on the other hand, are typically described from an application 
+perspective and therefore largely influenced by context. 
 
-Being inherently more likely to be influenced by purpose, culture and language, it is way harder to agree on distinct
-skills that collectively describe areas of learning. Ah the same time, developing practical skills is a fundamentally  
-important part of learning.
+That makes skills inherently more likely to be influenced by purpose, culture and language, it that makes it way harder 
+to agree on distinct skills that collectively describe all areas of learning with great detail. At the same time, 
+developing practical skills is a fundamentally important part of learning.
 
-EduGraph's solution for this issue is to define skills as separate concepts, but always in terms from the core ontology. 
+EduGraph's solution for this issue is to define skills as abstract concepts, but always in terms from the core ontology. 
 This allows for different flavors of skill ontologies and at the same time makes it easy to map skills between 
 different flavors.
 
@@ -144,11 +145,9 @@ It is planned to provide generated skill ontologies as a reference in future rel
 
 ## Contributions
 
-**Important:** We are happy to develop this project as a community and want to make sure that every potential 
-contributor fully understands how to contribute in a meaningful way. Before contributing, please create
-a Github issue to start the discussion.
-
-### Development
+We are happy to develop this project as a community and want to make sure that every potential 
+contributor fully understands how to contribute in a meaningful way. Before contributing, **please create
+a Github issue** to spark the discussion.
 
 The ontology is defined in the web ontology language (OWL). To ensure easy adoption with any tools, databases
 and libraries that support OWL and RDF, we provide various file formats in the releases.
@@ -159,3 +158,9 @@ and to use one of the shipped reasoners for validation purposes.
 
 Pull requests can be submitted via the usual Github workflow using reasonably small iterative changesets. Pull requests
 will only be merged when changes were previously approved on a ticket.
+
+## License
+
+This project is licensed under the Apache 2.0 License. See the [LICENSE](LICENSE) file for details.
+
+If these license terms are not working for you then contact us and we can discuss alternative options.
