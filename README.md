@@ -162,5 +162,3 @@ will only be merged when changes were previously approved on a ticket.
 ## License
 
 This project is licensed under the Apache 2.0 License. See the [LICENSE](LICENSE) file for details.
-
-If these license terms are not working for you then contact us and we can discuss alternative options.
