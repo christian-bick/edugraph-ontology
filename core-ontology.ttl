@@ -107,6 +107,7 @@ edu:hasPartScope rdf:type owl:ObjectProperty ;
 edu:impliedBy rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf owl:topObjectProperty ;
               owl:inverseOf edu:implies ;
+              rdf:type owl:TransitiveProperty ;
               rdfs:domain edu:Descriptor ;
               rdfs:range edu:Descriptor .
 
@@ -115,6 +116,7 @@ edu:impliedBy rdf:type owl:ObjectProperty ;
 edu:impliedByAbility rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf edu:impliedBy ;
                      owl:inverseOf edu:impliesAbility ;
+                     rdf:type owl:TransitiveProperty ;
                      rdfs:domain edu:Ability ;
                      rdfs:range edu:Ability .
 
@@ -123,6 +125,7 @@ edu:impliedByAbility rdf:type owl:ObjectProperty ;
 edu:impliedByArea rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf edu:impliedBy ;
                   owl:inverseOf edu:impliesArea ;
+                  rdf:type owl:TransitiveProperty ;
                   rdfs:domain edu:Area ;
                   rdfs:range edu:Area .
 
@@ -131,6 +134,7 @@ edu:impliedByArea rdf:type owl:ObjectProperty ;
 edu:impliedByScope rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf edu:impliedBy ;
                    owl:inverseOf edu:impliesScope ;
+                   rdf:type owl:TransitiveProperty ;
                    rdfs:domain edu:Scope ;
                    rdfs:range edu:Scope .
 
@@ -138,6 +142,7 @@ edu:impliedByScope rdf:type owl:ObjectProperty ;
 ###  http://edugraph.io/edu#implies
 edu:implies rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:TransitiveProperty ;
             rdfs:domain edu:Descriptor ;
             rdfs:range edu:Descriptor .
 
@@ -145,6 +150,7 @@ edu:implies rdf:type owl:ObjectProperty ;
 ###  http://edugraph.io/edu#impliesAbility
 edu:impliesAbility rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf edu:implies ;
+                   rdf:type owl:TransitiveProperty ;
                    rdfs:domain edu:Ability ;
                    rdfs:range edu:Ability .
 
@@ -152,6 +158,7 @@ edu:impliesAbility rdf:type owl:ObjectProperty ;
 ###  http://edugraph.io/edu#impliesArea
 edu:impliesArea rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf edu:implies ;
+                rdf:type owl:TransitiveProperty ;
                 rdfs:domain edu:Area ;
                 rdfs:range edu:Area .
 
@@ -159,6 +166,7 @@ edu:impliesArea rdf:type owl:ObjectProperty ;
 ###  http://edugraph.io/edu#impliesScope
 edu:impliesScope rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf edu:implies ;
+                 rdf:type owl:TransitiveProperty ;
                  rdfs:domain edu:Scope ;
                  rdfs:range edu:Scope .
 
