@@ -2051,6 +2051,7 @@ edu:NumbersSmaller20 rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#NumbersWithNegatives
 edu:NumbersWithNegatives rdf:type owl:NamedIndividual ,
                                   edu:Scope ;
+                         edu:expandsScope edu:NumbersWithoutNegatives ;
                          edu:partOfScope edu:NumericRange ;
                          rdfs:isDefinedBy "Involves negative numbers." .
 
@@ -2058,6 +2059,7 @@ edu:NumbersWithNegatives rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#NumbersWithZero
 edu:NumbersWithZero rdf:type owl:NamedIndividual ,
                              edu:Scope ;
+                    edu:expandsScope edu:NumbersWithoutZero ;
                     edu:partOfScope edu:NumericRange ;
                     rdfs:isDefinedBy "Involves zero as a number." .
 
