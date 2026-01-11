@@ -1988,6 +1988,7 @@ edu:NumbersLarger10 rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#NumbersLarger100
 edu:NumbersLarger100 rdf:type owl:NamedIndividual ,
                               edu:Scope ;
+                     edu:impliesScope edu:NumbersLarger20 ;
                      edu:partOfScope edu:NumericRange ;
                      rdfs:isDefinedBy "Only involves numbers larger than 100." .
 
@@ -1995,6 +1996,7 @@ edu:NumbersLarger100 rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#NumbersLarger1000
 edu:NumbersLarger1000 rdf:type owl:NamedIndividual ,
                                edu:Scope ;
+                      edu:impliesScope edu:NumbersLarger100 ;
                       edu:partOfScope edu:NumericRange ;
                       rdfs:isDefinedBy "Only involves numbers larger than 1000." .
 
@@ -2002,6 +2004,7 @@ edu:NumbersLarger1000 rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#NumbersLarger20
 edu:NumbersLarger20 rdf:type owl:NamedIndividual ,
                              edu:Scope ;
+                    edu:impliesScope edu:NumbersLarger10 ;
                     edu:partOfScope edu:NumericRange ;
                     rdfs:isDefinedBy "Only Involves numbers larger than 20." .
 
@@ -2009,6 +2012,7 @@ edu:NumbersLarger20 rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#NumbersSmaller10
 edu:NumbersSmaller10 rdf:type owl:NamedIndividual ,
                               edu:Scope ;
+                     edu:impliesScope edu:NumbersSmaller20 ;
                      edu:partOfScope edu:NumericRange ;
                      rdfs:isDefinedBy "Only involves numbers smaller than 10" .
 
@@ -2016,6 +2020,7 @@ edu:NumbersSmaller10 rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#NumbersSmaller100
 edu:NumbersSmaller100 rdf:type owl:NamedIndividual ,
                                edu:Scope ;
+                      edu:impliesScope edu:NumbersSmaller1000 ;
                       edu:partOfScope edu:NumericRange ;
                       rdfs:isDefinedBy "Only involves numbers smaller than 100" .
 
@@ -2030,6 +2035,7 @@ edu:NumbersSmaller1000 rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#NumbersSmaller20
 edu:NumbersSmaller20 rdf:type owl:NamedIndividual ,
                               edu:Scope ;
+                     edu:impliesScope edu:NumbersSmaller100 ;
                      edu:partOfScope edu:NumericRange ;
                      rdfs:isDefinedBy "Only involves numbers smaller than 20" .
 
