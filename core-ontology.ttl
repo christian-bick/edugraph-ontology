@@ -47,6 +47,7 @@ edu:expandedByScope rdf:type owl:ObjectProperty ;
 
 ###  http://edugraph.io/edu#expands
 edu:expands rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:domain edu:Descriptor ;
             rdfs:range edu:Descriptor .
 
@@ -98,6 +99,66 @@ edu:hasPartArea rdf:type owl:ObjectProperty ;
 edu:hasPartScope rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf edu:hasPart ;
                  owl:inverseOf edu:partOfScope ;
+                 rdfs:domain edu:Scope ;
+                 rdfs:range edu:Scope .
+
+
+###  http://edugraph.io/edu#impliedBy
+edu:impliedBy rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              owl:inverseOf edu:implies ;
+              rdfs:domain edu:Descriptor ;
+              rdfs:range edu:Descriptor .
+
+
+###  http://edugraph.io/edu#impliedByAbility
+edu:impliedByAbility rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf edu:impliedBy ;
+                     owl:inverseOf edu:impliesAbility ;
+                     rdfs:domain edu:Ability ;
+                     rdfs:range edu:Ability .
+
+
+###  http://edugraph.io/edu#impliedByArea
+edu:impliedByArea rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf edu:impliedBy ;
+                  owl:inverseOf edu:impliesArea ;
+                  rdfs:domain edu:Area ;
+                  rdfs:range edu:Area .
+
+
+###  http://edugraph.io/edu#impliedByScope
+edu:impliedByScope rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf edu:impliedBy ;
+                   owl:inverseOf edu:impliesScope ;
+                   rdfs:domain edu:Scope ;
+                   rdfs:range edu:Scope .
+
+
+###  http://edugraph.io/edu#implies
+edu:implies rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain edu:Descriptor ;
+            rdfs:range edu:Descriptor .
+
+
+###  http://edugraph.io/edu#impliesAbility
+edu:impliesAbility rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf edu:implies ;
+                   rdfs:domain edu:Ability ;
+                   rdfs:range edu:Ability .
+
+
+###  http://edugraph.io/edu#impliesArea
+edu:impliesArea rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf edu:implies ;
+                rdfs:domain edu:Area ;
+                rdfs:range edu:Area .
+
+
+###  http://edugraph.io/edu#impliesScope
+edu:impliesScope rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf edu:implies ;
                  rdfs:domain edu:Scope ;
                  rdfs:range edu:Scope .
 
