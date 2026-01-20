@@ -108,7 +108,7 @@ future.
 
 #### Foundations
 
-While the core ontology focuses on a mostly generic approach of describing learning material, the skill ontology uses
+While the core ontology focuses on a mostly generic approach to describing learning material, the skill ontology uses
 commonly used terms for well-known solution strategies to a specific problem domain.
 
 #### Flavors
@@ -117,7 +117,7 @@ It is relatively easy to find consent about a mutual exclusive and collectively 
 what is observable through the core ontology. Skills on the other hand, are typically described from an application 
 perspective and therefore largely influenced by context. 
 
-That makes skills inherently more likely to be influenced by purpose, culture and language, it that makes it way harder 
+That makes skills inherently more likely to be influenced by purpose, culture and language, and that makes it way harder 
 to agree on distinct skills that collectively describe all areas of learning with great detail. At the same time, 
 developing practical skills is a fundamentally important part of learning.
 
