@@ -2452,13 +2452,6 @@ edu:RationalNumbers rdf:type owl:NamedIndividual ,
                     edu:partOfArea edu:NumberSystems .
 
 
-###  http://edugraph.io/edu#RationalsArithmetic
-edu:RationalsArithmetic rdf:type owl:NamedIndividual ,
-                                 edu:Area ;
-                        edu:partOfArea edu:Arithmetic ;
-                        rdfs:isDefinedBy "Performing arithmetic operations on rational numbers (numbers that can be expressed as a fraction)." .
-
-
 ###  http://edugraph.io/edu#ReadingFluency
 edu:ReadingFluency rdf:type owl:NamedIndividual ,
                             edu:Ability ;
