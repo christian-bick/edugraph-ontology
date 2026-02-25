@@ -1634,8 +1634,7 @@ edu:LogicalThinking rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#LowestCommonDenominator
 edu:LowestCommonDenominator rdf:type owl:NamedIndividual ,
                                      edu:Area ;
-                            edu:expandsArea edu:IntegerDivision ;
-                            edu:partOfArea edu:FractionArithmetic ;
+                            edu:partOfArea edu:FractionNumbers ;
                             rdfs:isDefinedBy """Finding the smallest common multiple of the denominators of two or more fractions.
 
 Example: The lowest common denominator of 1/4 and 1/6 is 12.""" .
