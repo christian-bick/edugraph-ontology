@@ -1099,6 +1099,13 @@ edu:Facilitation rdf:type owl:NamedIndividual ,
                  rdfs:isDefinedBy "The act of making a process or activity easier for others. This involves guiding, supporting, and encouraging individuals or groups to achieve a common goal." .
 
 
+###  http://edugraph.io/edu#FloatingPoint
+edu:FloatingPoint rdf:type owl:NamedIndividual ,
+                           edu:Area ;
+                  edu:expandsArea edu:DecimalNotation ;
+                  edu:partOfArea edu:DecimalNumbers .
+
+
 ###  http://edugraph.io/edu#Formalization
 edu:Formalization rdf:type owl:NamedIndividual ,
                            edu:Ability ;
@@ -1408,6 +1415,12 @@ edu:IntegerNumbers rdf:type owl:NamedIndividual ,
                             edu:Area ;
                    edu:expandsArea edu:NumerationWithIntegers ;
                    edu:partOfArea edu:NumberSystems .
+
+
+###  http://edugraph.io/edu#IntegerRegrouping
+edu:IntegerRegrouping rdf:type owl:NamedIndividual ,
+                               edu:Area ;
+                      edu:partOfArea edu:IntegerNumbers .
 
 
 ###  http://edugraph.io/edu#IntegerRoot
