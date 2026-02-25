@@ -348,6 +348,16 @@ edu:AdaptiveCreativity rdf:type owl:NamedIndividual ,
                        rdfs:isDefinedBy "The ability to adjust and modify ideas in response to new information or challenges. This involves being flexible and adaptable in one's thinking, and being willing to revise and refine ideas as needed." .
 
 
+###  http://edugraph.io/edu#Addition
+edu:Addition rdf:type owl:NamedIndividual ,
+                      edu:Area ;
+             edu:expandsArea edu:Sum ;
+             edu:partOfArea edu:ArithmeticOperations ;
+             rdfs:isDefinedBy """Adding two or more integers together.
+
+Example: 5 + 3 = 8""" .
+
+
 ###  http://edugraph.io/edu#AdditiveCount
 edu:AdditiveCount rdf:type owl:NamedIndividual ,
                            edu:Scope ;
@@ -458,6 +468,12 @@ edu:Arithmetic rdf:type owl:NamedIndividual ,
                         edu:Area ;
                edu:partOfArea edu:Mathematics ;
                rdfs:isDefinedBy "The branch of mathematics that deals with the properties and manipulation of numbers, including addition, subtraction, multiplication and division." .
+
+
+###  http://edugraph.io/edu#ArithmeticOperations
+edu:ArithmeticOperations rdf:type owl:NamedIndividual ,
+                                  edu:Area ;
+                         edu:partOfArea edu:Arithmetic .
 
 
 ###  http://edugraph.io/edu#Articulation
@@ -1033,6 +1049,16 @@ edu:DiversityTolerance rdf:type owl:NamedIndividual ,
                        rdfs:isDefinedBy "The ability to accept and appreciate people from different backgrounds and cultures. This involves respecting and valuing diversity, and avoiding prejudice and discrimination." .
 
 
+###  http://edugraph.io/edu#Division
+edu:Division rdf:type owl:NamedIndividual ,
+                      edu:Area ;
+             edu:expandsArea edu:Multiplication ;
+             edu:partOfArea edu:ArithmeticOperations ;
+             rdfs:isDefinedBy """Dividing one integer by another, which may result in a quotient and a remainder.
+
+Example: 17 / 5 = 3 remainder 2""" .
+
+
 ###  http://edugraph.io/edu#DynamicBalance
 edu:DynamicBalance rdf:type owl:NamedIndividual ,
                             edu:Ability ;
@@ -1116,6 +1142,16 @@ edu:Evaluation rdf:type owl:NamedIndividual ,
 edu:ExplosiveStrength rdf:type owl:NamedIndividual ,
                                edu:Ability ;
                       edu:partOfAbility edu:Strength .
+
+
+###  http://edugraph.io/edu#Exponentiation
+edu:Exponentiation rdf:type owl:NamedIndividual ,
+                            edu:Area ;
+                   edu:expandsArea edu:Multiplication ;
+                   edu:partOfArea edu:ArithmeticOperations ;
+                   rdfs:isDefinedBy """Raising an integer to a power, meaning multiplying it by itself a certain number of times.
+
+Example: 2 ^ 4 = 2 * 2 * 2 * 2 = 16""" .
 
 
 ###  http://edugraph.io/edu#Expression
@@ -1448,75 +1484,6 @@ edu:InformationExtraction rdf:type owl:NamedIndividual ,
                           rdfs:comment "Example: Extracting key statistics and data from a scientific article to include in a research report." ;
                           rdfs:isDefinedBy "Identifying and gathering important facts and details from a source. This involves selectively choosing and organizing information that is relevant to a specific task or purpose." .
 
-###  http://edugraph.io/edu#Addition
-edu:Addition rdf:type owl:NamedIndividual ,
-                             edu:Area ;
-                    edu:expandsArea edu:Sum ;
-                    edu:partOfArea edu:Arithmetic ;
-                    rdfs:isDefinedBy """Adding two or more integers together.
-
-Example: 5 + 3 = 8""" .
-
-
-###  http://edugraph.io/edu#Division
-edu:Division rdf:type owl:NamedIndividual ,
-                             edu:Area ;
-                    edu:expandsArea edu:Multiplication ;
-                    edu:partOfArea edu:Arithmetic ;
-                    rdfs:isDefinedBy """Dividing one integer by another, which may result in a quotient and a remainder.
-
-Example: 17 / 5 = 3 remainder 2""" .
-
-
-###  http://edugraph.io/edu#Exponentiation
-edu:Exponentiation rdf:type owl:NamedIndividual ,
-                                   edu:Area ;
-                          edu:expandsArea edu:Multiplication ;
-                          edu:partOfArea edu:Arithmetic ;
-                          rdfs:isDefinedBy """Raising an integer to a power, meaning multiplying it by itself a certain number of times.
-
-Example: 2 ^ 4 = 2 * 2 * 2 * 2 = 16""" .
-
-
-###  http://edugraph.io/edu#Logarithm
-edu:Logarithm rdf:type owl:NamedIndividual ,
-                              edu:Area ;
-                     edu:expandsArea edu:Exponentiation ;
-                     edu:partOfArea edu:Arithmetic ;
-                     rdfs:isDefinedBy """Finding the exponent to which a base (an integer) must be raised to produce a given integer.
-
-Example: log₃ 81 = 4 because 3 ^ 4 = 81""" .
-
-
-###  http://edugraph.io/edu#Multiplication
-edu:Multiplication rdf:type owl:NamedIndividual ,
-                                   edu:Area ;
-                          edu:expandsArea edu:Addition ;
-                          edu:partOfArea edu:Arithmetic ;
-                          rdfs:isDefinedBy """Multiplying two or multiple integers.
-
-Example: 4 * 3 = 12""" .
-
-
-###  http://edugraph.io/edu#Root
-edu:Root rdf:type owl:NamedIndividual ,
-                         edu:Area ;
-                edu:expandsArea edu:Exponentiation ;
-                edu:partOfArea edu:Arithmetic ;
-                rdfs:isDefinedBy """Finding the integer that, when raised to a certain power, produces a given integer.
-
-Example: The cube root of 64 is 4 because 4 ^ 3 = 64""" .
-
-
-###  http://edugraph.io/edu#Subtraction
-edu:Subtraction rdf:type owl:NamedIndividual ,
-                                edu:Area ;
-                       edu:expandsArea edu:Difference ,
-                                       edu:Addition ;
-                       edu:partOfArea edu:Arithmetic ;
-                       rdfs:isDefinedBy """Finding the difference between two integers.
-
-Example: 10 - 6 = 4""" .
 
 ###  http://edugraph.io/edu#IntegerAddition
 edu:IntegerAddition rdf:type owl:NamedIndividual ,
@@ -1716,6 +1683,16 @@ edu:LiquidVolumes rdf:type owl:NamedIndividual ,
                            edu:Scope ;
                   edu:partOfScope edu:VolumeMeasurement ;
                   rdfs:isDefinedBy "Involves liquid volumes." .
+
+
+###  http://edugraph.io/edu#Logarithm
+edu:Logarithm rdf:type owl:NamedIndividual ,
+                       edu:Area ;
+              edu:expandsArea edu:Exponentiation ;
+              edu:partOfArea edu:ArithmeticOperations ;
+              rdfs:isDefinedBy """Finding the exponent to which a base (an integer) must be raised to produce a given integer.
+
+Example: log₃ 81 = 4 because 3 ^ 4 = 81""" .
 
 
 ###  http://edugraph.io/edu#Logic
@@ -1955,6 +1932,16 @@ edu:MotoricRange rdf:type owl:NamedIndividual ,
 edu:MotoricSpeed rdf:type owl:NamedIndividual ,
                           edu:Ability ;
                  edu:partOfAbility edu:Motoric .
+
+
+###  http://edugraph.io/edu#Multiplication
+edu:Multiplication rdf:type owl:NamedIndividual ,
+                            edu:Area ;
+                   edu:expandsArea edu:Addition ;
+                   edu:partOfArea edu:ArithmeticOperations ;
+                   rdfs:isDefinedBy """Multiplying two or multiple integers.
+
+Example: 4 * 3 = 12""" .
 
 
 ###  http://edugraph.io/edu#MuscularEndurance
@@ -2681,6 +2668,16 @@ edu:RomanNumerals rdf:type owl:NamedIndividual ,
                   rdfs:isDefinedBy "Represents numbers with roman numerals." .
 
 
+###  http://edugraph.io/edu#Root
+edu:Root rdf:type owl:NamedIndividual ,
+                  edu:Area ;
+         edu:expandsArea edu:Exponentiation ;
+         edu:partOfArea edu:ArithmeticOperations ;
+         rdfs:isDefinedBy """Finding the integer that, when raised to a certain power, produces a given integer.
+
+Example: The cube root of 64 is 4 because 4 ^ 3 = 64""" .
+
+
 ###  http://edugraph.io/edu#SandClock
 edu:SandClock rdf:type owl:NamedIndividual ,
                        edu:Scope ;
@@ -2995,6 +2992,17 @@ edu:SubtextUnderstanding rdf:type owl:NamedIndividual ,
                          edu:partOfAbility edu:Understanding ;
                          rdfs:comment "Example: Understanding the underlying themes and messages in a novel." ;
                          rdfs:isDefinedBy "Understanding the implied or hidden meanings in communication. This involves reading between the lines and interpreting the underlying messages conveyed through tone, body language, and context." .
+
+
+###  http://edugraph.io/edu#Subtraction
+edu:Subtraction rdf:type owl:NamedIndividual ,
+                         edu:Area ;
+                edu:expandsArea edu:Addition ,
+                                edu:Difference ;
+                edu:partOfArea edu:ArithmeticOperations ;
+                rdfs:isDefinedBy """Finding the difference between two integers.
+
+Example: 10 - 6 = 4""" .
 
 
 ###  http://edugraph.io/edu#SubtractiveCount
