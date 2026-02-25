@@ -848,66 +848,6 @@ edu:DayIntervals rdf:type owl:NamedIndividual ,
                  rdfs:isDefinedBy "Time expressed in intervals of days." .
 
 
-###  http://edugraph.io/edu#DecimalAddition
-edu:DecimalAddition rdf:type owl:NamedIndividual ,
-                             edu:Area ;
-                    edu:expandsArea edu:IntegerAddition ;
-                    edu:partOfArea edu:DecimalArithmetic ;
-                    rdfs:isDefinedBy """Adding two or more decimals together.
-
-Example:  2.7 + 1.8 = 4.5""" .
-
-
-###  http://edugraph.io/edu#DecimalArithmetic
-edu:DecimalArithmetic rdf:type owl:NamedIndividual ,
-                               edu:Area ;
-                      edu:expandsArea edu:DecimalNotation ;
-                      edu:partOfArea edu:RationalsArithmetic ;
-                      rdfs:isDefinedBy "Performing arithmetic operations on decimals (numbers represented with a decimal point)." .
-
-
-###  http://edugraph.io/edu#DecimalDivision
-edu:DecimalDivision rdf:type owl:NamedIndividual ,
-                             edu:Area ;
-                    edu:expandsArea edu:DecimalMultiplication ,
-                                    edu:IntegerDivision ;
-                    edu:partOfArea edu:DecimalArithmetic ;
-                    rdfs:isDefinedBy """Dividing one decimal by another.
-
-Example: 6.3 / 2.1 = 3""" .
-
-
-###  http://edugraph.io/edu#DecimalExponentiation
-edu:DecimalExponentiation rdf:type owl:NamedIndividual ,
-                                   edu:Area ;
-                          edu:expandsArea edu:DecimalMultiplication ,
-                                          edu:IntegerExponentiation ;
-                          edu:partOfArea edu:DecimalArithmetic ;
-                          rdfs:isDefinedBy """Raising a decimal to a power.
-
-Example: 1.2 ^ 2 = 1.44""" .
-
-
-###  http://edugraph.io/edu#DecimalLogarithm
-edu:DecimalLogarithm rdf:type owl:NamedIndividual ,
-                              edu:Area ;
-                     edu:expandsArea edu:DecimalExponentiation ,
-                                     edu:IntegerLogarithm ;
-                     edu:partOfArea edu:DecimalArithmetic ;
-                     rdfs:isDefinedBy "Finding the exponent to which a base (a decimal) must be raised to produce a given decimal." .
-
-
-###  http://edugraph.io/edu#DecimalMultiplication
-edu:DecimalMultiplication rdf:type owl:NamedIndividual ,
-                                   edu:Area ;
-                          edu:expandsArea edu:DecimalAddition ,
-                                          edu:IntegerMultiplication ;
-                          edu:partOfArea edu:DecimalArithmetic ;
-                          rdfs:isDefinedBy """Multiplying two or more decimals.
-
-Example: 3.5 * 2.0 = 7.0""" .
-
-
 ###  http://edugraph.io/edu#DecimalNotation
 edu:DecimalNotation rdf:type owl:NamedIndividual ,
                              edu:Area ;
@@ -920,28 +860,6 @@ edu:DecimalNotation rdf:type owl:NamedIndividual ,
 edu:DecimalNumbers rdf:type owl:NamedIndividual ,
                             edu:Area ;
                    edu:partOfArea edu:RationalNumbers .
-
-
-###  http://edugraph.io/edu#DecimalRoot
-edu:DecimalRoot rdf:type owl:NamedIndividual ,
-                         edu:Area ;
-                edu:expandsArea edu:DecimalExponentiation ,
-                                edu:IntegerRoot ;
-                edu:partOfArea edu:DecimalArithmetic ;
-                rdfs:isDefinedBy """Finding the decimal that, when raised to a certain power, produces a given decimal.
-
-Example: The square root of 2.25 is 1.5""" .
-
-
-###  http://edugraph.io/edu#DecimalSubtraction
-edu:DecimalSubtraction rdf:type owl:NamedIndividual ,
-                                edu:Area ;
-                       edu:expandsArea edu:DecimalAddition ,
-                                       edu:IntegerSubtraction ;
-                       edu:partOfArea edu:DecimalArithmetic ;
-                       rdfs:isDefinedBy """Finding the difference between two decimals.
-
-Example: 5.8 - 2.3 = 3.5""" .
 
 
 ###  http://edugraph.io/edu#Decrement
@@ -1200,67 +1118,6 @@ edu:FourDimensional rdf:type owl:NamedIndividual ,
                     rdfs:isDefinedBy "Involves three spatial dimensions and time." .
 
 
-###  http://edugraph.io/edu#FractionAddition
-edu:FractionAddition rdf:type owl:NamedIndividual ,
-                              edu:Area ;
-                     edu:expandsArea edu:IntegerAddition ,
-                                     edu:LowestCommonDenominator ;
-                     edu:partOfArea edu:FractionArithmetic ;
-                     rdfs:isDefinedBy """Adding two or more fractions, often requiring finding a common denominator.
-
-Example: 1/4 + 3/8 = 2/8 + 3/8 = 5/8""" .
-
-
-###  http://edugraph.io/edu#FractionArithmetic
-edu:FractionArithmetic rdf:type owl:NamedIndividual ,
-                                edu:Area ;
-                       edu:expandsArea edu:FractionNotation ;
-                       edu:partOfArea edu:RationalsArithmetic ;
-                       rdfs:isDefinedBy "Performing arithmetic operations on fractions." .
-
-
-###  http://edugraph.io/edu#FractionDivision
-edu:FractionDivision rdf:type owl:NamedIndividual ,
-                              edu:Area ;
-                     edu:expandsArea edu:FractionMultiplication ,
-                                     edu:IntegerDivision ;
-                     edu:partOfArea edu:FractionArithmetic ;
-                     rdfs:isDefinedBy """Dividing one fraction by another, which is equivalent to multiplying by the reciprocal of the second fraction.
-
-Example: (2/3) / (1/4) = (2/3) * (4/1) = 8/3""" .
-
-
-###  http://edugraph.io/edu#FractionExponentiation
-edu:FractionExponentiation rdf:type owl:NamedIndividual ,
-                                    edu:Area ;
-                           edu:expandsArea edu:FractionMultiplication ,
-                                           edu:IntegerExponentiation ;
-                           edu:partOfArea edu:FractionArithmetic ;
-                           rdfs:isDefinedBy """Raising a fraction to a power.
-
-Example: (1/2) ^ 3 = (1/2) * (1/2) * (1/2) = 1/8""" .
-
-
-###  http://edugraph.io/edu#FractionLogarithm
-edu:FractionLogarithm rdf:type owl:NamedIndividual ,
-                               edu:Area ;
-                      edu:expandsArea edu:FractionExponentiation ,
-                                      edu:IntegerLogarithm ;
-                      edu:partOfArea edu:FractionArithmetic ;
-                      rdfs:isDefinedBy "Finding the exponent to which a base (a fraction) must be raised to produce a given fraction." .
-
-
-###  http://edugraph.io/edu#FractionMultiplication
-edu:FractionMultiplication rdf:type owl:NamedIndividual ,
-                                    edu:Area ;
-                           edu:expandsArea edu:FractionAddition ,
-                                           edu:IntegerMultiplication ;
-                           edu:partOfArea edu:FractionArithmetic ;
-                           rdfs:isDefinedBy """Multiplying two or more fractions by multiplying the numerators and the denominators.
-
-Example: (2/5) * (3/7) = 6/35""" .
-
-
 ###  http://edugraph.io/edu#FractionNotation
 edu:FractionNotation rdf:type owl:NamedIndividual ,
                               edu:Area ;
@@ -1277,17 +1134,6 @@ edu:FractionNumbers rdf:type owl:NamedIndividual ,
                     edu:partOfArea edu:RationalNumbers .
 
 
-###  http://edugraph.io/edu#FractionRoot
-edu:FractionRoot rdf:type owl:NamedIndividual ,
-                          edu:Area ;
-                 edu:expandsArea edu:FractionExponentiation ,
-                                 edu:IntegerRoot ;
-                 edu:partOfArea edu:FractionArithmetic ;
-                 rdfs:isDefinedBy """Finding the fraction that, when raised to a certain power, produces a given fraction.
-
-Example: The square root of 9/16 is 3/4 because (3/4) ^ 2 = 9/16""" .
-
-
 ###  http://edugraph.io/edu#FractionSimplification
 edu:FractionSimplification rdf:type owl:NamedIndividual ,
                                     edu:Area ;
@@ -1297,18 +1143,6 @@ edu:FractionSimplification rdf:type owl:NamedIndividual ,
                            rdfs:isDefinedBy """Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.
 
 Example: 12/18 simplifies to 2/3 by dividing both by 6""" .
-
-
-###  http://edugraph.io/edu#FractionSubtraction
-edu:FractionSubtraction rdf:type owl:NamedIndividual ,
-                                 edu:Area ;
-                        edu:expandsArea edu:FractionAddition ,
-                                        edu:IntegerSubtraction ,
-                                        edu:LowestCommonDenominator ;
-                        edu:partOfArea edu:FractionArithmetic ;
-                        rdfs:isDefinedBy """Finding the difference between two fractions, often requiring finding a common denominator.
-
-Example: 3/4 - 1/8 = 6/8 - 1/8 = 5/8""" .
 
 
 ###  http://edugraph.io/edu#GeneralArithmetic
