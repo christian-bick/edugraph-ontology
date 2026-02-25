@@ -1420,6 +1420,7 @@ edu:IntegerNumbers rdf:type owl:NamedIndividual ,
 ###  http://edugraph.io/edu#IntegerRegrouping
 edu:IntegerRegrouping rdf:type owl:NamedIndividual ,
                                edu:Area ;
+                      edu:expandsArea edu:IntegerNotation ;
                       edu:partOfArea edu:IntegerNumbers .
 
 
