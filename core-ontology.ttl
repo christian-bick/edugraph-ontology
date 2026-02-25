@@ -911,11 +911,15 @@ Example: 3.5 * 2.0 = 7.0""" .
 ###  http://edugraph.io/edu#DecimalNotation
 edu:DecimalNotation rdf:type owl:NamedIndividual ,
                              edu:Area ;
-                    edu:expandsArea edu:IntegerNotation ,
-                                    edu:NumerationWithRationals ;
-                    edu:partOfArea edu:DecimalArithmetic ,
-                                   edu:NumberNotation ;
+                    edu:expandsArea edu:IntegerNotation ;
+                    edu:partOfArea edu:DecimalNumbers ;
                     rdfs:isDefinedBy "Applying the decimal system of representing rational numbers using a base-ten place value system and a decimal point to separate whole and fractional parts." .
+
+
+###  http://edugraph.io/edu#DecimalNumbers
+edu:DecimalNumbers rdf:type owl:NamedIndividual ,
+                            edu:Area ;
+                   edu:partOfArea edu:RationalNumbers .
 
 
 ###  http://edugraph.io/edu#DecimalRoot
@@ -1260,13 +1264,17 @@ Example: (2/5) * (3/7) = 6/35""" .
 ###  http://edugraph.io/edu#FractionNotation
 edu:FractionNotation rdf:type owl:NamedIndividual ,
                               edu:Area ;
-                     edu:expandsArea edu:IntegerDivision ,
-                                     edu:IntegerNotation ,
-                                     edu:NumerationWithRationals ,
+                     edu:expandsArea edu:IntegerNotation ,
                                      edu:ProportionAbstraction ;
-                     edu:partOfArea edu:NumberNotation ,
-                                    edu:RationalsArithmetic ;
+                     edu:partOfArea edu:FractionNumbers ;
                      rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator." .
+
+
+###  http://edugraph.io/edu#FractionNumbers
+edu:FractionNumbers rdf:type owl:NamedIndividual ,
+                             edu:Area ;
+                    edu:expandsArea edu:Division ;
+                    edu:partOfArea edu:RationalNumbers .
 
 
 ###  http://edugraph.io/edu#FractionRoot
@@ -1547,10 +1555,17 @@ Example: 4 * 3 = 12""" .
 edu:IntegerNotation rdf:type owl:NamedIndividual ,
                              edu:Area ;
                     edu:expandsArea edu:DigitNotation ;
-                    edu:partOfArea edu:IntegerArithmetic ;
+                    edu:partOfArea edu:IntegerNumbers ;
                     rdfs:isDefinedBy """Applying the system of symbols used to represent integers.
 
 Example: Using the symbols -3, 0, and 12 to represent integers.""" .
+
+
+###  http://edugraph.io/edu#IntegerNumbers
+edu:IntegerNumbers rdf:type owl:NamedIndividual ,
+                            edu:Area ;
+                   edu:expandsArea edu:NumerationWithIntegers ;
+                   edu:partOfArea edu:NumberSystems .
 
 
 ###  http://edugraph.io/edu#IntegerRoot
@@ -1608,6 +1623,13 @@ edu:IntuitiveMathematics rdf:type owl:NamedIndividual ,
                                   edu:Area ;
                          edu:partOfArea edu:Mathematics ;
                          rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts." .
+
+
+###  http://edugraph.io/edu#IrrationalNumbers
+edu:IrrationalNumbers rdf:type owl:NamedIndividual ,
+                               edu:Area ;
+                      edu:expandsArea edu:RationalNumbers ;
+                      edu:partOfArea edu:NumberSystems .
 
 
 ###  http://edugraph.io/edu#KilometerScale
@@ -2018,6 +2040,12 @@ edu:NumberSense rdf:type owl:NamedIndividual ,
                          edu:Area ;
                 edu:partOfArea edu:IntuitiveMathematics ;
                 rdfs:isDefinedBy "Number sense is the intuitive understanding of numbers, their magnitudes, and how they relate to each other." .
+
+
+###  http://edugraph.io/edu#NumberSystems
+edu:NumberSystems rdf:type owl:NamedIndividual ,
+                           edu:Area ;
+                  edu:partOfArea edu:Arithmetic .
 
 
 ###  http://edugraph.io/edu#NumberTheory
@@ -2574,6 +2602,14 @@ edu:RatioNotation rdf:type owl:NamedIndividual ,
                            edu:Area ;
                   edu:partOfArea edu:ProportionAbstraction ;
                   rdfs:isDefinedBy "Applying the system of symbols and conventions used to represent ratios." .
+
+
+###  http://edugraph.io/edu#RationalNumbers
+edu:RationalNumbers rdf:type owl:NamedIndividual ,
+                             edu:Area ;
+                    edu:expandedByArea edu:NumerationWithRationals ;
+                    edu:expandsArea edu:IntegerNumbers ;
+                    edu:partOfArea edu:NumberSystems .
 
 
 ###  http://edugraph.io/edu#RationalsArithmetic
