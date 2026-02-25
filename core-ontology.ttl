@@ -1291,9 +1291,9 @@ Example: The square root of 9/16 is 3/4 because (3/4) ^ 2 = 9/16""" .
 ###  http://edugraph.io/edu#FractionSimplification
 edu:FractionSimplification rdf:type owl:NamedIndividual ,
                                     edu:Area ;
-                           edu:expandsArea edu:IntegerDivision ,
+                           edu:expandsArea edu:Division ,
                                            edu:RatioEquivalence ;
-                           edu:partOfArea edu:FractionArithmetic ;
+                           edu:partOfArea edu:FractionNumbers ;
                            rdfs:isDefinedBy """Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.
 
 Example: 12/18 simplifies to 2/3 by dividing both by 6""" .
@@ -1309,6 +1309,13 @@ edu:FractionSubtraction rdf:type owl:NamedIndividual ,
                         rdfs:isDefinedBy """Finding the difference between two fractions, often requiring finding a common denominator.
 
 Example: 3/4 - 1/8 = 6/8 - 1/8 = 5/8""" .
+
+
+###  http://edugraph.io/edu#GeneralArithmetic
+edu:GeneralArithmetic rdf:type owl:NamedIndividual ,
+                               edu:Skill ;
+                      edu:targetsArea edu:ArithmeticOperations ,
+                                      edu:NumberSystems .
 
 
 ###  http://edugraph.io/edu#Geoboard
@@ -1495,9 +1502,9 @@ edu:InformationExtraction rdf:type owl:NamedIndividual ,
 
 ###  http://edugraph.io/edu#IntegerAddition
 edu:IntegerAddition rdf:type owl:NamedIndividual ,
-                             edu:Area ;
-                    edu:expandsArea edu:Sum ;
-                    edu:partOfArea edu:IntegerArithmetic ;
+                             edu:Skill ;
+                    edu:partOf edu:IntegerArithmetic ;
+                    edu:targetsArea edu:Addition ;
                     rdfs:isDefinedBy """Adding two or more integers together.
 
 Example: 5 + 3 = 8""" .
@@ -1505,17 +1512,18 @@ Example: 5 + 3 = 8""" .
 
 ###  http://edugraph.io/edu#IntegerArithmetic
 edu:IntegerArithmetic rdf:type owl:NamedIndividual ,
-                               edu:Area ;
-                      edu:expandsArea edu:IntegerNotation ;
-                      edu:partOfArea edu:Arithmetic ;
+                               edu:Skill ;
+                      edu:partOf edu:GeneralArithmetic ;
+                      edu:targetsArea edu:ArithmeticOperations ,
+                                      edu:IntegerNumbers ;
                       rdfs:isDefinedBy "Performing arithmetic operations on integers." .
 
 
 ###  http://edugraph.io/edu#IntegerDivision
 edu:IntegerDivision rdf:type owl:NamedIndividual ,
-                             edu:Area ;
-                    edu:expandsArea edu:IntegerMultiplication ;
-                    edu:partOfArea edu:IntegerArithmetic ;
+                             edu:Skill ;
+                    edu:partOf edu:IntegerArithmetic ;
+                    edu:targetsArea edu:Division ;
                     rdfs:isDefinedBy """Dividing one integer by another, which may result in a quotient and a remainder.
 
 Example: 17 / 5 = 3 remainder 2""" .
@@ -1523,9 +1531,9 @@ Example: 17 / 5 = 3 remainder 2""" .
 
 ###  http://edugraph.io/edu#IntegerExponentiation
 edu:IntegerExponentiation rdf:type owl:NamedIndividual ,
-                                   edu:Area ;
-                          edu:expandsArea edu:IntegerMultiplication ;
-                          edu:partOfArea edu:IntegerArithmetic ;
+                                   edu:Skill ;
+                          edu:partOf edu:IntegerArithmetic ;
+                          edu:targetsArea edu:Exponentiation ;
                           rdfs:isDefinedBy """Raising an integer to a power, meaning multiplying it by itself a certain number of times.
 
 Example: 2 ^ 4 = 2 * 2 * 2 * 2 = 16""" .
@@ -1533,9 +1541,9 @@ Example: 2 ^ 4 = 2 * 2 * 2 * 2 = 16""" .
 
 ###  http://edugraph.io/edu#IntegerLogarithm
 edu:IntegerLogarithm rdf:type owl:NamedIndividual ,
-                              edu:Area ;
-                     edu:expandsArea edu:IntegerExponentiation ;
-                     edu:partOfArea edu:IntegerArithmetic ;
+                              edu:Skill ;
+                     edu:partOf edu:IntegerArithmetic ;
+                     edu:targetsArea edu:Logarithm ;
                      rdfs:isDefinedBy """Finding the exponent to which a base (an integer) must be raised to produce a given integer.
 
 Example: log₃ 81 = 4 because 3 ^ 4 = 81""" .
@@ -1543,9 +1551,9 @@ Example: log₃ 81 = 4 because 3 ^ 4 = 81""" .
 
 ###  http://edugraph.io/edu#IntegerMultiplication
 edu:IntegerMultiplication rdf:type owl:NamedIndividual ,
-                                   edu:Area ;
-                          edu:expandsArea edu:IntegerAddition ;
-                          edu:partOfArea edu:IntegerArithmetic ;
+                                   edu:Skill ;
+                          edu:partOf edu:IntegerArithmetic ;
+                          edu:targetsArea edu:Multiplication ;
                           rdfs:isDefinedBy """Multiplying two or multiple integers.
 
 Example: 4 * 3 = 12""" .
@@ -1570,9 +1578,9 @@ edu:IntegerNumbers rdf:type owl:NamedIndividual ,
 
 ###  http://edugraph.io/edu#IntegerRoot
 edu:IntegerRoot rdf:type owl:NamedIndividual ,
-                         edu:Area ;
-                edu:expandsArea edu:IntegerExponentiation ;
-                edu:partOfArea edu:IntegerArithmetic ;
+                         edu:Skill ;
+                edu:partOf edu:IntegerArithmetic ;
+                edu:targetsArea edu:Root ;
                 rdfs:isDefinedBy """Finding the integer that, when raised to a certain power, produces a given integer.
 
 Example: The cube root of 64 is 4 because 4 ^ 3 = 64""" .
@@ -1580,10 +1588,9 @@ Example: The cube root of 64 is 4 because 4 ^ 3 = 64""" .
 
 ###  http://edugraph.io/edu#IntegerSubtraction
 edu:IntegerSubtraction rdf:type owl:NamedIndividual ,
-                                edu:Area ;
-                       edu:expandsArea edu:Difference ,
-                                       edu:IntegerAddition ;
-                       edu:partOfArea edu:IntegerArithmetic ;
+                                edu:Skill ;
+                       edu:partOf edu:IntegerArithmetic ;
+                       edu:targetsArea edu:Subtraction ;
                        rdfs:isDefinedBy """Finding the difference between two integers.
 
 Example: 10 - 6 = 4""" .
