@@ -1580,8 +1580,7 @@ Example: 4 * 3 = 12""" .
 edu:IntegerNotation rdf:type owl:NamedIndividual ,
                              edu:Area ;
                     edu:expandsArea edu:DigitNotation ;
-                    edu:partOfArea edu:Arithmetic ,
-                                   edu:NumberNotation ;
+                    edu:partOfArea edu:IntegerArithmetic ;
                     rdfs:isDefinedBy """Applying the system of symbols used to represent integers.
 
 Example: Using the symbols -3, 0, and 12 to represent integers.""" .
