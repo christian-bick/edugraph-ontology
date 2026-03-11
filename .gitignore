@@ -11,3 +11,4 @@
 core-ontology.properties
 
 dist/
+.env
