@@ -8,8 +8,7 @@
 *.njsproj
 *.sln
 *.sw?
-core-ontology.properties
-core-instances.properties
+*.properties
 
 dist/
 .env
