@@ -51,16 +51,6 @@ jobs:
           draft: false
           prerelease: ${{ !startsWith(github.ref, 'refs/tags/') }}
 
-      - name: Upload ontology.ttl
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/core-ontology.ttl
-          asset_name: core-ontology.ttl
-          asset_content_type: plain/turtle
-
       - name: Upload core-schema.ttl
         uses: actions/upload-release-asset@v1
         env:
