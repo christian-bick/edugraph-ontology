@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://edugraph.io/edu/> .
 
-<http://edugraph.io/edu> rdf:type owl:Ontology .
+<http://edugraph.io/edu/> rdf:type owl:Ontology .
 
 owl:imports <core-schema.ttl> .
 #owl:imports <https://github.com/christian-bick/edugraph-ontology/releases/download/preview-ba091e1b5eb4/core-schema.ttl> .
@@ -876,8 +876,8 @@ Example: 12/18 simplifies to 2/3 by dividing both by 6""" .
 
 ###  http://edugraph.io/edu#GeneralArithmetic
 :GeneralArithmetic rdf:type owl:NamedIndividual ,
-                               :Skill ;
-                      :targets :ArithmeticOperations ,
+                               edu:Competency ;
+                      edu:targets :ArithmeticOperations ,
                                       :NumberSystems .
 
 
@@ -1065,9 +1065,9 @@ Social Science:
 
 ###  http://edugraph.io/edu#IntegerAddition
 :IntegerAddition rdf:type owl:NamedIndividual ,
-                             :Skill ;
+                             edu:Competency ;
                     edu:partOf :IntegerArithmetic ;
-                    :targets :Addition ;
+                    edu:targets :Addition ;
                     rdfs:isDefinedBy """Adding two or more integers together.
 
 Example: 5 + 3 = 8""" .
@@ -1075,18 +1075,18 @@ Example: 5 + 3 = 8""" .
 
 ###  http://edugraph.io/edu#IntegerArithmetic
 :IntegerArithmetic rdf:type owl:NamedIndividual ,
-                               :Skill ;
+                               edu:Competency ;
                       edu:partOf :GeneralArithmetic ;
-                      :targets :ArithmeticOperations ,
+                      edu:targets :ArithmeticOperations ,
                                       :IntegerNumbers ;
                       rdfs:isDefinedBy "Performing arithmetic operations on integers." .
 
 
 ###  http://edugraph.io/edu#IntegerDivision
 :IntegerDivision rdf:type owl:NamedIndividual ,
-                             :Skill ;
+                             edu:Competency ;
                     edu:partOf :IntegerArithmetic ;
-                    :targets :Division ;
+                    edu:targets :Division ;
                     rdfs:isDefinedBy """Dividing one integer by another, which may result in a quotient and a remainder.
 
 Example: 17 / 5 = 3 remainder 2""" .
@@ -1094,9 +1094,9 @@ Example: 17 / 5 = 3 remainder 2""" .
 
 ###  http://edugraph.io/edu#IntegerExponentiation
 :IntegerExponentiation rdf:type owl:NamedIndividual ,
-                                   :Skill ;
+                                   edu:Competency ;
                           edu:partOf :IntegerArithmetic ;
-                          :targets :Exponentiation ;
+                          edu:targets :Exponentiation ;
                           rdfs:isDefinedBy """Raising an integer to a power, meaning multiplying it by itself a certain number of times.
 
 Example: 2 ^ 4 = 2 * 2 * 2 * 2 = 16""" .
@@ -1104,9 +1104,9 @@ Example: 2 ^ 4 = 2 * 2 * 2 * 2 = 16""" .
 
 ###  http://edugraph.io/edu#IntegerLogarithm
 :IntegerLogarithm rdf:type owl:NamedIndividual ,
-                              :Skill ;
+                              edu:Competency ;
                      edu:partOf :IntegerArithmetic ;
-                     :targets :Logarithm ;
+                     edu:targets :Logarithm ;
                      rdfs:isDefinedBy """Finding the exponent to which a base (an integer) must be raised to produce a given integer.
 
 Example: log₃ 81 = 4 because 3 ^ 4 = 81""" .
@@ -1114,9 +1114,9 @@ Example: log₃ 81 = 4 because 3 ^ 4 = 81""" .
 
 ###  http://edugraph.io/edu#IntegerMultiplication
 :IntegerMultiplication rdf:type owl:NamedIndividual ,
-                                   :Skill ;
+                                   edu:Competency ;
                           edu:partOf :IntegerArithmetic ;
-                          :targets :Multiplication ;
+                          edu:targets :Multiplication ;
                           rdfs:isDefinedBy """Multiplying two or multiple integers.
 
 Example: 4 * 3 = 12""" .
@@ -1148,9 +1148,9 @@ Example: Using the symbols -3, 0, and 12 to represent integers.""" .
 
 ###  http://edugraph.io/edu#IntegerRoot
 :IntegerRoot rdf:type owl:NamedIndividual ,
-                         :Skill ;
+                         edu:Competency ;
                 edu:partOf :IntegerArithmetic ;
-                :targets :Root ;
+                edu:targets :Root ;
                 rdfs:isDefinedBy """Finding the integer that, when raised to a certain power, produces a given integer.
 
 Example: The cube root of 64 is 4 because 4 ^ 3 = 64""" .
@@ -1158,9 +1158,9 @@ Example: The cube root of 64 is 4 because 4 ^ 3 = 64""" .
 
 ###  http://edugraph.io/edu#IntegerSubtraction
 :IntegerSubtraction rdf:type owl:NamedIndividual ,
-                                :Skill ;
+                                edu:Competency ;
                        edu:partOf :IntegerArithmetic ;
-                       :targets :Subtraction ;
+                       edu:targets :Subtraction ;
                        rdfs:isDefinedBy """Finding the difference between two integers.
 
 Example: 10 - 6 = 4""" .
