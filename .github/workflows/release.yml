@@ -61,24 +61,44 @@ jobs:
           asset_name: core-schema.ttl
           asset_content_type: plain/turtle
 
-      - name: Upload core-instances.ttl
+      - name: Upload core-abilities.ttl
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/core-instances.ttl
-          asset_name: core-instances.ttl
+          asset_path: ./dist/core-abilities.ttl
+          asset_name: core-abilities.ttl
           asset_content_type: plain/turtle
 
-      - name: Upload .rdf
+      - name: Upload core-areas-math.ttl
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/core-ontology.rdf
-          asset_name: core-ontology.rdf
+          asset_path: ./dist/core-areas-math.ttl
+          asset_name: core-areas-math.ttl
+          asset_content_type: plain/turtle
+
+      - name: Upload core-scopes-math.ttl
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist/core-scopes-math.ttl
+          asset_name: core-scopes-math.ttl
+          asset_content_type: plain/turtle
+
+      - name: Upload core-ontology-math.rdf
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist/core-ontology-math.rdf
+          asset_name: core-ontology-math.rdf
           asset_content_type: application/xml+rdf
 
       - name: Upload TypeScript Package

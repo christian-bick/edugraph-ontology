@@ -16,9 +16,11 @@ ENV JENA_HOME=${JENA_HOME_DIR}/${APACHE_JENA_NAME}
 ENV PATH=$PATH:${JENA_HOME}/bin
 
 COPY ./core-schema.ttl core-schema.ttl
-COPY ./core-instances.ttl core-instances.ttl
+COPY ./core-abilities.ttl core-abilities.ttl
+COPY ./core-areas-math.ttl core-areas-math.ttl
+COPY ./core-scopes-math.ttl core-scopes-math.ttl
 
-RUN riot --output=RDF/XML ${JENA_HOME_DIR}/core-schema.ttl ${JENA_HOME_DIR}/core-instances.ttl > core-ontology.rdf
+RUN riot --output=RDF/XML ${JENA_HOME_DIR}/core-schema.ttl ${JENA_HOME_DIR}/core-abilities.ttl ${JENA_HOME_DIR}/core-areas-math.ttl ${JENA_HOME_DIR}/core-scopes-math.ttl > core-ontology-math.rdf
 
 CMD [ "tail", "-f", "/dev/null" ]
 
@@ -27,8 +29,10 @@ FROM ghcr.io/astral-sh/uv:python3.13-alpine AS python-code-gen
 ARG JENA_HOME_DIR
 
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-schema.ttl core-schema.ttl
-COPY --from=ontology-formats ${JENA_HOME_DIR}/core-instances.ttl core-instances.ttl
-COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology.rdf core-ontology.rdf
+COPY --from=ontology-formats ${JENA_HOME_DIR}/core-abilities.ttl core-abilities.ttl
+COPY --from=ontology-formats ${JENA_HOME_DIR}/core-areas-math.ttl core-areas-math.ttl
+COPY --from=ontology-formats ${JENA_HOME_DIR}/core-scopes-math.ttl core-scopes-math.ttl
+COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology-math.rdf core-ontology-math.rdf
 COPY pyproject.toml uv.lock ./
 COPY ./.venv* ./.venv
 COPY ./src ./src
@@ -52,8 +56,10 @@ FROM scratch AS export
 ARG JENA_HOME_DIR
 
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-schema.ttl core-schema.ttl
-COPY --from=ontology-formats ${JENA_HOME_DIR}/core-instances.ttl core-instances.ttl
-COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology.rdf core-ontology.rdf
+COPY --from=ontology-formats ${JENA_HOME_DIR}/core-abilities.ttl core-abilities.ttl
+COPY --from=ontology-formats ${JENA_HOME_DIR}/core-areas-math.ttl core-areas-math.ttl
+COPY --from=ontology-formats ${JENA_HOME_DIR}/core-scopes-math.ttl core-scopes-math.ttl
+COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology-math.rdf core-ontology-math.rdf
 
 COPY --from=typescript-compiler /app/typescript/dist ./typescript/dist
 COPY --from=typescript-compiler /app/typescript/package.json ./typescript/package.json

@@ -2,7 +2,7 @@ from owlready2 import *
 import os
 
 # --- Main Configuration ---
-ONTOLOGY_FILE = "core-ontology.rdf"
+ONTOLOGY_FILE = "core-ontology-math.rdf"
 OUTPUT_DIR = "dist/typescript"
 BASE_IRI = "http://edugraph.io/edu#"
 

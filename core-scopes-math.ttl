@@ -1,0 +1,654 @@
+@prefix : <http://edugraph.io/edu/> .
+@prefix edu: <http://edugraph.io/edu#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://edugraph.io/edu/> .
+
+<http://edugraph.io/edu/> rdf:type owl:Ontology ;
+                           owl:imports edu: .
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://edugraph.io/edu/Abacus
+:Abacus rdf:type owl:NamedIndividual ,
+                 edu:Scope ;
+        edu:partOf :PhysicalNumbers ;
+        rdfs:isDefinedBy "Represents numbers with an abacus." .
+
+
+###  http://edugraph.io/edu/AbstractionScope
+:AbstractionScope rdf:type owl:NamedIndividual ,
+                           edu:Scope ;
+                  rdfs:isDefinedBy "Involves abstract concepts such as shapes or numbers." .
+
+
+###  http://edugraph.io/edu/AdditiveCount
+:AdditiveCount rdf:type owl:NamedIndividual ,
+                        edu:Scope ;
+               edu:partOf :QuantityMeasurement ;
+               rdfs:isDefinedBy "Counts manifested objects additively." .
+
+
+###  http://edugraph.io/edu/AnalogClock
+:AnalogClock rdf:type owl:NamedIndividual ,
+                      edu:Scope ;
+             edu:partOf :TimeMeasurement ;
+             rdfs:isDefinedBy "Involves an analog clock." .
+
+
+###  http://edugraph.io/edu/AngleMeasurement
+:AngleMeasurement rdf:type owl:NamedIndividual ,
+                           edu:Scope ;
+                  edu:partOf :MeasurementScope ;
+                  rdfs:isDefinedBy "Involves angle measurement." .
+
+
+###  http://edugraph.io/edu/ArabicNumerals
+:ArabicNumerals rdf:type owl:NamedIndividual ,
+                         edu:Scope ;
+                edu:partOf :Numerals ;
+                rdfs:isDefinedBy "Represents numbers with arabic numerals." .
+
+
+###  http://edugraph.io/edu/BalanceScale
+:BalanceScale rdf:type owl:NamedIndividual ,
+                       edu:Scope ;
+              edu:partOf :WeightMeasurement ;
+              rdfs:isDefinedBy "Involves a balance scale." .
+
+
+###  http://edugraph.io/edu/Base10
+:Base10 rdf:type owl:NamedIndividual ,
+                 edu:Scope ;
+        edu:partOf :NumericBase ;
+        rdfs:isDefinedBy "Represents numbers in base 10 (decimal)." .
+
+
+###  http://edugraph.io/edu/Base16
+:Base16 rdf:type owl:NamedIndividual ,
+                 edu:Scope ;
+        edu:partOf :NumericBase ;
+        rdfs:isDefinedBy "Represents numbers in base 16 (hexadecimal)." .
+
+
+###  http://edugraph.io/edu/Base2
+:Base2 rdf:type owl:NamedIndividual ,
+                edu:Scope ;
+       edu:partOf :NumericBase ;
+       rdfs:isDefinedBy "Represents numbers in base 2 (binary)." .
+
+
+###  http://edugraph.io/edu/Base8
+:Base8 rdf:type owl:NamedIndividual ,
+                edu:Scope ;
+       edu:partOf :NumericBase ;
+       rdfs:isDefinedBy "Represents numbers in base 8 (octal)." .
+
+
+###  http://edugraph.io/edu/BaseTenBlocks
+:BaseTenBlocks rdf:type owl:NamedIndividual ,
+                        edu:Scope ;
+               edu:partOf :PhysicalNumbers ;
+               rdfs:isDefinedBy "Represents numbers with a base ten blocks." .
+
+
+###  http://edugraph.io/edu/CartesianCoordinateSystem
+:CartesianCoordinateSystem rdf:type owl:NamedIndividual ,
+                                    edu:Scope ;
+                           edu:partOf :VisualGeometry ;
+                           rdfs:isDefinedBy "Represents functions and shapes in the cartesian coordinate system." .
+
+
+###  http://edugraph.io/edu/CentimeterScale
+:CentimeterScale rdf:type owl:NamedIndividual ,
+                          edu:Scope ;
+                 edu:partOf :MetricScale ;
+                 rdfs:isDefinedBy "Involves distances expressed in centimeters." .
+
+
+###  http://edugraph.io/edu/CountingSymbols
+:CountingSymbols rdf:type owl:NamedIndividual ,
+                          edu:Scope ;
+                 edu:partOf :VisualNumbers ;
+                 rdfs:isDefinedBy "Involves counting symbols." .
+
+
+###  http://edugraph.io/edu/DayIntervals
+:DayIntervals rdf:type owl:NamedIndividual ,
+                       edu:Scope ;
+              rdfs:isDefinedBy "Time expressed in intervals of days." .
+
+
+###  http://edugraph.io/edu/DerivedCount
+:DerivedCount rdf:type owl:NamedIndividual ,
+                       edu:Scope ;
+              edu:partOf :QuantityMeasurement ;
+              rdfs:isDefinedBy "Counts manifested objects based on logical derivation of know facts." .
+
+
+###  http://edugraph.io/edu/DigitalClock
+:DigitalClock rdf:type owl:NamedIndividual ,
+                       edu:Scope ;
+              edu:partOf :TimeMeasurement ;
+              rdfs:isDefinedBy "Involves a digital clock." .
+
+
+###  http://edugraph.io/edu/DigitalScale
+:DigitalScale rdf:type owl:NamedIndividual ,
+                       edu:Scope ;
+              edu:partOf :WeightMeasurement ;
+              rdfs:isDefinedBy "Involves a digital scale." .
+
+
+###  http://edugraph.io/edu/DimensionalAbstraction
+:DimensionalAbstraction rdf:type owl:NamedIndividual ,
+                                 edu:Scope ;
+                        edu:partOf :AbstractionScope ;
+                        rdfs:isDefinedBy "Involves spatial dimensions with or without time or hyperdimensional concepts." .
+
+
+###  http://edugraph.io/edu/DistanceAbstraction
+:DistanceAbstraction rdf:type owl:NamedIndividual ,
+                              edu:Scope ;
+                     edu:partOf :AbstractionScope .
+
+
+###  http://edugraph.io/edu/FourDimensional
+:FourDimensional rdf:type owl:NamedIndividual ,
+                          edu:Scope ;
+                 edu:partOf :DimensionalAbstraction ;
+                 rdfs:isDefinedBy "Involves three spatial dimensions and time." .
+
+
+###  http://edugraph.io/edu/Geoboard
+:Geoboard rdf:type owl:NamedIndividual ,
+                   edu:Scope ;
+          edu:partOf :PhysicalGeometry ;
+          rdfs:isDefinedBy "Represents geometric shapes with a geoboard." .
+
+
+###  http://edugraph.io/edu/GeometryRepresentation
+:GeometryRepresentation rdf:type owl:NamedIndividual ,
+                                 edu:Scope ;
+                        edu:partOf :RepresentationalScope ;
+                        rdfs:isDefinedBy "Involves a geometric representation." .
+
+
+###  http://edugraph.io/edu/HourIntervals
+:HourIntervals rdf:type owl:NamedIndividual ,
+                        edu:Scope ;
+               edu:partOf :TimeIntervals ;
+               rdfs:isDefinedBy "Time expressed in intervals of hours in a day." .
+
+
+###  http://edugraph.io/edu/HyperDimensional
+:HyperDimensional rdf:type owl:NamedIndividual ,
+                           edu:Scope ;
+                  edu:partOf :DimensionalAbstraction ;
+                  rdfs:isDefinedBy "Involves more dimensions than three spatial dimensions and time." .
+
+
+###  http://edugraph.io/edu/KilometerScale
+:KilometerScale rdf:type owl:NamedIndividual ,
+                         edu:Scope ;
+                edu:partOf :MetricScale ;
+                rdfs:isDefinedBy "involves distances expressed in kilometers." .
+
+
+###  http://edugraph.io/edu/LaserRuler
+:LaserRuler rdf:type owl:NamedIndividual ,
+                     edu:Scope ;
+            edu:partOf :LengthMeasurement ;
+            rdfs:isDefinedBy "Involves a laser ruler." .
+
+
+###  http://edugraph.io/edu/LengthMeasurement
+:LengthMeasurement rdf:type owl:NamedIndividual ,
+                            edu:Scope ;
+                   edu:partOf :MeasurementScope ;
+                   rdfs:isDefinedBy "Involves length measurement." .
+
+
+###  http://edugraph.io/edu/LinkingCubes
+:LinkingCubes rdf:type owl:NamedIndividual ,
+                       edu:Scope ;
+              edu:partOf :PhysicalNumbers ;
+              rdfs:isDefinedBy "Represents numbers with linking cubes." .
+
+
+###  http://edugraph.io/edu/LiquidVolumes
+:LiquidVolumes rdf:type owl:NamedIndividual ,
+                        edu:Scope ;
+               edu:partOf :VolumeMeasurement ;
+               rdfs:isDefinedBy "Involves liquid volumes." .
+
+
+###  http://edugraph.io/edu/MeasurementScope
+:MeasurementScope rdf:type owl:NamedIndividual ,
+                           edu:Scope ;
+                  rdfs:isDefinedBy "Involves the measurement of manifested objects shapes." .
+
+
+###  http://edugraph.io/edu/MeterScale
+:MeterScale rdf:type owl:NamedIndividual ,
+                     edu:Scope ;
+            edu:partOf :MetricScale ;
+            rdfs:isDefinedBy "Involves distance expressed in meters." .
+
+
+###  http://edugraph.io/edu/MetricScale
+:MetricScale rdf:type owl:NamedIndividual ,
+                      edu:Scope ;
+             edu:partOf :DistanceAbstraction ;
+             rdfs:isDefinedBy "Involves distances expressed in meters." .
+
+
+###  http://edugraph.io/edu/MicrometerScale
+:MicrometerScale rdf:type owl:NamedIndividual ,
+                          edu:Scope ;
+                 edu:partOf :MetricScale ;
+                 rdfs:isDefinedBy "involves distances expressed in micrometers." .
+
+
+###  http://edugraph.io/edu/MillimeterScale
+:MillimeterScale rdf:type owl:NamedIndividual ,
+                          edu:Scope ;
+                 edu:partOf :MetricScale ;
+                 rdfs:isDefinedBy "Involves distances expressed in millimeters" .
+
+
+###  http://edugraph.io/edu/MinuteIntervals
+:MinuteIntervals rdf:type owl:NamedIndividual ,
+                          edu:Scope ;
+                 edu:partOf :TimeIntervals ;
+                 rdfs:isDefinedBy "Time expressed an intervals of minutes." .
+
+
+###  http://edugraph.io/edu/MonthIntervals
+:MonthIntervals rdf:type owl:NamedIndividual ,
+                         edu:Scope ;
+                edu:partOf :TimeIntervals ;
+                rdfs:isDefinedBy "Time expressed in intervals of months." .
+
+
+###  http://edugraph.io/edu/NanometerScale
+:NanometerScale rdf:type owl:NamedIndividual ,
+                         edu:Scope ;
+                edu:partOf :MetricScale ;
+                rdfs:isDefinedBy "Involves distances expressed in nanometers." .
+
+
+###  http://edugraph.io/edu/NumberRepresentation
+:NumberRepresentation rdf:type owl:NamedIndividual ,
+                               edu:Scope ;
+                      edu:partOf :RepresentationalScope ;
+                      rdfs:isDefinedBy "Represents numbers." .
+
+
+###  http://edugraph.io/edu/NumberTiles
+:NumberTiles rdf:type owl:NamedIndividual ,
+                      edu:Scope ;
+             edu:partOf :VisualNumbers ;
+             rdfs:isDefinedBy "Involves number tiles." .
+
+
+###  http://edugraph.io/edu/Numberline
+:Numberline rdf:type owl:NamedIndividual ,
+                     edu:Scope ;
+            edu:partOf :SpatialNumbers ;
+            rdfs:isDefinedBy "Represents numbers with a number line." .
+
+
+###  http://edugraph.io/edu/NumbersLarger10
+:NumbersLarger10 rdf:type owl:NamedIndividual ,
+                          edu:Scope ;
+                 edu:partOf :NumericRange ;
+                 rdfs:isDefinedBy "Only involves numbers larger than 10." .
+
+
+###  http://edugraph.io/edu/NumbersLarger100
+:NumbersLarger100 rdf:type owl:NamedIndividual ,
+                           edu:Scope ;
+                  edu:includes :NumbersLarger20 ;
+                  edu:partOf :NumericRange ;
+                  rdfs:isDefinedBy "Only involves numbers larger than 100." .
+
+
+###  http://edugraph.io/edu/NumbersLarger1000
+:NumbersLarger1000 rdf:type owl:NamedIndividual ,
+                            edu:Scope ;
+                   edu:includes :NumbersLarger100 ;
+                   edu:partOf :NumericRange ;
+                   rdfs:isDefinedBy "Only involves numbers larger than 1000." .
+
+
+###  http://edugraph.io/edu/NumbersLarger20
+:NumbersLarger20 rdf:type owl:NamedIndividual ,
+                          edu:Scope ;
+                 edu:includes :NumbersLarger10 ;
+                 edu:partOf :NumericRange ;
+                 rdfs:isDefinedBy "Only Involves numbers larger than 20." .
+
+
+###  http://edugraph.io/edu/NumbersSmaller10
+:NumbersSmaller10 rdf:type owl:NamedIndividual ,
+                           edu:Scope ;
+                  edu:includes :NumbersSmaller20 ;
+                  edu:partOf :NumericRange ;
+                  rdfs:isDefinedBy "Only involves numbers smaller than 10" .
+
+
+###  http://edugraph.io/edu/NumbersSmaller100
+:NumbersSmaller100 rdf:type owl:NamedIndividual ,
+                            edu:Scope ;
+                   edu:includes :NumbersSmaller1000 ;
+                   edu:partOf :NumericRange ;
+                   rdfs:isDefinedBy "Only involves numbers smaller than 100" .
+
+
+###  http://edugraph.io/edu/NumbersSmaller1000
+:NumbersSmaller1000 rdf:type owl:NamedIndividual ,
+                             edu:Scope ;
+                    edu:partOf :NumericRange ;
+                    rdfs:isDefinedBy "Only involves numbers smaller than 1000" .
+
+
+###  http://edugraph.io/edu/NumbersSmaller20
+:NumbersSmaller20 rdf:type owl:NamedIndividual ,
+                           edu:Scope ;
+                  edu:includes :NumbersSmaller100 ;
+                  edu:partOf :NumericRange ;
+                  rdfs:isDefinedBy "Only involves numbers smaller than 20" .
+
+
+###  http://edugraph.io/edu/NumbersWithNegatives
+:NumbersWithNegatives rdf:type owl:NamedIndividual ,
+                               edu:Scope ;
+                      edu:expands :NumbersWithoutNegatives ;
+                      edu:partOf :NumericRange ;
+                      rdfs:isDefinedBy "Involves negative numbers." .
+
+
+###  http://edugraph.io/edu/NumbersWithZero
+:NumbersWithZero rdf:type owl:NamedIndividual ,
+                          edu:Scope ;
+                 edu:expands :NumbersWithoutZero ;
+                 edu:partOf :NumericRange ;
+                 rdfs:isDefinedBy "Involves zero as a number." .
+
+
+###  http://edugraph.io/edu/NumbersWithoutNegatives
+:NumbersWithoutNegatives rdf:type owl:NamedIndividual ,
+                                  edu:Scope ;
+                         edu:partOf :NumericRange ;
+                         rdfs:isDefinedBy "Does not involve negative numbers." .
+
+
+###  http://edugraph.io/edu/NumbersWithoutZero
+:NumbersWithoutZero rdf:type owl:NamedIndividual ,
+                             edu:Scope ;
+                    edu:partOf :NumericRange ;
+                    rdfs:isDefinedBy "Does not involve zero as a number." .
+
+
+###  http://edugraph.io/edu/Numerals
+:Numerals rdf:type owl:NamedIndividual ,
+                   edu:Scope ;
+          edu:partOf :NumberRepresentation ;
+          rdfs:isDefinedBy "Represents numbers with numerals." .
+
+
+###  http://edugraph.io/edu/NumericAbstraction
+:NumericAbstraction rdf:type owl:NamedIndividual ,
+                             edu:Scope ;
+                    edu:partOf :AbstractionScope ;
+                    rdfs:isDefinedBy "Involves numbers or number concepts." .
+
+
+###  http://edugraph.io/edu/NumericBase
+:NumericBase rdf:type owl:NamedIndividual ,
+                      edu:Scope ;
+             edu:partOf :NumericAbstraction ;
+             rdfs:isDefinedBy "Involves numbers with a certain numeric base." .
+
+
+###  http://edugraph.io/edu/NumericRange
+:NumericRange rdf:type owl:NamedIndividual ,
+                       edu:Scope ;
+              edu:partOf :NumericAbstraction ;
+              rdfs:isDefinedBy "Involves numbers within a certain range." .
+
+
+###  http://edugraph.io/edu/OneDimensional
+:OneDimensional rdf:type owl:NamedIndividual ,
+                         edu:Scope ;
+                edu:partOf :DimensionalAbstraction ;
+                rdfs:isDefinedBy "Involves one spatial dimension." .
+
+
+###  http://edugraph.io/edu/Patternblocks
+:Patternblocks rdf:type owl:NamedIndividual ,
+                        edu:Scope ;
+               edu:partOf :PhysicalGeometry ;
+               rdfs:isDefinedBy "Represents geometric shapes with a pattern block." .
+
+
+###  http://edugraph.io/edu/PhysicalGeometry
+:PhysicalGeometry rdf:type owl:NamedIndividual ,
+                           edu:Scope ;
+                  edu:partOf :GeometryRepresentation ;
+                  rdfs:isDefinedBy "Represents geometric shapes with physical objects." .
+
+
+###  http://edugraph.io/edu/PhysicalNumbers
+:PhysicalNumbers rdf:type owl:NamedIndividual ,
+                          edu:Scope ;
+                 edu:partOf :NumberRepresentation ;
+                 rdfs:isDefinedBy "Represents numbers with physical objects." .
+
+
+###  http://edugraph.io/edu/PhysicalRuler
+:PhysicalRuler rdf:type owl:NamedIndividual ,
+                        edu:Scope ;
+               edu:partOf :LengthMeasurement ;
+               rdfs:isDefinedBy "Involves a physical ruler." .
+
+
+###  http://edugraph.io/edu/Protractor
+:Protractor rdf:type owl:NamedIndividual ,
+                     edu:Scope ;
+            edu:partOf :AngleMeasurement ;
+            rdfs:isDefinedBy "Involves a protractor." .
+
+
+###  http://edugraph.io/edu/QuantityMeasurement
+:QuantityMeasurement rdf:type owl:NamedIndividual ,
+                              edu:Scope ;
+                     edu:partOf :MeasurementScope ;
+                     rdfs:isDefinedBy "Involves the measurement of object quantities." .
+
+
+###  http://edugraph.io/edu/RepresentationalScope
+:RepresentationalScope rdf:type owl:NamedIndividual ,
+                                edu:Scope ;
+                       rdfs:isDefinedBy "Involves a form of representation such as geometric shapes or numbers." .
+
+
+###  http://edugraph.io/edu/RodNumerals
+:RodNumerals rdf:type owl:NamedIndividual ,
+                      edu:Scope ;
+             edu:partOf :Numerals ;
+             rdfs:isDefinedBy "Represents numbers with rod numerals." .
+
+
+###  http://edugraph.io/edu/RomanNumerals
+:RomanNumerals rdf:type owl:NamedIndividual ,
+                        edu:Scope ;
+               edu:partOf :Numerals ;
+               rdfs:isDefinedBy "Represents numbers with roman numerals." .
+
+
+###  http://edugraph.io/edu/SandClock
+:SandClock rdf:type owl:NamedIndividual ,
+                    edu:Scope ;
+           edu:partOf :TimeMeasurement ;
+           rdfs:isDefinedBy "Involves a sand clock." .
+
+
+###  http://edugraph.io/edu/SecondIntervals
+:SecondIntervals rdf:type owl:NamedIndividual ,
+                          edu:Scope ;
+                 edu:partOf :TimeIntervals ;
+                 rdfs:isDefinedBy "Time expressed in intervals of seconds." .
+
+
+###  http://edugraph.io/edu/SpatialNumbers
+:SpatialNumbers rdf:type owl:NamedIndividual ,
+                         edu:Scope ;
+                edu:partOf :NumberRepresentation .
+
+
+###  http://edugraph.io/edu/Stopwatch
+:Stopwatch rdf:type owl:NamedIndividual ,
+                    edu:Scope ;
+           edu:partOf :TimeMeasurement ;
+           rdfs:isDefinedBy "Involves a stop watch." .
+
+
+###  http://edugraph.io/edu/SubtractiveCount
+:SubtractiveCount rdf:type owl:NamedIndividual ,
+                           edu:Scope ;
+                  edu:partOf :QuantityMeasurement ;
+                  rdfs:isDefinedBy "Counts manifested objects by counting what's missing." .
+
+
+###  http://edugraph.io/edu/Sunclock
+:Sunclock rdf:type owl:NamedIndividual ,
+                   edu:Scope ;
+          edu:partOf :TimeMeasurement ;
+          rdfs:isDefinedBy "Involves a sun clock." .
+
+
+###  http://edugraph.io/edu/Tangrams
+:Tangrams rdf:type owl:NamedIndividual ,
+                   edu:Scope ;
+          edu:partOf :PhysicalGeometry ;
+          rdfs:isDefinedBy "Represents geometric shapes with tangrams." .
+
+
+###  http://edugraph.io/edu/Tapemeter
+:Tapemeter rdf:type owl:NamedIndividual ,
+                    edu:Scope ;
+           edu:partOf :LengthMeasurement ;
+           rdfs:isDefinedBy "Involves a tape meter." .
+
+
+###  http://edugraph.io/edu/TemperatureMeasurement
+:TemperatureMeasurement rdf:type owl:NamedIndividual ,
+                                 edu:Scope ;
+                        edu:partOf :MeasurementScope ;
+                        rdfs:isDefinedBy "Involves temperature measurement." .
+
+
+###  http://edugraph.io/edu/TenFrame
+:TenFrame rdf:type owl:NamedIndividual ,
+                   edu:Scope ;
+          edu:partOf :VisualNumbers ;
+          rdfs:isDefinedBy "Involves a ten frame: Typically a table with 2 rows and 5 columns where numbers are indicated by filled cells starting at the top left." .
+
+
+###  http://edugraph.io/edu/Thermometer
+:Thermometer rdf:type owl:NamedIndividual ,
+                      edu:Scope ;
+             edu:partOf :TemperatureMeasurement ;
+             rdfs:isDefinedBy "Involves a thermometer." .
+
+
+###  http://edugraph.io/edu/ThreeDimensional
+:ThreeDimensional rdf:type owl:NamedIndividual ,
+                           edu:Scope ;
+                  edu:partOf :DimensionalAbstraction ;
+                  rdfs:isDefinedBy "Involves three spatial dimensions." .
+
+
+###  http://edugraph.io/edu/TimeAbstraction
+:TimeAbstraction rdf:type owl:NamedIndividual ,
+                          edu:Scope ;
+                 edu:partOf :AbstractionScope .
+
+
+###  http://edugraph.io/edu/TimeIntervals
+:TimeIntervals rdf:type owl:NamedIndividual ,
+                        edu:Scope ;
+               edu:partOf :TimeAbstraction .
+
+
+###  http://edugraph.io/edu/TimeMeasurement
+:TimeMeasurement rdf:type owl:NamedIndividual ,
+                          edu:Scope ;
+                 edu:partOf :MeasurementScope ;
+                 rdfs:isDefinedBy "Involves time measurement." .
+
+
+###  http://edugraph.io/edu/TriangleRuler
+:TriangleRuler rdf:type owl:NamedIndividual ,
+                        edu:Scope ;
+               edu:partOf :AngleMeasurement ;
+               rdfs:isDefinedBy "Involves a triangle ruler." .
+
+
+###  http://edugraph.io/edu/TwoDimensional
+:TwoDimensional rdf:type owl:NamedIndividual ,
+                         edu:Scope ;
+                edu:partOf :DimensionalAbstraction ;
+                rdfs:isDefinedBy "Involves two spatial dimensions." .
+
+
+###  http://edugraph.io/edu/VisualGeometry
+:VisualGeometry rdf:type owl:NamedIndividual ,
+                         edu:Scope ;
+                edu:partOf :GeometryRepresentation ;
+                rdfs:isDefinedBy "Represents geometric shapes visually (yet not in as physical objects)." .
+
+
+###  http://edugraph.io/edu/VisualNumbers
+:VisualNumbers rdf:type owl:NamedIndividual ,
+                        edu:Scope ;
+               edu:partOf :NumberRepresentation ;
+               rdfs:isDefinedBy "Represents numbers visually (yet not as physical objects nor as numerals)." .
+
+
+###  http://edugraph.io/edu/VolumeMeasurement
+:VolumeMeasurement rdf:type owl:NamedIndividual ,
+                            edu:Scope ;
+                   edu:partOf :MeasurementScope ;
+                   rdfs:isDefinedBy "Involves volume measurement." .
+
+
+###  http://edugraph.io/edu/WeekIntervals
+:WeekIntervals rdf:type owl:NamedIndividual ,
+                        edu:Scope ;
+               edu:partOf :TimeIntervals ;
+               rdfs:isDefinedBy "Time expressed as intervals of weeks." .
+
+
+###  http://edugraph.io/edu/WeightMeasurement
+:WeightMeasurement rdf:type owl:NamedIndividual ,
+                            edu:Scope ;
+                   edu:partOf :MeasurementScope ;
+                   rdfs:isDefinedBy "Involves weight measurement." .
+
+
+###  http://edugraph.io/edu/YearIntervals
+:YearIntervals rdf:type owl:NamedIndividual ,
+                        edu:Scope ;
+               edu:partOf :TimeIntervals ;
+               rdfs:isDefinedBy "Time expressed in intervals of years." .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

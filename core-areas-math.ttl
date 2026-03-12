@@ -1,0 +1,520 @@
+@prefix : <http://edugraph.io/edu/> .
+@prefix edu: <http://edugraph.io/edu#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://edugraph.io/edu/> .
+
+<http://edugraph.io/edu/> rdf:type owl:Ontology ;
+                           owl:imports edu: .
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://edugraph.io/edu/Addition
+:Addition rdf:type owl:NamedIndividual ,
+                   edu:Area ;
+          edu:expands :Sum ;
+          edu:partOf :ArithmeticOperations ;
+          rdfs:isDefinedBy """Adding two or more integers together.
+
+Example: 5 + 3 = 8""" .
+
+
+###  http://edugraph.io/edu/Algebra
+:Algebra rdf:type owl:NamedIndividual ,
+                  edu:Area ;
+         rdfs:isDefinedBy "The branch of mathematics that generalizes arithmetics and where letters represent unknown numbers, allowing us to explore patterns, solve equations, and model real-world situations." .
+
+
+###  http://edugraph.io/edu/Analysis
+:Analysis rdf:type owl:NamedIndividual ,
+                   edu:Area ;
+          rdfs:isDefinedBy "The branch of mathematics that deals with continuous change and investigates concepts like limits, continuity, derivatives, integrals, and infinite series to study functions, their properties, and their behavior." .
+
+
+###  http://edugraph.io/edu/Arithmetic
+:Arithmetic rdf:type owl:NamedIndividual ,
+                     edu:Area ;
+            rdfs:isDefinedBy "The branch of mathematics that deals with the properties and manipulation of numbers, including addition, subtraction, multiplication and division." .
+
+
+###  http://edugraph.io/edu/ArithmeticOperations
+:ArithmeticOperations rdf:type owl:NamedIndividual ,
+                               edu:Area ;
+                      edu:partOf :Arithmetic .
+
+
+###  http://edugraph.io/edu/BaseOperations
+:BaseOperations rdf:type owl:NamedIndividual ,
+                         edu:Area ;
+                edu:partOf :NumberSense ;
+                rdfs:isDefinedBy "Base operations are the fundamental arithmetic actions performed on numbers that all other arithmetic operations are based one." .
+
+
+###  http://edugraph.io/edu/Calculus
+:Calculus rdf:type owl:NamedIndividual ,
+                   edu:Area ;
+          rdfs:isDefinedBy "The branch of mathematics that provides tools for analyzing rates of change and accumulation. It deals with instantaneous rates of change that affect the slopes of curves, as well as with accumulation that affects areas under curves." .
+
+
+###  http://edugraph.io/edu/CircularShapeDrawing
+:CircularShapeDrawing rdf:type owl:NamedIndividual ,
+                               edu:Area ;
+                      edu:partOf :SpatialModelling ;
+                      rdfs:isDefinedBy "Circular shape drawing is the ability to create drawings or models of circular shapes." .
+
+
+###  http://edugraph.io/edu/ComputationalMathematics
+:ComputationalMathematics rdf:type owl:NamedIndividual ,
+                                   edu:Area ;
+                          rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers." .
+
+
+###  http://edugraph.io/edu/DecimalNotation
+:DecimalNotation rdf:type owl:NamedIndividual ,
+                          edu:Area ;
+                 edu:expands :IntegerNotation ;
+                 edu:partOf :DecimalNumbers ;
+                 rdfs:isDefinedBy "Applying the decimal system of representing rational numbers using a base-ten place value system and a decimal point to separate whole and fractional parts." .
+
+
+###  http://edugraph.io/edu/DecimalNumbers
+:DecimalNumbers rdf:type owl:NamedIndividual ,
+                         edu:Area ;
+                edu:partOf :RationalNumbers .
+
+
+###  http://edugraph.io/edu/Decrement
+:Decrement rdf:type owl:NamedIndividual ,
+                    edu:Area ;
+           edu:expands :Increment ;
+           edu:partOf :BaseOperations ;
+           rdfs:isDefinedBy "Reducing a quantity by a specific amount." .
+
+
+###  http://edugraph.io/edu/Difference
+:Difference rdf:type owl:NamedIndividual ,
+                     edu:Area ;
+            edu:expands :Decrement ;
+            edu:partOf :BaseOperations ;
+            rdfs:isDefinedBy "Determining the difference in quantities of mathematical object, including numbers where difference represents the amount by which one quantity is greater or less than another." .
+
+
+###  http://edugraph.io/edu/DigitNotation
+:DigitNotation rdf:type owl:NamedIndividual ,
+                        edu:Area ;
+               edu:partOf :NumberNotation ;
+               rdfs:isDefinedBy "Digit notation uses symbols from 0 to 9 to represent any number." .
+
+
+###  http://edugraph.io/edu/Division
+:Division rdf:type owl:NamedIndividual ,
+                   edu:Area ;
+          edu:expands :Multiplication ;
+          edu:partOf :ArithmeticOperations ;
+          rdfs:isDefinedBy """Dividing one integer by another, which may result in a quotient and a remainder.
+
+Example: 17 / 5 = 3 remainder 2""" .
+
+
+###  http://edugraph.io/edu/EllipticShapeDrawing
+:EllipticShapeDrawing rdf:type owl:NamedIndividual ,
+                               edu:Area ;
+                      edu:partOf :SpatialModelling ;
+                      rdfs:isDefinedBy "Elliptical shape drawing is the ability to create drawings or models of elliptical shapes." .
+
+
+###  http://edugraph.io/edu/Exponentiation
+:Exponentiation rdf:type owl:NamedIndividual ,
+                         edu:Area ;
+                edu:expands :Multiplication ;
+                edu:partOf :ArithmeticOperations ;
+                rdfs:isDefinedBy """Raising an integer to a power, meaning multiplying it by itself a certain number of times.
+
+Example: 2 ^ 4 = 2 * 2 * 2 * 2 = 16""" .
+
+
+###  http://edugraph.io/edu/FloatingPoint
+:FloatingPoint rdf:type owl:NamedIndividual ,
+                        edu:Area ;
+               edu:expands :DecimalNotation ;
+               edu:partOf :DecimalNumbers .
+
+
+###  http://edugraph.io/edu/FractionNotation
+:FractionNotation rdf:type owl:NamedIndividual ,
+                           edu:Area ;
+                  edu:expands :IntegerNotation ,
+                              :ProportionAbstraction ;
+                  edu:partOf :FractionNumbers ;
+                  rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator." .
+
+
+###  http://edugraph.io/edu/FractionNumbers
+:FractionNumbers rdf:type owl:NamedIndividual ,
+                          edu:Area ;
+                 edu:expands :Division ;
+                 edu:partOf :RationalNumbers .
+
+
+###  http://edugraph.io/edu/FractionSimplification
+:FractionSimplification rdf:type owl:NamedIndividual ,
+                                 edu:Area ;
+                        edu:expands :Division ,
+                                    :RatioEquivalence ;
+                        edu:partOf :FractionNumbers ;
+                        rdfs:isDefinedBy """Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.
+
+Example: 12/18 simplifies to 2/3 by dividing both by 6""" .
+
+
+###  http://edugraph.io/edu/Geometry
+:Geometry rdf:type owl:NamedIndividual ,
+                   edu:Area ;
+          rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids." .
+
+
+###  http://edugraph.io/edu/Increment
+:Increment rdf:type owl:NamedIndividual ,
+                    edu:Area ;
+           edu:partOf :BaseOperations ;
+           rdfs:isDefinedBy "Raising a quantity by a certain amount." .
+
+
+###  http://edugraph.io/edu/IntegerNotation
+:IntegerNotation rdf:type owl:NamedIndividual ,
+                          edu:Area ;
+                 edu:expands :DigitNotation ;
+                 edu:partOf :IntegerNumbers ;
+                 rdfs:isDefinedBy """Applying the system of symbols used to represent integers.
+
+Example: Using the symbols -3, 0, and 12 to represent integers.""" .
+
+
+###  http://edugraph.io/edu/IntegerNumbers
+:IntegerNumbers rdf:type owl:NamedIndividual ,
+                         edu:Area ;
+                edu:expands :NumerationWithIntegers ;
+                edu:partOf :NumberSystems .
+
+
+###  http://edugraph.io/edu/IntegerRegrouping
+:IntegerRegrouping rdf:type owl:NamedIndividual ,
+                            edu:Area ;
+                   edu:expands :IntegerNotation ;
+                   edu:partOf :IntegerNumbers .
+
+
+###  http://edugraph.io/edu/IntervalsWithInfinity
+:IntervalsWithInfinity rdf:type owl:NamedIndividual ,
+                                edu:Area ;
+                       edu:partOf :NumerationWithIntervals .
+
+
+###  http://edugraph.io/edu/IntuitiveMathematics
+:IntuitiveMathematics rdf:type owl:NamedIndividual ,
+                               edu:Area ;
+                      rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts." .
+
+
+###  http://edugraph.io/edu/IrrationalNumbers
+:IrrationalNumbers rdf:type owl:NamedIndividual ,
+                            edu:Area ;
+                   edu:expands :RationalNumbers ;
+                   edu:partOf :NumberSystems .
+
+
+###  http://edugraph.io/edu/LinearShapeDrawing
+:LinearShapeDrawing rdf:type owl:NamedIndividual ,
+                             edu:Area ;
+                    edu:partOf :SpatialModelling ;
+                    rdfs:isDefinedBy "Linear shape drawing is the ability to create drawings or models of shapes with straight sides." .
+
+
+###  http://edugraph.io/edu/Logarithm
+:Logarithm rdf:type owl:NamedIndividual ,
+                    edu:Area ;
+           edu:expands :Exponentiation ;
+           edu:partOf :ArithmeticOperations ;
+           rdfs:isDefinedBy """Finding the exponent to which a base (an integer) must be raised to produce a given integer.
+
+Example: log₃ 81 = 4 because 3 ^ 4 = 81""" .
+
+
+###  http://edugraph.io/edu/Logic
+:Logic rdf:type owl:NamedIndividual ,
+                edu:Area ;
+       rdfs:isDefinedBy "The branch of mathematics that studies reasoning and valid arguments. It provides a framework for determining whether something is true or false based on given premises. It is the foundation for constructing proofs, ensuring that conclusions follow logically from their premises." .
+
+
+###  http://edugraph.io/edu/LowestCommonDenominator
+:LowestCommonDenominator rdf:type owl:NamedIndividual ,
+                                  edu:Area ;
+                         edu:partOf :FractionNumbers ;
+                         rdfs:isDefinedBy """Finding the smallest common multiple of the denominators of two or more fractions.
+
+Example: The lowest common denominator of 1/4 and 1/6 is 12.""" .
+
+
+###  http://edugraph.io/edu/Measurement
+:Measurement rdf:type owl:NamedIndividual ,
+                      edu:Area ;
+             edu:partOf :SpatialSense ;
+             rdfs:isDefinedBy "Measurement is the process of assigning numbers to describe the properties of objects, such as length, weight, or volume." .
+
+
+###  http://edugraph.io/edu/MeasuringObjects
+:MeasuringObjects rdf:type owl:NamedIndividual ,
+                           edu:Area ;
+                  edu:partOf :Measurement ;
+                  rdfs:isDefinedBy "Measuring objects involves determining their physical dimensions using appropriate tools and units." .
+
+
+###  http://edugraph.io/edu/MeasuringTime
+:MeasuringTime rdf:type owl:NamedIndividual ,
+                        edu:Area ;
+               edu:partOf :Measurement ;
+               rdfs:isDefinedBy "Measuring time involves quantifying the duration of events or the intervals between them." .
+
+
+###  http://edugraph.io/edu/Multiplication
+:Multiplication rdf:type owl:NamedIndividual ,
+                         edu:Area ;
+                edu:expands :Addition ;
+                edu:partOf :ArithmeticOperations ;
+                rdfs:isDefinedBy """Multiplying two or multiple integers.
+
+Example: 4 * 3 = 12""" .
+
+
+###  http://edugraph.io/edu/NumberNotation
+:NumberNotation rdf:type owl:NamedIndividual ,
+                         edu:Area ;
+                edu:partOf :NumberSense ;
+                rdfs:isDefinedBy "Number notation is the system of symbols and rules used to express numerical values." .
+
+
+###  http://edugraph.io/edu/NumberSense
+:NumberSense rdf:type owl:NamedIndividual ,
+                      edu:Area ;
+             edu:partOf :IntuitiveMathematics ;
+             rdfs:isDefinedBy "Number sense is the intuitive understanding of numbers, their magnitudes, and how they relate to each other." .
+
+
+###  http://edugraph.io/edu/NumberSystems
+:NumberSystems rdf:type owl:NamedIndividual ,
+                        edu:Area ;
+               edu:partOf :Arithmetic .
+
+
+###  http://edugraph.io/edu/NumberTheory
+:NumberTheory rdf:type owl:NamedIndividual ,
+                       edu:Area ;
+              rdfs:isDefinedBy "The branch of mathematics that studies the properties of numbers, particularly integers (whole numbers). It explores things like prime numbers, divisibility, and number patterns." .
+
+
+###  http://edugraph.io/edu/Numeration
+:Numeration rdf:type owl:NamedIndividual ,
+                     edu:Area ;
+            edu:partOf :NumberSense ;
+            rdfs:isDefinedBy "Numeration encompasses counting, ordering, and grouping numbers." .
+
+
+###  http://edugraph.io/edu/NumerationWithIntegers
+:NumerationWithIntegers rdf:type owl:NamedIndividual ,
+                                 edu:Area ;
+                        edu:expands :Increment ,
+                                    :IntegerNotation ,
+                                    :NumericOrder ;
+                        edu:partOf :Numeration ;
+                        rdfs:isDefinedBy "Numeration with integers includes understanding the sequence and magnitude of whole numbers." .
+
+
+###  http://edugraph.io/edu/NumerationWithIntervals
+:NumerationWithIntervals rdf:type owl:NamedIndividual ,
+                                  edu:Area ;
+                         edu:partOf :Numeration ;
+                         rdfs:isDefinedBy "Numeration with intervals is used to represent sets of numbers with specific limits." .
+
+
+###  http://edugraph.io/edu/NumerationWithRationals
+:NumerationWithRationals rdf:type owl:NamedIndividual ,
+                                  edu:Area ;
+                         edu:partOf :Numeration ;
+                         rdfs:isDefinedBy "Numeration with rationals encompasses understanding the density of rational numbers on the number line." .
+
+
+###  http://edugraph.io/edu/NumericComparison
+:NumericComparison rdf:type owl:NamedIndividual ,
+                            edu:Area ;
+                   edu:partOf :NumberSense ;
+                   rdfs:isDefinedBy "Numeric comparison involves evaluating whether one number is greater than, less than, or equal to another." .
+
+
+###  http://edugraph.io/edu/NumericIdentity
+:NumericIdentity rdf:type owl:NamedIndividual ,
+                          edu:Area ;
+                 edu:partOf :NumericComparison ;
+                 rdfs:isDefinedBy "Numeric identity refers to the understanding that a number remains the same regardless of its representation." .
+
+
+###  http://edugraph.io/edu/NumericOrder
+:NumericOrder rdf:type owl:NamedIndividual ,
+                       edu:Area ;
+              edu:expands :NumericIdentity ;
+              edu:partOf :NumericComparison ;
+              rdfs:isDefinedBy "Numeric order refers to the arrangement of numbers in ascending or descending sequence based on their magnitude." .
+
+
+###  http://edugraph.io/edu/ProportionAbstraction
+:ProportionAbstraction rdf:type owl:NamedIndividual ,
+                                edu:Area ;
+                       edu:partOf :ProportionSense ;
+                       rdfs:isDefinedBy "Proportion abstraction is the ability to generalize proportional relationships and apply them to new situations." .
+
+
+###  http://edugraph.io/edu/ProportionExpression
+:ProportionExpression rdf:type owl:NamedIndividual ,
+                               edu:Area ;
+                      edu:partOf :ProportionInteraction ;
+                      rdfs:isDefinedBy "Proportion expression is the ability to represent proportional relationships using mathematical symbols and equations." .
+
+
+###  http://edugraph.io/edu/ProportionIdentification
+:ProportionIdentification rdf:type owl:NamedIndividual ,
+                                   edu:Area ;
+                          edu:partOf :ProportionInteraction ;
+                          rdfs:isDefinedBy "Proportion identification is the ability to recognize situations where proportional relationships exist." .
+
+
+###  http://edugraph.io/edu/ProportionInteraction
+:ProportionInteraction rdf:type owl:NamedIndividual ,
+                                edu:Area ;
+                       edu:partOf :ProportionSense ;
+                       rdfs:isDefinedBy "Proportion interaction is the ability to analyze and manipulate proportional relationships to solve problems." .
+
+
+###  http://edugraph.io/edu/ProportionManipulation
+:ProportionManipulation rdf:type owl:NamedIndividual ,
+                                 edu:Area ;
+                        edu:partOf :ProportionInteraction ;
+                        rdfs:isDefinedBy "Proportion manipulation is the ability to adjust or change the values in a proportion while maintaining the proportional relationship." .
+
+
+###  http://edugraph.io/edu/ProportionSense
+:ProportionSense rdf:type owl:NamedIndividual ,
+                          edu:Area ;
+                 edu:partOf :IntuitiveMathematics ;
+                 rdfs:isDefinedBy "Proportion sense is the ability to understand and reason about proportional relationships between quantities." .
+
+
+###  http://edugraph.io/edu/RatioEquivalence
+:RatioEquivalence rdf:type owl:NamedIndividual ,
+                           edu:Area ;
+                  edu:partOf :ProportionAbstraction ;
+                  rdfs:isDefinedBy "Ratio equivalence is the understanding that different ratios can represent the same proportional relationship." .
+
+
+###  http://edugraph.io/edu/RatioInterpretation
+:RatioInterpretation rdf:type owl:NamedIndividual ,
+                              edu:Area ;
+                     edu:partOf :ProportionAbstraction ;
+                     rdfs:isDefinedBy "Ratio interpretation is the ability to understand the meaning of a ratio and its relationship to the quantities involved." .
+
+
+###  http://edugraph.io/edu/RatioNotation
+:RatioNotation rdf:type owl:NamedIndividual ,
+                        edu:Area ;
+               edu:partOf :ProportionAbstraction ;
+               rdfs:isDefinedBy "Applying the system of symbols and conventions used to represent ratios." .
+
+
+###  http://edugraph.io/edu/RationalNumbers
+:RationalNumbers rdf:type owl:NamedIndividual ,
+                          edu:Area ;
+                 edu:expandedBy :NumerationWithRationals ;
+                 edu:expands :IntegerNumbers ;
+                 edu:partOf :NumberSystems .
+
+
+###  http://edugraph.io/edu/Root
+:Root rdf:type owl:NamedIndividual ,
+               edu:Area ;
+      edu:expands :Exponentiation ;
+      edu:partOf :ArithmeticOperations ;
+      rdfs:isDefinedBy """Finding the integer that, when raised to a certain power, produces a given integer.
+
+Example: The cube root of 64 is 4 because 4 ^ 3 = 64""" .
+
+
+###  http://edugraph.io/edu/SetTheory
+:SetTheory rdf:type owl:NamedIndividual ,
+                    edu:Area ;
+           rdfs:isDefinedBy "The branch of mathematics that studies sets, which are collections of objects. It provides a fundamental language and tools for defining and working with mathematical objects." .
+
+
+###  http://edugraph.io/edu/ShapeCongruence
+:ShapeCongruence rdf:type owl:NamedIndividual ,
+                          edu:Area ;
+                 edu:partOf :ShapeRecognition ;
+                 rdfs:isDefinedBy "Understanding when two shapes are identical in size and shape, independently of their orientation." .
+
+
+###  http://edugraph.io/edu/ShapeRecognition
+:ShapeRecognition rdf:type owl:NamedIndividual ,
+                           edu:Area ;
+                  edu:partOf :SpatialSense ;
+                  rdfs:isDefinedBy "Identifying and naming different geometric shapes." .
+
+
+###  http://edugraph.io/edu/ShapeSymmetry
+:ShapeSymmetry rdf:type owl:NamedIndividual ,
+                        edu:Area ;
+               edu:partOf :ShapeRecognition ;
+               rdfs:isDefinedBy "Understanding how a shape can be divided into identical halves that mirror each other." .
+
+
+###  http://edugraph.io/edu/SpatialModelling
+:SpatialModelling rdf:type owl:NamedIndividual ,
+                           edu:Area ;
+                  edu:partOf :SpatialSense ;
+                  rdfs:isDefinedBy "Creating mental or physical representations of objects and their spatial relationships." .
+
+
+###  http://edugraph.io/edu/SpatialSense
+:SpatialSense rdf:type owl:NamedIndividual ,
+                       edu:Area ;
+              edu:partOf :IntuitiveMathematics ;
+              rdfs:isDefinedBy "Understanding shapes, sizes, positions, and movements in two and three dimensions." .
+
+
+###  http://edugraph.io/edu/Statistics
+:Statistics rdf:type owl:NamedIndividual ,
+                     edu:Area ;
+            rdfs:isDefinedBy "The branch of mathematics that provides a framework for collecting, organizing, analyzing, and interpreting data. It provides tools for quantifying and modeling randomness, variability, and uncertainty in data." .
+
+
+###  http://edugraph.io/edu/Subtraction
+:Subtraction rdf:type owl:NamedIndividual ,
+                      edu:Area ;
+             edu:expands :Addition ,
+                         :Difference ;
+             edu:partOf :ArithmeticOperations ;
+             rdfs:isDefinedBy """Finding the difference between two integers.
+
+Example: 10 - 6 = 4""" .
+
+
+###  http://edugraph.io/edu/Sum
+:Sum rdf:type owl:NamedIndividual ,
+              edu:Area ;
+     edu:expands :Increment ;
+     edu:partOf :BaseOperations ;
+     rdfs:isDefinedBy "Combining quantities to determine their total amount for any type of mathematical object, including numbers." .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
