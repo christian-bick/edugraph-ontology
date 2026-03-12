@@ -61,7 +61,7 @@ jobs:
           asset_name: core-ontology.ttl
           asset_content_type: plain/turtle
 
-      - name: Upload schema.ttl
+      - name: Upload core-schema.ttl
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -69,6 +69,16 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./dist/core-schema.ttl
           asset_name: core-schema.ttl
+          asset_content_type: plain/turtle
+
+      - name: Upload core-instances.ttl
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist/core-instances.ttl
+          asset_name: core-instances.ttl
           asset_content_type: plain/turtle
 
       - name: Upload .rdf

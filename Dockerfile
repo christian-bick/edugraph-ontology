@@ -17,6 +17,7 @@ ENV PATH=$PATH:${JENA_HOME}/bin
 
 COPY ./core-ontology.ttl core-ontology.ttl
 COPY ./core-schema.ttl core-schema.ttl
+COPY ./core-instances.ttl core-instances.ttl
 
 RUN riot --output=RDF/XML ${JENA_HOME_DIR}/core-ontology.ttl > core-ontology.rdf
 
@@ -28,6 +29,7 @@ ARG JENA_HOME_DIR
 
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology.ttl core-ontology.ttl
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-schema.ttl core-schema.ttl
+COPY --from=ontology-formats ${JENA_HOME_DIR}/core-instances.ttl core-instances.ttl
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology.rdf core-ontology.rdf
 COPY pyproject.toml uv.lock ./
 COPY ./.venv* ./.venv
@@ -53,6 +55,7 @@ ARG JENA_HOME_DIR
 
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology.ttl core-ontology.ttl
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-schema.ttl core-schema.ttl
+COPY --from=ontology-formats ${JENA_HOME_DIR}/core-instances.ttl core-instances.ttl
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology.rdf core-ontology.rdf
 
 COPY --from=typescript-compiler /app/typescript/dist ./typescript/dist
