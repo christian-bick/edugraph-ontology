@@ -15,7 +15,6 @@ RUN tar -xvzf ${APACHE_JENA_NAME}.tar.gz
 ENV JENA_HOME=${JENA_HOME_DIR}/${APACHE_JENA_NAME}
 ENV PATH=$PATH:${JENA_HOME}/bin
 
-COPY ./core-ontology.ttl core-ontology.ttl
 COPY ./core-schema.ttl core-schema.ttl
 COPY ./core-instances.ttl core-instances.ttl
 
@@ -27,7 +26,6 @@ FROM ghcr.io/astral-sh/uv:python3.13-alpine AS python-code-gen
 
 ARG JENA_HOME_DIR
 
-COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology.ttl core-ontology.ttl
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-schema.ttl core-schema.ttl
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-instances.ttl core-instances.ttl
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology.rdf core-ontology.rdf
@@ -53,7 +51,6 @@ FROM scratch AS export
 
 ARG JENA_HOME_DIR
 
-COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology.ttl core-ontology.ttl
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-schema.ttl core-schema.ttl
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-instances.ttl core-instances.ttl
 COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology.rdf core-ontology.rdf
