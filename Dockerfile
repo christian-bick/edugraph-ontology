@@ -19,7 +19,7 @@ COPY ./core-ontology.ttl core-ontology.ttl
 COPY ./core-schema.ttl core-schema.ttl
 COPY ./core-instances.ttl core-instances.ttl
 
-RUN riot --output=RDF/XML ${JENA_HOME_DIR}/core-ontology.ttl > core-ontology.rdf
+RUN riot --output=RDF/XML ${JENA_HOME_DIR}/core-schema.ttl ${JENA_HOME_DIR}/core-instances.ttl > core-ontology.rdf
 
 CMD [ "tail", "-f", "/dev/null" ]
 
