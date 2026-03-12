@@ -9,8 +9,7 @@
 
 <http://edugraph.io/edu/> rdf:type owl:Ontology .
 
-owl:imports <core-schema.ttl> .
-#owl:imports <https://github.com/christian-bick/edugraph-ontology/releases/download/preview-ba091e1b5eb4/core-schema.ttl> .
+           owl:imports <http://edugraph.io/edu#> .
 
 #################################################################
 #    Individuals
