@@ -73,10 +73,6 @@ edu:targets rdf:type owl:ObjectProperty ;
             rdfs:range edu:Descriptor .
 
 
-###  http://www.w3.org/2002/07/owl#topObjectProperty
-owl:topObjectProperty rdf:type owl:ObjectProperty .
-
-
 #################################################################
 #    Classes
 #################################################################
