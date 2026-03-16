@@ -1,1676 +1,531 @@
-@prefix : <http://edugraph.io/edu/> .
-@prefix edu: <http://edugraph.io/edu#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://edugraph.io/edu/> .
-
-<http://edugraph.io/edu/> rdf:type owl:Ontology ;
-                           owl:imports edu: .
-
-#################################################################
-#    Individuals
-#################################################################
-
-###  http://edugraph.io/edu/AbductiveReasoning
-:AbductiveReasoning rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    edu:partOf :NonDeductiveReasoning ;
-                    rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Observing a pattern in a sequence of numbers and making an educated guess about the rule that generates the sequence.
-*  Encountering a geometric problem and formulating a hypothesis about the solution based on the given information and known properties.
-*  Analyzing a set of data and making a conjecture about the underlying relationship between the variables.
-
-Science:
-
-*  A doctor observing symptoms in a patient and making a diagnosis based on the most likely cause.
-*  A scientist observing an unusual pattern in data and formulating a hypothesis to explain the anomaly.
-
-Social Science:
-
-*  An anthropologist observing cultural practices in a community and developing a hypothesis about their underlying social structures.
-*  An economist observing economic trends and making a prediction about future market behavior.
-*  A historian analyzing historical documents and forming a hypothesis about the motivations of historical figures.""" ;
-                    rdfs:isDefinedBy "A form of logical inference that starts with an observation or set of observations and then seeks to find the simplest and most likely explanation for the observations. It involves making an educated guess or hypothesis based on incomplete information. Abductive reasoning is often used in everyday life and in fields like science and detective work to generate possible explanations for phenomena." .
-
-
-###  http://edugraph.io/edu/ActiveVocabulary
-:ActiveVocabulary rdf:type owl:NamedIndividual ,
-                           edu:Ability ;
-                  edu:partOf :LinguisticArticulation ;
-                  rdfs:comment "Example: Using subject-specific terminology correctly in a class discussion or written assignment." ;
-                  rdfs:isDefinedBy "Using a wide range of words in speaking and writing. This involves actively employing diverse vocabulary to express ideas precisely and effectively." .
-
-
-###  http://edugraph.io/edu/AdaptiveCreativity
-:AdaptiveCreativity rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    edu:partOf :CreativeCapability ;
-                    rdfs:comment "Example: A student modifying their design for a school project after receiving feedback from their teacher." ;
-                    rdfs:isDefinedBy "The ability to adjust and modify ideas in response to new information or challenges. This involves being flexible and adaptable in one's thinking, and being willing to revise and refine ideas as needed." .
-
-
-###  http://edugraph.io/edu/AgileStrength
-:AgileStrength rdf:type owl:NamedIndividual ,
-                        edu:Ability ;
-               edu:partOf :Strength .
-
-
-###  http://edugraph.io/edu/AnalogicalReasoning
-:AnalogicalReasoning rdf:type owl:NamedIndividual ,
-                              edu:Ability ;
-                     edu:partOf :NonDeductiveReasoning ;
-                     rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Using the analogy between fractions and decimals to understand how they represent the same quantities.
-*  Applying the concept of similarity in geometry to solve problems involving proportional relationships between shapes.
-*  Using analogies to understand new mathematical concepts by relating them to familiar ones.
-
-Science:
-
-*  Using the analogy between the human circulatory system and a plumbing system to understand how blood flows through the body.
-*  Applying the analogy between the structure of an atom and the solar system to understand the relationships between electrons and the nucleus.
-*  Using analogies to explain complex scientific concepts, such as comparing the behavior of gases to bouncing balls.
-
-Social Science:
-
-*  Using historical analogies to understand current events or predict future outcomes.
-*  Applying analogies from other social sciences, such as psychology or economics, to understand sociological phenomena.
-*  Using analogies to explain complex social concepts, such as comparing society to a living organism.""" ;
-                     rdfs:isDefinedBy "A form of logical inference that involves identifying similarities between two or more situations or objects and then using those similarities to draw conclusions or make predictions about one of them. It relies on the idea that if two things are alike in some respects, they are likely to be alike in other respects as well. Analogical reasoning is often used in problem-solving, decision-making, and creative thinking." .
-
-
-###  http://edugraph.io/edu/AnalyticalCapability
-:AnalyticalCapability rdf:type owl:NamedIndividual ,
-                               edu:Ability ;
-                      rdfs:comment """Examples from different subjects:
-
-Math:
-
-* A student analyzes a word problem, identifies the relevant information, and chooses the appropriate formula to solve it.
-* A student examines a geometric proof, identifies the logical steps, and evaluates its validity.
-* A student interprets a graph, identifies trends, and draws conclusions about the data.
-
-Science:
-
-* A student designs an experiment, controls variables, and analyzes the results to draw conclusions.
-* A student evaluates different sources of information about climate change, identifies biases, and forms their own informed opinion.
-* A student examines anatomical diagrams, identifies the relationships between different organs, and understands how they function together.
-
-Social Science:
-
-* A student compares and contrasts different historical accounts of an event to understand multiple perspectives.
-* A student analyzes economic data, identifies trends, and predicts future economic performance.
-* A student evaluates different political systems, identifies their strengths and weaknesses, and forms their own opinions about governance.
-
-Foreign Language:
-
-* A student analyzes a sentence in a foreign language, identifies the grammatical structures, and understands how they convey meaning.
-* A student compares and contrasts cultural practices in different countries, identifies similarities and differences, and develops intercultural understanding.
-* A student interprets a foreign language film, analyzes the characters' motivations, and understands the cultural context of the story.""" ;
-                      rdfs:isDefinedBy "The ability to examine information critically, break it down into its component parts, and identify patterns and relationships. It involves skills like critical thinking, problem-solving, and logical reasoning. Analytical capability allows individuals to evaluate information, draw inferences, and form their own conclusions." .
-
-
-###  http://edugraph.io/edu/Articulation
-:Articulation rdf:type owl:NamedIndividual ,
-                       edu:Ability ;
-              edu:partOf :Expression ;
-              rdfs:isDefinedBy "Articulation refers to the clarity and effectiveness with which someone expresses themselves." .
-
-
-###  http://edugraph.io/edu/ArtisticInterpretation
-:ArtisticInterpretation rdf:type owl:NamedIndividual ,
-                                 edu:Ability ;
-                        edu:partOf :Interpretation ;
-                        rdfs:comment "Example: Interpreting the symbolism in a painting or the themes explored in a piece of music." ,
-                                     "Understanding and appreciating artistic works, such as paintings, music, or literature. This involves analyzing the elements of art, such as form, style, and symbolism, to understand the artist's message and intent." .
-
-
-###  http://edugraph.io/edu/AxiomDefinition
-:AxiomDefinition rdf:type owl:NamedIndividual ,
-                          edu:Ability ;
-                 edu:partOf :DeductiveReasoning ;
-                 rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Defining the axioms of Euclidean geometry, such as \"Two points determine a line\" or \"Through a point not on a given line, there is exactly one line parallel to the given line.\"
-*  Establishing the axioms of set theory, such as the axiom of extensionality (two sets are equal if they have the same elements) or the axiom of choice.
-*  Defining the axioms of a number system, such as the commutative property of addition (a + b = b + a) or the distributive property of multiplication over addition (a(b + c) = ab + ac).
-
-Science:
-
-*  Defining the basic principles of physics, such as the laws of motion or the conservation of energy.
-*  Establishing the fundamental assumptions of a scientific theory, such as the theory of evolution or the theory of relativity.
-*  Defining the key terms and concepts used in a scientific field, such as \"species,\" \"ecosystem,\" or \"chemical reaction.\"""" ;
-                 rdfs:isDefinedBy "The ability to identify and clearly state the fundamental assumptions or self-evident truths that serve as the foundation for a deductive system. This involves recognizing basic principles, defining key terms, and establishing the starting points for logical reasoning. Axiom definition is crucial for building a coherent and consistent framework for deductive reasoning, ensuring that all conclusions follow logically from the initial assumptions." .
-
-
-###  http://edugraph.io/edu/Balance
-:Balance rdf:type owl:NamedIndividual ,
-                  edu:Ability ;
-         edu:partOf :PhysicalCapability .
-
-
-###  http://edugraph.io/edu/BiasDetection
-:BiasDetection rdf:type owl:NamedIndividual ,
-                        edu:Ability ;
-               edu:partOf :Evaluation ;
-               rdfs:comment "Example: Analyzing a news article to identify any potential bias in the reporting." ;
-               rdfs:isDefinedBy "Identifying prejudice or favoritism in information or arguments. This involves recognizing how personal opinions or perspectives can influence the way information is presented or interpreted." .
-
-
-###  http://edugraph.io/edu/BiasPrevention
-:BiasPrevention rdf:type owl:NamedIndividual ,
-                         edu:Ability ;
-                edu:partOf :Expression ;
-                rdfs:comment "Example: Considering diverse perspectives and avoiding stereotypes when writing about a historical conflict." ;
-                rdfs:isDefinedBy "Identifying and avoiding biases in one's own thinking and communication. This involves being aware of personal prejudices and striving to present information objectively and fairly." .
-
-
-###  http://edugraph.io/edu/CardiovascularEndurance
-:CardiovascularEndurance rdf:type owl:NamedIndividual ,
-                                  edu:Ability ;
-                         edu:partOf :Endurance .
-
-
-###  http://edugraph.io/edu/CommunicationCapability
-:CommunicationCapability rdf:type owl:NamedIndividual ,
-                                  edu:Ability .
-
-
-###  http://edugraph.io/edu/ConceptClassification
-:ConceptClassification rdf:type owl:NamedIndividual ,
-                                edu:Ability ;
-                       edu:partOf :ConceptualThinking ;
-                       rdfs:comment """Examples from different subjects:
-
-Math:
-
-* Classifying numbers as integers, rational numbers, or irrational numbers.
-* Categorizing geometric shapes based on their properties (e.g., number of sides, angles).
-* Grouping types of functions (linear, quadratic, exponential) based on their equations and graphs.
-
-Science:
-
-* Classifying organisms into kingdoms, phyla, and classes based on shared characteristics.
-* Categorizing elements in the periodic table based on their properties.
-* Grouping different types of rocks (igneous, sedimentary, metamorphic) based on their formation.
-
-Social Science:
-
-* Classifying different types of governments (democracy, monarchy, dictatorship) based on how power is distributed.
-* Categorizing economic systems (capitalism, socialism, communism) based on ownership of resources.
-* Grouping different historical periods (ancient, medieval, modern) based on key events and characteristics.
-
-Foreign Language:
-
-* Classifying words into parts of speech (nouns, verbs, adjectives) based on their grammatical function.
-* Categorizing different types of literature (fiction, non-fiction, poetry) based on their characteristics.
-* Grouping different verb tenses based on their temporal meaning.""" ;
-                       rdfs:isDefinedBy """Concept Classification
-
-The ability to organize and categorize concepts by identifying similarities, differences, and relationships between them. It involves grouping concepts based on shared attributes and creating hierarchical structures. Concept classification helps learners build mental frameworks and understand how knowledge is structured.""" .
-
-
-###  http://edugraph.io/edu/ConceptComposition
-:ConceptComposition rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    edu:partOf :ConceptualThinking ;
-                    rdfs:comment """Examples from different subjects:
-
-Math:
-
-* Combining the concepts of \"addition\" and \"multiplication\" to understand the distributive property.
-* Integrating the concepts of \"area\" and \"volume\" to calculate the volume of complex shapes.
-* Combining the concepts of \"function\" and \"transformation\" to understand how changes to a function affect its graph.
-
-Science:
-
-* Combining the concepts of \"force\" and \"motion\" to understand Newton's laws of motion.
-* Integrating the concepts of \"DNA\" and \"protein synthesis\" to understand how genetic information is expressed.
-* Combining the concepts of \"ecosystem\" and \"biodiversity\" to understand the importance of species interactions.
-
-Social Science:
-
-* Combining the concepts of \"culture\" and \"identity\" to understand how cultural background shapes individual identity.
-* Integrating the concepts of \"power\" and \"inequality\" to analyze social structures and hierarchies.
-* Combining the concepts of \"globalization\" and \"interdependence\" to understand the interconnectedness of nations.
-
-Foreign Language:
-
-* Combining the concepts of \"grammar\" and \"vocabulary\" to create meaningful sentences.
-* Integrating the concepts of \"culture\" and \"communication\" to understand how cultural context influences language use.
-* Combining the concepts of \"listening\" and \"speaking\" to develop effective communication skills.""" ;
-                    rdfs:isDefinedBy "The ability to combine or integrate multiple concepts to create new or more complex concepts. It involves understanding how different concepts can be related and integrated to form a more comprehensive understanding. Concept composition allows learners to build upon existing knowledge and create new meanings." .
-
-
-###  http://edugraph.io/edu/ConceptDerivation
-:ConceptDerivation rdf:type owl:NamedIndividual ,
-                            edu:Ability ;
-                   edu:partOf :ConceptualThinking ;
-                   rdfs:comment """Examples from different subjects:
-
-Math:
-
-* Deriving the formula for the area of a triangle from the formula for the area of a rectangle.
-* Inferring the properties of a new geometric shape based on its relationship to known shapes.
-
-Science:
-
-* Inferring the presence of unseen organisms based on their effects on the environment.
-* Deducing the properties of a new substance based on its chemical composition.
-* Deriving the evolutionary relationships between species based on fossil evidence and genetic data.
-
-Social Science:
-
-* Inferring the motivations behind historical events based on primary and secondary sources.
-* Deducing the impact of social policies based on data and observations.
-* Deriving conclusions about cultural values based on the analysis of artifacts and traditions.
-
-Foreign Language:
-
-* Inferring the meaning of unfamiliar words based on context and word roots.
-* Deducing grammatical rules based on patterns in language use.
-* Deriving cultural insights based on the analysis of literature and film.""" ;
-                   rdfs:isDefinedBy "The ability to infer or deduce new concepts from existing knowledge or information. It involves applying logical reasoning and making inferences to extend understanding beyond what is explicitly stated. Concept derivation allows learners to generate new insights and expand their knowledge base." .
-
-
-###  http://edugraph.io/edu/ConceptGeneralization
-:ConceptGeneralization rdf:type owl:NamedIndividual ,
-                                edu:Ability ;
-                       edu:partOf :ConceptualThinking ;
-                       rdfs:comment """Examples from different subjects:
-
-Math:
-
-* Generalizing the concept of \"addition\" to include different types of numbers (e.g., whole numbers, fractions, decimals).
-* Recognizing the common properties of different geometric shapes and forming a general definition of \"polygon.\"
-* Applying the concept of \"function\" to model relationships in various fields, such as physics, economics, and biology.
-
-Science:
-
-* Generalizing the principles of \"natural selection\" to explain the evolution of different species.
-* Recognizing the common characteristics of different ecosystems and forming a general understanding of ecological principles.
-* Applying the concept of \"energy transfer\" to understand various phenomena, such as heat flow, chemical reactions, and biological processes.
-
-Social Science:
-
-* Generalizing the concept of \"conflict\" to understand its causes and consequences in different historical and social contexts.
-* Recognizing the common features of different cultures and forming a general understanding of human behavior.
-* Applying the concept of \"power dynamics\" to analyze relationships in various social settings.
-
-Foreign Language:
-
-* Generalizing grammatical rules to apply them to new vocabulary and sentence structures.
-* Recognizing common themes and motifs in different literary works and forming a general understanding of literary traditions.
-* Applying cultural knowledge to understand and interact with people from diverse backgrounds.""" ;
-                       rdfs:isDefinedBy "The ability to identify common features or principles across different concepts and form broader understandings. It involves recognizing patterns, abstracting key ideas, and applying them to new situations. Concept generalization allows learners to transfer knowledge and make connections between different domains." .
-
-
-###  http://edugraph.io/edu/ConceptSpecification
-:ConceptSpecification rdf:type owl:NamedIndividual ,
-                               edu:Ability ;
-                      edu:partOf :ConceptualThinking ;
-                      rdfs:comment """Examples from different subjects:
-
-Math:
-
-* Specifying the general concept of \"triangle\" to identify different types of triangles (e.g., equilateral, isosceles, scalene).
-* Applying the general concept of \"equation\" to solve a specific algebraic problem.
-* Using the general concept of \"probability\" to calculate the likelihood of a specific event.
-
-Science:
-
-* Specifying the general concept of \"mammal\" to identify specific characteristics of different mammal species.
-* Applying the general concept of \"photosynthesis\" to explain the process in a specific plant species.
-* Using the general concept of \"chemical reaction\" to describe a specific chemical process.
-
-Social Science:
-
-* Specifying the general concept of \"democracy\" to analyze the specific political system of a particular country.
-* Applying the general concept of \"culture\" to understand the specific customs and traditions of a particular society.
-* Using the general concept of \"social inequality\" to analyze a specific social issue.
-
-Foreign Language:
-
-* Specifying the general concept of \"verb\" to identify different verb conjugations and tenses.
-* Applying the general concept of \"communication style\" to understand the specific communication norms in a particular culture.
-* Using the general concept of \"literary analysis\" to interpret a specific literary text.""" ;
-                      rdfs:isDefinedBy "The ability to narrow down or refine a general concept to a more specific or concrete instance. It involves identifying distinguishing features, providing details, and applying the concept to a particular context. Concept specification allows learners to deepen their understanding and apply knowledge to specific situations." .
-
-
-###  http://edugraph.io/edu/ConceptualThinking
-:ConceptualThinking rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    edu:partOf :AnalyticalCapability ;
-                    rdfs:comment """Examples from different subjects:
-
-Math:
-
-* A student understands the concept of \"function\" and applies it to model relationships between variables in different contexts.
-* A student grasps the concept of \"symmetry\" and identifies it in geometric shapes, algebraic equations, and natural phenomena.
-* A student understands the concept of \"limit\" and applies it to analyze the behavior of functions as they approach infinity.
-
-Science:
-
-* A student understands the concept of \"ecosystem\" and analyzes the interactions between organisms and their environment.
-* A student grasps the concept of \"energy conservation\" and applies it to understand energy transformations in physical and chemical processes.
-* A student understands the concept of \"homeostasis\" and analyzes how organisms maintain internal balance.
-
-Social Science:
-
-* A student understands the concept of \"social change\" and analyzes the factors that contribute to social movements and revolutions.
-* A student grasps the concept of \"culture\" and explores how it shapes values, beliefs, and behaviors in different societies.
-* A student understands the concept of \"interdependence\" and analyzes the connections between different nations and economies.
-
-Foreign Language:
-
-* A student understands the concept of \"grammatical gender\" and applies it to correctly use articles and adjectives in a foreign language.
-* A student grasps the concept of \"idiomatic expressions\" and recognizes how they convey meaning beyond the literal translation of words.
-* A student understands the concept of \"cultural context\" and interprets language and behavior within the appropriate cultural framework.""" ;
-                    rdfs:isDefinedBy "The ability to understand and apply big ideas, recognizing underlying patterns and connections between different concepts. It involves forming generalizations, creating mental models, and seeing the bigger picture. Conceptual thinking goes beyond memorizing facts and focuses on understanding the deeper meaning and relationships between ideas." .
-
-
-###  http://edugraph.io/edu/ConvergentCreativity
-:ConvergentCreativity rdf:type owl:NamedIndividual ,
-                               edu:Ability ;
-                      edu:partOf :CreativeCapability ;
-                      rdfs:comment "Example: Combing concepts from neuro-biology and computer science to create a new approach to signal processing." ;
-                      rdfs:isDefinedBy "Convergent Creativity: The ability to combine different ideas or perspectives to form a single, unified solution. This involves synthesizing information from various sources and finding common ground between different approaches." .
-
-
-###  http://edugraph.io/edu/CreativeCapability
-:CreativeCapability rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    rdfs:isDefinedBy "The ability to generate novel and valuable ideas. This involves thinking outside the box, exploring different perspectives, and coming up with original solutions to problems." .
-
-
-###  http://edugraph.io/edu/DeductiveReasoning
-:DeductiveReasoning rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    edu:partOf :LogicalReasoning ;
-                    rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  All squares are rectangles. This shape is a square. Therefore, this shape is a rectangle.
-*  If two angles are complementary, their sum is 90 degrees. Angles A and B are complementary. Therefore, the sum of angles A and B is 90 degrees.
-*  All prime numbers greater than 3 can be expressed in the form 6k ± 1. 17 is a prime number greater than 3. Therefore, 17 can be expressed in the form 6k ± 1.
-
-Science:
-
-*  All mammals have lungs. Whales are mammals. Therefore, whales have lungs.
-*  Force equals mass times acceleration (F=ma). This object has a mass of 2kg and an acceleration of 3 m/s². Therefore, the force acting on the object is 6 Newtons.
-*  In a chemical reaction, matter is neither created nor destroyed. In this experiment, the mass of the reactants was 10g. Therefore, the mass of the products will also be 10g.""" ;
-                    rdfs:isDefinedBy "A type of reasoning where the conclusion is guaranteed to be true if the premises are true. It moves from general principles to specific conclusions, using logic and rules of inference to establish certainty. Deductive reasoning is often used in mathematics, logic, and other fields where absolute certainty is desired." .
-
-
-###  http://edugraph.io/edu/DialogModeration
-:DialogModeration rdf:type owl:NamedIndividual ,
-                           edu:Ability ;
-                  edu:partOf :Facilitation ;
-                  rdfs:comment "Example: A student mediating a disagreement between two classmates by helping them to listen to each other and find common ground." ;
-                  rdfs:isDefinedBy "Guiding and managing a conversation between two or more people. This involves ensuring that the conversation stays focused, productive, and respectful." .
-
-
-###  http://edugraph.io/edu/DirectUnderstanding
-:DirectUnderstanding rdf:type owl:NamedIndividual ,
-                              edu:Ability ;
-                     edu:partOf :Understanding ;
-                     rdfs:comment "Example: Understanding the definitions of new vocabulary words in a textbook." ;
-                     rdfs:isDefinedBy "Comprehending the literal meaning of information. This involves understanding the explicit message conveyed by words, images, or other forms of communication." .
-
-
-###  http://edugraph.io/edu/DivergentCreativity
-:DivergentCreativity rdf:type owl:NamedIndividual ,
-                              edu:Ability ;
-                     edu:partOf :CreativeCapability ;
-                     rdfs:comment "Example: Exploring the color properties of different materials in water to create an immersive artwork about diffusion and reflection." ;
-                     rdfs:isDefinedBy "The ability to generate a wide range of ideas or solutions. This involves brainstorming multiple possibilities and exploring different avenues before settling on a specific approach." .
-
-
-###  http://edugraph.io/edu/DiversityTolerance
-:DiversityTolerance rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    edu:partOf :SocialScaling ;
-                    rdfs:comment "Example: A student embracing the diversity of their classmates and learning about different cultures." ;
-                    rdfs:isDefinedBy "The ability to accept and appreciate people from different backgrounds and cultures. This involves respecting and valuing diversity, and avoiding prejudice and discrimination." .
-
-
-###  http://edugraph.io/edu/DynamicBalance
-:DynamicBalance rdf:type owl:NamedIndividual ,
-                         edu:Ability ;
-                edu:partOf :Balance .
-
-
-###  http://edugraph.io/edu/EmotionExtraction
-:EmotionExtraction rdf:type owl:NamedIndividual ,
-                            edu:Ability ;
-                   edu:partOf :Extraction ;
-                   rdfs:comment "Example: Analyzing a character's dialogue and actions in a play to understand their emotional state." ;
-                   rdfs:isDefinedBy "Recognizing and understanding the emotions expressed in communication. This involves interpreting the feelings conveyed through language, tone of voice, and nonverbal cues." .
-
-
-###  http://edugraph.io/edu/EmotionalCapability
-:EmotionalCapability rdf:type owl:NamedIndividual ,
-                              edu:Ability ;
-                     rdfs:isDefinedBy "The ability to understand, manage, and express one's own emotions effectively, as well as to understand and respond appropriately to the emotions of others." .
-
-
-###  http://edugraph.io/edu/EmotionalCreativity
-:EmotionalCreativity rdf:type owl:NamedIndividual ,
-                              edu:Ability ;
-                     edu:partOf :CreativeCapability ;
-                     rdfs:comment "Example: Writing a poem or song to express one's feelings about a personal experience." ,
-                                  "The ability to express emotions in creative and meaningful ways. This involves using art, music, writing, or other creative outlets to communicate feelings and connect with others on an emotional level." .
-
-
-###  http://edugraph.io/edu/Emotionalization
-:Emotionalization rdf:type owl:NamedIndividual ,
-                           edu:Ability ;
-                  edu:partOf :Expression ;
-                  rdfs:comment "Example: Delivering a speech with passion and conviction to inspire the audience." ;
-                  rdfs:isDefinedBy "Expressing emotions effectively in communication. This involves using language, tone of voice, and nonverbal cues to convey feelings and create an emotional connection with the audience." .
-
-
-###  http://edugraph.io/edu/Empathy
-:Empathy rdf:type owl:NamedIndividual ,
-                  edu:Ability ;
-         edu:partOf :EmotionalCapability ;
-         rdfs:isDefinedBy "The ability to understand and share the feelings of others. This involves putting oneself in another person's shoes and imagining how they might be feeling in a given situation." .
-
-
-###  http://edugraph.io/edu/Endurance
-:Endurance rdf:type owl:NamedIndividual ,
-                    edu:Ability ;
-           edu:partOf :PhysicalCapability .
-
-
-###  http://edugraph.io/edu/ErrorCorrection
-:ErrorCorrection rdf:type owl:NamedIndividual ,
-                          edu:Ability ;
-                 edu:partOf :Evaluation ;
-                 rdfs:comment "Example: Proofreading an essay for grammatical errors and typos before submitting it." ;
-                 rdfs:isDefinedBy "Finding and fixing mistakes in written or spoken work. This involves carefully reviewing work for accuracy and making necessary corrections to improve clarity and understanding." .
-
-
-###  http://edugraph.io/edu/ErrorDetection
-:ErrorDetection rdf:type owl:NamedIndividual ,
-                         edu:Ability ;
-                edu:partOf :Evaluation ;
-                rdfs:comment "Example: Identifying a factual error in a textbook or spotting a contradiction in a scientific argument." ;
-                rdfs:isDefinedBy "Noticing mistakes or inconsistencies in information. This involves recognizing when something is incorrect, illogical, or doesn't fit with the overall context." .
-
-
-###  http://edugraph.io/edu/Evaluation
-:Evaluation rdf:type owl:NamedIndividual ,
-                     edu:Ability ;
-            edu:partOf :Processing ;
-            rdfs:isDefinedBy "Carefully judging the quality, value, or significance of something. This involves assessing information or ideas based on criteria, evidence, and reasoning." .
-
-
-###  http://edugraph.io/edu/ExplosiveStrength
-:ExplosiveStrength rdf:type owl:NamedIndividual ,
-                            edu:Ability ;
-                   edu:partOf :Strength .
-
-
-###  http://edugraph.io/edu/Expression
-:Expression rdf:type owl:NamedIndividual ,
-                     edu:Ability ;
-            edu:partOf :CommunicationCapability ;
-            rdfs:isDefinedBy "The act of conveying thoughts, feelings, or information. This involves encoding information into a form that can be understood by others. It can be verbal, nonverbal, or visual." .
-
-
-###  http://edugraph.io/edu/Extraction
-:Extraction rdf:type owl:NamedIndividual ,
-                     edu:Ability ;
-            edu:partOf :Processing ;
-            rdfs:comment "Example:  Extracting key quotes from a novel to use as evidence in a literary analysis essay." ;
-            rdfs:isDefinedBy "Taking out specific information or elements from a larger source. This involves identifying and isolating key details, facts, or ideas from a text, image, or other source of information." .
-
-
-###  http://edugraph.io/edu/Facilitation
-:Facilitation rdf:type owl:NamedIndividual ,
-                       edu:Ability ;
-              edu:partOf :CommunicationCapability ;
-              rdfs:comment "Example: Facilitating a discussion and encouraging participation through written questions individually prepared by participants." ;
-              rdfs:isDefinedBy "The act of making a process or activity easier for others. This involves guiding, supporting, and encouraging individuals or groups to achieve a common goal." .
-
-
-###  http://edugraph.io/edu/Formalization
-:Formalization rdf:type owl:NamedIndividual ,
-                        edu:Ability ;
-               edu:partOf :Expression ;
-               rdfs:comment """Example from different subjects: 
-
-* Language: Writing a formal letter using proper salutations, grammar, and formatting.
-* Mathematics: Using the correct formal language to define and manipulate sets.
-* Natural Science: Using the correct units of measurement expressing speed or weight.""" ;
-               rdfs:isDefinedBy "Adhering to formal rules and conventions in communication. This involves using appropriate language, structure, and style for specific contexts, such as academic writing or professional correspondence." .
-
-
-###  http://edugraph.io/edu/GesticArticulation
-:GesticArticulation rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    edu:partOf :Articulation ;
-                    rdfs:comment "Example: Acting out a scene from a story, using gestures to portray the characters' personality." ;
-                    rdfs:isDefinedBy "Expressing oneself through deliberate physical gestures and body language. This involves using hand movements, facial expressions, and body posture to convey meaning." .
-
-
-###  http://edugraph.io/edu/GesticReception
-:GesticReception rdf:type owl:NamedIndividual ,
-                          edu:Ability ;
-                 edu:partOf :Reception ;
-                 rdfs:comment "Example: Interpreting a classmate's nonverbal cues during a group discussion to understand their level of engagement and agreement." ;
-                 rdfs:isDefinedBy "Understanding and interpreting body language and gestures. This involves paying attention to nonverbal cues, such as facial expressions, hand movements, and body posture, to understand the meaning behind them." .
-
-
-###  http://edugraph.io/edu/GrammaticalPrecision
-:GrammaticalPrecision rdf:type owl:NamedIndividual ,
-                               edu:Ability ;
-                      edu:partOf :LinguisticArticulation ;
-                      rdfs:comment "Example: Using proper verb tenses and subject-verb agreement in a research paper." ;
-                      rdfs:isDefinedBy "Using correct grammar in spoken and written communication. This involves applying grammatical rules accurately to ensure clear and understandable language." .
-
-
-###  http://edugraph.io/edu/GroupModeration
-:GroupModeration rdf:type owl:NamedIndividual ,
-                          edu:Ability ;
-                 edu:partOf :Facilitation ;
-                 rdfs:comment "Example: Leading a group project by assigning roles, keeping the group organized, and facilitating communication among members." ;
-                 rdfs:isDefinedBy "Facilitating interaction and collaboration within a group. This involves encouraging participation, managing group dynamics, and ensuring that the group stays on task and achieves its goals." .
-
-
-###  http://edugraph.io/edu/Hearing
-:Hearing rdf:type owl:NamedIndividual ,
-                  edu:Ability ;
-         edu:partOf :SensoricCapability .
-
-
-###  http://edugraph.io/edu/HumoristicInterpretation
-:HumoristicInterpretation rdf:type owl:NamedIndividual ,
-                                   edu:Ability ;
-                          edu:partOf :Interpretation ;
-                          rdfs:comment "Example: Analyzing the use of satire or irony in a literary work." ;
-                          rdfs:isDefinedBy "Understanding and appreciating humor. This involves recognizing the comedic elements in a joke, story, or situation, and understanding why it is funny." .
-
-
-###  http://edugraph.io/edu/HypothesisGeneration
-:HypothesisGeneration rdf:type owl:NamedIndividual ,
-                               edu:Ability ;
-                      edu:partOf :ScientificThinking ;
-                      rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Observing a pattern in a sequence of numbers and proposing a formula to generate the sequence.
-*  Noticing a relationship between different geometric shapes and formulating a conjecture about their properties.
-*  Developing a hypothesis about the outcome of a mathematical experiment or simulation.
-
-Science:
-
-*  Observing a natural phenomenon, such as the growth of plants or the behavior of animals, and proposing a hypothesis to explain it.
-*  Formulating a hypothesis about the cause of a disease or the effectiveness of a new treatment.
-*  Developing a hypothesis about the impact of human activities on the environment.
-
-Social Science:
-
-*  Proposing a hypothesis about the factors that influence voting behavior or the causes of social inequality.
-*  Formulating a hypothesis about the effectiveness of different teaching methods or the impact of social policies.
-*  Developing a hypothesis about the cultural factors that shape individual behavior or beliefs.""" ;
-                      rdfs:isDefinedBy "The ability to formulate testable explanations or predictions for observed phenomena. It involves identifying patterns, considering existing knowledge, and using creativity to propose possible answers to scientific questions. Hypothesis generation is a crucial step in the scientific process, guiding investigations and driving the search for new knowledge." .
-
-
-###  http://edugraph.io/edu/HypothesisValidation
-:HypothesisValidation rdf:type owl:NamedIndividual ,
-                               edu:Ability ;
-                      edu:partOf :ScientificThinking ;
-                      rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Testing a mathematical conjecture by performing calculations or constructing proofs.
-*  Conducting simulations or experiments to gather data and analyze whether it supports a hypothesis about a mathematical relationship.
-*  Using statistical methods to analyze data and determine the likelihood that a hypothesis is true.
-
-Science:
-
-*  Designing and conducting experiments to test a hypothesis about a natural phenomenon.
-*  Collecting and analyzing data from observations or experiments to determine whether it supports or refutes a hypothesis.
-*  Using statistical analysis to evaluate the significance of experimental results and draw conclusions.
-
-Social Science:
-
-*  Conducting surveys or experiments to gather data on social phenomena and test hypotheses about human behavior.
-*  Analyzing historical data or conducting case studies to evaluate hypotheses about social trends or events.
-*  Using statistical methods to analyze data and determine the validity of hypotheses about social relationships or patterns.""" ;
-                      rdfs:isDefinedBy "The process of evaluating a hypothesis through systematic observation, experimentation, and data analysis. It involves designing experiments to test predictions, collecting and analyzing data, and determining whether the evidence supports or refutes the hypothesis. Hypothesis validation is a cornerstone of scientific inquiry, ensuring that conclusions are based on rigorous evidence." .
-
-
-###  http://edugraph.io/edu/InductiveReasoning
-:InductiveReasoning rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    edu:partOf :NonDeductiveReasoning ;
-                    rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Observing that the sum of the first few odd numbers is always a perfect square and then generalizing this pattern to all odd numbers.
-*  Noticing that several triangles with the same base and height have the same area and then concluding that all triangles with the same base and height have the same area.
-*  Collecting data on the relationship between two variables and using that data to infer a general trend or correlation.
-
-Science:
-
-*  Observing that many birds can fly and then concluding that all birds can fly (even though there are exceptions like penguins).
-*  Conducting experiments to test a hypothesis and then drawing general conclusions about the natural world based on the results.
-*  Observing patterns in nature, such as the succession of plant communities after a disturbance, and then formulating general ecological principles.
-
-Social Science:
-
-*  Conducting surveys to collect data on public opinion and then drawing conclusions about general trends in attitudes or beliefs.
-*  Observing patterns of social behavior in different cultures and then making generalizations about human social interaction.
-*  Analyzing historical data to identify trends and make generalizations about social change over time.""" ;
-                    rdfs:isDefinedBy "A form of logical inference that involves drawing general conclusions from specific observations or examples. It moves from specific instances to broader generalizations. Inductive reasoning is often used in scientific inquiry to develop hypotheses and theories based on empirical evidence." .
-
-
-###  http://edugraph.io/edu/InformationCompression
-:InformationCompression rdf:type owl:NamedIndividual ,
-                                 edu:Ability ;
-                        edu:partOf :Interpretation ;
-                        rdfs:comment "Example: Writing a concise summary of a research article or a historical event." ;
-                        rdfs:isDefinedBy "Summarizing information concisely and effectively. This involves condensing complex ideas or large amounts of information into a shorter, more manageable form while retaining the key message." .
-
-
-###  http://edugraph.io/edu/InformationExtraction
-:InformationExtraction rdf:type owl:NamedIndividual ,
-                                edu:Ability ;
-                       edu:partOf :Extraction ;
-                       rdfs:comment "Example: Extracting key statistics and data from a scientific article to include in a research report." ;
-                       rdfs:isDefinedBy "Identifying and gathering important facts and details from a source. This involves selectively choosing and organizing information that is relevant to a specific task or purpose." .
-
-
-###  http://edugraph.io/edu/IntentIdentification
-:IntentIdentification rdf:type owl:NamedIndividual ,
-                               edu:Ability ;
-                      edu:partOf :Interpretation ;
-                      rdfs:comment "Example: Analyzing a political speech to understand the speaker's agenda and persuasive techniques." ;
-                      rdfs:isDefinedBy "Understanding the purpose or goal behind a communication. This involves recognizing the speaker's or writer's intentions and motivations for communicating." .
-
-
-###  http://edugraph.io/edu/Interpretation
-:Interpretation rdf:type owl:NamedIndividual ,
-                         edu:Ability ;
-                edu:partOf :Processing ;
-                rdfs:comment "Example:  Interpreting the meaning of a poem." ;
-                rdfs:isDefinedBy "Explaining or understanding the meaning of something. This involves making sense of information, ideas, or experiences by analyzing them and drawing conclusions." .
-
-
-###  http://edugraph.io/edu/Introspection
-:Introspection rdf:type owl:NamedIndividual ,
-                        edu:Ability ;
-               edu:partOf :EmotionalCapability ;
-               rdfs:isDefinedBy "The ability to reflect on one's own thoughts, feelings, and behaviors. This involves examining one's inner experiences to gain self-awareness and understanding." .
-
-
-###  http://edugraph.io/edu/LateralCreativity
-:LateralCreativity rdf:type owl:NamedIndividual ,
-                            edu:Ability ;
-                   edu:partOf :CreativeCapability ;
-                   rdfs:comment "Example: Exploring a simple low-tech solution in an otherwise high-tech environment." ;
-                   rdfs:isDefinedBy """Lateral Creativity: The ability to think outside the box and come up with unconventional ideas. This involves challenging assumptions, breaking free from traditional patterns of thought, and exploring new and unexpected possibilities.
-
-Example: Exploring a simple low-tech solution in an otherwise high-tech environment.""" .
-
-
-###  http://edugraph.io/edu/LinguisticArticulation
-:LinguisticArticulation rdf:type owl:NamedIndividual ,
-                                 edu:Ability ;
-                        edu:partOf :Articulation ,
-                                   :LinguisticCapability ;
-                        rdfs:comment "Example: Expressing thoughts about someone's favorite animal, using complete sentences and appropriate vocabulary." ;
-                        rdfs:isDefinedBy "Expressing oneself through spoken or written language. This involves using words, grammar, and syntax to convey meaning." .
-
-
-###  http://edugraph.io/edu/LinguisticCapability
-:LinguisticCapability rdf:type owl:NamedIndividual ,
-                               edu:Ability .
-
-
-###  http://edugraph.io/edu/LinguisticReception
-:LinguisticReception rdf:type owl:NamedIndividual ,
-                              edu:Ability ;
-                     edu:partOf :LinguisticCapability ,
-                                :Reception ;
-                     rdfs:comment "Example: Listening attentively to a lecture and taking notes to understand the key concepts." ;
-                     rdfs:isDefinedBy "Understanding spoken and written language. This involves comprehending the meaning of words, sentences, and texts, both spoken and written." .
-
-
-###  http://edugraph.io/edu/LogicalInference
-:LogicalInference rdf:type owl:NamedIndividual ,
-                           edu:Ability ;
-                  edu:partOf :DeductiveReasoning ;
-                  rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Using the axioms of Euclidean geometry and rules of inference to prove geometric theorems.
-*  Applying logical inference to solve algebraic equations or inequalities.
-*  Deriving new mathematical statements from existing theorems and definitions.
-
-Science:
-
-*  Using logical inference to draw conclusions from experimental data or observations.
-*  Applying deductive reasoning to test hypotheses and evaluate scientific theories.
-*  Making predictions about future events or phenomena based on established scientific principles.""" ;
-                  rdfs:isDefinedBy "The ability to draw valid conclusions from given premises or axioms using deductive reasoning. This involves applying rules of inference, such as modus ponens or modus tollens, to derive new statements that necessarily follow from the initial assumptions." .
-
-
-###  http://edugraph.io/edu/LogicalProcessing
-:LogicalProcessing rdf:type owl:NamedIndividual ,
-                            edu:Ability ;
-                   edu:partOf :LogicalThinking ;
-                   rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  The steps involved in solving a quadratic equation using the quadratic formula.
-*  The process of constructing a geometric proof, starting with given information and using logical deductions to arrive at the desired conclusion.
-*  The steps involved in performing a statistical analysis, from collecting and organizing data to applying the appropriate statistical test and interpreting the results.
-
-Science:
-
-*  The steps of the scientific method, including observation, hypothesis formation, experimentation, data analysis, and conclusion.
-*  The procedure for conducting a specific laboratory experiment, such as titrating a solution or dissecting a specimen.
-*  The steps involved in analyzing scientific data, including cleaning the data, visualizing it, and applying statistical methods to identify patterns and draw conclusions.""" ;
-                   rdfs:isDefinedBy "Understand and applying a series of steps or operations performed in a specific order to achieve a desired outcome. These steps are based on principles of logic and reasoning, ensuring that each action is justified and contributes to the overall goal." .
-
-
-###  http://edugraph.io/edu/LogicalReasoning
-:LogicalReasoning rdf:type owl:NamedIndividual ,
-                           edu:Ability ;
-                  edu:partOf :LogicalThinking ;
-                  rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Using deductive reasoning to prove a geometric theorem by starting with axioms and applying logical rules.
-*  Employing inductive reasoning to identify a pattern in a sequence of numbers and predict the next term.
-*  Using abductive reasoning to formulate a hypothesis about the solution to a mathematical problem based on limited information.
-
-Science:
-
-*  Applying deductive reasoning to predict the outcome of an experiment based on established scientific laws.
-*  Using inductive reasoning to draw general conclusions about a phenomenon based on experimental data or observations.
-*  Employing abductive reasoning to formulate a hypothesis to explain an unexpected observation or experimental result.""" ;
-                  rdfs:isDefinedBy "The process of using reason and evidence to arrive at valid conclusions. It involves analyzing information, identifying patterns, and making inferences based on established rules or principles. Logical reasoning can be divided into two main types: deductive reasoning, where conclusions are guaranteed to be true if the premises are true, and non-deductive reasoning, where conclusions are likely but not guaranteed." .
-
-
-###  http://edugraph.io/edu/LogicalThinking
-:LogicalThinking rdf:type owl:NamedIndividual ,
-                          edu:Ability ;
-                 edu:partOf :AnalyticalCapability .
-
-
-###  http://edugraph.io/edu/MaximumStrength
-:MaximumStrength rdf:type owl:NamedIndividual ,
-                          edu:Ability ;
-                 edu:partOf :Strength .
-
-
-###  http://edugraph.io/edu/MentalEndurance
-:MentalEndurance rdf:type owl:NamedIndividual ,
-                          edu:Ability ;
-                 edu:partOf :Endurance .
-
-
-###  http://edugraph.io/edu/MessageExtraction
-:MessageExtraction rdf:type owl:NamedIndividual ,
-                            edu:Ability ;
-                   edu:partOf :Extraction ;
-                   rdfs:comment "Example: Summarizing the main argument of a persuasive essay or the key findings of a scientific study." ;
-                   rdfs:isDefinedBy "Understanding the main point or message being communicated. This involves identifying the central idea or theme of a text, speech, or other form of communication." .
-
-
-###  http://edugraph.io/edu/Messaging
-:Messaging rdf:type owl:NamedIndividual ,
-                    edu:Ability ;
-           edu:partOf :Expression ;
-           rdfs:comment "Example: Giving clear and concise instructions for completing a science experiment." ;
-           rdfs:isDefinedBy "Communicating information or instructions clearly and concisely. This involves conveying messages effectively to ensure that the recipient understands the intended meaning." .
-
-
-###  http://edugraph.io/edu/MimicArticulation
-:MimicArticulation rdf:type owl:NamedIndividual ,
-                            edu:Ability ;
-                   edu:partOf :Articulation ;
-                   rdfs:comment "Example: Expressing emotions like sadness and happiness through mimic expression in a theatre play." ;
-                   rdfs:isDefinedBy "Expressing oneself through facial expressions. This involves using facial muscles to convey emotions, reactions, or attitudes." .
-
-
-###  http://edugraph.io/edu/MimicReception
-:MimicReception rdf:type owl:NamedIndividual ,
-                         edu:Ability ;
-                edu:partOf :Reception ;
-                rdfs:comment "Example: Recognizing a friend's facial expression to gauge their mood and offer support if needed." ;
-                rdfs:isDefinedBy "Understanding and interpreting facial expressions. This involves reading facial cues, such as smiles, frowns, and raised eyebrows, to understand the emotions and attitudes being expressed." .
-
-
-###  http://edugraph.io/edu/MoodIdentification
-:MoodIdentification rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    edu:partOf :Interpretation ;
-                    rdfs:comment "Example: Analyzing the mood created by the author's use of language and imagery in a poem or short story." ;
-                    rdfs:isDefinedBy "Recognizing the emotional tone or atmosphere of a communication. This involves identifying the feelings or emotions that are conveyed through language, tone of voice, and other cues." .
-
-
-###  http://edugraph.io/edu/Motoric
-:Motoric rdf:type owl:NamedIndividual ,
-                  edu:Ability ;
-         edu:partOf :PhysicalCapability .
-
-
-###  http://edugraph.io/edu/MotoricFlexibility
-:MotoricFlexibility rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    edu:partOf :Motoric .
-
-
-###  http://edugraph.io/edu/MotoricPrecision
-:MotoricPrecision rdf:type owl:NamedIndividual ,
-                           edu:Ability ;
-                  edu:partOf :Motoric .
-
-
-###  http://edugraph.io/edu/MotoricRange
-:MotoricRange rdf:type owl:NamedIndividual ,
-                       edu:Ability ;
-              edu:partOf :Motoric .
-
-
-###  http://edugraph.io/edu/MotoricSpeed
-:MotoricSpeed rdf:type owl:NamedIndividual ,
-                       edu:Ability ;
-              edu:partOf :Motoric .
-
-
-###  http://edugraph.io/edu/MuscularEndurance
-:MuscularEndurance rdf:type owl:NamedIndividual ,
-                            edu:Ability ;
-                   edu:partOf :Endurance .
-
-
-###  http://edugraph.io/edu/Narration
-:Narration rdf:type owl:NamedIndividual ,
-                    edu:Ability ;
-           edu:partOf :Expression ;
-           rdfs:comment "Example: Writing a personal narrative essay with vivid details and a clear storyline." ;
-           rdfs:isDefinedBy "Telling stories or recounting events in an engaging manner. This involves organizing information chronologically and using descriptive language to create a compelling narrative." .
-
-
-###  http://edugraph.io/edu/NarrativeExtraction
-:NarrativeExtraction rdf:type owl:NamedIndividual ,
-                              edu:Ability ;
-                     edu:partOf :Extraction ;
-                     rdfs:comment "Example: Analyzing the plot structure and character development in a novel." ;
-                     rdfs:isDefinedBy "Identifying the underlying story or narrative in a piece of communication. This involves recognizing the sequence of events, characters, and plot elements that make up a story." .
-
-
-###  http://edugraph.io/edu/NonDeductiveReasoning
-:NonDeductiveReasoning rdf:type owl:NamedIndividual ,
-                                edu:Ability ;
-                       edu:partOf :LogicalReasoning ;
-                       rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Observing that a pattern holds for the first few numbers in a sequence and then concluding that the pattern likely holds for all numbers in the sequence (inductive reasoning).
-*  Using the properties of known geometric shapes to make an educated guess about the properties of a new, unfamiliar shape (abductive reasoning).
-*  Applying the solution strategy from a previously solved problem to a new problem that shares similar features (analogical reasoning).
-
-Science:
-
-*  Formulating a scientific hypothesis based on limited observations or data (abductive reasoning).
-*  Drawing general conclusions about the behavior of a species based on observations of a sample population (inductive reasoning).
-*  Using a model organism, like a mouse, to study a human disease based on the similarities between their biological systems (analogical reasoning).
-
-Social Science:
-
-*  Developing a theory about the causes of a social phenomenon based on observed patterns and correlations (inductive reasoning).
-*  Formulating a hypothesis about the motivations of historical figures based on limited historical records (abductive reasoning).
-*  Using case studies of successful social programs to design similar programs in new contexts (analogical reasoning).""" ;
-                       rdfs:isDefinedBy "A type of logical reasoning where the conclusion is likely or probable, but not guaranteed, based on the given premises. Unlike deductive reasoning, which draws certain conclusions, non-deductive reasoning deals with uncertainty and degrees of support. It encompasses various forms of reasoning, including abductive, analogical, and inductive reasoning, each with its own approach to drawing inferences and making generalizations." .
-
-
-###  http://edugraph.io/edu/PassiveVocabulary
-:PassiveVocabulary rdf:type owl:NamedIndividual ,
-                            edu:Ability ;
-                   edu:partOf :LinguisticReception ;
-                   rdfs:comment "Example: Understanding the meaning of words from a specific subject like business administration in a foreign language." ;
-                   rdfs:isDefinedBy "The words a person can understand but may not actively use in speaking or writing. This involves recognizing and comprehending a wide range of vocabulary when reading or listening." .
-
-
-###  http://edugraph.io/edu/PeerAwareness
-:PeerAwareness rdf:type owl:NamedIndividual ,
-                        edu:Ability ;
-               edu:partOf :Empathy ;
-               rdfs:comment "Example: A student noticing that a classmate is feeling excluded from a group activity and taking steps to include them." ;
-               rdfs:isDefinedBy "The ability to understand and recognize the emotions, needs, and perspectives of one's peers. This involves being attuned to the social dynamics within a peer group and being sensitive to the feelings of others." .
-
-
-###  http://edugraph.io/edu/PeerRelatability
-:PeerRelatability rdf:type owl:NamedIndividual ,
-                           edu:Ability ;
-                  edu:partOf :Empathy ;
-                  rdfs:comment "Example: A student sharing their interests and experiences with a new classmate to build a connection." ;
-                  rdfs:isDefinedBy "The ability to connect with and relate to one's peers. This involves finding common ground, building relationships, and establishing rapport with others." .
-
-
-###  http://edugraph.io/edu/PeerSupport
-:PeerSupport rdf:type owl:NamedIndividual ,
-                      edu:Ability ;
-             edu:partOf :Empathy ;
-             rdfs:comment "Example: A student helping a classmate who is struggling with a school assignment by offering to study together or explaining the concepts." ;
-             rdfs:isDefinedBy "The ability to offer support and assistance to one's peers. This involves providing encouragement, guidance, and help to others when they are in need." .
-
-
-###  http://edugraph.io/edu/Performance
-:Performance rdf:type owl:NamedIndividual ,
-                      edu:Ability ;
-             edu:partOf :Expression ;
-             rdfs:comment "Example: Acting in a school play or delivering a presentation with poise and confidence." ;
-             rdfs:isDefinedBy "Presenting oneself or one's work effectively in public. This involves communicating confidently and engaging with the audience to deliver a successful performance." .
-
-
-###  http://edugraph.io/edu/PhysicalCapability
-:PhysicalCapability rdf:type owl:NamedIndividual ,
-                             edu:Ability .
-
-
-###  http://edugraph.io/edu/PlausibilityEvaluation
-:PlausibilityEvaluation rdf:type owl:NamedIndividual ,
-                                 edu:Ability ;
-                        edu:partOf :Evaluation ;
-                        rdfs:comment "Example: Assessing the plausibility of a scientific theory based on available evidence and current understanding." ;
-                        rdfs:isDefinedBy "Judging how likely something is to be true. This involves considering the evidence, logic, and context to determine whether a claim or statement is reasonable and believable." .
-
-
-###  http://edugraph.io/edu/PoliticalAwareness
-:PoliticalAwareness rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    edu:partOf :SocialScaling ;
-                    rdfs:comment "Example: Staying informed about current political debates and engaging in respectful discussions with people with different political views." ;
-                    rdfs:isDefinedBy "The ability to understand political systems and issues. This involves being informed about current events, government policies, and social issues." .
-
-
-###  http://edugraph.io/edu/PosturalEndurance
-:PosturalEndurance rdf:type owl:NamedIndividual ,
-                            edu:Ability ;
-                   edu:partOf :Endurance .
-
-
-###  http://edugraph.io/edu/Presentation
-:Presentation rdf:type owl:NamedIndividual ,
-                       edu:Ability ;
-              edu:partOf :Expression ;
-              rdfs:comment "Example: Creating and delivering a presentation on a historical event with visual aids and a clear narrative." ;
-              rdfs:isDefinedBy "Organizing and delivering information in a clear and structured manner. This involves presenting ideas logically, using visual aids effectively, and engaging the audience." .
-
-
-###  http://edugraph.io/edu/ProcedureApplicability
-:ProcedureApplicability rdf:type owl:NamedIndividual ,
-                                 edu:Ability ;
-                        edu:partOf :ProcedureUnderstanding ;
-                        rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Determining whether a specific formula is applicable to solve a given problem.
-*  Deciding whether a particular geometric construction method can be used to achieve a desired outcome.
-*  Evaluating whether a statistical test is suitable for analyzing a specific dataset.
-
-Science:
-
-*  Judging whether a specific experimental design is appropriate for testing a hypothesis.
-*  Determining whether a particular laboratory technique is suitable for analyzing a sample.
-*  Assessing whether a scientific model is applicable to explain a specific phenomenon.""" ;
-                        rdfs:isDefinedBy "The ability to determine whether a specific procedure is suitable for a given task or problem. This involves analyzing the conditions and constraints of the situation, understanding the purpose and limitations of the procedure, and judging its appropriateness. Procedure applicability requires the ability to evaluate the relevance of a procedure to a specific context." .
-
-
-###  http://edugraph.io/edu/ProcedureApplication
-:ProcedureApplication rdf:type owl:NamedIndividual ,
-                               edu:Ability ;
-                      edu:partOf :LogicalProcessing ;
-                      rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Selecting the correct formula to calculate the area of a specific shape.
-*  Choosing the appropriate method to solve a system of equations (e.g., substitution, elimination, graphing).
-*  Applying the correct trigonometric identity to simplify an expression.
-
-Science:
-
-*  Choosing the appropriate experimental design to test a hypothesis (e.g., controlled experiment, observational study).
-*  Selecting the correct laboratory technique to analyze a sample (e.g., titration, chromatography).
-*  Applying the appropriate scientific model to explain a phenomenon (e.g., Newtonian mechanics, quantum mechanics).""" ;
-                      rdfs:isDefinedBy "The ability to select and utilize the correct procedure for a given task or problem. This involves analyzing the situation, identifying the relevant features, and choosing the most appropriate procedure from a repertoire of known procedures. Procedure application requires understanding the purpose and constraints of different procedures and their suitability for various contexts." .
-
-
-###  http://edugraph.io/edu/ProcedureComposition
-:ProcedureComposition rdf:type owl:NamedIndividual ,
-                               edu:Ability ;
-                      edu:partOf :ProcedureUnderstanding ;
-                      rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Combining different algebraic techniques to solve a complex equation.
-*  Integrating different geometric construction methods to create a new shape or design.
-*  Developing a new statistical analysis procedure by combining existing methods.
-
-Science:
-
-*  Designing a multi-step experiment by combining different experimental techniques.
-*  Developing a new laboratory protocol by integrating existing procedures.
-*  Creating a new scientific model by combining elements from existing models.""" ;
-                      rdfs:isDefinedBy "The ability to combine or modify existing procedures to create new or more complex procedures. This involves understanding the individual steps and their relationships, identifying potential interactions, and adapting them to achieve a desired outcome." .
-
-
-###  http://edugraph.io/edu/ProcedureDerivation
-:ProcedureDerivation rdf:type owl:NamedIndividual ,
-                              edu:Ability ;
-                     edu:partOf :ProcedureUnderstanding ;
-                     rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Deriving a new formula or algorithm from existing mathematical principles.
-*  Developing a new geometric construction method based on known geometric properties.
-*  Creating a new statistical analysis technique by adapting existing methods.
-
-Science:
-
-*  Inferring a new experimental procedure based on theoretical principles or previous research.
-*  Developing a new laboratory technique by adapting existing methods or technologies.
-*  Deriving a new scientific model by extrapolating from existing data and observations.""" ;
-                     rdfs:isDefinedBy "The ability to infer or deduce new procedures from existing knowledge, principles, or procedures. This involves applying logical reasoning, identifying patterns, and extrapolating from known information to create novel solutions." .
-
-
-###  http://edugraph.io/edu/ProcedureExecution
-:ProcedureExecution rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    edu:partOf :ProcedureApplication ;
-                    rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Accurately performing calculations and applying formulas to solve mathematical problems.
-*  Constructing geometric figures or proofs with precision and attention to detail.
-*  Executing statistical analyses correctly and interpreting the results accurately.
-
-Science:
-
-*  Conducting experiments carefully, following procedures, and accurately recording data.
-*  Using laboratory equipment and techniques effectively to obtain reliable results.
-*  Analyzing data and drawing conclusions based on the accurate interpretation of results.""" ;
-                    rdfs:isDefinedBy "The ability to accurately and effectively carry out the steps of a procedure. This involves following instructions, applying knowledge and skills, and adapting to unexpected situations. Procedure execution requires attention to detail, precision, and the ability to monitor and adjust actions as needed." .
-
-
-###  http://edugraph.io/edu/ProcedureIdentification
-:ProcedureIdentification rdf:type owl:NamedIndividual ,
-                                  edu:Ability ;
-                         edu:partOf :ProcedureApplication ;
-                         rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Identifying the appropriate formula or method to solve a specific mathematical problem.
-*  Recognizing the type of geometric construction required to achieve a desired outcome.
-*  Selecting the correct statistical test to analyze a given set of data.
-
-Science:
-
-*  Identifying the appropriate experimental design to test a scientific hypothesis.
-*  Selecting the correct laboratory technique to analyze a specific sample.
-*  Choosing the appropriate scientific model to explain a particular phenomenon.""" ;
-                         rdfs:isDefinedBy "The ability to recognize and select the appropriate procedure for a given task or problem. This involves analyzing the situation, identifying key features, and matching them to the correct procedure. Procedure identification requires understanding the purpose and scope of different procedures and their applicability to various contexts." .
-
-
-###  http://edugraph.io/edu/ProcedureMemorization
-:ProcedureMemorization rdf:type owl:NamedIndividual ,
-                                edu:Ability ;
-                       edu:partOf :ProcedureApplication ;
-                       rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Memorizing the steps for solving a specific type of equation, such as a quadratic equation.
-*  Recalling the order of operations to correctly solve mathematical expressions.
-*  Remembering the steps involved in constructing geometric proofs.
-
-Science:
-
-*  Memorizing the steps of the scientific method for conducting experiments.
-*  Recalling the procedures for using laboratory equipment, such as microscopes.
-*  Remembering the steps involved in specific scientific techniques, such as titrations.""" ;
-                       rdfs:isDefinedBy "The ability to accurately remember and recall the steps involved in a specific procedure. This involves encoding the sequence of actions, key details, and any associated rules or conditions. Procedure memorization is essential for performing tasks correctly and efficiently, particularly when a task must be repeated multiple times or with high fidelity." .
-
-
-###  http://edugraph.io/edu/ProcedureUnderstanding
-:ProcedureUnderstanding rdf:type owl:NamedIndividual ,
-                                 edu:Ability ;
-                        edu:partOf :LogicalProcessing ;
-                        rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Understanding why the order of operations is necessary for consistent mathematical calculations.
-*  Grasping the geometric principles behind different construction methods (e.g., bisecting an angle, constructing a perpendicular line).
-*  Comprehending the logic behind statistical tests and how they are used to draw conclusions from data.
-
-Science:
-
-*  Understanding the principles of the scientific method and why each step is important for reliable investigation.
-*  Grasping the theoretical basis for laboratory techniques and how they work to analyze different substances.
-*  Comprehending the underlying scientific principles behind models used to explain natural phenomena.""" ;
-                        rdfs:isDefinedBy "The ability to grasp the underlying principles and rationale behind a procedure. This involves comprehending the steps involved, the reasons for their order, and the relationship between the procedure and the desired outcome. Procedure understanding goes beyond rote memorization and enables flexible adaptation and problem-solving." .
-
-
-###  http://edugraph.io/edu/Processing
-:Processing rdf:type owl:NamedIndividual ,
-                     edu:Ability ;
-            edu:partOf :CommunicationCapability ;
-            rdfs:isDefinedBy "The act of actively working with information to analyze it, understand it, and use it effectively." .
-
-
-###  http://edugraph.io/edu/Pronunciation
-:Pronunciation rdf:type owl:NamedIndividual ,
-                        edu:Ability ;
-               edu:partOf :VocalArticulation ;
-               rdfs:comment "Example: Learning to pronounce new vocabulary words correctly in a foreign language class." ;
-               rdfs:isDefinedBy "Saying words correctly with accurate articulation and stress. This involves producing the sounds of a language clearly and accurately, paying attention to vowel and consonant sounds, syllable stress, and intonation patterns." .
-
-
-###  http://edugraph.io/edu/ReadingFluency
-:ReadingFluency rdf:type owl:NamedIndividual ,
-                         edu:Ability ;
-                edu:partOf :TextualReception ;
-                rdfs:comment "Example: Reading aloud a passage from a novel with fluency and expression." ;
-                rdfs:isDefinedBy "Reading smoothly and effortlessly with good pacing and expression. This involves reading at a comfortable speed with accurate pronunciation and appropriate intonation." .
-
-
-###  http://edugraph.io/edu/ReadingPrecision
-:ReadingPrecision rdf:type owl:NamedIndividual ,
-                           edu:Ability ;
-                  edu:partOf :TextualReception ;
-                  rdfs:comment "Example: Carefully reading a historical document to understand the events and their significance." ;
-                  rdfs:isDefinedBy "Reading accurately and with attention to detail. This involves understanding the meaning of words, sentences, and paragraphs, and identifying key information in the text." .
-
-
-###  http://edugraph.io/edu/ReadingSpeed
-:ReadingSpeed rdf:type owl:NamedIndividual ,
-                       edu:Ability ;
-              edu:partOf :TextualReception ;
-              rdfs:comment "Example: Skimming a news article to quickly grasp the main points." ;
-              rdfs:isDefinedBy "Reading quickly and efficiently while still comprehending the text. This involves processing written information at a fast pace without sacrificing understanding." .
-
-
-###  http://edugraph.io/edu/Reception
-:Reception rdf:type owl:NamedIndividual ,
-                    edu:Ability ;
-           edu:partOf :Processing ;
-           rdfs:isDefinedBy "The act of receiving and understanding information through various senses, such as listening, reading, and observing." .
-
-
-###  http://edugraph.io/edu/RelevanceEvaluation
-:RelevanceEvaluation rdf:type owl:NamedIndividual ,
-                              edu:Ability ;
-                     edu:partOf :Evaluation ;
-                     rdfs:comment "Example: Selecting the most relevant data from a research study to support a specific argument in an essay." ;
-                     rdfs:isDefinedBy "Determining how important or useful information is for a specific purpose. This involves identifying key information and filtering out irrelevant details to focus on what is most important." .
-
-
-###  http://edugraph.io/edu/ResultInterpretation
-:ResultInterpretation rdf:type owl:NamedIndividual ,
-                               edu:Ability ;
-                      edu:partOf :ScientificThinking ;
-                      rdfs:comment """Examples from different subjects:
-
-Math:
-
-*  Interpreting the results of a mathematical calculation or proof to understand its implications.
-*  Analyzing data from a simulation or experiment to draw conclusions about mathematical relationships.
-*  Explaining the meaning of statistical results in the context of a research question.
-
-Science:
-
-*  Analyzing data from an experiment to determine whether it supports or refutes a hypothesis.
-*  Drawing conclusions about the natural world based on the interpretation of scientific findings.
-*  Communicating the significance of research results to other scientists and the public.
-
-Social Science:
-
-*  Interpreting data from surveys or experiments to draw conclusions about social phenomena.
-*  Analyzing historical data or case studies to understand social trends or events.
-*  Explaining the implications of research findings for social policy or interventions.""" ;
-                      rdfs:isDefinedBy "The ability to analyze data, draw conclusions, and explain the meaning of scientific findings in the context of the research question and existing knowledge. It involves identifying patterns, evaluating the significance of results, and considering alternative explanations. Result interpretation is crucial for communicating scientific knowledge and informing future research." .
-
-
-###  http://edugraph.io/edu/ScientificThinking
-:ScientificThinking rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    edu:partOf :AnalyticalCapability ;
-                    rdfs:comment """Examples from different subjects:
-
-Math:
-
-* Formulating a mathematical conjecture and then using logical reasoning and proofs to determine its validity.
-* Designing an experiment to collect data and then using statistical analysis to test a hypothesis about the data.
-* Modeling real-world phenomena using mathematical equations and then using those models to make predictions.
-
-Science:
-
-* Observing a natural phenomenon, formulating a hypothesis to explain it, and then designing an experiment to test the hypothesis.
-* Analyzing data from an experiment, identifying patterns and trends, and drawing conclusions based on the evidence.
-* Evaluating scientific claims and theories based on their supporting evidence and logical consistency.
-
-Social Science:
-
-* Formulating a hypothesis about a social phenomenon, such as the causes of crime or the factors that influence voting behavior.
-* Designing a survey or experiment to collect data on the social phenomenon and then analyzing the data to test the hypothesis.
-* Evaluating different social policies or interventions based on their effectiveness and potential consequences.""" ;
-                    rdfs:isDefinedBy "A systematic approach to understanding the natural world that involves observation, experimentation, and logical reasoning. It includes formulating hypotheses, designing experiments to test those hypotheses, analyzing data, and drawing conclusions based on evidence. Scientific thinking is essential for advancing knowledge and solving problems in various fields, from medicine and engineering to environmental science and technology." .
-
-
-###  http://edugraph.io/edu/Seeing
-:Seeing rdf:type owl:NamedIndividual ,
-                 edu:Ability ;
-        edu:partOf :SensoricCapability .
-
-
-###  http://edugraph.io/edu/SelfAssessment
-:SelfAssessment rdf:type owl:NamedIndividual ,
-                         edu:Ability ;
-                edu:partOf :Introspection ;
-                rdfs:comment "Example: Reflecting on our strengths and weaknesses in a particular subject to set realistic goals for improvement." ;
-                rdfs:isDefinedBy "The ability to evaluate one's own strengths and weaknesses. This involves objectively assessing one's skills, abilities, and knowledge in different areas." .
-
-
-###  http://edugraph.io/edu/SelfAwareness
-:SelfAwareness rdf:type owl:NamedIndividual ,
-                        edu:Ability ;
-               edu:partOf :Introspection ;
-               rdfs:comment "Example: Recognizing when we are feeling stressed and taking steps to manage our stress levels." ;
-               rdfs:isDefinedBy "The ability to recognize and understand one's own emotions, thoughts, and behaviors. This involves being conscious of one's inner state and how it influences one's actions and interactions with others." .
-
-
-###  http://edugraph.io/edu/SelfConfidence
-:SelfConfidence rdf:type owl:NamedIndividual ,
-                         edu:Ability ;
-                edu:partOf :Introspection ;
-                rdfs:comment "Example: Feeling confident in one's ability to give a presentation in front of the class." ;
-                rdfs:isDefinedBy "Belief in one's own abilities and worth. This involves having a positive self-image and feeling capable of achieving one's goals." .
-
-
-###  http://edugraph.io/edu/SelfMotivation
-:SelfMotivation rdf:type owl:NamedIndividual ,
-                         edu:Ability ;
-                edu:partOf :Introspection ;
-                rdfs:comment "Example: A student setting a goal to improve their grades and creating a study plan to achieve it." ;
-                rdfs:isDefinedBy "The ability to set goals and work towards them independently. This involves having the drive and initiative to pursue one's objectives without relying on external pressure or incentives." .
-
-
-###  http://edugraph.io/edu/SelfRegulation
-:SelfRegulation rdf:type owl:NamedIndividual ,
-                         edu:Ability ;
-                edu:partOf :Introspection ;
-                rdfs:comment "Example: A student staying calm and focused during a test despite feeling pressure." ;
-                rdfs:isDefinedBy "The ability to manage one's emotions, thoughts, and behaviors effectively. This involves controlling impulses, managing stress, and adapting to changing situations." .
-
-
-###  http://edugraph.io/edu/SensoricCapability
-:SensoricCapability rdf:type owl:NamedIndividual ,
-                             edu:Ability .
-
-
-###  http://edugraph.io/edu/ServiceOrientation
-:ServiceOrientation rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    edu:partOf :SocialScaling ;
-                    rdfs:comment "Example: A student participating in a community service project to help those less fortunate." ;
-                    rdfs:isDefinedBy "A willingness to help others and contribute to the community. This involves volunteering one's time and effort to support those in need and make a positive impact on society." .
-
-
-###  http://edugraph.io/edu/Smelling
-:Smelling rdf:type owl:NamedIndividual ,
-                   edu:Ability ;
-          edu:partOf :SensoricCapability .
-
-
-###  http://edugraph.io/edu/SocialScaling
-:SocialScaling rdf:type owl:NamedIndividual ,
-                        edu:Ability ;
-               edu:partOf :EmotionalCapability ;
-               rdfs:isDefinedBy "The ability to adapting to different social contexts and interacting appropriately with others." .
-
-
-###  http://edugraph.io/edu/SpatialGeneration
-:SpatialGeneration rdf:type owl:NamedIndividual ,
-                            edu:Ability ;
-                   edu:partOf :SpatialThinking ;
-                   rdfs:comment """Examples from different subjects:
-
-Math:
-
-* Constructing new geometric shapes by combining or dividing existing ones.
-* Designing three-dimensional objects from two-dimensional representations.
-* Creating mental maps of unfamiliar environments based on verbal descriptions.
-
-Science:
-
-* Designing experiments that involve manipulating spatial variables.
-* Developing models to represent the spatial structure of molecules or ecosystems.
-* Predicting the outcomes of spatial transformations, such as the folding of proteins or the movement of tectonic plates.""" ;
-                   rdfs:isDefinedBy "The ability to create or mentally transform spatial structures and relationships. This involves generating new spatial arrangements, modifying existing ones, and visualizing the outcomes of spatial operations. Spatial generation is essential for design, problem-solving, and innovative thinking in fields that involve spatial reasoning." .
-
-
-###  http://edugraph.io/edu/SpatialImagination
-:SpatialImagination rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    edu:partOf :SpatialThinking ;
-                    rdfs:comment """Examples from different subjects:
-
-Math:
-
-* Mentally rotating or transforming geometric shapes to visualize their properties.
-* Imagining the unfolding of a three-dimensional object into a two-dimensional net.
-* Visualizing the paths of objects in motion or the trajectories of projectiles.
-
-Science:
-
-* Imagining the three-dimensional structure of molecules or the arrangement of atoms in a crystal lattice.
-* Visualizing the movement of tectonic plates or the flow of fluids in a system.
-* Mentally constructing models of complex systems, such as the human brain or the solar system.""" ;
-                    rdfs:isDefinedBy "The ability to mentally visualize and manipulate objects in three-dimensional space. This involves forming mental images, rotating objects, and understanding spatial relationships without physical manipulation. Spatial imagination is crucial for problem-solving, design, and understanding complex spatial information." .
-
-
-###  http://edugraph.io/edu/SpatialInterpretation
-:SpatialInterpretation rdf:type owl:NamedIndividual ,
-                                edu:Ability ;
-                       edu:partOf :SpatialThinking ;
-                       rdfs:comment """Examples from different subjects:
-
-Math:
-
-* Interpreting graphs and charts to understand data trends and relationships.
-* Analyzing maps and diagrams to extract information about distances, directions, and locations.
-* Understanding the spatial relationships between objects in geometric constructions or architectural plans.
-
-Science:
-
-* Interpreting maps of geological formations or weather patterns.
-* Analyzing anatomical diagrams to understand the spatial relationships between organs.
-* Understanding astronomical charts and diagrams to visualize the positions of celestial bodies.""" ;
-                       rdfs:isDefinedBy "The ability to understand and analyze spatial information presented in various forms, such as maps, diagrams, and models. This involves interpreting symbols, understanding scale, and extracting meaning from visual representations of spatial relationships. Spatial interpretation skills are essential for navigating the environment, understanding geographical information, and analyzing spatial data." .
-
-
-###  http://edugraph.io/edu/SpatialNavigation
-:SpatialNavigation rdf:type owl:NamedIndividual ,
-                            edu:Ability ;
-                   edu:partOf :SpatialThinking ;
-                   rdfs:comment """Examples from different subjects:
-
-Math:
-
-* Using coordinate systems and maps to navigate in a virtual or physical environment.
-* Planning routes and calculating distances using geometric concepts.
-* Understanding spatial relationships in mazes or puzzles to find solutions.
-
-Science:
-
-* Using landmarks and spatial cues to navigate in unfamiliar terrain.
-* Understanding the migratory patterns of animals and their navigation strategies.
-* Applying spatial reasoning to plan and execute experiments involving movement or spatial manipulation.""" ;
-                   rdfs:isDefinedBy "The ability to plan and execute movement through space, both physically and mentally. This involves using spatial cues, understanding directions, and visualizing routes to navigate effectively. Spatial navigation skills are crucial for wayfinding, exploring new environments, and understanding spatial relationships in the real world." .
-
-
-###  http://edugraph.io/edu/SpatialThinking
-:SpatialThinking rdf:type owl:NamedIndividual ,
-                          edu:Ability ;
-                 edu:partOf :AnalyticalCapability ;
-                 rdfs:comment """Examples from different subjects:
-
-Math:
-
-* Visualizing geometric shapes and their transformations, such as rotations, reflections, and translations.
-* Understanding spatial relationships between objects in different dimensions, such as points, lines, planes, and solids.
-* Applying spatial reasoning to solve problems involving measurement, area, volume, and geometric proofs.
-
-Science:
-
-* Understanding the three-dimensional structure of molecules and how they interact in chemical reactions.
-* Visualizing the movement of celestial bodies and the forces that govern their motion.
-* Interpreting maps, diagrams, and models to understand spatial patterns and relationships in natural phenomena.""" ;
-                 rdfs:isDefinedBy "The ability to mentally visualize, manipulate, and reason about objects and spatial relationships. It involves understanding and applying concepts of space, distance, direction, and shape. Spatial thinking is crucial for navigating the environment and creating mental representations of the world around us." .
-
-
-###  http://edugraph.io/edu/SpeakingFluency
-:SpeakingFluency rdf:type owl:NamedIndividual ,
-                          edu:Ability ;
-                 edu:partOf :VocalArticulation ;
-                 rdfs:comment "Example: Delivering a presentation with confidence and fluency, maintaining a steady flow of speech." ;
-                 rdfs:isDefinedBy "Speaking smoothly and continuously without unnecessary pauses or hesitations. This involves expressing oneself in a fluid and natural manner, with good pacing and rhythm." .
-
-
-###  http://edugraph.io/edu/SpeakingSpeed
-:SpeakingSpeed rdf:type owl:NamedIndividual ,
-                        edu:Ability ;
-               edu:partOf :VocalArticulation ;
-               rdfs:comment "Example: Pacing oneself during a speech to ensure that the audience can follow along and understand the message." ;
-               rdfs:isDefinedBy "Speaking at an appropriate pace, neither too fast nor too slow. This involves adjusting one's speaking rate to ensure clarity and allow the audience to comprehend the information being conveyed." .
-
-
-###  http://edugraph.io/edu/StartingStrength
-:StartingStrength rdf:type owl:NamedIndividual ,
-                           edu:Ability ;
-                  edu:partOf :Strength .
-
-
-###  http://edugraph.io/edu/StaticBalance
-:StaticBalance rdf:type owl:NamedIndividual ,
-                        edu:Ability ;
-               edu:partOf :Balance .
-
-
-###  http://edugraph.io/edu/Strength
-:Strength rdf:type owl:NamedIndividual ,
-                   edu:Ability ;
-          edu:partOf :PhysicalCapability .
-
-
-###  http://edugraph.io/edu/SubtextUnderstanding
-:SubtextUnderstanding rdf:type owl:NamedIndividual ,
-                               edu:Ability ;
-                      edu:partOf :Understanding ;
-                      rdfs:comment "Example: Understanding the underlying themes and messages in a novel." ;
-                      rdfs:isDefinedBy "Understanding the implied or hidden meanings in communication. This involves reading between the lines and interpreting the underlying messages conveyed through tone, body language, and context." .
-
-
-###  http://edugraph.io/edu/SupertextUnderstanding
-:SupertextUnderstanding rdf:type owl:NamedIndividual ,
-                                 edu:Ability ;
-                        edu:partOf :Understanding ;
-                        rdfs:comment "Example: Understanding the historical context of a political speech and its impact on society." ;
-                        rdfs:isDefinedBy "Understanding the broader context and implications of information. This involves connecting information to prior knowledge, considering different perspectives, and understanding the significance of information in a larger context." .
-
-
-###  http://edugraph.io/edu/SyntacticalPrecision
-:SyntacticalPrecision rdf:type owl:NamedIndividual ,
-                               edu:Ability ;
-                      edu:partOf :TextualArticulation ;
-                      rdfs:comment "Example: Using correct word order and punctuation in a sentence." ;
-                      rdfs:isDefinedBy "Constructing sentences with a clear and logical arrangement of words and phrases. This involves using proper syntax to ensure that sentences are grammatically correct and easy to understand." .
-
-
-###  http://edugraph.io/edu/Tasting
-:Tasting rdf:type owl:NamedIndividual ,
-                  edu:Ability ;
-         edu:partOf :SensoricCapability .
-
-
-###  http://edugraph.io/edu/TextualArticulation
-:TextualArticulation rdf:type owl:NamedIndividual ,
-                              edu:Ability ;
-                     edu:partOf :LinguisticArticulation ;
-                     rdfs:comment "Example: Writing a persuasive essay with a clear introduction, body, and conclusion." ;
-                     rdfs:isDefinedBy "Expressing oneself effectively through writing. This involves organizing ideas logically, using appropriate language and style, and adhering to conventions of written communication." .
-
-
-###  http://edugraph.io/edu/TextualReception
-:TextualReception rdf:type owl:NamedIndividual ,
-                           edu:Ability ;
-                  edu:partOf :LinguisticReception ;
-                  rdfs:comment "Example: Reading a book about animals and understanding their differences and commonalities." ;
-                  rdfs:isDefinedBy "Understanding and interpreting written text. This involves reading and comprehending various types of texts, such as books, articles, and online resources." .
-
-
-###  http://edugraph.io/edu/TonalArticulation
-:TonalArticulation rdf:type owl:NamedIndividual ,
-                            edu:Ability ;
-                   edu:partOf :Articulation ;
-                   rdfs:comment "Example: An individual sings a song with the intended tonality, volume, rhythm and pitch." ;
-                   rdfs:isDefinedBy "Expressing oneself through vocal tone and inflection. This involves varying the pitch, volume, and rhythm of one's voice to convey meaning and emotion." .
-
-
-###  http://edugraph.io/edu/TonalReception
-:TonalReception rdf:type owl:NamedIndividual ,
-                         edu:Ability ;
-                edu:partOf :Reception ;
-                rdfs:comment "Example: Listening to a someone singing a song and identifying their exact mistakes during the reproduction of a song." ;
-                rdfs:isDefinedBy "Understanding and interpreting vocal tone and inflection. This involves paying attention to the nuances of a speaker's or singer's voice, such as pitch, volume, and rhythm." .
-
-
-###  http://edugraph.io/edu/Touching
-:Touching rdf:type owl:NamedIndividual ,
-                   edu:Ability ;
-          edu:partOf :SensoricCapability .
-
-
-###  http://edugraph.io/edu/Understanding
-:Understanding rdf:type owl:NamedIndividual ,
-                        edu:Ability ;
-               edu:partOf :Processing ;
-               rdfs:comment "Example: Understanding the main ideas in a textbook chapter and how they relate to previously learned concepts." ;
-               rdfs:isDefinedBy "The ability to grasp the meaning of information and make connections between ideas. This involves comprehending information at different levels, from the literal to the inferential, and applying knowledge to new situations." .
-
-
-###  http://edugraph.io/edu/VisualArticulation
-:VisualArticulation rdf:type owl:NamedIndividual ,
-                             edu:Ability ;
-                    edu:partOf :Articulation ;
-                    rdfs:comment """Examples from different subjects:
-
-* Math: Creating a graph to represent the relationship between two variables.
-* Science: Drawing a diagram of the human circulatory system.
-* Social Science: Using a map to illustrate population density across different regions.""" ;
-                    rdfs:isDefinedBy "Expressing oneself through visual aids, such as drawings, diagrams, or images. This involves using visual elements to communicate information or ideas." .
-
-
-###  http://edugraph.io/edu/VisualDecomposition
-:VisualDecomposition rdf:type owl:NamedIndividual ,
-                              edu:Ability ;
-                     edu:partOf :VisualReception ;
-                     rdfs:comment "Example: Analyzing a complex diagram in a biology textbook to understand the different components of a cell." ;
-                     rdfs:isDefinedBy "Breaking down complex visual information into smaller, more manageable parts. This involves analyzing visual elements, such as shapes, colors, and patterns, to understand the overall composition." .
-
-
-###  http://edugraph.io/edu/VisualReception
-:VisualReception rdf:type owl:NamedIndividual ,
-                          edu:Ability ;
-                 edu:partOf :Reception ;
-                 rdfs:comment "Example: Interpreting a graph in a science textbook to understand the relationship between variables." ;
-                 rdfs:isDefinedBy "Understanding and interpreting visual information. This involves making sense of images, diagrams, charts, and other visual aids." .
-
-
-###  http://edugraph.io/edu/VisualRecognition
-:VisualRecognition rdf:type owl:NamedIndividual ,
-                            edu:Ability ;
-                   edu:partOf :VisualReception ;
-                   rdfs:comment "Example: Recognizing different types of plants and animals in a nature documentary." ;
-                   rdfs:isDefinedBy "Identifying and recognizing familiar visual patterns and objects. This involves recalling previously learned visual information and matching it to new visual stimuli." .
-
-
-###  http://edugraph.io/edu/Visualization
-:Visualization rdf:type owl:NamedIndividual ,
-                        edu:Ability ;
-               edu:partOf :Expression ;
-               rdfs:comment "Example: Visualizing the steps in a mathematical problem or the structure of a molecule." ;
-               rdfs:isDefinedBy "Creating mental images or representations to understand concepts. This involves using imagination and visual thinking to grasp complex ideas or solve problems." .
-
-
-###  http://edugraph.io/edu/VocalArticulation
-:VocalArticulation rdf:type owl:NamedIndividual ,
-                            edu:Ability ;
-                   edu:partOf :LinguisticArticulation ;
-                   rdfs:comment "Example: Reading out aloud a poem, focusing on enunciating each word clearly and maintaining the poem's intended rhythm." ;
-                   rdfs:isDefinedBy "Expressing oneself through spoke word. This involves pronouncing words clearly and distinctly so that they are easily understood by others." .
-
-
-###  http://edugraph.io/edu/VocalListeningCapacity
-:VocalListeningCapacity rdf:type owl:NamedIndividual ,
-                                 edu:Ability ;
-                        edu:partOf :VocalReception ;
-                        rdfs:comment "Example: Listening attentively to a speaker's presentation for an hour." ;
-                        rdfs:isDefinedBy "The ability to listen and comprehend spoken language for extended periods. This involves maintaining focus and attention during lectures, presentations, and conversations." .
-
-
-###  http://edugraph.io/edu/VocalListeningFlexibility
-:VocalListeningFlexibility rdf:type owl:NamedIndividual ,
-                                    edu:Ability ;
-                           edu:partOf :VocalReception ;
-                           rdfs:comment "Example: Understanding a classmate's presentation even though they have an accent from another geographic region." ;
-                           rdfs:isDefinedBy "The ability to adapt to different speaking styles and accents. This involves understanding spoken language even when it is delivered with varying speeds, accents, or levels of clarity." .
-
-
-###  http://edugraph.io/edu/VocalListeningPrecision
-:VocalListeningPrecision rdf:type owl:NamedIndividual ,
-                                  edu:Ability ;
-                         edu:partOf :VocalReception ;
-                         rdfs:comment "Example: Listening attentively to a debate and identifying the key arguments presented by each speaker." ;
-                         rdfs:isDefinedBy "The ability to listen carefully and accurately to spoken language. This involves paying attention to details, nuances, and subtle cues in speech to fully understand the message." .
-
-
-###  http://edugraph.io/edu/VocalReception
-:VocalReception rdf:type owl:NamedIndividual ,
-                         edu:Ability ;
-                edu:partOf :LinguisticReception ;
-                rdfs:comment "Example:  Following a teacher's instructions during a class activity." ;
-                rdfs:isDefinedBy "Understanding and interpreting spoken language. This involves listening attentively to speech and comprehending the meaning of words, phrases, and sentences." .
-
-
-###  http://edugraph.io/edu/WritingFluency
-:WritingFluency rdf:type owl:NamedIndividual ,
-                         edu:Ability ;
-                edu:partOf :TextualArticulation ;
-                rdfs:comment "Example: Writing a creative story with a natural flow, minimizing pauses, revisions and corrections." ;
-                rdfs:isDefinedBy "Writing smoothly and effortlessly. This involves expressing thoughts and ideas in a fluid manner without interruptions or hesitations." .
-
-
-###  http://edugraph.io/edu/WritingSpeed
-:WritingSpeed rdf:type owl:NamedIndividual ,
-                       edu:Ability ;
-              edu:partOf :TextualArticulation ;
-              rdfs:comment "Example: Keeping up to the pace of a dictate." ;
-              rdfs:isDefinedBy "Writing quickly and efficiently. This involves being able to write at a pace that allows for timely completion of written tasks." .
-
-
-###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
+@prefix : <http://edugraph.io/edu/>.
+@prefix edu: <http://edugraph.io/edu#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xml: <http://www.w3.org/XML/1998/namespace>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<http://edugraph.io/edu/> a owl:Ontology;
+    owl:imports <http://edugraph.io/edu#>.
+:AbductiveReasoning a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Observing a pattern in a sequence of numbers and making an educated guess about the rule that generates the sequence.\n*  Encountering a geometric problem and formulating a hypothesis about the solution based on the given information and known properties.\n*  Analyzing a set of data and making a conjecture about the underlying relationship between the variables.\n\nScience:\n\n*  A doctor observing symptoms in a patient and making a diagnosis based on the most likely cause.\n*  A scientist observing an unusual pattern in data and formulating a hypothesis to explain the anomaly.\n\nSocial Science:\n\n*  An anthropologist observing cultural practices in a community and developing a hypothesis about their underlying social structures.\n*  An economist observing economic trends and making a prediction about future market behavior.\n*  A historian analyzing historical documents and forming a hypothesis about the motivations of historical figures.";
+    rdfs:isDefinedBy "A form of logical inference that starts with an observation or set of observations and then seeks to find the simplest and most likely explanation for the observations. It involves making an educated guess or hypothesis based on incomplete information. Abductive reasoning is often used in everyday life and in fields like science and detective work to generate possible explanations for phenomena.";
+    edu:partOf :NonDeductiveReasoning.
+:ActiveVocabulary a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Using subject-specific terminology correctly in a class discussion or written assignment.";
+    rdfs:isDefinedBy "Using a wide range of words in speaking and writing. This involves actively employing diverse vocabulary to express ideas precisely and effectively.";
+    edu:partOf :LinguisticArticulation.
+:AdaptiveCreativity a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: A student modifying their design for a school project after receiving feedback from their teacher.";
+    rdfs:isDefinedBy "The ability to adjust and modify ideas in response to new information or challenges. This involves being flexible and adaptable in one's thinking, and being willing to revise and refine ideas as needed.";
+    edu:partOf :CreativeCapability.
+:AgileStrength a owl:NamedIndividual, edu:Ability;
+    edu:partOf :Strength.
+:AnalogicalReasoning a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Using the analogy between fractions and decimals to understand how they represent the same quantities.\n*  Applying the concept of similarity in geometry to solve problems involving proportional relationships between shapes.\n*  Using analogies to understand new mathematical concepts by relating them to familiar ones.\n\nScience:\n\n*  Using the analogy between the human circulatory system and a plumbing system to understand how blood flows through the body.\n*  Applying the analogy between the structure of an atom and the solar system to understand the relationships between electrons and the nucleus.\n*  Using analogies to explain complex scientific concepts, such as comparing the behavior of gases to bouncing balls.\n\nSocial Science:\n\n*  Using historical analogies to understand current events or predict future outcomes.\n*  Applying analogies from other social sciences, such as psychology or economics, to understand sociological phenomena.\n*  Using analogies to explain complex social concepts, such as comparing society to a living organism.";
+    rdfs:isDefinedBy "A form of logical inference that involves identifying similarities between two or more situations or objects and then using those similarities to draw conclusions or make predictions about one of them. It relies on the idea that if two things are alike in some respects, they are likely to be alike in other respects as well. Analogical reasoning is often used in problem-solving, decision-making, and creative thinking.";
+    edu:partOf :NonDeductiveReasoning.
+:AnalyticalCapability a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n* A student analyzes a word problem, identifies the relevant information, and chooses the appropriate formula to solve it.\n* A student examines a geometric proof, identifies the logical steps, and evaluates its validity.\n* A student interprets a graph, identifies trends, and draws conclusions about the data.\n\nScience:\n\n* A student designs an experiment, controls variables, and analyzes the results to draw conclusions.\n* A student evaluates different sources of information about climate change, identifies biases, and forms their own informed opinion.\n* A student examines anatomical diagrams, identifies the relationships between different organs, and understands how they function together.\n\nSocial Science:\n\n* A student compares and contrasts different historical accounts of an event to understand multiple perspectives.\n* A student analyzes economic data, identifies trends, and predicts future economic performance.\n* A student evaluates different political systems, identifies their strengths and weaknesses, and forms their own opinions about governance.\n\nForeign Language:\n\n* A student analyzes a sentence in a foreign language, identifies the grammatical structures, and understands how they convey meaning.\n* A student compares and contrasts cultural practices in different countries, identifies similarities and differences, and develops intercultural understanding.\n* A student interprets a foreign language film, analyzes the characters' motivations, and understands the cultural context of the story.";
+    rdfs:isDefinedBy "The ability to examine information critically, break it down into its component parts, and identify patterns and relationships. It involves skills like critical thinking, problem-solving, and logical reasoning. Analytical capability allows individuals to evaluate information, draw inferences, and form their own conclusions.".
+:Articulation a owl:NamedIndividual, edu:Ability;
+    rdfs:isDefinedBy "Articulation refers to the clarity and effectiveness with which someone expresses themselves.";
+    edu:partOf :Expression.
+:ArtisticInterpretation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Understanding and appreciating artistic works, such as paintings, music, or literature. This involves analyzing the elements of art, such as form, style, and symbolism, to understand the artist's message and intent.";
+    edu:partOf :Interpretation.
+:AxiomDefinition a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Defining the axioms of Euclidean geometry, such as \"Two points determine a line\" or \"Through a point not on a given line, there is exactly one line parallel to the given line.\"\n*  Establishing the axioms of set theory, such as the axiom of extensionality (two sets are equal if they have the same elements) or the axiom of choice.\n*  Defining the axioms of a number system, such as the commutative property of addition (a + b = b + a) or the distributive property of multiplication over addition (a(b + c) = ab + ac).\n\nScience:\n\n*  Defining the basic principles of physics, such as the laws of motion or the conservation of energy.\n*  Establishing the fundamental assumptions of a scientific theory, such as the theory of evolution or the theory of relativity.\n*  Defining the key terms and concepts used in a scientific field, such as \"species,\" \"ecosystem,\" or \"chemical reaction.\"";
+    rdfs:isDefinedBy "The ability to identify and clearly state the fundamental assumptions or self-evident truths that serve as the foundation for a deductive system. This involves recognizing basic principles, defining key terms, and establishing the starting points for logical reasoning. Axiom definition is crucial for building a coherent and consistent framework for deductive reasoning, ensuring that all conclusions follow logically from the initial assumptions.";
+    edu:partOf :DeductiveReasoning.
+:Balance a owl:NamedIndividual, edu:Ability;
+    edu:partOf :PhysicalCapability.
+:BiasDetection a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Analyzing a news article to identify any potential bias in the reporting.";
+    rdfs:isDefinedBy "Identifying prejudice or favoritism in information or arguments. This involves recognizing how personal opinions or perspectives can influence the way information is presented or interpreted.";
+    edu:partOf :Evaluation.
+:BiasPrevention a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Considering diverse perspectives and avoiding stereotypes when writing about a historical conflict.";
+    rdfs:isDefinedBy "Identifying and avoiding biases in one's own thinking and communication. This involves being aware of personal prejudices and striving to present information objectively and fairly.";
+    edu:partOf :Expression.
+:CardiovascularEndurance a owl:NamedIndividual, edu:Ability;
+    edu:partOf :Endurance.
+:CommunicationCapability a owl:NamedIndividual, edu:Ability.
+:ConceptClassification a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n* Classifying numbers as integers, rational numbers, or irrational numbers.\n* Categorizing geometric shapes based on their properties (e.g., number of sides, angles).\n* Grouping types of functions (linear, quadratic, exponential) based on their equations and graphs.\n\nScience:\n\n* Classifying organisms into kingdoms, phyla, and classes based on shared characteristics.\n* Categorizing elements in the periodic table based on their properties.\n* Grouping different types of rocks (igneous, sedimentary, metamorphic) based on their formation.\n\nSocial Science:\n\n* Classifying different types of governments (democracy, monarchy, dictatorship) based on how power is distributed.\n* Categorizing economic systems (capitalism, socialism, communism) based on ownership of resources.\n* Grouping different historical periods (ancient, medieval, modern) based on key events and characteristics.\n\nForeign Language:\n\n* Classifying words into parts of speech (nouns, verbs, adjectives) based on their grammatical function.\n* Categorizing different types of literature (fiction, non-fiction, poetry) based on their characteristics.\n* Grouping different verb tenses based on their temporal meaning.";
+    rdfs:isDefinedBy "Concept Classification\n\nThe ability to organize and categorize concepts by identifying similarities, differences, and relationships between them. It involves grouping concepts based on shared attributes and creating hierarchical structures. Concept classification helps learners build mental frameworks and understand how knowledge is structured.";
+    edu:partOf :ConceptualThinking.
+:ConceptComposition a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n* Combining the concepts of \"addition\" and \"multiplication\" to understand the distributive property.\n* Integrating the concepts of \"area\" and \"volume\" to calculate the volume of complex shapes.\n* Combining the concepts of \"function\" and \"transformation\" to understand how changes to a function affect its graph.\n\nScience:\n\n* Combining the concepts of \"force\" and \"motion\" to understand Newton's laws of motion.\n* Integrating the concepts of \"DNA\" and \"protein synthesis\" to understand how genetic information is expressed.\n* Combining the concepts of \"ecosystem\" and \"biodiversity\" to understand the importance of species interactions.\n\nSocial Science:\n\n* Combining the concepts of \"culture\" and \"identity\" to understand how cultural background shapes individual identity.\n* Integrating the concepts of \"power\" and \"inequality\" to analyze social structures and hierarchies.\n* Combining the concepts of \"globalization\" and \"interdependence\" to understand the interconnectedness of nations.\n\nForeign Language:\n\n* Combining the concepts of \"grammar\" and \"vocabulary\" to create meaningful sentences.\n* Integrating the concepts of \"culture\" and \"communication\" to understand how cultural context influences language use.\n* Combining the concepts of \"listening\" and \"speaking\" to develop effective communication skills.";
+    rdfs:isDefinedBy "The ability to combine or integrate multiple concepts to create new or more complex concepts. It involves understanding how different concepts can be related and integrated to form a more comprehensive understanding. Concept composition allows learners to build upon existing knowledge and create new meanings.";
+    edu:partOf :ConceptualThinking.
+:ConceptDerivation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n* Deriving the formula for the area of a triangle from the formula for the area of a rectangle.\n* Inferring the properties of a new geometric shape based on its relationship to known shapes.\n\nScience:\n\n* Inferring the presence of unseen organisms based on their effects on the environment.\n* Deducing the properties of a new substance based on its chemical composition.\n* Deriving the evolutionary relationships between species based on fossil evidence and genetic data.\n\nSocial Science:\n\n* Inferring the motivations behind historical events based on primary and secondary sources.\n* Deducing the impact of social policies based on data and observations.\n* Deriving conclusions about cultural values based on the analysis of artifacts and traditions.\n\nForeign Language:\n\n* Inferring the meaning of unfamiliar words based on context and word roots.\n* Deducing grammatical rules based on patterns in language use.\n* Deriving cultural insights based on the analysis of literature and film.";
+    rdfs:isDefinedBy "The ability to infer or deduce new concepts from existing knowledge or information. It involves applying logical reasoning and making inferences to extend understanding beyond what is explicitly stated. Concept derivation allows learners to generate new insights and expand their knowledge base.";
+    edu:partOf :ConceptualThinking.
+:ConceptGeneralization a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n* Generalizing the concept of \"addition\" to include different types of numbers (e.g., whole numbers, fractions, decimals).\n* Recognizing the common properties of different geometric shapes and forming a general definition of \"polygon.\"\n* Applying the concept of \"function\" to model relationships in various fields, such as physics, economics, and biology.\n\nScience:\n\n* Generalizing the principles of \"natural selection\" to explain the evolution of different species.\n* Recognizing the common characteristics of different ecosystems and forming a general understanding of ecological principles.\n* Applying the concept of \"energy transfer\" to understand various phenomena, such as heat flow, chemical reactions, and biological processes.\n\nSocial Science:\n\n* Generalizing the concept of \"conflict\" to understand its causes and consequences in different historical and social contexts.\n* Recognizing the common features of different cultures and forming a general understanding of human behavior.\n* Applying the concept of \"power dynamics\" to analyze relationships in various social settings.\n\nForeign Language:\n\n* Generalizing grammatical rules to apply them to new vocabulary and sentence structures.\n* Recognizing common themes and motifs in different literary works and forming a general understanding of literary traditions.\n* Applying cultural knowledge to understand and interact with people from diverse backgrounds.";
+    rdfs:isDefinedBy "The ability to identify common features or principles across different concepts and form broader understandings. It involves recognizing patterns, abstracting key ideas, and applying them to new situations. Concept generalization allows learners to transfer knowledge and make connections between different domains.";
+    edu:partOf :ConceptualThinking.
+:ConceptSpecification a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n* Specifying the general concept of \"triangle\" to identify different types of triangles (e.g., equilateral, isosceles, scalene).\n* Applying the general concept of \"equation\" to solve a specific algebraic problem.\n* Using the general concept of \"probability\" to calculate the likelihood of a specific event.\n\nScience:\n\n* Specifying the general concept of \"mammal\" to identify specific characteristics of different mammal species.\n* Applying the general concept of \"photosynthesis\" to explain the process in a specific plant species.\n* Using the general concept of \"chemical reaction\" to describe a specific chemical process.\n\nSocial Science:\n\n* Specifying the general concept of \"democracy\" to analyze the specific political system of a particular country.\n* Applying the general concept of \"culture\" to understand the specific customs and traditions of a particular society.\n* Using the general concept of \"social inequality\" to analyze a specific social issue.\n\nForeign Language:\n\n* Specifying the general concept of \"verb\" to identify different verb conjugations and tenses.\n* Applying the general concept of \"communication style\" to understand the specific communication norms in a particular culture.\n* Using the general concept of \"literary analysis\" to interpret a specific literary text.";
+    rdfs:isDefinedBy "The ability to narrow down or refine a general concept to a more specific or concrete instance. It involves identifying distinguishing features, providing details, and applying the concept to a particular context. Concept specification allows learners to deepen their understanding and apply knowledge to specific situations.";
+    edu:partOf :ConceptualThinking.
+:ConceptualThinking a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n* A student understands the concept of \"function\" and applies it to model relationships between variables in different contexts.\n* A student grasps the concept of \"symmetry\" and identifies it in geometric shapes, algebraic equations, and natural phenomena.\n* A student understands the concept of \"limit\" and applies it to analyze the behavior of functions as they approach infinity.\n\nScience:\n\n* A student understands the concept of \"ecosystem\" and analyzes the interactions between organisms and their environment.\n* A student grasps the concept of \"energy conservation\" and applies it to understand energy transformations in physical and chemical processes.\n* A student understands the concept of \"homeostasis\" and analyzes how organisms maintain internal balance.\n\nSocial Science:\n\n* A student understands the concept of \"social change\" and analyzes the factors that contribute to social movements and revolutions.\n* A student grasps the concept of \"culture\" and explores how it shapes values, beliefs, and behaviors in different societies.\n* A student understands the concept of \"interdependence\" and analyzes the connections between different nations and economies.\n\nForeign Language:\n\n* A student understands the concept of \"grammatical gender\" and applies it to correctly use articles and adjectives in a foreign language.\n* A student grasps the concept of \"idiomatic expressions\" and recognizes how they convey meaning beyond the literal translation of words.\n* A student understands the concept of \"cultural context\" and interprets language and behavior within the appropriate cultural framework.";
+    rdfs:isDefinedBy "The ability to understand and apply big ideas, recognizing underlying patterns and connections between different concepts. It involves forming generalizations, creating mental models, and seeing the bigger picture. Conceptual thinking goes beyond memorizing facts and focuses on understanding the deeper meaning and relationships between ideas.";
+    edu:partOf :AnalyticalCapability.
+:ConvergentCreativity a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Combing concepts from neuro-biology and computer science to create a new approach to signal processing.";
+    rdfs:isDefinedBy "Convergent Creativity: The ability to combine different ideas or perspectives to form a single, unified solution. This involves synthesizing information from various sources and finding common ground between different approaches.";
+    edu:partOf :CreativeCapability.
+:CreativeCapability a owl:NamedIndividual, edu:Ability;
+    rdfs:isDefinedBy "The ability to generate novel and valuable ideas. This involves thinking outside the box, exploring different perspectives, and coming up with original solutions to problems.".
+:DeductiveReasoning a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  All squares are rectangles. This shape is a square. Therefore, this shape is a rectangle.\n*  If two angles are complementary, their sum is 90 degrees. Angles A and B are complementary. Therefore, the sum of angles A and B is 90 degrees.\n*  All prime numbers greater than 3 can be expressed in the form 6k ± 1. 17 is a prime number greater than 3. Therefore, 17 can be expressed in the form 6k ± 1.\n\nScience:\n\n*  All mammals have lungs. Whales are mammals. Therefore, whales have lungs.\n*  Force equals mass times acceleration (F=ma). This object has a mass of 2kg and an acceleration of 3 m/s². Therefore, the force acting on the object is 6 Newtons.\n*  In a chemical reaction, matter is neither created nor destroyed. In this experiment, the mass of the reactants was 10g. Therefore, the mass of the products will also be 10g.";
+    rdfs:isDefinedBy "A type of reasoning where the conclusion is guaranteed to be true if the premises are true. It moves from general principles to specific conclusions, using logic and rules of inference to establish certainty. Deductive reasoning is often used in mathematics, logic, and other fields where absolute certainty is desired.";
+    edu:partOf :LogicalReasoning.
+:DialogModeration a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: A student mediating a disagreement between two classmates by helping them to listen to each other and find common ground.";
+    rdfs:isDefinedBy "Guiding and managing a conversation between two or more people. This involves ensuring that the conversation stays focused, productive, and respectful.";
+    edu:partOf :Facilitation.
+:DirectUnderstanding a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Understanding the definitions of new vocabulary words in a textbook.";
+    rdfs:isDefinedBy "Comprehending the literal meaning of information. This involves understanding the explicit message conveyed by words, images, or other forms of communication.";
+    edu:partOf :Understanding.
+:DivergentCreativity a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Exploring the color properties of different materials in water to create an immersive artwork about diffusion and reflection.";
+    rdfs:isDefinedBy "The ability to generate a wide range of ideas or solutions. This involves brainstorming multiple possibilities and exploring different avenues before settling on a specific approach.";
+    edu:partOf :CreativeCapability.
+:DiversityTolerance a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: A student embracing the diversity of their classmates and learning about different cultures.";
+    rdfs:isDefinedBy "The ability to accept and appreciate people from different backgrounds and cultures. This involves respecting and valuing diversity, and avoiding prejudice and discrimination.";
+    edu:partOf :SocialScaling.
+:DynamicBalance a owl:NamedIndividual, edu:Ability;
+    edu:partOf :Balance.
+:EmotionalCapability a owl:NamedIndividual, edu:Ability;
+    rdfs:isDefinedBy "The ability to understand, manage, and express one's own emotions effectively, as well as to understand and respond appropriately to the emotions of others.".
+:EmotionalCreativity a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "The ability to express emotions in creative and meaningful ways. This involves using art, music, writing, or other creative outlets to communicate feelings and connect with others on an emotional level.";
+    edu:partOf :CreativeCapability.
+:Emotionalization a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Delivering a speech with passion and conviction to inspire the audience.";
+    rdfs:isDefinedBy "Expressing emotions effectively in communication. This involves using language, tone of voice, and nonverbal cues to convey feelings and create an emotional connection with the audience.";
+    edu:partOf :Expression.
+:EmotionExtraction a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Analyzing a character's dialogue and actions in a play to understand their emotional state.";
+    rdfs:isDefinedBy "Recognizing and understanding the emotions expressed in communication. This involves interpreting the feelings conveyed through language, tone of voice, and nonverbal cues.";
+    edu:partOf :Extraction.
+:Empathy a owl:NamedIndividual, edu:Ability;
+    rdfs:isDefinedBy "The ability to understand and share the feelings of others. This involves putting oneself in another person's shoes and imagining how they might be feeling in a given situation.";
+    edu:partOf :EmotionalCapability.
+:Endurance a owl:NamedIndividual, edu:Ability;
+    edu:partOf :PhysicalCapability.
+:ErrorCorrection a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Proofreading an essay for grammatical errors and typos before submitting it.";
+    rdfs:isDefinedBy "Finding and fixing mistakes in written or spoken work. This involves carefully reviewing work for accuracy and making necessary corrections to improve clarity and understanding.";
+    edu:partOf :Evaluation.
+:ErrorDetection a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Identifying a factual error in a textbook or spotting a contradiction in a scientific argument.";
+    rdfs:isDefinedBy "Noticing mistakes or inconsistencies in information. This involves recognizing when something is incorrect, illogical, or doesn't fit with the overall context.";
+    edu:partOf :Evaluation.
+:Evaluation a owl:NamedIndividual, edu:Ability;
+    rdfs:isDefinedBy "Carefully judging the quality, value, or significance of something. This involves assessing information or ideas based on criteria, evidence, and reasoning.";
+    edu:partOf :Processing.
+:ExplosiveStrength a owl:NamedIndividual, edu:Ability;
+    edu:partOf :Strength.
+:Expression a owl:NamedIndividual, edu:Ability;
+    rdfs:isDefinedBy "The act of conveying thoughts, feelings, or information. This involves encoding information into a form that can be understood by others. It can be verbal, nonverbal, or visual.";
+    edu:partOf :CommunicationCapability.
+:Extraction a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example:  Extracting key quotes from a novel to use as evidence in a literary analysis essay.";
+    rdfs:isDefinedBy "Taking out specific information or elements from a larger source. This involves identifying and isolating key details, facts, or ideas from a text, image, or other source of information.";
+    edu:partOf :Processing.
+:Facilitation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Facilitating a discussion and encouraging participation through written questions individually prepared by participants.";
+    rdfs:isDefinedBy "The act of making a process or activity easier for others. This involves guiding, supporting, and encouraging individuals or groups to achieve a common goal.";
+    edu:partOf :CommunicationCapability.
+:Formalization a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example from different subjects: \n\n* Language: Writing a formal letter using proper salutations, grammar, and formatting.\n* Mathematics: Using the correct formal language to define and manipulate sets.\n* Natural Science: Using the correct units of measurement expressing speed or weight.";
+    rdfs:isDefinedBy "Adhering to formal rules and conventions in communication. This involves using appropriate language, structure, and style for specific contexts, such as academic writing or professional correspondence.";
+    edu:partOf :Expression.
+:GesticArticulation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Acting out a scene from a story, using gestures to portray the characters' personality.";
+    rdfs:isDefinedBy "Expressing oneself through deliberate physical gestures and body language. This involves using hand movements, facial expressions, and body posture to convey meaning.";
+    edu:partOf :Articulation.
+:GesticReception a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Interpreting a classmate's nonverbal cues during a group discussion to understand their level of engagement and agreement.";
+    rdfs:isDefinedBy "Understanding and interpreting body language and gestures. This involves paying attention to nonverbal cues, such as facial expressions, hand movements, and body posture, to understand the meaning behind them.";
+    edu:partOf :Reception.
+:GrammaticalPrecision a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Using proper verb tenses and subject-verb agreement in a research paper.";
+    rdfs:isDefinedBy "Using correct grammar in spoken and written communication. This involves applying grammatical rules accurately to ensure clear and understandable language.";
+    edu:partOf :LinguisticArticulation.
+:GroupModeration a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Leading a group project by assigning roles, keeping the group organized, and facilitating communication among members.";
+    rdfs:isDefinedBy "Facilitating interaction and collaboration within a group. This involves encouraging participation, managing group dynamics, and ensuring that the group stays on task and achieves its goals.";
+    edu:partOf :Facilitation.
+:Hearing a owl:NamedIndividual, edu:Ability;
+    edu:partOf :SensoricCapability.
+:HumoristicInterpretation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Analyzing the use of satire or irony in a literary work.";
+    rdfs:isDefinedBy "Understanding and appreciating humor. This involves recognizing the comedic elements in a joke, story, or situation, and understanding why it is funny.";
+    edu:partOf :Interpretation.
+:HypothesisGeneration a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Observing a pattern in a sequence of numbers and proposing a formula to generate the sequence.\n*  Noticing a relationship between different geometric shapes and formulating a conjecture about their properties.\n*  Developing a hypothesis about the outcome of a mathematical experiment or simulation.\n\nScience:\n\n*  Observing a natural phenomenon, such as the growth of plants or the behavior of animals, and proposing a hypothesis to explain it.\n*  Formulating a hypothesis about the cause of a disease or the effectiveness of a new treatment.\n*  Developing a hypothesis about the impact of human activities on the environment.\n\nSocial Science:\n\n*  Proposing a hypothesis about the factors that influence voting behavior or the causes of social inequality.\n*  Formulating a hypothesis about the effectiveness of different teaching methods or the impact of social policies.\n*  Developing a hypothesis about the cultural factors that shape individual behavior or beliefs.";
+    rdfs:isDefinedBy "The ability to formulate testable explanations or predictions for observed phenomena. It involves identifying patterns, considering existing knowledge, and using creativity to propose possible answers to scientific questions. Hypothesis generation is a crucial step in the scientific process, guiding investigations and driving the search for new knowledge.";
+    edu:partOf :ScientificThinking.
+:HypothesisValidation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Testing a mathematical conjecture by performing calculations or constructing proofs.\n*  Conducting simulations or experiments to gather data and analyze whether it supports a hypothesis about a mathematical relationship.\n*  Using statistical methods to analyze data and determine the likelihood that a hypothesis is true.\n\nScience:\n\n*  Designing and conducting experiments to test a hypothesis about a natural phenomenon.\n*  Collecting and analyzing data from observations or experiments to determine whether it supports or refutes a hypothesis.\n*  Using statistical analysis to evaluate the significance of experimental results and draw conclusions.\n\nSocial Science:\n\n*  Conducting surveys or experiments to gather data on social phenomena and test hypotheses about human behavior.\n*  Analyzing historical data or conducting case studies to evaluate hypotheses about social trends or events.\n*  Using statistical methods to analyze data and determine the validity of hypotheses about social relationships or patterns.";
+    rdfs:isDefinedBy "The process of evaluating a hypothesis through systematic observation, experimentation, and data analysis. It involves designing experiments to test predictions, collecting and analyzing data, and determining whether the evidence supports or refutes the hypothesis. Hypothesis validation is a cornerstone of scientific inquiry, ensuring that conclusions are based on rigorous evidence.";
+    edu:partOf :ScientificThinking.
+:InductiveReasoning a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Observing that the sum of the first few odd numbers is always a perfect square and then generalizing this pattern to all odd numbers.\n*  Noticing that several triangles with the same base and height have the same area and then concluding that all triangles with the same base and height have the same area.\n*  Collecting data on the relationship between two variables and using that data to infer a general trend or correlation.\n\nScience:\n\n*  Observing that many birds can fly and then concluding that all birds can fly (even though there are exceptions like penguins).\n*  Conducting experiments to test a hypothesis and then drawing general conclusions about the natural world based on the results.\n*  Observing patterns in nature, such as the succession of plant communities after a disturbance, and then formulating general ecological principles.\n\nSocial Science:\n\n*  Conducting surveys to collect data on public opinion and then drawing conclusions about general trends in attitudes or beliefs.\n*  Observing patterns of social behavior in different cultures and then making generalizations about human social interaction.\n*  Analyzing historical data to identify trends and make generalizations about social change over time.";
+    rdfs:isDefinedBy "A form of logical inference that involves drawing general conclusions from specific observations or examples. It moves from specific instances to broader generalizations. Inductive reasoning is often used in scientific inquiry to develop hypotheses and theories based on empirical evidence.";
+    edu:partOf :NonDeductiveReasoning.
+:InformationCompression a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Writing a concise summary of a research article or a historical event.";
+    rdfs:isDefinedBy "Summarizing information concisely and effectively. This involves condensing complex ideas or large amounts of information into a shorter, more manageable form while retaining the key message.";
+    edu:partOf :Interpretation.
+:InformationExtraction a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Extracting key statistics and data from a scientific article to include in a research report.";
+    rdfs:isDefinedBy "Identifying and gathering important facts and details from a source. This involves selectively choosing and organizing information that is relevant to a specific task or purpose.";
+    edu:partOf :Extraction.
+:IntentIdentification a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Analyzing a political speech to understand the speaker's agenda and persuasive techniques.";
+    rdfs:isDefinedBy "Understanding the purpose or goal behind a communication. This involves recognizing the speaker's or writer's intentions and motivations for communicating.";
+    edu:partOf :Interpretation.
+:Interpretation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example:  Interpreting the meaning of a poem.";
+    rdfs:isDefinedBy "Explaining or understanding the meaning of something. This involves making sense of information, ideas, or experiences by analyzing them and drawing conclusions.";
+    edu:partOf :Processing.
+:Introspection a owl:NamedIndividual, edu:Ability;
+    rdfs:isDefinedBy "The ability to reflect on one's own thoughts, feelings, and behaviors. This involves examining one's inner experiences to gain self-awareness and understanding.";
+    edu:partOf :EmotionalCapability.
+:LateralCreativity a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Exploring a simple low-tech solution in an otherwise high-tech environment.";
+    rdfs:isDefinedBy "Lateral Creativity: The ability to think outside the box and come up with unconventional ideas. This involves challenging assumptions, breaking free from traditional patterns of thought, and exploring new and unexpected possibilities.\n\nExample: Exploring a simple low-tech solution in an otherwise high-tech environment.";
+    edu:partOf :CreativeCapability.
+:LinguisticArticulation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Expressing thoughts about someone's favorite animal, using complete sentences and appropriate vocabulary.";
+    rdfs:isDefinedBy "Expressing oneself through spoken or written language. This involves using words, grammar, and syntax to convey meaning.";
+    edu:partOf :Articulation, :LinguisticCapability.
+:LinguisticCapability a owl:NamedIndividual, edu:Ability.
+:LinguisticReception a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Listening attentively to a lecture and taking notes to understand the key concepts.";
+    rdfs:isDefinedBy "Understanding spoken and written language. This involves comprehending the meaning of words, sentences, and texts, both spoken and written.";
+    edu:partOf :LinguisticCapability, :Reception.
+:LogicalInference a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Using the axioms of Euclidean geometry and rules of inference to prove geometric theorems.\n*  Applying logical inference to solve algebraic equations or inequalities.\n*  Deriving new mathematical statements from existing theorems and definitions.\n\nScience:\n\n*  Using logical inference to draw conclusions from experimental data or observations.\n*  Applying deductive reasoning to test hypotheses and evaluate scientific theories.\n*  Making predictions about future events or phenomena based on established scientific principles.";
+    rdfs:isDefinedBy "The ability to draw valid conclusions from given premises or axioms using deductive reasoning. This involves applying rules of inference, such as modus ponens or modus tollens, to derive new statements that necessarily follow from the initial assumptions.";
+    edu:partOf :DeductiveReasoning.
+:LogicalProcessing a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  The steps involved in solving a quadratic equation using the quadratic formula.\n*  The process of constructing a geometric proof, starting with given information and using logical deductions to arrive at the desired conclusion.\n*  The steps involved in performing a statistical analysis, from collecting and organizing data to applying the appropriate statistical test and interpreting the results.\n\nScience:\n\n*  The steps of the scientific method, including observation, hypothesis formation, experimentation, data analysis, and conclusion.\n*  The procedure for conducting a specific laboratory experiment, such as titrating a solution or dissecting a specimen.\n*  The steps involved in analyzing scientific data, including cleaning the data, visualizing it, and applying statistical methods to identify patterns and draw conclusions.";
+    rdfs:isDefinedBy "Understand and applying a series of steps or operations performed in a specific order to achieve a desired outcome. These steps are based on principles of logic and reasoning, ensuring that each action is justified and contributes to the overall goal.";
+    edu:partOf :LogicalThinking.
+:LogicalReasoning a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Using deductive reasoning to prove a geometric theorem by starting with axioms and applying logical rules.\n*  Employing inductive reasoning to identify a pattern in a sequence of numbers and predict the next term.\n*  Using abductive reasoning to formulate a hypothesis about the solution to a mathematical problem based on limited information.\n\nScience:\n\n*  Applying deductive reasoning to predict the outcome of an experiment based on established scientific laws.\n*  Using inductive reasoning to draw general conclusions about a phenomenon based on experimental data or observations.\n*  Employing abductive reasoning to formulate a hypothesis to explain an unexpected observation or experimental result.";
+    rdfs:isDefinedBy "The process of using reason and evidence to arrive at valid conclusions. It involves analyzing information, identifying patterns, and making inferences based on established rules or principles. Logical reasoning can be divided into two main types: deductive reasoning, where conclusions are guaranteed to be true if the premises are true, and non-deductive reasoning, where conclusions are likely but not guaranteed.";
+    edu:partOf :LogicalThinking.
+:LogicalThinking a owl:NamedIndividual, edu:Ability;
+    edu:partOf :AnalyticalCapability.
+:MaximumStrength a owl:NamedIndividual, edu:Ability;
+    edu:partOf :Strength.
+:MentalEndurance a owl:NamedIndividual, edu:Ability;
+    edu:partOf :Endurance.
+:MessageExtraction a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Summarizing the main argument of a persuasive essay or the key findings of a scientific study.";
+    rdfs:isDefinedBy "Understanding the main point or message being communicated. This involves identifying the central idea or theme of a text, speech, or other form of communication.";
+    edu:partOf :Extraction.
+:Messaging a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Giving clear and concise instructions for completing a science experiment.";
+    rdfs:isDefinedBy "Communicating information or instructions clearly and concisely. This involves conveying messages effectively to ensure that the recipient understands the intended meaning.";
+    edu:partOf :Expression.
+:MimicArticulation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Expressing emotions like sadness and happiness through mimic expression in a theatre play.";
+    rdfs:isDefinedBy "Expressing oneself through facial expressions. This involves using facial muscles to convey emotions, reactions, or attitudes.";
+    edu:partOf :Articulation.
+:MimicReception a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Recognizing a friend's facial expression to gauge their mood and offer support if needed.";
+    rdfs:isDefinedBy "Understanding and interpreting facial expressions. This involves reading facial cues, such as smiles, frowns, and raised eyebrows, to understand the emotions and attitudes being expressed.";
+    edu:partOf :Reception.
+:MoodIdentification a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Analyzing the mood created by the author's use of language and imagery in a poem or short story.";
+    rdfs:isDefinedBy "Recognizing the emotional tone or atmosphere of a communication. This involves identifying the feelings or emotions that are conveyed through language, tone of voice, and other cues.";
+    edu:partOf :Interpretation.
+:Motoric a owl:NamedIndividual, edu:Ability;
+    edu:partOf :PhysicalCapability.
+:MotoricFlexibility a owl:NamedIndividual, edu:Ability;
+    edu:partOf :Motoric.
+:MotoricPrecision a owl:NamedIndividual, edu:Ability;
+    edu:partOf :Motoric.
+:MotoricRange a owl:NamedIndividual, edu:Ability;
+    edu:partOf :Motoric.
+:MotoricSpeed a owl:NamedIndividual, edu:Ability;
+    edu:partOf :Motoric.
+:MuscularEndurance a owl:NamedIndividual, edu:Ability;
+    edu:partOf :Endurance.
+:Narration a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Writing a personal narrative essay with vivid details and a clear storyline.";
+    rdfs:isDefinedBy "Telling stories or recounting events in an engaging manner. This involves organizing information chronologically and using descriptive language to create a compelling narrative.";
+    edu:partOf :Expression.
+:NarrativeExtraction a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Analyzing the plot structure and character development in a novel.";
+    rdfs:isDefinedBy "Identifying the underlying story or narrative in a piece of communication. This involves recognizing the sequence of events, characters, and plot elements that make up a story.";
+    edu:partOf :Extraction.
+:NonDeductiveReasoning a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Observing that a pattern holds for the first few numbers in a sequence and then concluding that the pattern likely holds for all numbers in the sequence (inductive reasoning).\n*  Using the properties of known geometric shapes to make an educated guess about the properties of a new, unfamiliar shape (abductive reasoning).\n*  Applying the solution strategy from a previously solved problem to a new problem that shares similar features (analogical reasoning).\n\nScience:\n\n*  Formulating a scientific hypothesis based on limited observations or data (abductive reasoning).\n*  Drawing general conclusions about the behavior of a species based on observations of a sample population (inductive reasoning).\n*  Using a model organism, like a mouse, to study a human disease based on the similarities between their biological systems (analogical reasoning).\n\nSocial Science:\n\n*  Developing a theory about the causes of a social phenomenon based on observed patterns and correlations (inductive reasoning).\n*  Formulating a hypothesis about the motivations of historical figures based on limited historical records (abductive reasoning).\n*  Using case studies of successful social programs to design similar programs in new contexts (analogical reasoning).";
+    rdfs:isDefinedBy "A type of logical reasoning where the conclusion is likely or probable, but not guaranteed, based on the given premises. Unlike deductive reasoning, which draws certain conclusions, non-deductive reasoning deals with uncertainty and degrees of support. It encompasses various forms of reasoning, including abductive, analogical, and inductive reasoning, each with its own approach to drawing inferences and making generalizations.";
+    edu:partOf :LogicalReasoning.
+:PassiveVocabulary a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Understanding the meaning of words from a specific subject like business administration in a foreign language.";
+    rdfs:isDefinedBy "The words a person can understand but may not actively use in speaking or writing. This involves recognizing and comprehending a wide range of vocabulary when reading or listening.";
+    edu:partOf :LinguisticReception.
+:PeerAwareness a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: A student noticing that a classmate is feeling excluded from a group activity and taking steps to include them.";
+    rdfs:isDefinedBy "The ability to understand and recognize the emotions, needs, and perspectives of one's peers. This involves being attuned to the social dynamics within a peer group and being sensitive to the feelings of others.";
+    edu:partOf :Empathy.
+:PeerRelatability a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: A student sharing their interests and experiences with a new classmate to build a connection.";
+    rdfs:isDefinedBy "The ability to connect with and relate to one's peers. This involves finding common ground, building relationships, and establishing rapport with others.";
+    edu:partOf :Empathy.
+:PeerSupport a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: A student helping a classmate who is struggling with a school assignment by offering to study together or explaining the concepts.";
+    rdfs:isDefinedBy "The ability to offer support and assistance to one's peers. This involves providing encouragement, guidance, and help to others when they are in need.";
+    edu:partOf :Empathy.
+:Performance a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Acting in a school play or delivering a presentation with poise and confidence.";
+    rdfs:isDefinedBy "Presenting oneself or one's work effectively in public. This involves communicating confidently and engaging with the audience to deliver a successful performance.";
+    edu:partOf :Expression.
+:PhysicalCapability a owl:NamedIndividual, edu:Ability.
+:PlausibilityEvaluation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Assessing the plausibility of a scientific theory based on available evidence and current understanding.";
+    rdfs:isDefinedBy "Judging how likely something is to be true. This involves considering the evidence, logic, and context to determine whether a claim or statement is reasonable and believable.";
+    edu:partOf :Evaluation.
+:PoliticalAwareness a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Staying informed about current political debates and engaging in respectful discussions with people with different political views.";
+    rdfs:isDefinedBy "The ability to understand political systems and issues. This involves being informed about current events, government policies, and social issues.";
+    edu:partOf :SocialScaling.
+:PosturalEndurance a owl:NamedIndividual, edu:Ability;
+    edu:partOf :Endurance.
+:Presentation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Creating and delivering a presentation on a historical event with visual aids and a clear narrative.";
+    rdfs:isDefinedBy "Organizing and delivering information in a clear and structured manner. This involves presenting ideas logically, using visual aids effectively, and engaging the audience.";
+    edu:partOf :Expression.
+:ProcedureApplicability a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Determining whether a specific formula is applicable to solve a given problem.\n*  Deciding whether a particular geometric construction method can be used to achieve a desired outcome.\n*  Evaluating whether a statistical test is suitable for analyzing a specific dataset.\n\nScience:\n\n*  Judging whether a specific experimental design is appropriate for testing a hypothesis.\n*  Determining whether a particular laboratory technique is suitable for analyzing a sample.\n*  Assessing whether a scientific model is applicable to explain a specific phenomenon.";
+    rdfs:isDefinedBy "The ability to determine whether a specific procedure is suitable for a given task or problem. This involves analyzing the conditions and constraints of the situation, understanding the purpose and limitations of the procedure, and judging its appropriateness. Procedure applicability requires the ability to evaluate the relevance of a procedure to a specific context.";
+    edu:partOf :ProcedureUnderstanding.
+:ProcedureApplication a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Selecting the correct formula to calculate the area of a specific shape.\n*  Choosing the appropriate method to solve a system of equations (e.g., substitution, elimination, graphing).\n*  Applying the correct trigonometric identity to simplify an expression.\n\nScience:\n\n*  Choosing the appropriate experimental design to test a hypothesis (e.g., controlled experiment, observational study).\n*  Selecting the correct laboratory technique to analyze a sample (e.g., titration, chromatography).\n*  Applying the appropriate scientific model to explain a phenomenon (e.g., Newtonian mechanics, quantum mechanics).";
+    rdfs:isDefinedBy "The ability to select and utilize the correct procedure for a given task or problem. This involves analyzing the situation, identifying the relevant features, and choosing the most appropriate procedure from a repertoire of known procedures. Procedure application requires understanding the purpose and constraints of different procedures and their suitability for various contexts.";
+    edu:partOf :LogicalProcessing.
+:ProcedureComposition a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Combining different algebraic techniques to solve a complex equation.\n*  Integrating different geometric construction methods to create a new shape or design.\n*  Developing a new statistical analysis procedure by combining existing methods.\n\nScience:\n\n*  Designing a multi-step experiment by combining different experimental techniques.\n*  Developing a new laboratory protocol by integrating existing procedures.\n*  Creating a new scientific model by combining elements from existing models.";
+    rdfs:isDefinedBy "The ability to combine or modify existing procedures to create new or more complex procedures. This involves understanding the individual steps and their relationships, identifying potential interactions, and adapting them to achieve a desired outcome.";
+    edu:partOf :ProcedureUnderstanding.
+:ProcedureDerivation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Deriving a new formula or algorithm from existing mathematical principles.\n*  Developing a new geometric construction method based on known geometric properties.\n*  Creating a new statistical analysis technique by adapting existing methods.\n\nScience:\n\n*  Inferring a new experimental procedure based on theoretical principles or previous research.\n*  Developing a new laboratory technique by adapting existing methods or technologies.\n*  Deriving a new scientific model by extrapolating from existing data and observations.";
+    rdfs:isDefinedBy "The ability to infer or deduce new procedures from existing knowledge, principles, or procedures. This involves applying logical reasoning, identifying patterns, and extrapolating from known information to create novel solutions.";
+    edu:partOf :ProcedureUnderstanding.
+:ProcedureExecution a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Accurately performing calculations and applying formulas to solve mathematical problems.\n*  Constructing geometric figures or proofs with precision and attention to detail.\n*  Executing statistical analyses correctly and interpreting the results accurately.\n\nScience:\n\n*  Conducting experiments carefully, following procedures, and accurately recording data.\n*  Using laboratory equipment and techniques effectively to obtain reliable results.\n*  Analyzing data and drawing conclusions based on the accurate interpretation of results.";
+    rdfs:isDefinedBy "The ability to accurately and effectively carry out the steps of a procedure. This involves following instructions, applying knowledge and skills, and adapting to unexpected situations. Procedure execution requires attention to detail, precision, and the ability to monitor and adjust actions as needed.";
+    edu:partOf :ProcedureApplication.
+:ProcedureIdentification a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Identifying the appropriate formula or method to solve a specific mathematical problem.\n*  Recognizing the type of geometric construction required to achieve a desired outcome.\n*  Selecting the correct statistical test to analyze a given set of data.\n\nScience:\n\n*  Identifying the appropriate experimental design to test a scientific hypothesis.\n*  Selecting the correct laboratory technique to analyze a specific sample.\n*  Choosing the appropriate scientific model to explain a particular phenomenon.";
+    rdfs:isDefinedBy "The ability to recognize and select the appropriate procedure for a given task or problem. This involves analyzing the situation, identifying key features, and matching them to the correct procedure. Procedure identification requires understanding the purpose and scope of different procedures and their applicability to various contexts.";
+    edu:partOf :ProcedureApplication.
+:ProcedureMemorization a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Memorizing the steps for solving a specific type of equation, such as a quadratic equation.\n*  Recalling the order of operations to correctly solve mathematical expressions.\n*  Remembering the steps involved in constructing geometric proofs.\n\nScience:\n\n*  Memorizing the steps of the scientific method for conducting experiments.\n*  Recalling the procedures for using laboratory equipment, such as microscopes.\n*  Remembering the steps involved in specific scientific techniques, such as titrations.";
+    rdfs:isDefinedBy "The ability to accurately remember and recall the steps involved in a specific procedure. This involves encoding the sequence of actions, key details, and any associated rules or conditions. Procedure memorization is essential for performing tasks correctly and efficiently, particularly when a task must be repeated multiple times or with high fidelity.";
+    edu:partOf :ProcedureApplication.
+:ProcedureUnderstanding a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Understanding why the order of operations is necessary for consistent mathematical calculations.\n*  Grasping the geometric principles behind different construction methods (e.g., bisecting an angle, constructing a perpendicular line).\n*  Comprehending the logic behind statistical tests and how they are used to draw conclusions from data.\n\nScience:\n\n*  Understanding the principles of the scientific method and why each step is important for reliable investigation.\n*  Grasping the theoretical basis for laboratory techniques and how they work to analyze different substances.\n*  Comprehending the underlying scientific principles behind models used to explain natural phenomena.";
+    rdfs:isDefinedBy "The ability to grasp the underlying principles and rationale behind a procedure. This involves comprehending the steps involved, the reasons for their order, and the relationship between the procedure and the desired outcome. Procedure understanding goes beyond rote memorization and enables flexible adaptation and problem-solving.";
+    edu:partOf :LogicalProcessing.
+:Processing a owl:NamedIndividual, edu:Ability;
+    rdfs:isDefinedBy "The act of actively working with information to analyze it, understand it, and use it effectively.";
+    edu:partOf :CommunicationCapability.
+:Pronunciation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Learning to pronounce new vocabulary words correctly in a foreign language class.";
+    rdfs:isDefinedBy "Saying words correctly with accurate articulation and stress. This involves producing the sounds of a language clearly and accurately, paying attention to vowel and consonant sounds, syllable stress, and intonation patterns.";
+    edu:partOf :VocalArticulation.
+:ReadingFluency a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Reading aloud a passage from a novel with fluency and expression.";
+    rdfs:isDefinedBy "Reading smoothly and effortlessly with good pacing and expression. This involves reading at a comfortable speed with accurate pronunciation and appropriate intonation.";
+    edu:partOf :TextualReception.
+:ReadingPrecision a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Carefully reading a historical document to understand the events and their significance.";
+    rdfs:isDefinedBy "Reading accurately and with attention to detail. This involves understanding the meaning of words, sentences, and paragraphs, and identifying key information in the text.";
+    edu:partOf :TextualReception.
+:ReadingSpeed a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Skimming a news article to quickly grasp the main points.";
+    rdfs:isDefinedBy "Reading quickly and efficiently while still comprehending the text. This involves processing written information at a fast pace without sacrificing understanding.";
+    edu:partOf :TextualReception.
+:Reception a owl:NamedIndividual, edu:Ability;
+    rdfs:isDefinedBy "The act of receiving and understanding information through various senses, such as listening, reading, and observing.";
+    edu:partOf :Processing.
+:RelevanceEvaluation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Selecting the most relevant data from a research study to support a specific argument in an essay.";
+    rdfs:isDefinedBy "Determining how important or useful information is for a specific purpose. This involves identifying key information and filtering out irrelevant details to focus on what is most important.";
+    edu:partOf :Evaluation.
+:ResultInterpretation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Interpreting the results of a mathematical calculation or proof to understand its implications.\n*  Analyzing data from a simulation or experiment to draw conclusions about mathematical relationships.\n*  Explaining the meaning of statistical results in the context of a research question.\n\nScience:\n\n*  Analyzing data from an experiment to determine whether it supports or refutes a hypothesis.\n*  Drawing conclusions about the natural world based on the interpretation of scientific findings.\n*  Communicating the significance of research results to other scientists and the public.\n\nSocial Science:\n\n*  Interpreting data from surveys or experiments to draw conclusions about social phenomena.\n*  Analyzing historical data or case studies to understand social trends or events.\n*  Explaining the implications of research findings for social policy or interventions.";
+    rdfs:isDefinedBy "The ability to analyze data, draw conclusions, and explain the meaning of scientific findings in the context of the research question and existing knowledge. It involves identifying patterns, evaluating the significance of results, and considering alternative explanations. Result interpretation is crucial for communicating scientific knowledge and informing future research.";
+    edu:partOf :ScientificThinking.
+:ScientificThinking a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n* Formulating a mathematical conjecture and then using logical reasoning and proofs to determine its validity.\n* Designing an experiment to collect data and then using statistical analysis to test a hypothesis about the data.\n* Modeling real-world phenomena using mathematical equations and then using those models to make predictions.\n\nScience:\n\n* Observing a natural phenomenon, formulating a hypothesis to explain it, and then designing an experiment to test the hypothesis.\n* Analyzing data from an experiment, identifying patterns and trends, and drawing conclusions based on the evidence.\n* Evaluating scientific claims and theories based on their supporting evidence and logical consistency.\n\nSocial Science:\n\n* Formulating a hypothesis about a social phenomenon, such as the causes of crime or the factors that influence voting behavior.\n* Designing a survey or experiment to collect data on the social phenomenon and then analyzing the data to test the hypothesis.\n* Evaluating different social policies or interventions based on their effectiveness and potential consequences.";
+    rdfs:isDefinedBy "A systematic approach to understanding the natural world that involves observation, experimentation, and logical reasoning. It includes formulating hypotheses, designing experiments to test those hypotheses, analyzing data, and drawing conclusions based on evidence. Scientific thinking is essential for advancing knowledge and solving problems in various fields, from medicine and engineering to environmental science and technology.";
+    edu:partOf :AnalyticalCapability.
+:Seeing a owl:NamedIndividual, edu:Ability;
+    edu:partOf :SensoricCapability.
+:SelfAssessment a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Reflecting on our strengths and weaknesses in a particular subject to set realistic goals for improvement.";
+    rdfs:isDefinedBy "The ability to evaluate one's own strengths and weaknesses. This involves objectively assessing one's skills, abilities, and knowledge in different areas.";
+    edu:partOf :Introspection.
+:SelfAwareness a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Recognizing when we are feeling stressed and taking steps to manage our stress levels.";
+    rdfs:isDefinedBy "The ability to recognize and understand one's own emotions, thoughts, and behaviors. This involves being conscious of one's inner state and how it influences one's actions and interactions with others.";
+    edu:partOf :Introspection.
+:SelfConfidence a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Feeling confident in one's ability to give a presentation in front of the class.";
+    rdfs:isDefinedBy "Belief in one's own abilities and worth. This involves having a positive self-image and feeling capable of achieving one's goals.";
+    edu:partOf :Introspection.
+:SelfMotivation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: A student setting a goal to improve their grades and creating a study plan to achieve it.";
+    rdfs:isDefinedBy "The ability to set goals and work towards them independently. This involves having the drive and initiative to pursue one's objectives without relying on external pressure or incentives.";
+    edu:partOf :Introspection.
+:SelfRegulation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: A student staying calm and focused during a test despite feeling pressure.";
+    rdfs:isDefinedBy "The ability to manage one's emotions, thoughts, and behaviors effectively. This involves controlling impulses, managing stress, and adapting to changing situations.";
+    edu:partOf :Introspection.
+:SensoricCapability a owl:NamedIndividual, edu:Ability.
+:ServiceOrientation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: A student participating in a community service project to help those less fortunate.";
+    rdfs:isDefinedBy "A willingness to help others and contribute to the community. This involves volunteering one's time and effort to support those in need and make a positive impact on society.";
+    edu:partOf :SocialScaling.
+:Smelling a owl:NamedIndividual, edu:Ability;
+    edu:partOf :SensoricCapability.
+:SocialScaling a owl:NamedIndividual, edu:Ability;
+    rdfs:isDefinedBy "The ability to adapting to different social contexts and interacting appropriately with others.";
+    edu:partOf :EmotionalCapability.
+:SpatialGeneration a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n* Constructing new geometric shapes by combining or dividing existing ones.\n* Designing three-dimensional objects from two-dimensional representations.\n* Creating mental maps of unfamiliar environments based on verbal descriptions.\n\nScience:\n\n* Designing experiments that involve manipulating spatial variables.\n* Developing models to represent the spatial structure of molecules or ecosystems.\n* Predicting the outcomes of spatial transformations, such as the folding of proteins or the movement of tectonic plates.";
+    rdfs:isDefinedBy "The ability to create or mentally transform spatial structures and relationships. This involves generating new spatial arrangements, modifying existing ones, and visualizing the outcomes of spatial operations. Spatial generation is essential for design, problem-solving, and innovative thinking in fields that involve spatial reasoning.";
+    edu:partOf :SpatialThinking.
+:SpatialImagination a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n* Mentally rotating or transforming geometric shapes to visualize their properties.\n* Imagining the unfolding of a three-dimensional object into a two-dimensional net.\n* Visualizing the paths of objects in motion or the trajectories of projectiles.\n\nScience:\n\n* Imagining the three-dimensional structure of molecules or the arrangement of atoms in a crystal lattice.\n* Visualizing the movement of tectonic plates or the flow of fluids in a system.\n* Mentally constructing models of complex systems, such as the human brain or the solar system.";
+    rdfs:isDefinedBy "The ability to mentally visualize and manipulate objects in 2D and 3D spaces. This involves forming mental images, rotating objects, and understanding spatial relationships without physical manipulation. Spatial imagination is crucial for problem-solving, design, and understanding complex spatial information.";
+    edu:partOf :SpatialThinking.
+:SpatialInterpretation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n* Interpreting graphs and charts to understand data trends and relationships.\n* Analyzing maps and diagrams to extract information about distances, directions, and locations.\n* Understanding the spatial relationships between objects in geometric constructions or architectural plans.\n\nScience:\n\n* Interpreting maps of geological formations or weather patterns.\n* Analyzing anatomical diagrams to understand the spatial relationships between organs.\n* Understanding astronomical charts and diagrams to visualize the positions of celestial bodies.";
+    rdfs:isDefinedBy "The ability to understand and analyze spatial information presented in various forms, such as maps, diagrams, and models. This involves interpreting symbols, understanding scale, and extracting meaning from visual representations of spatial relationships. Spatial interpretation skills are essential for navigating the environment, understanding geographical information, and analyzing spatial data.";
+    edu:partOf :SpatialThinking.
+:SpatialNavigation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n* Using coordinate systems and maps to navigate in a virtual or physical environment.\n* Planning routes and calculating distances using geometric concepts.\n* Understanding spatial relationships in mazes or puzzles to find solutions.\n\nScience:\n\n* Using landmarks and spatial cues to navigate in unfamiliar terrain.\n* Understanding the migratory patterns of animals and their navigation strategies.\n* Applying spatial reasoning to plan and execute experiments involving movement or spatial manipulation.";
+    rdfs:isDefinedBy "The ability to plan and execute movement through space, both physically and mentally. This involves using spatial cues, understanding directions, and visualizing routes to navigate effectively. Spatial navigation skills are crucial for wayfinding, exploring new environments, and understanding spatial relationships in the real world.";
+    edu:partOf :SpatialThinking.
+:SpatialThinking a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\nMath:\n\n* Visualizing geometric shapes and their transformations, such as rotations, reflections, and translations.\n* Understanding spatial relationships between objects in different dimensions, such as points, lines, planes, and solids.\n* Applying spatial reasoning to solve problems involving measurement, area, volume, and geometric proofs.\n\nScience:\n\n* Understanding the three-dimensional structure of molecules and how they interact in chemical reactions.\n* Visualizing the movement of celestial bodies and the forces that govern their motion.\n* Interpreting maps, diagrams, and models to understand spatial patterns and relationships in natural phenomena.";
+    rdfs:isDefinedBy "The ability to mentally visualize, manipulate, and reason about objects and spatial relationships. It involves understanding and applying concepts of space, distance, direction, and shape. Spatial thinking is crucial for navigating the environment and creating mental representations of the world around us.";
+    edu:partOf :AnalyticalCapability.
+:SpeakingFluency a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Delivering a presentation with confidence and fluency, maintaining a steady flow of speech.";
+    rdfs:isDefinedBy "Speaking smoothly and continuously without unnecessary pauses or hesitations. This involves expressing oneself in a fluid and natural manner, with good pacing and rhythm.";
+    edu:partOf :VocalArticulation.
+:SpeakingSpeed a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Pacing oneself during a speech to ensure that the audience can follow along and understand the message.";
+    rdfs:isDefinedBy "Speaking at an appropriate pace, neither too fast nor too slow. This involves adjusting one's speaking rate to ensure clarity and allow the audience to comprehend the information being conveyed.";
+    edu:partOf :VocalArticulation.
+:StartingStrength a owl:NamedIndividual, edu:Ability;
+    edu:partOf :Strength.
+:StaticBalance a owl:NamedIndividual, edu:Ability;
+    edu:partOf :Balance.
+:Strength a owl:NamedIndividual, edu:Ability;
+    edu:partOf :PhysicalCapability.
+:SubtextUnderstanding a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Understanding the underlying themes and messages in a novel.";
+    rdfs:isDefinedBy "Understanding the implied or hidden meanings in communication. This involves reading between the lines and interpreting the underlying messages conveyed through tone, body language, and context.";
+    edu:partOf :Understanding.
+:SupertextUnderstanding a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Understanding the historical context of a political speech and its impact on society.";
+    rdfs:isDefinedBy "Understanding the broader context and implications of information. This involves connecting information to prior knowledge, considering different perspectives, and understanding the significance of information in a larger context.";
+    edu:partOf :Understanding.
+:SyntacticalPrecision a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Using correct word order and punctuation in a sentence.";
+    rdfs:isDefinedBy "Constructing sentences with a clear and logical arrangement of words and phrases. This involves using proper syntax to ensure that sentences are grammatically correct and easy to understand.";
+    edu:partOf :TextualArticulation.
+:Tasting a owl:NamedIndividual, edu:Ability;
+    edu:partOf :SensoricCapability.
+:TextualArticulation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Writing a persuasive essay with a clear introduction, body, and conclusion.";
+    rdfs:isDefinedBy "Expressing oneself effectively through writing. This involves organizing ideas logically, using appropriate language and style, and adhering to conventions of written communication.";
+    edu:partOf :LinguisticArticulation.
+:TextualReception a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Reading a book about animals and understanding their differences and commonalities.";
+    rdfs:isDefinedBy "Understanding and interpreting written text. This involves reading and comprehending various types of texts, such as books, articles, and online resources.";
+    edu:partOf :LinguisticReception.
+:TonalArticulation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: An individual sings a song with the intended tonality, volume, rhythm and pitch.";
+    rdfs:isDefinedBy "Expressing oneself through vocal tone and inflection. This involves varying the pitch, volume, and rhythm of one's voice to convey meaning and emotion.";
+    edu:partOf :Articulation.
+:TonalReception a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Listening to a someone singing a song and identifying their exact mistakes during the reproduction of a song.";
+    rdfs:isDefinedBy "Understanding and interpreting vocal tone and inflection. This involves paying attention to the nuances of a speaker's or singer's voice, such as pitch, volume, and rhythm.";
+    edu:partOf :Reception.
+:Touching a owl:NamedIndividual, edu:Ability;
+    edu:partOf :SensoricCapability.
+:Understanding a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Understanding the main ideas in a textbook chapter and how they relate to previously learned concepts.";
+    rdfs:isDefinedBy "The ability to grasp the meaning of information and make connections between ideas. This involves comprehending information at different levels, from the literal to the inferential, and applying knowledge to new situations.";
+    edu:partOf :Processing.
+:VisualArticulation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples from different subjects:\n\n* Math: Creating a graph to represent the relationship between two variables.\n* Science: Drawing a diagram of the human circulatory system.\n* Social Science: Using a map to illustrate population density across different regions.";
+    rdfs:isDefinedBy "Expressing oneself through visual aids, such as drawings, diagrams, or images. This involves using visual elements to communicate information or ideas.";
+    edu:partOf :Articulation.
+:VisualDecomposition a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Analyzing a complex diagram in a biology textbook to understand the different components of a cell.";
+    rdfs:isDefinedBy "Breaking down complex visual information into smaller, more manageable parts. This involves analyzing visual elements, such as shapes, colors, and patterns, to understand the overall composition.";
+    edu:partOf :VisualReception.
+:Visualization a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Visualizing the steps in a mathematical problem or the structure of a molecule.";
+    rdfs:isDefinedBy "Creating mental images or representations to understand concepts. This involves using imagination and visual thinking to grasp complex ideas or solve problems.";
+    edu:partOf :Expression.
+:VisualReception a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Interpreting a graph in a science textbook to understand the relationship between variables.";
+    rdfs:isDefinedBy "Understanding and interpreting visual information. This involves making sense of images, diagrams, charts, and other visual aids.";
+    edu:partOf :Reception.
+:VisualRecognition a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Recognizing different types of plants and animals in a nature documentary.";
+    rdfs:isDefinedBy "Identifying and recognizing familiar visual patterns and objects. This involves recalling previously learned visual information and matching it to new visual stimuli.";
+    edu:partOf :VisualReception.
+:VocalArticulation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Reading out aloud a poem, focusing on enunciating each word clearly and maintaining the poem's intended rhythm.";
+    rdfs:isDefinedBy "Expressing oneself through spoke word. This involves pronouncing words clearly and distinctly so that they are easily understood by others.";
+    edu:partOf :LinguisticArticulation.
+:VocalListeningCapacity a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Listening attentively to a speaker's presentation for an hour.";
+    rdfs:isDefinedBy "The ability to listen and comprehend spoken language for extended periods. This involves maintaining focus and attention during lectures, presentations, and conversations.";
+    edu:partOf :VocalReception.
+:VocalListeningFlexibility a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Understanding a classmate's presentation even though they have an accent from another geographic region.";
+    rdfs:isDefinedBy "The ability to adapt to different speaking styles and accents. This involves understanding spoken language even when it is delivered with varying speeds, accents, or levels of clarity.";
+    edu:partOf :VocalReception.
+:VocalListeningPrecision a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Listening attentively to a debate and identifying the key arguments presented by each speaker.";
+    rdfs:isDefinedBy "The ability to listen carefully and accurately to spoken language. This involves paying attention to details, nuances, and subtle cues in speech to fully understand the message.";
+    edu:partOf :VocalReception.
+:VocalReception a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example:  Following a teacher's instructions during a class activity.";
+    rdfs:isDefinedBy "Understanding and interpreting spoken language. This involves listening attentively to speech and comprehending the meaning of words, phrases, and sentences.";
+    edu:partOf :LinguisticReception.
+:WritingFluency a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Writing a creative story with a natural flow, minimizing pauses, revisions and corrections.";
+    rdfs:isDefinedBy "Writing smoothly and effortlessly. This involves expressing thoughts and ideas in a fluid manner without interruptions or hesitations.";
+    edu:partOf :TextualArticulation.
+:WritingSpeed a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Keeping up to the pace of a dictate.";
+    rdfs:isDefinedBy "Writing quickly and efficiently. This involves being able to write at a pace that allows for timely completion of written tasks.";
+    edu:partOf :TextualArticulation.
