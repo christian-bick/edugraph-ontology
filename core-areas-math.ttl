@@ -9,18 +9,15 @@
 <http://edugraph.io/edu/> a owl:Ontology;
     owl:imports <http://edugraph.io/edu#>.
 :Addition a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Adding two or more integers together.\n\nExample: 5 + 3 = 8";
+    rdfs:isDefinedBy "Adding numbers together.\n\nExample: 5 + 3 = 8";
     edu:expands :Sum;
-    edu:partOf :ArithmeticOperations.
+    edu:partOf :NumberOperations.
 :Algebra a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that generalizes arithmetics and where letters represent unknown numbers, allowing us to explore patterns, solve equations, and model real-world situations.".
 :Analysis a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that deals with continuous change and investigates concepts like limits, continuity, derivatives, integrals, and infinite series to study functions, their properties, and their behavior.".
 :Arithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that deals with the properties and manipulation of numbers, including addition, subtraction, multiplication and division.".
-:ArithmeticOperations a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The operations used in arithmetic.";
-    edu:partOf :Arithmetic.
 :BaseOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Base operations are the fundamental arithmetic actions performed on numbers that all other arithmetic operations are based one.";
     edu:partOf :NumberSense.
@@ -49,16 +46,16 @@
     rdfs:isDefinedBy "Digit notation uses symbols from 0 to 9 to represent any number.";
     edu:partOf :NumberNotation.
 :Division a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Dividing one integer by another, which may result in a quotient and a remainder.\n\nExample: 17 / 5 = 3 remainder 2";
+    rdfs:isDefinedBy "Dividing one number by another, which may result in a quotient and a remainder.\n\nExample: 17 / 5 = 3 remainder 2";
     edu:expands :Multiplication;
-    edu:partOf :ArithmeticOperations.
+    edu:partOf :NumberOperations.
 :EllipticShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Elliptical shape drawing is the ability to create drawings or models of elliptical shapes.";
     edu:partOf :SpatialModelling.
 :Exponentiation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Raising an integer to a power, meaning multiplying it by itself a certain number of times.\n\nExample: 2 ^ 4 = 2 * 2 * 2 * 2 = 16";
+    rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.\n\nExample: 2 ^ 4 = 2 * 2 * 2 * 2 = 16";
     edu:expands :Multiplication;
-    edu:partOf :ArithmeticOperations.
+    edu:partOf :NumberOperations.
 :FloatingPoint a owl:NamedIndividual, edu:Area;
     edu:expands :DecimalNotation;
     edu:partOf :DecimalNumbers.
@@ -99,9 +96,9 @@
     rdfs:isDefinedBy "Linear shape drawing is the ability to create drawings or models of shapes with straight sides.";
     edu:partOf :SpatialModelling.
 :Logarithm a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Finding the exponent to which a base (an integer) must be raised to produce a given integer.\n\nExample: log₃ 81 = 4 because 3 ^ 4 = 81";
+    rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.\n\nExample: log₃ 81 = 4 because 3 ^ 4 = 81";
     edu:expands :Exponentiation;
-    edu:partOf :ArithmeticOperations.
+    edu:partOf :NumberOperations.
 :Logic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies reasoning and valid arguments. It provides a framework for determining whether something is true or false based on given premises. It is the foundation for constructing proofs, ensuring that conclusions follow logically from their premises.".
 :LowestCommonDenominator a owl:NamedIndividual, edu:Area;
@@ -117,16 +114,20 @@
     rdfs:isDefinedBy "Measuring time involves quantifying the duration of events or the intervals between them.";
     edu:partOf :Measurement.
 :Multiplication a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Multiplying two or multiple integers.\n\nExample: 4 * 3 = 12";
+    rdfs:isDefinedBy "Multiplying two or multiple numbers.\n\nExample: 4 * 3 = 12";
     edu:expands :Addition;
-    edu:partOf :ArithmeticOperations.
+    edu:partOf :NumberOperations.
 :NumberNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Number notation is the system of symbols and rules used to express numerical values.";
     edu:partOf :NumberSense.
+:NumberOperations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The systematic application of mathematical rules and procedures to combine, transform, or calculate values through fundamental actions such as addition, subtraction, multiplication, and division.";
+    edu:partOf :Arithmetic.
 :NumberSense a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Number sense is the intuitive understanding of numbers, their magnitudes, and how they relate to each other.";
     edu:partOf :IntuitiveMathematics.
 :NumberSystems a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The classification, representation, and properties of different sets of numbers such as integers, fractions, decimals including the symbolic frameworks used to express numerical values and their relationships.";
     edu:partOf :Arithmetic.
 :NumberTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies the properties of numbers, particularly integers (whole numbers). It explores things like prime numbers, divisibility, and number patterns.".
@@ -184,9 +185,9 @@
     rdfs:isDefinedBy "Applying the system of symbols and conventions used to represent ratios.";
     edu:partOf :ProportionAbstraction.
 :Root a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Finding the integer that, when raised to a certain power, produces a given integer.\n\nExample: The cube root of 64 is 4 because 4 ^ 3 = 64";
+    rdfs:isDefinedBy "Finding the number that, when raised to a certain power, produces a given number.\n\nExample: The cube root of 64 is 4 because 4 ^ 3 = 64";
     edu:expands :Exponentiation;
-    edu:partOf :ArithmeticOperations.
+    edu:partOf :NumberOperations.
 :SetTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies sets, which are collections of objects. It provides a fundamental language and tools for defining and working with mathematical objects.".
 :ShapeCongruence a owl:NamedIndividual, edu:Area;
@@ -207,9 +208,9 @@
 :Statistics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides a framework for collecting, organizing, analyzing, and interpreting data. It provides tools for quantifying and modeling randomness, variability, and uncertainty in data.".
 :Subtraction a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Finding the difference between two integers.\n\nExample: 10 - 6 = 4";
+    rdfs:isDefinedBy "Finding the difference between two numbers.\n\nExample: 10 - 6 = 4";
     edu:expands :Addition, :Difference;
-    edu:partOf :ArithmeticOperations.
+    edu:partOf :NumberOperations.
 :Sum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Combining quantities to determine their total amount for any type of mathematical object, including numbers.";
     edu:expands :Increment;
