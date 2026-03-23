@@ -214,7 +214,3 @@
     rdfs:isDefinedBy "Combining quantities to determine their total amount for any type of mathematical object, including numbers.";
     edu:expands :Increment;
     edu:partOf :BaseOperations.
-:X a owl:NamedIndividual, edu:Area;
-    edu:partOf :NumerationWithRationals.
-:Y a owl:NamedIndividual, edu:Area;
-    edu:partOf :NumerationWithRationals.
