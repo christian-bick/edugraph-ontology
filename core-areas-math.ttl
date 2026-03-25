@@ -65,6 +65,7 @@
 :FractionNumbers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
     edu:expands :Division;
+    edu:integrates :FractionNotation;
     edu:partOf :RationalNumbers.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
@@ -83,6 +84,7 @@
 :IntegerNumbers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The understanding and application of whole numbers, their additive inverses (negative numbers), and zero, representing discrete values that do not contain fractional or decimal components.";
     edu:expands :NumerationWithIntegers;
+    edu:integrates :IntegerNotation;
     edu:partOf :NumberSystems.
 :IntegerRegrouping a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Also referred to as carrying or borrowing. The process of exchanging values between place value positions to facilitate arithmetic operations such as addition and subtraction within the set of integer numbers.";
@@ -142,7 +144,7 @@
     edu:partOf :NumberSense.
 :NumerationWithIntegers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with integers includes understanding the sequence and magnitude of whole numbers.";
-    edu:expands :IntegerNotation, :NumericOrder;
+    edu:expands :NumericOrder;
     edu:partOf :Numeration;
     edu:translates :Increment.
 :NumerationWithIntervals a owl:NamedIndividual, edu:Area;
@@ -181,6 +183,7 @@
     edu:partOf :IntuitiveMathematics.
 :RatioEquivalence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Ratio equivalence is the understanding that different ratios can represent the same proportional relationship.";
+    edu:expands :ProportionManipulation;
     edu:partOf :ProportionAbstraction.
 :RatioInterpretation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Ratio interpretation is the ability to understand the meaning of a ratio and its relationship to the quantities involved.";
