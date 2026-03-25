@@ -79,6 +79,7 @@
     edu:expands :DigitNotation;
     edu:partOf :IntegerNumbers.
 :IntegerNumbers a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The understanding and application of whole numbers, their additive inverses (negative numbers), and zero, representing discrete values that do not contain fractional or decimal components.";
     edu:expands :NumerationWithIntegers;
     edu:partOf :NumberSystems.
 :IntegerRegrouping a owl:NamedIndividual, edu:Area;
@@ -90,6 +91,7 @@
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts.".
 :IrrationalNumbers a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The understanding and application of real numbers that cannot be expressed as a quotient or fraction of two integers, characterized by decimal representations that are non-terminating and non-repeating.";
     edu:expands :RationalNumbers;
     edu:partOf :NumberSystems.
 :LinearShapeDrawing a owl:NamedIndividual, edu:Area;
@@ -179,6 +181,7 @@
     rdfs:isDefinedBy "Ratio interpretation is the ability to understand the meaning of a ratio and its relationship to the quantities involved.";
     edu:partOf :ProportionAbstraction.
 :RationalNumbers a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The understanding and application of numbers that can be expressed as the quotient or fraction of two integers, where the denominator is non-zero.";
     edu:expands :IntegerNumbers;
     edu:partOf :NumberSystems.
 :RatioNotation a owl:NamedIndividual, edu:Area;
