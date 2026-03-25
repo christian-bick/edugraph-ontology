@@ -29,10 +29,11 @@
 :ComputationalMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
 :DecimalNotation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Applying the decimal system of representing rational numbers using a base-ten place value system and a decimal point to separate whole and fractional parts.";
+    rdfs:isDefinedBy "The system of symbols used to represent decimals, including the floating point and its meaning.";
     edu:expands :IntegerNotation;
     edu:partOf :DecimalNumbers.
 :DecimalNumbers a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The representation of rational numbers using a base-10 positional notation system, where a decimal point separates the integer component from a fractional component expressed as a sum of negative powers of ten.";
     edu:partOf :RationalNumbers.
 :Decrement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a quantity by a specific amount.";
@@ -56,14 +57,12 @@
     rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.\n\nExample: 2 ^ 4 = 2 * 2 * 2 * 2 = 16";
     edu:expands :Multiplication;
     edu:partOf :NumberOperations.
-:FloatingPoint a owl:NamedIndividual, edu:Area;
-    edu:expands :DecimalNotation;
-    edu:partOf :DecimalNumbers.
 :FractionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator.";
     edu:expands :IntegerNotation, :ProportionAbstraction;
     edu:partOf :FractionNumbers.
 :FractionNumbers a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
     edu:expands :Division;
     edu:partOf :RationalNumbers.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
@@ -83,6 +82,7 @@
     edu:expands :NumerationWithIntegers;
     edu:partOf :NumberSystems.
 :IntegerRegrouping a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Also referred to as carrying or borrowing. The process of exchanging values between place value positions to facilitate arithmetic operations such as addition and subtraction within the set of integer numbers.";
     edu:expands :IntegerNotation;
     edu:partOf :IntegerNumbers.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
