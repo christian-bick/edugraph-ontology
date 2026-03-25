@@ -10,7 +10,7 @@
     owl:imports <http://edugraph.io/edu#>.
 :Addition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Adding numbers together.\n\nExample: 5 + 3 = 8";
-    edu:expands :NumerationWithNumerals, :Sum;
+    edu:expands :Sum;
     edu:partOf :NumberOperations.
 :Algebra a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that generalizes arithmetics and where letters represent unknown numbers, allowing us to explore patterns, solve equations, and model real-world situations.".
@@ -41,7 +41,7 @@
     edu:partOf :BaseOperations.
 :Difference a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining the difference in quantities of mathematical object, including numbers where difference represents the amount by which one quantity is greater or less than another.";
-    edu:expands :Decrement, :NumerationWithNumerals;
+    edu:expands :Decrement;
     edu:inverts :Sum;
     edu:partOf :BaseOperations.
 :DigitNotation a owl:NamedIndividual, edu:Area;
@@ -141,12 +141,13 @@
 :Numeration a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration encompasses counting, ordering, and grouping numbers.";
     edu:partOf :NumberSense.
+:NumerationWithIntegers a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Numeration with numerals includes understanding the sequence and magnitude of whole numbers.";
+    edu:decomposes :IntegerNumbers;
+    edu:expands :NumericOrder;
+    edu:partOf :Numeration.
 :NumerationWithIntervals a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with intervals is used to represent sets of numbers with specific limits.";
-    edu:partOf :Numeration.
-:NumerationWithNumerals a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Numeration with numerals includes understanding the sequence and magnitude of whole numbers.";
-    edu:expands :NumericOrder;
     edu:partOf :Numeration.
 :NumerationWithRationals a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with rationals encompasses understanding the density of rational numbers on the number line.";
