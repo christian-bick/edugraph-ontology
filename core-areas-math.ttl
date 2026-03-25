@@ -60,11 +60,12 @@
     edu:partOf :NumberOperations.
 :FractionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator.";
-    edu:expands :IntegerNotation, :ProportionAbstraction;
+    edu:expands :ProportionAbstraction;
+    edu:integrates :Division, :IntegerNotation;
     edu:partOf :FractionNumbers.
 :FractionNumbers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
-    edu:expands :Division;
+    edu:expands :IntegerNumbers, :ProportionInteraction;
     edu:integrates :FractionNotation;
     edu:partOf :RationalNumbers.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
