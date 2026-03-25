@@ -86,7 +86,7 @@
     edu:partOf :NumberSystems.
 :IntegerRegrouping a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Also referred to as carrying or borrowing. The process of exchanging values between place value positions to facilitate arithmetic operations such as addition and subtraction within the set of integer numbers.";
-    edu:expands :IntegerNotation;
+    edu:decomposes :IntegerNumbers;
     edu:partOf :IntegerNumbers.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
     edu:partOf :NumerationWithIntervals.
