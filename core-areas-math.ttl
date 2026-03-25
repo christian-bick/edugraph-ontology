@@ -141,6 +141,10 @@
 :Numeration a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration encompasses counting, ordering, and grouping numbers.";
     edu:partOf :NumberSense.
+:NumerationWithFractions a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Numeration with rationals encompasses understanding the density of rational numbers on the number line.";
+    edu:decomposes :FractionNumbers;
+    edu:partOf :Numeration.
 :NumerationWithIntegers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with numerals includes understanding the sequence and magnitude of whole numbers.";
     edu:decomposes :IntegerNumbers;
@@ -148,9 +152,6 @@
     edu:partOf :Numeration.
 :NumerationWithIntervals a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with intervals is used to represent sets of numbers with specific limits.";
-    edu:partOf :Numeration.
-:NumerationWithRationals a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Numeration with rationals encompasses understanding the density of rational numbers on the number line.";
     edu:partOf :Numeration.
 :NumericComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeric comparison involves evaluating whether one number is greater than, less than, or equal to another.";
