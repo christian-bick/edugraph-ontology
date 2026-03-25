@@ -142,7 +142,7 @@
     rdfs:isDefinedBy "Numeration encompasses counting, ordering, and grouping numbers.";
     edu:partOf :NumberSense.
 :NumerationWithFractions a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Numeration with rationals encompasses understanding the density of rational numbers on the number line.";
+    rdfs:isDefinedBy "Numeration with fractions encompasses understanding the density of fraction numbers on the number line.";
     edu:decomposes :FractionNumbers;
     edu:partOf :Numeration.
 :NumerationWithIntegers a owl:NamedIndividual, edu:Area;
