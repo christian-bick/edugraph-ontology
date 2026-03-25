@@ -37,18 +37,19 @@
     edu:partOf :RationalNumbers.
 :Decrement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a quantity by a specific amount.";
-    edu:expands :Increment;
+    edu:inverts :Increment;
     edu:partOf :BaseOperations.
 :Difference a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining the difference in quantities of mathematical object, including numbers where difference represents the amount by which one quantity is greater or less than another.";
     edu:expands :Decrement;
+    edu:inverts :Sum;
     edu:partOf :BaseOperations.
 :DigitNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Digit notation uses symbols from 0 to 9 to represent any number.";
     edu:partOf :NumberNotation.
 :Division a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one number by another, which may result in a quotient and a remainder.\n\nExample: 17 / 5 = 3 remainder 2";
-    edu:expands :Multiplication;
+    edu:inverts :Multiplication;
     edu:partOf :NumberOperations.
 :EllipticShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Elliptical shape drawing is the ability to create drawings or models of elliptical shapes.";
@@ -67,7 +68,8 @@
     edu:partOf :RationalNumbers.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
-    edu:expands :Division, :RatioEquivalence;
+    edu:decomposes :FractionNumbers;
+    edu:integrates :RatioEquivalence;
     edu:partOf :FractionNumbers.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
@@ -99,7 +101,7 @@
     edu:partOf :SpatialModelling.
 :Logarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.\n\nExample: log₃ 81 = 4 because 3 ^ 4 = 81";
-    edu:expands :Exponentiation;
+    edu:inverts :Exponentiation;
     edu:partOf :NumberOperations.
 :Logic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies reasoning and valid arguments. It provides a framework for determining whether something is true or false based on given premises. It is the foundation for constructing proofs, ensuring that conclusions follow logically from their premises.".
@@ -138,8 +140,9 @@
     edu:partOf :NumberSense.
 :NumerationWithIntegers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with integers includes understanding the sequence and magnitude of whole numbers.";
-    edu:expands :Increment, :IntegerNotation, :NumericOrder;
-    edu:partOf :Numeration.
+    edu:expands :IntegerNotation, :NumericOrder;
+    edu:partOf :Numeration;
+    edu:translates :Increment.
 :NumerationWithIntervals a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with intervals is used to represent sets of numbers with specific limits.";
     edu:partOf :Numeration.
@@ -154,7 +157,7 @@
     edu:partOf :NumericComparison.
 :NumericOrder a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeric order refers to the arrangement of numbers in ascending or descending sequence based on their magnitude.";
-    edu:expands :NumericIdentity;
+    edu:integrates :NumericIdentity;
     edu:partOf :NumericComparison.
 :ProportionAbstraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Proportion abstraction is the ability to generalize proportional relationships and apply them to new situations.";
@@ -189,7 +192,7 @@
     edu:partOf :ProportionAbstraction.
 :Root a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the number that, when raised to a certain power, produces a given number.\n\nExample: The cube root of 64 is 4 because 4 ^ 3 = 64";
-    edu:expands :Exponentiation;
+    edu:inverts :Exponentiation;
     edu:partOf :NumberOperations.
 :SetTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies sets, which are collections of objects. It provides a fundamental language and tools for defining and working with mathematical objects.".
