@@ -47,6 +47,7 @@
     edu:partOf :BaseOperations.
 :DigitNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Digit notation uses symbols from 0 to 9 to represent any number.";
+    edu:expands :NumericIdentity;
     edu:partOf :NumberNotation.
 :Division a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one number by another.";
@@ -103,11 +104,11 @@
     edu:partOf :IntegerArithmetic.
 :IntegerRegrouping a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Also referred to as carrying or borrowing. The process of exchanging values between place value positions to facilitate arithmetic operations such as addition and subtraction within the set of integer numbers.";
-    edu:decomposes :NumerationWithIntegers;
+    edu:decomposes :IntegerNotation;
     edu:partOf :IntegerArithmetic.
 :IntegerSigns a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate an integer's direction and magnitude relative to zero.";
-    edu:decomposes :NumerationWithIntegers;
+    edu:decomposes :IntegerNotation;
     edu:partOf :IntegerArithmetic.
 :IntegerSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two integers.\n\nExample: 10 - 6 = 4";
