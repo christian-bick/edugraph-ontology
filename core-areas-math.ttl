@@ -79,10 +79,10 @@
 :Increment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a quantity by a certain amount.";
     edu:partOf :BaseOperations.
-<http://edugraph.io/edu/Integer Multiplication> a owl:NamedIndividual, edu:Area;
+:Integer Multiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or integers numbers.\n\nExample: 4 * 3 = 12";
     edu:partOf :Multiplication.
-<http://edugraph.io/edu/Integer Subtraction> a owl:NamedIndividual, edu:Area;
+:IntegerSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two integers.\n\nExample: 10 - 6 = 4";
     edu:partOf :Subtraction.
 :IntegerAddition a owl:NamedIndividual, edu:Area;
