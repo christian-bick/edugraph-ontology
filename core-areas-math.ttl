@@ -27,15 +27,15 @@
     edu:partOf :SpatialModelling.
 :ComputationalMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
-:DecimalNotation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The system of symbols used to represent decimals, including the floating point and its meaning.";
-    edu:expands :IntegerNotation;
-    edu:partOf :DecimalNumbers.
-:DecimalNumbers a owl:NamedIndividual, edu:Area;
+:DecimalArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers using a base-10 positional notation system, where a decimal point separates the integer component from a fractional component expressed as a sum of negative powers of ten.";
     edu:constrains :FractionArithmetic;
     edu:integrates :DecimalNotation;
-    edu:partOf :RationalNumbers.
+    edu:partOf :RationalsArithmetic.
+:DecimalNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The system of symbols used to represent decimals, including the floating point and its meaning.";
+    edu:expands :IntegerNotation;
+    edu:partOf :DecimalArithmetic.
 :Decrement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a quantity by a specific amount.";
     edu:inverts :Increment;
@@ -63,7 +63,7 @@
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
     edu:expands :IntegerArithmetic, :ProportionInteraction;
     edu:integrates :FractionNotation;
-    edu:partOf :RationalNumbers.
+    edu:partOf :RationalsArithmetic.
 :FractionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator.";
     edu:integrates :IntegerDivision, :IntegerNotation;
@@ -114,10 +114,6 @@
     edu:partOf :NumerationWithIntervals.
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts.".
-:IrrationalNumbers a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The understanding and application of real numbers that cannot be expressed as a quotient or fraction of two integers, characterized by decimal representations that are non-terminating and non-repeating.";
-    edu:expands :RationalNumbers;
-    edu:partOf :NumberSystems.
 :LinearShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Linear shape drawing is the ability to create drawings or models of shapes with straight sides.";
     edu:partOf :SpatialModelling.
@@ -209,7 +205,7 @@
 :RatioInterpretation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Ratio interpretation is the ability to understand the meaning of a ratio and its relationship to the quantities involved.";
     edu:partOf :ProportionAbstraction.
-:RationalNumbers a owl:NamedIndividual, edu:Area;
+:RationalsArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The understanding and application of numbers that can be expressed as the quotient or fraction of two integers, where the denominator is non-zero.";
     edu:partOf :NumberSystems.
 :RatioNotation a owl:NamedIndividual, edu:Area;
