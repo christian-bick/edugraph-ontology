@@ -36,6 +36,10 @@
     rdfs:isDefinedBy "The system of symbols used to represent decimals, including the floating point and its meaning.";
     edu:expands :IntegerNotation;
     edu:partOf :DecimalArithmetic.
+:DecimalSubtraction a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Finding the difference between two decimals.\n\nExample: 5.5 - 2.3 = 3.2";
+    edu:decomposes :FractionSubtraction;
+    edu:partOf :Subtraction.
 :Decrement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a quantity by a specific amount.";
     edu:inverts :Increment;
