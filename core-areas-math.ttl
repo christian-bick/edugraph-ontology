@@ -96,6 +96,10 @@
     rdfs:isDefinedBy "Raising an integer to a power, meaning multiplying it by itself a certain number of times. Example: 2 ^ 4 = 2 * 2 * 2 * 2 = 16";
     edu:expands :IntegerMultiplication;
     edu:partOf :Exponentiation.
+:IntegerLogarithm a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Finding the greatest integer exponent to which a base must be raised to produce a value less than or equal to a given number.";
+    edu:inverts :IntegerExponentiation;
+    edu:partOf :Logarithm.
 :IntegerMultiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or integers numbers.\n\nExample: 4 * 3 = 12";
     edu:expands :IntegerAddition;
@@ -108,6 +112,10 @@
     rdfs:isDefinedBy "Also referred to as carrying or borrowing. The process of exchanging values between place value positions to facilitate arithmetic operations such as addition and subtraction within the set of integer numbers.";
     edu:decomposes :IntegerArithmetic;
     edu:partOf :IntegerArithmetic.
+:IntegerRoot a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Finding the integer that, when raised to a certain power, produces a given number.\n\nExample: The square root of 25 is 5 because 5 ^ 2 = 25";
+    edu:inverts :IntegerExponentiation;
+    edu:partOf :Root.
 :IntegerSigns a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate an integer's direction and magnitude relative to zero.";
     edu:decomposes :IntegerArithmetic;
