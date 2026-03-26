@@ -60,21 +60,42 @@
     rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.";
     edu:expands :Multiplication;
     edu:partOf :NumberOperations.
+:FractionAddition a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Adding fractions together. Example: 1/4 + 1/2 = 3/4";
+    edu:partOf :Addition.
 :FractionArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
     edu:expands :IntegerArithmetic, :ProportionInteraction;
     edu:integrates :FractionNotation;
     edu:partOf :RationalsArithmetic.
+:FractionDivision a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Dividing one fraction by another, which results in a quotient that may be a fraction or an integer.\n\nExample: 1/2 / 1/4 = 2";
+    edu:partOf :Division.
+:FractionExponentiation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Raising a fraction to a power, meaning multiplying it by itself a certain number of times. Example: (1/2) ^ 3 = (1/2) * (1/2) * (1/2) = 1/8";
+    edu:partOf :Exponentiation.
+:FractionLogarithm a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Finding the fractional exponent to which a base must be raised to produce a given number.";
+    edu:partOf :Logarithm.
+:FractionMultiplication a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Multiplying two or fraction numbers.\n\nExample: 1/2 * 1/4 = 1/8";
+    edu:partOf :Multiplication.
 :FractionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator.";
     edu:expands :IntegerDivision;
     edu:integrates :IntegerNotation;
     edu:partOf :FractionArithmetic.
+:FractionRoot a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Finding the fraction that, when raised to a certain power, produces a given number.\n\nExample: The square root of 1/4 is 1/2 because (1/2) ^ 2 = 1/4";
+    edu:partOf :Root.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
     edu:decomposes :FractionArithmetic;
     edu:integrates :RatioEquivalence;
     edu:partOf :FractionArithmetic.
+:FractionSubtraction a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Finding the difference between two fractions.\n\nExample: 3/4 - 1/4 = 2/4";
+    edu:partOf :Subtraction.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
 :Increment a owl:NamedIndividual, edu:Area;
