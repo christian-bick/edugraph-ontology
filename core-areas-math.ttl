@@ -67,7 +67,7 @@
     edu:partOf :RationalsArithmetic.
 :FractionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator.";
-    edu:expands :IntegerDivision, :IntegerNotation;
+    edu:expands :IntegerDivision;
     edu:integrates :IntegerNotation;
     edu:partOf :FractionArithmetic.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
