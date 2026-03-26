@@ -63,7 +63,7 @@
 :FractionAddition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Adding fractions together. Example: 1/4 + 1/2 = 3/4";
     edu:expands :NumerationWithFractions;
-    edu:integrates :FractionSimplification, :IntegerAddition, :LowestCommonDenominator;
+    edu:integrates :IntegerAddition, :LowestCommonDenominator;
     edu:partOf :Addition.
 :FractionArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
@@ -72,15 +72,20 @@
     edu:partOf :RationalsArithmetic.
 :FractionDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one fraction by another, which results in a quotient that may be a fraction or an integer.\n\nExample: 1/2 / 1/4 = 2";
+    edu:integrates :IntegerMultiplication;
+    edu:inverts :FractionMultiplication;
     edu:partOf :Division.
 :FractionExponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a fraction to a power, meaning multiplying it by itself a certain number of times. Example: (1/2) ^ 3 = (1/2) * (1/2) * (1/2) = 1/8";
+    edu:expands :FractionMultiplication;
     edu:partOf :Exponentiation.
 :FractionLogarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the fractional exponent to which a base must be raised to produce a given number.";
     edu:partOf :Logarithm.
 :FractionMultiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or fraction numbers.\n\nExample: 1/2 * 1/4 = 1/8";
+    edu:expands :FractionAddition;
+    edu:integrates :IntegerMultiplication;
     edu:partOf :Multiplication.
 :FractionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator.";
@@ -97,6 +102,8 @@
     edu:partOf :FractionArithmetic.
 :FractionSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two fractions.\n\nExample: 3/4 - 1/4 = 2/4";
+    edu:integrates :IntegerSubtraction, :LowestCommonDenominator;
+    edu:inverts :FractionAddition;
     edu:partOf :Subtraction.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
@@ -198,7 +205,7 @@
     edu:partOf :NumberSense.
 :NumerationWithFractions a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with fractions encompasses understanding the density of fraction numbers on the number line.";
-    edu:decomposes :FractionArithmetic, :NumericOrder;
+    edu:decomposes :FractionArithmetic, :NumerationWithIntegers;
     edu:partOf :Numeration.
 :NumerationWithIntegers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with integers includes understanding the sequence and magnitude of whole numbers.";
