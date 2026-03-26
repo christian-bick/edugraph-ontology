@@ -9,7 +9,7 @@
 <http://edugraph.io/edu/> a owl:Ontology;
     owl:imports <http://edugraph.io/edu#>.
 :Addition a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Adding numbers together.\n\nExample: 5 + 3 = 8";
+    rdfs:isDefinedBy "Adding numbers together.";
     edu:expands :Sum;
     edu:partOf :NumberOperations.
 :Algebra a owl:NamedIndividual, edu:Area;
@@ -50,14 +50,14 @@
     rdfs:isDefinedBy "Digit notation uses symbols from 0 to 9 to represent any number.";
     edu:partOf :NumberNotation.
 :Division a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Dividing one number by another, which may result in a quotient and a remainder.\n\nExample: 17 / 5 = 3 remainder 2";
+    rdfs:isDefinedBy "Dividing one number by another.";
     edu:inverts :Multiplication;
     edu:partOf :NumberOperations.
 :EllipticShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Elliptical shape drawing is the ability to create drawings or models of elliptical shapes.";
     edu:partOf :SpatialModelling.
 :Exponentiation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.\n\nExample: 2 ^ 4 = 2 * 2 * 2 * 2 = 16";
+    rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.";
     edu:expands :Multiplication;
     edu:partOf :NumberOperations.
 :FractionNotation a owl:NamedIndividual, edu:Area;
@@ -79,6 +79,21 @@
 :Increment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a quantity by a certain amount.";
     edu:partOf :BaseOperations.
+<http://edugraph.io/edu/Integer Multiplication> a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Multiplying two or integers numbers.\n\nExample: 4 * 3 = 12";
+    edu:partOf :Multiplication.
+<http://edugraph.io/edu/Integer Subtraction> a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Finding the difference between two integers.\n\nExample: 10 - 6 = 4";
+    edu:partOf :Subtraction.
+:IntegerAddition a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Adding integers together. Example: 5 + 3 = 8";
+    edu:partOf :Addition.
+:IntegerDivision a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Dividing one integer by another, which may result in a quotient and a remainder.\n\nExample: 17 / 5 = 3 remainder 2";
+    edu:partOf :Division.
+:IntegerExponentiation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Raising an integer to a power, meaning multiplying it by itself a certain number of times. Example: 2 ^ 4 = 2 * 2 * 2 * 2 = 16";
+    edu:partOf :Exponentiation.
 :IntegerNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols used to represent integers.\n\nExample: Using the symbols -3, 0, and 12 to represent integers.";
     edu:expands :DigitNotation;
@@ -103,7 +118,7 @@
     rdfs:isDefinedBy "Linear shape drawing is the ability to create drawings or models of shapes with straight sides.";
     edu:partOf :SpatialModelling.
 :Logarithm a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.\n\nExample: log₃ 81 = 4 because 3 ^ 4 = 81";
+    rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.";
     edu:inverts :Exponentiation;
     edu:partOf :NumberOperations.
 :Logic a owl:NamedIndividual, edu:Area;
@@ -123,7 +138,7 @@
     rdfs:isDefinedBy "Measuring time involves quantifying the duration of events or the intervals between them.";
     edu:partOf :Measurement.
 :Multiplication a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Multiplying two or multiple numbers.\n\nExample: 4 * 3 = 12";
+    rdfs:isDefinedBy "Multiplying two or multiple numbers.";
     edu:expands :Addition;
     edu:partOf :NumberOperations.
 :NumberNotation a owl:NamedIndividual, edu:Area;
@@ -221,7 +236,7 @@
 :Statistics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides a framework for collecting, organizing, analyzing, and interpreting data. It provides tools for quantifying and modeling randomness, variability, and uncertainty in data.".
 :Subtraction a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Finding the difference between two numbers.\n\nExample: 10 - 6 = 4";
+    rdfs:isDefinedBy "Finding the difference between two numbers.";
     edu:expands :Addition, :Difference;
     edu:partOf :NumberOperations.
 :Sum a owl:NamedIndividual, edu:Area;
