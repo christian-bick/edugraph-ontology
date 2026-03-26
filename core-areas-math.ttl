@@ -67,7 +67,8 @@
     edu:partOf :RationalsArithmetic.
 :FractionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator.";
-    edu:integrates :IntegerDivision, :IntegerNotation;
+    edu:expands :IntegerDivision, :IntegerNotation;
+    edu:integrates :IntegerNotation;
     edu:partOf :FractionArithmetic.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
@@ -168,7 +169,7 @@
     edu:decomposes :FractionArithmetic;
     edu:partOf :Numeration.
 :NumerationWithIntegers a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Numeration with numerals includes understanding the sequence and magnitude of whole numbers.";
+    rdfs:isDefinedBy "Numeration with integers includes understanding the sequence and magnitude of whole numbers.";
     edu:expands :NumericOrder;
     edu:integrates :IntegerNotation;
     edu:partOf :Numeration.
