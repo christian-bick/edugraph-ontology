@@ -79,7 +79,7 @@
 :Increment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a quantity by a certain amount.";
     edu:partOf :BaseOperations.
-:Integer Multiplication a owl:NamedIndividual, edu:Area;
+:IntegerMultiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or integers numbers.\n\nExample: 4 * 3 = 12";
     edu:partOf :Multiplication.
 :IntegerSubtraction a owl:NamedIndividual, edu:Area;
