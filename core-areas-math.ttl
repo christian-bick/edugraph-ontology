@@ -62,6 +62,8 @@
     edu:partOf :NumberOperations.
 :FractionAddition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Adding fractions together. Example: 1/4 + 1/2 = 3/4";
+    edu:expands :NumerationWithFractions;
+    edu:integrates :FractionSimplification, :IntegerAddition, :LowestCommonDenominator;
     edu:partOf :Addition.
 :FractionArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
