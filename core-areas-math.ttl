@@ -34,6 +34,8 @@
     edu:partOf :DecimalNumbers.
 :DecimalNumbers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers using a base-10 positional notation system, where a decimal point separates the integer component from a fractional component expressed as a sum of negative powers of ten.";
+    edu:constrains :FractionNumbers;
+    edu:integrates :DecimalNotation;
     edu:partOf :RationalNumbers.
 :Decrement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a quantity by a specific amount.";
@@ -60,7 +62,6 @@
     edu:partOf :NumberOperations.
 :FractionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator.";
-    edu:expands :ProportionAbstraction;
     edu:integrates :Division, :IntegerNotation;
     edu:partOf :FractionNumbers.
 :FractionNumbers a owl:NamedIndividual, edu:Area;
