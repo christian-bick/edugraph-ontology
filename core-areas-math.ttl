@@ -91,15 +91,19 @@
 :FractionDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one fraction by another, which results in a quotient that may be a fraction or an integer.\n\nExample: 1/2 / 1/4 = 2";
     edu:integrates :IntegerMultiplication;
+    edu:inverts :FractionMultiplication;
     edu:partOf :Division.
 :FractionExponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a fraction to a power, meaning multiplying it by itself a certain number of times. Example: (1/2) ^ 3 = (1/2) * (1/2) * (1/2) = 1/8";
+    edu:expands :FractionMultiplication;
     edu:partOf :Exponentiation.
 :FractionLogarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the fractional exponent to which a base must be raised to produce a given number.";
+    edu:inverts :FractionExponentiation;
     edu:partOf :Logarithm.
 :FractionMultiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or fraction numbers.\n\nExample: 1/2 * 1/4 = 1/8";
+    edu:expands :FractionAddition;
     edu:integrates :IntegerMultiplication;
     edu:partOf :Multiplication.
 :FractionNotation a owl:NamedIndividual, edu:Area;
@@ -109,6 +113,7 @@
     edu:partOf :FractionSpace.
 :FractionRoot a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the fraction that, when raised to a certain power, produces a given number.\n\nExample: The square root of 1/4 is 1/2 because (1/2) ^ 2 = 1/4";
+    edu:inverts :FractionExponentiation;
     edu:partOf :Root.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
@@ -124,6 +129,7 @@
 :FractionSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two fractions.\n\nExample: 3/4 - 1/4 = 2/4";
     edu:integrates :IntegerSubtraction, :LowestCommonDenominator;
+    edu:inverts :FractionAddition;
     edu:partOf :Subtraction.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
