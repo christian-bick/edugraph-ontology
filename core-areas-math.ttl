@@ -39,10 +39,11 @@
     edu:inverts :DecimalMultiplication;
     edu:partOf :Division.
 :DecimalDivisorShift a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The rules and procedures that shift the floating point in a divisor to transform it into a whole number as a part of decimal division operations.";
-    edu:expands :RatioEquivalence;
+    rdfs:isDefinedBy "Decimal equivalence is the understanding that decimals with trailing zeros represent the same decimal number.";
     edu:partOf :DecimalPointAlignment.
 :DecimalEquivalence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The rules and procedures for identifying or establishing the equality between different representations of the same rational value, specifically between fractions and their base-10 positional notation or between decimals with varying digits at subsequent negative powers of ten that maintain the same magnitude.";
+    edu:expands :RatioEquivalence;
     edu:partOf :DecimalSpace.
 :DecimalExponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a decimal to a power, meaning multiplying it by itself a certain number of times. Example: 0.2 ^ 3 = 0.2 * 0.2 * 0.2 = 0.008";
@@ -123,6 +124,8 @@
     edu:inverts :FractionMultiplication;
     edu:partOf :Division.
 :FractionEquivalence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The principle that distinct representations of rational numbers in the form a/b can express the same ratio, where transformations between different numerators and denominators maintain the same value relative to the unit or whole.";
+    edu:expands :RatioEquivalence;
     edu:partOf :FractionSpace.
 :FractionExponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a fraction to a power, meaning multiplying it by itself a certain number of times. Example: (1/2) ^ 3 = (1/2) * (1/2) * (1/2) = 1/8";
@@ -148,7 +151,6 @@
     edu:partOf :Root.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
-    edu:expands :RatioEquivalence;
     edu:partOf :FractionEquivalence.
 :FractionSpace a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
@@ -225,7 +227,6 @@
     rdfs:isDefinedBy "The branch of mathematics that studies reasoning and valid arguments. It provides a framework for determining whether something is true or false based on given premises. It is the foundation for constructing proofs, ensuring that conclusions follow logically from their premises.".
 :LowestCommonDenominator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the smallest common multiple of the denominators of two or more fractions.\n\nExample: The lowest common denominator of 1/4 and 1/6 is 12.";
-    edu:expands :RatioEquivalence;
     edu:partOf :FractionEquivalence.
 :Measurement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Measurement is the process of assigning numbers to describe the properties of objects, such as length, weight, or volume.";
