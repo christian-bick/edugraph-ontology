@@ -74,7 +74,7 @@
     rdfs:isDefinedBy "The representation of rational numbers using a base-10 positional notation system, where a decimal point separates the integer component from a fractional component expressed as a sum of negative powers of ten.";
     edu:constrains :FractionSpace;
     edu:integrates :DecimalNotation;
-    edu:partOf :NumberSpaces.
+    edu:partOf :RationalSpace.
 :DecimalSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two decimals.\n\nExample: 5.5 - 2.3 = 3.2";
     edu:integrates :DecimalTrailAlignment;
