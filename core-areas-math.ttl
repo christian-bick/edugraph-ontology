@@ -31,14 +31,16 @@
 :DecimalAddition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Adding decimals together. Example: 0.5 + 0.2 = 0.7";
     edu:expands :NumerationWithDecimals;
-    edu:integrates :DecimalPointAlignment, :IntegerAddition;
+    edu:integrates :DecimalTrailAlignment, :IntegerAddition;
     edu:partOf :Addition.
 :DecimalDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one decimal by another, which results in a quotient that may be a decimal or an integer.\n\nExample: 1.5 / 0.5 = 3";
+    edu:integrates :DecimalDivisorShift, :IntegerDivision;
     edu:inverts :DecimalMultiplication;
     edu:partOf :Division.
 :DecimalDivisorShift a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures that shift the floating point in a divisor to transform it into a whole number as a part of decimal division operations.";
+    edu:expands :RatioEquivalence;
     edu:partOf :DecimalPointAlignment.
 :DecimalExponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a decimal to a power, meaning multiplying it by itself a certain number of times. Example: 0.2 ^ 3 = 0.2 * 0.2 * 0.2 = 0.008";
@@ -51,6 +53,7 @@
 :DecimalMultiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or decimal numbers.\n\nExample: 0.5 * 0.2 = 0.1";
     edu:expands :DecimalAddition;
+    edu:integrates :DecimalTrailCount, :IntegerMultiplication;
     edu:partOf :Multiplication.
 :DecimalNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent decimals, including the floating point and its meaning.";
@@ -74,6 +77,7 @@
     edu:partOf :NumberSpaces.
 :DecimalSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two decimals.\n\nExample: 5.5 - 2.3 = 3.2";
+    edu:integrates :DecimalTrailAlignment;
     edu:inverts :DecimalAddition;
     edu:partOf :Subtraction.
 :DecimalTrailAlignment a owl:NamedIndividual, edu:Area;
