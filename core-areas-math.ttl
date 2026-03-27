@@ -95,7 +95,7 @@
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
     edu:decomposes :NumerationWithFractions;
-    edu:integrates :RatioEquivalence;
+    edu:expands :RatioEquivalence;
     edu:partOf :FractionSpace.
 :FractionSpace a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
@@ -166,7 +166,7 @@
 :LowestCommonDenominator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the smallest common multiple of the denominators of two or more fractions.\n\nExample: The lowest common denominator of 1/4 and 1/6 is 12.";
     edu:decomposes :NumerationWithFractions;
-    edu:integrates :RatioEquivalence;
+    edu:expands :RatioEquivalence;
     edu:partOf :FractionSpace.
 :Measurement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Measurement is the process of assigning numbers to describe the properties of objects, such as length, weight, or volume.";
