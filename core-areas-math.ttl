@@ -31,12 +31,14 @@
 :DecimalAddition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Adding decimals together. Example: 0.5 + 0.2 = 0.7";
     edu:expands :NumerationWithDecimals;
-    edu:integrates :IntegerAddition;
+    edu:integrates :DecimalPointAlignment, :IntegerAddition;
     edu:partOf :Addition.
 :DecimalDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one decimal by another, which results in a quotient that may be a decimal or an integer.\n\nExample: 1.5 / 0.5 = 3";
     edu:inverts :DecimalMultiplication;
     edu:partOf :Division.
+:DecimalDivisorShift a owl:NamedIndividual, edu:Area;
+    edu:partOf :DecimalPointAlignment.
 :DecimalExponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a decimal to a power, meaning multiplying it by itself a certain number of times. Example: 0.2 ^ 3 = 0.2 * 0.2 * 0.2 = 0.008";
     edu:expands :DecimalMultiplication;
@@ -54,6 +56,9 @@
     edu:constrains :FractionNotation;
     edu:expands :IntegerNotation;
     edu:partOf :DecimalSpace.
+:DecimalPointAlignment a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The rules and procedures that align the floating point as a part of decimal number operations.";
+    edu:partOf :DecimalSpace.
 :DecimalRoot a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the decimal that, when raised to a certain power, produces a given number.\n\nExample: The square root of 0.25 is 0.5 because 0.5 ^ 2 = 0.25";
     edu:inverts :DecimalExponentiation;
@@ -70,6 +75,10 @@
     rdfs:isDefinedBy "Finding the difference between two decimals.\n\nExample: 5.5 - 2.3 = 3.2";
     edu:inverts :DecimalAddition;
     edu:partOf :Subtraction.
+:DecimalTrailAlignment a owl:NamedIndividual, edu:Area;
+    edu:partOf :DecimalPointAlignment.
+:DecimalTrailCount a owl:NamedIndividual, edu:Area;
+    edu:partOf :DecimalPointAlignment.
 :Decrement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a quantity by a specific amount.";
     edu:inverts :Increment;
@@ -94,9 +103,6 @@
     rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.";
     edu:expands :Multiplication;
     edu:partOf :NumberOperations.
-:FloatingPointAlignment a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The rules and procedures that align the floating point as a part of decimal number operations.";
-    edu:partOf :DecimalSpace.
 :FractionAddition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Adding fractions together. Example: 1/4 + 1/2 = 3/4";
     edu:expands :NumerationWithFractions;
@@ -131,7 +137,6 @@
     edu:partOf :Root.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
-    edu:decomposes :NumerationWithFractions;
     edu:expands :RatioEquivalence;
     edu:partOf :FractionSpace.
 :FractionSpace a owl:NamedIndividual, edu:Area;
@@ -209,7 +214,6 @@
     rdfs:isDefinedBy "The branch of mathematics that studies reasoning and valid arguments. It provides a framework for determining whether something is true or false based on given premises. It is the foundation for constructing proofs, ensuring that conclusions follow logically from their premises.".
 :LowestCommonDenominator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the smallest common multiple of the denominators of two or more fractions.\n\nExample: The lowest common denominator of 1/4 and 1/6 is 12.";
-    edu:decomposes :NumerationWithFractions;
     edu:expands :RatioEquivalence;
     edu:partOf :FractionSpace.
 :Measurement a owl:NamedIndividual, edu:Area;
