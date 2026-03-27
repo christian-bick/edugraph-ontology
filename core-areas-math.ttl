@@ -276,7 +276,7 @@
     edu:partOf :NumericComparison.
 :NumericOrder a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeric order refers to the arrangement of numbers in ascending or descending sequence based on their magnitude.";
-    edu:integrates :NumericIdentity;
+    edu:expands :NumericIdentity;
     edu:partOf :NumericComparison.
 :ProportionAbstraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Proportion abstraction is the ability to generalize proportional relationships and apply them to new situations.";
