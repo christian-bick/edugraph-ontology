@@ -136,15 +136,19 @@
     edu:partOf :Addition.
 :IntegerDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one integer by another, which may result in a quotient and a remainder.\n\nExample: 17 / 5 = 3 remainder 2";
+    edu:inverts :IntegerMultiplication;
     edu:partOf :Division.
 :IntegerExponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising an integer to a power, meaning multiplying it by itself a certain number of times. Example: 2 ^ 4 = 2 * 2 * 2 * 2 = 16";
+    edu:expands :IntegerMultiplication;
     edu:partOf :Exponentiation.
 :IntegerLogarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the greatest integer exponent to which a base must be raised to produce a value less than or equal to a given number.";
+    edu:inverts :IntegerExponentiation;
     edu:partOf :Logarithm.
 :IntegerMultiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or integers numbers.\n\nExample: 4 * 3 = 12";
+    edu:expands :IntegerAddition;
     edu:partOf :Multiplication.
 :IntegerNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols used to represent integers.\n\nExample: Using the symbols -3, 0, and 12 to represent integers.";
@@ -156,6 +160,7 @@
     edu:partOf :IntegerSpace.
 :IntegerRoot a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the integer that, when raised to a certain power, produces a given number.\n\nExample: The square root of 25 is 5 because 5 ^ 2 = 25";
+    edu:expands :IntegerExponentiation;
     edu:partOf :Root.
 :IntegerSigns a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate an integer's direction and magnitude relative to zero.";
@@ -167,6 +172,7 @@
     edu:partOf :NumberSpaces.
 :IntegerSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two integers.\n\nExample: 10 - 6 = 4";
+    edu:inverts :IntegerAddition;
     edu:partOf :Subtraction.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
     edu:partOf :NumerationWithIntervals.
