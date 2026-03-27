@@ -31,6 +31,7 @@
 :DecimalAddition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Adding decimals together. Example: 0.5 + 0.2 = 0.7";
     edu:expands :NumerationWithDecimals;
+    edu:integrates :IntegerAddition;
     edu:partOf :Addition.
 :DecimalDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one decimal by another, which results in a quotient that may be a decimal or an integer.\n\nExample: 1.5 / 0.5 = 3";
@@ -57,6 +58,9 @@
     rdfs:isDefinedBy "Finding the decimal that, when raised to a certain power, produces a given number.\n\nExample: The square root of 0.25 is 0.5 because 0.5 ^ 2 = 0.25";
     edu:inverts :DecimalExponentiation;
     edu:partOf :Root.
+:DecimalRounding a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The rules and procedures for approximating a decimal number to a specified degree of precision by adjusting the fractional component based on the value of digits at subsequent negative powers of ten.";
+    edu:partOf :DecimalSpace.
 :DecimalSpace a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers using a base-10 positional notation system, where a decimal point separates the integer component from a fractional component expressed as a sum of negative powers of ten.";
     edu:constrains :FractionSpace;
@@ -90,6 +94,9 @@
     rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.";
     edu:expands :Multiplication;
     edu:partOf :NumberOperations.
+:FloatingPointAlignment a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The rules and procedures that align the floating point as a part of decimal number operations.";
+    edu:partOf :DecimalSpace.
 :FractionAddition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Adding fractions together. Example: 1/4 + 1/2 = 3/4";
     edu:expands :NumerationWithFractions;
