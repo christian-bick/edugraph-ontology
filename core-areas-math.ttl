@@ -28,11 +28,29 @@
     edu:partOf :SpatialModelling.
 :ComputationalMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
+:DecimalAddition a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Adding decimals together. Example: 0.5 + 0.2 = 0.7";
+    edu:partOf :Addition.
+:DecimalDivision a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Dividing one decimal by another, which results in a quotient that may be a decimal or an integer.\n\nExample: 1.5 / 0.5 = 3";
+    edu:partOf :Division.
+:DecimalExponentiation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Raising a decimal to a power, meaning multiplying it by itself a certain number of times. Example: 0.2 ^ 3 = 0.2 * 0.2 * 0.2 = 0.008";
+    edu:partOf :Exponentiation.
+:DecimalLogarithm a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Finding the exponent to which the base 10 must be raised to produce a given number.";
+    edu:partOf :Logarithm.
+:DecimalMultiplication a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Multiplying two or decimal numbers.\n\nExample: 0.5 * 0.2 = 0.1";
+    edu:partOf :Multiplication.
 :DecimalNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent decimals, including the floating point and its meaning.";
     edu:constrains :FractionNotation;
     edu:expands :IntegerNotation;
     edu:partOf :DecimalSpace.
+:DecimalRoot a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Finding the decimal that, when raised to a certain power, produces a given number.\n\nExample: The square root of 0.25 is 0.5 because 0.5 ^ 2 = 0.25";
+    edu:partOf :Root.
 :DecimalSpace a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers using a base-10 positional notation system, where a decimal point separates the integer component from a fractional component expressed as a sum of negative powers of ten.";
     edu:constrains :FractionSpace;
