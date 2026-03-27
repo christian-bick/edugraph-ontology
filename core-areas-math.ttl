@@ -38,6 +38,7 @@
     edu:inverts :DecimalMultiplication;
     edu:partOf :Division.
 :DecimalDivisorShift a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The rules and procedures that shift the floating point in a divisor to transform it into a whole number as a part of decimal division operations.";
     edu:partOf :DecimalPointAlignment.
 :DecimalExponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a decimal to a power, meaning multiplying it by itself a certain number of times. Example: 0.2 ^ 3 = 0.2 * 0.2 * 0.2 = 0.008";
@@ -70,14 +71,16 @@
     rdfs:isDefinedBy "The representation of rational numbers using a base-10 positional notation system, where a decimal point separates the integer component from a fractional component expressed as a sum of negative powers of ten.";
     edu:constrains :FractionSpace;
     edu:integrates :DecimalNotation;
-    edu:partOf :FractionSpace.
+    edu:partOf :NumberSpaces.
 :DecimalSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two decimals.\n\nExample: 5.5 - 2.3 = 3.2";
     edu:inverts :DecimalAddition;
     edu:partOf :Subtraction.
 :DecimalTrailAlignment a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The rules and procedures that adjust the digits following the floating point to ensure uniform decimal places as a part of decimal number operations such as addition.";
     edu:partOf :DecimalPointAlignment.
 :DecimalTrailCount a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The rules and procedures that count the digits following the floating point to determine the total number of decimal places as a part of decimal number operations such as multiplication.";
     edu:partOf :DecimalPointAlignment.
 :Decrement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a quantity by a specific amount.";
