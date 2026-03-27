@@ -28,16 +28,16 @@
     edu:partOf :SpatialModelling.
 :ComputationalMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
-:DecimalArithmetic a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The representation of rational numbers using a base-10 positional notation system, where a decimal point separates the integer component from a fractional component expressed as a sum of negative powers of ten.";
-    edu:constrains :FractionSpace;
-    edu:integrates :DecimalNotation;
-    edu:partOf :RationalsArithmetic.
 :DecimalNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent decimals, including the floating point and its meaning.";
     edu:constrains :FractionNotation;
     edu:expands :IntegerNotation;
-    edu:partOf :DecimalArithmetic.
+    edu:partOf :DecimalSpace.
+:DecimalSpace a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The representation of rational numbers using a base-10 positional notation system, where a decimal point separates the integer component from a fractional component expressed as a sum of negative powers of ten.";
+    edu:constrains :FractionSpace;
+    edu:integrates :DecimalNotation;
+    edu:partOf :FractionSpace.
 :DecimalSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two decimals.\n\nExample: 5.5 - 2.3 = 3.2";
     edu:partOf :Subtraction.
@@ -94,14 +94,14 @@
     edu:partOf :Root.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
-    edu:decomposes :FractionSpace;
     edu:integrates :RatioEquivalence;
     edu:partOf :FractionSpace.
 :FractionSpace a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
-    edu:expands :IntegerSpace, :ProportionInteraction;
+    edu:expands :IntegerSpace;
     edu:integrates :FractionNotation;
-    edu:partOf :RationalsArithmetic.
+    edu:partOf :RationalSpace;
+    edu:translates :ProportionInteraction.
 :FractionSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two fractions.\n\nExample: 3/4 - 1/4 = 2/4";
     edu:integrates :IntegerSubtraction, :LowestCommonDenominator;
@@ -145,7 +145,7 @@
 :IntegerSpace a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The understanding and application of whole numbers, their additive inverses (negative numbers), and zero, representing discrete values that do not contain fractional or decimal components.";
     edu:integrates :IntegerNotation;
-    edu:partOf :NumberSystems.
+    edu:partOf :NumberSpaces.
 :IntegerSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two integers.\n\nExample: 10 - 6 = 4";
     edu:partOf :Subtraction.
@@ -164,8 +164,7 @@
     rdfs:isDefinedBy "The branch of mathematics that studies reasoning and valid arguments. It provides a framework for determining whether something is true or false based on given premises. It is the foundation for constructing proofs, ensuring that conclusions follow logically from their premises.".
 :LowestCommonDenominator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the smallest common multiple of the denominators of two or more fractions.\n\nExample: The lowest common denominator of 1/4 and 1/6 is 12.";
-    edu:decomposes :FractionSpace;
-    edu:expands :RatioEquivalence;
+    edu:integrates :RatioEquivalence;
     edu:partOf :FractionSpace.
 :Measurement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Measurement is the process of assigning numbers to describe the properties of objects, such as length, weight, or volume.";
@@ -189,7 +188,7 @@
 :NumberSense a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Number sense is the intuitive understanding of numbers, their magnitudes, and how they relate to each other.";
     edu:partOf :IntuitiveMathematics.
-:NumberSystems a owl:NamedIndividual, edu:Area;
+:NumberSpaces a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The classification, representation, and properties of different sets of numbers such as integers, fractions, decimals including the symbolic frameworks used to express numerical values and their relationships.";
     edu:partOf :Arithmetic.
 :NumberTheory a owl:NamedIndividual, edu:Area;
@@ -199,7 +198,6 @@
     edu:partOf :NumberSense.
 :NumerationWithFractions a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with fractions encompasses understanding the density of fraction numbers on the number line.";
-    edu:decomposes :FractionSpace;
     edu:expands :NumerationWithIntegers;
     edu:partOf :Numeration.
 :NumerationWithIntegers a owl:NamedIndividual, edu:Area;
@@ -244,9 +242,9 @@
 :RatioInterpretation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Ratio interpretation is the ability to understand the meaning of a ratio and its relationship to the quantities involved.";
     edu:partOf :ProportionAbstraction.
-:RationalsArithmetic a owl:NamedIndividual, edu:Area;
+:RationalSpace a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The understanding and application of numbers that can be expressed as the quotient or fraction of two integers, where the denominator is non-zero.";
-    edu:partOf :NumberSystems.
+    edu:partOf :NumberSpaces.
 :RatioNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols and conventions used to represent ratios.";
     edu:partOf :ProportionAbstraction.
