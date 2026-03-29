@@ -265,6 +265,7 @@
 :ThreeDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves three spatial dimensions.";
     edu:expands :TwoDimensional;
+    edu:integrates :TwoDimensional;
     edu:partOf :DimensionalAbstraction.
 :TimeAbstraction a owl:NamedIndividual, edu:Scope;
     edu:partOf :AbstractionScope.
@@ -280,6 +281,7 @@
 :TwoDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves two spatial dimensions.";
     edu:expands :OneDimensional;
+    edu:integrates :OneDimensional;
     edu:partOf :DimensionalAbstraction.
 :VisualGeometry a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes visually (yet not in as physical objects).";
