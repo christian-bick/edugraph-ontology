@@ -83,6 +83,9 @@
 :GeometryRepresentation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a geometric representation.";
     edu:partOf :RepresentationalScope.
+:GramIntervals a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Weights measured in grams.";
+    edu:partOf :WeightAbstraction.
 :HourIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of hours in a day.";
     edu:partOf :TimeIntervals.
@@ -90,6 +93,9 @@
     rdfs:isDefinedBy "Involves more dimensions than three spatial dimensions and time.";
     edu:expands :FourDimensional;
     edu:partOf :DimensionalAbstraction.
+:KilogramIntervals a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Weights measured in kilograms.";
+    edu:partOf :WeightAbstraction.
 :KilometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "involves distances expressed in kilometers.";
     edu:expands :MeterScale;
@@ -288,6 +294,9 @@
 :TimeMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves time measurement.";
     edu:partOf :MeasurementScope.
+:TonIntervals a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Weights measured in tons.";
+    edu:partOf :WeightAbstraction.
 :TriangleRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a triangle ruler.";
     edu:partOf :AngleMeasurement.
@@ -307,6 +316,9 @@
 :WeekIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed as intervals of weeks.";
     edu:partOf :TimeIntervals.
+:WeightAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves mass or weight concepts.";
+    edu:partOf :AbstractionScope.
 :WeightMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves weight measurement.";
     edu:partOf :MeasurementScope.
