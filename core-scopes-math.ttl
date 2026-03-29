@@ -245,6 +245,7 @@
     edu:partOf :NumberRepresentation.
 :Stopwatch a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a stop watch.";
+    edu:integrates :HourIntervals, :MinuteIntervals, :SecondIntervals;
     edu:partOf :TimeMeasurement.
 :SubtractiveCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Counts manifested objects by counting what's missing.";
