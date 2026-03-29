@@ -119,7 +119,7 @@
     rdfs:isDefinedBy "Represents numbers with linking cubes.";
     edu:partOf :PhysicalNumbers.
 :LiquidVolumes a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves liquid volumes.";
+    rdfs:isDefinedBy "Involves liquid volumes as means of measurement.";
     edu:partOf :VolumeMeasurement.
 :MeasurementScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the measurement of manifested objects shapes.".
