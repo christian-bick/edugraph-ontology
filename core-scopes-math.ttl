@@ -49,6 +49,9 @@
     rdfs:isDefinedBy "Represents functions and shapes in the cartesian coordinate system.";
     edu:partOf :VisualGeometry;
     edu:translates :ThreeDimensional, :TwoDimensional.
+:CelsiusIntervals a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves temperature ranges or differences on the Celsius scale.";
+    edu:partOf :TemperatureAbstraction.
 :CentimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in centimeters.";
     edu:expands :MeterScale;
@@ -96,7 +99,7 @@
     edu:expands :FourDimensional;
     edu:partOf :DimensionalAbstraction.
 :KelvinIntervals a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves temperature ranges or differences on the Kelvin and Celsius scale.";
+    rdfs:isDefinedBy "Involves temperature ranges or differences on the Kelvin scale.";
     edu:partOf :TemperatureAbstraction.
 :KilogramIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in kilograms.";
@@ -292,7 +295,7 @@
     edu:partOf :VisualNumbers.
 :Thermometer a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a thermometer.";
-    edu:integrates :KelvinIntervals;
+    edu:integrates :CelsiusIntervals, :KelvinIntervals;
     edu:partOf :TemperatureMeasurement.
 :ThreeDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves three spatial dimensions.";
