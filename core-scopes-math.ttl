@@ -243,6 +243,7 @@
     edu:partOf :Numerals.
 :SandClock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a sand clock.";
+    edu:integrates :HourIntervals, :MinuteIntervals;
     edu:partOf :TimeMeasurement.
 :SecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of seconds.";
@@ -259,6 +260,7 @@
     edu:partOf :QuantityMeasurement.
 :Sunclock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a sun clock.";
+    edu:integrates :HourIntervals;
     edu:partOf :TimeMeasurement.
 :Tangrams a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes with tangrams.";
