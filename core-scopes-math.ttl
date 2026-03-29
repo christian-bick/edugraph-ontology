@@ -126,6 +126,9 @@
     rdfs:isDefinedBy "involves distances expressed in micrometers.";
     edu:expands :MeterScale;
     edu:partOf :MetricScale.
+:MiligramIntervals a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Weights measured in miligrams.";
+    edu:partOf :WeightAbstraction.
 :MillimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in millimeters";
     edu:expands :MeterScale;
