@@ -129,6 +129,7 @@
     edu:partOf :RepresentationalScope.
 :NumbersLarger10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers larger than 10.";
+    edu:expands :NumbersSmaller10;
     edu:integrates :NumbersSmaller10;
     edu:partOf :NumericRange.
 :NumbersLarger100 a owl:NamedIndividual, edu:Scope;
@@ -141,6 +142,7 @@
     edu:partOf :NumericRange.
 :NumbersLarger20 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only Involves numbers larger than 20.";
+    edu:expands :NumbersSmaller20;
     edu:integrates :NumbersSmaller20;
     edu:partOf :NumericRange.
 :NumbersSmaller10 a owl:NamedIndividual, edu:Scope;
