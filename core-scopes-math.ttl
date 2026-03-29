@@ -28,6 +28,7 @@
     edu:partOf :Numerals.
 :BalanceScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a balance scale.";
+    edu:integrates :GramIntervals, :KilogramIntervals;
     edu:partOf :WeightMeasurement.
 :Base10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers in base 10 (decimal).";
@@ -67,6 +68,7 @@
     edu:partOf :TimeMeasurement.
 :DigitalScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a digital scale.";
+    edu:integrates :GramIntervals, :KilogramIntervals, :MilligramIntervals;
     edu:partOf :WeightMeasurement.
 :DimensionalAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves spatial dimensions with or without time or hyperdimensional concepts.";
@@ -126,8 +128,8 @@
     rdfs:isDefinedBy "involves distances expressed in micrometers.";
     edu:expands :MeterScale;
     edu:partOf :MetricScale.
-:MiligramIntervals a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Weights measured in miligrams.";
+:MilligramIntervals a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Weights measured in milligrams.";
     edu:partOf :WeightAbstraction.
 :MillimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in millimeters";
