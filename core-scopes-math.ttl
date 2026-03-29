@@ -62,6 +62,9 @@
 :DayIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of days.";
     edu:partOf :TimeIntervals.
+:DegreeIntervals a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves degrees (°) to express the rotation of objects, oftentimes used to express the angle of two rays. Degrees are fractions of a circle rotation, where 360° represents a full circle, 180° a half circle and 90° a quarter circle.";
+    edu:partOf :RotationAbstraction.
 :DerivedCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Counts manifested objects based on logical derivation of know facts.";
     edu:partOf :QuantityMeasurement.
@@ -248,6 +251,9 @@
 :QuantityMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the measurement of object quantities.";
     edu:partOf :MeasurementScope.
+:RadianIntervals a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves radians to express the rotation of objects, oftentimes also used to express the phases of sinus and cosine functions. A radian is a multiple of pi, with 2 radian = 2 pi = 1 full circle and half a radian = 1/2 pi = a quarter circle.";
+    edu:partOf :RotationAbstraction.
 :RepresentationalScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a form of representation such as geometric shapes or numbers.".
 :RodNumerals a owl:NamedIndividual, edu:Scope;
@@ -256,6 +262,9 @@
 :RomanNumerals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with roman numerals.";
     edu:partOf :Numerals.
+:RotationAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves angles or angular concepts.";
+    edu:partOf :AbstractionScope.
 :SandClock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a sand clock.";
     edu:integrates :HourIntervals, :MinuteIntervals;
