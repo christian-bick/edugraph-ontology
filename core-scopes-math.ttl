@@ -211,7 +211,6 @@
 :NumbersWithNegatives a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves negative numbers.";
     edu:expands :NumbersWithoutNegatives;
-    edu:integrates :NumbersWithoutNegatives;
     edu:partOf :NumericRange.
 :NumbersWithoutNegatives a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Does not involve negative numbers.";
@@ -222,7 +221,6 @@
 :NumbersWithZero a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves zero as a number.";
     edu:expands :NumbersWithoutZero;
-    edu:integrates :NumbersWithoutZero;
     edu:partOf :NumericRange.
 :NumberTiles a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves number tiles.";
