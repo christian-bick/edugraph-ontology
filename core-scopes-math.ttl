@@ -106,6 +106,7 @@
     rdfs:isDefinedBy "Involves the measurement of manifested objects shapes.".
 :MeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distance expressed in meters.";
+    edu:expands :Numberline;
     edu:partOf :MetricScale.
 :MetricScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in meters.";
