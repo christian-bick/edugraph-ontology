@@ -60,6 +60,7 @@
     edu:partOf :QuantityMeasurement.
 :DigitalClock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a digital clock.";
+    edu:integrates :HourIntervals, :MinuteIntervals, :SecondIntervals;
     edu:partOf :TimeMeasurement.
 :DigitalScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a digital scale.";
