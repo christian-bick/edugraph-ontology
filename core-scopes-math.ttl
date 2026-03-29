@@ -160,7 +160,7 @@
 :NumbersSmaller100 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers smaller than 100";
     edu:expands :NumbersSmaller20;
-    edu:integrates :NumbersSmaller10;
+    edu:integrates :NumbersSmaller20;
     edu:partOf :NumericRange.
 :NumbersSmaller1000 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers smaller than 1000";
