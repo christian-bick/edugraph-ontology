@@ -247,6 +247,7 @@
     edu:partOf :LengthMeasurement.
 :Protractor a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a protractor.";
+    edu:integrates :DegreeIntervals;
     edu:partOf :AngleMeasurement.
 :QuantityMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the measurement of object quantities.";
@@ -323,6 +324,7 @@
     edu:partOf :WeightAbstraction.
 :TriangleRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a triangle ruler.";
+    edu:integrates :CentimeterScale, :DegreeIntervals, :MillimeterScale;
     edu:partOf :AngleMeasurement.
 :TwoDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves two spatial dimensions.";
