@@ -134,7 +134,7 @@
     rdfs:isDefinedBy "Involves distances expressed in nanometers.";
     edu:expands :MeterScale;
     edu:partOf :MetricScale.
-:NanosecondInterval a owl:NamedIndividual, edu:Scope;
+:NanosecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of nanoseconds.";
     edu:partOf :TimeIntervals.
 :Numberline a owl:NamedIndividual, edu:Scope;
