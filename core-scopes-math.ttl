@@ -46,6 +46,10 @@
 :BaseTenBlocks a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with a base ten blocks.";
     edu:partOf :PhysicalNumbers.
+:Calendar a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a calendar.";
+    edu:integrates :DayIntervals, :MonthIntervals, :WeekIntervals, :YearIntervals;
+    edu:partOf :TimeMeasurement.
 :CartesianCoordinateSystem a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents functions and shapes in the cartesian coordinate system.";
     edu:partOf :VisualGeometry;
