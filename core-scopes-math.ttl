@@ -45,7 +45,8 @@
     edu:partOf :NumericBase.
 :BaseTenBlocks a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with a base ten blocks.";
-    edu:partOf :PhysicalNumbers.
+    edu:partOf :PhysicalNumbers;
+    edu:translates :Base10.
 :Calendar a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a calendar.";
     edu:integrates :DayIntervals, :MonthIntervals, :WeekIntervals, :YearIntervals;
@@ -128,7 +129,8 @@
     edu:partOf :MeasurementScope.
 :LinkingCubes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with linking cubes.";
-    edu:partOf :PhysicalNumbers.
+    edu:partOf :PhysicalNumbers;
+    edu:translates :Base10.
 :LiquidVolumes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves liquid volumes as means of measurement.";
     edu:integrates :LiterScale, :MilliliterScale;
@@ -231,7 +233,9 @@
     edu:partOf :NumericRange.
 :NumberTiles a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves number tiles.";
-    edu:partOf :VisualNumbers.
+    edu:integrates :ArabicNumerals;
+    edu:partOf :VisualNumbers;
+    edu:translates :Base10.
 :Numerals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with numerals.";
     edu:partOf :NumberRepresentation.
