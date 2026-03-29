@@ -283,6 +283,7 @@
     rdfs:isDefinedBy "Time expressed in intervals of seconds.";
     edu:partOf :TimeIntervals.
 :SpatialNumbers a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Represents numbers visually along a spatial dimension.";
     edu:partOf :NumberRepresentation.
 :Stopwatch a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a stop watch.";
