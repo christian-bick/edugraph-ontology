@@ -185,7 +185,8 @@
 :NumbersLarger10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers larger than 10.";
     edu:expands :NumbersSmaller10;
-    edu:partOf :NumericRange.
+    edu:partOf :NumericRange;
+    edu:translates :BaseTenBlocks, :LinkingCubes.
 :NumbersLarger100 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers larger than 100.";
     edu:expands :NumbersSmaller100;
@@ -230,7 +231,8 @@
     edu:partOf :NumericRange.
 :NumberTiles a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves number tiles.";
-    edu:partOf :VisualNumbers.
+    edu:partOf :VisualNumbers;
+    edu:translates :NumbersLarger10.
 :Numerals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with numerals.";
     edu:partOf :NumberRepresentation.
