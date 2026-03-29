@@ -56,7 +56,8 @@
     rdfs:isDefinedBy "Involves counting symbols.";
     edu:partOf :VisualNumbers.
 :DayIntervals a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Time expressed in intervals of days.".
+    rdfs:isDefinedBy "Time expressed in intervals of days.";
+    edu:partOf :TimeIntervals.
 :DerivedCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Counts manifested objects based on logical derivation of know facts.";
     edu:partOf :QuantityMeasurement.
