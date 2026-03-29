@@ -48,6 +48,7 @@
     edu:partOf :VisualGeometry.
 :CentimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in centimeters.";
+    edu:expands :MeterScale;
     edu:partOf :MetricScale.
 :CountingSymbols a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves counting symbols.";
@@ -85,6 +86,7 @@
     edu:partOf :DimensionalAbstraction.
 :KilometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "involves distances expressed in kilometers.";
+    edu:expands :MeterScale;
     edu:partOf :MetricScale.
 :LaserRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a laser ruler.";
@@ -108,9 +110,11 @@
     edu:partOf :DistanceAbstraction.
 :MicrometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "involves distances expressed in micrometers.";
+    edu:expands :MeterScale;
     edu:partOf :MetricScale.
 :MillimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in millimeters";
+    edu:expands :MeterScale;
     edu:partOf :MetricScale.
 :MinuteIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed an intervals of minutes.";
@@ -120,6 +124,7 @@
     edu:partOf :TimeIntervals.
 :NanometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in nanometers.";
+    edu:expands :MeterScale;
     edu:partOf :MetricScale.
 :Numberline a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with a number line.";
