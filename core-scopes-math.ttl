@@ -200,7 +200,8 @@
     edu:partOf :NumericRange.
 :NumbersSmaller10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers smaller than 10";
-    edu:partOf :NumericRange.
+    edu:partOf :NumericRange;
+    edu:translates :CountingSymbols, :TenFrame.
 :NumbersSmaller100 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers smaller than 100";
     edu:expands :NumbersSmaller20;
