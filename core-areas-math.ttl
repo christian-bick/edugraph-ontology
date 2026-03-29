@@ -39,7 +39,6 @@
 :DecimalDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one decimal by another, which results in a quotient that may be a decimal or an integer.\n\nExample: 1.5 / 0.5 = 3";
     edu:integrates :DecimalDivisorShift, :IntegerDivision;
-    edu:inverts :DecimalMultiplication;
     edu:partOf :DecimalArithmetic, :Division.
 :DecimalDivisorShift a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Decimal equivalence is the understanding that decimals with trailing zeros represent the same decimal number.";
@@ -49,17 +48,14 @@
     edu:partOf :DecimalSpace.
 :DecimalExponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a decimal to a power, meaning multiplying it by itself a certain number of times. Example: 0.2 ^ 3 = 0.2 * 0.2 * 0.2 = 0.008";
-    edu:expands :DecimalMultiplication;
     edu:integrates :IntegerExponentiation;
     edu:partOf :DecimalArithmetic, :Exponentiation.
 :DecimalLogarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the exponent to which the base 10 must be raised to produce a given number.";
     edu:integrates :IntegerLogarithm;
-    edu:inverts :DecimalExponentiation;
     edu:partOf :DecimalArithmetic, :Logarithm.
 :DecimalMultiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or decimal numbers.\n\nExample: 0.5 * 0.2 = 0.1";
-    edu:expands :DecimalAddition;
     edu:integrates :IntegerMultiplication;
     edu:partOf :DecimalArithmetic, :Multiplication.
 :DecimalNotation a owl:NamedIndividual, edu:Area;
@@ -74,7 +70,6 @@
 :DecimalRoot a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the decimal that, when raised to a certain power, produces a given number.\n\nExample: The square root of 0.25 is 0.5 because 0.5 ^ 2 = 0.25";
     edu:integrates :IntegerRoot;
-    edu:inverts :DecimalExponentiation;
     edu:partOf :DecimalArithmetic, :Root.
 :DecimalRounding a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures for approximating a decimal number to a specified degree of precision by adjusting the fractional component based on the value of digits at subsequent negative powers of ten.";
@@ -85,7 +80,6 @@
 :DecimalSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two decimals.\n\nExample: 5.5 - 2.3 = 3.2";
     edu:integrates :DecimalPadding, :IntegerSubtraction;
-    edu:inverts :DecimalAddition;
     edu:partOf :DecimalArithmetic, :Subtraction.
 :Decrement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a quantity by a specific amount.";
@@ -122,24 +116,20 @@
 :FractionDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one fraction by another, which results in a quotient that may be a fraction or an integer.\n\nExample: 1/2 / 1/4 = 2";
     edu:integrates :IntegerDivision;
-    edu:inverts :FractionMultiplication;
     edu:partOf :Division, :FractionArithmetic.
 :FractionEquivalence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The principle that distinct representations of rational numbers in the form a/b can express the same ratio, where transformations between different numerators and denominators maintain the same value relative to the unit or whole.";
     edu:partOf :FractionSpace.
 :FractionExponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a fraction to a power, meaning multiplying it by itself a certain number of times. Example: (1/2) ^ 3 = (1/2) * (1/2) * (1/2) = 1/8";
-    edu:expands :FractionMultiplication;
     edu:integrates :IntegerExponentiation;
     edu:partOf :Exponentiation, :FractionArithmetic.
 :FractionLogarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the fractional exponent to which a base must be raised to produce a given number.";
     edu:integrates :IntegerLogarithm;
-    edu:inverts :FractionExponentiation;
     edu:partOf :FractionArithmetic, :Logarithm.
 :FractionMultiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or fraction numbers.\n\nExample: 1/2 * 1/4 = 1/8";
-    edu:expands :FractionAddition;
     edu:integrates :IntegerMultiplication;
     edu:partOf :FractionArithmetic, :Multiplication.
 :FractionNotation a owl:NamedIndividual, edu:Area;
@@ -149,7 +139,6 @@
 :FractionRoot a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the fraction that, when raised to a certain power, produces a given number.\n\nExample: The square root of 1/4 is 1/2 because (1/2) ^ 2 = 1/4";
     edu:integrates :IntegerRoot;
-    edu:inverts :FractionExponentiation;
     edu:partOf :FractionArithmetic, :Root.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
@@ -161,7 +150,6 @@
 :FractionSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two fractions.\n\nExample: 3/4 - 1/4 = 2/4";
     edu:integrates :IntegerSubtraction, :LowestCommonDenominator;
-    edu:inverts :FractionAddition;
     edu:partOf :FractionArithmetic, :Subtraction.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
@@ -176,19 +164,15 @@
     edu:partOf :IntegerSpace.
 :IntegerDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one integer by another, which may result in a quotient and a remainder.\n\nExample: 17 / 5 = 3 remainder 2";
-    edu:inverts :IntegerMultiplication;
     edu:partOf :Division, :IntegerArithmetic.
 :IntegerExponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising an integer to a power, meaning multiplying it by itself a certain number of times. Example: 2 ^ 4 = 2 * 2 * 2 * 2 = 16";
-    edu:expands :IntegerMultiplication;
     edu:partOf :Exponentiation, :IntegerArithmetic.
 :IntegerLogarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the greatest integer exponent to which a base must be raised to produce a value less than or equal to a given number.";
-    edu:inverts :IntegerExponentiation;
     edu:partOf :IntegerArithmetic, :Logarithm.
 :IntegerMultiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or integers numbers.\n\nExample: 4 * 3 = 12";
-    edu:expands :IntegerAddition;
     edu:partOf :IntegerArithmetic, :Multiplication.
 :IntegerNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols used to represent integers.\n\nExample: Using the symbols -3, 0, and 12 to represent integers.";
@@ -198,7 +182,6 @@
     edu:partOf :IntegerSpace.
 :IntegerRoot a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the integer that, when raised to a certain power, produces a given number.\n\nExample: The square root of 25 is 5 because 5 ^ 2 = 25";
-    edu:inverts :IntegerExponentiation;
     edu:partOf :IntegerArithmetic, :Root.
 :IntegerSigns a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate an integer's direction and magnitude relative to zero.";
@@ -208,7 +191,6 @@
     edu:partOf :NumberSpaces.
 :IntegerSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two integers.\n\nExample: 10 - 6 = 4";
-    edu:inverts :IntegerAddition;
     edu:partOf :IntegerArithmetic, :Subtraction.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
     edu:partOf :NumerationWithIntervals.
