@@ -292,6 +292,7 @@
     edu:partOf :VisualNumbers.
 :Thermometer a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a thermometer.";
+    edu:integrates :KelvinIntervals;
     edu:partOf :TemperatureMeasurement.
 :ThreeDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves three spatial dimensions.";
