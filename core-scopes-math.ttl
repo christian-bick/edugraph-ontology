@@ -149,22 +149,18 @@
 :NumbersLarger10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers larger than 10.";
     edu:expands :NumbersSmaller10;
-    edu:integrates :NumbersSmaller10;
     edu:partOf :NumericRange.
 :NumbersLarger100 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers larger than 100.";
     edu:expands :NumbersSmaller100;
-    edu:integrates :NumbersSmaller100;
     edu:partOf :NumericRange.
 :NumbersLarger1000 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers larger than 1000.";
     edu:expands :NumbersSmaller1000;
-    edu:integrates :NumbersSmaller1000;
     edu:partOf :NumericRange.
 :NumbersLarger20 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only Involves numbers larger than 20.";
     edu:expands :NumbersSmaller20;
-    edu:integrates :NumbersSmaller20;
     edu:partOf :NumericRange.
 :NumbersSmaller10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers smaller than 10";
@@ -172,17 +168,14 @@
 :NumbersSmaller100 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers smaller than 100";
     edu:expands :NumbersSmaller20;
-    edu:integrates :NumbersSmaller20;
     edu:partOf :NumericRange.
 :NumbersSmaller1000 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers smaller than 1000";
     edu:expands :NumbersSmaller100;
-    edu:integrates :NumbersSmaller100;
     edu:partOf :NumericRange.
 :NumbersSmaller20 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers smaller than 20";
     edu:expands :NumbersSmaller10;
-    edu:integrates :NumbersSmaller10;
     edu:partOf :NumericRange.
 :NumbersWithNegatives a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves negative numbers.";
