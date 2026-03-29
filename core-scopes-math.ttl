@@ -71,6 +71,7 @@
     edu:partOf :AbstractionScope.
 :FourDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves three spatial dimensions and time.";
+    edu:expands :ThreeDimensional;
     edu:partOf :DimensionalAbstraction.
 :Geoboard a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes with a geoboard.";
@@ -83,6 +84,7 @@
     edu:partOf :TimeIntervals.
 :HyperDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves more dimensions than three spatial dimensions and time.";
+    edu:expands :FourDimensional;
     edu:partOf :DimensionalAbstraction.
 :KilometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "involves distances expressed in kilometers.";
@@ -262,6 +264,7 @@
     edu:partOf :TemperatureMeasurement.
 :ThreeDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves three spatial dimensions.";
+    edu:expands :TwoDimensional;
     edu:partOf :DimensionalAbstraction.
 :TimeAbstraction a owl:NamedIndividual, edu:Scope;
     edu:partOf :AbstractionScope.
@@ -276,6 +279,7 @@
     edu:partOf :AngleMeasurement.
 :TwoDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves two spatial dimensions.";
+    edu:expands :OneDimensional;
     edu:partOf :DimensionalAbstraction.
 :VisualGeometry a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes visually (yet not in as physical objects).";
