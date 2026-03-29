@@ -95,6 +95,9 @@
     rdfs:isDefinedBy "Involves more dimensions than three spatial dimensions and time.";
     edu:expands :FourDimensional;
     edu:partOf :DimensionalAbstraction.
+:KelvinIntervals a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves temperature ranges or differences on the Kelvin and Celsius scale.";
+    edu:partOf :TemperatureAbstraction.
 :KilogramIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in kilograms.";
     edu:partOf :WeightAbstraction.
@@ -278,6 +281,9 @@
     rdfs:isDefinedBy "Involves a tape meter.";
     edu:integrates :CentimeterScale, :MeterScale, :MillimeterScale;
     edu:partOf :LengthMeasurement.
+:TemperatureAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves temperature or thermal concepts.";
+    edu:partOf :AbstractionScope.
 :TemperatureMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves temperature measurement.";
     edu:partOf :MeasurementScope.
