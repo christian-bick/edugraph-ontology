@@ -130,6 +130,7 @@
 :NumbersLarger10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers larger than 10.";
     edu:expands :NumbersSmaller10;
+    edu:integrates :NumbersSmaller10;
     edu:partOf :NumericRange.
 :NumbersLarger100 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers larger than 100.";
