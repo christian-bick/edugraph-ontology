@@ -94,6 +94,7 @@
     edu:partOf :MetricScale.
 :LaserRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a laser ruler.";
+    edu:integrates :MicrometerScale;
     edu:partOf :LengthMeasurement.
 :LengthMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves length measurement.";
@@ -226,6 +227,7 @@
     edu:partOf :NumberRepresentation.
 :PhysicalRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a physical ruler.";
+    edu:integrates :CentimeterScale, :MillimeterScale;
     edu:partOf :LengthMeasurement.
 :Protractor a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a protractor.";
@@ -267,6 +269,7 @@
     edu:partOf :PhysicalGeometry.
 :Tapemeter a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a tape meter.";
+    edu:integrates :CentimeterScale, :MeterScale, :MillimeterScale;
     edu:partOf :LengthMeasurement.
 :TemperatureMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves temperature measurement.";
