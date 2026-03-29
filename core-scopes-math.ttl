@@ -59,10 +59,13 @@
 :CountingSymbols a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves counting symbols.";
     edu:partOf :VisualNumbers.
+:CubicMeterScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves cubic meters to measure volumes.";
+    edu:partOf :VolumeAbstraction.
 :DayIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of days.";
     edu:partOf :TimeIntervals.
-:DegreeIntervals a owl:NamedIndividual, edu:Scope;
+:DegreeScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves degrees (°) to express the rotation of objects, oftentimes used to express the angle of two rays. Degrees are fractions of a circle rotation, where 360° represents a full circle, 180° a half circle and 90° a quarter circle.";
     edu:partOf :RotationAbstraction.
 :DerivedCount a owl:NamedIndividual, edu:Scope;
@@ -124,6 +127,9 @@
 :LiquidVolumes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves liquid volumes as means of measurement.";
     edu:partOf :VolumeMeasurement.
+:LiterScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves liters to measure volumes.";
+    edu:partOf :VolumeAbstraction.
 :MeasurementScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the measurement of manifested objects shapes.".
 :MeterScale a owl:NamedIndividual, edu:Scope;
@@ -140,6 +146,9 @@
 :MilligramIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in milligrams.";
     edu:partOf :WeightAbstraction.
+:MilliliterScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves milliliters to measure volumes.";
+    edu:partOf :VolumeAbstraction.
 :MillimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in millimeters";
     edu:expands :MeterScale;
@@ -247,12 +256,12 @@
     edu:partOf :LengthMeasurement.
 :Protractor a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a protractor.";
-    edu:integrates :DegreeIntervals;
+    edu:integrates :DegreeScale;
     edu:partOf :AngleMeasurement.
 :QuantityMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the measurement of object quantities.";
     edu:partOf :MeasurementScope.
-:RadianIntervals a owl:NamedIndividual, edu:Scope;
+:RadianScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves radians to express the rotation of objects, oftentimes also used to express the phases of sinus and cosine functions. A radian is a multiple of pi, with 2 radian = 2 pi = 1 full circle and half a radian = 1/2 pi = a quarter circle.";
     edu:partOf :RotationAbstraction.
 :RepresentationalScope a owl:NamedIndividual, edu:Scope;
@@ -324,7 +333,7 @@
     edu:partOf :WeightAbstraction.
 :TriangleRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a triangle ruler.";
-    edu:integrates :CentimeterScale, :DegreeIntervals, :MillimeterScale;
+    edu:integrates :CentimeterScale, :DegreeScale, :MillimeterScale;
     edu:partOf :AngleMeasurement.
 :TwoDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves two spatial dimensions.";
@@ -336,6 +345,9 @@
 :VisualNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers visually (yet not as physical objects nor as numerals).";
     edu:partOf :NumberRepresentation.
+:VolumeAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves volume or capacity concepts.";
+    edu:partOf :AbstractionScope.
 :VolumeMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves volume measurement.";
     edu:partOf :MeasurementScope.
