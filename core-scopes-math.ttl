@@ -47,7 +47,7 @@
 :CartesianCoordinateSystem a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents functions and shapes in the cartesian coordinate system.";
     edu:partOf :VisualGeometry;
-    edu:translates :TwoDimensional.
+    edu:translates :ThreeDimensional, :TwoDimensional.
 :CentimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in centimeters.";
     edu:expands :MeterScale;
