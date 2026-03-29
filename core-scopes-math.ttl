@@ -25,7 +25,8 @@
     edu:partOf :MeasurementScope.
 :ArabicNumerals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with arabic numerals.";
-    edu:partOf :Numerals.
+    edu:partOf :Numerals;
+    edu:translates :Base10, :Base2.
 :BalanceScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a balance scale.";
     edu:integrates :GramScale, :KilogramScale;
@@ -268,10 +269,12 @@
     rdfs:isDefinedBy "Involves a form of representation such as geometric shapes or numbers.".
 :RodNumerals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with rod numerals.";
-    edu:partOf :Numerals.
+    edu:partOf :Numerals;
+    edu:translates :Base10.
 :RomanNumerals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with roman numerals.";
-    edu:partOf :Numerals.
+    edu:partOf :Numerals;
+    edu:translates :Base10.
 :RotationAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves angles or angular concepts.";
     edu:partOf :AbstractionScope.
