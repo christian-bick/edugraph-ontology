@@ -26,7 +26,7 @@
 :ArabicNumerals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with arabic numerals.";
     edu:partOf :Numerals;
-    edu:translates :Base10, :Base2.
+    edu:translates :Base10.
 :BalanceScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a balance scale.";
     edu:integrates :GramScale, :KilogramScale;
