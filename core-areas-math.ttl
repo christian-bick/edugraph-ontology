@@ -33,6 +33,7 @@
     edu:integrates :DecimalPadding;
     edu:partOf :Addition, :DecimalArithmetic.
 :DecimalArithmetic a owl:NamedIndividual, edu:Area;
+    edu:integrates :IntegerArithmetic;
     edu:partOf :DecimalSpace.
 :DecimalDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one decimal by another, which results in a quotient that may be a decimal or an integer.\n\nExample: 1.5 / 0.5 = 3";
@@ -106,6 +107,7 @@
     edu:integrates :LowestCommonDenominator;
     edu:partOf :Addition, :FractionArithmetic.
 :FractionArithmetic a owl:NamedIndividual, edu:Area;
+    edu:integrates :IntegerArithmetic;
     edu:partOf :FractionSpace.
 :FractionDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one fraction by another, which results in a quotient that may be a fraction or an integer.\n\nExample: 1/2 / 1/4 = 2";
