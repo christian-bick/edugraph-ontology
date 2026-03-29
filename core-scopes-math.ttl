@@ -18,6 +18,7 @@
     edu:partOf :QuantityMeasurement.
 :AnalogClock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves an analog clock.";
+    edu:integrates :HourIntervals, :MinuteIntervals, :SecondIntervals;
     edu:partOf :TimeMeasurement.
 :AngleMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves angle measurement.";
