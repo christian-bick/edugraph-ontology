@@ -31,16 +31,16 @@
 :DecimalAddition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Adding decimals together. Example: 0.5 + 0.2 = 0.7";
     edu:expands :NumerationWithDecimals;
-    edu:integrates :DecimalPadding, :IntegerAddition;
+    edu:integrates :DecimalPadding;
     edu:partOf :Addition.
 :DecimalDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one decimal by another, which results in a quotient that may be a decimal or an integer.\n\nExample: 1.5 / 0.5 = 3";
-    edu:integrates :DecimalDivisorShift, :IntegerDivision;
+    edu:integrates :DecimalDivisorShift;
     edu:inverts :DecimalMultiplication;
     edu:partOf :Division.
 :DecimalDivisorShift a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Decimal equivalence is the understanding that decimals with trailing zeros represent the same decimal number.";
-    edu:partOf :DecimalPointAlignment.
+    edu:partOf :DecimalEquivalence.
 :DecimalEquivalence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures for identifying or establishing the equality between different representations of the same rational value, specifically between fractions and their base-10 positional notation or between decimals with varying digits at subsequent negative powers of ten that maintain the same magnitude.";
     edu:expands :RatioEquivalence;
@@ -56,7 +56,6 @@
 :DecimalMultiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or decimal numbers.\n\nExample: 0.5 * 0.2 = 0.1";
     edu:expands :DecimalAddition;
-    edu:integrates :DecimalTrailCount, :IntegerMultiplication;
     edu:partOf :Multiplication.
 :DecimalNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent decimals, including the floating point and its meaning.";
@@ -65,7 +64,7 @@
     edu:partOf :DecimalSpace.
 :DecimalPadding a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures that adjust the digits following the floating point to ensure uniform decimal places as a part of decimal number operations such as addition.";
-    edu:partOf :DecimalPointAlignment.
+    edu:partOf :DecimalEquivalence.
 :DecimalPointAlignment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures that align the floating point as a part of decimal number operations.";
     edu:partOf :DecimalSpace.
@@ -78,17 +77,12 @@
     edu:partOf :DecimalSpace.
 :DecimalSpace a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers using a base-10 positional notation system, where a decimal point separates the integer component from a fractional component expressed as a sum of negative powers of ten.";
-    edu:constrains :FractionSpace;
-    edu:integrates :DecimalNotation;
     edu:partOf :RationalSpace.
 :DecimalSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two decimals.\n\nExample: 5.5 - 2.3 = 3.2";
     edu:integrates :DecimalPadding;
     edu:inverts :DecimalAddition;
     edu:partOf :Subtraction.
-:DecimalTrailCount a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The rules and procedures that count the digits following the floating point to determine the total number of decimal places as a part of decimal number operations such as multiplication.";
-    edu:partOf :DecimalPointAlignment.
 :Decrement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a quantity by a specific amount.";
     edu:inverts :Increment;
@@ -116,11 +110,10 @@
 :FractionAddition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Adding fractions together. Example: 1/4 + 1/2 = 3/4";
     edu:expands :NumerationWithFractions;
-    edu:integrates :IntegerAddition, :LowestCommonDenominator;
+    edu:integrates :LowestCommonDenominator;
     edu:partOf :Addition.
 :FractionDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one fraction by another, which results in a quotient that may be a fraction or an integer.\n\nExample: 1/2 / 1/4 = 2";
-    edu:integrates :IntegerMultiplication;
     edu:inverts :FractionMultiplication;
     edu:partOf :Division.
 :FractionEquivalence a owl:NamedIndividual, edu:Area;
@@ -138,13 +131,12 @@
 :FractionMultiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or fraction numbers.\n\nExample: 1/2 * 1/4 = 1/8";
     edu:expands :FractionAddition;
-    edu:integrates :IntegerMultiplication;
     edu:partOf :Multiplication.
 :FractionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator.";
     edu:expands :IntegerNotation;
-    edu:integrates :IntegerDivision;
-    edu:partOf :FractionSpace.
+    edu:partOf :FractionSpace;
+    edu:translates :IntegerDivision.
 :FractionRoot a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the fraction that, when raised to a certain power, produces a given number.\n\nExample: The square root of 1/4 is 1/2 because (1/2) ^ 2 = 1/4";
     edu:inverts :FractionExponentiation;
@@ -154,13 +146,11 @@
     edu:partOf :FractionEquivalence.
 :FractionSpace a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
-    edu:expands :IntegerSpace;
-    edu:integrates :FractionNotation;
     edu:partOf :RationalSpace;
     edu:translates :ProportionInteraction.
 :FractionSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two fractions.\n\nExample: 3/4 - 1/4 = 2/4";
-    edu:integrates :IntegerSubtraction, :LowestCommonDenominator;
+    edu:integrates :LowestCommonDenominator;
     edu:inverts :FractionAddition;
     edu:partOf :Subtraction.
 :Geometry a owl:NamedIndividual, edu:Area;
@@ -194,7 +184,6 @@
     edu:partOf :IntegerSpace.
 :IntegerRegrouping a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Also referred to as carrying or borrowing. The process of exchanging values between place value positions to facilitate arithmetic operations such as addition and subtraction within the set of integer numbers.";
-    edu:decomposes :NumerationWithIntegers;
     edu:partOf :IntegerSpace.
 :IntegerRoot a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the integer that, when raised to a certain power, produces a given number.\n\nExample: The square root of 25 is 5 because 5 ^ 2 = 25";
@@ -202,11 +191,9 @@
     edu:partOf :Root.
 :IntegerSigns a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate an integer's direction and magnitude relative to zero.";
-    edu:decomposes :NumerationWithIntegers;
     edu:partOf :IntegerSpace.
 :IntegerSpace a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The understanding and application of whole numbers, their additive inverses (negative numbers), and zero, representing discrete values that do not contain fractional or decimal components.";
-    edu:integrates :IntegerNotation;
     edu:partOf :NumberSpaces.
 :IntegerSubtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two integers.\n\nExample: 10 - 6 = 4";
@@ -268,7 +255,6 @@
     edu:partOf :Numeration.
 :NumerationWithIntegers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with integers includes understanding the sequence and magnitude of whole numbers.";
-    edu:decomposes :IntegerSpace, :NumericOrder;
     edu:partOf :Numeration.
 :NumerationWithIntervals a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with intervals is used to represent sets of numbers with specific limits.";
@@ -310,6 +296,7 @@
     edu:partOf :ProportionAbstraction.
 :RationalSpace a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The understanding and application of numbers that can be expressed as the quotient or fraction of two integers, where the denominator is non-zero.";
+    edu:expands :IntegerSpace;
     edu:partOf :NumberSpaces.
 :RatioNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols and conventions used to represent ratios.";
