@@ -34,6 +34,7 @@
     edu:integrates :DecimalPadding;
     edu:partOf :Addition, :DecimalArithmetic.
 :DecimalArithmetic a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The rules and procedures for performing fundamental mathematical operations on rational numbers expressed as decimals in base-10 positional notation.";
     edu:integrates :IntegerArithmetic;
     edu:partOf :DecimalSpace.
 :DecimalDivision a owl:NamedIndividual, edu:Area;
@@ -108,6 +109,7 @@
     edu:integrates :LowestCommonDenominator;
     edu:partOf :Addition, :FractionArithmetic.
 :FractionArithmetic a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The application of mathematical operations to rational numbers through the systematic manipulation of numerators and denominators to derive a resultant value.";
     edu:integrates :IntegerArithmetic;
     edu:partOf :FractionSpace.
 :FractionDivision a owl:NamedIndividual, edu:Area;
@@ -154,6 +156,7 @@
     edu:expands :NumerationWithIntegers;
     edu:partOf :Addition, :IntegerArithmetic.
 :IntegerArithmetic a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The execution of fundamental mathematical operations on whole numbers and their additive inverses, adhering to specific rules for signs and magnitude to determine results within the set of integers.";
     edu:partOf :IntegerSpace.
 :IntegerDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one integer by another, which may result in a quotient and a remainder.\n\nExample: 17 / 5 = 3 remainder 2";
