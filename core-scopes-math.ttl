@@ -127,6 +127,7 @@
     edu:partOf :PhysicalNumbers.
 :LiquidVolumes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves liquid volumes as means of measurement.";
+    edu:integrates :LiterScale, :MilliliterScale;
     edu:partOf :VolumeMeasurement.
 :LiterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves liters to measure volumes.";
