@@ -36,23 +36,6 @@ edu:hasPart rdf:type owl:ObjectProperty ;
             rdfs:range owl:Thing .
 
 
-###  http://edugraph.io/edu#includedBy
-edu:includedBy rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf owl:topObjectProperty ;
-               owl:inverseOf edu:includes ;
-               rdf:type owl:TransitiveProperty ;
-               rdfs:domain edu:Descriptor ;
-               rdfs:range edu:Descriptor .
-
-
-###  http://edugraph.io/edu#includes
-edu:includes rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf owl:topObjectProperty ;
-             rdf:type owl:TransitiveProperty ;
-             rdfs:domain edu:Descriptor ;
-             rdfs:range edu:Descriptor .
-
-
 ###  http://edugraph.io/edu#partOf
 edu:partOf rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf owl:topObjectProperty ;
