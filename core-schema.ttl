@@ -36,6 +36,36 @@ edu:hasPart rdf:type owl:ObjectProperty ;
             rdfs:range owl:Thing .
 
 
+###  http://edugraph.io/edu#integratedBy
+edu:integratedBy rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 owl:inverseOf edu:integrates ;
+                 rdfs:domain edu:Descriptor ;
+                 rdfs:range edu:Descriptor .
+
+
+###  http://edugraph.io/edu#integrates
+edu:integrates rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain edu:Descriptor ;
+               rdfs:range edu:Descriptor .
+
+
+###  http://edugraph.io/edu#invertedBy
+edu:invertedBy rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               owl:inverseOf edu:inverts ;
+               rdfs:domain edu:Descriptor ;
+               rdfs:range edu:Descriptor .
+
+
+###  http://edugraph.io/edu#inverts
+edu:inverts rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain edu:Descriptor ;
+            rdfs:range edu:Descriptor .
+
+
 ###  http://edugraph.io/edu#partOf
 edu:partOf rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf owl:topObjectProperty ;
@@ -56,6 +86,21 @@ edu:targets rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:domain edu:Competency ;
             rdfs:range edu:Descriptor .
+
+
+###  http://edugraph.io/edu#translatedBy
+edu:translatedBy rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 owl:inverseOf edu:translates ;
+                 rdfs:domain edu:Descriptor ;
+                 rdfs:range edu:Descriptor .
+
+
+###  http://edugraph.io/edu#translates
+edu:translates rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain edu:Descriptor ;
+               rdfs:range edu:Descriptor .
 
 
 #################################################################
