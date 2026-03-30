@@ -154,8 +154,6 @@
     rdfs:comment "Example: Leading a group project by assigning roles, keeping the group organized, and facilitating communication among members.";
     rdfs:isDefinedBy "Facilitating interaction and collaboration within a group. This involves encouraging participation, managing group dynamics, and ensuring that the group stays on task and achieves its goals.";
     edu:partOf :Facilitation.
-:Hearing a owl:NamedIndividual, edu:Ability;
-    edu:partOf :SensoricCapability.
 :HumoristicInterpretation a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Analyzing the use of satire or irony in a literary work.";
     rdfs:isDefinedBy "Understanding and appreciating humor. This involves recognizing the comedic elements in a joke, story, or situation, and understanding why it is funny.";
@@ -348,8 +346,6 @@
     rdfs:comment "Examples from different subjects:\n\nMath:\n\n* Formulating a mathematical conjecture and then using logical reasoning and proofs to determine its validity.\n* Designing an experiment to collect data and then using statistical analysis to test a hypothesis about the data.\n* Modeling real-world phenomena using mathematical equations and then using those models to make predictions.\n\nScience:\n\n* Observing a natural phenomenon, formulating a hypothesis to explain it, and then designing an experiment to test the hypothesis.\n* Analyzing data from an experiment, identifying patterns and trends, and drawing conclusions based on the evidence.\n* Evaluating scientific claims and theories based on their supporting evidence and logical consistency.\n\nSocial Science:\n\n* Formulating a hypothesis about a social phenomenon, such as the causes of crime or the factors that influence voting behavior.\n* Designing a survey or experiment to collect data on the social phenomenon and then analyzing the data to test the hypothesis.\n* Evaluating different social policies or interventions based on their effectiveness and potential consequences.";
     rdfs:isDefinedBy "A systematic approach to understanding the natural world that involves observation, experimentation, and logical reasoning. It includes formulating hypotheses, designing experiments to test those hypotheses, analyzing data, and drawing conclusions based on evidence. Scientific thinking is essential for advancing knowledge and solving problems in various fields, from medicine and engineering to environmental science and technology.";
     edu:partOf :AnalyticalCapability.
-:Seeing a owl:NamedIndividual, edu:Ability;
-    edu:partOf :SensoricCapability.
 :SelfAssessment a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Reflecting on our strengths and weaknesses in a particular subject to set realistic goals for improvement.";
     rdfs:isDefinedBy "The ability to evaluate one's own strengths and weaknesses. This involves objectively assessing one's skills, abilities, and knowledge in different areas.";
@@ -370,13 +366,10 @@
     rdfs:comment "Example: A student staying calm and focused during a test despite feeling pressure.";
     rdfs:isDefinedBy "The ability to manage one's emotions, thoughts, and behaviors effectively. This involves controlling impulses, managing stress, and adapting to changing situations.";
     edu:partOf :Introspection.
-:SensoricCapability a owl:NamedIndividual, edu:Ability.
 :ServiceOrientation a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: A student participating in a community service project to help those less fortunate.";
     rdfs:isDefinedBy "A willingness to help others and contribute to the community. This involves volunteering one's time and effort to support those in need and make a positive impact on society.";
     edu:partOf :SocialScaling.
-:Smelling a owl:NamedIndividual, edu:Ability;
-    edu:partOf :SensoricCapability.
 :SocialScaling a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "The ability to adapting to different social contexts and interacting appropriately with others.";
     edu:partOf :EmotionalCapability.
@@ -420,8 +413,6 @@
     rdfs:comment "Example: Using correct word order and punctuation in a sentence.";
     rdfs:isDefinedBy "Constructing sentences with a clear and logical arrangement of words and phrases. This involves using proper syntax to ensure that sentences are grammatically correct and easy to understand.";
     edu:partOf :TextualArticulation.
-:Tasting a owl:NamedIndividual, edu:Ability;
-    edu:partOf :SensoricCapability.
 :TextualArticulation a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Writing a persuasive essay with a clear introduction, body, and conclusion.";
     rdfs:isDefinedBy "Expressing oneself effectively through writing. This involves organizing ideas logically, using appropriate language and style, and adhering to conventions of written communication.";
@@ -438,8 +429,6 @@
     rdfs:comment "Example: Listening to a someone singing a song and identifying their exact mistakes during the reproduction of a song.";
     rdfs:isDefinedBy "Understanding and interpreting vocal tone and inflection. This involves paying attention to the nuances of a speaker's or singer's voice, such as pitch, volume, and rhythm.";
     edu:partOf :Reception.
-:Touching a owl:NamedIndividual, edu:Ability;
-    edu:partOf :SensoricCapability.
 :Understanding a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Understanding the main ideas in a textbook chapter and how they relate to previously learned concepts.";
     rdfs:isDefinedBy "The ability to grasp the meaning of information and make connections between ideas. This involves comprehending information at different levels, from the literal to the inferential, and applying knowledge to new situations.";
