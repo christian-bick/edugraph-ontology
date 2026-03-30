@@ -13,9 +13,43 @@
 #    Object Properties
 #################################################################
 
+###  http://edugraph.io/edu#describesApplication
+edu:describesApplication rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf edu:describesProgression ;
+                         rdfs:domain edu:Descriptor ;
+                         rdfs:range edu:Descriptor .
+
+
+###  http://edugraph.io/edu#describesFormation
+edu:describesFormation rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf edu:describesProgression ;
+                       rdfs:domain edu:Descriptor ;
+                       rdfs:range edu:Descriptor .
+
+
+###  http://edugraph.io/edu#describesMapping
+edu:describesMapping rdf:type owl:ObjectProperty ;
+                     rdfs:domain owl:Thing ;
+                     rdfs:range owl:Thing .
+
+
+###  http://edugraph.io/edu#describesProgression
+edu:describesProgression rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf owl:topObjectProperty ;
+                         rdfs:domain edu:Descriptor ;
+                         rdfs:range edu:Descriptor .
+
+
+###  http://edugraph.io/edu#describesStructure
+edu:describesStructure rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf owl:topObjectProperty ;
+                       rdfs:domain owl:Thing ;
+                       rdfs:range owl:Thing .
+
+
 ###  http://edugraph.io/edu#expandedBy
 edu:expandedBy rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:subPropertyOf edu:describesFormation ;
                owl:inverseOf edu:expands ;
                rdfs:domain edu:Descriptor ;
                rdfs:range edu:Descriptor .
@@ -23,14 +57,14 @@ edu:expandedBy rdf:type owl:ObjectProperty ;
 
 ###  http://edugraph.io/edu#expands
 edu:expands rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:subPropertyOf edu:describesFormation ;
             rdfs:domain edu:Descriptor ;
             rdfs:range edu:Descriptor .
 
 
 ###  http://edugraph.io/edu#hasPart
 edu:hasPart rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:subPropertyOf edu:describesStructure ;
             owl:inverseOf edu:partOf ;
             rdfs:domain owl:Thing ;
             rdfs:range owl:Thing .
@@ -38,7 +72,7 @@ edu:hasPart rdf:type owl:ObjectProperty ;
 
 ###  http://edugraph.io/edu#integratedBy
 edu:integratedBy rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:subPropertyOf edu:describesApplication ;
                  owl:inverseOf edu:integrates ;
                  rdfs:domain edu:Descriptor ;
                  rdfs:range edu:Descriptor .
@@ -46,14 +80,14 @@ edu:integratedBy rdf:type owl:ObjectProperty ;
 
 ###  http://edugraph.io/edu#integrates
 edu:integrates rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:subPropertyOf edu:describesApplication ;
                rdfs:domain edu:Descriptor ;
                rdfs:range edu:Descriptor .
 
 
 ###  http://edugraph.io/edu#invertedBy
 edu:invertedBy rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:subPropertyOf edu:describesFormation ;
                owl:inverseOf edu:inverts ;
                rdfs:domain edu:Descriptor ;
                rdfs:range edu:Descriptor .
@@ -61,21 +95,21 @@ edu:invertedBy rdf:type owl:ObjectProperty ;
 
 ###  http://edugraph.io/edu#inverts
 edu:inverts rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:subPropertyOf edu:describesFormation ;
             rdfs:domain edu:Descriptor ;
             rdfs:range edu:Descriptor .
 
 
 ###  http://edugraph.io/edu#partOf
 edu:partOf rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:subPropertyOf edu:describesStructure ;
            rdfs:domain owl:Thing ;
            rdfs:range owl:Thing .
 
 
 ###  http://edugraph.io/edu#targetedBy
 edu:targetedBy rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:subPropertyOf edu:describesMapping ;
                owl:inverseOf edu:targets ;
                rdfs:domain edu:Descriptor ;
                rdfs:range edu:Competency .
@@ -83,14 +117,14 @@ edu:targetedBy rdf:type owl:ObjectProperty ;
 
 ###  http://edugraph.io/edu#targets
 edu:targets rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:subPropertyOf edu:describesMapping ;
             rdfs:domain edu:Competency ;
             rdfs:range edu:Descriptor .
 
 
 ###  http://edugraph.io/edu#translatedBy
 edu:translatedBy rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:subPropertyOf edu:describesApplication ;
                  owl:inverseOf edu:translates ;
                  rdfs:domain edu:Descriptor ;
                  rdfs:range edu:Descriptor .
@@ -98,7 +132,7 @@ edu:translatedBy rdf:type owl:ObjectProperty ;
 
 ###  http://edugraph.io/edu#translates
 edu:translates rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:subPropertyOf edu:describesApplication ;
                rdfs:domain edu:Descriptor ;
                rdfs:range edu:Descriptor .
 
