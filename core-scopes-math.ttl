@@ -71,6 +71,8 @@
 :DayIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of days.";
     edu:partOf :TimeIntervals.
+:DecimalNumbers a owl:NamedIndividual, edu:Scope;
+    edu:partOf :RationalNumbers.
 :DegreeScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves degrees (°) to express the rotation of objects, oftentimes used to express the angle of two rays. Degrees are fractions of a circle rotation, where 360° represents a full circle, 180° a half circle and 90° a quarter circle.";
     edu:partOf :RotationAbstraction.
@@ -94,6 +96,8 @@
     rdfs:isDefinedBy "Involves three spatial dimensions and time.";
     edu:expands :ThreeDimensional;
     edu:partOf :DimensionalAbstraction.
+:FractionNumbers a owl:NamedIndividual, edu:Scope;
+    edu:partOf :RationalNumbers.
 :Geoboard a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes with a geoboard.";
     edu:partOf :PhysicalGeometry.
@@ -110,6 +114,14 @@
     rdfs:isDefinedBy "Involves more dimensions than three spatial dimensions and time.";
     edu:expands :FourDimensional;
     edu:partOf :DimensionalAbstraction.
+:ImaginaryNumbers a owl:NamedIndividual, edu:Scope;
+    edu:expands :IrrationalNumbers;
+    edu:partOf :NumericSpace.
+:IntegerNumbers a owl:NamedIndividual, edu:Scope;
+    edu:partOf :RealNumbers.
+:IrrationalNumbers a owl:NamedIndividual, edu:Scope;
+    edu:expands :RationalNumbers;
+    edu:partOf :RealNumbers.
 :KelvinScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves temperature ranges or differences on the Kelvin scale.";
     edu:partOf :TemperatureAbstraction.
@@ -247,6 +259,9 @@
 :NumericRange a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers within a certain range.";
     edu:partOf :NumericAbstraction.
+:NumericSpace a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves numbers within a certain numeric space.";
+    edu:partOf :NumericAbstraction.
 :OneDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves one spatial dimension.";
     edu:partOf :DimensionalAbstraction.
@@ -273,6 +288,11 @@
 :RadianScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves radians to express the rotation of objects, oftentimes also used to express the phases of sinus and cosine functions. A radian is a multiple of pi, with 2 radian = 2 pi = 1 full circle and half a radian = 1/2 pi = a quarter circle.";
     edu:partOf :RotationAbstraction.
+:RationalNumbers a owl:NamedIndividual, edu:Scope;
+    edu:expands :IntegerNumbers;
+    edu:partOf :RealNumbers.
+:RealNumbers a owl:NamedIndividual, edu:Scope;
+    edu:partOf :NumericSpace.
 :RepresentationalScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a form of representation such as geometric shapes or numbers.".
 :RodNumerals a owl:NamedIndividual, edu:Scope;
