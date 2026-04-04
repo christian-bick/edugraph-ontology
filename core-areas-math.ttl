@@ -16,12 +16,12 @@
     rdfs:isDefinedBy "The branch of mathematics that generalizes arithmetics and where letters represent unknown numbers, allowing us to explore patterns, solve equations, and model real-world situations.".
 :Analysis a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that deals with continuous change and investigates concepts like limits, continuity, derivatives, integrals, and infinite series to study functions, their properties, and their behavior.".
-:Angle a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The figure formed by two rays, called the sides of the angle, sharing a common endpoint, called the vertex of the angle.";
-    edu:partOf :GeometryFoundations.
 :AngleCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the measurement of the space between two intersecting lines or surfaces.";
     edu:partOf :GeometricCalculations.
+:AngleConcept a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The figure formed by two rays, called the sides of the angle, sharing a common endpoint, called the vertex of the angle.";
+    edu:partOf :GeometryConcepts.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
     edu:partOf :GeometricCalculations.
@@ -112,7 +112,7 @@
     edu:partOf :Geometry.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
-:GeometryFoundations a owl:NamedIndividual, edu:Area;
+:GeometryConcepts a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fundamental concepts of geometry including points, lines, planes, and angles.";
     edu:partOf :Geometry.
 :Increment a owl:NamedIndividual, edu:Area;
@@ -146,6 +146,9 @@
 :LinearShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Linear shape drawing is the ability to create drawings or models of shapes with straight sides.";
     edu:partOf :SpatialModelling.
+:LineConcept a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A straight, one-dimensional figure that has no thickness and extends infinitely in both directions.";
+    edu:partOf :GeometryConcepts.
 :Logarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.";
     edu:inverts :Exponentiation;
@@ -221,12 +224,12 @@
 :Pi a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical constant representing the ratio of a circle's circumference to its diameter.";
     edu:partOf :Circle.
-:Plane a owl:NamedIndividual, edu:Area;
+:PlaneConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A flat, two-dimensional surface that extends infinitely far.";
-    edu:partOf :GeometryFoundations.
-:Point a owl:NamedIndividual, edu:Area;
+    edu:partOf :GeometryConcepts.
+:PointConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A precise location or position on a plane, usually represented by a dot.";
-    edu:partOf :GeometryFoundations.
+    edu:partOf :GeometryConcepts.
 :Polygon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
     edu:partOf :TwoDimensionalObjects.
