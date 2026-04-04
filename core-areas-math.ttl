@@ -24,7 +24,7 @@
     edu:partOf :GeometricCalculations.
 :AngleConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A figure formed by two rays sharing a common endpoint, representing the amount of rotation or divergence between them.";
-    edu:partOf :GeometryConcepts.
+    edu:partOf :GeometricConcepts.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
     edu:partOf :GeometricCalculations.
@@ -119,14 +119,14 @@
 :GeometricCalculations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The measurement and calculation of properties of geometric objects, such as perimeter, area, and volume.";
     edu:partOf :Geometry.
+:GeometricConcepts a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The fundamental concepts of geometry including points, lines, planes, and angles.";
+    edu:partOf :Geometry.
 :GeometricObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of specific geometric shapes and figures in one, two, and three dimensions.";
     edu:partOf :Geometry.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
-:GeometryConcepts a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The fundamental concepts of geometry including points, lines, planes, and angles.";
-    edu:partOf :Geometry.
 :Hexagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with six edges and six vertices.";
     edu:partOf :Polygon.
@@ -163,7 +163,7 @@
     edu:partOf :SpatialModelling.
 :LineConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A straight, one-dimensional figure that has no thickness and extends infinitely in both directions.";
-    edu:partOf :GeometryConcepts.
+    edu:partOf :GeometricConcepts.
 :LineSegment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
     edu:partOf :OneDimensionalObjects.
@@ -253,10 +253,10 @@
     edu:partOf :Circle.
 :PlaneConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A flat, two-dimensional surface that extends infinitely far.";
-    edu:partOf :GeometryConcepts.
+    edu:partOf :GeometricConcepts.
 :PointConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A precise location or position on a plane, usually represented by a dot.";
-    edu:partOf :GeometryConcepts.
+    edu:partOf :GeometricConcepts.
 :Polygon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
     edu:partOf :TwoDimensionalObjects.
@@ -371,7 +371,7 @@
     edu:partOf :GeometricObjects.
 :VectorConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quantity characterized by both magnitude and direction, typically represented as a directed line segment.";
-    edu:partOf :GeometryConcepts.
+    edu:partOf :GeometricConcepts.
 :VolumeCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the amount of space that a substance or object occupies.";
     edu:partOf :GeometricCalculations.
