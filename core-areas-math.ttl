@@ -16,6 +16,12 @@
     rdfs:isDefinedBy "The branch of mathematics that generalizes arithmetics and where letters represent unknown numbers, allowing us to explore patterns, solve equations, and model real-world situations.".
 :Analysis a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that deals with continuous change and investigates concepts like limits, continuity, derivatives, integrals, and infinite series to study functions, their properties, and their behavior.".
+:Angle a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The figure formed by two rays, called the sides of the angle, sharing a common endpoint, called the vertex of the angle.";
+    edu:partOf :GeometryFoundations.
+:AreaCalculation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
+    edu:partOf :GeometricCalculations.
 :Arithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that deals with the properties and manipulation of numbers, including addition, subtraction, multiplication and division.".
 :BaseOperations a owl:NamedIndividual, edu:Area;
@@ -23,11 +29,17 @@
     edu:partOf :NumberSense.
 :Calculus a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides tools for analyzing rates of change and accumulation. It deals with instantaneous rates of change that affect the slopes of curves, as well as with accumulation that affects areas under curves.".
+:Circle a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of circles, their properties, and related functions including Pi.";
+    edu:partOf :TwoDimensionalObjects.
 :CircularShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Circular shape drawing is the ability to create drawings or models of circular shapes.";
     edu:partOf :SpatialModelling.
 :ComputationalMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
+:Cosine a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side adjacent to an acute angle (in a right-angled triangle) to the hypotenuse.";
+    edu:partOf :Trigonometry.
 :DecimalDivisorShift a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Decimal equivalence is the understanding that decimals with trailing zeros represent the same decimal number.";
     edu:partOf :DecimalEquivalence.
@@ -86,8 +98,17 @@
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
     edu:partOf :FractionEquivalence.
+:GeometricCalculations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The measurement and calculation of properties of geometric objects, such as perimeter, area, and volume.";
+    edu:partOf :Geometry.
+:GeometricObjects a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of specific geometric shapes and figures in one, two, and three dimensions.";
+    edu:partOf :Geometry.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
+:GeometryFoundations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The fundamental concepts of geometry including points, lines, planes, and angles.";
+    edu:partOf :Geometry.
 :Increment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a quantity by a certain amount.";
     edu:partOf :BaseOperations.
@@ -103,10 +124,19 @@
 :IntegerSigns a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate an integer's direction and magnitude relative to zero.";
     edu:partOf :IntegerArithmetic.
+:IntersectingLines a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Lines that cross each other at exactly one point.";
+    edu:partOf :Line.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
     edu:partOf :NumerationWithIntervals.
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts.".
+:Line a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A straight one-dimensional figure having no thickness and extending infinitely in both directions.";
+    edu:partOf :OneDimensionalObjects;
+    a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of lines and their relationships, including parallels, intersections, and perpendicularity.";
+    edu:partOf :OneDimensionalObjects.
 :LinearShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Linear shape drawing is the ability to create drawings or models of shapes with straight sides.";
     edu:partOf :SpatialModelling.
@@ -173,6 +203,27 @@
     rdfs:isDefinedBy "Numeric order refers to the arrangement of numbers in ascending or descending sequence based on their magnitude.";
     edu:expands :NumericIdentity;
     edu:partOf :NumericComparison.
+:OneDimensionalObjects a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Geometric objects that have only length, such as line segments and rays.";
+    edu:partOf :GeometricObjects.
+:ParallelLines a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Lines in a plane which do not meet; that is, two straight lines in a plane that do not intersect at any point.";
+    edu:partOf :Line.
+:PerimeterCalculation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The calculation of the continuous line forming the boundary of a closed geometric figure.";
+    edu:partOf :GeometricCalculations.
+:Pi a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The mathematical constant representing the ratio of a circle's circumference to its diameter.";
+    edu:partOf :Circle.
+:Plane a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A flat, two-dimensional surface that extends infinitely far.";
+    edu:partOf :GeometryFoundations.
+:Point a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A precise location or position on a plane, usually represented by a dot.";
+    edu:partOf :GeometryFoundations.
+:Polygon a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements including area and perimeter.";
+    edu:partOf :TwoDimensionalObjects.
 :ProportionAbstraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Proportion abstraction is the ability to generalize proportional relationships and apply them to new situations.";
     edu:partOf :ProportionSense.
@@ -205,6 +256,12 @@
 :RatioNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols and conventions used to represent ratios.";
     edu:partOf :ProportionAbstraction.
+:Rectangle a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements including area and perimeter.";
+    edu:partOf :TwoDimensionalObjects.
+:RightAngle a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "An angle of exactly 90 degrees, corresponding to a quarter turn.";
+    edu:partOf :Line.
 :Root a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the number that, when raised to a certain power, produces a given number.\n\nExample: The cube root of 64 is 4 because 4 ^ 3 = 64";
     edu:inverts :Exponentiation;
@@ -220,6 +277,9 @@
 :ShapeSymmetry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding how a shape can be divided into identical halves that mirror each other.";
     edu:partOf :ShapeRecognition.
+:Sine a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side opposite a given angle (in a right-angled triangle) to the hypotenuse.";
+    edu:partOf :Trigonometry.
 :SpatialModelling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating mental or physical representations of objects and their spatial relationships.";
     edu:partOf :SpatialSense.
@@ -237,3 +297,21 @@
     rdfs:isDefinedBy "Combining quantities to determine their total amount for any type of mathematical object, including numbers.";
     edu:expands :Increment;
     edu:partOf :BaseOperations.
+:Tangent a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side opposite a given angle to the side adjacent to that angle.";
+    edu:partOf :Trigonometry.
+:ThreeDimensionalObjects a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Solid geometric figures that have length, width, and depth, such as spheres, cubes, and cylinders.";
+    edu:partOf :GeometricObjects.
+:Triangle a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of three-sided polygons, their properties, and related measurements including area and perimeter.";
+    edu:partOf :TwoDimensionalObjects.
+:Trigonometry a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The branch of geometry that studies relationships between side lengths and angles of triangles.";
+    edu:partOf :Geometry.
+:TwoDimensionalObjects a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Flat geometric figures that have length and width, such as polygons and circles.";
+    edu:partOf :GeometricObjects.
+:VolumeCalculation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The calculation of the amount of space that a substance or object occupies.";
+    edu:partOf :GeometricCalculations.
