@@ -9,7 +9,7 @@
 <http://edugraph.io/edu/> a owl:Ontology;
     owl:imports <http://edugraph.io/edu#>.
 :Addition a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Adding numbers together.\n\nExample: 5 + 3 = 8";
+    rdfs:isDefinedBy "Adding numbers together.";
     edu:expands :Sum;
     edu:partOf :NumberOperations.
 :Algebra a owl:NamedIndividual, edu:Area;
@@ -28,82 +28,97 @@
     edu:partOf :SpatialModelling.
 :ComputationalMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
+:DecimalDivisorShift a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Decimal equivalence is the understanding that decimals with trailing zeros represent the same decimal number.";
+    edu:partOf :DecimalEquivalence.
+:DecimalEquivalence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The rules and procedures for identifying or establishing the equality between different representations of the same rational value, specifically between fractions and their base-10 positional notation or between decimals with varying digits at subsequent negative powers of ten that maintain the same magnitude.";
+    edu:partOf :DecimalSpace.
 :DecimalNotation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Applying the decimal system of representing rational numbers using a base-ten place value system and a decimal point to separate whole and fractional parts.";
-    edu:expands :IntegerNotation;
-    edu:partOf :DecimalNumbers.
-:DecimalNumbers a owl:NamedIndividual, edu:Area;
-    edu:partOf :RationalNumbers.
+    rdfs:isDefinedBy "The system of symbols used to represent decimals, including the floating point and its meaning.";
+    edu:partOf :DecimalSpace.
+:DecimalPadding a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The rules and procedures that adjust the digits following the floating point to ensure uniform decimal places as a part of decimal number operations such as addition.";
+    edu:partOf :DecimalEquivalence.
+:DecimalPointAlignment a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The rules and procedures that align the floating point as a part of decimal number operations.";
+    edu:partOf :DecimalSpace.
+:DecimalRounding a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The rules and procedures for approximating a decimal number to a specified degree of precision by adjusting the fractional component based on the value of digits at subsequent negative powers of ten.";
+    edu:partOf :DecimalSpace.
+:DecimalSpace a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The representation of rational numbers using a base-10 positional notation system, where a decimal point separates the integer component from a fractional component expressed as a sum of negative powers of ten.";
+    edu:partOf :RationalArithmetic.
 :Decrement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a quantity by a specific amount.";
-    edu:expands :Increment;
+    edu:inverts :Increment;
     edu:partOf :BaseOperations.
 :Difference a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining the difference in quantities of mathematical object, including numbers where difference represents the amount by which one quantity is greater or less than another.";
     edu:expands :Decrement;
+    edu:inverts :Sum;
     edu:partOf :BaseOperations.
 :DigitNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Digit notation uses symbols from 0 to 9 to represent any number.";
+    edu:expands :NumericIdentity;
     edu:partOf :NumberNotation.
 :Division a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Dividing one number by another, which may result in a quotient and a remainder.\n\nExample: 17 / 5 = 3 remainder 2";
-    edu:expands :Multiplication;
+    rdfs:isDefinedBy "Dividing one number by another.";
+    edu:inverts :Multiplication;
     edu:partOf :NumberOperations.
 :EllipticShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Elliptical shape drawing is the ability to create drawings or models of elliptical shapes.";
     edu:partOf :SpatialModelling.
 :Exponentiation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.\n\nExample: 2 ^ 4 = 2 * 2 * 2 * 2 = 16";
+    rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.";
     edu:expands :Multiplication;
     edu:partOf :NumberOperations.
-:FloatingPoint a owl:NamedIndividual, edu:Area;
-    edu:expands :DecimalNotation;
-    edu:partOf :DecimalNumbers.
+:FractionArithmetic a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
+    edu:partOf :RationalArithmetic;
+    edu:translates :ProportionInteraction.
+:FractionEquivalence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The principle that distinct representations of rational numbers in the form a/b can express the same ratio, where transformations between different numerators and denominators maintain the same value relative to the unit or whole.";
+    edu:partOf :FractionArithmetic.
 :FractionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator.";
-    edu:expands :IntegerNotation, :ProportionAbstraction;
-    edu:partOf :FractionNumbers.
-:FractionNumbers a owl:NamedIndividual, edu:Area;
-    edu:expands :Division;
-    edu:partOf :RationalNumbers.
+    edu:partOf :FractionArithmetic.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
-    edu:expands :Division, :RatioEquivalence;
-    edu:partOf :FractionNumbers.
+    edu:partOf :FractionEquivalence.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
 :Increment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a quantity by a certain amount.";
     edu:partOf :BaseOperations.
+:IntegerArithmetic a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The understanding and application of whole numbers, their additive inverses (negative numbers), and zero, representing discrete values that do not contain fractional or decimal components.";
+    edu:partOf :NumberArithmetic.
 :IntegerNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols used to represent integers.\n\nExample: Using the symbols -3, 0, and 12 to represent integers.";
-    edu:expands :DigitNotation;
-    edu:partOf :IntegerNumbers.
-:IntegerNumbers a owl:NamedIndividual, edu:Area;
-    edu:expands :NumerationWithIntegers;
-    edu:partOf :NumberSystems.
+    edu:partOf :IntegerArithmetic.
 :IntegerRegrouping a owl:NamedIndividual, edu:Area;
-    edu:expands :IntegerNotation;
-    edu:partOf :IntegerNumbers.
+    rdfs:isDefinedBy "Also referred to as carrying or borrowing. The process of exchanging values between place value positions to facilitate arithmetic operations such as addition and subtraction within the set of integer numbers.";
+    edu:partOf :IntegerArithmetic.
+:IntegerSigns a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate an integer's direction and magnitude relative to zero.";
+    edu:partOf :IntegerArithmetic.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
     edu:partOf :NumerationWithIntervals.
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts.".
-:IrrationalNumbers a owl:NamedIndividual, edu:Area;
-    edu:expands :RationalNumbers;
-    edu:partOf :NumberSystems.
 :LinearShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Linear shape drawing is the ability to create drawings or models of shapes with straight sides.";
     edu:partOf :SpatialModelling.
 :Logarithm a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.\n\nExample: log₃ 81 = 4 because 3 ^ 4 = 81";
-    edu:expands :Exponentiation;
+    rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.";
+    edu:inverts :Exponentiation;
     edu:partOf :NumberOperations.
 :Logic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies reasoning and valid arguments. It provides a framework for determining whether something is true or false based on given premises. It is the foundation for constructing proofs, ensuring that conclusions follow logically from their premises.".
 :LowestCommonDenominator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the smallest common multiple of the denominators of two or more fractions.\n\nExample: The lowest common denominator of 1/4 and 1/6 is 12.";
-    edu:partOf :FractionNumbers.
+    edu:partOf :FractionEquivalence.
 :Measurement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Measurement is the process of assigning numbers to describe the properties of objects, such as length, weight, or volume.";
     edu:partOf :SpatialSense.
@@ -114,9 +129,12 @@
     rdfs:isDefinedBy "Measuring time involves quantifying the duration of events or the intervals between them.";
     edu:partOf :Measurement.
 :Multiplication a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Multiplying two or multiple numbers.\n\nExample: 4 * 3 = 12";
+    rdfs:isDefinedBy "Multiplying two or multiple numbers.";
     edu:expands :Addition;
     edu:partOf :NumberOperations.
+:NumberArithmetic a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The classification, representation, and properties of different sets of numbers such as integers, fractions, decimals including the symbolic frameworks used to express numerical values and their relationships.";
+    edu:partOf :Arithmetic.
 :NumberNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Number notation is the system of symbols and rules used to express numerical values.";
     edu:partOf :NumberSense.
@@ -126,23 +144,24 @@
 :NumberSense a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Number sense is the intuitive understanding of numbers, their magnitudes, and how they relate to each other.";
     edu:partOf :IntuitiveMathematics.
-:NumberSystems a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The classification, representation, and properties of different sets of numbers such as integers, fractions, decimals including the symbolic frameworks used to express numerical values and their relationships.";
-    edu:partOf :Arithmetic.
 :NumberTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies the properties of numbers, particularly integers (whole numbers). It explores things like prime numbers, divisibility, and number patterns.".
 :Numeration a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration encompasses counting, ordering, and grouping numbers.";
     edu:partOf :NumberSense.
+:NumerationWithDecimals a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Numeration with decimals encompasses understanding the place value and magnitude of decimal numbers on the number line.";
+    edu:expands :NumerationWithFractions;
+    edu:partOf :Numeration.
+:NumerationWithFractions a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Numeration with fractions encompasses understanding the density of fraction numbers on the number line.";
+    edu:expands :NumerationWithIntegers;
+    edu:partOf :Numeration.
 :NumerationWithIntegers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with integers includes understanding the sequence and magnitude of whole numbers.";
-    edu:expands :Increment, :IntegerNotation, :NumericOrder;
     edu:partOf :Numeration.
 :NumerationWithIntervals a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with intervals is used to represent sets of numbers with specific limits.";
-    edu:partOf :Numeration.
-:NumerationWithRationals a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Numeration with rationals encompasses understanding the density of rational numbers on the number line.";
     edu:partOf :Numeration.
 :NumericComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeric comparison involves evaluating whether one number is greater than, less than, or equal to another.";
@@ -174,19 +193,21 @@
     edu:partOf :IntuitiveMathematics.
 :RatioEquivalence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Ratio equivalence is the understanding that different ratios can represent the same proportional relationship.";
+    edu:expands :ProportionManipulation;
     edu:partOf :ProportionAbstraction.
 :RatioInterpretation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Ratio interpretation is the ability to understand the meaning of a ratio and its relationship to the quantities involved.";
     edu:partOf :ProportionAbstraction.
-:RationalNumbers a owl:NamedIndividual, edu:Area;
-    edu:expands :IntegerNumbers;
-    edu:partOf :NumberSystems.
+:RationalArithmetic a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The understanding and application of numbers that can be expressed as the quotient or fraction of two integers, where the denominator is non-zero.";
+    edu:expands :IntegerArithmetic;
+    edu:partOf :NumberArithmetic.
 :RatioNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols and conventions used to represent ratios.";
     edu:partOf :ProportionAbstraction.
 :Root a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the number that, when raised to a certain power, produces a given number.\n\nExample: The cube root of 64 is 4 because 4 ^ 3 = 64";
-    edu:expands :Exponentiation;
+    edu:inverts :Exponentiation;
     edu:partOf :NumberOperations.
 :SetTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies sets, which are collections of objects. It provides a fundamental language and tools for defining and working with mathematical objects.".
@@ -208,8 +229,9 @@
 :Statistics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides a framework for collecting, organizing, analyzing, and interpreting data. It provides tools for quantifying and modeling randomness, variability, and uncertainty in data.".
 :Subtraction a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Finding the difference between two numbers.\n\nExample: 10 - 6 = 4";
-    edu:expands :Addition, :Difference;
+    rdfs:isDefinedBy "Finding the difference between two numbers.";
+    edu:expands :Difference;
+    edu:inverts :Addition;
     edu:partOf :NumberOperations.
 :Sum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Combining quantities to determine their total amount for any type of mathematical object, including numbers.";

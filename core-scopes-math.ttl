@@ -18,15 +18,18 @@
     edu:partOf :QuantityMeasurement.
 :AnalogClock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves an analog clock.";
+    edu:integrates :HourIntervals, :MinuteIntervals, :SecondIntervals;
     edu:partOf :TimeMeasurement.
 :AngleMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves angle measurement.";
     edu:partOf :MeasurementScope.
 :ArabicNumerals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with arabic numerals.";
-    edu:partOf :Numerals.
+    edu:partOf :Numerals;
+    edu:translates :Base10.
 :BalanceScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a balance scale.";
+    edu:integrates :GramScale, :KilogramScale;
     edu:partOf :WeightMeasurement.
 :Base10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers in base 10 (decimal).";
@@ -42,26 +45,47 @@
     edu:partOf :NumericBase.
 :BaseTenBlocks a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with a base ten blocks.";
-    edu:partOf :PhysicalNumbers.
+    edu:partOf :PhysicalNumbers;
+    edu:translates :Base10.
+:Calendar a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a calendar.";
+    edu:integrates :DayIntervals, :MonthIntervals, :WeekIntervals, :YearIntervals;
+    edu:partOf :TimeMeasurement.
 :CartesianCoordinateSystem a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents functions and shapes in the cartesian coordinate system.";
-    edu:partOf :VisualGeometry.
+    edu:partOf :VisualGeometry;
+    edu:translates :ThreeDimensional, :TwoDimensional.
+:CelsiusScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves temperature ranges or differences on the Celsius scale.";
+    edu:partOf :TemperatureAbstraction.
 :CentimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in centimeters.";
     edu:partOf :MetricScale.
 :CountingSymbols a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves counting symbols.";
     edu:partOf :VisualNumbers.
+:CubicMeterScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves cubic meters to measure volumes.";
+    edu:partOf :VolumeAbstraction.
 :DayIntervals a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Time expressed in intervals of days.".
+    rdfs:isDefinedBy "Time expressed in intervals of days.";
+    edu:partOf :TimeIntervals.
+:DecimalNumbers a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves numbers represented using a base-ten positional notation system within the real numeric space.";
+    edu:partOf :RationalNumbers.
+:DegreeScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves degrees (°) to express the rotation of objects, oftentimes used to express the angle of two rays. Degrees are fractions of a circle rotation, where 360° represents a full circle, 180° a half circle and 90° a quarter circle.";
+    edu:partOf :RotationAbstraction.
 :DerivedCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Counts manifested objects based on logical derivation of know facts.";
     edu:partOf :QuantityMeasurement.
 :DigitalClock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a digital clock.";
+    edu:integrates :HourIntervals, :MinuteIntervals, :SecondIntervals;
     edu:partOf :TimeMeasurement.
 :DigitalScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a digital scale.";
+    edu:integrates :GramScale, :KilogramScale, :MilligramScale;
     edu:partOf :WeightMeasurement.
 :DimensionalAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves spatial dimensions with or without time or hyperdimensional concepts.";
@@ -70,38 +94,84 @@
     edu:partOf :AbstractionScope.
 :FourDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves three spatial dimensions and time.";
+    edu:expands :ThreeDimensional;
     edu:partOf :DimensionalAbstraction.
+:FractionNumbers a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves numbers represented as a numerator and a denominator within the real numeric space.";
+    edu:partOf :RationalNumbers.
 :Geoboard a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes with a geoboard.";
     edu:partOf :PhysicalGeometry.
 :GeometryRepresentation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a geometric representation.";
     edu:partOf :RepresentationalScope.
+:GramScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Weights measured in grams.";
+    edu:partOf :WeightAbstraction.
 :HourIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of hours in a day.";
     edu:partOf :TimeIntervals.
 :HyperDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves more dimensions than three spatial dimensions and time.";
+    edu:expands :FourDimensional;
     edu:partOf :DimensionalAbstraction.
+:ImaginaryNumbers a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves numbers within the imaginary numeric space.";
+    edu:expands :IrrationalNumbers;
+    edu:partOf :NumericSpace.
+:IntegerNumbers a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves whole numbers and their negative counterparts within the real numeric space.";
+    edu:partOf :RealNumbers.
+:IntegersWithNegatives a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves negative numbers.";
+    edu:expands :IntegersWithZero, :IntegersWithoutNegatives;
+    edu:partOf :NumericRange.
+:IntegersWithoutNegatives a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Does not involve negative numbers.";
+    edu:partOf :NumericRange.
+:IntegersWithoutZero a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Does not involve zero as a number.";
+    edu:partOf :IntegerNumbers.
+:IntegersWithZero a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves zero as a number.";
+    edu:expands :IntegersWithoutZero;
+    edu:partOf :IntegerNumbers.
+:IrrationalNumbers a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves numbers that cannot be expressed as a ratio of integers within the real numeric space.";
+    edu:expands :RationalNumbers;
+    edu:partOf :RealNumbers.
+:KelvinScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves temperature ranges or differences on the Kelvin scale.";
+    edu:partOf :TemperatureAbstraction.
+:KilogramScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Weights measured in kilograms.";
+    edu:partOf :WeightAbstraction.
 :KilometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "involves distances expressed in kilometers.";
     edu:partOf :MetricScale.
 :LaserRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a laser ruler.";
+    edu:integrates :MicrometerScale;
     edu:partOf :LengthMeasurement.
 :LengthMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves length measurement.";
     edu:partOf :MeasurementScope.
 :LinkingCubes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with linking cubes.";
-    edu:partOf :PhysicalNumbers.
+    edu:partOf :PhysicalNumbers;
+    edu:translates :Base10.
 :LiquidVolumes a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves liquid volumes.";
+    rdfs:isDefinedBy "Involves liquid volumes as means of measurement.";
+    edu:integrates :LiterScale, :MilliliterScale;
     edu:partOf :VolumeMeasurement.
+:LiterScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves liters to measure volumes.";
+    edu:partOf :VolumeAbstraction.
 :MeasurementScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the measurement of manifested objects shapes.".
 :MeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distance expressed in meters.";
+    edu:expands :Numberline;
     edu:partOf :MetricScale.
 :MetricScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in meters.";
@@ -109,9 +179,18 @@
 :MicrometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "involves distances expressed in micrometers.";
     edu:partOf :MetricScale.
+:MilligramScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Weights measured in milligrams.";
+    edu:partOf :WeightAbstraction.
+:MilliliterScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves milliliters to measure volumes.";
+    edu:partOf :VolumeAbstraction.
 :MillimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in millimeters";
     edu:partOf :MetricScale.
+:MillisecondIntervals a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Time expressed in intervals of milliseconds.";
+    edu:partOf :TimeIntervals.
 :MinuteIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed an intervals of minutes.";
     edu:partOf :TimeIntervals.
@@ -121,59 +200,53 @@
 :NanometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in nanometers.";
     edu:partOf :MetricScale.
+:NanosecondIntervals a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Time expressed in intervals of nanoseconds.";
+    edu:partOf :TimeIntervals.
 :Numberline a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with a number line.";
-    edu:partOf :SpatialNumbers.
+    edu:partOf :SpatialNumbers;
+    edu:translates :OneDimensional.
 :NumberRepresentation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers.";
     edu:partOf :RepresentationalScope.
 :NumbersLarger10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers larger than 10.";
-    edu:partOf :NumericRange.
+    edu:expands :NumbersSmaller10;
+    edu:partOf :NumericRange;
+    edu:translates :BaseTenBlocks, :LinkingCubes, :NumberTiles.
 :NumbersLarger100 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers larger than 100.";
-    edu:includes :NumbersLarger10, :NumbersLarger20;
+    edu:expands :NumbersLarger20, :NumbersSmaller100;
     edu:partOf :NumericRange.
 :NumbersLarger1000 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers larger than 1000.";
-    edu:includes :NumbersLarger10, :NumbersLarger100, :NumbersLarger20;
+    edu:expands :NumbersLarger100, :NumbersSmaller1000;
     edu:partOf :NumericRange.
 :NumbersLarger20 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only Involves numbers larger than 20.";
-    edu:includes :NumbersLarger10;
+    edu:expands :NumbersLarger10, :NumbersSmaller20;
     edu:partOf :NumericRange.
 :NumbersSmaller10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers smaller than 10";
-    edu:includes :NumbersSmaller100, :NumbersSmaller1000, :NumbersSmaller20;
-    edu:partOf :NumericRange.
+    edu:partOf :NumericRange;
+    edu:translates :CountingSymbols, :TenFrame.
 :NumbersSmaller100 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers smaller than 100";
-    edu:includes :NumbersSmaller1000;
+    edu:expands :NumbersSmaller20;
     edu:partOf :NumericRange.
 :NumbersSmaller1000 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers smaller than 1000";
+    edu:expands :NumbersSmaller100;
     edu:partOf :NumericRange.
 :NumbersSmaller20 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers smaller than 20";
-    edu:includes :NumbersSmaller100, :NumbersSmaller1000;
-    edu:partOf :NumericRange.
-:NumbersWithNegatives a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves negative numbers.";
-    edu:expands :NumbersWithoutNegatives;
-    edu:partOf :NumericRange.
-:NumbersWithoutNegatives a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Does not involve negative numbers.";
-    edu:partOf :NumericRange.
-:NumbersWithoutZero a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Does not involve zero as a number.";
-    edu:partOf :NumericRange.
-:NumbersWithZero a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves zero as a number.";
-    edu:expands :NumbersWithoutZero;
+    edu:expands :NumbersSmaller10;
     edu:partOf :NumericRange.
 :NumberTiles a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves number tiles.";
-    edu:partOf :VisualNumbers.
+    edu:partOf :VisualNumbers;
+    edu:translates :Base10.
 :Numerals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with numerals.";
     edu:partOf :NumberRepresentation.
@@ -185,6 +258,9 @@
     edu:partOf :NumericAbstraction.
 :NumericRange a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers within a certain range.";
+    edu:partOf :NumericAbstraction.
+:NumericSpace a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves numbers within a certain numeric space.";
     edu:partOf :NumericAbstraction.
 :OneDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves one spatial dimension.";
@@ -200,44 +276,70 @@
     edu:partOf :NumberRepresentation.
 :PhysicalRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a physical ruler.";
+    edu:integrates :CentimeterScale, :MillimeterScale;
     edu:partOf :LengthMeasurement.
 :Protractor a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a protractor.";
+    edu:integrates :DegreeScale;
     edu:partOf :AngleMeasurement.
 :QuantityMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the measurement of object quantities.";
     edu:partOf :MeasurementScope.
+:RadianScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves radians to express the rotation of objects, oftentimes also used to express the phases of sinus and cosine functions. A radian is a multiple of pi, with 2 radian = 2 pi = 1 full circle and half a radian = 1/2 pi = a quarter circle.";
+    edu:partOf :RotationAbstraction.
+:RationalNumbers a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves numbers that can be expressed as a ratio of integers within the real numeric space.";
+    edu:expands :IntegerNumbers;
+    edu:partOf :RealNumbers.
+:RealNumbers a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves numbers within the real numeric space.";
+    edu:partOf :NumericSpace.
 :RepresentationalScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a form of representation such as geometric shapes or numbers.".
 :RodNumerals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with rod numerals.";
-    edu:partOf :Numerals.
+    edu:partOf :Numerals;
+    edu:translates :Base10.
 :RomanNumerals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with roman numerals.";
-    edu:partOf :Numerals.
+    edu:partOf :Numerals;
+    edu:translates :Base10.
+:RotationAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves angles or angular concepts.";
+    edu:partOf :AbstractionScope.
 :SandClock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a sand clock.";
+    edu:integrates :HourIntervals, :MinuteIntervals;
     edu:partOf :TimeMeasurement.
 :SecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of seconds.";
     edu:partOf :TimeIntervals.
 :SpatialNumbers a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Represents numbers visually along a spatial dimension.";
     edu:partOf :NumberRepresentation.
 :Stopwatch a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a stop watch.";
+    edu:integrates :HourIntervals, :MillisecondIntervals, :MinuteIntervals, :SecondIntervals;
     edu:partOf :TimeMeasurement.
 :SubtractiveCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Counts manifested objects by counting what's missing.";
+    edu:inverts :AdditiveCount;
     edu:partOf :QuantityMeasurement.
 :Sunclock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a sun clock.";
+    edu:integrates :HourIntervals;
     edu:partOf :TimeMeasurement.
 :Tangrams a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes with tangrams.";
     edu:partOf :PhysicalGeometry.
 :Tapemeter a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a tape meter.";
+    edu:integrates :CentimeterScale, :MeterScale, :MillimeterScale;
     edu:partOf :LengthMeasurement.
+:TemperatureAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves temperature or thermal concepts.";
+    edu:partOf :AbstractionScope.
 :TemperatureMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves temperature measurement.";
     edu:partOf :MeasurementScope.
@@ -246,9 +348,11 @@
     edu:partOf :VisualNumbers.
 :Thermometer a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a thermometer.";
+    edu:integrates :CelsiusScale, :KelvinScale;
     edu:partOf :TemperatureMeasurement.
 :ThreeDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves three spatial dimensions.";
+    edu:expands :TwoDimensional;
     edu:partOf :DimensionalAbstraction.
 :TimeAbstraction a owl:NamedIndividual, edu:Scope;
     edu:partOf :AbstractionScope.
@@ -258,11 +362,16 @@
 :TimeMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves time measurement.";
     edu:partOf :MeasurementScope.
+:TonScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Weights measured in tons.";
+    edu:partOf :WeightAbstraction.
 :TriangleRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a triangle ruler.";
+    edu:integrates :CentimeterScale, :DegreeScale, :MillimeterScale;
     edu:partOf :AngleMeasurement.
 :TwoDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves two spatial dimensions.";
+    edu:expands :OneDimensional;
     edu:partOf :DimensionalAbstraction.
 :VisualGeometry a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes visually (yet not in as physical objects).";
@@ -270,12 +379,18 @@
 :VisualNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers visually (yet not as physical objects nor as numerals).";
     edu:partOf :NumberRepresentation.
+:VolumeAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves volume or capacity concepts.";
+    edu:partOf :AbstractionScope.
 :VolumeMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves volume measurement.";
     edu:partOf :MeasurementScope.
 :WeekIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed as intervals of weeks.";
     edu:partOf :TimeIntervals.
+:WeightAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves mass or weight concepts.";
+    edu:partOf :AbstractionScope.
 :WeightMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves weight measurement.";
     edu:partOf :MeasurementScope.
