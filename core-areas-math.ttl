@@ -19,6 +19,9 @@
 :Angle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The figure formed by two rays, called the sides of the angle, sharing a common endpoint, called the vertex of the angle.";
     edu:partOf :GeometryFoundations.
+:AngleCalculation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The calculation of the measurement of the space between two intersecting lines or surfaces.";
+    edu:partOf :GeometricCalculations.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
     edu:partOf :GeometricCalculations.
@@ -40,6 +43,9 @@
 :Cosine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side adjacent to an acute angle (in a right-angled triangle) to the hypotenuse.";
     edu:partOf :Trigonometry.
+:Cube a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A solid geometric figure that has six congruent square faces where each pair of opposite faces is parallel.";
+    edu:partOf :ThreeDimensionalObjects.
 :DecimalDivisorShift a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Decimal equivalence is the understanding that decimals with trailing zeros represent the same decimal number.";
     edu:partOf :DecimalEquivalence.
@@ -131,6 +137,9 @@
     edu:partOf :NumerationWithIntervals.
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts.".
+:LengthCalculation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The calculation of the linear extent of a geometric object or the distance between two points.";
+    edu:partOf :GeometricCalculations.
 :Line a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of lines and their relationships, including parallels, intersections, and perpendicularity.";
     edu:partOf :OneDimensionalObjects.
@@ -219,8 +228,11 @@
     rdfs:isDefinedBy "A precise location or position on a plane, usually represented by a dot.";
     edu:partOf :GeometryFoundations.
 :Polygon a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements including area and perimeter.";
+    rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
     edu:partOf :TwoDimensionalObjects.
+:Prism a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A solid geometric figure that has two congruent and parallel bases and lateral faces that are parallelograms.";
+    edu:partOf :ThreeDimensionalObjects.
 :ProportionAbstraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Proportion abstraction is the ability to generalize proportional relationships and apply them to new situations.";
     edu:partOf :ProportionSense.
@@ -253,9 +265,15 @@
 :RatioNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols and conventions used to represent ratios.";
     edu:partOf :ProportionAbstraction.
+:Ray a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of rays and their properties, including endpoints, directionality, and infinite extension in one direction.";
+    edu:partOf :OneDimensionalObjects.
 :Rectangle a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements including area and perimeter.";
+    rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements.";
     edu:partOf :TwoDimensionalObjects.
+:RectangularPrism a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A solid geometric figure that has six rectangular faces where each pair of opposite faces is congruent and parallel.";
+    edu:partOf :ThreeDimensionalObjects.
 :RightAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle of exactly 90 degrees, corresponding to a quarter turn.";
     edu:partOf :Line.
@@ -283,6 +301,12 @@
 :SpatialSense a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding shapes, sizes, positions, and movements in two and three dimensions.";
     edu:partOf :IntuitiveMathematics.
+:Sphere a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A solid geometric figure that is perfectly round and defined by a surface where every point is equidistant from a central point.";
+    edu:partOf :ThreeDimensionalObjects.
+:Square a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of four-sided polygons with four right angles and four equal sides, their properties, and related measurements.";
+    edu:partOf :Rectangle.
 :Statistics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides a framework for collecting, organizing, analyzing, and interpreting data. It provides tools for quantifying and modeling randomness, variability, and uncertainty in data.".
 :Subtraction a owl:NamedIndividual, edu:Area;
@@ -301,7 +325,7 @@
     rdfs:isDefinedBy "Solid geometric figures that have length, width, and depth, such as spheres, cubes, and cylinders.";
     edu:partOf :GeometricObjects.
 :Triangle a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of three-sided polygons, their properties, and related measurements including area and perimeter.";
+    rdfs:isDefinedBy "The study of three-sided polygons, their properties, and related measurements.";
     edu:partOf :TwoDimensionalObjects.
 :Trigonometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of geometry that studies relationships between side lengths and angles of triangles.";
