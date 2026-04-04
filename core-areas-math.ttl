@@ -52,9 +52,11 @@
     edu:partOf :AngleCalculation.
 :Cube a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six congruent square faces where each pair of opposite faces is parallel.";
+    edu:integrates :Square;
     edu:partOf :RectangularPrism.
 :Cylinder a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A three-dimensional solid consisting of two parallel circular bases connected by a curved surface.";
+    edu:integrates :Circle, :Rectangle;
     edu:partOf :ThreeDimensionalObjects.
 :DecimalArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers using a base-10 positional notation system, where a decimal point separates the integer component from a fractional component expressed as a sum of negative powers of ten.";
@@ -289,6 +291,7 @@
     edu:partOf :IntuitiveMathematics.
 :Pyramid a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polyhedron formed by connecting a polygonal base and a point, called the apex.";
+    edu:integrates :Polygon, :Triangle;
     edu:partOf :ThreeDimensionalObjects.
 :Quadrilateral a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with four edges and four vertices.";
