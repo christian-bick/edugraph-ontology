@@ -48,7 +48,7 @@
     edu:partOf :ThreeDimensionalObjects.
 :Cosine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side adjacent to an acute angle (in a right-angled triangle) to the hypotenuse.";
-    edu:partOf :Trigonometry.
+    edu:partOf :AngleCalculation.
 :Cube a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six congruent square faces where each pair of opposite faces is parallel.";
     edu:partOf :RectangularPrism.
@@ -330,7 +330,7 @@
     edu:partOf :ShapeRecognition.
 :Sine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side opposite a given angle (in a right-angled triangle) to the hypotenuse.";
-    edu:partOf :Trigonometry.
+    edu:partOf :AngleCalculation.
 :SpatialModelling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating mental or physical representations of objects and their spatial relationships.";
     edu:partOf :SpatialSense.
@@ -359,16 +359,13 @@
     edu:partOf :GeometricCalculations.
 :Tangent a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side opposite a given angle to the side adjacent to that angle.";
-    edu:partOf :Trigonometry.
+    edu:partOf :AngleCalculation.
 :ThreeDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Solid geometric figures that have length, width, and depth, such as spheres, cubes, and cylinders.";
     edu:partOf :GeometricObjects.
 :Triangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of three-sided polygons, their properties, and related measurements.";
     edu:partOf :Polygon.
-:Trigonometry a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The branch of geometry that studies relationships between side lengths and angles of triangles.";
-    edu:partOf :Geometry.
 :TwoDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Flat geometric figures that have length and width, such as polygons and circles.";
     edu:partOf :GeometricObjects.
