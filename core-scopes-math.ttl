@@ -119,6 +119,13 @@
     edu:partOf :NumericSpace.
 :IntegerNumbers a owl:NamedIndividual, edu:Scope;
     edu:partOf :RealNumbers.
+:IntegersWithoutZero a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Does not involve zero as a number.";
+    edu:partOf :IntegerNumbers.
+:IntegersWithZero a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves zero as a number.";
+    edu:expands :IntegersWithoutZero;
+    edu:partOf :IntegerNumbers.
 :IrrationalNumbers a owl:NamedIndividual, edu:Scope;
     edu:expands :RationalNumbers;
     edu:partOf :RealNumbers.
@@ -235,13 +242,6 @@
     edu:partOf :NumericRange.
 :NumbersWithoutNegatives a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Does not involve negative numbers.";
-    edu:partOf :NumericRange.
-:NumbersWithoutZero a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Does not involve zero as a number.";
-    edu:partOf :NumericRange.
-:NumbersWithZero a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves zero as a number.";
-    edu:expands :NumbersWithoutZero;
     edu:partOf :NumericRange.
 :NumberTiles a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves number tiles.";
