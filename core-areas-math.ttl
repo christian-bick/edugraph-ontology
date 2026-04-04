@@ -369,12 +369,14 @@
     edu:partOf :AngleCalculation.
 :ThreeDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Solid geometric figures that have length, width, and depth, such as spheres, cubes, and cylinders.";
+    edu:expands :TwoDimensionalObjects;
     edu:partOf :GeometricObjects.
 :Triangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of three-sided polygons, their properties, and related measurements.";
     edu:partOf :Polygon.
 :TwoDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Flat geometric figures that have length and width, such as polygons and circles.";
+    edu:expands :OneDimensionalObjects;
     edu:partOf :GeometricObjects.
 :VectorConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quantity characterized by both magnitude and direction, typically represented as a directed line segment.";
