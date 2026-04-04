@@ -20,7 +20,7 @@
     rdfs:isDefinedBy "The calculation of the measurement of the space between two intersecting lines or surfaces.";
     edu:partOf :GeometricCalculations.
 :AngleConcept a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The figure formed by two rays, called the sides of the angle, sharing a common endpoint, called the vertex of the angle.";
+    rdfs:isDefinedBy "A figure formed by two rays sharing a common endpoint, representing the amount of rotation or divergence between them.";
     edu:partOf :GeometryConcepts.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
@@ -133,6 +133,9 @@
 :IntersectingLines a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Lines that cross each other at exactly one point.";
     edu:partOf :LineConcept.
+:IntersectingPlanes a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Two or more flat, two-dimensional surfaces that share a common line.";
+    edu:partOf :PlaneConcept.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
     edu:partOf :NumerationWithIntervals.
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
@@ -218,6 +221,9 @@
 :ParallelLines a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Lines in a plane which do not meet; that is, two straight lines in a plane that do not intersect at any point.";
     edu:partOf :LineConcept.
+:ParallelPlanes a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Two or more flat, two-dimensional surfaces that do not intersect.";
+    edu:partOf :PlaneConcept.
 :PerimeterCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the continuous line forming the boundary of a closed geometric figure.";
     edu:partOf :GeometricCalculations.
