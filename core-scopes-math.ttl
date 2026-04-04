@@ -60,7 +60,6 @@
     edu:partOf :TemperatureAbstraction.
 :CentimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in centimeters.";
-    edu:expands :MeterScale;
     edu:partOf :MetricScale.
 :CountingSymbols a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves counting symbols.";
@@ -144,7 +143,6 @@
     edu:partOf :WeightAbstraction.
 :KilometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "involves distances expressed in kilometers.";
-    edu:expands :MeterScale;
     edu:partOf :MetricScale.
 :LaserRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a laser ruler.";
@@ -175,7 +173,6 @@
     edu:partOf :DistanceAbstraction.
 :MicrometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "involves distances expressed in micrometers.";
-    edu:expands :MeterScale;
     edu:partOf :MetricScale.
 :MilligramScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in milligrams.";
@@ -185,7 +182,6 @@
     edu:partOf :VolumeAbstraction.
 :MillimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in millimeters";
-    edu:expands :MeterScale;
     edu:partOf :MetricScale.
 :MillisecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of milliseconds.";
@@ -198,7 +194,6 @@
     edu:partOf :TimeIntervals.
 :NanometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in nanometers.";
-    edu:expands :MeterScale;
     edu:partOf :MetricScale.
 :NanosecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of nanoseconds.";
