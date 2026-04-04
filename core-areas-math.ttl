@@ -89,6 +89,9 @@
     rdfs:isDefinedBy "Digit notation uses symbols from 0 to 9 to represent any number.";
     edu:expands :NumericIdentity;
     edu:partOf :NumberNotation.
+:DistanceCalculation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The calculation of the linear extent of a geometric object or the distance between two points.";
+    edu:partOf :GeometricCalculations.
 :Division a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one number by another.";
     edu:inverts :Multiplication;
@@ -152,9 +155,6 @@
     edu:partOf :NumerationWithIntervals.
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts.".
-:LengthCalculation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The calculation of the linear extent of a geometric object or the distance between two points.";
-    edu:partOf :GeometricCalculations.
 :Line a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of lines and their relationships, including parallels, intersections, and perpendicularity.";
     edu:partOf :OneDimensionalObjects.
