@@ -56,10 +56,6 @@
 :DecimalNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent decimals, including the floating point and its meaning.";
     edu:partOf :DecimalSpace.
-:DecimalOperations a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The rules and procedures for performing fundamental mathematical operations on rational numbers expressed as decimals in base-10 positional notation.";
-    edu:integrates :IntegerOperations;
-    edu:partOf :DecimalSpace.
 :DecimalPadding a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures that adjust the digits following the floating point to ensure uniform decimal places as a part of decimal number operations such as addition.";
     edu:partOf :DecimalEquivalence.
@@ -132,10 +128,6 @@
     rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator.";
     edu:partOf :FractionArithmetic;
     edu:translates :IntegerDivision.
-:FractionOperations a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The application of mathematical operations to rational numbers through the systematic manipulation of numerators and denominators to derive a resultant value.";
-    edu:integrates :IntegerOperations;
-    edu:partOf :FractionArithmetic.
 :FractionRoot a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the fraction that, when raised to a certain power, produces a given number.\n\nExample: The square root of 1/4 is 1/2 because (1/2) ^ 2 = 1/4";
     edu:partOf :Root.
@@ -172,9 +164,6 @@
     edu:partOf :Multiplication.
 :IntegerNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols used to represent integers.\n\nExample: Using the symbols -3, 0, and 12 to represent integers.";
-    edu:partOf :IntegerArithmetic.
-:IntegerOperations a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The execution of fundamental mathematical operations on whole numbers and their additive inverses, adhering to specific rules for signs and magnitude to determine results within the set of integers.";
     edu:partOf :IntegerArithmetic.
 :IntegerRegrouping a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Also referred to as carrying or borrowing. The process of exchanging values between place value positions to facilitate arithmetic operations such as addition and subtraction within the set of integer numbers.";
