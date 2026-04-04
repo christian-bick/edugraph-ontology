@@ -28,7 +28,7 @@
     rdfs:isDefinedBy "Base operations are the fundamental arithmetic actions performed on numbers that all other arithmetic operations are based one.";
     edu:partOf :NumberSense.
 :Calculus a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The branch of mathematics that provides tools for analyzing rates of change and accumulation. It deals with instantaneous rates of change that affect the slopes of curves, as well as with accumulation that affects areas under curves.".
+    rdfs:isDefinedBy "The branch of mathematics that provides tools for analyzing rates of change and accumulation. It deals with instantaneous rates of change that affect the slopes of curves, as well as with accumulation that affect areas under curves.".
 :Circle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of circles, their properties, and related functions including Pi.";
     edu:partOf :TwoDimensionalObjects.
@@ -132,9 +132,6 @@
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts.".
 :Line a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A straight one-dimensional figure having no thickness and extending infinitely in both directions.";
-    edu:partOf :OneDimensionalObjects;
-    a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of lines and their relationships, including parallels, intersections, and perpendicularity.";
     edu:partOf :OneDimensionalObjects.
 :LinearShapeDrawing a owl:NamedIndividual, edu:Area;
