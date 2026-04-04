@@ -27,6 +27,7 @@
     edu:partOf :GeometricConcepts.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
+    edu:expands :LengthCalculation;
     edu:partOf :GeometricCalculations.
 :Arithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that deals with the properties and manipulation of numbers, including addition, subtraction, multiplication and division.".
@@ -90,7 +91,7 @@
     edu:expands :NumericIdentity;
     edu:partOf :NumberNotation.
 :DistanceCalculation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The calculation of the linear extent of a geometric object or the distance between two points.";
+    rdfs:isDefinedBy "The calculation of distance between two points.";
     edu:partOf :GeometricCalculations.
 :Division a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one number by another.";
@@ -155,6 +156,10 @@
     edu:partOf :NumerationWithIntervals.
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts.".
+:LengthCalculation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The calculation of the linear extent or measurement of a geometric object.";
+    edu:expands :DistanceCalculation;
+    edu:partOf :GeometricCalculations.
 :Line a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of lines and their relationships, including parallels, intersections, and perpendicularity.";
     edu:partOf :OneDimensionalObjects.
@@ -247,6 +252,7 @@
     edu:partOf :Polygon.
 :PerimeterCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the continuous line forming the boundary of a closed geometric figure.";
+    edu:expands :LengthCalculation;
     edu:partOf :GeometricCalculations.
 :Pi a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical constant representing the ratio of a circle's circumference to its diameter.";
@@ -356,6 +362,7 @@
     edu:partOf :BaseOperations.
 :SurfaceAreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the total area of the surface of a three-dimensional object.";
+    edu:expands :AreaCalculation;
     edu:partOf :GeometricCalculations.
 :Tangent a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side opposite a given angle to the side adjacent to that angle.";
@@ -374,4 +381,5 @@
     edu:partOf :GeometricConcepts.
 :VolumeCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the amount of space that a substance or object occupies.";
+    edu:expands :AreaCalculation;
     edu:partOf :GeometricCalculations.
