@@ -13,48 +13,9 @@
 #    Object Properties
 #################################################################
 
-###  http://edugraph.io/edu#describesApplication
-edu:describesApplication rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf edu:describesProgression ;
-                         rdfs:domain edu:CompetencyEntity ;
-                         rdfs:range edu:CompetencyEntity ;
-                         rdfs:isDefinedBy "Describes the application between learning entities of the same type." .
-
-
-###  http://edugraph.io/edu#describesFormation
-edu:describesFormation rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf edu:describesProgression ;
-                       rdfs:domain edu:CompetencyEntity ;
-                       rdfs:range edu:CompetencyEntity ;
-                       rdfs:isDefinedBy "Describes the formation between learning entities of the same type." .
-
-
-###  http://edugraph.io/edu#describesMapping
-edu:describesMapping rdf:type owl:ObjectProperty ;
-                     rdfs:domain edu:CompetencyEntity ;
-                     rdfs:range edu:CompetencyEntity ;
-                     rdfs:isDefinedBy "Describes how entities can be formed in the terms of other entities." .
-
-
-###  http://edugraph.io/edu#describesProgression
-edu:describesProgression rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf owl:topObjectProperty ;
-                         rdfs:domain edu:CompetencyEntity ;
-                         rdfs:range edu:CompetencyEntity ;
-                         rdfs:isDefinedBy "Describes the progression between learning entities of the same type." .
-
-
-###  http://edugraph.io/edu#describesStructure
-edu:describesStructure rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf owl:topObjectProperty ;
-                       rdfs:domain owl:Thing ;
-                       rdfs:range owl:Thing ;
-                       rdfs:isDefinedBy "Describes the structure between learning entities of the same type." .
-
-
 ###  http://edugraph.io/edu#expandedBy
 edu:expandedBy rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf edu:describesFormation ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
                owl:inverseOf edu:expands ;
                rdfs:domain edu:CompetencyEntity ;
                rdfs:range edu:CompetencyEntity .
@@ -62,7 +23,7 @@ edu:expandedBy rdf:type owl:ObjectProperty ;
 
 ###  http://edugraph.io/edu#expands
 edu:expands rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf edu:describesFormation ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:domain edu:CompetencyEntity ;
             rdfs:range edu:CompetencyEntity ;
             rdfs:isDefinedBy """A expands B when understanding A is based on an understanding of B.
@@ -75,7 +36,7 @@ For example:
 
 ###  http://edugraph.io/edu#hasPart
 edu:hasPart rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf edu:describesStructure ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
             owl:inverseOf edu:partOf ;
             rdfs:domain owl:Thing ;
             rdfs:range owl:Thing .
@@ -83,7 +44,7 @@ edu:hasPart rdf:type owl:ObjectProperty ;
 
 ###  http://edugraph.io/edu#integratedBy
 edu:integratedBy rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf edu:describesApplication ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
                  owl:inverseOf edu:integrates ;
                  rdfs:domain edu:CompetencyEntity ;
                  rdfs:range edu:CompetencyEntity .
@@ -91,7 +52,7 @@ edu:integratedBy rdf:type owl:ObjectProperty ;
 
 ###  http://edugraph.io/edu#integrates
 edu:integrates rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf edu:describesApplication ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:domain edu:CompetencyEntity ;
                rdfs:range edu:CompetencyEntity ;
                rdfs:isDefinedBy """A integrates B when A is synthesized in parts using B.
@@ -104,7 +65,7 @@ For example:
 
 ###  http://edugraph.io/edu#invertedBy
 edu:invertedBy rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf edu:describesFormation ;
+               rdfs:subPropertyOf edu:expandedBy ;
                owl:inverseOf edu:inverts ;
                rdfs:domain edu:CompetencyEntity ;
                rdfs:range edu:CompetencyEntity .
@@ -112,7 +73,7 @@ edu:invertedBy rdf:type owl:ObjectProperty ;
 
 ###  http://edugraph.io/edu#inverts
 edu:inverts rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf edu:describesFormation ;
+            rdfs:subPropertyOf edu:expands ;
             rdfs:domain edu:CompetencyEntity ;
             rdfs:range edu:CompetencyEntity ;
             rdfs:isDefinedBy """A inverts B when one is the logical inverse concept of the other. This relation is in theory symmetric but in practice oftentimes has a high likelyhood of one concept preceeding the other.
@@ -125,23 +86,22 @@ For example:
 
 ###  http://edugraph.io/edu#involvedBy
 edu:involvedBy rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf edu:describesMapping ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
                owl:inverseOf edu:involves ;
                rdfs:domain edu:CompetencyDescriptor ;
-               rdfs:range edu:CompetencyDescription .
+               rdfs:range edu:CompetencyEntity .
 
 
 ###  http://edugraph.io/edu#involves
 edu:involves rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf edu:describesMapping ;
-             rdfs:domain edu:CompetencyDescription ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:range edu:CompetencyDescriptor ;
-             rdfs:isDefinedBy "A competency is described through descriptors involved in that competency." .
+             rdfs:isDefinedBy "When a competency entity involves a competency descriptor, it forms a more specialized competency entity that can be identified through that descriptor." .
 
 
 ###  http://edugraph.io/edu#partOf
 edu:partOf rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf edu:describesStructure ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
            rdfs:domain owl:Thing ;
            rdfs:range owl:Thing ;
            rdfs:isDefinedBy "An entity that is part of another entity inherits its attributes and relations." .
@@ -149,7 +109,7 @@ edu:partOf rdf:type owl:ObjectProperty ;
 
 ###  http://edugraph.io/edu#translatedBy
 edu:translatedBy rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf edu:describesApplication ;
+                 rdfs:subPropertyOf edu:integratedBy ;
                  owl:inverseOf edu:translates ;
                  rdfs:domain edu:CompetencyEntity ;
                  rdfs:range edu:CompetencyEntity .
@@ -157,7 +117,7 @@ edu:translatedBy rdf:type owl:ObjectProperty ;
 
 ###  http://edugraph.io/edu#translates
 edu:translates rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf edu:describesApplication ;
+               rdfs:subPropertyOf edu:integrates ;
                rdfs:domain edu:CompetencyEntity ;
                rdfs:range edu:CompetencyEntity ;
                rdfs:isDefinedBy """A translates B when one is a representation of the other. This relation is in theory symmetric but in practice oftentimes has a high likelyhood of one representation preceeding the other.
@@ -186,8 +146,20 @@ edu:Area rdf:type owl:Class ;
 
 ###  http://edugraph.io/edu#CompetencyDescription
 edu:CompetencyDescription rdf:type owl:Class ;
+                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                owl:onProperty edu:involves ;
+                                                owl:someValuesFrom edu:Ability
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty edu:involves ;
+                                                owl:someValuesFrom edu:Area
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty edu:involves ;
+                                                owl:someValuesFrom edu:Scope
+                                              ] ;
                           rdfs:subClassOf edu:CompetencyEntity ;
-                          rdfs:isDefinedBy "Describes a competency through observable attributes." .
+                          rdfs:isDefinedBy "Describes a competency through the involved observable attributes." .
 
 
 ###  http://edugraph.io/edu#CompetencyDescriptor
@@ -206,6 +178,24 @@ edu:CompetencyEntity rdf:type owl:Class ;
 edu:Scope rdf:type owl:Class ;
           rdfs:subClassOf edu:CompetencyDescriptor ;
           rdfs:comment "An observable context of learning that affects abstraction, variation, generalization, complexity and ultimately measurable differences in difficulty across various areas." .
+
+
+###  http://edugraph.io/edu#ScopedAbility
+edu:ScopedAbility rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                        owl:onProperty edu:involves ;
+                                        owl:someValuesFrom edu:Scope
+                                      ] ;
+                  rdfs:subClassOf edu:Ability .
+
+
+###  http://edugraph.io/edu#ScopedArea
+edu:ScopedArea rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty edu:involves ;
+                                     owl:someValuesFrom edu:Scope
+                                   ] ;
+               rdfs:subClassOf edu:Area .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
