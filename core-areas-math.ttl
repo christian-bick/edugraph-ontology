@@ -342,6 +342,9 @@
 :TwoDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Flat geometric figures that have length and width, such as polygons and circles.";
     edu:partOf :GeometricObjects.
+:VectorConcept a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A quantity characterized by both magnitude and direction, typically represented as a directed line segment.";
+    edu:partOf :GeometryConcepts.
 :VolumeCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the amount of space that a substance or object occupies.";
     edu:partOf :GeometricCalculations.
