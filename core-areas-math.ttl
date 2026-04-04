@@ -132,7 +132,7 @@
     edu:partOf :IntegerArithmetic.
 :IntersectingLines a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Lines that cross each other at exactly one point.";
-    edu:partOf :Line.
+    edu:partOf :LineConcept.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
     edu:partOf :NumerationWithIntervals.
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
@@ -217,7 +217,7 @@
     edu:partOf :GeometricObjects.
 :ParallelLines a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Lines in a plane which do not meet; that is, two straight lines in a plane that do not intersect at any point.";
-    edu:partOf :Line.
+    edu:partOf :LineConcept.
 :PerimeterCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the continuous line forming the boundary of a closed geometric figure.";
     edu:partOf :GeometricCalculations.
@@ -279,7 +279,7 @@
     edu:partOf :ThreeDimensionalObjects.
 :RightAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle of exactly 90 degrees, corresponding to a quarter turn.";
-    edu:partOf :Line.
+    edu:partOf :AngleConcept.
 :Root a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the number that, when raised to a certain power, produces a given number.\n\nExample: The cube root of 64 is 4 because 4 ^ 3 = 64";
     edu:inverts :Exponentiation;
