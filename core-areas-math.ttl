@@ -24,7 +24,6 @@
     edu:partOf :GeometricCalculations.
 :AngleConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A figure formed by two rays sharing a common endpoint, representing the amount of rotation or divergence between them.";
-    edu:integrates :Ray;
     edu:partOf :GeometricConcepts.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
@@ -324,7 +323,7 @@
     edu:partOf :OneDimensionalObjects.
 :Rectangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements.";
-    edu:integrates :ParallelLines, :RightAngle;
+    edu:integrates :RightAngle;
     edu:partOf :Parallelogram.
 :RectangularPrism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six rectangular faces where each pair of opposite faces is congruent and parallel.";
