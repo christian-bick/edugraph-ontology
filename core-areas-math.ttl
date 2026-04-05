@@ -24,7 +24,7 @@
     edu:partOf :GeometricCalculations.
 :AngleConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The amount of rotation or divergence between two intersecting rays, lines or planes.";
-    edu:expands :Intersection, :LineConcept;
+    edu:expands :IntersectionRelation, :LineConcept;
     edu:partOf :GeometricConcepts.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
@@ -49,7 +49,7 @@
     rdfs:isDefinedBy "A three-dimensional geometric shape that tapers smoothly from a flat base to a point called the apex or vertex.";
     edu:integrates :Circle;
     edu:partOf :ThreeDimensionalObjects.
-:Congruence a owl:NamedIndividual, edu:Area;
+:CongruenceRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric figures that have the exact same size and shape.";
     edu:partOf :GeometricRelations.
 :Cosine a owl:NamedIndividual, edu:Area;
@@ -156,7 +156,7 @@
 :IntegerSigns a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate an integer's direction and magnitude relative to zero.";
     edu:partOf :IntegerArithmetic.
-:Intersection a owl:NamedIndividual, edu:Area;
+:IntersectionRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric entities that share one or more common points where they meet or cross.";
     edu:partOf :GeometricRelations.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
@@ -249,12 +249,12 @@
 :OneDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Geometric objects that have only length, such as line segments and rays.";
     edu:partOf :GeometricObjects.
-:Parallelism a owl:NamedIndividual, edu:Area;
+:ParallelismRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between lines or planes that are always the same distance apart and never intersect.";
     edu:partOf :GeometricRelations.
 :Parallelogram a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with two pairs of parallel sides, their properties, and related measurements.";
-    edu:integrates :Parallelism;
+    edu:integrates :ParallelismRelation;
     edu:partOf :Quadrilateral.
 :Pentagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with five edges and five vertices.";
@@ -263,7 +263,7 @@
     rdfs:isDefinedBy "The calculation of the continuous line forming the boundary of a closed geometric figure.";
     edu:expands :LengthCalculation;
     edu:partOf :GeometricCalculations.
-:Perpendicularity a owl:NamedIndividual, edu:Area;
+:PerpendicularityRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between two geometric objects that intersect at a right angle (90 degrees).";
     edu:partOf :GeometricRelations.
 :Pi a owl:NamedIndividual, edu:Area;
@@ -282,7 +282,7 @@
     edu:partOf :TwoDimensionalObjects.
 :Prism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has two congruent and parallel bases and lateral faces that are parallelograms.";
-    edu:integrates :Congruence, :Parallelism;
+    edu:integrates :CongruenceRelation, :ParallelismRelation;
     edu:partOf :ThreeDimensionalObjects.
 :ProportionAbstraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Proportion abstraction is the ability to generalize proportional relationships and apply them to new situations.";
@@ -352,7 +352,7 @@
 :ShapeSymmetry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding how a shape can be divided into identical halves that mirror each other.";
     edu:partOf :ShapeRecognition.
-:Similarity a owl:NamedIndividual, edu:Area;
+:SimilarityRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric figures that have the same shape, with corresponding angles being equal and corresponding sides being in proportion.";
     edu:partOf :GeometricRelations.
 :Sine a owl:NamedIndividual, edu:Area;
@@ -386,7 +386,7 @@
     rdfs:isDefinedBy "The calculation of the total area of the surface of a three-dimensional object.";
     edu:expands :AreaCalculation;
     edu:partOf :GeometricCalculations.
-:Symmetry a owl:NamedIndividual, edu:Area;
+:SymmetryRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The property of a geometric figure to be invariant under certain transformations, such as reflection, rotation, or translation.";
     edu:partOf :GeometricRelations.
 :Tangent a owl:NamedIndividual, edu:Area;
