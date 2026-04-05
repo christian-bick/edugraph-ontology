@@ -282,7 +282,7 @@
     edu:partOf :TwoDimensionalObjects.
 :Prism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has two congruent and parallel bases and lateral faces that are parallelograms.";
-    edu:integrates :Parallelogram;
+    edu:integrates :Congruence, :Parallelism;
     edu:partOf :ThreeDimensionalObjects.
 :ProportionAbstraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Proportion abstraction is the ability to generalize proportional relationships and apply them to new situations.";
