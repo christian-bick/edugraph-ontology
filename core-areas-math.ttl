@@ -98,6 +98,9 @@
     rdfs:isDefinedBy "Digit notation uses symbols from 0 to 9 to represent any number.";
     edu:expands :NumericIdentity;
     edu:partOf :NumberNotation.
+:Dilation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A transformation that produces an image that is the same shape as the original, but is a different size, altering the scale of the geometric object.";
+    edu:partOf :GeometricTransformations.
 :DistanceCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of distance between two points.";
     edu:partOf :GeometricCalculations.
@@ -142,6 +145,9 @@
     edu:partOf :Geometry.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
+:GlideReflection a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A composition of transformations that involves a translation followed by a reflection across a line parallel to the direction of translation.";
+    edu:partOf :GeometricTransformations.
 :Hexagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with six edges and six vertices.";
     edu:partOf :Polygon.
@@ -338,6 +344,9 @@
     rdfs:isDefinedBy "A solid geometric figure that has six rectangular faces where each pair of opposite faces is congruent and parallel.";
     edu:integrates :Rectangle;
     edu:partOf :Prism.
+:Reflection a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A transformation that flips a geometric figure across a line, creating a mirror image.";
+    edu:partOf :GeometricTransformations.
 :RightAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle of exactly 90 degrees, corresponding to a quarter turn.";
     edu:partOf :AngleConcept.
@@ -345,6 +354,9 @@
     rdfs:isDefinedBy "Finding the number that, when raised to a certain power, produces a given number.\n\nExample: The cube root of 64 is 4 because 4 ^ 3 = 64";
     edu:inverts :Exponentiation;
     edu:partOf :NumberOperations.
+:Rotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A transformation that turns a geometric figure around a fixed point, known as the center of rotation, by a specific angle.";
+    edu:partOf :GeometricTransformations.
 :SetTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies sets, which are collections of objects. It provides a fundamental language and tools for defining and working with mathematical objects.".
 :ShapeCongruence a owl:NamedIndividual, edu:Area;
@@ -356,6 +368,9 @@
 :ShapeSymmetry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding how a shape can be divided into identical halves that mirror each other.";
     edu:partOf :ShapeRecognition.
+:ShearTransformation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A transformation that displaces each point of a geometric figure in a given direction by an amount proportional to its signed distance from a line parallel to that direction.";
+    edu:partOf :GeometricTransformations.
 :SimilarityRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric figures that have the same shape, with corresponding angles being equal and corresponding sides being in proportion.";
     edu:partOf :GeometricRelations.
@@ -401,6 +416,9 @@
     rdfs:isDefinedBy "Solid geometric figures that have length, width, and depth, such as spheres, cubes, and cylinders.";
     edu:expands :TwoDimensionalObjects;
     edu:partOf :GeometricObjects.
+:Translation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A transformation that slides a geometric figure in a specific direction and by a specific distance without altering its shape, size, or orientation.";
+    edu:partOf :GeometricTransformations.
 :Triangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of three-sided polygons, their properties, and related measurements.";
     edu:partOf :Polygon.
