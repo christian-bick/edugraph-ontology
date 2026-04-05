@@ -145,9 +145,6 @@
     edu:partOf :Geometry.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
-:GlideReflection a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A composition of transformations that involves a translation followed by a reflection across a line parallel to the direction of translation.";
-    edu:partOf :GeometricTransformations.
 :Hexagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with six edges and six vertices.";
     edu:partOf :Polygon.
