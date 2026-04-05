@@ -24,7 +24,7 @@
     edu:partOf :GeometricCalculations.
 :AngleConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The amount of rotation or divergence between two intersecting rays, lines or planes.";
-    edu:expands :LineConcept;
+    edu:expands :Intersection, :LineConcept;
     edu:partOf :GeometricConcepts.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
