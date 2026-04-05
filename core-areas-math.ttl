@@ -24,6 +24,7 @@
     edu:partOf :GeometricCalculations.
 :AngleConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A figure formed by two rays sharing a common endpoint, representing the amount of rotation or divergence between them.";
+    edu:integrates :Ray;
     edu:partOf :GeometricConcepts.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
@@ -46,6 +47,7 @@
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
 :Cone a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A three-dimensional geometric shape that tapers smoothly from a flat base to a point called the apex or vertex.";
+    edu:integrates :Circle, :PointConcept;
     edu:partOf :ThreeDimensionalObjects.
 :Cosine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side adjacent to an acute angle (in a right-angled triangle) to the hypotenuse.";
@@ -150,9 +152,11 @@
     edu:partOf :IntegerArithmetic.
 :IntersectingLines a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Lines that cross each other at exactly one point.";
+    edu:integrates :LineConcept, :PointConcept;
     edu:partOf :LineConcept.
 :IntersectingPlanes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two or more flat, two-dimensional surfaces that share a common line.";
+    edu:integrates :PlaneConcept;
     edu:partOf :PlaneConcept.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
     edu:partOf :NumerationWithIntervals.
@@ -173,6 +177,7 @@
     edu:partOf :GeometricConcepts.
 :LineSegment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
+    edu:integrates :PointConcept;
     edu:partOf :OneDimensionalObjects.
 :Logarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.";
@@ -245,9 +250,15 @@
     edu:partOf :GeometricObjects.
 :ParallelLines a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Lines in a plane which do not meet; that is, two straight lines in a plane that do not intersect at any point.";
+    edu:integrates :LineConcept, :PlaneConcept;
     edu:partOf :LineConcept.
+:Parallelogram a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of four-sided polygons with two pairs of parallel sides, their properties, and related measurements.";
+    edu:integrates :ParallelLines;
+    edu:partOf :Quadrilateral.
 :ParallelPlanes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two or more flat, two-dimensional surfaces that do not intersect.";
+    edu:integrates :PlaneConcept;
     edu:partOf :PlaneConcept.
 :Pentagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with five edges and five vertices.";
@@ -267,9 +278,11 @@
     edu:partOf :GeometricConcepts.
 :Polygon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
+    edu:integrates :LineSegment, :PointConcept;
     edu:partOf :TwoDimensionalObjects.
 :Prism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has two congruent and parallel bases and lateral faces that are parallelograms.";
+    edu:integrates :ParallelPlanes, :Parallelogram;
     edu:partOf :ThreeDimensionalObjects.
 :ProportionAbstraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Proportion abstraction is the ability to generalize proportional relationships and apply them to new situations.";
@@ -291,7 +304,7 @@
     edu:partOf :IntuitiveMathematics.
 :Pyramid a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polyhedron formed by connecting a polygonal base and a point, called the apex.";
-    edu:integrates :Polygon, :Triangle;
+    edu:integrates :PointConcept, :Polygon;
     edu:partOf :ThreeDimensionalObjects.
 :Quadrilateral a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with four edges and four vertices.";
@@ -315,9 +328,11 @@
     edu:partOf :OneDimensionalObjects.
 :Rectangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements.";
-    edu:partOf :Quadrilateral.
+    edu:integrates :ParallelLines, :RightAngle;
+    edu:partOf :Parallelogram.
 :RectangularPrism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six rectangular faces where each pair of opposite faces is congruent and parallel.";
+    edu:integrates :Rectangle;
     edu:partOf :Prism.
 :RightAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle of exactly 90 degrees, corresponding to a quarter turn.";
@@ -351,6 +366,7 @@
     edu:partOf :ThreeDimensionalObjects.
 :Square a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles and four equal sides, their properties, and related measurements.";
+    edu:integrates :RightAngle;
     edu:partOf :Rectangle.
 :Statistics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides a framework for collecting, organizing, analyzing, and interpreting data. It provides tools for quantifying and modeling randomness, variability, and uncertainty in data.".
