@@ -152,11 +152,9 @@
     edu:partOf :IntegerArithmetic.
 :IntersectingLines a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Lines that cross each other at exactly one point.";
-    edu:integrates :LineConcept, :PointConcept;
     edu:partOf :LineConcept.
 :IntersectingPlanes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two or more flat, two-dimensional surfaces that share a common line.";
-    edu:integrates :PlaneConcept;
     edu:partOf :PlaneConcept.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
     edu:partOf :NumerationWithIntervals.
@@ -250,7 +248,6 @@
     edu:partOf :GeometricObjects.
 :ParallelLines a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Lines in a plane which do not meet; that is, two straight lines in a plane that do not intersect at any point.";
-    edu:integrates :LineConcept, :PlaneConcept;
     edu:partOf :LineConcept.
 :Parallelogram a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with two pairs of parallel sides, their properties, and related measurements.";
@@ -258,7 +255,6 @@
     edu:partOf :Quadrilateral.
 :ParallelPlanes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two or more flat, two-dimensional surfaces that do not intersect.";
-    edu:integrates :PlaneConcept;
     edu:partOf :PlaneConcept.
 :Pentagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with five edges and five vertices.";
