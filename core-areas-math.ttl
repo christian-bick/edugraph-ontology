@@ -251,6 +251,7 @@
     edu:partOf :GeometricRelations.
 :Parallelogram a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with two pairs of parallel sides, their properties, and related measurements.";
+    edu:integrates :Parallelism;
     edu:partOf :Quadrilateral.
 :Pentagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with five edges and five vertices.";
