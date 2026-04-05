@@ -156,6 +156,9 @@
 :IntegerSigns a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate an integer's direction and magnitude relative to zero.";
     edu:partOf :IntegerArithmetic.
+:Intersection a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship between geometric entities that share one or more common points where they meet or cross.";
+    edu:partOf :GeometricRelations.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
     edu:partOf :NumerationWithIntervals.
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
