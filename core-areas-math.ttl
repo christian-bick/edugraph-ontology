@@ -176,7 +176,6 @@
     edu:partOf :GeometricConcepts.
 :LineSegment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
-    edu:integrates :PointConcept;
     edu:partOf :OneDimensionalObjects.
 :Logarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.";
