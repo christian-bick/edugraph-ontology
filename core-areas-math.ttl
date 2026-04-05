@@ -24,6 +24,7 @@
     edu:partOf :GeometricCalculations.
 :AngleConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A figure formed by two rays sharing a common endpoint, representing the amount of rotation or divergence between them.";
+    edu:expands :LineConcept;
     edu:partOf :GeometricConcepts.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
@@ -171,6 +172,7 @@
     edu:partOf :SpatialModelling.
 :LineConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A straight, one-dimensional figure that has no thickness and extends infinitely in both directions.";
+    edu:expands :PointConcept;
     edu:partOf :GeometricConcepts.
 :LineSegment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
@@ -267,6 +269,7 @@
     edu:partOf :Circle.
 :PlaneConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A flat, two-dimensional surface that extends infinitely far.";
+    edu:expands :LineConcept;
     edu:partOf :GeometricConcepts.
 :PointConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A precise location or position on a plane, usually represented by a dot.";
@@ -394,6 +397,7 @@
     edu:partOf :GeometricObjects.
 :VectorConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quantity characterized by both magnitude and direction, typically represented as a directed line segment.";
+    edu:expands :LineConcept;
     edu:partOf :GeometricConcepts.
 :VolumeCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the amount of space that a substance or object occupies.";
