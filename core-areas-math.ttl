@@ -49,6 +49,9 @@
     rdfs:isDefinedBy "A three-dimensional geometric shape that tapers smoothly from a flat base to a point called the apex or vertex.";
     edu:integrates :Circle;
     edu:partOf :ThreeDimensionalObjects.
+:Congruence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship between geometric figures that have the exact same size and shape.";
+    edu:partOf :GeometricRelations.
 :Cosine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side adjacent to an acute angle (in a right-angled triangle) to the hypotenuse.";
     edu:partOf :AngleCalculation.
@@ -129,6 +132,9 @@
     edu:partOf :Geometry.
 :GeometricObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of specific geometric shapes and figures in one, two, and three dimensions.";
+    edu:partOf :Geometry.
+:GeometricRelations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of the relationships and interactions between geometric entities, such as congruence, similarity, parallelism, and symmetry.";
     edu:partOf :Geometry.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
@@ -246,6 +252,9 @@
 :OneDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Geometric objects that have only length, such as line segments and rays.";
     edu:partOf :GeometricObjects.
+:Parallelism a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship between lines or planes that are always the same distance apart and never intersect.";
+    edu:partOf :GeometricRelations.
 :ParallelLines a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Lines in a plane which do not meet; that is, two straight lines in a plane that do not intersect at any point.";
     edu:partOf :LineConcept.
@@ -263,6 +272,9 @@
     rdfs:isDefinedBy "The calculation of the continuous line forming the boundary of a closed geometric figure.";
     edu:expands :LengthCalculation;
     edu:partOf :GeometricCalculations.
+:Perpendicularity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship between two geometric objects that intersect at a right angle (90 degrees).";
+    edu:partOf :GeometricRelations.
 :Pi a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical constant representing the ratio of a circle's circumference to its diameter.";
     edu:partOf :Circle.
@@ -349,6 +361,9 @@
 :ShapeSymmetry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding how a shape can be divided into identical halves that mirror each other.";
     edu:partOf :ShapeRecognition.
+:Similarity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship between geometric figures that have the same shape, with corresponding angles being equal and corresponding sides being in proportion.";
+    edu:partOf :GeometricRelations.
 :Sine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side opposite a given angle (in a right-angled triangle) to the hypotenuse.";
     edu:partOf :AngleCalculation.
@@ -380,6 +395,9 @@
     rdfs:isDefinedBy "The calculation of the total area of the surface of a three-dimensional object.";
     edu:expands :AreaCalculation;
     edu:partOf :GeometricCalculations.
+:Symmetry a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The property of a geometric figure to be invariant under certain transformations, such as reflection, rotation, or translation.";
+    edu:partOf :GeometricRelations.
 :Tangent a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side opposite a given angle to the side adjacent to that angle.";
     edu:partOf :AngleCalculation.
