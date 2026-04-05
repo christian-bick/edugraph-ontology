@@ -51,6 +51,7 @@
     edu:partOf :ThreeDimensionalObjects.
 :CongruenceRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric figures that have the exact same size and shape.";
+    edu:expands :ShapeCongruence;
     edu:partOf :GeometricRelations.
 :Cosine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side adjacent to an acute angle (in a right-angled triangle) to the hypotenuse.";
@@ -388,6 +389,7 @@
     edu:partOf :GeometricCalculations.
 :SymmetryRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The property of a geometric figure to be invariant under certain transformations, such as reflection, rotation, or translation.";
+    edu:expands :ShapeSymmetry;
     edu:partOf :GeometricRelations.
 :Tangent a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side opposite a given angle to the side adjacent to that angle.";
