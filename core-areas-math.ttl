@@ -137,6 +137,9 @@
 :GeometricRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of the relationships and interactions between geometric entities, such as congruence, similarity, parallelism, and symmetry.";
     edu:partOf :Geometry.
+:GeometricTransformations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The application of transformations to geometric objects to alter their position, orientation, or scale, such as rotation, reflection, translation, and dilation.";
+    edu:partOf :Geometry.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
 :Hexagon a owl:NamedIndividual, edu:Area;
