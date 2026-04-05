@@ -23,7 +23,7 @@
     rdfs:isDefinedBy "The calculation of the measurement of the space between two intersecting lines or surfaces.";
     edu:partOf :GeometricCalculations.
 :AngleConcept a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A figure formed by two rays sharing a common endpoint, representing the amount of rotation or divergence between them.";
+    rdfs:isDefinedBy "The amount of rotation or divergence between two intersecting rays, lines or planes.";
     edu:expands :LineConcept;
     edu:partOf :GeometricConcepts.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
