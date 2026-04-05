@@ -46,7 +46,7 @@
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
 :Cone a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A three-dimensional geometric shape that tapers smoothly from a flat base to a point called the apex or vertex.";
-    edu:integrates :Circle, :PointConcept;
+    edu:integrates :Circle;
     edu:partOf :ThreeDimensionalObjects.
 :Cosine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side adjacent to an acute angle (in a right-angled triangle) to the hypotenuse.";
@@ -273,7 +273,7 @@
     edu:partOf :GeometricConcepts.
 :Polygon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
-    edu:integrates :LineSegment, :PointConcept;
+    edu:integrates :LineSegment;
     edu:partOf :TwoDimensionalObjects.
 :Prism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has two congruent and parallel bases and lateral faces that are parallelograms.";
@@ -299,7 +299,7 @@
     edu:partOf :IntuitiveMathematics.
 :Pyramid a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polyhedron formed by connecting a polygonal base and a point, called the apex.";
-    edu:integrates :PointConcept, :Polygon;
+    edu:integrates :Polygon;
     edu:partOf :ThreeDimensionalObjects.
 :Quadrilateral a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with four edges and four vertices.";
