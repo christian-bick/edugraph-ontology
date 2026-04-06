@@ -50,9 +50,6 @@
 :BaseOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Base operations are the fundamental arithmetic actions performed on numbers that all other arithmetic operations are based one.";
     edu:partOf :NumberSense.
-:BoundaryUnderstanding a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The comprehension of physical or visual boundaries, such as containers, hoops, or drawn lines, that define which objects belong inside or outside a specific collection.";
-    edu:partOf :CollectionSense.
 :Calculus a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides tools for analyzing rates of change and accumulation. It deals with instantaneous rates of change that affect the slopes of curves, as well as with accumulation that affect areas under curves.".
 :Circle a owl:NamedIndividual, edu:Area;
@@ -198,7 +195,7 @@
     edu:partOf :IntegerArithmetic.
 :IntersectionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification of objects that belong to two overlapping physical groups, often visualized through intersecting boundaries like Venn diagrams made of physical hoops.";
-    edu:expands :BoundaryUnderstanding, :ObjectSorting;
+    edu:expands :ObjectSorting;
     edu:partOf :CollectionSense.
 :IntersectionRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric entities that share one or more common points where they meet or cross.";
@@ -484,7 +481,7 @@
     edu:partOf :GeometricObjects.
 :UnionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The physical or visual act of combining two or more distinct, bounded collections into a single larger group, removing the boundaries between them.";
-    edu:expands :BoundaryUnderstanding, :GroupRecognition;
+    edu:expands :GroupRecognition;
     edu:partOf :CollectionSense.
 :VectorConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quantity characterized by both magnitude and direction, typically represented as a directed line segment.";
