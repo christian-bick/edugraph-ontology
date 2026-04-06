@@ -21,7 +21,7 @@
     edu:partOf :ArithmeticOperations.
 :AdjacentAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles that share a common vertex and a common side but do not overlap.";
-    edu:partOf :AngleRelationships.
+    edu:partOf :AngleRelations.
 :Algebra a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that generalizes arithmetics and where letters represent unknown numbers, allowing us to explore patterns, solve equations, and model real-world situations.".
 :Analysis a owl:NamedIndividual, edu:Area;
@@ -33,7 +33,7 @@
     rdfs:isDefinedBy "The amount of rotation or divergence between two intersecting rays, lines or planes.";
     edu:expands :IntersectionRelation, :LineConcept;
     edu:partOf :GeometricConcepts.
-:AngleRelationships a owl:NamedIndividual, edu:Area;
+:AngleRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships between pairs of angles, such as those formed by intersecting lines.";
     edu:partOf :GeometricRelations.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
@@ -76,7 +76,7 @@
     edu:translates :CircularShapeDrawing.
 :CircleRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of proportional and spatial relationships between various elements of a circle, such as its center, radius, diameter, circumference, arcs, chords, and tangent lines.";
-    edu:integrates :Circle;
+    edu:expands :Circle;
     edu:partOf :GeometricRelations.
 :CircularShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Circular shape drawing is the ability to create drawings or models of circular shapes.";
@@ -89,7 +89,7 @@
     edu:partOf :ArithmeticLaws.
 :ComplementaryAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles whose sum is exactly 90 degrees.";
-    edu:partOf :AngleRelationships.
+    edu:partOf :AngleRelations.
 :ComputationalMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
 :Cone a owl:NamedIndividual, edu:Area;
@@ -526,7 +526,7 @@
     edu:partOf :BaseOperations.
 :SupplementaryAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles whose sum is exactly 180 degrees.";
-    edu:partOf :AngleRelationships.
+    edu:partOf :AngleRelations.
 :SurfaceAreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the total area of the surface of a three-dimensional object.";
     edu:expands :AreaCalculation;
@@ -573,7 +573,7 @@
     edu:partOf :GeometricConcepts.
 :VerticalAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The pairs of opposite angles made by two intersecting lines.";
-    edu:partOf :AngleRelationships.
+    edu:partOf :AngleRelations.
 :VolumeCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the amount of space that a substance or object occupies.";
     edu:expands :AreaCalculation;
