@@ -54,7 +54,7 @@
     rdfs:isDefinedBy "The relationship between geometric figures that have the exact same size and shape.";
     edu:expands :ShapeIdentity;
     edu:partOf :GeometricRelations;
-    edu:translates :ShapeIdentity.
+    edu:translates :ShapeIdentity, :ShapeRotation.
 :Cosine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side adjacent to an acute angle (in a right-angled triangle) to the hypotenuse.";
     edu:partOf :AngleCalculation.
@@ -376,7 +376,8 @@
     edu:partOf :GeometricTransformations.
 :SimilarityRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric figures that have the same shape, with corresponding angles being equal and corresponding sides being in proportion.";
-    edu:partOf :GeometricRelations.
+    edu:partOf :GeometricRelations;
+    edu:translates :ShapeResizing, :ShapeRotation.
 :Sine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side opposite a given angle (in a right-angled triangle) to the hypotenuse.";
     edu:partOf :AngleCalculation.
@@ -413,7 +414,7 @@
     rdfs:isDefinedBy "The property of a geometric figure to be invariant under certain transformations, such as reflection, rotation, or translation.";
     edu:expands :ShapeReflection;
     edu:partOf :GeometricRelations;
-    edu:translates :ShapeReflection, :ShapeRotation.
+    edu:translates :ShapeReflection, :ShapeResizing, :ShapeRotation.
 :Tangent a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side opposite a given angle to the side adjacent to that angle.";
     edu:partOf :AngleCalculation.
