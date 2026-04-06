@@ -185,8 +185,7 @@
     edu:partOf :GeometricConcepts.
 :LineSegment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
-    edu:partOf :OneDimensionalObjects;
-    edu:translates :LinearShapeDrawing.
+    edu:partOf :OneDimensionalObjects.
 :Logarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.";
     edu:inverts :Exponentiation;
@@ -286,7 +285,8 @@
 :Polygon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
     edu:integrates :LineSegment;
-    edu:partOf :TwoDimensionalObjects.
+    edu:partOf :TwoDimensionalObjects;
+    edu:translates :LinearShapeDrawing.
 :Prism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has two congruent and parallel bases and lateral faces that are parallelograms.";
     edu:integrates :CongruenceRelation, :ParallelismRelation;
