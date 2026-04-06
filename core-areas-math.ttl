@@ -137,6 +137,7 @@
     edu:partOf :ArithmeticOperations.
 :ExpressionEvaluation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of calculating the value of an arithmetic expression by systematically applying operations according to established rules.";
+    edu:integrates :ArithmeticLaws, :OrderOfOperations, :ParenthesesUsage;
     edu:partOf :ArithmeticExpressions.
 :FractionArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
@@ -283,6 +284,7 @@
     edu:partOf :Quadrilateral.
 :ParenthesesUsage a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The use of grouping symbols in arithmetic expressions to override the standard order of operations and specify which calculations should be performed first.";
+    edu:expands :OrderOfOperations;
     edu:partOf :ArithmeticExpressions.
 :Pentagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with five edges and five vertices.";
