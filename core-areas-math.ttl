@@ -365,6 +365,9 @@
 :ShapeReflection a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding how a shape can be divided into identical halves that mirror each other.";
     edu:partOf :ShapeRecognition.
+:ShapeResizing a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Understanding how a shape can be increased or decreased in size while maintaining its original form.";
+    edu:partOf :ShapeRecognition.
 :ShapeRotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding how a shape can be turned around a fixed point while maintaining its original size and form.";
     edu:partOf :ShapeRecognition.
