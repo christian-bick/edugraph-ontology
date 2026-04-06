@@ -39,7 +39,8 @@
     rdfs:isDefinedBy "The branch of mathematics that provides tools for analyzing rates of change and accumulation. It deals with instantaneous rates of change that affect the slopes of curves, as well as with accumulation that affect areas under curves.".
 :Circle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of circles, their properties, and related functions including Pi.";
-    edu:partOf :TwoDimensionalObjects.
+    edu:partOf :TwoDimensionalObjects;
+    edu:translates :CircularShapeDrawing.
 :CircularShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Circular shape drawing is the ability to create drawings or models of circular shapes.";
     edu:partOf :SpatialModelling.
@@ -186,7 +187,8 @@
     edu:partOf :GeometricConcepts.
 :LineSegment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
-    edu:partOf :OneDimensionalObjects.
+    edu:partOf :OneDimensionalObjects;
+    edu:translates :LinearShapeDrawing.
 :Logarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.";
     edu:inverts :Exponentiation;
@@ -382,6 +384,7 @@
     edu:partOf :IntuitiveMathematics.
 :Sphere a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that is perfectly round and defined by a surface where every point is equidistant from a central point.";
+    edu:expands :Circle;
     edu:partOf :ThreeDimensionalObjects.
 :Square a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles and four equal sides, their properties, and related measurements.";
