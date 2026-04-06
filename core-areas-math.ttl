@@ -32,12 +32,21 @@
     edu:partOf :GeometricCalculations.
 :Arithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that deals with the properties and manipulation of numbers, including addition, subtraction, multiplication and division.".
+:ArithmeticExpressions a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The structured formulation and evaluation of numerical statements through the combination of values and operations, governed by mathematical laws and conventions such as the order of operations to represent and simplify quantitative relationships.";
+    edu:partOf :Arithmetic.
+:ArithmeticLaws a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The fundamental rules that govern the manipulation and simplification of arithmetic expressions, ensuring consistent and predictable results.";
+    edu:partOf :ArithmeticExpressions.
 :ArithmeticOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The systematic application of mathematical rules and procedures to combine, transform, or calculate values through fundamental actions such as addition, subtraction, multiplication, and division.";
     edu:partOf :Arithmetic.
 :ArithmeticSpaces a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The classification, representation, and properties of different sets of numbers such as integers, fractions, decimals including the symbolic frameworks used to express numerical values and their relationships.";
     edu:partOf :Arithmetic.
+:AssociativeLaw a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The mathematical principle stating that the way in which numbers are grouped by parentheses does not change their sum or product.";
+    edu:partOf :ArithmeticLaws.
 :BaseOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Base operations are the fundamental arithmetic actions performed on numbers that all other arithmetic operations are based one.";
     edu:partOf :NumberSense.
@@ -50,6 +59,9 @@
 :CircularShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Circular shape drawing is the ability to create drawings or models of circular shapes.";
     edu:partOf :SpatialModelling.
+:CommutativeLaw a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The mathematical principle stating that the order in which numbers are added or multiplied does not change their sum or product.";
+    edu:partOf :ArithmeticLaws.
 :ComputationalMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
 :Cone a owl:NamedIndividual, edu:Area;
@@ -112,6 +124,9 @@
 :DistanceCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of distance between two points.";
     edu:partOf :GeometricCalculations.
+:DistributiveLaw a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The mathematical principle stating that multiplying a sum by a number gives the same result as multiplying each addend by the number and then adding the products together.";
+    edu:partOf :ArithmeticLaws.
 :Division a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one number by another.";
     edu:inverts :Multiplication;
@@ -120,6 +135,9 @@
     rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.";
     edu:expands :Multiplication;
     edu:partOf :ArithmeticOperations.
+:ExpressionEvaluation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The process of calculating the value of an arithmetic expression by systematically applying operations according to established rules.";
+    edu:partOf :ArithmeticExpressions.
 :FractionArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
     edu:partOf :RationalArithmetic;
@@ -253,6 +271,9 @@
 :OneDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Geometric objects that have only length, such as line segments and rays.";
     edu:partOf :GeometricObjects.
+:OrderOfOperations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The standard set of rules that dictates the sequence in which multiple operations in an arithmetic expression must be performed to ensure a single, correct result.";
+    edu:partOf :ArithmeticExpressions.
 :ParallelismRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between lines or planes that are always the same distance apart and never intersect.";
     edu:partOf :GeometricRelations.
@@ -260,6 +281,9 @@
     rdfs:isDefinedBy "The study of four-sided polygons with two pairs of parallel sides, their properties, and related measurements.";
     edu:integrates :ParallelismRelation;
     edu:partOf :Quadrilateral.
+:ParenthesesUsage a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The use of grouping symbols in arithmetic expressions to override the standard order of operations and specify which calculations should be performed first.";
+    edu:partOf :ArithmeticExpressions.
 :Pentagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with five edges and five vertices.";
     edu:partOf :Polygon.
