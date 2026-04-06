@@ -166,6 +166,7 @@
     rdfs:isDefinedBy "The relationship between geometric entities that share one or more common points where they meet or cross.";
     edu:partOf :GeometricRelations.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Intervals with infinity is used to represent sets of numbers with unbounded limits.";
     edu:partOf :NumerationWithIntervals.
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts.".
