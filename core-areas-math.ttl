@@ -11,10 +11,17 @@
 :AcuteAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures less than 90 degrees.";
     edu:partOf :AngleConcept.
+:AcuteTriangle a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A triangle in which all three interior angles are acute angles.";
+    edu:integrates :AcuteAngle;
+    edu:partOf :Triangle.
 :Addition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Adding numbers together.";
     edu:expands :Sum;
     edu:partOf :ArithmeticOperations.
+:AdjacentAngles a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Two angles that share a common vertex and a common side but do not overlap.";
+    edu:partOf :AngleRelationships.
 :Algebra a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that generalizes arithmetics and where letters represent unknown numbers, allowing us to explore patterns, solve equations, and model real-world situations.".
 :Analysis a owl:NamedIndividual, edu:Area;
@@ -26,6 +33,9 @@
     rdfs:isDefinedBy "The amount of rotation or divergence between two intersecting rays, lines or planes.";
     edu:expands :IntersectionRelation, :LineConcept;
     edu:partOf :GeometricConcepts.
+:AngleRelationships a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of relationships between pairs of angles, such as those formed by intersecting lines.";
+    edu:partOf :GeometricRelations.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
     edu:expands :LengthCalculation;
@@ -52,6 +62,10 @@
     edu:partOf :NumberSense.
 :Calculus a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides tools for analyzing rates of change and accumulation. It deals with instantaneous rates of change that affect the slopes of curves, as well as with accumulation that affect areas under curves.".
+:CartesianPlane a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A two-dimensional plane defined by a horizontal axis and a vertical axis intersecting at a right angle.";
+    edu:integrates :LineConcept, :PerpendicularityRelation;
+    edu:partOf :CoordinateGeometry.
 :Circle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of circles, their properties, and related functions including Pi.";
     edu:partOf :TwoDimensionalObjects;
@@ -65,6 +79,9 @@
 :CommutativeLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that the order in which numbers are added or multiplied does not change their sum or product.";
     edu:partOf :ArithmeticLaws.
+:ComplementaryAngles a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Two angles whose sum is exactly 90 degrees.";
+    edu:partOf :AngleRelationships.
 :ComputationalMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
 :Cone a owl:NamedIndividual, edu:Area;
@@ -76,6 +93,9 @@
     edu:expands :ShapeIdentity;
     edu:partOf :GeometricRelations;
     edu:translates :ShapeIdentity, :ShapeRotation.
+:CoordinateGeometry a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of geometry using a coordinate system to define the position of points, lines, and shapes.";
+    edu:partOf :Geometry.
 :Cosine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side adjacent to an acute angle (in a right-angled triangle) to the hypotenuse.";
     edu:partOf :AngleCalculation.
@@ -134,6 +154,9 @@
     rdfs:isDefinedBy "Dividing one number by another.";
     edu:inverts :Multiplication;
     edu:partOf :ArithmeticOperations.
+:EquilateralTriangle a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A triangle in which all three sides are of equal length and all three angles are 60 degrees.";
+    edu:partOf :Triangle.
 :Exponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.";
     edu:expands :Multiplication;
@@ -205,6 +228,12 @@
     edu:partOf :NumerationWithIntervals.
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts.".
+:IsoscelesTriangle a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A triangle that has at least two sides of equal length.";
+    edu:partOf :Triangle.
+:Kite a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A quadrilateral with two distinct pairs of equal-length sides that are adjacent to each other.";
+    edu:partOf :Quadrilateral.
 :LengthCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the linear extent or measurement of a geometric object.";
     edu:expands :DistanceCalculation;
@@ -283,6 +312,10 @@
 :ObtuseAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures more than 90 degrees but less than 180 degrees.";
     edu:partOf :AngleConcept.
+:ObtuseTriangle a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A triangle that has one obtuse angle.";
+    edu:integrates :ObtuseAngle;
+    edu:partOf :Triangle.
 :OneDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Geometric objects that have only length, such as line segments and rays.";
     edu:partOf :GeometricObjects.
@@ -320,6 +353,10 @@
 :PointConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A precise location or position on a plane, usually represented by a dot.";
     edu:partOf :GeometricConcepts.
+:PointPlotting a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The process of locating and marking a point on a coordinate plane using a pair of numerical coordinates.";
+    edu:partOf :CoordinateGeometry;
+    edu:translates :PointConcept.
 :Polygon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
     edu:integrates :LineSegment;
@@ -383,9 +420,19 @@
 :Reflection a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that flips a geometric figure across a line, creating a mirror image.";
     edu:partOf :GeometricTransformations.
+:ReflexAngle a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "An angle that measures more than 180 degrees but less than 360 degrees.";
+    edu:partOf :AngleConcept.
+:Rhombus a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A parallelogram with four equal-length sides.";
+    edu:partOf :Parallelogram.
 :RightAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle of exactly 90 degrees, corresponding to a quarter turn.";
     edu:partOf :AngleConcept.
+:RightTriangle a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A triangle that has one right angle.";
+    edu:integrates :RightAngle;
+    edu:partOf :Triangle.
 :Root a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the number that, when raised to a certain power, produces a given number.\n\nExample: The cube root of 64 is 4 because 4 ^ 3 = 64";
     edu:inverts :Exponentiation;
@@ -393,6 +440,9 @@
 :Rotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that turns a geometric figure around a fixed point, known as the center of rotation, by a specific angle.";
     edu:partOf :GeometricTransformations.
+:ScaleneTriangle a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A triangle in which all three sides have different lengths.";
+    edu:partOf :Triangle.
 :SetComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The intuitive visual comparison of two bounded collections to determine relative quantities such as more, less, or equal, relying on spatial arrangement rather than formal counting.";
     edu:expands :GroupRecognition;
@@ -440,6 +490,9 @@
     edu:partOf :Rectangle.
 :Statistics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides a framework for collecting, organizing, analyzing, and interpreting data. It provides tools for quantifying and modeling randomness, variability, and uncertainty in data.".
+:StraightAngle a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "An angle that measures exactly 180 degrees, forming a straight line.";
+    edu:partOf :AngleConcept.
 :SubsetIdentification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The ability to recognize and isolate a smaller specific group of objects within a larger bounded collection based on a distinguishing visual attribute.";
     edu:expands :ObjectSorting;
@@ -453,6 +506,9 @@
     rdfs:isDefinedBy "Combining quantities to determine their total amount for any type of mathematical object, including numbers.";
     edu:expands :Increment;
     edu:partOf :BaseOperations.
+:SupplementaryAngles a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Two angles whose sum is exactly 180 degrees.";
+    edu:partOf :AngleRelationships.
 :SurfaceAreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the total area of the surface of a three-dimensional object.";
     edu:expands :AreaCalculation;
@@ -472,6 +528,9 @@
 :Translation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that slides a geometric figure in a specific direction and by a specific distance without altering its shape, size, or orientation.";
     edu:partOf :GeometricTransformations.
+:Trapezoid a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A quadrilateral with at least one pair of parallel sides.";
+    edu:partOf :Quadrilateral.
 :Triangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of three-sided polygons, their properties, and related measurements.";
     edu:partOf :Polygon.
@@ -487,6 +546,9 @@
     rdfs:isDefinedBy "A quantity characterized by both magnitude and direction, typically represented as a directed line segment.";
     edu:expands :LineConcept;
     edu:partOf :GeometricConcepts.
+:VerticalAngles a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The pairs of opposite angles made by two intersecting lines.";
+    edu:partOf :AngleRelationships.
 :VolumeCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the amount of space that a substance or object occupies.";
     edu:expands :AreaCalculation;
