@@ -66,10 +66,18 @@
     rdfs:isDefinedBy "A two-dimensional plane defined by a horizontal axis and a vertical axis intersecting at a right angle.";
     edu:integrates :LineConcept, :PerpendicularityRelation;
     edu:partOf :CoordinateGeometry.
+:ChordCenterRelation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship stating that a perpendicular line drawn from the center of a circle to a chord bisects the chord into two equal parts.";
+    edu:integrates :PerpendicularityRelation;
+    edu:partOf :CircleRelations.
 :Circle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of circles, their properties, and related functions including Pi.";
     edu:partOf :TwoDimensionalObjects;
     edu:translates :CircularShapeDrawing.
+:CircleRelations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of proportional and spatial relationships between various elements of a circle, such as its center, radius, diameter, circumference, arcs, chords, and tangent lines.";
+    edu:integrates :Circle;
+    edu:partOf :GeometricRelations.
 :CircularShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Circular shape drawing is the ability to create drawings or models of circular shapes.";
     edu:partOf :SpatialModelling.
@@ -345,7 +353,8 @@
     edu:partOf :PositionalRelations.
 :Pi a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical constant representing the ratio of a circle's circumference to its diameter.";
-    edu:partOf :Circle.
+    edu:integrates :RatioInterpretation;
+    edu:partOf :CircleRelations.
 :PlaneConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A flat, two-dimensional surface that extends infinitely far.";
     edu:expands :LineConcept;
@@ -394,6 +403,9 @@
 :Quadrilateral a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with four edges and four vertices.";
     edu:partOf :Polygon.
+:RadiusDiameterRelation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The proportional relationship stating that the diameter of a circle is exactly twice the length of its radius.";
+    edu:partOf :CircleRelations.
 :RatioEquivalence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Ratio equivalence is the understanding that different ratios can represent the same proportional relationship.";
     edu:expands :ProportionManipulation;
@@ -527,6 +539,10 @@
 :Tangent a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side opposite a given angle to the side adjacent to that angle.";
     edu:partOf :TrigonometricRelations.
+:TangentRadiusRelation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The geometric rule stating that a tangent line to a circle is perpendicular to the radius at the exact point of tangency.";
+    edu:integrates :PerpendicularityRelation;
+    edu:partOf :CircleRelations.
 :ThreeDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Solid geometric figures that have length, width, and depth, such as spheres, cubes, and cylinders.";
     edu:expands :TwoDimensionalObjects;
