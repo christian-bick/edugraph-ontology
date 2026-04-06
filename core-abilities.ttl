@@ -32,6 +32,7 @@
     edu:partOf :Expression.
 :ArtisticInterpretation a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Understanding and appreciating artistic works, such as paintings, music, or literature. This involves analyzing the elements of art, such as form, style, and symbolism, to understand the artist's message and intent.";
+    rdfs:isDefinedBy "Understanding and explaining the meaning of creative or aesthetic works. This involves recognizing the symbolic, stylistic, and technical elements in a piece of art, literature, or performance, and understanding the themes or messages being conveyed.";
     edu:partOf :Interpretation.
 :AxiomDefinition a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Defining the axioms of Euclidean geometry, such as \"Two points determine a line\" or \"Through a point not on a given line, there is exactly one line parallel to the given line.\"\n*  Establishing the axioms of set theory, such as the axiom of extensionality (two sets are equal if they have the same elements) or the axiom of choice.\n*  Defining the axioms of a number system, such as the commutative property of addition (a + b = b + a) or the distributive property of multiplication over addition (a(b + c) = ab + ac).\n\nScience:\n\n*  Defining the basic principles of physics, such as the laws of motion or the conservation of energy.\n*  Establishing the fundamental assumptions of a scientific theory, such as the theory of evolution or the theory of relativity.\n*  Defining the key terms and concepts used in a scientific field, such as \"species,\" \"ecosystem,\" or \"chemical reaction.\"";
@@ -45,7 +46,8 @@
     rdfs:comment "Example: Considering diverse perspectives and avoiding stereotypes when writing about a historical conflict.";
     rdfs:isDefinedBy "Identifying and avoiding biases in one's own thinking and communication. This involves being aware of personal prejudices and striving to present information objectively and fairly.";
     edu:partOf :Expression.
-:CommunicationCapability a owl:NamedIndividual, edu:Ability.
+:CommunicationCapability a owl:NamedIndividual, edu:Ability;
+    rdfs:isDefinedBy "The proficiency to effectively exchange, interpret, and synthesize information across diverse modalities and contexts to facilitate mutual understanding, align stakeholders, and achieve organizational objectives.".
 :ConceptClassification a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Examples from different subjects:\n\nMath:\n\n* Classifying numbers as integers, rational numbers, or irrational numbers.\n* Categorizing geometric shapes based on their properties (e.g., number of sides, angles).\n* Grouping types of functions (linear, quadratic, exponential) based on their equations and graphs.\n\nScience:\n\n* Classifying organisms into kingdoms, phyla, and classes based on shared characteristics.\n* Categorizing elements in the periodic table based on their properties.\n* Grouping different types of rocks (igneous, sedimentary, metamorphic) based on their formation.\n\nSocial Science:\n\n* Classifying different types of governments (democracy, monarchy, dictatorship) based on how power is distributed.\n* Categorizing economic systems (capitalism, socialism, communism) based on ownership of resources.\n* Grouping different historical periods (ancient, medieval, modern) based on key events and characteristics.\n\nForeign Language:\n\n* Classifying words into parts of speech (nouns, verbs, adjectives) based on their grammatical function.\n* Categorizing different types of literature (fiction, non-fiction, poetry) based on their characteristics.\n* Grouping different verb tenses based on their temporal meaning.";
     rdfs:isDefinedBy "The ability to organize and categorize concepts by identifying similarities, differences, and relationships between them. It involves grouping concepts based on shared attributes and creating hierarchical structures. Concept classification helps learners build mental frameworks and understand how knowledge is structured.";
@@ -100,6 +102,7 @@
     rdfs:isDefinedBy "The ability to understand, manage, and express one's own emotions effectively, as well as to understand and respond appropriately to the emotions of others.".
 :EmotionalCreativity a owl:NamedIndividual, edu:Ability;
     rdfs:comment "The ability to express emotions in creative and meaningful ways. This involves using art, music, writing, or other creative outlets to communicate feelings and connect with others on an emotional level.";
+    rdfs:isDefinedBy "The ability to leverage emotional awareness and expression to generate novel and authentic ideas. This involves drawing upon personal feelings and empathetic insights to explore unique perspectives, and using emotional depth to develop original solutions that resonate on a human level.";
     edu:partOf :CreativeCapability.
 :Emotionalization a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Delivering a speech with passion and conviction to inspire the audience.";
@@ -197,7 +200,8 @@
     rdfs:comment "Example: Expressing thoughts about someone's favorite animal, using complete sentences and appropriate vocabulary.";
     rdfs:isDefinedBy "Expressing oneself through spoken or written language. This involves using words, grammar, and syntax to convey meaning.";
     edu:partOf :Articulation, :LinguisticCapability.
-:LinguisticCapability a owl:NamedIndividual, edu:Ability.
+:LinguisticCapability a owl:NamedIndividual, edu:Ability;
+    rdfs:isDefinedBy "The capacity to apply the structural, lexical, and pragmatic rules of a language to facilitate effective communication, comprehension, and the expression of meaning across diverse professional and social contexts.".
 :LinguisticReception a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Listening attentively to a lecture and taking notes to understand the key concepts.";
     rdfs:isDefinedBy "Understanding spoken and written language. This involves comprehending the meaning of words, sentences, and texts, both spoken and written.";
@@ -215,6 +219,7 @@
     rdfs:isDefinedBy "The process of using reason and evidence to arrive at valid conclusions. It involves analyzing information, identifying patterns, and making inferences based on established rules or principles. Logical reasoning can be divided into two main types: deductive reasoning, where conclusions are guaranteed to be true if the premises are true, and non-deductive reasoning, where conclusions are likely but not guaranteed.";
     edu:partOf :LogicalThinking.
 :LogicalThinking a owl:NamedIndividual, edu:Ability;
+    rdfs:isDefinedBy "The ability to use a structured and disciplined process to evaluate information and reach valid conclusions. It involves identifying cause-and-effect relationships, applying deductive and inductive reasoning, and ensuring consistency in thought. Logical thinking is essential for organizing ideas sequentially, eliminating contradictions, and making sound decisions based on objective evidence.";
     edu:partOf :AnalyticalCapability.
 :MessageExtraction a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Summarizing the main argument of a persuasive essay or the key findings of a scientific study.";
