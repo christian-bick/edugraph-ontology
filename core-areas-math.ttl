@@ -109,9 +109,6 @@
     rdfs:isDefinedBy "Dividing one number by another.";
     edu:inverts :Multiplication;
     edu:partOf :NumberOperations.
-:EllipticShapeDrawing a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Elliptical shape drawing is the ability to create drawings or models of elliptical shapes.";
-    edu:partOf :SpatialModelling.
 :Exponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.";
     edu:expands :Multiplication;
