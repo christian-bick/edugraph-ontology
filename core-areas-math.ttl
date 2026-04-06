@@ -175,7 +175,7 @@
     edu:partOf :GeometricCalculations.
 :Line a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of lines and their relationships, including parallels, intersections, and perpendicularity.";
-    edu:partOf :OneDimensionalObjects.
+    edu:partOf :LineConcept.
 :LinearShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Linear shape drawing is the ability to create drawings or models of shapes with straight sides.";
     edu:partOf :SpatialModelling.
@@ -332,7 +332,7 @@
     edu:partOf :ProportionAbstraction.
 :Ray a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of rays and their properties, including endpoints, directionality, and infinite extension in one direction.";
-    edu:partOf :OneDimensionalObjects.
+    edu:partOf :LineConcept.
 :Rectangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements.";
     edu:integrates :RightAngle;
