@@ -173,9 +173,6 @@
     rdfs:isDefinedBy "The calculation of the linear extent or measurement of a geometric object.";
     edu:expands :DistanceCalculation;
     edu:partOf :GeometricCalculations.
-:Line a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of lines and their relationships, including parallels, intersections, and perpendicularity.";
-    edu:partOf :LineConcept.
 :LinearShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Linear shape drawing is the ability to create drawings or models of shapes with straight sides.";
     edu:partOf :SpatialModelling.
@@ -330,9 +327,9 @@
 :RatioNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols and conventions used to represent ratios.";
     edu:partOf :ProportionAbstraction.
-:Ray a owl:NamedIndividual, edu:Area;
+:RayConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of rays and their properties, including endpoints, directionality, and infinite extension in one direction.";
-    edu:partOf :LineConcept.
+    edu:partOf :GeometricConcepts.
 :Rectangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements.";
     edu:integrates :RightAngle;
