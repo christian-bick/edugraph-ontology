@@ -50,6 +50,9 @@
 :BaseOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Base operations are the fundamental arithmetic actions performed on numbers that all other arithmetic operations are based one.";
     edu:partOf :NumberSense.
+:BoundaryUnderstanding a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The comprehension of physical or visual boundaries, such as containers, hoops, or drawn lines, that define which objects belong inside or outside a specific collection.";
+    edu:partOf :CollectionSense.
 :Calculus a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides tools for analyzing rates of change and accumulation. It deals with instantaneous rates of change that affect the slopes of curves, as well as with accumulation that affect areas under curves.".
 :Circle a owl:NamedIndividual, edu:Area;
@@ -59,6 +62,9 @@
 :CircularShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Circular shape drawing is the ability to create drawings or models of circular shapes.";
     edu:partOf :SpatialModelling.
+:CollectionSense a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Collection sense is the intuitive understanding of how objects are grouped and categorized as a foundational form of set theory.";
+    edu:partOf :IntuitiveMathematics.
 :CommutativeLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that the order in which numbers are added or multiplied does not change their sum or product.";
     edu:partOf :ArithmeticLaws.
@@ -169,6 +175,9 @@
     edu:partOf :Geometry.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
+:GroupRecognition a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The ability to perceive a collection of distinct physical objects or visual elements as a single, unified group or set.";
+    edu:partOf :CollectionSense.
 :Hexagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with six edges and six vertices.";
     edu:partOf :Polygon.
@@ -187,6 +196,10 @@
 :IntegerSigns a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate an integer's direction and magnitude relative to zero.";
     edu:partOf :IntegerArithmetic.
+:IntersectionOfCollections a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identification of objects that belong to two overlapping physical groups, often visualized through intersecting boundaries like Venn diagrams made of physical hoops.";
+    edu:expands :BoundaryUnderstanding, :ObjectSorting;
+    edu:partOf :CollectionSense.
 :IntersectionRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric entities that share one or more common points where they meet or cross.";
     edu:partOf :GeometricRelations.
@@ -266,6 +279,10 @@
     rdfs:isDefinedBy "Numeric order refers to the arrangement of numbers in ascending or descending sequence based on their magnitude.";
     edu:expands :NumericIdentity;
     edu:partOf :NumericComparison.
+:ObjectSorting a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The process of categorizing and grouping physical objects into distinct collections based on shared observable attributes like color, shape, or size.";
+    edu:expands :GroupRecognition;
+    edu:partOf :CollectionSense.
 :ObtuseAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures more than 90 degrees but less than 180 degrees.";
     edu:partOf :AngleConcept.
@@ -379,6 +396,10 @@
 :Rotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that turns a geometric figure around a fixed point, known as the center of rotation, by a specific angle.";
     edu:partOf :GeometricTransformations.
+:SetComparison a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The intuitive visual comparison of two bounded collections to determine relative quantities such as more, less, or equal, relying on spatial arrangement rather than formal counting.";
+    edu:expands :GroupRecognition;
+    edu:partOf :CollectionSense.
 :SetTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies sets, which are collections of objects. It provides a fundamental language and tools for defining and working with mathematical objects.".
 :ShapeIdentity a owl:NamedIndividual, edu:Area;
@@ -422,6 +443,10 @@
     edu:partOf :Rectangle.
 :Statistics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides a framework for collecting, organizing, analyzing, and interpreting data. It provides tools for quantifying and modeling randomness, variability, and uncertainty in data.".
+:SubsetIdentification a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The ability to recognize and isolate a smaller specific group of objects within a larger bounded collection based on a distinguishing visual attribute.";
+    edu:expands :ObjectSorting;
+    edu:partOf :CollectionSense.
 :Subtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two numbers.";
     edu:expands :Difference;
@@ -457,6 +482,10 @@
     rdfs:isDefinedBy "Flat geometric figures that have length and width, such as polygons and circles.";
     edu:expands :OneDimensionalObjects;
     edu:partOf :GeometricObjects.
+:UnionOfCollections a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The physical or visual act of combining two or more distinct, bounded collections into a single larger group, removing the boundaries between them.";
+    edu:expands :BoundaryUnderstanding, :GroupRecognition;
+    edu:partOf :CollectionSense.
 :VectorConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quantity characterized by both magnitude and direction, typically represented as a directed line segment.";
     edu:expands :LineConcept;
