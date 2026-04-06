@@ -329,6 +329,7 @@
     edu:partOf :ProportionAbstraction.
 :RayConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of rays and their properties, including endpoints, directionality, and infinite extension in one direction.";
+    edu:expands :LineConcept;
     edu:partOf :GeometricConcepts.
 :Rectangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements.";
