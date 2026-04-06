@@ -52,8 +52,9 @@
     edu:partOf :ThreeDimensionalObjects.
 :CongruenceRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric figures that have the exact same size and shape.";
-    edu:expands :ShapeCongruence;
-    edu:partOf :GeometricRelations.
+    edu:expands :ShapeIdentity;
+    edu:partOf :GeometricRelations;
+    edu:translates :ShapeIdentity.
 :Cosine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side adjacent to an acute angle (in a right-angled triangle) to the hypotenuse.";
     edu:partOf :AngleCalculation.
@@ -355,14 +356,17 @@
     edu:partOf :GeometricTransformations.
 :SetTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies sets, which are collections of objects. It provides a fundamental language and tools for defining and working with mathematical objects.".
-:ShapeCongruence a owl:NamedIndividual, edu:Area;
+:ShapeIdentity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding when two shapes are identical in size and shape, independently of their orientation.";
     edu:partOf :ShapeRecognition.
 :ShapeRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identifying and naming different geometric shapes.";
     edu:partOf :SpatialSense.
-:ShapeSymmetry a owl:NamedIndividual, edu:Area;
+:ShapeReflection a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding how a shape can be divided into identical halves that mirror each other.";
+    edu:partOf :ShapeRecognition.
+:ShapeRotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Understanding how a shape can be turned around a fixed point while maintaining its original size and form.";
     edu:partOf :ShapeRecognition.
 :ShearTransformation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that displaces each point of a geometric figure in a given direction by an amount proportional to its signed distance from a line parallel to that direction.";
@@ -404,8 +408,9 @@
     edu:partOf :GeometricCalculations.
 :SymmetryRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The property of a geometric figure to be invariant under certain transformations, such as reflection, rotation, or translation.";
-    edu:expands :ShapeSymmetry;
-    edu:partOf :GeometricRelations.
+    edu:expands :ShapeReflection;
+    edu:partOf :GeometricRelations;
+    edu:translates :ShapeReflection, :ShapeRotation.
 :Tangent a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side opposite a given angle to the side adjacent to that angle.";
     edu:partOf :AngleCalculation.
