@@ -28,6 +28,7 @@
     rdfs:isDefinedBy "The branch of mathematics that deals with continuous change and investigates concepts like limits, continuity, derivatives, integrals, and infinite series to study functions, their properties, and their behavior.".
 :AngleCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the measurement of the space between two intersecting lines or surfaces.";
+    edu:expands :AngleConcept;
     edu:partOf :GeometricCalculations.
 :AngleConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The amount of rotation or divergence between two intersecting rays, lines or planes.";
@@ -35,6 +36,7 @@
     edu:partOf :GeometricConcepts.
 :AngleRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships between pairs of angles, such as those formed by intersecting lines.";
+    edu:expands :AngleConcept;
     edu:partOf :GeometricRelations.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
