@@ -459,7 +459,7 @@
     edu:partOf :GeometricVisualization.
 :Polygon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
-    edu:expands :LineSegment, :PlaneConcept;
+    edu:expands :LineSegment;
     edu:partOf :TwoDimensionalObjects.
 :PositionalRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships describing how geometric lines, planes, or segments interact, intersect, or positionally relate to one another in space.";
@@ -677,6 +677,7 @@
     edu:partOf :GeometricRelations.
 :TwoDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Flat geometric figures that have length and width, such as polygons and circles.";
+    edu:expands :PlaneConcept;
     edu:partOf :GeometricObjects.
 :UnionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The physical or visual act of combining two or more distinct, bounded collections into a single larger group, removing the boundaries between them.";
