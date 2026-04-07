@@ -13,6 +13,7 @@
     edu:partOf :AngleConcept.
 :AcuteTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle in which all three interior angles are acute angles.";
+    edu:expands :AcuteAngle;
     edu:integrates :AcuteAngle;
     edu:partOf :Triangle.
 :Addition a owl:NamedIndividual, edu:Area;
@@ -195,6 +196,7 @@
     edu:partOf :BaseOperations.
 :EquilateralTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle in which all three sides are of equal length and all three angles are 60 degrees.";
+    edu:expands :SymmetryRelation;
     edu:partOf :Triangle.
 :Estimation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Intuitively guessing relative quantities and sizes without counting.";
@@ -292,6 +294,7 @@
     rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts.".
 :IsoscelesTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle that has at least two sides of equal length.";
+    edu:expands :SymmetryRelation;
     edu:partOf :Triangle.
 :Kite a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quadrilateral with two distinct pairs of equal-length sides that are adjacent to each other.";
@@ -397,6 +400,7 @@
     edu:partOf :AngleConcept.
 :ObtuseTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle that has one obtuse angle.";
+    edu:expands :ObtuseAngle;
     edu:integrates :ObtuseAngle;
     edu:partOf :Triangle.
 :OddsAndEvens a owl:NamedIndividual, edu:Area;
@@ -563,6 +567,7 @@
     edu:partOf :AngleConcept.
 :RightTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle that has one right angle.";
+    edu:expands :RightAngle;
     edu:partOf :Triangle.
 :Root a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the number that, when raised to a certain power, produces a given number.\n\nExample: The cube root of 64 is 4 because 4 ^ 3 = 64";
@@ -578,6 +583,7 @@
     edu:partOf :ArithmeticEvaluation.
 :ScaleneTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle in which all three sides have different lengths.";
+    edu:inverts :EquilateralTriangle;
     edu:partOf :Triangle.
 :SetComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The intuitive visual comparison of two bounded collections to determine relative quantities such as more, less, or equal, relying on spatial arrangement rather than formal counting.";
