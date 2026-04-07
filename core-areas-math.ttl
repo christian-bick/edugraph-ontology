@@ -126,6 +126,7 @@
     edu:partOf :TrigonometricRelations.
 :Cube a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six congruent square faces where each pair of opposite faces is parallel.";
+    edu:expands :Square;
     edu:partOf :RectangularPrism.
 :Cylinder a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A three-dimensional solid consisting of two parallel circular bases connected by a curved surface.";
@@ -486,7 +487,7 @@
     edu:partOf :Factorization.
 :Prism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has two congruent and parallel bases and lateral faces that are parallelograms.";
-    edu:expands :CongruenceRelation, :Parallelogram;
+    edu:expands :Parallelogram;
     edu:partOf :Polyhedron.
 :ProportionAbstraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Proportion abstraction is the ability to generalize proportional relationships and apply them to new situations.";
@@ -508,6 +509,7 @@
     edu:partOf :IntuitiveMathematics.
 :Pyramid a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polyhedron formed by connecting a polygonal base and a point, called the apex.";
+    edu:expands :Rectangle, :Triangle;
     edu:partOf :Polyhedron.
 :Quadrants a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The four regions into which the coordinate axes divide the Cartesian plane, typically numbered I, II, III, and IV.";
@@ -541,6 +543,7 @@
     edu:partOf :Parallelogram.
 :RectangularPrism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six rectangular faces where each pair of opposite faces is congruent and parallel.";
+    edu:expands :Rectangle;
     edu:partOf :Prism.
 :Reflection a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that flips a geometric figure across a line, creating a mirror image.";
