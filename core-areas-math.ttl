@@ -175,7 +175,7 @@
     edu:partOf :ArithmeticLaws.
 :DivisibilityRules a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Shorthand methods of determining whether a given integer is divisible by a fixed divisor without performing the division.";
-    edu:partOf :NumberTheory.
+    edu:partOf :Factorization.
 :Division a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one number by another.";
     edu:inverts :Multiplication;
@@ -195,10 +195,13 @@
     rdfs:isDefinedBy "The process of calculating the value of an arithmetic expression by systematically applying operations according to established rules.";
     edu:integrates :ArithmeticLaws, :OrderOfOperations, :ParenthesesUsage;
     edu:partOf :ArithmeticExpressions.
+:Factorization a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The process of decomposing an integer into a product of other integers that, when multiplied together, result in the original number.";
+    edu:partOf :NumberTheory.
 :FactorsAndMultiples a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of integers that can be multiplied together to get another integer, and the products of an integer and another integer.";
     edu:expands :Division, :Multiplication;
-    edu:partOf :NumberTheory.
+    edu:partOf :Factorization.
 :FoundationalOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Base operations are the fundamental arithmetic actions performed on numbers that all other arithmetic operations are based one.";
     edu:partOf :NumberSense.
@@ -381,6 +384,9 @@
     rdfs:isDefinedBy "A triangle that has one obtuse angle.";
     edu:integrates :ObtuseAngle;
     edu:partOf :Triangle.
+:OddsAndEvens a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Shorthand methods of determining whether a given integer is divisible by two based on the parity of its final digit.";
+    edu:partOf :DivisibilityRules.
 :OneDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Geometric objects that have only length, such as line segments and rays.";
     edu:expands :LinearShapeDrawing;
@@ -461,7 +467,7 @@
 :PrimeNumbers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of whole numbers greater than 1 that cannot be exactly divided by any whole number other than itself and 1.";
     edu:expands :FactorsAndMultiples;
-    edu:partOf :NumberTheory.
+    edu:partOf :Factorization.
 :Prism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has two congruent and parallel bases and lateral faces that are parallelograms.";
     edu:integrates :CongruenceRelation, :ParallelismRelation;
