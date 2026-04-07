@@ -77,6 +77,7 @@
     edu:partOf :GeometricVisualization.
 :ChordCenterRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship stating that a perpendicular line drawn from the center of a circle to a chord bisects the chord into two equal parts.";
+    edu:expands :LineSegment, :PerpendicularityRelation;
     edu:partOf :CircleRelations.
 :Circle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of circles, their properties, and related functions including Pi.";
@@ -91,8 +92,7 @@
     edu:partOf :SpatialModelling.
 :CircumferenceCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the continuous line forming the boundary of a circle.";
-    edu:expands :Circle;
-    edu:integrates :Pi;
+    edu:expands :Circle, :Pi, :RadiusDiameterRelation;
     edu:partOf :PerimeterCalculation.
 :CollectionSense a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Collection sense is the intuitive understanding of how objects are grouped and categorized as a foundational form of set theory.";
@@ -344,7 +344,7 @@
     edu:partOf :Measurement.
 :MidpointCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of finding the exact center point of a line segment on the coordinate plane by averaging the coordinates of its endpoints.";
-    edu:partOf :GeometricVisualization.
+    edu:partOf :GeometricCalculations.
 :Modulo a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the remainder after dividing one number by another.";
     edu:expands :Division;
@@ -456,7 +456,6 @@
     edu:partOf :PositionalRelations.
 :Pi a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical constant representing the ratio of a circle's circumference to its diameter.";
-    edu:integrates :RatioInterpretation;
     edu:partOf :CircleRelations.
 :PlaceValue a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The numerical value that a digit has by virtue of its position in a number.";
