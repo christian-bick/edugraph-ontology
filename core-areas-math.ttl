@@ -107,7 +107,7 @@
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
 :Cone a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A three-dimensional geometric shape that tapers smoothly from a flat base to a point called the apex or vertex.";
-    edu:expands :Circle;
+    edu:expands :Circle, :Triangle;
     edu:partOf :ThreeDimensionalObjects.
 :CongruenceRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric figures that have the exact same size and shape.";
@@ -129,6 +129,7 @@
     edu:partOf :RectangularPrism.
 :Cylinder a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A three-dimensional solid consisting of two parallel circular bases connected by a curved surface.";
+    edu:expands :Circle, :Rectangle;
     edu:partOf :ThreeDimensionalObjects.
 :DecimalArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers using a base-10 positional notation system, where a decimal point separates the integer component from a fractional component expressed as a sum of negative powers of ten.";
