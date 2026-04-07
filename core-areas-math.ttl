@@ -616,9 +616,6 @@
 :ShapeTranslation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding how a shape can be slid in a specific direction without altering its size or orientation.";
     edu:partOf :ShapeRecognition.
-:ShearTransformation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A transformation that displaces each point of a geometric figure in a given direction by an amount proportional to its signed distance from a line parallel to that direction.";
-    edu:partOf :GeometricTransformations.
 :SimilarityRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric figures that have the same shape, with corresponding angles being equal and corresponding sides being in proportion.";
     edu:expands :ShapeResizing;
