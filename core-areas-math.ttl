@@ -469,6 +469,10 @@
     rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
     edu:expands :LineSegment, :LinearShapeDrawing;
     edu:partOf :TwoDimensionalObjects.
+:Polyhedron a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A solid geometric figure that has flat polygonal faces, straight edges, and vertices.";
+    edu:expands :Polygon;
+    edu:partOf :ThreeDimensionalObjects.
 :PositionalRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships describing how geometric lines, planes, or segments interact, intersect, or positionally relate to one another in space.";
     edu:partOf :GeometricRelations.
@@ -482,7 +486,7 @@
 :Prism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has two congruent and parallel bases and lateral faces that are parallelograms.";
     edu:expands :CongruenceRelation, :Parallelogram;
-    edu:partOf :ThreeDimensionalObjects.
+    edu:partOf :Polyhedron.
 :ProportionAbstraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Proportion abstraction is the ability to generalize proportional relationships and apply them to new situations.";
     edu:partOf :ProportionSense.
@@ -503,7 +507,7 @@
     edu:partOf :IntuitiveMathematics.
 :Pyramid a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polyhedron formed by connecting a polygonal base and a point, called the apex.";
-    edu:partOf :ThreeDimensionalObjects.
+    edu:partOf :Polyhedron.
 :Quadrants a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The four regions into which the coordinate axes divide the Cartesian plane, typically numbered I, II, III, and IV.";
     edu:partOf :CartesianPlane.
