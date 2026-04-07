@@ -45,7 +45,7 @@
     edu:partOf :GeometricConcepts.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
-    edu:expands :LengthCalculation;
+    edu:expands :LengthCalculation, :PlaneConcept;
     edu:partOf :GeometricCalculations.
 :Arithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that deals with the properties and manipulation of numbers, including addition, subtraction, multiplication and division.".
@@ -311,7 +311,7 @@
     edu:partOf :GeometricVisualization.
 :LineSegment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
-    edu:expands :LineConcept, :LinearShapeDrawing;
+    edu:expands :LinearShapeDrawing;
     edu:partOf :OneDimensionalObjects.
 :Logarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.";
@@ -397,6 +397,7 @@
     edu:partOf :DivisibilityRules.
 :OneDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Geometric objects that have only length, such as line segments and rays.";
+    edu:expands :LineConcept;
     edu:partOf :GeometricObjects.
 :OrderOfOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The standard set of rules that dictates the sequence in which multiple operations in an arithmetic expression must be performed to ensure a single, correct result.";
@@ -611,6 +612,10 @@
     rdfs:isDefinedBy "The measure of the steepness and direction of a line, calculated as the ratio of the vertical change (rise) to the horizontal change (run) between two points.";
     edu:integrates :RatioInterpretation;
     edu:partOf :GeometricVisualization.
+:SpaceConcept a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A boundless, three-dimensional extent that contains all geometric figures and extends infinitely in all directions.";
+    edu:expands :PlaneConcept;
+    edu:partOf :GeometricConcepts.
 :SpatialModelling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating mental or physical representations of objects and their spatial relationships.";
     edu:partOf :SpatialSense.
@@ -666,6 +671,7 @@
     edu:partOf :CircleRelations.
 :ThreeDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Solid geometric figures that have length, width, and depth, such as spheres, cubes, and cylinders.";
+    edu:expands :SpaceConcept;
     edu:partOf :GeometricObjects.
 :Translation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that slides a geometric figure in a specific direction and by a specific distance without altering its shape, size, or orientation.";
