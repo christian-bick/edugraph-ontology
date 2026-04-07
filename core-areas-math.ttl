@@ -32,7 +32,7 @@
     edu:partOf :GeometricCalculations.
 :AngleConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The amount of rotation or divergence between two intersecting rays, lines or planes.";
-    edu:expands :IntersectionRelation;
+    edu:expands :IntersectionRelation, :LineConcept;
     edu:partOf :GeometricConcepts.
 :AngleRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships between pairs of angles, such as those formed by intersecting lines.";
@@ -46,9 +46,11 @@
     rdfs:isDefinedBy "The branch of mathematics that deals with the properties and manipulation of numbers, including addition, subtraction, multiplication and division.".
 :ArithmeticExpressions a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The structured formulation and evaluation of numerical statements through the combination of values and operations, governed by mathematical laws and conventions such as the order of operations to represent and simplify quantitative relationships.";
+    edu:expands :ArithmeticOperations;
     edu:partOf :Arithmetic.
 :ArithmeticLaws a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fundamental rules that govern the manipulation and simplification of arithmetic expressions, ensuring consistent and predictable results.";
+    edu:expands :ArithmeticOperations;
     edu:partOf :ArithmeticExpressions.
 :ArithmeticOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The systematic application of mathematical rules and procedures to combine, transform, or calculate values through fundamental actions such as addition, subtraction, multiplication, and division.";
@@ -125,15 +127,18 @@
     edu:partOf :ThreeDimensionalObjects.
 :DecimalArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers using a base-10 positional notation system, where a decimal point separates the integer component from a fractional component expressed as a sum of negative powers of ten.";
+    edu:expands :FractionArithmetic, :NumerationWithDecimals;
     edu:partOf :RationalArithmetic.
 :DecimalDivisorShift a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Decimal equivalence is the understanding that decimals with trailing zeros represent the same decimal number.";
     edu:partOf :DecimalEquivalence.
 :DecimalEquivalence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures for identifying or establishing the equality between different representations of the same rational value, specifically between fractions and their base-10 positional notation or between decimals with varying digits at subsequent negative powers of ten that maintain the same magnitude.";
+    edu:expands :FractionEquivalence;
     edu:partOf :DecimalArithmetic.
 :DecimalNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent decimals, including the floating point and its meaning.";
+    edu:expands :IntegerNotation;
     edu:partOf :DecimalArithmetic.
 :DecimalPadding a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures that adjust the digits following the floating point to ensure uniform decimal places as a part of decimal number operations such as addition.";
@@ -150,7 +155,7 @@
     edu:partOf :BaseOperations.
 :Difference a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining the difference in quantities of mathematical object, including numbers where difference represents the amount by which one quantity is greater or less than another.";
-    edu:expands :Decrement;
+    edu:expands :Decrement, :SetComparison;
     edu:inverts :Sum;
     edu:partOf :BaseOperations.
 :DigitNotation a owl:NamedIndividual, edu:Area;
@@ -185,13 +190,15 @@
     edu:partOf :ArithmeticExpressions.
 :FractionArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
-    edu:partOf :RationalArithmetic;
-    edu:translates :ProportionInteraction.
+    edu:expands :NumerationWithFractions, :ProportionInteraction;
+    edu:partOf :RationalArithmetic.
 :FractionEquivalence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The principle that distinct representations of rational numbers in the form a/b can express the same ratio, where transformations between different numerators and denominators maintain the same value relative to the unit or whole.";
+    edu:expands :RatioEquivalence;
     edu:partOf :FractionArithmetic.
 :FractionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator.";
+    edu:expands :IntegerNotation;
     edu:partOf :FractionArithmetic.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
@@ -224,12 +231,15 @@
     edu:partOf :Polygon.
 :Increment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a quantity by a certain amount.";
+    edu:expands :NumericOrder;
     edu:partOf :BaseOperations.
 :IntegerArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The understanding and application of whole numbers, their additive inverses (negative numbers), and zero, representing discrete values that do not contain fractional or decimal components.";
+    edu:expands :NumerationWithIntegers;
     edu:partOf :ArithmeticSpaces.
 :IntegerNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols used to represent integers.\n\nExample: Using the symbols -3, 0, and 12 to represent integers.";
+    edu:expands :DigitNotation;
     edu:partOf :IntegerArithmetic.
 :IntegerRegrouping a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Also referred to as carrying or borrowing. The process of exchanging values between place value positions to facilitate arithmetic operations such as addition and subtraction within the set of integer numbers.";
@@ -291,7 +301,7 @@
     rdfs:isDefinedBy "Measuring objects involves determining their physical dimensions using appropriate tools and units.";
     edu:partOf :Measurement.
 :MeasuringTime a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Measuring time involves quantifying the duration of events or intervals between them.";
+    rdfs:isDefinedBy "Measuring time involves quantifying the duration of events or the intervals between them.";
     edu:partOf :Measurement.
 :MidpointCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of finding the exact center point of a line segment on the coordinate plane by averaging the coordinates of its endpoints.";
@@ -353,6 +363,7 @@
     edu:partOf :GeometricObjects.
 :OrderOfOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The standard set of rules that dictates the sequence in which multiple operations in an arithmetic expression must be performed to ensure a single, correct result.";
+    edu:expands :ArithmeticOperations;
     edu:partOf :ArithmeticExpressions.
 :Origin a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The point (0,0) where the coordinate axes intersect on the Cartesian plane.";
@@ -523,7 +534,7 @@
     rdfs:isDefinedBy "Understanding how a shape can be turned around a fixed point while maintaining its original size and form.";
     edu:partOf :ShapeRecognition.
 :ShapeTranslation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Understanding how a shape can be moved from one place to another without altering its size, form, or orientation.";
+    rdfs:isDefinedBy "Understanding how a shape can be slid in a specific direction without altering its size or orientation.";
     edu:partOf :ShapeRecognition.
 :ShearTransformation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that displaces each point of a geometric figure in a given direction by an amount proportional to its signed distance from a line parallel to that direction.";
@@ -570,7 +581,7 @@
     edu:partOf :ArithmeticOperations.
 :Sum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Combining quantities to determine their total amount for any type of mathematical object, including numbers.";
-    edu:expands :Increment;
+    edu:expands :Increment, :UnionOfCollections;
     edu:partOf :BaseOperations.
 :SupplementaryAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles whose sum is exactly 180 degrees.";
