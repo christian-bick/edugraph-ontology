@@ -312,6 +312,7 @@
     edu:partOf :GeometricVisualization.
 :Modulo a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the remainder after dividing one number by another.";
+    edu:expands :Division;
     edu:partOf :BaseOperations.
 :Multiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or multiple numbers.";
