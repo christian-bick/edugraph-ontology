@@ -127,7 +127,7 @@
     edu:partOf :ThreeDimensionalObjects.
 :DecimalArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers using a base-10 positional notation system, where a decimal point separates the integer component from a fractional component expressed as a sum of negative powers of ten.";
-    edu:expands :FractionArithmetic, :NumerationWithDecimals;
+    edu:expands :FractionArithmetic, :NumerationWithDecimals, :PlaceValue;
     edu:partOf :RationalArithmetic.
 :DecimalDivisorShift a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Decimal equivalence is the understanding that decimals with trailing zeros represent the same decimal number.";
@@ -173,6 +173,9 @@
 :DistributiveLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that multiplying a sum by a number gives the same result as multiplying each addend by the number and then adding the products together.";
     edu:partOf :ArithmeticLaws.
+:DivisibilityRules a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Shorthand methods of determining whether a given integer is divisible by a fixed divisor without performing the division.";
+    edu:partOf :NumberTheory.
 :Division a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one number by another.";
     edu:inverts :Multiplication;
@@ -180,6 +183,10 @@
 :EquilateralTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle in which all three sides are of equal length and all three angles are 60 degrees.";
     edu:partOf :Triangle.
+:Estimation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Intuitively guessing quantities, sizes, or the outcome of a calculation before doing the exact math.";
+    edu:expands :NumericComparison;
+    edu:partOf :NumberSense.
 :Exponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.";
     edu:expands :Multiplication;
@@ -188,6 +195,10 @@
     rdfs:isDefinedBy "The process of calculating the value of an arithmetic expression by systematically applying operations according to established rules.";
     edu:integrates :ArithmeticLaws, :OrderOfOperations, :ParenthesesUsage;
     edu:partOf :ArithmeticExpressions.
+:FactorsAndMultiples a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of integers that can be multiplied together to get another integer, and the products of an integer and another integer.";
+    edu:expands :Division, :Multiplication;
+    edu:partOf :NumberTheory.
 :FoundationalOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Base operations are the fundamental arithmetic actions performed on numbers that all other arithmetic operations are based one.";
     edu:partOf :NumberSense.
@@ -205,6 +216,7 @@
     edu:partOf :FractionArithmetic.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
+    edu:expands :FactorsAndMultiples;
     edu:partOf :FractionEquivalence.
 :GeometricCalculations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The measurement and calculation of properties of geometric objects, such as perimeter, area, and volume.";
@@ -246,6 +258,7 @@
     edu:partOf :IntegerArithmetic.
 :IntegerRegrouping a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Also referred to as carrying or borrowing. The process of exchanging values between place value positions to facilitate arithmetic operations such as addition and subtraction within the set of integer numbers.";
+    edu:expands :PlaceValue;
     edu:partOf :IntegerArithmetic.
 :IntegerSigns a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate an integer's direction and magnitude relative to zero.";
@@ -296,6 +309,7 @@
     rdfs:isDefinedBy "The branch of mathematics that studies reasoning and valid arguments. It provides a framework for determining whether something is true or false based on given premises. It is the foundation for constructing proofs, ensuring that conclusions follow logically from their premises.".
 :LowestCommonDenominator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the smallest common multiple of the denominators of two or more fractions.\n\nExample: The lowest common denominator of 1/4 and 1/6 is 12.";
+    edu:expands :FactorsAndMultiples;
     edu:partOf :FractionEquivalence.
 :Measurement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Measurement is the process of assigning numbers to describe the properties of objects, such as length, weight, or volume.";
@@ -388,9 +402,22 @@
     rdfs:isDefinedBy "The use of grouping symbols in arithmetic expressions to override the standard order of operations and specify which calculations should be performed first.";
     edu:expands :OrderOfOperations;
     edu:partOf :ArithmeticExpressions.
+:PatternRecognition a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Identifying, extending, and creating repeating or growing patterns.";
+    edu:partOf :IntuitiveMathematics.
 :Pentagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with five edges and five vertices.";
     edu:partOf :Polygon.
+:PercentageArithmetic a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The understanding and application of numbers expressed as a fraction of 100.";
+    edu:partOf :RationalArithmetic.
+:PercentageEquivalence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The rules and procedures for establishing the equality between percentages, fractions, and decimals.";
+    edu:expands :DecimalEquivalence, :FractionEquivalence;
+    edu:partOf :PercentageArithmetic.
+:PercentageNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The system of symbols used to represent percentages, specifically the percent sign (%).";
+    edu:partOf :PercentageArithmetic.
 :PerimeterCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the continuous line forming the boundary of a closed geometric figure.";
     edu:expands :LengthCalculation;
@@ -403,6 +430,9 @@
     rdfs:isDefinedBy "The mathematical constant representing the ratio of a circle's circumference to its diameter.";
     edu:integrates :RatioInterpretation;
     edu:partOf :CircleRelations.
+:PlaceValue a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The numerical value that a digit has by virtue of its position in a number.";
+    edu:partOf :IntegerArithmetic.
 :PlaneConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A flat, two-dimensional surface that extends infinitely far.";
     edu:expands :LineConcept;
@@ -425,6 +455,10 @@
 :PowerOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The specialized application of mathematical rules and procedures to perform higher-order calculations through the actions of exponentiation, root extraction, and logarithmic derivation.";
     edu:partOf :ArithmeticOperations.
+:PrimeNumbers a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of whole numbers greater than 1 that cannot be exactly divided by any whole number other than itself and 1.";
+    edu:expands :FactorsAndMultiples;
+    edu:partOf :NumberTheory.
 :Prism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has two congruent and parallel bases and lateral faces that are parallelograms.";
     edu:integrates :CongruenceRelation, :ParallelismRelation;
@@ -580,6 +614,10 @@
 :StraightAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures exactly 180 degrees, forming a straight line.";
     edu:partOf :AngleConcept.
+:Subitizing a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The ability to instantly recognize the number of objects in a small group without counting.";
+    edu:expands :GroupRecognition;
+    edu:partOf :NumberSense.
 :SubsetIdentification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The ability to recognize and isolate a smaller specific group of objects within a larger bounded collection based on a distinguishing visual attribute.";
     edu:expands :ObjectSorting;
