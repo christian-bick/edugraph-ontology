@@ -448,7 +448,7 @@
     edu:partOf :GeometricVisualization.
 :Polygon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
-    edu:expands :LineSegment;
+    edu:expands :LineSegment, :PlaneConcept;
     edu:partOf :TwoDimensionalObjects.
 :PositionalRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships describing how geometric lines, planes, or segments interact, intersect, or positionally relate to one another in space.";
