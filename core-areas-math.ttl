@@ -97,6 +97,7 @@
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
 :Cone a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A three-dimensional geometric shape that tapers smoothly from a flat base to a point called the apex or vertex.";
+    edu:expands :Circle;
     edu:partOf :ThreeDimensionalObjects.
 :CongruenceRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric figures that have the exact same size and shape.";
@@ -296,7 +297,7 @@
     edu:partOf :GeometricVisualization.
 :LineSegment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
-    edu:expands :LinearShapeDrawing;
+    edu:expands :LineConcept, :LinearShapeDrawing;
     edu:partOf :OneDimensionalObjects.
 :Logarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.";
@@ -447,6 +448,7 @@
     edu:partOf :GeometricVisualization.
 :Polygon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
+    edu:expands :LineSegment;
     edu:partOf :TwoDimensionalObjects.
 :PositionalRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships describing how geometric lines, planes, or segments interact, intersect, or positionally relate to one another in space.";
@@ -512,6 +514,7 @@
     edu:partOf :GeometricConcepts.
 :Rectangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements.";
+    edu:expands :ParallelismRelation, :PerpendicularityRelation, :RightAngle;
     edu:partOf :Parallelogram.
 :RectangularPrism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six rectangular faces where each pair of opposite faces is congruent and parallel.";
