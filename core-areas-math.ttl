@@ -106,11 +106,22 @@
 :CoordinateAxes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The horizontal (x-axis) and vertical (y-axis) number lines that intersect at right angles to form the Cartesian plane.";
     edu:partOf :CartesianPlane.
+:CoordinateCalculations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The application of formulas and arithmetic operations to coordinates to determine the quantitative properties, dimensions, and transformations of geometric figures within a coordinate system.";
+    edu:partOf :GeometricVisualization.
 :CoordinateDistance a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the straight-line distance between two points on the Cartesian plane using their coordinates.";
     edu:expands :PointPlotting;
     edu:integrates :DistanceCalculation;
-    edu:partOf :GeometricVisualization.
+    edu:partOf :CoordinateCalculations.
+:CoordinateMidpoint a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The process of finding the exact center point of a line segment on the coordinate plane by averaging the coordinates of its endpoints.";
+    edu:integrates :LineSegment;
+    edu:partOf :CoordinateCalculations.
+:CoordinateSlope a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The measure of the steepness and direction of a line, calculated as the ratio of the vertical change (rise) to the horizontal change (run) between two points.";
+    edu:integrates :RatioInterpretation;
+    edu:partOf :CoordinateCalculations.
 :Cosine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side adjacent to an acute angle (in a right-angled triangle) to the hypotenuse.";
     edu:partOf :TrigonometricRelations.
@@ -202,6 +213,9 @@
 :GeometricObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of specific geometric shapes and figures in one, two, and three dimensions.";
     edu:partOf :Geometry.
+:GeometricPlotting a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The process of visually representing geometric figures and their properties on a coordinate system to analyze spatial relationships and mathematical patterns.";
+    edu:partOf :GeometricVisualization.
 :GeometricRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of the relationships and interactions between geometric entities, such as congruence, similarity, parallelism, and symmetry.";
     edu:partOf :Geometry.
@@ -263,11 +277,11 @@
     rdfs:isDefinedBy "A straight, one-dimensional figure that has no thickness and extends infinitely in both directions.";
     edu:expands :PointConcept;
     edu:partOf :GeometricConcepts.
-:LineGraphing a owl:NamedIndividual, edu:Area;
+:LinePlotting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of representing a straight line on the coordinate plane, typically by plotting points or using a linear equation.";
     edu:expands :PointPlotting;
     edu:integrates :LineConcept;
-    edu:partOf :GeometricVisualization.
+    edu:partOf :GeometricPlotting.
 :LineSegment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
     edu:partOf :OneDimensionalObjects.
@@ -289,10 +303,6 @@
 :MeasuringTime a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Measuring time involves quantifying the duration of events or the intervals between them.";
     edu:partOf :Measurement.
-:MidpointCalculation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The process of finding the exact center point of a line segment on the coordinate plane by averaging the coordinates of its endpoints.";
-    edu:integrates :LineSegment;
-    edu:partOf :GeometricVisualization.
 :Multiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or multiple numbers.";
     edu:expands :Addition;
@@ -387,7 +397,7 @@
     edu:partOf :GeometricConcepts.
 :PointPlotting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of locating and marking a point on a coordinate plane using a pair of numerical coordinates.";
-    edu:partOf :GeometricVisualization;
+    edu:partOf :GeometricPlotting;
     edu:translates :PointConcept.
 :Polygon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
@@ -500,7 +510,7 @@
     rdfs:isDefinedBy "The process of drawing geometric shapes, such as polygons, on a coordinate plane by plotting their vertices.";
     edu:expands :PointPlotting;
     edu:integrates :Polygon;
-    edu:partOf :GeometricVisualization.
+    edu:partOf :GeometricPlotting.
 :ShapeRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identifying and naming different geometric shapes.";
     edu:partOf :SpatialSense.
@@ -523,10 +533,6 @@
 :Sine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side opposite a given angle (in a right-angled triangle) to the hypotenuse.";
     edu:partOf :TrigonometricRelations.
-:SlopeConcept a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The measure of the steepness and direction of a line, calculated as the ratio of the vertical change (rise) to the horizontal change (run) between two points.";
-    edu:integrates :RatioInterpretation;
-    edu:partOf :GeometricVisualization.
 :SpatialModelling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating mental or physical representations of objects and their spatial relationships.";
     edu:partOf :SpatialSense.
