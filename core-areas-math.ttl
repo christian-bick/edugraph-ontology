@@ -231,8 +231,8 @@
 :GeometricCalculations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The measurement and calculation of properties of geometric objects, such as perimeter, area, and volume.";
     edu:expands :MeasuringObjects;
-    edu:partOf :Geometry;
-    edu:translates :Arithmetic.
+    edu:integrates :Arithmetic;
+    edu:partOf :Geometry.
 :GeometricConcepts a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fundamental concepts of geometry including points, lines, planes, and angles.";
     edu:partOf :Geometry.
