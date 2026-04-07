@@ -178,7 +178,7 @@
     edu:partOf :GeometricTransformations.
 :DistanceCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of distance between two points.";
-    edu:expands :MeasuringObjects;
+    edu:expands :Difference;
     edu:partOf :GeometricCalculations.
 :DistributiveLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that multiplying a sum by a number gives the same result as multiplying each addend by the number and then adding the products together.";
@@ -230,7 +230,7 @@
     edu:partOf :FractionEquivalence.
 :GeometricCalculations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The measurement and calculation of properties of geometric objects, such as perimeter, area, and volume.";
-    edu:expands :Arithmetic;
+    edu:expands :Arithmetic, :MeasuringObjects;
     edu:partOf :Geometry.
 :GeometricConcepts a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fundamental concepts of geometry including points, lines, planes, and angles.";
@@ -656,7 +656,7 @@
     edu:partOf :AngleRelations.
 :SurfaceAreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the total area of the surface of a three-dimensional object.";
-    edu:expands :AreaCalculation;
+    edu:expands :AreaCalculation, :SpaceConcept;
     edu:partOf :GeometricCalculations.
 :SymmetryRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The property of a geometric figure to be invariant under certain transformations, such as reflection, rotation, or translation.";
@@ -704,5 +704,5 @@
     edu:partOf :AngleRelations.
 :VolumeCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the amount of space that a substance or object occupies.";
-    edu:expands :AreaCalculation;
+    edu:expands :AreaCalculation, :SpaceConcept;
     edu:partOf :GeometricCalculations.
