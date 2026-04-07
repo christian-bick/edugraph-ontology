@@ -111,15 +111,17 @@
     edu:partOf :GeometricVisualization.
 :CoordinateDistance a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the straight-line distance between two points on the Cartesian plane using their coordinates.";
-    edu:expands :PointPlotting;
+    edu:expands :CoordinateSlope;
     edu:integrates :DistanceCalculation;
     edu:partOf :CoordinateCalculations.
 :CoordinateMidpoint a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of finding the exact center point of a line segment on the coordinate plane by averaging the coordinates of its endpoints.";
+    edu:expands :CoordinateDistance;
     edu:integrates :LineSegment;
     edu:partOf :CoordinateCalculations.
 :CoordinateSlope a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The measure of the steepness and direction of a line, calculated as the ratio of the vertical change (rise) to the horizontal change (run) between two points.";
+    edu:expands :LinePlotting;
     edu:integrates :RatioInterpretation;
     edu:partOf :CoordinateCalculations.
 :Cosine a owl:NamedIndividual, edu:Area;
@@ -280,8 +282,8 @@
 :LinePlotting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of representing a straight line on the coordinate plane, typically by plotting points or using a linear equation.";
     edu:expands :PointPlotting;
-    edu:integrates :LineConcept;
-    edu:partOf :GeometricPlotting.
+    edu:partOf :GeometricPlotting;
+    edu:translates :LineSegment.
 :LineSegment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
     edu:partOf :OneDimensionalObjects.
@@ -397,6 +399,7 @@
     edu:partOf :GeometricConcepts.
 :PointPlotting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of locating and marking a point on a coordinate plane using a pair of numerical coordinates.";
+    edu:expands :CoordinateAxes;
     edu:partOf :GeometricPlotting;
     edu:translates :PointConcept.
 :Polygon a owl:NamedIndividual, edu:Area;
@@ -508,9 +511,9 @@
     edu:partOf :ShapeRecognition.
 :ShapePlotting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of drawing geometric shapes, such as polygons, on a coordinate plane by plotting their vertices.";
-    edu:expands :PointPlotting;
-    edu:integrates :Polygon;
-    edu:partOf :GeometricPlotting.
+    edu:expands :LinePlotting;
+    edu:partOf :GeometricPlotting;
+    edu:translates :Polygon.
 :ShapeRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identifying and naming different geometric shapes.";
     edu:partOf :SpatialSense.
