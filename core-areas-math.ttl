@@ -99,7 +99,6 @@
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
 :Cone a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A three-dimensional geometric shape that tapers smoothly from a flat base to a point called the apex or vertex.";
-    edu:integrates :Circle;
     edu:partOf :ThreeDimensionalObjects.
 :CongruenceRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric figures that have the exact same size and shape.";
@@ -119,11 +118,9 @@
     edu:partOf :TrigonometricRelations.
 :Cube a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six congruent square faces where each pair of opposite faces is parallel.";
-    edu:integrates :Square;
     edu:partOf :RectangularPrism.
 :Cylinder a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A three-dimensional solid consisting of two parallel circular bases connected by a curved surface.";
-    edu:integrates :Circle, :Rectangle;
     edu:partOf :ThreeDimensionalObjects.
 :DecimalArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers using a base-10 positional notation system, where a decimal point separates the integer component from a fractional component expressed as a sum of negative powers of ten.";
@@ -492,7 +489,6 @@
     edu:partOf :IntuitiveMathematics.
 :Pyramid a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polyhedron formed by connecting a polygonal base and a point, called the apex.";
-    edu:integrates :Polygon;
     edu:partOf :ThreeDimensionalObjects.
 :Quadrants a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The four regions into which the coordinate axes divide the Cartesian plane, typically numbered I, II, III, and IV.";
@@ -527,7 +523,6 @@
     edu:partOf :Parallelogram.
 :RectangularPrism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six rectangular faces where each pair of opposite faces is congruent and parallel.";
-    edu:integrates :Rectangle;
     edu:partOf :Prism.
 :Reflection a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that flips a geometric figure across a line, creating a mirror image.";
@@ -572,8 +567,8 @@
 :ShapePlotting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of drawing geometric shapes, such as polygons, on a coordinate plane by plotting their vertices.";
     edu:expands :PointPlotting;
-    edu:integrates :Polygon;
-    edu:partOf :GeometricVisualization.
+    edu:partOf :GeometricVisualization;
+    edu:translates :Polygon.
 :ShapeRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identifying and naming different geometric shapes.";
     edu:partOf :SpatialSense.
