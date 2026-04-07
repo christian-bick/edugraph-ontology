@@ -33,7 +33,7 @@
     edu:partOf :GeometricCalculations.
 :AngleConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The amount of rotation or divergence between two intersecting rays, lines or planes.";
-    edu:expands :IntersectionRelation, :LineConcept;
+    edu:expands :IntersectionRelation;
     edu:partOf :GeometricConcepts.
 :AngleRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships between pairs of angles, such as those formed by intersecting lines.";
