@@ -299,6 +299,9 @@
     edu:expands :DistanceCalculation;
     edu:integrates :TrigonometricRelations;
     edu:partOf :GeometricCalculations.
+:LinearDrawing a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Linear drawing is the ability to create drawings or models of lines.";
+    edu:partOf :SpatialModelling.
 :LinearShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Linear shape drawing is the ability to create drawings or models of shapes with straight sides.";
     edu:partOf :SpatialModelling.
