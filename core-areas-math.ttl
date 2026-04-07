@@ -184,9 +184,9 @@
     rdfs:isDefinedBy "A triangle in which all three sides are of equal length and all three angles are 60 degrees.";
     edu:partOf :Triangle.
 :Estimation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Intuitively guessing quantities, sizes, or the outcome of a calculation before doing the exact math.";
+    rdfs:isDefinedBy "Intuitively guessing relative quantities and sizes without counting.";
     edu:expands :NumericComparison;
-    edu:partOf :NumberSense.
+    edu:partOf :NumericApproximation.
 :Exponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.";
     edu:expands :Multiplication;
@@ -357,6 +357,9 @@
 :NumerationWithIntervals a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with intervals is used to represent sets of numbers with specific limits.";
     edu:partOf :Numeration.
+:NumericApproximation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Numeric approximation involves estimating values to represent quantities that are close to their exact values.";
+    edu:partOf :NumberSense.
 :NumericComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeric comparison involves evaluating whether one number is greater than, less than, or equal to another.";
     edu:partOf :NumberSense.
@@ -617,7 +620,7 @@
 :Subitizing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The ability to instantly recognize the number of objects in a small group without counting.";
     edu:expands :GroupRecognition;
-    edu:partOf :NumberSense.
+    edu:partOf :NumericApproximation.
 :SubsetIdentification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The ability to recognize and isolate a smaller specific group of objects within a larger bounded collection based on a distinguishing visual attribute.";
     edu:expands :ObjectSorting;
