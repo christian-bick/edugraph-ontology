@@ -516,7 +516,7 @@
     edu:partOf :GeometricConcepts.
 :Rectangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements.";
-    edu:expands :ParallelismRelation, :PerpendicularityRelation, :RightAngle;
+    edu:expands :ParallelismRelation, :RightAngle;
     edu:partOf :Parallelogram.
 :RectangularPrism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six rectangular faces where each pair of opposite faces is congruent and parallel.";
@@ -533,6 +533,7 @@
     edu:partOf :Parallelogram.
 :RightAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle of exactly 90 degrees, corresponding to a quarter turn.";
+    edu:expands :PerpendicularityRelation;
     edu:partOf :AngleConcept.
 :RightTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle that has one right angle.";
