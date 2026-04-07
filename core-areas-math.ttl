@@ -61,9 +61,6 @@
 :AssociativeLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that the way in which numbers are grouped by parentheses does not change their sum or product.";
     edu:partOf :ArithmeticLaws.
-:BaseOperations a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Base operations are the fundamental arithmetic actions performed on numbers that all other arithmetic operations are based one.";
-    edu:partOf :NumberSense.
 :Calculus a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides tools for analyzing rates of change and accumulation. It deals with instantaneous rates of change that affect the slopes of curves, as well as with accumulation that affect areas under curves.".
 :CartesianPlane a owl:NamedIndividual, edu:Area;
@@ -152,12 +149,12 @@
 :Decrement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a quantity by a specific amount.";
     edu:inverts :Increment;
-    edu:partOf :BaseOperations.
+    edu:partOf :FoundationalOperations.
 :Difference a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining the difference in quantities of mathematical object, including numbers where difference represents the amount by which one quantity is greater or less than another.";
     edu:expands :Decrement, :SetComparison;
     edu:inverts :Sum;
-    edu:partOf :BaseOperations.
+    edu:partOf :FoundationalOperations.
 :DigitNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Digit notation uses symbols from 0 to 9 to represent any number.";
     edu:expands :NumericIdentity;
@@ -188,6 +185,9 @@
     rdfs:isDefinedBy "The process of calculating the value of an arithmetic expression by systematically applying operations according to established rules.";
     edu:integrates :ArithmeticLaws, :OrderOfOperations, :ParenthesesUsage;
     edu:partOf :ArithmeticExpressions.
+:FoundationalOperations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Base operations are the fundamental arithmetic actions performed on numbers that all other arithmetic operations are based one.";
+    edu:partOf :NumberSense.
 :FractionArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
     edu:expands :NumerationWithFractions, :ProportionInteraction;
@@ -232,7 +232,7 @@
 :Increment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a quantity by a certain amount.";
     edu:expands :NumericOrder;
-    edu:partOf :BaseOperations.
+    edu:partOf :FoundationalOperations.
 :IntegerArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The understanding and application of whole numbers, their additive inverses (negative numbers), and zero, representing discrete values that do not contain fractional or decimal components.";
     edu:expands :NumerationWithIntegers;
@@ -582,7 +582,7 @@
 :Sum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Combining quantities to determine their total amount for any type of mathematical object, including numbers.";
     edu:expands :Increment, :UnionOfCollections;
-    edu:partOf :BaseOperations.
+    edu:partOf :FoundationalOperations.
 :SupplementaryAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles whose sum is exactly 180 degrees.";
     edu:partOf :AngleRelations.
