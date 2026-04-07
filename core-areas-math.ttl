@@ -295,6 +295,7 @@
     edu:partOf :Triangle.
 :Kite a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quadrilateral with two distinct pairs of equal-length sides that are adjacent to each other.";
+    edu:expands :SymmetryRelation;
     edu:partOf :Quadrilateral.
 :LengthCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the linear extent or measurement of a geometric object.";
@@ -418,6 +419,7 @@
     edu:partOf :PositionalRelations.
 :Parallelogram a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with two pairs of parallel sides, their properties, and related measurements.";
+    edu:expands :ParallelismRelation;
     edu:partOf :Quadrilateral.
 :ParenthesesUsage a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The use of grouping symbols in arithmetic expressions to override the standard order of operations and specify which calculations should be performed first.";
@@ -539,7 +541,7 @@
     edu:partOf :GeometricConcepts.
 :Rectangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements.";
-    edu:expands :ParallelismRelation, :RightAngle;
+    edu:expands :RightAngle;
     edu:partOf :Parallelogram.
 :RectangularPrism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six rectangular faces where each pair of opposite faces is congruent and parallel.";
@@ -691,6 +693,7 @@
     edu:partOf :GeometricTransformations.
 :Trapezoid a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quadrilateral with at least one pair of parallel sides.";
+    edu:expands :ParallelismRelation;
     edu:partOf :Quadrilateral.
 :Triangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of three-sided polygons, their properties, and related measurements.";
