@@ -285,7 +285,7 @@
     edu:partOf :CollectionSense.
 :IntersectionRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric entities that share one or more common points where they meet or cross.";
-    edu:expands :LineConcept;
+    edu:expands :LineConcept, :PlaneConcept;
     edu:partOf :PositionalRelations.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Intervals with infinity is used to represent sets of numbers with unbounded limits.";
