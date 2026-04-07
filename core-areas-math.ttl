@@ -214,7 +214,7 @@
     edu:partOf :NumberSense.
 :FractionArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
-    edu:expands :NumerationWithFractions, :ProportionInteraction;
+    edu:expands :Division, :NumerationWithFractions, :ProportionInteraction;
     edu:partOf :RationalArithmetic.
 :FractionEquivalence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The principle that distinct representations of rational numbers in the form a/b can express the same ratio, where transformations between different numerators and denominators maintain the same value relative to the unit or whole.";
