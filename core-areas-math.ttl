@@ -69,11 +69,9 @@
 :CartesianPlane a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A two-dimensional plane defined by a horizontal axis and a vertical axis intersecting at a right angle.";
     edu:expands :PlaneConcept;
-    edu:integrates :LineConcept, :PerpendicularityRelation;
     edu:partOf :GeometricVisualization.
 :ChordCenterRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship stating that a perpendicular line drawn from the center of a circle to a chord bisects the chord into two equal parts.";
-    edu:integrates :PerpendicularityRelation;
     edu:partOf :CircleRelations.
 :Circle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of circles, their properties, and related functions including Pi.";
@@ -111,7 +109,6 @@
 :CoordinateDistance a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the straight-line distance between two points on the Cartesian plane using their coordinates.";
     edu:expands :PointPlotting;
-    edu:integrates :DistanceCalculation;
     edu:partOf :GeometricVisualization.
 :Cosine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side adjacent to an acute angle (in a right-angled triangle) to the hypotenuse.";
@@ -296,7 +293,6 @@
 :LineGraphing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of representing a straight line on the coordinate plane, typically by plotting points or using a linear equation.";
     edu:expands :PointPlotting;
-    edu:integrates :LineConcept;
     edu:partOf :GeometricVisualization.
 :LineSegment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
@@ -323,7 +319,6 @@
     edu:partOf :Measurement.
 :MidpointCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of finding the exact center point of a line segment on the coordinate plane by averaging the coordinates of its endpoints.";
-    edu:integrates :LineSegment;
     edu:partOf :GeometricVisualization.
 :Modulo a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the remainder after dividing one number by another.";
@@ -394,7 +389,7 @@
     edu:partOf :ArithmeticExpressions.
 :Origin a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The point (0,0) where the coordinate axes intersect on the Cartesian plane.";
-    edu:integrates :IntersectionRelation;
+    edu:integrates :IntersectionRelation, :PerpendicularityRelation;
     edu:partOf :CartesianPlane.
 :ParallelismRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between lines or planes that are always the same distance apart and never intersect.";
@@ -402,7 +397,6 @@
     edu:partOf :PositionalRelations.
 :Parallelogram a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with two pairs of parallel sides, their properties, and related measurements.";
-    edu:integrates :ParallelismRelation;
     edu:partOf :Quadrilateral.
 :ParenthesesUsage a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The use of grouping symbols in arithmetic expressions to override the standard order of operations and specify which calculations should be performed first.";
@@ -453,7 +447,6 @@
     edu:partOf :GeometricVisualization.
 :Polygon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
-    edu:integrates :LineSegment;
     edu:partOf :TwoDimensionalObjects.
 :PositionalRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships describing how geometric lines, planes, or segments interact, intersect, or positionally relate to one another in space.";
@@ -468,7 +461,6 @@
 :Prism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has two congruent and parallel bases and lateral faces that are parallelograms.";
     edu:expands :CongruenceRelation, :Parallelogram;
-    edu:integrates :CongruenceRelation, :ParallelismRelation;
     edu:partOf :ThreeDimensionalObjects.
 :ProportionAbstraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Proportion abstraction is the ability to generalize proportional relationships and apply them to new situations.";
@@ -520,7 +512,6 @@
     edu:partOf :GeometricConcepts.
 :Rectangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements.";
-    edu:integrates :RightAngle;
     edu:partOf :Parallelogram.
 :RectangularPrism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six rectangular faces where each pair of opposite faces is congruent and parallel.";
@@ -540,7 +531,6 @@
     edu:partOf :AngleConcept.
 :RightTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle that has one right angle.";
-    edu:integrates :RightAngle;
     edu:partOf :Triangle.
 :Root a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the number that, when raised to a certain power, produces a given number.\n\nExample: The cube root of 64 is 4 because 4 ^ 3 = 64";
@@ -612,7 +602,6 @@
     edu:partOf :ThreeDimensionalObjects.
 :Square a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles and four equal sides, their properties, and related measurements.";
-    edu:integrates :RightAngle;
     edu:partOf :Rectangle.
 :Statistics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides a framework for collecting, organizing, analyzing, and interpreting data. It provides tools for quantifying and modeling randomness, variability, and uncertainty in data.".
@@ -653,7 +642,6 @@
     edu:partOf :TrigonometricRelations.
 :TangentRadiusRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The geometric rule stating that a tangent line to a circle is perpendicular to the radius at the exact point of tangency.";
-    edu:integrates :PerpendicularityRelation;
     edu:partOf :CircleRelations.
 :ThreeDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Solid geometric figures that have length, width, and depth, such as spheres, cubes, and cylinders.";
