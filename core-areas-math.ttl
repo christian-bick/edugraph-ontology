@@ -18,7 +18,7 @@
 :Addition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Adding numbers together.";
     edu:expands :Sum;
-    edu:partOf :ArithmeticOperations.
+    edu:partOf :BaseOperations.
 :AdjacentAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles that share a common vertex and a common side but do not overlap.";
     edu:partOf :AngleRelations.
@@ -61,6 +61,9 @@
 :AssociativeLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that the way in which numbers are grouped by parentheses does not change their sum or product.";
     edu:partOf :ArithmeticLaws.
+:BaseOperations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The foundational application of mathematical rules and procedures to perform primary calculations through the core actions of addition, subtraction, multiplication, and division.";
+    edu:partOf :ArithmeticOperations.
 :Calculus a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides tools for analyzing rates of change and accumulation. It deals with instantaneous rates of change that affect the slopes of curves, as well as with accumulation that affect areas under curves.".
 :CartesianPlane a owl:NamedIndividual, edu:Area;
@@ -173,14 +176,14 @@
 :Division a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one number by another.";
     edu:inverts :Multiplication;
-    edu:partOf :ArithmeticOperations.
+    edu:partOf :BaseOperations.
 :EquilateralTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle in which all three sides are of equal length and all three angles are 60 degrees.";
     edu:partOf :Triangle.
 :Exponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.";
     edu:expands :Multiplication;
-    edu:partOf :ArithmeticOperations.
+    edu:partOf :PowerOperations.
 :ExpressionEvaluation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of calculating the value of an arithmetic expression by systematically applying operations according to established rules.";
     edu:integrates :ArithmeticLaws, :OrderOfOperations, :ParenthesesUsage;
@@ -288,7 +291,7 @@
 :Logarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.";
     edu:inverts :Exponentiation;
-    edu:partOf :ArithmeticOperations.
+    edu:partOf :PowerOperations.
 :Logic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies reasoning and valid arguments. It provides a framework for determining whether something is true or false based on given premises. It is the foundation for constructing proofs, ensuring that conclusions follow logically from their premises.".
 :LowestCommonDenominator a owl:NamedIndividual, edu:Area;
@@ -307,10 +310,13 @@
     rdfs:isDefinedBy "The process of finding the exact center point of a line segment on the coordinate plane by averaging the coordinates of its endpoints.";
     edu:integrates :LineSegment;
     edu:partOf :GeometricVisualization.
+:Modulo a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Finding the remainder after dividing one number by another.";
+    edu:partOf :BaseOperations.
 :Multiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or multiple numbers.";
     edu:expands :Addition;
-    edu:partOf :ArithmeticOperations.
+    edu:partOf :BaseOperations.
 :NumberNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Number notation is the system of symbols and rules used to express numerical values.";
     edu:partOf :NumberSense.
@@ -415,6 +421,9 @@
 :PositionalRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships describing how geometric lines, planes, or segments interact, intersect, or positionally relate to one another in space.";
     edu:partOf :GeometricRelations.
+:PowerOperations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The specialized application of mathematical rules and procedures to perform higher-order calculations through the actions of exponentiation, root extraction, and logarithmic derivation.";
+    edu:partOf :ArithmeticOperations.
 :Prism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has two congruent and parallel bases and lateral faces that are parallelograms.";
     edu:integrates :CongruenceRelation, :ParallelismRelation;
@@ -496,7 +505,7 @@
 :Root a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the number that, when raised to a certain power, produces a given number.\n\nExample: The cube root of 64 is 4 because 4 ^ 3 = 64";
     edu:inverts :Exponentiation;
-    edu:partOf :ArithmeticOperations.
+    edu:partOf :PowerOperations.
 :Rotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that turns a geometric figure around a fixed point, known as the center of rotation, by a specific angle.";
     edu:expands :ShapeRotation;
@@ -578,7 +587,7 @@
     rdfs:isDefinedBy "Finding the difference between two numbers.";
     edu:expands :Difference;
     edu:inverts :Addition;
-    edu:partOf :ArithmeticOperations.
+    edu:partOf :BaseOperations.
 :Sum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Combining quantities to determine their total amount for any type of mathematical object, including numbers.";
     edu:expands :Increment, :UnionOfCollections;
