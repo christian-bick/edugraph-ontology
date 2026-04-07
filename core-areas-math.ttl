@@ -29,6 +29,7 @@
 :AngleCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the measurement of the space between two intersecting lines or surfaces.";
     edu:expands :AngleConcept;
+    edu:integrates :TrigonometricRelations;
     edu:partOf :GeometricCalculations.
 :AngleConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The amount of rotation or divergence between two intersecting rays, lines or planes.";
@@ -283,6 +284,7 @@
 :LengthCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the linear extent or measurement of a geometric object.";
     edu:expands :DistanceCalculation;
+    edu:integrates :TrigonometricRelations;
     edu:partOf :GeometricCalculations.
 :LinearShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Linear shape drawing is the ability to create drawings or models of shapes with straight sides.";
@@ -661,6 +663,7 @@
     edu:partOf :Polygon.
 :TrigonometricRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of the relationships between the angles and side lengths of triangles, primarily focusing on right-angled triangles.";
+    edu:expands :AngleConcept;
     edu:partOf :GeometricRelations.
 :TwoDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Flat geometric figures that have length and width, such as polygons and circles.";
