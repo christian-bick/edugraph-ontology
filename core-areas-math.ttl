@@ -49,14 +49,13 @@
     edu:partOf :GeometricCalculations.
 :Arithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that deals with the properties and manipulation of numbers, including addition, subtraction, multiplication and division.".
-:ArithmeticExpressions a owl:NamedIndividual, edu:Area;
+:ArithmeticEvaluation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The structured formulation and evaluation of numerical statements through the combination of values and operations, governed by mathematical laws and conventions such as the order of operations to represent and simplify quantitative relationships.";
     edu:expands :ArithmeticOperations;
     edu:partOf :Arithmetic.
 :ArithmeticLaws a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fundamental rules that govern the manipulation and simplification of arithmetic expressions, ensuring consistent and predictable results.";
-    edu:expands :ArithmeticOperations;
-    edu:partOf :ArithmeticExpressions.
+    edu:partOf :ArithmeticEvaluation.
 :ArithmeticOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The systematic application of mathematical rules and procedures to combine, transform, or calculate values through fundamental actions such as addition, subtraction, multiplication, and division.";
     edu:partOf :Arithmetic.
@@ -201,10 +200,6 @@
     rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.";
     edu:expands :Multiplication;
     edu:partOf :PowerOperations.
-:ExpressionEvaluation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The process of calculating the value of an arithmetic expression by systematically applying operations according to established rules.";
-    edu:integrates :ArithmeticLaws, :OrderOfOperations, :ParenthesesUsage;
-    edu:partOf :ArithmeticExpressions.
 :Factorization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of decomposing an integer into a product of other integers that, when multiplied together, result in the original number.";
     edu:partOf :NumberTheory.
@@ -402,8 +397,7 @@
     edu:partOf :GeometricObjects.
 :OrderOfOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The standard set of rules that dictates the sequence in which multiple operations in an arithmetic expression must be performed to ensure a single, correct result.";
-    edu:expands :ArithmeticOperations;
-    edu:partOf :ArithmeticExpressions.
+    edu:partOf :ArithmeticEvaluation.
 :Origin a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The point (0,0) where the coordinate axes intersect on the Cartesian plane.";
     edu:integrates :IntersectionRelation, :PerpendicularityRelation;
@@ -418,7 +412,7 @@
 :ParenthesesUsage a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The use of grouping symbols in arithmetic expressions to override the standard order of operations and specify which calculations should be performed first.";
     edu:expands :OrderOfOperations;
-    edu:partOf :ArithmeticExpressions.
+    edu:partOf :ArithmeticEvaluation.
 :PatternRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identifying, extending, and creating repeating or growing patterns.";
     edu:partOf :IntuitiveMathematics.
