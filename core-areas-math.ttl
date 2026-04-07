@@ -33,12 +33,16 @@
     edu:partOf :GeometricCalculations.
 :AngleConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The amount of rotation or divergence between two intersecting rays, lines or planes.";
-    edu:expands :Circle, :IntersectionRelation;
+    edu:expands :ArchConcept, :IntersectionRelation;
     edu:partOf :GeometricConcepts.
 :AngleRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships between pairs of angles, such as those formed by intersecting lines.";
     edu:expands :AngleConcept;
     edu:partOf :GeometricRelations.
+:ArchConcept a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A continuous portion of the circumference of a circle or any other curved line.";
+    edu:expands :Circle;
+    edu:partOf :GeometricConcepts.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
     edu:expands :LengthCalculation;
@@ -85,6 +89,11 @@
 :CircularShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Circular shape drawing is the ability to create drawings or models of circular shapes.";
     edu:partOf :SpatialModelling.
+:CircumferenceCalculation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The calculation of the continuous line forming the boundary of a circle.";
+    edu:expands :Circle;
+    edu:integrates :Pi;
+    edu:partOf :PerimeterCalculation.
 :CollectionSense a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Collection sense is the intuitive understanding of how objects are grouped and categorized as a foundational form of set theory.";
     edu:partOf :IntuitiveMathematics.
