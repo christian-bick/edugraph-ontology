@@ -42,7 +42,7 @@
     edu:partOf :GeometricRelations.
 :ArchConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A continuous portion of the circumference of a circle or any other curved line.";
-    edu:expands :Circle;
+    edu:expands :Circle, :RatioInterpretation;
     edu:partOf :GeometricConcepts.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
@@ -626,7 +626,7 @@
     edu:partOf :TrigonometricRelations.
 :SlopeConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The measure of the steepness and direction of a line, calculated as the ratio of the vertical change (rise) to the horizontal change (run) between two points.";
-    edu:integrates :RatioInterpretation;
+    edu:expands :RatioInterpretation;
     edu:partOf :GeometricVisualization.
 :SpaceConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A boundless, three-dimensional extent that contains all geometric figures and extends infinitely in all directions.";
