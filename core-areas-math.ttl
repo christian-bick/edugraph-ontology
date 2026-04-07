@@ -315,7 +315,7 @@
     edu:partOf :GeometricVisualization.
 :LineSegment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
-    edu:expands :LinearShapeDrawing;
+    edu:expands :LinearDrawing;
     edu:partOf :OneDimensionalObjects.
 :Logarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.";
@@ -467,7 +467,7 @@
     edu:partOf :GeometricVisualization.
 :Polygon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
-    edu:expands :LineSegment;
+    edu:expands :LineSegment, :LinearShapeDrawing;
     edu:partOf :TwoDimensionalObjects.
 :PositionalRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships describing how geometric lines, planes, or segments interact, intersect, or positionally relate to one another in space.";
