@@ -67,7 +67,7 @@
 :CartesianPlane a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A two-dimensional plane defined by a horizontal axis and a vertical axis intersecting at a right angle.";
     edu:integrates :LineConcept, :PerpendicularityRelation;
-    edu:partOf :CoordinateGeometry.
+    edu:partOf :GeometricVisualization.
 :ChordCenterRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship stating that a perpendicular line drawn from the center of a circle to a chord bisects the chord into two equal parts.";
     edu:integrates :PerpendicularityRelation;
@@ -103,9 +103,14 @@
     edu:expands :ShapeIdentity;
     edu:partOf :ShapeEquivalenceRelations;
     edu:translates :ShapeIdentity, :ShapeRotation.
-:CoordinateGeometry a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of geometry using a coordinate system to define the position of points, lines, and shapes.";
-    edu:partOf :Geometry.
+:CoordinateAxes a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The horizontal (x-axis) and vertical (y-axis) number lines that intersect at right angles to form the Cartesian plane.";
+    edu:partOf :CartesianPlane.
+:CoordinateDistance a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The calculation of the straight-line distance between two points on the Cartesian plane using their coordinates.";
+    edu:expands :PointPlotting;
+    edu:integrates :DistanceCalculation;
+    edu:partOf :GeometricVisualization.
 :Cosine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side adjacent to an acute angle (in a right-angled triangle) to the hypotenuse.";
     edu:partOf :TrigonometricRelations.
@@ -203,6 +208,9 @@
 :GeometricTransformations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The application of transformations to geometric objects to alter their position, orientation, or scale, such as rotation, reflection, translation, and dilation.";
     edu:partOf :Geometry.
+:GeometricVisualization a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of geometry using a coordinate system to define the position of points, lines, and shapes.";
+    edu:partOf :Geometry.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
 :GroupRecognition a owl:NamedIndividual, edu:Area;
@@ -255,6 +263,11 @@
     rdfs:isDefinedBy "A straight, one-dimensional figure that has no thickness and extends infinitely in both directions.";
     edu:expands :PointConcept;
     edu:partOf :GeometricConcepts.
+:LineGraphing a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The process of representing a straight line on the coordinate plane, typically by plotting points or using a linear equation.";
+    edu:expands :PointPlotting;
+    edu:integrates :LineConcept;
+    edu:partOf :GeometricVisualization.
 :LineSegment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
     edu:partOf :OneDimensionalObjects.
@@ -276,6 +289,10 @@
 :MeasuringTime a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Measuring time involves quantifying the duration of events or the intervals between them.";
     edu:partOf :Measurement.
+:MidpointCalculation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The process of finding the exact center point of a line segment on the coordinate plane by averaging the coordinates of its endpoints.";
+    edu:integrates :LineSegment;
+    edu:partOf :GeometricVisualization.
 :Multiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or multiple numbers.";
     edu:expands :Addition;
@@ -332,6 +349,10 @@
 :OrderOfOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The standard set of rules that dictates the sequence in which multiple operations in an arithmetic expression must be performed to ensure a single, correct result.";
     edu:partOf :ArithmeticExpressions.
+:Origin a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The point (0,0) where the coordinate axes intersect on the Cartesian plane.";
+    edu:integrates :IntersectionRelation;
+    edu:partOf :CartesianPlane.
 :ParallelismRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between lines or planes that are always the same distance apart and never intersect.";
     edu:partOf :PositionalRelations.
@@ -354,7 +375,7 @@
     rdfs:isDefinedBy "The relationship between two geometric objects that intersect at a right angle (90 degrees).";
     edu:partOf :PositionalRelations.
 :Pi a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The mathematical constant representing the ratio of a circle's circumference to its diameter.";
+    rdfs:isDefinedBy "The mathematical constant representing the ratio of a circle's circumference to diameter.";
     edu:integrates :RatioInterpretation;
     edu:partOf :CircleRelations.
 :PlaneConcept a owl:NamedIndividual, edu:Area;
@@ -366,7 +387,7 @@
     edu:partOf :GeometricConcepts.
 :PointPlotting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of locating and marking a point on a coordinate plane using a pair of numerical coordinates.";
-    edu:partOf :CoordinateGeometry;
+    edu:partOf :GeometricVisualization;
     edu:translates :PointConcept.
 :Polygon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
@@ -402,6 +423,9 @@
     rdfs:isDefinedBy "A polyhedron formed by connecting a polygonal base and a point, called the apex.";
     edu:integrates :Polygon;
     edu:partOf :ThreeDimensionalObjects.
+:Quadrants a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The four regions into which the coordinate axes divide the Cartesian plane, typically numbered I, II, III, and IV.";
+    edu:partOf :CartesianPlane.
 :Quadrilateral a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with four edges and four vertices.";
     edu:partOf :Polygon.
@@ -472,6 +496,11 @@
 :ShapeIdentity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding when two shapes are identical in size and shape, independently of their orientation.";
     edu:partOf :ShapeRecognition.
+:ShapePlotting a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The process of drawing geometric shapes, such as polygons, on a coordinate plane by plotting their vertices.";
+    edu:expands :PointPlotting;
+    edu:integrates :Polygon;
+    edu:partOf :GeometricVisualization.
 :ShapeRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identifying and naming different geometric shapes.";
     edu:partOf :SpatialSense.
@@ -494,6 +523,10 @@
 :Sine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The trigonometric function that is equal to the ratio of the side opposite a given angle (in a right-angled triangle) to the hypotenuse.";
     edu:partOf :TrigonometricRelations.
+:SlopeConcept a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The measure of the steepness and direction of a line, calculated as the ratio of the vertical change (rise) to the horizontal change (run) between two points.";
+    edu:integrates :RatioInterpretation;
+    edu:partOf :GeometricVisualization.
 :SpatialModelling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating mental or physical representations of objects and their spatial relationships.";
     edu:partOf :SpatialSense.
