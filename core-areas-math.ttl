@@ -426,10 +426,11 @@
     edu:partOf :RationalArithmetic.
 :PercentageEquivalence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures for establishing the equality between percentages, fractions, and decimals.";
-    edu:expands :DecimalEquivalence, :FractionEquivalence;
+    edu:expands :DecimalEquivalence;
     edu:partOf :PercentageArithmetic.
 :PercentageNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent percentages, specifically the percent sign (%).";
+    edu:expands :DecimalNotation;
     edu:partOf :PercentageArithmetic.
 :PerimeterCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the continuous line forming the boundary of a closed geometric figure.";
