@@ -151,8 +151,13 @@
 :DecimalPointAlignment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures that align the floating point as a part of decimal number operations.";
     edu:partOf :DecimalNotation.
+:DecimalPrecission a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The specification of the number of digits within the fractional component of a base-10 positional notation, which determines the smallest negative power of ten represented and establishes the level of exactness or granularity in the representation of a rational value.";
+    edu:expands :DecimalEquivalence;
+    edu:partOf :DecimalArithmetic.
 :DecimalRounding a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures for approximating a decimal number to a specified degree of precision by adjusting the fractional component based on the value of digits at subsequent negative powers of ten.";
+    edu:expands :DecimalPrecission;
     edu:partOf :DecimalArithmetic.
 :Decrement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a quantity by a specific amount.";
@@ -514,7 +519,6 @@
     edu:partOf :ProportionAbstraction.
 :RationalArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The understanding and application of numbers that can be expressed as the quotient or fraction of two integers, where the denominator is non-zero.";
-    edu:expands :IntegerArithmetic;
     edu:partOf :ArithmeticSpaces.
 :RatioNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols and conventions used to represent ratios.";
