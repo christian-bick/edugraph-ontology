@@ -278,6 +278,7 @@
     edu:partOf :IntegerArithmetic.
 :IntegerSigns a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate an integer's direction and magnitude relative to zero.";
+    edu:expands :ZeroConcept;
     edu:partOf :IntegerNotation.
 :IntersectionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification of objects that belong to two overlapping physical groups, often visualized through intersecting boundaries like Venn diagrams made of physical hoops.";
@@ -415,7 +416,7 @@
     edu:partOf :ArithmeticEvaluation.
 :Origin a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The point (0,0) where the coordinate axes intersect on the Cartesian plane.";
-    edu:integrates :IntersectionRelation, :PerpendicularityRelation;
+    edu:expands :IntegerSigns;
     edu:partOf :CartesianPlane.
 :ParallelismRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between lines or planes that are always the same distance apart and never intersect.";
@@ -459,6 +460,7 @@
     edu:partOf :CircleRelations.
 :PlaceValue a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The numerical value that a digit has by virtue of its position in a number.";
+    edu:expands :ZeroConcept;
     edu:partOf :IntegerNotation.
 :PlaneConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A flat, two-dimensional surface that extends infinitely far.";
@@ -723,3 +725,6 @@
     rdfs:isDefinedBy "The calculation of the amount of space that a substance or object occupies.";
     edu:expands :AreaCalculation, :SpaceConcept;
     edu:partOf :GeometricCalculations.
+:ZeroConcept a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The understanding and application of zero as a distinct integer representing the absence of quantity, a null value, or the neutral origin between positive and negative integers. This includes recognizing its role as the additive identity and its function as a placeholder within the positional numeral system.\n\nExample: Recognizing that adding zero to any integer does not change its value, or using zero to denote the absence of a value in a specific place value position.";
+    edu:partOf :IntegerArithmetic.
