@@ -416,7 +416,7 @@
     edu:partOf :ArithmeticEvaluation.
 :Origin a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The point (0,0) where the coordinate axes intersect on the Cartesian plane.";
-    edu:expands :IntegerSigns;
+    edu:expands :ZeroConcept;
     edu:partOf :CartesianPlane.
 :ParallelismRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between lines or planes that are always the same distance apart and never intersect.";
