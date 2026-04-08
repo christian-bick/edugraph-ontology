@@ -117,7 +117,8 @@
     edu:translates :ShapeRotation.
 :CoordinateAxes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The horizontal (x-axis) and vertical (y-axis) number lines that intersect at right angles to form the Cartesian plane.";
-    edu:partOf :CartesianPlane.
+    edu:partOf :CartesianPlane;
+    edu:translates :Numeration.
 :CoordinateDistance a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the straight-line distance between two points on the Cartesian plane using their coordinates.";
     edu:expands :PointPlotting;
@@ -416,8 +417,9 @@
     edu:partOf :ArithmeticEvaluation.
 :Origin a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The point (0,0) where the coordinate axes intersect on the Cartesian plane.";
-    edu:expands :ZeroConcept;
-    edu:partOf :CartesianPlane.
+    edu:expands :CoordinateAxes;
+    edu:partOf :CartesianPlane;
+    edu:translates :ZeroConcept.
 :ParallelismRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between lines or planes that are always the same distance apart and never intersect.";
     edu:inverts :IntersectionRelation;
