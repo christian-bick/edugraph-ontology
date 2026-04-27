@@ -91,6 +91,7 @@
     rdfs:isDefinedBy "Involves spatial dimensions with or without time or hyperdimensional concepts.";
     edu:partOf :AbstractionScope.
 :DistanceAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves distance or length concepts.";
     edu:partOf :AbstractionScope.
 :FourDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves three spatial dimensions and time.";
@@ -355,6 +356,7 @@
     edu:expands :TwoDimensional;
     edu:partOf :DimensionalAbstraction.
 :TimeAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves time or duration concepts.";
     edu:partOf :AbstractionScope.
 :TimeIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The intervals used to measure time.";
