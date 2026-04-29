@@ -169,8 +169,6 @@ By separating these components, the system maximizes the reusability of each des
 | **Logical Inference**  | **Abductive Reasoning.** A form of logical inference that starts with an observation or set of observations and then seeks to find the simplest and most likely explanation.  |
 | **Critical Analysis**  | **Analytical Capability.** The ability to examine information critically, break it down into its component parts, and identify patterns and relationships.  |
 
----
-
 ## 2. Structural Relations
 
 The EduGraph ontology is structured by key relations establishing taxonomic and compositional links. The primary structural relation is **PartOf**, which creates hierarchical knowledge domains, ensuring that a sub-entity automatically inherits the attributes and relations of its parent.
@@ -195,8 +193,6 @@ In addition, the **Involves** relation is essential for precisely defining compe
 | :---- | :---- |
 | **Geometry** | **CalculateParameterOfRectangleWithIntegers involves Rectangle, ParameterCalculation, ProcedureExection, IntegerNumbers.** Defines the specialized competency to calculate the circumvention of a rectangle with integers (opposed to determining it geometrically or involving relationals).  |
 | **Arithmetic**  | **AdditionWithWholeNumbersSmaller10 involves Addition, ProcedureExecution, IntegerNumber, NumbersWithoutZero, NumbersWithoutNegatives, NumbersSmaller10**. Defines the specialized competency of adding whole numbers with numbers smaller than 10, implying that carry over is not involved here, nor is the concept of adding 0 or dealing with signed integers in addition. |
-
----
 
 ## 3. Progression Relations
 
