@@ -100,7 +100,19 @@
 
 [5.2 The Consequences of Lacking this Foundation](#52-the-consequences-of-lacking-this-foundation)
 
-[Combined Design Decision](#combined-design-decision)
+[Combined Design Decisions](#combined-design-decisions)
+
+[1. Core Concepts](#1-core-concepts)
+
+[2. Pragmatic Development](#2-pragmatic-development)
+
+[2.1 The "In-Tandem" Feedback Loop](#21-the-in-tandem-feedback-loop)
+
+[2.2 Model-Driven Applicability](#22-model-driven-applicability)
+
+[2.3 Content-Driven Interoperability](#23-content-driven-interoperability)
+
+[2.4 Open Source](#24-open-source)
 
 ---
 
@@ -487,7 +499,7 @@ Without this ontological foundation, educational technology degrades into "black
 
 ---
 
-# Resulting Design Decisions
+# Combined Design Decisions
 
 ## 1. Core Concepts
 
@@ -530,7 +542,7 @@ The EduGraph ontology is not developed in a vacuum. It is the core of a three-wa
 a **Reference Dataset**, and **Statistical Models** (Classification and Embedding). This pragmatic approach ensures immediate 
 applicability and constant validation.
 
-### 2.1 The "In-Tandem" Feedback Loop
+### 2.1 Implicit Validation
 Ontology development happens in direct lockstep with the annotation of a custom reference dataset. This dataset serves as 
 a continuous sanity check. 
 
@@ -539,7 +551,7 @@ reference dataset provides immediate feedback. If a high-quality model consisten
 under a particular ontological node, it is often a sign of **ontological ambiguity** rather than model failure. This allows 
 for an iterative refinement process where "fuzzy" ontological definitions are identified and sharpened already during development.
 
-### 2.2 Model-Driven Applicability
+### 2.2 Direct Applicability
 By developing a specialized **Classification Model** and an **Embedding Model** alongside, the ontology moves from a static 
 document to an active tool.
 
@@ -552,7 +564,7 @@ and allows the tracking of learning activities in offline environments.
 distance" becomes measurable. This enables search and recommendation engines to operate with a degree of conceptual nuance 
 that keyword-based systems cannot match.
 
-### 2.3 Content-Driven Interoperability
+### 2.3 Fostering Interoperability
 A common barrier in educational technology is the difficulty of mapping disparate ontologies or standards (e.g., mapping 
 Common Core to a proprietary school curriculum). EduGraph bypasses the need for direct, manual "Schema-to-Schema" mapping 
 through **Content-Mediated Alignment**.
@@ -564,7 +576,20 @@ automatically generate high-confidence mappings. Tagged content itself can act a
 Much like how a *CompetencyDescription* is defined by the *involves* relation, future iterations of the ontology can 
 include validated links to external standards, effectively allowing to grow autonomously as more content is processed.
 
+### 2.4 Committed to Open Source
+The EduGraph ecosystem is built on the principle of radical transparency and community-driven growth. By making the 
+**Ontology**, the **Reference Datasets**, and the **Statistical Models** entirely open source, the project ensures 
+that the technological bedrock of education remains a public good.
+
+**Extensibility & Customization:** The ontology is not a closed dogma. Users can customize and extend the model to fit specific local or institutional needs. This is supported by a **specialized online editor**, allowing educators and developers to branch the ontology while maintaining structural compatibility with the core engine.
+
+**Specialization through SFT:** The provided classification and embedding models are designed as foundational blocks. They can be used as a base for further **Supervised Fine-Tuning (SFT)**, allowing institutions to specialize the AI on their own proprietary content or unique pedagogical styles without starting from scratch.
+
+**Collaborative Interoperability:** This open-source approach fosters a culture of joined development. As more users contribute data, refine models, and map new content, the entire ecosystem gains interoperability. The community-driven feedback loop ensures that the ontology and its models evolve at the speed of educational innovation.
+
 # Summary
 
-EduGraph is more than an academic pipe dream. It is an applicable tool that combines what pedagogic requirements with
-technological efficiency.
+EduGraph is more than an academic pipe dream. It is an applicable open source tool that combines pedagogic requirements 
+with technological efficiency. Its combination of simplicity and openness makes it accessible to a wide education audience.
+
+Contributions and support are welcome :)
