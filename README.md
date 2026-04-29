@@ -19,9 +19,9 @@ We have trained two model for EduGraph, one that labels learning material in the
 another one that generates emebeddings for the those labels that take relationships into account to determine
 similarity/distance between different sets of labels.
 
-Classification Model: https://github.com/christian-bick/edugraph-classify-qwen3vl
+**Classification Model:** https://github.com/christian-bick/edugraph-classify-qwen3vl
 
-Embedding Model: https://github.com/christian-bick/edugraph-embed
+**Embedding Model:** https://github.com/christian-bick/edugraph-embed
 
 ## Releases
 
@@ -31,20 +31,11 @@ The ontology is currently published in Turtle (.ttl) and XML/RDF (.rdf) format. 
 format and all files for other formats are generated from these source files during release. More file formats can
 be added upon demand.
 
-## Goals
-
-### Near Term
-
-- Math: Cover basic math up to typical 4th grade level
-- Literacy: Cover basic writing & reading up to typical 4th grade level
-
-### Long Term
-
-- Math: Cover typical curriculums up to 12th grade
-- Physics: Cover typical curriculums up to 12th grade
-- Computer Science: Cover typical curriculums up to 12th grade
-
 ## Ontology
+
+**Full breakdown:**  [Design Decisions with pedagocial & technological reasoning](DESIGN.md)
+
+**Ontology Browser:** [A dedicated visualization tool for the ontology](https://edugraph-editor.web.app)
 
 EduGraph is an Ontology designed with modern LLM capabilities in mind and intended to be used in tandem with
 open source models like Qwen, Gamma or Kimi with excellent vision-language and reasoning capabilities.
@@ -52,7 +43,7 @@ open source models like Qwen, Gamma or Kimi with excellent vision-language and r
 It is therefore divided into two layers:
 
 - **Core Ontology:** Curated for describing learning content with a set of terms organized along different dimensions.
-- **Skill Ontology:** Generated for identifying broad skills that apply specific solutions to a problem domain.
+- **Competency Ontology:** Generated for identifying broad competencies that apply specific solutions to a problem domain.
 
 ### Core Ontology
 
@@ -71,8 +62,8 @@ The dimensions are:
 - **Scope:** A relevant involved setting (e.g. _NumbersLarger1000_)
 
 Using the three example terms from above, we can already be relatively sure that the corresponding learning content would be
-educating, training or testing students about what is regularly referred to as the skill of _long multiplication_. The goal of the
-core ontology is to classify learning content with only a few terms of what is observable while skills describe significant
+educating, training or testing students about what is regularly referred to as the competency of _long multiplication_. The goal of the
+core ontology is to classify learning content with only a few terms of what is observable while competencies describe significant
 clusters of these observables. 
 
 These concepts make it easy to build both classification models and embedding models, allowing AI models to reason over learning
@@ -95,7 +86,7 @@ teach addition before multiplication) or for adaptive testing (e.g. exploring if
 multiplication is rooted in multiplying small numbers or in executing long addition).
 
 Such logical releations elevate ontologies to be more than a semantic standard of identifiers. They allow us to 
-define a shared yet operationally distributed understanding of how various skills are related with each other.
+define a shared yet operationally distributed understanding of how various competencies are related with each other.
 
 #### Current State
 
@@ -104,44 +95,39 @@ applicable to various disciplines and has been validated against a diverse set o
 actual taxonomies and their logical relations are work in progress and likely to change frequently in the forseeable
 future.
 
-### Skill Ontology
+### Competency Ontology
 
 #### Foundations
 
-While the core ontology focuses on a mostly generic approach to describing learning material, the skill ontology uses
+While the core ontology focuses on a mostly generic approach to describing learning material, the competency ontology uses
 commonly used terms for well-known solution strategies to a specific problem domain.
 
 #### Flavors
 
 It is relatively easy to find consent about a mutual exclusive and collectively exhausitve terminology for describing
-what is observable through the core ontology. Skills on the other hand, are typically described from an application 
+what is observable through the core ontology. Competencies on the other hand, are typically described from an application 
 perspective and therefore largely influenced by context. 
 
-That makes skills inherently more likely to be influenced by purpose, culture and language, and that makes it way harder 
-to agree on distinct skills that collectively describe all areas of learning with great detail. At the same time, 
-developing practical skills is a fundamentally important part of learning.
+That makes competencies inherently more likely to be influenced by purpose, culture and language, and that makes it way harder 
+to agree on distinct competencies that collectively describe all areas of learning with great detail. At the same time, 
+developing practical competencies is a fundamentally important part of learning.
 
-EduGraph's solution for this issue is to define skills as abstract concepts, but always in terms from the core ontology. 
-This allows for different flavors of skill ontologies and at the same time makes it easy to map skills between 
+EduGraph's solution for this issue is to define competencies as abstract concepts, but always in terms from the core ontology. 
+This allows for different flavors of competency ontologies and at the same time makes it easy to map competencies between 
 different flavors.
 
 #### Automated Generation
 
-Defining skills in the terms of the core ontology further allows for an automated approach of identifying and naming
-skills with the help of embeddings, making it substantially more likely that such solutions successfully converge to 
-a mutually exclusive and collectively exhaustive set of skills.
+Defining competencies in the terms of the core ontology further allows for an automated approach of identifying and naming
+competencies with the help of embeddings, making it substantially more likely that such solutions successfully converge to 
+a mutually exclusive and collectively exhaustive set of competencies.
 
 #### Relations Inheritance
 
-Defining skills in the terms of the core ontology also allows for skills to inherit all logical relations from the core 
-ontology. As a consequence, the skill ontology only needs to define factual relations that specifically apply to  
-skills. This drastically reduces the need for relations in the skill ontology itself and keeps it significantly 
+Defining competencies in the terms of the core ontology also allows for competencies to inherit all logical relations from the core 
+ontology. As a consequence, the competency ontology only needs to define factual relations that specifically apply to  
+competencies. This drastically reduces the need for relations in the competency ontology itself and keeps it significantly 
 easier to manage.
-
-#### Current State
-
-The exact data model for defining skills is currently still experimental and likely to change in the near future.
-It is planned to provide generated skill ontologies as a reference in future releases.
 
 ## Contributions
 
