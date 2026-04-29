@@ -32,6 +32,8 @@
 
 [3.2.1 Translates](#321-translates)
 
+---
+
 [Pedagogic Background](#pedagogic-background)
 
 [1 General Structure](#1-general-structure)
@@ -63,6 +65,8 @@
 [3.3 Educational Data Mining (EDM) and Hypothesis-Driven Curriculum](#33-educational-data-mining-edm-and-hypothesis-driven-curriculum)
 
 [3.4 Summary](#34-summary-logical-and-statistical-relations-inform-each-other)
+
+---
 
 [Technological Background](#technological-background)
 
@@ -99,6 +103,8 @@
 [5.1 The Technological Bedrock](#51-the-technological-bedrock)
 
 [5.2 The Consequences of Lacking this Foundation](#52-the-consequences-of-lacking-this-foundation)
+
+---
 
 [Combined Design Decisions](#combined-design-decisions)
 
