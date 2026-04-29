@@ -1,6 +1,6 @@
 # EduGraph Design Overview
 
-[Ontology Design](#ontology-design)
+**[A. Ontology Design](#ontology-design)**
 
 [1. Entities](#1-entities)
 
@@ -30,9 +30,7 @@
 
 [3.2.1 Translates](#321-translates)
 
----
-
-[Pedagogic Background](#pedagogic-background)
+**[B. Pedagogic Background](#pedagogic-background)**
 
 [1. General Structure](#1-general-structure)
 
@@ -64,9 +62,7 @@
 
 [3.4 Summary](#34-summary-logical-and-statistical-relations-inform-each-other)
 
----
-
-[Technological Background](#technological-background)
+**[C. Technological Background](#technological-background)**
 
 [1. Classification, Data Efficiency, and LLM Synergy](#1-classification-data-efficiency-and-llm-synergy)
 
@@ -102,9 +98,7 @@
 
 [5.2 The Consequences of Lacking this Foundation](#52-the-consequences-of-lacking-this-foundation)
 
----
-
-[Resulting Design Decisions](#combined-design-decisions)
+**[D. Resulting Design Decisions](#combined-design-decisions)**
 
 [1. Core Concepts](#1-core-concepts)
 
@@ -126,9 +120,9 @@
 
 [2.4 Committed to Open Source](#24-committed-to-open-source)
 
----
+**[E. Summary](#summary)**
 
-[Summary](#summary)
+---
 
 # Ontology Design
 
