@@ -124,7 +124,7 @@
 
 ---
 
-# Ontology Design
+# A. Ontology Design
 
 ## 1. Entities
 
@@ -238,7 +238,7 @@ Application with a change of perspective: A *translates* B when the *integrates*
 
 ---
 
-# Pedagogic Background
+# B. Pedagogic Background
 
 ## 1. General Structure
 
@@ -419,7 +419,7 @@ Instead, it defines the structural topology of the subject matter itself. By rep
 
 ---
 
-# Technological Background
+# C. Technological Background
 
 ## 1. Classification, Data Efficiency, and LLM Synergy
 
@@ -499,7 +499,7 @@ Without this ontological foundation, educational technology degrades into "black
 
 ---
 
-# Resulting Design Decisions
+# D. Resulting Design Decisions
 
 ## 1. Core Concepts
 
@@ -589,7 +589,7 @@ that the technological bedrock of education remains a public good.
 
 ---
 
-# Summary
+# E. Summary
 
 EduGraph is more than an academic pipe dream. It is an applicable open source tool that combines pedagogic requirements 
 with technological efficiency. Its combination of simplicity and openness makes it accessible to a wide education audience.
