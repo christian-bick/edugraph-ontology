@@ -1,10 +1,8 @@
 # EduGraph Design Overview
 
----
-
 [Ontology Design](#ontology-design)
 
-[1 Entities](#1-entities)
+[1. Entities](#1-entities)
 
 [1.1 Entity Types](#11-entity-types)
 
@@ -14,13 +12,13 @@
 
 [1.1.3 Ability](#113-ability)
 
-[2 Structural Relations](#2-structural-relations)
+[2. Structural Relations](#2-structural-relations)
 
 [1.2.1 PartOf](#121-partof)
 
 [1.2.2 Involves](#122-involves)
 
-[3 Progression Relations](#3-progression-relations)
+[3. Progression Relations](#3-progression-relations)
 
 [3. Progression Relations](#3-progression-relations-1)
 
@@ -36,7 +34,7 @@
 
 [Pedagogic Background](#pedagogic-background)
 
-[1 General Structure](#1-general-structure)
+[1. General Structure](#1-general-structure)
 
 [1.1 The Tripartite Structure of Competency](#11-the-tripartite-structure-of-competency-paquette--ieee-rcd)
 
@@ -46,7 +44,7 @@
 
 [1.4 Summary](#14-summary-the-intersectional-and-reusable-nature-of-competency-descriptors)
 
-[2 Abilities as Independent Dimension](#2-abilities-as-independent-dimension)
+[2. Abilities as Independent Dimension](#2-abilities-as-independent-dimension)
 
 [2.1 Transfer of Learning](#21-transfer-of-learning-salomon--perkins)
 
@@ -56,7 +54,7 @@
 
 [2.4 Summary](#24-summary-the-structural-benefit-for-cross-subject-curriculums)
 
-[3 Probabilistic vs Logical Relations](#3-probabilistic-vs-logical-relations)
+[3. Probabilistic vs Logical Relations](#3-probabilistic-vs-logical-relations)
 
 [3.1 Knowledge Space Theory (KST) and Probabilistic Prerequisites](#31-knowledge-space-theory-kst-and-probabilistic-prerequisites)
 
@@ -134,7 +132,7 @@
 
 # Ontology Design
 
-## 1 Entities
+## 1. Entities
 
 The EduGraph ontology defines competency not as a single concept, but through the intersection of three independent and reusable entity types: ***Area***, ***Scope***, and ***Ability***. 
 
@@ -173,7 +171,7 @@ By separating these components, the system maximizes the reusability of each des
 
 ---
 
-## 2 Structural Relations
+## 2. Structural Relations
 
 The EduGraph ontology is structured by key relations establishing taxonomic and compositional links. The primary structural relation is **PartOf**, which creates hierarchical knowledge domains, ensuring that a sub-entity automatically inherits the attributes and relations of its parent.
 
@@ -200,7 +198,7 @@ In addition, the **Involves** relation is essential for precisely defining compe
 
 ---
 
-## 3 Progression Relations
+## 3. Progression Relations
 
 ### 3. Progression Relations
 
@@ -252,7 +250,7 @@ Application with a change of perspective: A *translates* B when the *integrates*
 
 # Pedagogic Background
 
-## 1 General Structure
+## 1. General Structure
 
 The development of structured competency frameworks often relies on established educational psychology, cognitive science, and epistemological theories. However, traditional academic models are frequently designed to describe human developmental stages or linear instructional taxonomies. When translating these theories into a machine-readable, graph-based knowledge representation (an ontology), principles must be adapted to function as relational, computable nodes rather than purely descriptive concepts.
 
@@ -312,9 +310,7 @@ The ontology shifts from viewing a competency as a single, opaque concept to an 
 
 **Contextual Granularity:** The introduction of *Scope* as a first-class entity elevates the importance of context, enabling the system to model measurable differences in difficulty based on the environment (e.g., solving a problem with physical manipulatives vs. abstract notation).
 
----
-
-## 2 Abilities as Independent Dimension
+## 2. Abilities as Independent Dimension
 
 The tracking of cognitive abilities as independent, domain-general dimensions represents a significant shift from traditional, subject-siloed educational models. In traditional grading, a student’s capacity to reason or evaluate is often obscured by their specific subject knowledge (e.g., failing a physics test might reflect poor mathematical calculation skills rather than a lack of scientific reasoning).
 
@@ -379,9 +375,7 @@ By structuring the ontology so that a *CompetencyDescription* requires a multi-d
 
 A curriculum designer can query the ontology to find all competencies across the entire school system that involve *AbductiveReasoning*. This allows schools to construct genuinely cross-curricular projects—for example, pairing a science unit on fossil analysis with a history unit on primary source analysis—because the ontology supports mathematically that both units develop the exact same underlying cognitive ability.
 
----
-
-## 3 Probabilistic vs Logical Relations
+## 3. Probabilistic vs Logical Relations
 
 ### 3.1 Knowledge Space Theory (KST) and Probabilistic Prerequisites
 
@@ -602,6 +596,8 @@ that the technological bedrock of education remains a public good.
 **Specialization through SFT:** The provided classification and embedding models are designed as foundational blocks. They can be used as a base for further **Supervised Fine-Tuning (SFT)**, allowing institutions to specialize the AI on their own proprietary content or unique pedagogical styles without starting from scratch.
 
 **Collaborative Interoperability:** This open-source approach fosters a culture of joined development. As more users contribute data, refine models, and map new content, the entire ecosystem gains interoperability. The community-driven feedback loop ensures that the ontology and its models evolve at the speed of educational innovation.
+
+---
 
 # Summary
 
