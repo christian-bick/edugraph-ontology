@@ -69,7 +69,7 @@ clusters of these observables.
 These concepts make it easy to build both classification models and embedding models, allowing AI models to reason over learning
 content with high accuracy and speed. This is the necessary foundation for creating high-value recommendation systems and AI agents. 
 
-#### Taxonomies
+#### Structure
 
 Each dimension is organized as it's own taxonomy in a hierarchical structure. For example, learning material that covers
 _IntegerMultiplication_, implicitly also covers _IntegerArithmetic_, _Arithmetic_ and _Mathematics_.
@@ -87,13 +87,6 @@ multiplication is rooted in multiplying small numbers or in executing long addit
 
 Such logical releations elevate ontologies to be more than a semantic standard of identifiers. They allow us to 
 define a shared yet operationally distributed understanding of how various competencies are related with each other.
-
-#### Current State
-
-The current data model of the core ontology is fairly well explored and relatively stable. It is designed to be
-applicable to various disciplines and has been validated against a diverse set of scenarios already. However, the 
-actual taxonomies and their logical relations are work in progress and likely to change frequently in the forseeable
-future.
 
 ### Competency Ontology
 
