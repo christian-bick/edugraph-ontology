@@ -106,21 +106,31 @@
 
 ---
 
-[Combined Design Decisions](#combined-design-decisions)
+[Resulting Design Decisions](#combined-design-decisions)
 
 [1. Core Concepts](#1-core-concepts)
 
+[1.1 Dimensional Atomicity](#11-dimensional-atomicity-the-intersectional-descriptor)
+
+[1.2 Relational Determinism](#12-relational-determinism-the-logical-skeleton)
+
+[1.3 Cognitive Portability](#13-cognitive-portability-the-fluid-dimension)
+
+[1.4 Latent Semantic Alignment](#14-latent-semantic-alignment-the-contextual-anchor)
+
 [2. Pragmatic Development](#2-pragmatic-development)
 
-[2.1 The "In-Tandem" Feedback Loop](#21-the-in-tandem-feedback-loop)
+[2.1 Implicit Validation](#21-implicit-validation)
 
-[2.2 Model-Driven Applicability](#22-model-driven-applicability)
+[2.2 Direct Applicability](#22-direct-applicability)
 
-[2.3 Content-Driven Interoperability](#23-content-driven-interoperability)
+[2.3 Fostering Interoperability](#23-fostering-interoperability)
 
-[2.4 Open Source](#24-open-source)
+[2.4 Committed to Open Source](#24-committed-to-open-source)
 
 ---
+
+[Summary](#summary)
 
 # Ontology Design
 
@@ -505,7 +515,7 @@ Without this ontological foundation, educational technology degrades into "black
 
 ---
 
-# Combined Design Decisions
+# Resulting Design Decisions
 
 ## 1. Core Concepts
 
