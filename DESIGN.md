@@ -179,7 +179,7 @@ In addition, the **Involves** relation is essential for precisely defining compe
 
 ### 1.2.2 Involves
 
-**Specializing Competencies:** When a competency entity involves a competency descriptor, it forms a specialized competency entity that can be identified through its descriptors. It inherits all relations of its descriptors which can be used to infer relations between different specialized competencies. 
+**Specializing Competencies:** When a competency entity *involves* a competency descriptor, it forms a specialized competency entity that can be identified through its descriptors. It inherits all relations of its descriptors which can be used to infer relations between different specialized competencies. 
 
 | Field | Example of Area |
 | :---- | :---- |
@@ -188,7 +188,7 @@ In addition, the **Involves** relation is essential for precisely defining compe
 
 ## 3. Progression Relations
 
-The design of the EduGraph ontology thinks about progression spatially as a form of dynamic growth and transformation. Progression Relations define how concepts and competencies build upon one another, explaining the cognitive leap between different areas of knowledge. 
+The design of the EduGraph ontology thinks about progression spatially as a form of dynamic growth and transformation. Progression relations define how concepts and capabilities build upon one another, explaining the cognitive leap between different areas of knowledge. 
 
 They define the directionality of learning by specifying two general spatial relations (*expands* and *integrates*). These relations move beyond the notion of strict prerequisites to capture the precise structural relationship between competencies, providing a powerful framework for inferring learning pathways, while also opening the door to a probabilistic perspective on ontology relations.
 
