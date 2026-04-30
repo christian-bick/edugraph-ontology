@@ -128,9 +128,9 @@
 
 The EduGraph ontology defines competency not as a single concept, but through the intersection of three independent and reusable entity types: ***Area***, ***Scope***, and ***Ability***. 
 
-This multi-dimensional approach ensures that a specific competency—such as "calculating the perimeter of a rectangle using integers"—is precisely defined by the convergence of the *knowledge domain* (the Area, e.g., Rectangle), the *context of performance* (the Scope, e.g., IntegerNumbers), and the *cognitive skill* required (the Ability, e.g., ProcedureExecution). 
+This multi-dimensional approach ensures that a specific competency such as "calculating the perimeter of a rectangle using integers"—is precisely defined by the convergence of the *knowledge domain* (the Area, e.g., Rectangle), the *broader context affecting difficulty* (the Scope, e.g., IntegerNumbers), and the *cognitive skill* involved (the Ability, e.g., ProcedureExecution). 
 
-By separating these components, the system maximizes the reusability of each descriptor and allows for dynamic mapping and inferencing across subjects, moving beyond traditional, monolithic competency definitions.
+By separating these components across independent dimensions, the system maximizes the reusability of each descriptor and allows for dynamic mapping and inference across subjects, moving beyond traditional, monolithic competency definitions.
 
 ### 1.1 Entity Types
 
@@ -154,7 +154,7 @@ By separating these components, the system maximizes the reusability of each des
 
 ### 1.1.3 Ability
 
-**General Mental Attribute**: An Ability is a general mental attribute that is trainable and applicable across various fields. Alternatively, a Competency Description describes a competency through the involved observable attributes (such as Area, Scope, and Ability).
+**General Mental Attribute**: An Ability is a general mental attribute that is trainable and applicable across various fields.
 
 | Field | Example of Area |
 | :---- | :---- |
