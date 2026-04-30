@@ -194,7 +194,7 @@ They define the directionality of learning by specifying two general spatial rel
 
 ### 3.1 Expands
 
-Growing the Competency Space: A *expands* B when the relationship explains how the competency space grows from concepts established B to concepts established in A.
+Growing the Competency Space: A *expands* B when the relationship explains how the competency space grows from understanding B to understanding A.
 
 | Field | Example of Expansion |
 | :---- | :---- |
