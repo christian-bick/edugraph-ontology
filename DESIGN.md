@@ -20,8 +20,6 @@
 
 [3. Progression Relations](#3-progression-relations)
 
-[3. Progression Relations](#3-progression-relations-1)
-
 [3.1 Expands](#31-expands)
 
 [3.1.1 Inverts](#311-inverts)
@@ -189,8 +187,6 @@ In addition, the **Involves** relation is essential for precisely defining compe
 | **Arithmetic**  | **AdditionWithWholeNumbersSmaller10 involves Addition, ProcedureExecution, IntegerNumber, NumbersWithoutZero, NumbersWithoutNegatives, NumbersSmaller10**. Defines the specialized competency of adding whole numbers with numbers smaller than 10, implying that carry over is not involved here, nor is the concept of adding 0 or dealing with signed integers in addition. |
 
 ## 3. Progression Relations
-
-### 3. Progression Relations
 
 The design of the EduGraph ontology thinks about progression spatially as a form of dynamic growth and transformation. Progression Relations define how concepts and competencies build upon one another, explaining the cognitive leap between different areas of knowledge. 
 
