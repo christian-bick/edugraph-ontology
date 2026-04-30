@@ -28,7 +28,7 @@
 
 [3.2.1 Translates](#321-translates)
 
-**[B. Pedagogic Background](#b-pedagogic-background)**
+**[B. Pedagogic Reasoning](#b-pedagogic-reasoning)**
 
 [1. General Structure](#1-general-structure)
 
@@ -60,7 +60,7 @@
 
 [3.4 Summary](#34-summary-logical-and-statistical-relations-inform-each-other)
 
-**[C. Technological Background](#c-technological-background)**
+**[C. Technological Reasoning](#c-technological-reasoning)**
 
 [1. Classification, Data Efficiency, and LLM Synergy](#1-classification-data-efficiency-and-llm-synergy)
 
@@ -96,7 +96,7 @@
 
 [5.2 The Consequences of Lacking this Foundation](#52-the-consequences-of-lacking-this-foundation)
 
-**[D. Resulting Design Decisions](#d-combined-design-decisions)**
+**[D. Resulting Design Decisions](#d-resulting-design-decisions)**
 
 [1. Core Concepts](#1-core-concepts)
 
@@ -234,7 +234,7 @@ Application with a change of perspective: A *translates* B when the *integrates*
 
 ---
 
-# B. Pedagogic Background
+# B. Pedagogic Reasoning
 
 ## 1. General Structure
 
@@ -415,7 +415,7 @@ Instead, it defines the structural topology of the subject matter itself. By rep
 
 ---
 
-# C. Technological Background
+# C. Technological Reasoning
 
 ## 1. Classification, Data Efficiency, and LLM Synergy
 
