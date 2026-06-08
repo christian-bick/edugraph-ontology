@@ -6,7 +6,7 @@ non-profit and pro-profit.
 
 ### Example Usecases
 
-Annotating leaning content in the terms of the ontology allows for programmatically:
+Annotating learning content in the terms of the ontology allows for programmatically:
 
 - identifying equivalent, complementary and related learning content
 - describing learning journeys of students across distributed learning content
