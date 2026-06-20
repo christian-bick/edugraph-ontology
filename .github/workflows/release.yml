@@ -17,9 +17,6 @@ jobs:
         id: vars
         run: echo "sha_short=$(git rev-parse --short=12 HEAD)" >> $GITHUB_OUTPUT
 
-      - name: Generate all ontology files
-        run: docker build . --output dist
-
       - name: Set Release Version
         if: startsWith(github.ref, 'refs/tags/')
         run: echo "PACKAGE_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
@@ -27,6 +24,9 @@ jobs:
       - name: Set Pre-release Version
         if: startsWith(github.ref, 'refs/heads/')
         run: echo "PACKAGE_VERSION=0.0.0-pre.${{ steps.vars.outputs.sha_short }}" >> $GITHUB_ENV
+
+      - name: Generate all ontology files
+        run: docker build --build-arg PACKAGE_VERSION=${{ env.PACKAGE_VERSION }} . --output dist
 
       - name: Update package.json version
         run: |
@@ -39,6 +39,13 @@ jobs:
           cd dist
           tar -czvf ../edugraph-ts.tgz typescript
           cd ..
+
+      - name: Set Python Asset Paths
+        run: |
+          echo "WHEEL_PATH=$(ls dist/python/dist/*.whl)" >> $GITHUB_ENV
+          echo "SDIST_PATH=$(ls dist/python/dist/*.tar.gz)" >> $GITHUB_ENV
+          echo "WHEEL_NAME=$(basename dist/python/dist/*.whl)" >> $GITHUB_ENV
+          echo "SDIST_NAME=$(basename dist/python/dist/*.tar.gz)" >> $GITHUB_ENV
 
       - name: Create Release
         id: create_release
@@ -109,6 +116,26 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./edugraph-ts.tgz
           asset_name: edugraph-ts.tgz
+          asset_content_type: application/gzip
+
+      - name: Upload Python Wheel
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ env.WHEEL_PATH }}
+          asset_name: ${{ env.WHEEL_NAME }}
+          asset_content_type: application/octet-stream
+
+      - name: Upload Python Source Dist
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ env.SDIST_PATH }}
+          asset_name: ${{ env.SDIST_NAME }}
           asset_content_type: application/gzip
 
       - name: Clean up older pre-releases

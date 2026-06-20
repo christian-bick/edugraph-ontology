@@ -39,6 +39,7 @@ COPY ./src ./src
 
 RUN uv sync
 RUN uv run src/ontology/generate-ts.py
+RUN uv run src/ontology/generate-py.py
 
 FROM node:20-alpine AS typescript-compiler
 
@@ -50,6 +51,17 @@ COPY ./libraries/typescript/tsconfig.json ./tsconfig.json
 
 RUN npm install
 RUN npm run build
+
+FROM ghcr.io/astral-sh/uv:python3.13-alpine AS python-builder
+
+WORKDIR /app/python
+
+COPY --from=python-code-gen /dist/python ./
+COPY ./libraries/python/pyproject.toml ./pyproject.toml
+COPY ./libraries/python/README.md ./README.md
+ARG PACKAGE_VERSION=0.0.0
+RUN python -c "import pathlib, os; p = pathlib.Path('pyproject.toml'); p.write_text(p.read_text().replace('version = \"0.0.0\"', 'version = \"' + os.environ.get('PACKAGE_VERSION', '0.0.0') + '\"'))"
+RUN uv build
 
 FROM scratch AS export
 
@@ -63,3 +75,5 @@ COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology-math.rdf core-ontolo
 
 COPY --from=typescript-compiler /app/typescript/dist ./typescript/dist
 COPY --from=typescript-compiler /app/typescript/package.json ./typescript/package.json
+
+COPY --from=python-builder /app/python/dist ./python/dist

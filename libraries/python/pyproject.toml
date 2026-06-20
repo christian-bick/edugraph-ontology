@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "edugraph-py"
+version = "0.0.0"
+description = "Python definitions for the EduGraph ontology"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "EduGraph", email = "christian.bick@bitsuppliers.com" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+dependencies = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/edugraph"]

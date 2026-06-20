@@ -23,7 +23,9 @@ This repository contains the source definitions of the EduGraph core ontology, a
 
 - **[.github/workflows/release.yml](file:///c:/Users/silen/Documents/EduGraph/edugraph-ontology/.github/workflows/release.yml)**: GitHub Action workflow executing automated compilation, versioning, and publishing of releases.
 - **[src/ontology/generate-ts.py](file:///c:/Users/silen/Documents/EduGraph/edugraph-ontology/src/ontology/generate-ts.py)**: Python script utilizing `owlready2` to parse the compiled XML/RDF file and generate TypeScript enums.
+- **[src/ontology/generate-py.py](file:///c:/Users/silen/Documents/EduGraph/edugraph-ontology/src/ontology/generate-py.py)**: Python script utilizing `owlready2` to parse the compiled XML/RDF file and generate Python enums.
 - **[libraries/typescript/](file:///c:/Users/silen/Documents/EduGraph/edugraph-ontology/libraries/typescript/)**: Mapped package configuration for compiling the generated TypeScript into common distribution formats.
+- **[libraries/python/](file:///c:/Users/silen/Documents/EduGraph/edugraph-ontology/libraries/python/)**: Mapped package configuration for packaging the generated Python enums into wheel and source distribution formats.
 - **[core-schema.ttl](file:///c:/Users/silen/Documents/EduGraph/edugraph-ontology/core-schema.ttl)**: Core RDF schema defining OWL classes, structural properties, and progression properties.
 - **[core-abilities.ttl](file:///c:/Users/silen/Documents/EduGraph/edugraph-ontology/core-abilities.ttl)**: Individuals belonging to the `Ability` class.
 - **[core-areas-math.ttl](file:///c:/Users/silen/Documents/EduGraph/edugraph-ontology/core-areas-math.ttl)**: Individuals belonging to the `Area` class (Math taxonomy).
@@ -43,6 +45,8 @@ graph TD
     TTL[Turtle Source Files] -->|riot compiler| RDF[core-ontology-math.rdf]
     RDF -->|generate-ts.py| TS[TS Enums]
     TS -->|tsc compiler| JS[Compiled TS/JS Packages]
+    RDF -->|generate-py.py| PY[Python Enums]
+    PY -->|uv build| WHL[Compiled Python Packages]
 ```
 
 1. **Stage 1 (`ontology-formats`)**:
@@ -53,11 +57,13 @@ graph TD
      ```
 2. **Stage 2 (`python-code-gen`)**:
    - Sets up Python 3.13 via `astral-sh/uv`.
-   - Runs [generate-ts.py](file:///c:/Users/silen/Documents/EduGraph/edugraph-ontology/src/ontology/generate-ts.py), which reads the compiled RDF, extracts individuals for `Area`, `Scope`, and `Ability`, and writes TypeScript enum mappings into `dist/typescript`.
+   - Runs [generate-ts.py](file:///c:/Users/silen/Documents/EduGraph/edugraph-ontology/src/ontology/generate-ts.py) and [generate-py.py](file:///c:/Users/silen/Documents/EduGraph/edugraph-ontology/src/ontology/generate-py.py), which read the compiled RDF, extract individuals for `Area`, `Scope`, and `Ability`, and write enum mappings into `dist/typescript` and `dist/python/src/edugraph` respectively.
 3. **Stage 3 (`typescript-compiler`)**:
    - Installs node dependencies and runs `tsc` to compile TypeScript enums into `dist/` utilizing the package configurations.
-4. **Stage 4 (`export`)**:
-   - Outputs the compiled assets back to the host filesystem.
+4. **Stage 4 (`python-builder`)**:
+   - Updates the version using the `PACKAGE_VERSION` build argument and runs `uv build` to package the generated Python enums into a `.whl` and `.tar.gz` archive.
+5. **Stage 5 (`export`)**:
+   - Outputs the compiled assets (TypeScript and Python distribution files) back to the host filesystem.
 
 ---
 
@@ -70,13 +76,16 @@ Ensure you have the following installed:
 - Node.js (for compiling/testing TS libraries locally without Docker)
 
 ### 4.2 Local Python Code Generation
-To setup the environment and trigger TypeScript enum generation locally:
+To setup the environment and trigger TypeScript and Python enum generation locally:
 ```powershell
 # Sync Python workspace dependencies
 uv sync
 
 # Run the TypeScript generator script (requires core-ontology-math.rdf to be present)
 uv run src/ontology/generate-ts.py
+
+# Run the Python generator script (requires core-ontology-math.rdf to be present)
+uv run src/ontology/generate-py.py
 ```
 
 ### 4.3 Compiling via Docker
