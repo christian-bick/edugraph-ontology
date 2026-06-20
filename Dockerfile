@@ -60,7 +60,7 @@ COPY --from=python-code-gen /dist/python ./
 COPY ./libraries/python/pyproject.toml ./pyproject.toml
 COPY ./libraries/python/README.md ./README.md
 ARG PACKAGE_VERSION=0.0.0
-RUN python -c "import pathlib, os; p = pathlib.Path('pyproject.toml'); p.write_text(p.read_text().replace('version = \"0.0.0\"', 'version = \"' + os.environ.get('PACKAGE_VERSION', '0.0.0') + '\"'))"
+RUN python -c "import pathlib, os; p = pathlib.Path('pyproject.toml'); p.write_text(p.read_text().replace('version = \"0.0.0\"', 'version = \"' + os.environ.get('PACKAGE_VERSION', '0.0.0').replace('-', '+') + '\"'))"
 RUN uv build
 
 FROM scratch AS export
