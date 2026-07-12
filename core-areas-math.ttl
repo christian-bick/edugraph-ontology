@@ -161,7 +161,7 @@
     edu:partOf :DecimalArithmetic.
 :DecimalRounding a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures for approximating a decimal number to a specified degree of precision by adjusting the fractional component based on the value of digits at subsequent negative powers of ten.";
-    edu:expands :DecimalPrecission;
+    edu:expands :DecimalPrecission, :IntegerRounding;
     edu:partOf :DecimalArithmetic.
 :Decrement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a quantity by a specific amount.";
@@ -275,6 +275,10 @@
     edu:partOf :IntegerArithmetic.
 :IntegerRegrouping a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Also referred to as carrying or borrowing. The process of exchanging values between place value positions to facilitate arithmetic operations such as addition and subtraction within the set of integer numbers.";
+    edu:expands :PlaceValue;
+    edu:partOf :IntegerArithmetic.
+:IntegerRounding a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The rules and procedures for approximating a whole number to a specified place value, such as the nearest ten or hundred.";
     edu:expands :PlaceValue;
     edu:partOf :IntegerArithmetic.
 :IntegerSigns a owl:NamedIndividual, edu:Area;
@@ -580,6 +584,9 @@
     rdfs:isDefinedBy "A transformation that turns a geometric figure around a fixed point, known as the center of rotation, by a specific angle.";
     edu:expands :ShapeRotation;
     edu:partOf :GeometricTransformations.
+:Rounding a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The mathematical procedure of adjusting a number to a simpler or shorter value that is close to its original value.";
+    edu:partOf :NumericApproximation.
 :RulesOfSigns a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fundamental rules that govern the manipulation and evaluation of signed numbers within arithmetic expressions, ensuring the consistent and accurate determination of positive and negative results.";
     edu:expands :IntegerSigns;
