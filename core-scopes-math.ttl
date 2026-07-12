@@ -31,6 +31,10 @@
     rdfs:isDefinedBy "Involves a balance scale.";
     edu:integrates :GramScale, :KilogramScale;
     edu:partOf :WeightMeasurement.
+:Banknotes a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Represents currency with banknotes.";
+    edu:partOf :CurrencyRepresentation;
+    edu:translates :MajorDenomination.
 :Base10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers in base 10 (decimal).";
     edu:partOf :NumericBase.
@@ -61,12 +65,28 @@
 :CentimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in centimeters.";
     edu:partOf :MetricScale.
+:Coins a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Represents currency with coins.";
+    edu:partOf :CurrencyRepresentation;
+    edu:translates :MajorDenomination, :MinorDenomination.
 :CountingSymbols a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves counting symbols.";
     edu:partOf :VisualNumbers.
 :CubicMeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves cubic meters to measure volumes.";
     edu:partOf :VolumeAbstraction.
+:CurrencyAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves currency or monetary concepts.";
+    edu:partOf :AbstractionScope.
+:CurrencyDenomination a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the denominations of a currency.";
+    edu:partOf :CurrencyAbstraction.
+:CurrencyRepresentation a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Represents currency.";
+    edu:partOf :RepresentationalScope.
+:CurrencySystem a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a specific currency system.";
+    edu:partOf :CurrencyAbstraction.
 :DayIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of days.";
     edu:partOf :TimeIntervals.
@@ -93,6 +113,14 @@
 :DistanceAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distance or length concepts.";
     edu:partOf :AbstractionScope.
+:Dollar a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the Dollar currency.";
+    edu:integrates :MajorDenomination, :MinorDenomination;
+    edu:partOf :CurrencySystem.
+:Euro a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the Euro currency.";
+    edu:integrates :MajorDenomination, :MinorDenomination;
+    edu:partOf :CurrencySystem.
 :FourDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves three spatial dimensions and time.";
     edu:expands :ThreeDimensional;
@@ -168,6 +196,10 @@
 :LiterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves liters to measure volumes.";
     edu:partOf :VolumeAbstraction.
+:MajorDenomination a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the major denomination of a currency. For example \"Dollar\" in US Dollar and \"Euro\" in Euro.";
+    edu:partOf :CurrencyDenomination;
+    edu:translates :IntegerNumbers.
 :MeasurementScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the measurement of manifested objects shapes.".
 :MeterScale a owl:NamedIndividual, edu:Scope;
@@ -192,6 +224,10 @@
 :MillisecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of milliseconds.";
     edu:partOf :TimeIntervals.
+:MinorDenomination a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the minor denomination of a currency. For example \"Cent\" in US Dollar and Euro.";
+    edu:partOf :CurrencyDenomination;
+    edu:translates :DecimalNumbers, :FractionNumbers.
 :MinuteIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed an intervals of minutes.";
     edu:partOf :TimeIntervals.
