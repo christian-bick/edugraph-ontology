@@ -8,6 +8,11 @@
 
 <http://edugraph.io/edu/> a owl:Ontology;
     owl:imports <http://edugraph.io/edu#>.
+:AbsoluteValue a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The magnitude of a number without regard to its sign, representing its distance from zero on the number line.";
+    edu:expands :IntegerSigns, :ZeroConcept;
+    edu:partOf :ArithmeticEvaluation;
+    edu:translates :DistanceCalculation.
 :AcuteAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures less than 90 degrees.";
     edu:partOf :AngleConcept.
