@@ -108,3 +108,67 @@ The automated build and publish pipeline is defined in [.github/workflows/releas
 The release job uploads the following files as assets to the Github Release:
 - **Ontology Files**: `core-schema.ttl`, `core-abilities.ttl`, `core-areas-math.ttl`, `core-scopes-math.ttl`, and `core-ontology-math.rdf`.
 - **TypeScript Package**: `edugraph-ts.tgz` (a tarball containing the compiled JS/TS client libraries).
+
+---
+
+## 6. Client Libraries API & Relations Usage
+
+Both the TypeScript and Python client libraries expose the core taxonomic and progression relationships defined in the ontology.
+
+### 6.1 TypeScript API Usage
+
+```typescript
+import { Area, relations, partOfTransitive, expands } from "edugraph-ts";
+
+// 1. Direct relations lookup
+const absValRelations = relations(Area.AbsoluteValue);
+// absValRelations is: { expands: [...], partOf: [...], translates: [...] }
+const isPartOfEvaluation = absValRelations.partOf?.includes(Area.ArithmeticEvaluation); // true
+
+// 2. Direct helper functions
+const absoluteExpands = expands(Area.AbsoluteValue); // [Area.IntegerSigns, Area.ZeroConcept]
+
+// 3. Transitive helper functions (BFS closure traversal)
+// Traverses: AbsoluteValue -> ArithmeticEvaluation -> Arithmetic
+const transitiveParents = partOfTransitive(Area.AbsoluteValue);
+const includesArithmetic = transitiveParents.includes(Area.Arithmetic); // true
+```
+
+### 6.2 Python API Usage
+
+The Python library follows standard PEP 8 snake_case naming conventions for relationship helper functions.
+
+```python
+from edugraph import Area, relations, part_of_transitive, expands
+
+# 1. Direct relations lookup
+abs_val_relations = relations(Area.AbsoluteValue)
+# abs_val_relations is a TypedDict matching:
+# {"expands": [...], "partOf": [...], "translates": [...]}
+is_part_of_evaluation = Area.ArithmeticEvaluation in abs_val_relations.get("partOf", [])  # True
+
+# 2. Direct helper functions
+absolute_expands = expands(Area.AbsoluteValue)  # [Area.IntegerSigns, Area.ZeroConcept]
+
+# 3. Transitive helper functions (BFS closure traversal)
+# Traverses: AbsoluteValue -> ArithmeticEvaluation -> Arithmetic
+transitive_parents = part_of_transitive(Area.AbsoluteValue)
+includes_arithmetic = Area.Arithmetic in transitive_parents  # True
+```
+
+### 6.3 Relation Properties Mapping Reference
+
+The following relation properties are supported:
+
+| RDF Object Property | TS Direct Helper | TS Transitive Helper | Python Direct Helper | Python Transitive Helper | Description |
+|---|---|---|---|---|---|
+| `partOf` | `partOf` | `partOfTransitive` | `part_of` | `part_of_transitive` | Taxonomic parent relationship |
+| `hasPart` | `hasPart` | `hasPartTransitive` | `has_part` | `has_part_transitive` | Taxonomic children relationship |
+| `expands` | `expands` | `expandsTransitive` | `expands` | `expands_transitive` | Progression expansion relationship |
+| `expandedBy` | `expandedBy` | `expandedByTransitive` | `expanded_by` | `expanded_by_transitive` | Progression expanded relationship |
+| `integrates` | `integrates` | `integratesTransitive` | `integrates` | `integrates_transitive` | Progression composition relationship |
+| `integratedBy` | `integratedBy` | `integratedByTransitive` | `integrated_by` | `integrated_by_transitive` | Progression integrated relationship |
+| `inverts` | `inverts` | `invertsTransitive` | `inverts` | `inverts_transitive` | Logical inverse relationship (subproperty of expands) |
+| `invertedBy` | `invertedBy` | `invertedByTransitive` | `inverted_by` | `inverted_by_transitive` | Inverse of logical inverse (subproperty of expandedBy) |
+| `translates` | `translates` | `translatesTransitive` | `translates` | `translates_transitive` | Logical visualization translation (subproperty of integrates) |
+| `translatedBy` | `translatedBy` | `translatedByTransitive` | `translated_by` | `translated_by_transitive` | Inverse of logical translation (subproperty of integratedBy) |
