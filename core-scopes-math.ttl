@@ -151,13 +151,6 @@
 :IntegerNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves whole numbers and their negative counterparts within the real numeric space.";
     edu:partOf :RealNumbers.
-:IntegersWithoutZero a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Does not involve zero as a number.";
-    edu:partOf :IntegerNumbers.
-:IntegersWithZero a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves zero as a number.";
-    edu:expands :IntegersWithoutZero;
-    edu:partOf :IntegerNumbers.
 :IrrationalNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers that cannot be expressed as a ratio of integers within the real numeric space.";
     edu:expands :RationalNumbers;
@@ -233,6 +226,10 @@
 :NanosecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of nanoseconds.";
     edu:partOf :TimeIntervals.
+:NaturalNumbers a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves positive integers, excluding zero and negative numbers.";
+    edu:integrates :NumbersWithoutNegatives, :NumbersWithoutZero;
+    edu:partOf :IntegerNumbers.
 :Numberline a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with a number line.";
     edu:partOf :SpatialNumbers;
@@ -275,11 +272,18 @@
     edu:partOf :NumericRange.
 :NumbersWithNegatives a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves negative numbers.";
-    edu:expands :IntegersWithZero, :NumbersWithoutNegatives;
+    edu:expands :NumbersWithZero, :NumbersWithoutNegatives;
     edu:partOf :NumericSign.
 :NumbersWithoutNegatives a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Does not involve negative numbers.";
     edu:partOf :NumericSign.
+:NumbersWithoutZero a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Does not involve zero as a number.";
+    edu:partOf :NumericZero.
+:NumbersWithZero a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves zero as a number.";
+    edu:expands :NumbersWithoutZero;
+    edu:partOf :NumericZero.
 :NumberTiles a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves number tiles.";
     edu:partOf :VisualNumbers;
@@ -301,6 +305,9 @@
     edu:partOf :NumericAbstraction.
 :NumericSpace a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers within a certain numeric space.";
+    edu:partOf :NumericAbstraction.
+:NumericZero a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the inclusion or exclusion of zero.";
     edu:partOf :NumericAbstraction.
 :OneDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves one spatial dimension.";
@@ -435,6 +442,11 @@
 :WeightMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves weight measurement.";
     edu:partOf :MeasurementScope.
+:WholeNumbers a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves non-negative integers, including zero.";
+    edu:expands :NaturalNumbers;
+    edu:integrates :NumbersWithZero, :NumbersWithoutNegatives;
+    edu:partOf :IntegerNumbers.
 :YearIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of years.";
     edu:partOf :TimeIntervals.
