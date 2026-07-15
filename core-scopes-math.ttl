@@ -228,7 +228,6 @@
     edu:partOf :TimeIntervals.
 :NaturalNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves positive integers, excluding zero and negative numbers.";
-    edu:integrates :NumbersWithoutNegatives, :NumbersWithoutZero;
     edu:partOf :IntegerNumbers.
 :Numberline a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with a number line.";
@@ -445,7 +444,6 @@
 :WholeNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves non-negative integers, including zero.";
     edu:expands :NaturalNumbers;
-    edu:integrates :NumbersWithZero, :NumbersWithoutNegatives;
     edu:partOf :IntegerNumbers.
 :YearIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of years.";
