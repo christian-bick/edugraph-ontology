@@ -92,7 +92,7 @@
     edu:partOf :TimeIntervals.
 :DecimalNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers represented using a base-ten positional notation system within the real numeric space.";
-    edu:partOf :NumericSpace.
+    edu:partOf :RationalNumbers.
 :DegreeScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves degrees (°) to express the rotation of objects, oftentimes used to express the angle of two rays. Degrees are fractions of a circle rotation, where 360° represents a full circle, 180° a half circle and 90° a quarter circle.";
     edu:partOf :RotationAbstraction.
@@ -127,7 +127,7 @@
     edu:partOf :DimensionalAbstraction.
 :FractionNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers represented as a numerator and a denominator within the real numeric space.";
-    edu:partOf :NumericSpace.
+    edu:partOf :RationalNumbers.
 :Geoboard a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes with a geoboard.";
     edu:partOf :PhysicalGeometry.
@@ -151,12 +151,11 @@
 :IntegerNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves whole numbers and their negative counterparts within the real numeric space.";
     edu:expands :WholeNumbers;
-    edu:integrates :NumbersWithNegatives, :NumbersWithZero;
-    edu:partOf :NumericSpace.
+    edu:partOf :RealNumbers.
 :IrrationalNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers that cannot be expressed as a ratio of integers within the real numeric space.";
     edu:expands :RationalNumbers;
-    edu:partOf :NumericSpace.
+    edu:partOf :RealNumbers.
 :KelvinScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves temperature ranges or differences on the Kelvin scale.";
     edu:partOf :TemperatureAbstraction.
@@ -230,8 +229,7 @@
     edu:partOf :TimeIntervals.
 :NaturalNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves positive integers, excluding zero and negative numbers.";
-    edu:integrates :NumbersWithoutNegatives, :NumbersWithoutZero;
-    edu:partOf :NumericSpace.
+    edu:partOf :WholeNumbers.
 :Numberline a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with a number line.";
     edu:partOf :SpatialNumbers;
@@ -340,7 +338,7 @@
 :RationalNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers that can be expressed as a ratio of integers within the real numeric space.";
     edu:expands :IntegerNumbers;
-    edu:partOf :NumericSpace.
+    edu:partOf :RealNumbers.
 :RealNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers within the real numeric space.";
     edu:partOf :NumericSpace.
@@ -447,8 +445,7 @@
 :WholeNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves non-negative integers, including zero.";
     edu:expands :NaturalNumbers;
-    edu:integrates :NumbersWithZero, :NumbersWithoutNegatives;
-    edu:partOf :NumericSpace.
+    edu:partOf :IntegerNumbers.
 :YearIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of years.";
     edu:partOf :TimeIntervals.
