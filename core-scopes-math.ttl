@@ -151,13 +151,6 @@
 :IntegerNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves whole numbers and their negative counterparts within the real numeric space.";
     edu:partOf :RealNumbers.
-:IntegersWithNegatives a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves negative numbers.";
-    edu:expands :IntegersWithZero, :IntegersWithoutNegatives;
-    edu:partOf :NumericRange.
-:IntegersWithoutNegatives a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Does not involve negative numbers.";
-    edu:partOf :NumericRange.
 :IntegersWithoutZero a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Does not involve zero as a number.";
     edu:partOf :IntegerNumbers.
@@ -280,6 +273,13 @@
     rdfs:isDefinedBy "Only involves numbers smaller than 20";
     edu:expands :NumbersSmaller10;
     edu:partOf :NumericRange.
+:NumbersWithNegatives a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves negative numbers.";
+    edu:expands :IntegersWithZero, :NumbersWithoutNegatives;
+    edu:partOf :NumericSign.
+:NumbersWithoutNegatives a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Does not involve negative numbers.";
+    edu:partOf :NumericSign.
 :NumberTiles a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves number tiles.";
     edu:partOf :VisualNumbers;
@@ -295,6 +295,9 @@
     edu:partOf :NumericAbstraction.
 :NumericRange a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers within a certain range.";
+    edu:partOf :NumericAbstraction.
+:NumericSign a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the sign (positive, negative, or neutral) of numbers.";
     edu:partOf :NumericAbstraction.
 :NumericSpace a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers within a certain numeric space.";
