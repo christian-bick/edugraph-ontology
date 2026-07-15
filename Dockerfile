@@ -48,9 +48,11 @@ WORKDIR /app/typescript
 COPY --from=python-code-gen /dist/typescript ./
 COPY ./libraries/typescript/package.json ./package.json
 COPY ./libraries/typescript/tsconfig.json ./tsconfig.json
+COPY ./libraries/typescript/test.ts ./test.ts
 
 RUN npm install
 RUN npm run build
+RUN npm test
 
 FROM ghcr.io/astral-sh/uv:python3.13-alpine AS python-builder
 

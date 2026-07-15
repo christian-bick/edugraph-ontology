@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "node dist/test.js"
   },
   "devDependencies": {
     "typescript": "^5.0.0"
