@@ -49,6 +49,7 @@ COPY --from=python-code-gen /dist/typescript ./
 COPY ./libraries/typescript/package.json ./package.json
 COPY ./libraries/typescript/tsconfig.json ./tsconfig.json
 COPY ./libraries/typescript/test.ts ./test.ts
+COPY ./libraries/typescript/README.md ./README.md
 
 RUN npm install
 RUN npm run build
@@ -79,5 +80,6 @@ COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology-math.rdf core-ontolo
 
 COPY --from=typescript-compiler /app/typescript/dist ./typescript/dist
 COPY --from=typescript-compiler /app/typescript/package.json ./typescript/package.json
+COPY --from=typescript-compiler /app/typescript/README.md ./typescript/README.md
 
 COPY --from=python-builder /app/python/dist ./python/dist
