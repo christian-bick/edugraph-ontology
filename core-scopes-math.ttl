@@ -150,7 +150,6 @@
     edu:partOf :NumericSpace.
 :IntegerNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves whole numbers and their negative counterparts within the real numeric space.";
-    edu:expands :WholeNumbers;
     edu:partOf :RealNumbers.
 :IrrationalNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers that cannot be expressed as a ratio of integers within the real numeric space.";
@@ -227,9 +226,6 @@
 :NanosecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of nanoseconds.";
     edu:partOf :TimeIntervals.
-:NaturalNumbers a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves positive integers, excluding zero and negative numbers.";
-    edu:partOf :WholeNumbers.
 :Numberline a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with a number line.";
     edu:partOf :SpatialNumbers;
@@ -442,10 +438,6 @@
 :WeightMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves weight measurement.";
     edu:partOf :MeasurementScope.
-:WholeNumbers a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves non-negative integers, including zero.";
-    edu:expands :NaturalNumbers;
-    edu:partOf :IntegerNumbers.
 :YearIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of years.";
     edu:partOf :TimeIntervals.
