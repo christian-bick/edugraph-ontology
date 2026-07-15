@@ -61,8 +61,10 @@ WORKDIR /app/python
 COPY --from=python-code-gen /dist/python ./
 COPY ./libraries/python/pyproject.toml ./pyproject.toml
 COPY ./libraries/python/README.md ./README.md
+COPY ./libraries/python/test_relations.py ./test_relations.py
 ARG PACKAGE_VERSION=0.0.0
 RUN python -c "import pathlib, os; p = pathlib.Path('pyproject.toml'); p.write_text(p.read_text().replace('version = \"0.0.0\"', 'version = \"' + os.environ.get('PACKAGE_VERSION', '0.0.0').replace('-', '+') + '\"'))"
+RUN PYTHONPATH=src python -m unittest test_relations.py
 RUN uv build
 
 FROM scratch AS export
