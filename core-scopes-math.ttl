@@ -263,9 +263,6 @@
     edu:translates :IntegerNumbers.
 :MeasurementScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the measurement of manifested objects shapes.".
-:MechanicalAbstraction a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves physical properties or mechanical concepts.";
-    edu:partOf :AbstractionScope.
 :MeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distance expressed in meters.";
     edu:expands :Numberline;
@@ -414,6 +411,9 @@
 :Patternblocks a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes with a pattern block.";
     edu:partOf :PhysicalGeometry.
+:PhysicalAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves physical properties or mechanical concepts.";
+    edu:partOf :AbstractionScope.
 :PhysicalGeometry a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes with physical objects.";
     edu:partOf :GeometryRepresentation.
@@ -472,7 +472,7 @@
     edu:partOf :TimeIntervals.
 :ShapeProperties a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the physical property of objects that allows for the identification and differentiation of geometric forms through attributes such as edges, faces, and vertices to determine spatial behavior and mechanical constraints.";
-    edu:partOf :MechanicalAbstraction.
+    edu:partOf :PhysicalAbstraction.
 :Solid a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and description of matter with a definite shape and volume (example: ice).";
     edu:partOf :StateProperties.
@@ -496,7 +496,7 @@
     edu:partOf :ShapeProperties.
 :StateProperties a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and differentiation of states of matter.";
-    edu:partOf :MechanicalAbstraction.
+    edu:partOf :PhysicalAbstraction.
 :Stopwatch a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a stop watch.";
     edu:integrates :HourIntervals, :MillisecondIntervals, :MinuteIntervals, :SecondIntervals;
