@@ -66,6 +66,9 @@
 :Beside a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves relative horizontal orientation situated at a side position or direction than a reference point.";
     edu:partOf :SpatialDirection.
+:BoxArrangement a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the rectangular positioning and two-dimensional organization of objects.";
+    edu:partOf :ObjectArrangement.
 :Calendar a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a calendar.";
     edu:integrates :DayIntervals, :MonthIntervals, :WeekIntervals, :YearIntervals;
@@ -83,6 +86,9 @@
 :CentimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in centimeters.";
     edu:partOf :MetricScale.
+:CircularArrangement a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the radial positioning and curvilinear organization of objects.";
+    edu:partOf :ObjectArrangement.
 :Coins a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents currency with coins.";
     edu:partOf :CurrencyRepresentation;
@@ -171,6 +177,9 @@
     rdfs:isDefinedBy "Involves more dimensions than three spatial dimensions and time.";
     edu:expands :FourDimensional;
     edu:partOf :DimensionalAbstraction.
+:ImageObjects a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Graphic elements defined by a grid of pixels such as photographs and digital paintings.";
+    edu:partOf :ObjectTypes.
 :ImaginaryNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers within the imaginary numeric space.";
     edu:expands :IrrationalNumbers;
@@ -201,6 +210,9 @@
 :LengthMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves length measurement.";
     edu:partOf :MeasurementScope.
+:LinearArrangement a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the sequential positioning and one-dimensional organization of objects.";
+    edu:partOf :ObjectArrangement.
 :LinkingCubes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with linking cubes.";
     edu:partOf :PhysicalNumbers;
@@ -344,6 +356,14 @@
 :NumericZero a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the inclusion or exclusion of zero.";
     edu:partOf :NumericAbstraction.
+:ObjectArrangement a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the relative positioning and spatial organization of objects.";
+    edu:partOf :ObjectRepresentation.
+:ObjectRepresentation a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the representation of objects.";
+    edu:partOf :RepresentationalScope.
+:ObjectTypes a owl:NamedIndividual, edu:Scope;
+    edu:partOf :ObjectRepresentation.
 :OneDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves one spatial dimension.";
     edu:partOf :DimensionalAbstraction.
@@ -394,6 +414,9 @@
     rdfs:isDefinedBy "Involves a sand clock.";
     edu:integrates :HourIntervals, :MinuteIntervals;
     edu:partOf :TimeMeasurement.
+:ScatteredArrangement a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the irregular positioning and non-uniform organization of objects.";
+    edu:partOf :ObjectArrangement.
 :SecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of seconds.";
     edu:partOf :TimeIntervals.
@@ -468,6 +491,9 @@
     rdfs:isDefinedBy "Involves two spatial dimensions.";
     edu:expands :OneDimensional;
     edu:partOf :DimensionalAbstraction.
+:VectorObjects a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Graphic elements defined by geometric primitives such as circles, squares and stars.";
+    edu:partOf :ObjectTypes.
 :VisualGeometry a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes visually (yet not in as physical objects).";
     edu:partOf :GeometryRepresentation.
