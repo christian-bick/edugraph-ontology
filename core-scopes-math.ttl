@@ -171,7 +171,7 @@
     rdfs:isDefinedBy "Involves numbers represented as a numerator and a denominator within the real numeric space.";
     edu:partOf :RationalNumbers.
 :Gas a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves the identification and description of matter with no definite shape and no definite volume.";
+    rdfs:isDefinedBy "Involves the identification and description of matter with no definite shape and no definite volume (example: vapor).";
     edu:partOf :StateProperties.
 :Geoboard a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes with a geoboard.";
@@ -233,7 +233,7 @@
     edu:partOf :PhysicalNumbers;
     edu:translates :Base10.
 :Liquid a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves the identification and description of matter with a definite volume and no definite shape.";
+    rdfs:isDefinedBy "Involves the identification and description of matter with a definite volume and no definite shape (example: water).";
     edu:partOf :StateProperties.
 :LiquidVolumes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves liquid volumes as means of measurement.";
@@ -452,7 +452,7 @@
     rdfs:isDefinedBy "Involves the physical property of objects that allows for the identification and differentiation of geometric forms through attributes such as edges, faces, and vertices to determine spatial behavior and mechanical constraints.";
     edu:partOf :MechanicalAbstraction.
 :Solid a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves the identification and description of matter with a definite shape and volume.";
+    rdfs:isDefinedBy "Involves the identification and description of matter with a definite shape and volume (example: ice).";
     edu:partOf :StateProperties.
 :South a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the cardinal direction South.";
