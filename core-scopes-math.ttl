@@ -156,6 +156,9 @@
 :East a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the cardinal direction East.";
     edu:partOf :CardinalDirections.
+:Equal a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the comparison of entities indicating they have the exact same quantity, size, or value.";
+    edu:partOf :OrderAbstraction.
 :Euro a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the Euro currency.";
     edu:integrates :MajorDenomination, :MinorDenomination;
@@ -182,6 +185,9 @@
 :GramScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in grams.";
     edu:partOf :WeightAbstraction.
+:Greater a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the comparison of two entities where one has a larger quantity, size, or value than the other.";
+    edu:partOf :OrderAbstraction.
 :HourIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of hours in a day.";
     edu:partOf :TimeIntervals.
@@ -219,12 +225,21 @@
     rdfs:isDefinedBy "Involves a laser ruler.";
     edu:integrates :MicrometerScale;
     edu:partOf :LengthMeasurement.
+:Least a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the comparison of three or more entities to identify the one with the smallest quantity, size, or value.";
+    edu:expands :Less;
+    edu:inverts :Most;
+    edu:partOf :OrderAbstraction.
 :Left a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves relative horizontal orientation situated at the left side position or direction than a reference point.";
     edu:partOf :SpatialDirection.
 :LengthMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves length measurement.";
     edu:partOf :MeasurementScope.
+:Less a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the comparison of two entities where one has a smaller quantity, size, or value than the other.";
+    edu:inverts :Greater;
+    edu:partOf :OrderAbstraction.
 :LinearArrangement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the sequential positioning and one-dimensional organization of objects.";
     edu:partOf :ObjectArrangement.
@@ -283,6 +298,10 @@
 :MonthIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of months.";
     edu:partOf :TimeIntervals.
+:Most a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the comparison of three or more entities to identify the one with the largest quantity, size, or value.";
+    edu:expands :Greater;
+    edu:partOf :OrderAbstraction.
 :NanometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in nanometers.";
     edu:partOf :MetricScale.
@@ -389,6 +408,9 @@
 :OneDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves one spatial dimension.";
     edu:partOf :DimensionalAbstraction.
+:OrderAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves ordering or comparison concepts.";
+    edu:partOf :AbstractionScope.
 :Patternblocks a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes with a pattern block.";
     edu:partOf :PhysicalGeometry.
