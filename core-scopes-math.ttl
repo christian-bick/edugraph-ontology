@@ -11,11 +11,17 @@
 :Abacus a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with an abacus.";
     edu:partOf :PhysicalNumbers.
+:Above a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves relative vertical orientation situated at a higher level or position than a reference point.";
+    edu:partOf :SpatialDirection.
 :AbstractionScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves abstract concepts such as shapes or numbers.".
 :AdditiveCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Counts manifested objects additively.";
     edu:partOf :QuantityMeasurement.
+:Ahead a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves relative horizontal orientation situated at a further forward position or direction than a reference point.";
+    edu:partOf :SpatialDirection.
 :AnalogClock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves an analog clock.";
     edu:integrates :HourIntervals, :MinuteIntervals, :SecondIntervals;
@@ -51,10 +57,22 @@
     rdfs:isDefinedBy "Represents numbers with a base ten blocks.";
     edu:partOf :PhysicalNumbers;
     edu:translates :Base10.
+:Behind a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves relative horizontal orientation situated at a further backward position or direction than a reference point.";
+    edu:partOf :SpatialDirection.
+:Below a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves relative vertical orientation situated at a lower level or position than a reference point.";
+    edu:partOf :SpatialDirection.
+:Beside a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves relative horizontal orientation situated at a side position or direction than a reference point.";
+    edu:partOf :SpatialDirection.
 :Calendar a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a calendar.";
     edu:integrates :DayIntervals, :MonthIntervals, :WeekIntervals, :YearIntervals;
     edu:partOf :TimeMeasurement.
+:CardinalDirections a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the primary orientation indicators of North, South, East, and West.";
+    edu:partOf :CompassDirections.
 :CartesianCoordinateSystem a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents functions and shapes in the cartesian coordinate system.";
     edu:partOf :VisualGeometry;
@@ -69,6 +87,9 @@
     rdfs:isDefinedBy "Represents currency with coins.";
     edu:partOf :CurrencyRepresentation;
     edu:translates :MajorDenomination, :MinorDenomination.
+:CompassDirections a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves cardinal and intercardinal orientation indicators.";
+    edu:partOf :DirectionalMeasurement.
 :CountingSymbols a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves counting symbols.";
     edu:partOf :VisualNumbers.
@@ -110,6 +131,9 @@
 :DimensionalAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves spatial dimensions with or without time or hyperdimensional concepts.";
     edu:partOf :AbstractionScope.
+:DirectionalMeasurement a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves direction or orientation concepts.";
+    edu:partOf :MeasurementScope.
 :DistanceAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distance or length concepts.";
     edu:partOf :AbstractionScope.
@@ -117,6 +141,9 @@
     rdfs:isDefinedBy "Involves the Dollar currency.";
     edu:integrates :MajorDenomination, :MinorDenomination;
     edu:partOf :CurrencySystem.
+:East a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the cardinal direction East.";
+    edu:partOf :CardinalDirections.
 :Euro a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the Euro currency.";
     edu:integrates :MajorDenomination, :MinorDenomination;
@@ -151,6 +178,9 @@
 :IntegerNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves whole numbers and their negative counterparts within the real numeric space.";
     edu:partOf :RealNumbers.
+:IntercardinalDirections a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the secondary orientation indicators of Northeast, Southeast, Southwest, and Northwest.";
+    edu:partOf :CompassDirections.
 :IrrationalNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers that cannot be expressed as a ratio of integers within the real numeric space.";
     edu:expands :RationalNumbers;
@@ -226,6 +256,15 @@
 :NanosecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of nanoseconds.";
     edu:partOf :TimeIntervals.
+:North a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the cardinal direction North.";
+    edu:partOf :CardinalDirections.
+:Northeast a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the intercardinal direction Northeast.";
+    edu:partOf :IntercardinalDirections.
+:Northwest a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the intercardinal direction Northwest.";
+    edu:partOf :IntercardinalDirections.
 :Numberline a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with a number line.";
     edu:partOf :SpatialNumbers;
@@ -358,6 +397,18 @@
 :SecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of seconds.";
     edu:partOf :TimeIntervals.
+:South a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the cardinal direction South.";
+    edu:partOf :CardinalDirections.
+:Southeast a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the intercardinal direction Southeast.";
+    edu:partOf :IntercardinalDirections.
+:Southwest a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the intercardinal direction Southwest.";
+    edu:partOf :IntercardinalDirections.
+:SpatialDirection a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves relative or cardinal orientation and movement indicators.";
+    edu:partOf :DirectionalMeasurement.
 :SpatialNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers visually along a spatial dimension.";
     edu:partOf :NumberRepresentation.
@@ -438,6 +489,9 @@
 :WeightMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves weight measurement.";
     edu:partOf :MeasurementScope.
+:West a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the cardinal direction West.";
+    edu:partOf :CardinalDirections.
 :YearIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of years.";
     edu:partOf :TimeIntervals.
