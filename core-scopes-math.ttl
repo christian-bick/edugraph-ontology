@@ -178,7 +178,7 @@
     edu:expands :FourDimensional;
     edu:partOf :DimensionalAbstraction.
 :ImageObjects a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Graphic elements defined by a grid of pixels such as photographs and digital paintings.";
+    rdfs:isDefinedBy "Involves graphic elements defined by a grid of pixels such as photographs and digital paintings.";
     edu:partOf :ObjectTypes.
 :ImaginaryNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers within the imaginary numeric space.";
@@ -363,6 +363,7 @@
     rdfs:isDefinedBy "Involves the representation of objects.";
     edu:partOf :RepresentationalScope.
 :ObjectTypes a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the representation of objects and classes of objects.";
     edu:partOf :ObjectRepresentation.
 :OneDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves one spatial dimension.";
@@ -492,7 +493,7 @@
     edu:expands :OneDimensional;
     edu:partOf :DimensionalAbstraction.
 :VectorObjects a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Graphic elements defined by geometric primitives such as circles, squares and stars.";
+    rdfs:isDefinedBy "Involves graphic elements defined by geometric primitives such as circles, squares and stars.";
     edu:partOf :ObjectTypes.
 :VisualGeometry a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes visually (yet not in as physical objects).";
