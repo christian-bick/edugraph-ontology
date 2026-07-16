@@ -160,6 +160,9 @@
     rdfs:isDefinedBy "Involves the Euro currency.";
     edu:integrates :MajorDenomination, :MinorDenomination;
     edu:partOf :CurrencySystem.
+:Foldable a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the physical property of objects that allows for bending or overlapping of sections through flexible joints or creases to reduce volume or change configuration.";
+    edu:partOf :ShapeProperties.
 :FourDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves three spatial dimensions and time.";
     edu:expands :ThreeDimensional;
@@ -167,6 +170,9 @@
 :FractionNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers represented as a numerator and a denominator within the real numeric space.";
     edu:partOf :RationalNumbers.
+:Gas a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the identification and description of matter with no definite shape and no definite volume.";
+    edu:partOf :StateProperties.
 :Geoboard a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes with a geoboard.";
     edu:partOf :PhysicalGeometry.
@@ -226,6 +232,9 @@
     rdfs:isDefinedBy "Represents numbers with linking cubes.";
     edu:partOf :PhysicalNumbers;
     edu:translates :Base10.
+:Liquid a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the identification and description of matter with a definite volume and no definite shape.";
+    edu:partOf :StateProperties.
 :LiquidVolumes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves liquid volumes as means of measurement.";
     edu:integrates :LiterScale, :MilliliterScale;
@@ -239,6 +248,9 @@
     edu:translates :IntegerNumbers.
 :MeasurementScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the measurement of manifested objects shapes.".
+:MechanicalAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves physical properties or mechanical concepts.";
+    edu:partOf :AbstractionScope.
 :MeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distance expressed in meters.";
     edu:expands :Numberline;
@@ -416,6 +428,9 @@
     rdfs:isDefinedBy "Represents numbers with rod numerals.";
     edu:partOf :Numerals;
     edu:translates :Base10.
+:Rollable a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the physical property of objects that allows for continuous rotation or movement across a surface through a curved or rounded geometry.";
+    edu:partOf :ShapeProperties.
 :RomanNumerals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with roman numerals.";
     edu:partOf :Numerals;
@@ -433,6 +448,12 @@
 :SecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of seconds.";
     edu:partOf :TimeIntervals.
+:ShapeProperties a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the physical property of objects that allows for the identification and differentiation of geometric forms through attributes such as edges, faces, and vertices to determine spatial behavior and mechanical constraints.";
+    edu:partOf :MechanicalAbstraction.
+:Solid a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the identification and description of matter with a definite shape and volume.";
+    edu:partOf :StateProperties.
 :South a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the cardinal direction South.";
     edu:partOf :CardinalDirections.
@@ -448,6 +469,12 @@
 :SpatialNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers visually along a spatial dimension.";
     edu:partOf :NumberRepresentation.
+:Stackable a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the physical property of objects that allows for stable vertical arrangement or sequential layering.";
+    edu:partOf :ShapeProperties.
+:StateProperties a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the identification and differentiation of states of matter.";
+    edu:partOf :MechanicalAbstraction.
 :Stopwatch a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a stop watch.";
     edu:integrates :HourIntervals, :MillisecondIntervals, :MinuteIntervals, :SecondIntervals;
