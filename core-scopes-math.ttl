@@ -19,6 +19,9 @@
 :AdditiveCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Counts manifested objects additively.";
     edu:partOf :QuantityMeasurement.
+:After a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves identifying a later chronological point or a subsequent position within a sequence.";
+    edu:partOf :TemporalDirection.
 :Ahead a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves relative horizontal orientation situated at a further forward position or direction than a reference point.";
     edu:partOf :SpatialDirection.
@@ -57,6 +60,9 @@
     rdfs:isDefinedBy "Represents numbers with a base ten blocks.";
     edu:partOf :PhysicalNumbers;
     edu:translates :Base10.
+:Before a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves identifying an earlier chronological point or a preceding position within a sequence.";
+    edu:partOf :TemporalDirection.
 :Behind a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves relative horizontal orientation situated at a further backward position or direction than a reference point.";
     edu:partOf :SpatialDirection.
@@ -95,7 +101,7 @@
     edu:translates :MajorDenomination, :MinorDenomination.
 :CompassDirections a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves cardinal and intercardinal orientation indicators.";
-    edu:partOf :DirectionalMeasurement.
+    edu:partOf :DirectionalRepresentation.
 :CountingSymbols a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves counting symbols.";
     edu:partOf :VisualNumbers.
@@ -137,9 +143,9 @@
 :DimensionalAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves spatial dimensions with or without time or hyperdimensional concepts.";
     edu:partOf :AbstractionScope.
-:DirectionalMeasurement a owl:NamedIndividual, edu:Scope;
+:DirectionalRepresentation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves direction or orientation concepts.";
-    edu:partOf :MeasurementScope.
+    edu:partOf :RepresentationalScope.
 :DistanceAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distance or length concepts.";
     edu:partOf :AbstractionScope.
@@ -207,6 +213,9 @@
     rdfs:isDefinedBy "Involves a laser ruler.";
     edu:integrates :MicrometerScale;
     edu:partOf :LengthMeasurement.
+:Left a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves relative horizontal orientation situated at the left side position or direction than a reference point.";
+    edu:partOf :SpatialDirection.
 :LengthMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves length measurement.";
     edu:partOf :MeasurementScope.
@@ -400,6 +409,9 @@
     edu:partOf :NumericSpace.
 :RepresentationalScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a form of representation such as geometric shapes or numbers.".
+:Right a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves relative horizontal orientation situated at the right side position or direction than a reference point.";
+    edu:partOf :SpatialDirection.
 :RodNumerals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with rod numerals.";
     edu:partOf :Numerals;
@@ -432,7 +444,7 @@
     edu:partOf :IntercardinalDirections.
 :SpatialDirection a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves relative or cardinal orientation and movement indicators.";
-    edu:partOf :DirectionalMeasurement.
+    edu:partOf :DirectionalRepresentation.
 :SpatialNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers visually along a spatial dimension.";
     edu:partOf :NumberRepresentation.
@@ -461,6 +473,9 @@
 :TemperatureMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves temperature measurement.";
     edu:partOf :MeasurementScope.
+:TemporalDirection a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves chronological or sequential orientation and progression indicators.";
+    edu:partOf :DirectionalRepresentation.
 :TenFrame a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a ten frame: Typically a table with 2 rows and 5 columns where numbers are indicated by filled cells starting at the top left.";
     edu:partOf :VisualNumbers.
