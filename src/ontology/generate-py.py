@@ -44,8 +44,28 @@ def generate_enum_for_class(ontology, config: dict):
 
         print(f"    -> Found: {enum_key} ({iri})")
 
+        def_val = getattr(individual, "isDefinedBy", None)
+        definition = def_val[0] if def_val else ""
+        definition_escaped = definition.replace('"', '\\"').replace('\n', ' ')
+
         enum_content += f'\n    # IRI: {iri}\n'
         enum_content += f'    {enum_key} = "{iri}"\n'
+        if definition_escaped:
+            enum_content += f'    """{definition_escaped}"""\n'
+
+    enum_content += "\n    @property\n"
+    enum_content += "    def definition(self) -> str:\n"
+    enum_content += "        return _DEFINITIONS.get(self, \"\")\n"
+
+    enum_content += "\n\n# Private dictionary mapping each enum member to its description\n"
+    enum_content += "_DEFINITIONS = {\n"
+    for individual in individuals:
+        enum_key = individual.name
+        def_val = getattr(individual, "isDefinedBy", None)
+        definition = def_val[0] if def_val else ""
+        definition_escaped = definition.replace('"', '\\"').replace('\n', ' ')
+        enum_content += f"    {class_name}.{enum_key}: \"{definition_escaped}\",\n"
+    enum_content += "}\n"
 
     # Write the content to the output file
     with open(output_filename, "w", encoding="utf-8") as f:
@@ -68,6 +88,7 @@ def generate_init_file(configs, output_dir):
         init_content += f"from .{module_name} import {class_name}\n"
 
     helpers = [
+        "definitions", "definition",
         "part_of", "has_part", "expands", "expanded_by", "integrates", "integrated_by", "inverts", "inverted_by", "translates", "translated_by",
         "part_of_transitive", "has_part_transitive", "expands_transitive", "expanded_by_transitive", "integrates_transitive", "integrated_by_transitive", "inverts_transitive", "inverted_by_transitive", "translates_transitive", "translated_by_transitive"
     ]
@@ -123,11 +144,19 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
     ]
 
     entity_relations_entries = []
+    entity_definitions_entries = []
 
     for ind in all_individuals:
         ind_cname = individual_to_class.get(ind.name)
         if not ind_cname:
             continue
+
+        def_val = getattr(ind, "isDefinedBy", None)
+        definition_str = def_val[0] if def_val else ""
+        definition_escaped = definition_str.replace('"', '\\"').replace('\n', ' ')
+
+        if definition_escaped:
+            entity_definitions_entries.append(f"    {ind_cname}.{ind.name}: \"{definition_escaped}\"")
 
         ind_relations = {}
         for prop in relation_properties:
@@ -154,6 +183,8 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
             ind_relations["integratedBy"] = list(set(ind_relations.get("integratedBy", []) + ind_relations["translatedBy"]))
 
         entry = f"    {ind_cname}.{ind.name}: {{\n"
+        if definition_escaped:
+            entry += f'        "definition": "{definition_escaped}",\n'
         for prop in sorted(ind_relations.keys()):
             vals_str = ", ".join(sorted(ind_relations[prop]))
             entry += f'        "{prop}": [{vals_str}],\n'
@@ -169,6 +200,7 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
     content += "CompetencyDescriptor = Union[Area, Scope, Ability]\n\n"
     
     content += "class DescriptorRelations(TypedDict, total=False):\n"
+    content += "    definition: str\n"
     for prop in relation_properties:
         content += f"    {prop}: List[CompetencyDescriptor]\n"
     content += "\n\n"
@@ -180,6 +212,14 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
     content += "def relations(descriptor: CompetencyDescriptor) -> DescriptorRelations:\n"
     content += '    """Returns all relations defined for a given descriptor, or an empty dict."""\n'
     content += "    return ENTITY_RELATIONS.get(descriptor, {})\n\n"
+
+    content += "definitions: dict[CompetencyDescriptor, str] = {\n"
+    content += ",\n".join(entity_definitions_entries)
+    content += "\n}\n\n"
+
+    content += "def definition(descriptor: CompetencyDescriptor) -> str:\n"
+    content += '    """Returns the description/definition of a given descriptor, or an empty string."""\n'
+    content += "    return definitions.get(descriptor, \"\")\n\n"
 
     # Add direct helpers
     content += "# --- Direct Helper Functions ---\n"

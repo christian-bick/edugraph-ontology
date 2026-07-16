@@ -118,17 +118,22 @@ Both the TypeScript and Python client libraries expose the core taxonomic and pr
 ### 6.1 TypeScript API Usage
 
 ```typescript
-import { Area, relations, partOfTransitive, expands } from "edugraph-ts";
+import { Area, relations, partOfTransitive, expands, definition } from "edugraph-ts";
 
-// 1. Direct relations lookup
+// 1. Direct definition lookup (JSDoc also pops up on Area.AbsoluteValue in IDE)
+const def1 = definition(Area.AbsoluteValue);
+// def1 is: "The magnitude of a number without regard to its sign..."
+const def2 = relations(Area.AbsoluteValue).definition; // Also accessible on the relations object
+
+// 2. Direct relations lookup
 const absValRelations = relations(Area.AbsoluteValue);
-// absValRelations is: { expands: [...], partOf: [...], translates: [...] }
+// absValRelations is: { definition: "...", expands: [...], partOf: [...], translates: [...] }
 const isPartOfEvaluation = absValRelations.partOf?.includes(Area.ArithmeticEvaluation); // true
 
-// 2. Direct helper functions
+// 3. Direct helper functions
 const absoluteExpands = expands(Area.AbsoluteValue); // [Area.IntegerSigns, Area.ZeroConcept]
 
-// 3. Transitive helper functions (BFS closure traversal)
+// 4. Transitive helper functions (BFS closure traversal)
 // Traverses: AbsoluteValue -> ArithmeticEvaluation -> Arithmetic
 const transitiveParents = partOfTransitive(Area.AbsoluteValue);
 const includesArithmetic = transitiveParents.includes(Area.Arithmetic); // true
@@ -139,18 +144,26 @@ const includesArithmetic = transitiveParents.includes(Area.Arithmetic); // true
 The Python library follows standard PEP 8 snake_case naming conventions for relationship helper functions.
 
 ```python
-from edugraph import Area, relations, part_of_transitive, expands
+from edugraph import Area, relations, part_of_transitive, expands, definition
 
-# 1. Direct relations lookup
+# 1. Direct definition lookup (PEP 258 docstring also displays on Area.AbsoluteValue in IDE)
+# Property access on enum member
+def1 = Area.AbsoluteValue.definition 
+# def1 is: "The magnitude of a number without regard to its sign..."
+
+# Helper function access
+def2 = definition(Area.AbsoluteValue)
+
+# 2. Direct relations lookup
 abs_val_relations = relations(Area.AbsoluteValue)
 # abs_val_relations is a TypedDict matching:
-# {"expands": [...], "partOf": [...], "translates": [...]}
+# {"definition": "...", "expands": [...], "partOf": [...], "translates": [...]}
 is_part_of_evaluation = Area.ArithmeticEvaluation in abs_val_relations.get("partOf", [])  # True
 
-# 2. Direct helper functions
+# 3. Direct helper functions
 absolute_expands = expands(Area.AbsoluteValue)  # [Area.IntegerSigns, Area.ZeroConcept]
 
-# 3. Transitive helper functions (BFS closure traversal)
+# 4. Transitive helper functions (BFS closure traversal)
 # Traverses: AbsoluteValue -> ArithmeticEvaluation -> Arithmetic
 transitive_parents = part_of_transitive(Area.AbsoluteValue)
 includes_arithmetic = Area.Arithmetic in transitive_parents  # True

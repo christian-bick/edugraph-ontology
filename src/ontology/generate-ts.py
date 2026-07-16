@@ -42,7 +42,16 @@ def generate_enum_for_class(ontology, config: dict):
 
         print(f"    -> Found: {enum_key} ({iri})")
 
-        enum_content += f'  /** IRI: {iri} */\n'
+        def_val = getattr(individual, "isDefinedBy", None)
+        definition = def_val[0] if def_val else ""
+        definition_escaped = definition.replace('"', '\\"').replace('\n', ' ')
+
+        enum_content += f'  /**\n'
+        enum_content += f'   * IRI: {iri}\n'
+        if definition_escaped:
+            enum_content += f'   *\n'
+            enum_content += f'   * Definition: {definition_escaped}\n'
+        enum_content += f'   */\n'
         enum_content += f'  {enum_key} = "{iri}",\n'
 
     enum_content += "}\n"
@@ -97,11 +106,19 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
     ]
 
     entity_relations_entries = []
+    entity_definitions_entries = []
 
     for ind in all_individuals:
         ind_cname = individual_to_class.get(ind.name)
         if not ind_cname:
             continue
+
+        def_val = getattr(ind, "isDefinedBy", None)
+        definition_str = def_val[0] if def_val else ""
+        definition_escaped = definition_str.replace('"', '\\"').replace('\n', ' ')
+
+        if definition_escaped:
+            entity_definitions_entries.append(f'  [{ind_cname}.{ind.name}]: "{definition_escaped}"')
 
         ind_relations = {}
         for prop in relation_properties:
@@ -128,9 +145,11 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
             ind_relations["integratedBy"] = list(set(ind_relations.get("integratedBy", []) + ind_relations["translatedBy"]))
 
         entry = f"  [{ind_cname}.{ind.name}]: {{\n"
+        if definition_escaped:
+            entry += f'    definition: "{definition_escaped}",\n'
         for prop in sorted(ind_relations.keys()):
             vals_str = ", ".join(sorted(ind_relations[prop]))
-            entry += f"    {prop}: [{vals_str}],\n"
+            entry += f'    {prop}: [{vals_str}],\n'
         entry += "  }"
         entity_relations_entries.append(entry)
 
@@ -141,6 +160,7 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
     content += 'import { Ability } from "./Ability";\n\n'
     content += 'export type CompetencyDescriptor = Area | Scope | Ability;\n\n'
     content += 'export interface DescriptorRelations {\n'
+    content += '  definition?: string;\n'
     for prop in relation_properties:
         content += f'  {prop}?: CompetencyDescriptor[];\n'
     content += '}\n\n'
@@ -155,6 +175,15 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
     content += '  return lookup[descriptor] || {};\n'
     content += '}\n\n'
 
+    content += 'export const definitions = {\n'
+    content += ",\n".join(entity_definitions_entries)
+    content += '\n} satisfies Record<CompetencyDescriptor, string>;\n\n'
+
+    content += '/**\n * Returns the description/definition of a given descriptor, or an empty string.\n */\n'
+    content += 'export function definition(descriptor: CompetencyDescriptor): string {\n'
+    content += '  return definitions[descriptor] || "";\n'
+    content += '}\n\n'
+
     # Add direct helpers
     content += '// --- Direct Helper Functions ---\n'
     for prop in relation_properties:
@@ -164,15 +193,16 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
 
     # Add transitive helper and functions
     content += '\n// --- Transitive Helper Functions ---\n'
+    content += 'export type RelationKeys = Exclude<keyof DescriptorRelations, "definition">;\n\n'
     content += 'export function transitiveClosure(\n'
     content += '  descriptor: CompetencyDescriptor,\n'
-    content += '  relation: keyof DescriptorRelations\n'
+    content += '  relation: RelationKeys\n'
     content += '): CompetencyDescriptor[] {\n'
     content += '  const visited = new Set<CompetencyDescriptor>();\n'
     content += '  const queue: CompetencyDescriptor[] = [descriptor];\n'
     content += '  while (queue.length > 0) {\n'
     content += '    const current = queue.shift()!;\n'
-    content += '    const related = lookup[current]?.[relation] || [];\n'
+    content += '    const related = (lookup[current]?.[relation] as CompetencyDescriptor[] | undefined) || [];\n'
     content += '    for (const item of related) {\n'
     content += '      if (!visited.has(item)) {\n'
     content += '        visited.add(item);\n'

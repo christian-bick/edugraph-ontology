@@ -1,6 +1,6 @@
-import { Area, Scope, Ability, relations, partOfTransitive, expands } from "./index";
+import { Area, Scope, Ability, relations, partOfTransitive, expands, definition } from "./index";
 
-console.log("🧪 Running relation tests with step-by-step progress logging...");
+console.log("🧪 Running relation and definition tests with step-by-step progress logging...");
 
 const absValRelations = relations((Area as any).AbsoluteValue);
 const absValPartOf = absValRelations.partOf || [];
@@ -19,6 +19,13 @@ function assertEqual(actual: any, expected: any, message?: string) {
 
 // Test basic types
 assertEqual(typeof (Area as any).AbsoluteValue, "string");
+
+// Test definition property and helper
+console.log("Asserting definition helper and property...");
+const expectedDefinition = "The magnitude of a number without regard to its sign, representing its distance from zero on the number line.";
+assertEqual(relations((Area as any).AbsoluteValue).definition, expectedDefinition);
+assertEqual(definition((Area as any).AbsoluteValue), expectedDefinition);
+console.log("✅ Definition check passed.");
 
 // Test direct relation
 console.log("Asserting direct relation of AbsoluteValue...");

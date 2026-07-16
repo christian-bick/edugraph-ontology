@@ -1,12 +1,21 @@
 import unittest
 from edugraph import (
     Area, Scope, Ability, relations,
-    part_of, expands, part_of_transitive
+    part_of, expands, part_of_transitive, definition
 )
 
 class TestRelations(unittest.TestCase):
     def test_basic_types(self):
         self.assertIsInstance(Area.AbsoluteValue, str)
+
+    def test_definitions(self):
+        expected_definition = "The magnitude of a number without regard to its sign, representing its distance from zero on the number line."
+        # Property access on enum member
+        self.assertEqual(Area.AbsoluteValue.definition, expected_definition)
+        # Helper function access
+        self.assertEqual(definition(Area.AbsoluteValue), expected_definition)
+        # Property on relations dict
+        self.assertEqual(relations(Area.AbsoluteValue).get("definition"), expected_definition)
 
     def test_direct_relation(self):
         abs_val_relations = relations(Area.AbsoluteValue)

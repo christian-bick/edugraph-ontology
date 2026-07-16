@@ -12,7 +12,9 @@ pip install "edugraph-py @ https://github.com/christian-bick/edugraph-ontology/r
 
 ## Usage
 
-### 1. Enum Mapping
+### 1. Enum Mapping & Descriptions
+Hovering over any enum member (such as `Area.AbsoluteValue`) in your IDE will display the entity's RDF definition as a docstring tooltip.
+
 ```python
 from edugraph import Area, Scope, Ability
 
@@ -21,7 +23,24 @@ area = Area.IntegerMultiplication
 print(f"Area IRI: {area.value}")  # http://edugraph.io/edu/IntegerMultiplication
 ```
 
-### 2. Individual Relations
+### 2. Entity Descriptions & Definitions
+You can access definitions directly using member properties, the `definition` helper, or the `relations` dict:
+
+```python
+from edugraph import Area, definition, relations
+
+# 1. Accessing definition as a property on an enum member
+print(Area.AbsoluteValue.definition)
+# prints: "The magnitude of a number without regard to its sign..."
+
+# 2. Using the definition() helper function
+print(definition(Area.AbsoluteValue))
+
+# 3. Accessing the definition key on the relations dictionary
+print(relations(Area.AbsoluteValue).get("definition"))
+```
+
+### 3. Individual Relations
 You can query direct and transitive relationships (e.g., taxonomic parents/children, progression paths) between individuals:
 
 ```python
