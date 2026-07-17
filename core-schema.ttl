@@ -13,6 +13,38 @@
 #    Object Properties
 #################################################################
 
+###  http://edugraph.io/edu#constrainedBy
+edu:constrainedBy rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  owl:inverseOf edu:constrains ;
+                  rdfs:domain edu:CompetencyEntity ;
+                  rdfs:range edu:CompetencyEntity .
+
+
+###  http://edugraph.io/edu#constrains
+edu:constrains rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain edu:CompetencyEntity ;
+               rdfs:range edu:CompetencyEntity ;
+               rdfs:isDefinedBy "A constrains B when the truth of A logically restricts or determines the truth of B. This is to be understood purely logically rather than pedagogically." .
+
+
+###  http://edugraph.io/edu#contradictedBy
+edu:contradictedBy rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf edu:constrainedBy ;
+                   owl:inverseOf edu:contradicts ;
+                   rdfs:domain edu:CompetencyEntity ;
+                   rdfs:range edu:CompetencyEntity .
+
+
+###  http://edugraph.io/edu#contradicts
+edu:contradicts rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf edu:constrains ;
+                rdfs:domain edu:CompetencyEntity ;
+                rdfs:range edu:CompetencyEntity ;
+                rdfs:isDefinedBy "A contradicts B when the truth of A logically excludes the truth of B." .
+
+
 ###  http://edugraph.io/edu#expandedBy
 edu:expandedBy rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
@@ -40,6 +72,22 @@ edu:hasPart rdf:type owl:ObjectProperty ;
             owl:inverseOf edu:partOf ;
             rdfs:domain owl:Thing ;
             rdfs:range owl:Thing .
+
+
+###  http://edugraph.io/edu#impliedBy
+edu:impliedBy rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf edu:constrainedBy ;
+              owl:inverseOf edu:implies ;
+              rdfs:domain edu:CompetencyEntity ;
+              rdfs:range edu:CompetencyEntity .
+
+
+###  http://edugraph.io/edu#implies
+edu:implies rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf edu:constrains ;
+            rdfs:domain edu:CompetencyEntity ;
+            rdfs:range edu:CompetencyEntity ;
+            rdfs:isDefinedBy "A implies B when the truth of A logically guarantees the truth of B. This is to be understood purely logically rather than pedagogically (e.g., condition X > 100 logically implies condition X > 10, and X < 10 logically implies X < 100)." .
 
 
 ###  http://edugraph.io/edu#integratedBy
