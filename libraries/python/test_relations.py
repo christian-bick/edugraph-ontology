@@ -1,7 +1,8 @@
 import unittest
 from edugraph import (
     Area, Scope, Ability, relations,
-    part_of, expands, part_of_transitive, definition
+    part_of, expands, part_of_transitive, definition,
+    implies, implies_transitive, contradicts, deduct_compatible
 )
 
 class TestRelations(unittest.TestCase):
@@ -32,5 +33,24 @@ class TestRelations(unittest.TestCase):
         transitive_parents = part_of_transitive(Area.AbsoluteValue)
         self.assertIn(Area.Arithmetic, transitive_parents)
 
+    def test_implies_contradicts(self):
+        smaller_10_implies_direct = implies(Scope.NumbersSmaller10)
+        self.assertIn(Scope.NumbersSmaller20, smaller_10_implies_direct)
+
+        smaller_10_implies_transitive = implies_transitive(Scope.NumbersSmaller10)
+        self.assertIn(Scope.NumbersSmaller100, smaller_10_implies_transitive)
+
+        smaller_10_contradicts = contradicts(Scope.NumbersSmaller10)
+        self.assertIn(Scope.NumbersLarger10, smaller_10_contradicts)
+
+    def test_deduct_compatible(self):
+        compatible_empty = deduct_compatible([Scope.NumbersSmaller10, Scope.NumbersLarger10])
+        self.assertEqual(len(compatible_empty), 0)
+
+        compatible_smaller_10 = deduct_compatible([Scope.NumbersSmaller10])
+        self.assertIn(Scope.NumbersSmaller10, compatible_smaller_10)
+        self.assertIn(Scope.NumbersSmaller100, compatible_smaller_10)
+
 if __name__ == "__main__":
     unittest.main()
+

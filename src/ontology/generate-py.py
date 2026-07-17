@@ -90,7 +90,10 @@ def generate_init_file(configs, output_dir):
     helpers = [
         "definitions", "definition",
         "part_of", "has_part", "expands", "expanded_by", "integrates", "integrated_by", "inverts", "inverted_by", "translates", "translated_by",
-        "part_of_transitive", "has_part_transitive", "expands_transitive", "expanded_by_transitive", "integrates_transitive", "integrated_by_transitive", "inverts_transitive", "inverted_by_transitive", "translates_transitive", "translated_by_transitive"
+        "constrains", "constrained_by", "implies", "implied_by", "contradicts", "contradicted_by",
+        "part_of_transitive", "has_part_transitive", "expands_transitive", "expanded_by_transitive", "integrates_transitive", "integrated_by_transitive", "inverts_transitive", "inverted_by_transitive", "translates_transitive", "translated_by_transitive",
+        "constrains_transitive", "constrained_by_transitive", "implies_transitive", "implied_by_transitive", "contradicts_transitive", "contradicted_by_transitive",
+        "deduct_compatible"
     ]
 
     init_content += "from .relations import (\n"
@@ -140,7 +143,10 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
         "expands", "expandedBy",
         "integrates", "integratedBy",
         "inverts", "invertedBy",
-        "translates", "translatedBy"
+        "translates", "translatedBy",
+        "constrains", "constrainedBy",
+        "implies", "impliedBy",
+        "contradicts", "contradictedBy"
     ]
 
     entity_relations_entries = []
@@ -181,6 +187,14 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
             ind_relations["integrates"] = list(set(ind_relations.get("integrates", []) + ind_relations["translates"]))
         if "translatedBy" in ind_relations:
             ind_relations["integratedBy"] = list(set(ind_relations.get("integratedBy", []) + ind_relations["translatedBy"]))
+        if "implies" in ind_relations:
+            ind_relations["constrains"] = list(set(ind_relations.get("constrains", []) + ind_relations["implies"]))
+        if "impliedBy" in ind_relations:
+            ind_relations["constrainedBy"] = list(set(ind_relations.get("constrainedBy", []) + ind_relations["impliedBy"]))
+        if "contradicts" in ind_relations:
+            ind_relations["constrains"] = list(set(ind_relations.get("constrains", []) + ind_relations["contradicts"]))
+        if "contradictedBy" in ind_relations:
+            ind_relations["constrainedBy"] = list(set(ind_relations.get("constrainedBy", []) + ind_relations["contradictedBy"]))
 
         entry = f"    {ind_cname}.{ind.name}: {{\n"
         if definition_escaped:
@@ -249,6 +263,28 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
         snake_prop = "".join(["_" + c.lower() if c.isupper() else c for c in prop]).lstrip("_")
         content += f"def {snake_prop}_transitive(descriptor: CompetencyDescriptor) -> List[CompetencyDescriptor]:\n"
         content += f'    return transitive_closure(descriptor, "{prop}")\n\n'
+
+    content += "# --- Deduct Compatible Helper ---\n"
+    content += "def deduct_compatible(base_constraints: List[CompetencyDescriptor]) -> List[CompetencyDescriptor]:\n"
+    content += '    """\n'
+    content += '    Deducts the exact compatible subset of bounds from a given list of base constraints,\n'
+    content += '    applying logical implication and pruning logical contradictions.\n'
+    content += '    """\n'
+    content += "    implied = set()\n"
+    content += "    for constraint in base_constraints:\n"
+    content += "        implied.add(constraint)\n"
+    content += "        for imp in implies_transitive(constraint):\n"
+    content += "            implied.add(imp)\n"
+    content += "\n"
+    content += "    contradicted_set = set()\n"
+    content += "    for constraint in base_constraints:\n"
+    content += "        for c in contradicts(constraint):\n"
+    content += "            contradicted_set.add(c)\n"
+    content += "            for imp in implies_transitive(c):\n"
+    content += "                contradicted_set.add(imp)\n"
+    content += "\n"
+    content += "    final_set = {item for item in implied if item not in contradicted_set}\n"
+    content += "    return list(final_set)\n\n"
 
     with open(relations_filename, "w", encoding="utf-8") as f:
         f.write(content)

@@ -1,4 +1,4 @@
-import { Area, Scope, Ability, relations, partOfTransitive, expands, definition } from "./index";
+import { Area, Scope, Ability, relations, partOfTransitive, expands, definition, implies, impliesTransitive, contradicts, deductCompatible } from "./index";
 
 console.log("🧪 Running relation and definition tests with step-by-step progress logging...");
 
@@ -54,4 +54,27 @@ console.log("Transitive match check:", transitiveParents.includes(Area.Arithmeti
 assertOk(transitiveParents.includes(Area.Arithmetic));
 console.log("✅ Transitive relation check passed.");
 
+// Test implies and contradicts relations
+console.log("Asserting implies and contradicts relations for Scope...");
+const smaller10ImpliesDirect = implies(Scope.NumbersSmaller10);
+assertOk(smaller10ImpliesDirect.includes(Scope.NumbersSmaller20), "NumbersSmaller10 should directly imply NumbersSmaller20");
+
+const smaller10ImpliesTransitive = impliesTransitive(Scope.NumbersSmaller10);
+assertOk(smaller10ImpliesTransitive.includes(Scope.NumbersSmaller100), "NumbersSmaller10 should transitively imply NumbersSmaller100");
+
+const smaller10Contradicts = contradicts(Scope.NumbersSmaller10);
+assertOk(smaller10Contradicts.includes(Scope.NumbersLarger10), "NumbersSmaller10 should contradict NumbersLarger10");
+console.log("✅ Implies and contradicts checks passed.");
+
+// Test deductCompatible helper
+console.log("Asserting deductCompatible helper...");
+const compatibleEmpty = deductCompatible([Scope.NumbersSmaller10, Scope.NumbersLarger10]);
+assertEqual(compatibleEmpty.length, 0, "Contradictory constraints should result in empty deduction");
+
+const compatibleSmaller10 = deductCompatible([Scope.NumbersSmaller10]);
+assertOk(compatibleSmaller10.includes(Scope.NumbersSmaller10));
+assertOk(compatibleSmaller10.includes(Scope.NumbersSmaller100));
+console.log("✅ deductCompatible checks passed.");
+
 console.log("🎉 All relation tests passed successfully!");
+

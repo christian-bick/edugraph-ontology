@@ -102,7 +102,10 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
         "expands", "expandedBy",
         "integrates", "integratedBy",
         "inverts", "invertedBy",
-        "translates", "translatedBy"
+        "translates", "translatedBy",
+        "constrains", "constrainedBy",
+        "implies", "impliedBy",
+        "contradicts", "contradictedBy"
     ]
 
     entity_relations_entries = []
@@ -143,6 +146,14 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
             ind_relations["integrates"] = list(set(ind_relations.get("integrates", []) + ind_relations["translates"]))
         if "translatedBy" in ind_relations:
             ind_relations["integratedBy"] = list(set(ind_relations.get("integratedBy", []) + ind_relations["translatedBy"]))
+        if "implies" in ind_relations:
+            ind_relations["constrains"] = list(set(ind_relations.get("constrains", []) + ind_relations["implies"]))
+        if "impliedBy" in ind_relations:
+            ind_relations["constrainedBy"] = list(set(ind_relations.get("constrainedBy", []) + ind_relations["impliedBy"]))
+        if "contradicts" in ind_relations:
+            ind_relations["constrains"] = list(set(ind_relations.get("constrains", []) + ind_relations["contradicts"]))
+        if "contradictedBy" in ind_relations:
+            ind_relations["constrainedBy"] = list(set(ind_relations.get("constrainedBy", []) + ind_relations["contradictedBy"]))
 
         entry = f"  [{ind_cname}.{ind.name}]: {{\n"
         if definition_escaped:
@@ -217,6 +228,37 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
         content += f'export function {prop}Transitive(descriptor: CompetencyDescriptor): CompetencyDescriptor[] {{\n'
         content += f'  return transitiveClosure(descriptor, "{prop}");\n'
         content += '}\n'
+
+    content += '\n// --- Deduct Compatible Helper ---\n'
+    content += '/**\n'
+    content += ' * Deducts the exact compatible subset of bounds from a given list of base constraints,\n'
+    content += ' * applying logical implication and pruning logical contradictions.\n'
+    content += ' */\n'
+    content += 'export function deductCompatible(baseConstraints: CompetencyDescriptor[]): CompetencyDescriptor[] {\n'
+    content += '  const implied = new Set<CompetencyDescriptor>();\n'
+    content += '  for (const constraint of baseConstraints) {\n'
+    content += '    implied.add(constraint);\n'
+    content += '    for (const imp of impliesTransitive(constraint)) {\n'
+    content += '      implied.add(imp);\n'
+    content += '    }\n'
+    content += '  }\n'
+    content += '  const contradictedSet = new Set<CompetencyDescriptor>();\n'
+    content += '  for (const constraint of baseConstraints) {\n'
+    content += '    for (const c of contradicts(constraint)) {\n'
+    content += '      contradictedSet.add(c);\n'
+    content += '      for (const imp of impliesTransitive(c)) {\n'
+    content += '        contradictedSet.add(imp);\n'
+    content += '      }\n'
+    content += '    }\n'
+    content += '  }\n'
+    content += '  const finalSet = new Set<CompetencyDescriptor>();\n'
+    content += '  for (const item of implied) {\n'
+    content += '    if (!contradictedSet.has(item)) {\n'
+    content += '      finalSet.add(item);\n'
+    content += '    }\n'
+    content += '  }\n'
+    content += '  return Array.from(finalSet);\n'
+    content += '}\n\n'
 
     with open(relations_filename, "w", encoding="utf-8") as f:
         f.write(content)
