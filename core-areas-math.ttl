@@ -606,6 +606,9 @@
     edu:partOf :CollectionSense.
 :SetTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies sets, which are collections of objects. It provides a fundamental language and tools for defining and working with mathematical objects.".
+:ShapeComposition a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Understanding how multiple shapes can be combined to form a new, composite shape.";
+    edu:partOf :ShapeRecognition.
 :ShapeEquivalenceRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships that compare the intrinsic shape, size, and mapping of geometric figures to one another.";
     edu:partOf :GeometricRelations.
