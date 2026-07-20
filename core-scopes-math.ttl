@@ -329,63 +329,117 @@
     edu:partOf :RepresentationalScope.
 :NumbersLarger10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value larger than or equal to 10.";
+    edu:contradictedBy :NumbersSmaller10;
+    edu:contradicts :NumbersSmaller10;
     edu:expands :NumbersLargerZero, :NumbersSmaller10;
+    edu:impliedBy :NumbersLarger20;
+    edu:implies :NumbersLargerZero;
     edu:partOf :NumericRange;
     edu:translates :BaseTenBlocks, :LinkingCubes, :NumberTiles.
 :NumbersLarger100 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value larger than or equal to 100.";
+    edu:contradictedBy :NumbersSmaller100;
+    edu:contradicts :NumbersSmaller100;
     edu:expands :NumbersLarger20, :NumbersSmaller100;
+    edu:impliedBy :NumbersLarger1000;
+    edu:implies :NumbersLarger20;
     edu:partOf :NumericRange.
 :NumbersLarger1000 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value larger than or equal to 1000.";
+    edu:contradictedBy :NumbersSmaller1000;
+    edu:contradicts :NumbersSmaller1000;
     edu:expands :NumbersLarger100, :NumbersSmaller1000;
+    edu:impliedBy :NumbersLarger10000;
+    edu:implies :NumbersLarger100;
     edu:partOf :NumericRange.
 :NumbersLarger10000 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value larger than or equal to 10000.";
+    edu:contradictedBy :NumbersSmaller10000;
+    edu:contradicts :NumbersSmaller10000;
     edu:expands :NumbersLarger1000, :NumbersSmaller10000;
+    edu:impliedBy :NumbersLarger100000;
+    edu:implies :NumbersLarger1000;
     edu:partOf :NumericRange.
 :NumbersLarger100000 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value larger than or equal to 100000.";
+    edu:contradictedBy :NumbersSmaller100000;
+    edu:contradicts :NumbersSmaller100000;
     edu:expands :NumbersLarger10000, :NumbersSmaller100000;
+    edu:impliedBy :NumbersLarger1000000;
+    edu:implies :NumbersLarger10000;
     edu:partOf :NumericRange.
 :NumbersLarger1000000 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value larger than or equal to 1000000.";
+    edu:contradictedBy :NumbersSmaller1000000;
+    edu:contradicts :NumbersSmaller1000000;
     edu:expands :NumbersLarger100000, :NumbersSmaller1000000;
+    edu:implies :NumbersLarger100000;
     edu:partOf :NumericRange.
 :NumbersLarger20 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value larger than or equal to 20.";
+    edu:contradictedBy :NumbersSmaller20;
+    edu:contradicts :NumbersSmaller20;
     edu:expands :NumbersLarger10, :NumbersSmaller20;
+    edu:impliedBy :NumbersLarger100;
+    edu:implies :NumbersLarger10;
     edu:partOf :NumericRange.
 :NumbersLargerZero a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value larger than or equal to 0.";
+    edu:impliedBy :NumbersLarger10;
     edu:partOf :NumericRange.
 :NumbersSmaller10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value smaller than or equal to 10.";
+    edu:contradictedBy :NumbersLarger10;
+    edu:contradicts :NumbersLarger10;
+    edu:implies :NumbersSmaller20;
     edu:partOf :NumericRange;
     edu:translates :CountingSymbols, :TenFrame.
 :NumbersSmaller100 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value smaller than or equal to 100.";
+    edu:contradictedBy :NumbersLarger100;
+    edu:contradicts :NumbersLarger100;
     edu:expands :NumbersSmaller20;
+    edu:impliedBy :NumbersSmaller20;
+    edu:implies :NumbersSmaller1000;
     edu:partOf :NumericRange.
 :NumbersSmaller1000 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value smaller than or equal to 1000.";
+    edu:contradictedBy :NumbersLarger1000;
+    edu:contradicts :NumbersLarger1000;
     edu:expands :NumbersSmaller100;
+    edu:impliedBy :NumbersSmaller100;
+    edu:implies :NumbersSmaller10000;
     edu:partOf :NumericRange.
 :NumbersSmaller10000 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value smaller than or equal to 10000.";
+    edu:contradictedBy :NumbersLarger10000;
+    edu:contradicts :NumbersLarger10000;
     edu:expands :NumbersSmaller1000;
+    edu:impliedBy :NumbersSmaller1000;
+    edu:implies :NumbersSmaller100000;
     edu:partOf :NumericRange.
 :NumbersSmaller100000 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value smaller than or equal to 100000.";
+    edu:contradictedBy :NumbersLarger100000;
+    edu:contradicts :NumbersLarger100000;
     edu:expands :NumbersSmaller10000;
+    edu:impliedBy :NumbersSmaller10000;
+    edu:implies :NumbersSmaller1000000;
     edu:partOf :NumericRange.
 :NumbersSmaller1000000 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value smaller than or equal to 1000000.";
+    edu:contradictedBy :NumbersLarger1000000;
+    edu:contradicts :NumbersLarger1000000;
     edu:expands :NumbersSmaller100000;
+    edu:impliedBy :NumbersSmaller100000;
     edu:partOf :NumericRange.
 :NumbersSmaller20 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value smaller than or equal to 20.";
+    edu:contradictedBy :NumbersLarger20;
+    edu:contradicts :NumbersLarger20;
     edu:expands :NumbersSmaller10;
+    edu:impliedBy :NumbersSmaller10;
+    edu:implies :NumbersSmaller100;
     edu:partOf :NumericRange.
 :NumbersWithNegatives a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves negative numbers.";
