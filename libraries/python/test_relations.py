@@ -47,9 +47,18 @@ class TestRelations(unittest.TestCase):
         compatible_empty = deduct_compatible([Scope.NumbersSmaller10, Scope.NumbersLarger10])
         self.assertEqual(len(compatible_empty), 0)
 
-        compatible_smaller_10 = deduct_compatible([Scope.NumbersSmaller10])
-        self.assertIn(Scope.NumbersSmaller10, compatible_smaller_10)
-        self.assertIn(Scope.NumbersSmaller100, compatible_smaller_10)
+        compatible_smaller_1000 = deduct_compatible([Scope.NumbersSmaller1000])
+        self.assertIn(Scope.NumbersSmaller1000, compatible_smaller_1000)
+        self.assertIn(Scope.NumbersSmaller100, compatible_smaller_1000)
+        self.assertIn(Scope.NumbersSmaller20, compatible_smaller_1000)
+        self.assertIn(Scope.NumbersSmaller10, compatible_smaller_1000)
+        self.assertNotIn(Scope.NumbersSmaller10000, compatible_smaller_1000)
+
+        compatible_larger_100 = deduct_compatible([Scope.NumbersLarger100])
+        self.assertIn(Scope.NumbersLarger100, compatible_larger_100)
+        self.assertIn(Scope.NumbersLarger1000, compatible_larger_100)
+        self.assertIn(Scope.NumbersLarger10000, compatible_larger_100)
+        self.assertNotIn(Scope.NumbersLarger20, compatible_larger_100)
 
 if __name__ == "__main__":
     unittest.main()

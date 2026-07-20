@@ -71,9 +71,18 @@ console.log("Asserting deductCompatible helper...");
 const compatibleEmpty = deductCompatible([Scope.NumbersSmaller10, Scope.NumbersLarger10]);
 assertEqual(compatibleEmpty.length, 0, "Contradictory constraints should result in empty deduction");
 
-const compatibleSmaller10 = deductCompatible([Scope.NumbersSmaller10]);
-assertOk(compatibleSmaller10.includes(Scope.NumbersSmaller10));
-assertOk(compatibleSmaller10.includes(Scope.NumbersSmaller100));
+const compatibleSmaller1000 = deductCompatible([Scope.NumbersSmaller1000]);
+assertOk(compatibleSmaller1000.includes(Scope.NumbersSmaller1000), "Should include itself");
+assertOk(compatibleSmaller1000.includes(Scope.NumbersSmaller100), "Should include smaller bounds (downward)");
+assertOk(compatibleSmaller1000.includes(Scope.NumbersSmaller20), "Should include smaller bounds (downward)");
+assertOk(compatibleSmaller1000.includes(Scope.NumbersSmaller10), "Should include smaller bounds (downward)");
+assertOk(!compatibleSmaller1000.includes(Scope.NumbersSmaller10000), "Should NOT include larger bounds");
+
+const compatibleLarger100 = deductCompatible([Scope.NumbersLarger100]);
+assertOk(compatibleLarger100.includes(Scope.NumbersLarger100), "Should include itself");
+assertOk(compatibleLarger100.includes(Scope.NumbersLarger1000), "Should include larger bounds (upward)");
+assertOk(compatibleLarger100.includes(Scope.NumbersLarger10000), "Should include larger bounds (upward)");
+assertOk(!compatibleLarger100.includes(Scope.NumbersLarger20), "Should NOT include smaller bounds");
 console.log("✅ deductCompatible checks passed.");
 
 console.log("🎉 All relation tests passed successfully!");
