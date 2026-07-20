@@ -156,6 +156,9 @@
 :East a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the cardinal direction East.";
     edu:partOf :CardinalDirections.
+:EdgeCount a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the identification and quantification of edges that constitute the physical structure of an object.";
+    edu:partOf :ShapeAttributes.
 :Equal a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the comparison of entities indicating they have the exact same quantity, size, or value.";
     edu:partOf :OrderAbstraction.
@@ -163,6 +166,9 @@
     rdfs:isDefinedBy "Involves the Euro currency.";
     edu:integrates :MajorDenomination, :MinorDenomination;
     edu:partOf :CurrencySystem.
+:FaceCount a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the identification and quantification of faces that constitute the physical structure of an object.";
+    edu:partOf :ShapeAttributes.
 :Foldable a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the physical property of objects that allows for bending or overlapping of sections through flexible joints or creases to reduce volume or change configuration.";
     edu:partOf :ShapeProperties.
@@ -589,6 +595,9 @@
 :VectorObjects a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves graphic elements defined by geometric primitives such as circles, squares and stars.";
     edu:partOf :ObjectTypes.
+:VertexCount a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the identification and quantification of vertices that constitute the physical structure of an object.";
+    edu:partOf :ShapeAttributes.
 :VisualGeometry a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes visually (yet not in as physical objects).";
     edu:partOf :GeometryRepresentation.
