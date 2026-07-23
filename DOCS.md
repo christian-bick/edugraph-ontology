@@ -208,3 +208,11 @@ Both libraries expose a dual pair of deduction helpers built on the `implies` an
   A band-limited component rejects both directions with one call: `deductAdmitting([Scope.NumbersLarger100, Scope.NumbersSmaller10])`.
 
 Note that a pure lower-bound label (e.g. `NumbersLargerZero`) is never returned by `deductAdmitting` for an upper boundary: rejection lists are evaluated per label, and a lower bound only exceeds a capacity in conjunction with a loose upper bound — which triggers the rejection by itself.
+
+#### Satisfiability Primitive
+
+Both deduction helpers are built on a shared satisfiability check, also exported for direct use:
+
+- **`incompatible(a, b)`** (Python: `incompatible`) — returns `true` when two labels cannot be jointly satisfied: some label in `a`'s `implies` closure contradicts some label in `b`'s `implies` closure. This composition is necessary because `contradictsTransitive` alone only closes over contradiction edges and misses far-apart unsatisfiable pairs — e.g. `NumbersSmaller10` and `NumbersLarger100` have no direct contradiction edge, but `NumbersSmaller10` implies `NumbersSmaller100`, which contradicts `NumbersLarger100`. Prefer `incompatible` over ad hoc `contradictsTransitive` checks whenever satisfiability (not just direct/transitive contradiction) is the actual question.
+
+Internally, `deductCompatible` and `deductAdmitting` also rely on `isBoundTyped` (not exported) to decide whether a constraint should traverse `impliedByTransitive` (bound-typed labels, whose implication family contains a contradiction edge, e.g. `NumbersSmaller20`) or `impliesTransitive` (contradiction-free labels, e.g. `Area.Addition`). This replaced an earlier implementation that matched on the substrings `"Smaller"`/`"Larger"` in the label name — `isBoundTyped` is derived purely from the relation graph and generalizes to any future bound-typed dimension without a source-code change.

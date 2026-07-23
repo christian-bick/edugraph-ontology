@@ -93,7 +93,7 @@ def generate_init_file(configs, output_dir):
         "constrains", "constrained_by", "implies", "implied_by", "contradicts", "contradicted_by",
         "part_of_transitive", "has_part_transitive", "expands_transitive", "expanded_by_transitive", "integrates_transitive", "integrated_by_transitive", "inverts_transitive", "inverted_by_transitive", "translates_transitive", "translated_by_transitive",
         "constrains_transitive", "constrained_by_transitive", "implies_transitive", "implied_by_transitive", "contradicts_transitive", "contradicted_by_transitive",
-        "deduct_compatible", "deduct_admitting"
+        "deduct_compatible", "deduct_admitting", "incompatible"
     ]
 
     init_content += "from .relations import (\n"
@@ -264,6 +264,30 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
         content += f"def {snake_prop}_transitive(descriptor: CompetencyDescriptor) -> List[CompetencyDescriptor]:\n"
         content += f'    return transitive_closure(descriptor, "{prop}")\n\n'
 
+    content += "# --- Logical Type Helpers ---\n"
+    content += "def is_bound_typed(descriptor: CompetencyDescriptor) -> bool:\n"
+    content += '    """\n'
+    content += '    A label is bound-typed when its implication family (the label plus its\n'
+    content += '    implies/implied_by closures) contains a contradiction edge. Bounds (e.g.\n'
+    content += '    numeric range limits) come in contradicting pairs, so compatibility for\n'
+    content += '    them traverses towards tighter labels (implied_by), while contradiction-free\n'
+    content += '    families propagate capabilities along implies.\n'
+    content += '    """\n'
+    content += "    if contradicts(descriptor):\n"
+    content += "        return True\n"
+    content += "    related_labels = implies_transitive(descriptor) + implied_by_transitive(descriptor)\n"
+    content += "    return any(contradicts(related) for related in related_labels)\n\n"
+    content += "def incompatible(a: CompetencyDescriptor, b: CompetencyDescriptor) -> bool:\n"
+    content += '    """\n'
+    content += '    Returns True when two labels cannot be satisfied together: some label in\n'
+    content += "    a's implication closure contradicts a label in b's implication closure.\n"
+    content += '    Note this composes implies with contradicts — contradicts_transitive alone\n'
+    content += '    closes only over contradiction edges and does not detect far-apart\n'
+    content += '    unsatisfiable pairs (e.g. NumbersSmaller10 vs NumbersLarger100).\n'
+    content += '    """\n'
+    content += "    a_closure = [a] + implies_transitive(a)\n"
+    content += "    b_closure = set([b] + implies_transitive(b))\n"
+    content += "    return any(y in b_closure for x in a_closure for y in contradicts(x))\n\n"
     content += "# --- Deduct Compatible Helper ---\n"
     content += "def deduct_compatible(base_constraints: List[CompetencyDescriptor]) -> List[CompetencyDescriptor]:\n"
     content += '    """\n'
@@ -275,7 +299,7 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
     content += "        implied.add(constraint)\n"
     content += "        transitive_collection = (\n"
     content += "            implied_by_transitive(constraint)\n"
-    content += "            if ('Smaller' in constraint or 'Larger' in constraint)\n"
+    content += "            if is_bound_typed(constraint)\n"
     content += "            else implies_transitive(constraint)\n"
     content += "        )\n"
     content += "        for imp in transitive_collection:\n"
@@ -287,7 +311,7 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
     content += "            contradicted_set.add(c)\n"
     content += "            transitive_collection = (\n"
     content += "                implied_by_transitive(c)\n"
-    content += "                if ('Smaller' in c or 'Larger' in c)\n"
+    content += "                if is_bound_typed(c)\n"
     content += "                else implies_transitive(c)\n"
     content += "            )\n"
     content += "            for imp in transitive_collection:\n"

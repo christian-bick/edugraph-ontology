@@ -2,7 +2,7 @@ import unittest
 from edugraph import (
     Area, Scope, Ability, relations,
     part_of, expands, part_of_transitive, definition,
-    implies, implies_transitive, contradicts, deduct_compatible, deduct_admitting
+    implies, implies_transitive, contradicts, deduct_compatible, deduct_admitting, incompatible
 )
 
 class TestRelations(unittest.TestCase):
@@ -85,6 +85,15 @@ class TestRelations(unittest.TestCase):
         self.assertIn(Scope.NumbersSmaller10, admitting_outside_band)
         self.assertIn(Scope.NumbersLargerZero, admitting_outside_band)
         self.assertNotIn(Scope.NumbersSmaller100, admitting_outside_band)
+
+    def test_incompatible(self):
+        # Satisfiability via implies ∘ contradicts composition
+        self.assertTrue(incompatible(Scope.NumbersSmaller10, Scope.NumbersLarger10))
+        self.assertTrue(incompatible(Scope.NumbersSmaller10, Scope.NumbersLarger100))
+        self.assertTrue(incompatible(Scope.NumbersLarger100, Scope.NumbersSmaller10))
+        self.assertFalse(incompatible(Scope.NumbersSmaller1000, Scope.NumbersLarger100))
+        self.assertFalse(incompatible(Scope.NumbersSmaller10, Scope.NumbersLargerZero))
+        self.assertFalse(incompatible(Scope.NumbersSmaller10, Scope.ArabicNumerals))
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,4 +1,4 @@
-import { Area, Scope, Ability, relations, partOfTransitive, expands, definition, implies, impliesTransitive, contradicts, deductCompatible, deductAdmitting } from "./index";
+import { Area, Scope, Ability, relations, partOfTransitive, expands, definition, implies, impliesTransitive, contradicts, deductCompatible, deductAdmitting, incompatible } from "./index";
 
 console.log("🧪 Running relation and definition tests with step-by-step progress logging...");
 
@@ -110,6 +110,16 @@ assertOk(admittingOutsideBand.includes(Scope.NumbersSmaller10), "Band: should in
 assertOk(admittingOutsideBand.includes(Scope.NumbersLargerZero), "Band: should include loose lower bounds permitting crossing");
 assertOk(!admittingOutsideBand.includes(Scope.NumbersSmaller100), "Band: should NOT include the upper boundary's complement");
 console.log("✅ deductAdmitting checks passed.");
+
+// Test incompatible helper (satisfiability via implies ∘ contradicts composition)
+console.log("Asserting incompatible helper...");
+assertOk(incompatible(Scope.NumbersSmaller10, Scope.NumbersLarger10), "Adjacent contradiction pair should be incompatible");
+assertOk(incompatible(Scope.NumbersSmaller10, Scope.NumbersLarger100), "Far-apart unsatisfiable pair should be incompatible (via implies closure)");
+assertOk(incompatible(Scope.NumbersLarger100, Scope.NumbersSmaller10), "Incompatibility should be symmetric");
+assertOk(!incompatible(Scope.NumbersSmaller1000, Scope.NumbersLarger100), "Overlapping ranges should be compatible");
+assertOk(!incompatible(Scope.NumbersSmaller10, Scope.NumbersLargerZero), "Satisfiable pair should be compatible");
+assertOk(!incompatible(Scope.NumbersSmaller10, Scope.ArabicNumerals), "Unrelated labels should be compatible");
+console.log("✅ incompatible checks passed.");
 
 console.log("🎉 All relation tests passed successfully!");
 
