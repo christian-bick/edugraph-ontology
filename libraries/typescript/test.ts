@@ -1,4 +1,4 @@
-import { Area, Scope, Ability, relations, partOfTransitive, expands, definition, implies, impliesTransitive, contradicts, deductCompatible } from "./index";
+import { Area, Scope, Ability, relations, partOfTransitive, expands, definition, implies, impliesTransitive, contradicts, deductCompatible, deductAdmitting } from "./index";
 
 console.log("🧪 Running relation and definition tests with step-by-step progress logging...");
 
@@ -84,6 +84,32 @@ assertOk(compatibleLarger100.includes(Scope.NumbersLarger1000), "Should include 
 assertOk(compatibleLarger100.includes(Scope.NumbersLarger10000), "Should include larger bounds (upward)");
 assertOk(!compatibleLarger100.includes(Scope.NumbersLarger20), "Should NOT include smaller bounds");
 console.log("✅ deductCompatible checks passed.");
+
+// Test deductAdmitting helper (dual of deductCompatible: boundary declaration)
+console.log("Asserting deductAdmitting helper...");
+const admittingBeyond10 = deductAdmitting([Scope.NumbersLarger10]);
+assertOk(admittingBeyond10.includes(Scope.NumbersLarger10), "Should include the boundary itself");
+assertOk(admittingBeyond10.includes(Scope.NumbersLarger20), "Should include tighter bounds requiring crossing");
+assertOk(admittingBeyond10.includes(Scope.NumbersLarger1000000), "Should include the tightest bound requiring crossing");
+assertOk(admittingBeyond10.includes(Scope.NumbersSmaller20), "Should include loose upper bounds that permit crossing");
+assertOk(admittingBeyond10.includes(Scope.NumbersSmaller1000000), "Should include the loosest upper bound");
+assertOk(!admittingBeyond10.includes(Scope.NumbersSmaller10), "Should NOT include the boundary's complement (guarantees safety)");
+assertOk(!admittingBeyond10.includes(Scope.NumbersLargerZero), "Should NOT include pure weakenings of the boundary");
+
+const admittingBelow10 = deductAdmitting([Scope.NumbersSmaller10]);
+assertOk(admittingBelow10.includes(Scope.NumbersSmaller10), "Should include the boundary itself (symmetric case)");
+assertOk(admittingBelow10.includes(Scope.NumbersLargerZero), "Should include loose lower bounds that permit crossing");
+assertOk(!admittingBelow10.includes(Scope.NumbersLarger10), "Should NOT include the boundary's complement (symmetric case)");
+assertOk(!admittingBelow10.includes(Scope.NumbersSmaller20), "Should NOT include pure weakenings (symmetric case)");
+
+// Multiple boundaries are disjunctive: reject anything crossing either line
+const admittingOutsideBand = deductAdmitting([Scope.NumbersLarger100, Scope.NumbersSmaller10]);
+assertOk(admittingOutsideBand.includes(Scope.NumbersLarger1000), "Band: should include bounds beyond the upper line");
+assertOk(admittingOutsideBand.includes(Scope.NumbersSmaller1000), "Band: should include loose upper bounds permitting crossing");
+assertOk(admittingOutsideBand.includes(Scope.NumbersSmaller10), "Band: should include the lower boundary");
+assertOk(admittingOutsideBand.includes(Scope.NumbersLargerZero), "Band: should include loose lower bounds permitting crossing");
+assertOk(!admittingOutsideBand.includes(Scope.NumbersSmaller100), "Band: should NOT include the upper boundary's complement");
+console.log("✅ deductAdmitting checks passed.");
 
 console.log("🎉 All relation tests passed successfully!");
 

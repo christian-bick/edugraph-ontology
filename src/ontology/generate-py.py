@@ -93,7 +93,7 @@ def generate_init_file(configs, output_dir):
         "constrains", "constrained_by", "implies", "implied_by", "contradicts", "contradicted_by",
         "part_of_transitive", "has_part_transitive", "expands_transitive", "expanded_by_transitive", "integrates_transitive", "integrated_by_transitive", "inverts_transitive", "inverted_by_transitive", "translates_transitive", "translated_by_transitive",
         "constrains_transitive", "constrained_by_transitive", "implies_transitive", "implied_by_transitive", "contradicts_transitive", "contradicted_by_transitive",
-        "deduct_compatible"
+        "deduct_compatible", "deduct_admitting"
     ]
 
     init_content += "from .relations import (\n"
@@ -295,6 +295,28 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
     content += "\n"
     content += "    final_set = {item for item in implied if item not in contradicted_set}\n"
     content += "    return list(final_set)\n\n"
+
+    content += "# --- Deduct Admitting Helper ---\n"
+    content += "def deduct_admitting(boundaries: List[CompetencyDescriptor]) -> List[CompetencyDescriptor]:\n"
+    content += '    """\n'
+    content += '    Deducts all labels that admit content crossing any of the given boundaries.\n'
+    content += '\n'
+    content += '    Dual of deduct_compatible: capabilities are declared with deduct_compatible\n'
+    content += '    (labels guaranteed to stay within a declared window), boundaries with\n'
+    content += '    deduct_admitting (labels that permit content beyond a line). For each\n'
+    content += '    boundary B the result unions B and all labels implying B (content must\n'
+    content += '    cross the line) with the weakenings of B\'s contradiction partners\n'
+    content += '    (bounds loose enough that content may cross the line).\n'
+    content += '    """\n'
+    content += "    admitting = set()\n"
+    content += "    for boundary in boundaries:\n"
+    content += "        admitting.add(boundary)\n"
+    content += "        for tighter in implied_by_transitive(boundary):\n"
+    content += "            admitting.add(tighter)\n"
+    content += "        for partner in contradicts(boundary):\n"
+    content += "            for weaker in implies_transitive(partner):\n"
+    content += "                admitting.add(weaker)\n"
+    content += "    return list(admitting)\n\n"
 
     with open(relations_filename, "w", encoding="utf-8") as f:
         f.write(content)

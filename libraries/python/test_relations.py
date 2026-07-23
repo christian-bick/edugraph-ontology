@@ -2,7 +2,7 @@ import unittest
 from edugraph import (
     Area, Scope, Ability, relations,
     part_of, expands, part_of_transitive, definition,
-    implies, implies_transitive, contradicts, deduct_compatible
+    implies, implies_transitive, contradicts, deduct_compatible, deduct_admitting
 )
 
 class TestRelations(unittest.TestCase):
@@ -59,6 +59,32 @@ class TestRelations(unittest.TestCase):
         self.assertIn(Scope.NumbersLarger1000, compatible_larger_100)
         self.assertIn(Scope.NumbersLarger10000, compatible_larger_100)
         self.assertNotIn(Scope.NumbersLarger20, compatible_larger_100)
+
+    def test_deduct_admitting(self):
+        # Boundary declaration (dual of deduct_compatible)
+        admitting_beyond_10 = deduct_admitting([Scope.NumbersLarger10])
+        self.assertIn(Scope.NumbersLarger10, admitting_beyond_10)
+        self.assertIn(Scope.NumbersLarger20, admitting_beyond_10)
+        self.assertIn(Scope.NumbersLarger1000000, admitting_beyond_10)
+        self.assertIn(Scope.NumbersSmaller20, admitting_beyond_10)
+        self.assertIn(Scope.NumbersSmaller1000000, admitting_beyond_10)
+        self.assertNotIn(Scope.NumbersSmaller10, admitting_beyond_10)
+        self.assertNotIn(Scope.NumbersLargerZero, admitting_beyond_10)
+
+        # Symmetric case: boundary below
+        admitting_below_10 = deduct_admitting([Scope.NumbersSmaller10])
+        self.assertIn(Scope.NumbersSmaller10, admitting_below_10)
+        self.assertIn(Scope.NumbersLargerZero, admitting_below_10)
+        self.assertNotIn(Scope.NumbersLarger10, admitting_below_10)
+        self.assertNotIn(Scope.NumbersSmaller20, admitting_below_10)
+
+        # Multiple boundaries are disjunctive
+        admitting_outside_band = deduct_admitting([Scope.NumbersLarger100, Scope.NumbersSmaller10])
+        self.assertIn(Scope.NumbersLarger1000, admitting_outside_band)
+        self.assertIn(Scope.NumbersSmaller1000, admitting_outside_band)
+        self.assertIn(Scope.NumbersSmaller10, admitting_outside_band)
+        self.assertIn(Scope.NumbersLargerZero, admitting_outside_band)
+        self.assertNotIn(Scope.NumbersSmaller100, admitting_outside_band)
 
 if __name__ == "__main__":
     unittest.main()

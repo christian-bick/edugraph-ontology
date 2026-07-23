@@ -185,3 +185,26 @@ The following relation properties are supported:
 | `invertedBy` | `invertedBy` | `invertedByTransitive` | `inverted_by` | `inverted_by_transitive` | Inverse of logical inverse (subproperty of expandedBy) |
 | `translates` | `translates` | `translatesTransitive` | `translates` | `translates_transitive` | Logical visualization translation (subproperty of integrates) |
 | `translatedBy` | `translatedBy` | `translatedByTransitive` | `translated_by` | `translated_by_transitive` | Inverse of logical translation (subproperty of integratedBy) |
+
+### 6.4 Deduction Helpers: Capabilities vs. Boundaries
+
+Both libraries expose a dual pair of deduction helpers built on the `implies` and `contradicts` chains. The rule of thumb: **capabilities are declared with `deductCompatible`, boundaries with `deductAdmitting`** — capability lists say what is inside the fence, boundary lists say what can reach over it.
+
+- **`deductCompatible(constraints)`** (Python: `deduct_compatible`) — the containment operator. Returns all labels guaranteed to stay within the window spanned by the given constraints: labels at least as strict as one of the constraints and satisfiable with all of them. Constraints compose conjunctively (more constraints → smaller set). Use it to declare what a component *can handle*, e.g. a generator supporting numbers within (0, 20):
+
+  ```typescript
+  deductCompatible([Scope.NumbersLargerZero, Scope.NumbersSmaller20])
+  // → [NumbersLargerZero, NumbersLarger10, NumbersSmaller10, NumbersSmaller20]
+  ```
+
+- **`deductAdmitting(boundaries)`** (Python: `deduct_admitting`) — the reachability operator. Returns all labels that *admit* content crossing any of the given boundaries: the boundary and every label implying it (content must cross the line) plus the weakenings of the boundary's contradiction partners (bounds loose enough that content may cross the line). Boundaries compose disjunctively (more boundaries → larger set). Use it to declare what a component *must reject*, e.g. a view that cannot render numbers beyond 10:
+
+  ```typescript
+  deductAdmitting([Scope.NumbersLarger10])
+  // → [NumbersLarger10 … NumbersLarger1000000, NumbersSmaller20 … NumbersSmaller1000000]
+  // Spared: NumbersSmaller10 (guarantees safety), NumbersLargerZero (pure lower bound)
+  ```
+
+  A band-limited component rejects both directions with one call: `deductAdmitting([Scope.NumbersLarger100, Scope.NumbersSmaller10])`.
+
+Note that a pure lower-bound label (e.g. `NumbersLargerZero`) is never returned by `deductAdmitting` for an upper boundary: rejection lists are evaluated per label, and a lower bound only exceeds a capacity in conjunction with a loose upper bound — which triggers the rejection by itself.
