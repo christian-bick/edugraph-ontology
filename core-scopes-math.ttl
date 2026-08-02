@@ -166,6 +166,10 @@
     rdfs:isDefinedBy "Involves the Euro currency.";
     edu:integrates :MajorDenomination, :MinorDenomination;
     edu:partOf :CurrencySystem.
+:EvenNumbers a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the divisibility property of numbers divisible by 2.";
+    edu:contradicts :OddNumbers;
+    edu:partOf :NumericDivisibility.
 :FaceCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and quantification of faces that constitute the physical structure of an object.";
     edu:partOf :ShapeAttributes.
@@ -309,6 +313,18 @@
     rdfs:isDefinedBy "Involves the comparison of three or more entities to identify the one with the largest quantity, size, or value.";
     edu:expands :Greater;
     edu:partOf :OrderAbstraction.
+:MultiplesOf10 a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the divisibility property of numbers divisible by 10.";
+    edu:implies :EvenNumbers;
+    edu:partOf :NumericDivisibility.
+:MultiplesOf100 a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the divisibility property of numbers divisible by 100.";
+    edu:implies :MultiplesOf10;
+    edu:partOf :NumericDivisibility.
+:MultiplesOf1000 a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the divisibility property of numbers divisible by 1000.";
+    edu:implies :MultiplesOf100;
+    edu:partOf :NumericDivisibility.
 :NanometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in nanometers.";
     edu:partOf :MetricScale.
@@ -457,6 +473,9 @@
 :NumericBase a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers with a certain numeric base.";
     edu:partOf :NumericAbstraction.
+:NumericDivisibility a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves constraints on whether integers are divisible by specified divisors.";
+    edu:partOf :NumericAbstraction.
 :NumericRange a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers within a certain range of absolute values, inclusive of its boundaries.";
     edu:partOf :NumericAbstraction.
@@ -478,6 +497,10 @@
 :ObjectTypes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the representation of objects and classes of objects.";
     edu:partOf :ObjectRepresentation.
+:OddNumbers a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the divisibility property of numbers not divisible by 2.";
+    edu:contradicts :EvenNumbers;
+    edu:partOf :NumericDivisibility.
 :OneDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves one spatial dimension.";
     edu:partOf :DimensionalAbstraction.
