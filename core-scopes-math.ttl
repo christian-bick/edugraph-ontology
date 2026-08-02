@@ -27,7 +27,7 @@
     edu:partOf :SpatialDirection.
 :AnalogClock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves an analog clock.";
-    edu:integrates :HourIntervals, :MinuteIntervals, :SecondIntervals;
+    edu:integrates :HalfHourIntervals, :HourIntervals, :MinuteIntervals, :QuarterHourIntervals, :SecondIntervals;
     edu:partOf :TimeMeasurement.
 :AngleMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves angle measurement.";
@@ -194,6 +194,10 @@
 :Greater a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the comparison of two entities where one has a larger quantity, size, or value than the other.";
     edu:partOf :OrderAbstraction.
+:HalfHourIntervals a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Time expressed in intervals of half hours.";
+    edu:partOf :TimeIntervals;
+    edu:translates :FractionNumbers.
 :HourIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of hours in a day.";
     edu:partOf :TimeIntervals.
@@ -503,6 +507,10 @@
 :QuantityMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the measurement of object quantities.";
     edu:partOf :MeasurementScope.
+:QuarterHourIntervals a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Time expressed in intervals of quarter hours.";
+    edu:partOf :TimeIntervals;
+    edu:translates :FractionNumbers.
 :RadianScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves radians to express the rotation of objects, oftentimes also used to express the phases of sinus and cosine functions. A radian is a multiple of pi, with 2 radian = 2 pi = 1 full circle and half a radian = 1/2 pi = a quarter circle.";
     edu:partOf :RotationAbstraction.
