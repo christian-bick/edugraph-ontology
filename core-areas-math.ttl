@@ -263,6 +263,10 @@
 :GroupRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The ability to perceive a collection of distinct physical objects or visual elements as a single, unified group or set.";
     edu:partOf :CollectionSense.
+:HalfCircle a owl:NamedIndividual, edu:Area;
+    rdfs:comment "A semicircular shape, such as one of two congruent pieces formed by cutting a circle along a diameter.";
+    rdfs:isDefinedBy "A two-dimensional geometric figure bounded by a semicircular arc and its diameter, representing one half of a circle.";
+    edu:partOf :Circle.
 :Hexagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with six edges and six vertices.";
     edu:partOf :Polygon.
@@ -535,6 +539,10 @@
 :Quadrilateral a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with four edges and four vertices.";
     edu:partOf :Polygon.
+:QuarterCircle a owl:NamedIndividual, edu:Area;
+    rdfs:comment "A quarter-circular shape, such as one of four congruent pieces formed by two perpendicular diameters.";
+    rdfs:isDefinedBy "A two-dimensional geometric figure bounded by a quarter-circle arc and two perpendicular radii, representing one fourth of a circle.";
+    edu:partOf :Circle.
 :RadiusDiameterRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The proportional relationship stating that the diameter of a circle is exactly twice the length of its radius.";
     edu:partOf :CircleRelations.
