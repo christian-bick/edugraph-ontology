@@ -631,6 +631,39 @@
 :StateProperties a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and differentiation of states of matter.";
     edu:partOf :PhysicalAbstraction.
+:StepMagnitude a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "Examples include counting by ones, fives, tens, hundreds, or thousands from aligned or unaligned starting values.";
+    rdfs:isDefinedBy "Involves the absolute numeric interval between consecutive values in a fixed-step sequence.";
+    edu:partOf :NumericAbstraction.
+:StepsOf1 a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "For example, 37, 38, 39 advances in steps of 1.";
+    rdfs:isDefinedBy "Involves consecutive values whose absolute difference is 1.";
+    edu:partOf :StepMagnitude.
+:StepsOf10 a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "For example, 34, 44, 54 advances in steps of 10 without requiring multiples of 10.";
+    rdfs:isDefinedBy "Involves consecutive values whose absolute difference is 10.";
+    edu:expands :StepsOf1;
+    edu:partOf :StepMagnitude.
+:StepsOf100 a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "For example, 27, 127, 227 advances in steps of 100.";
+    rdfs:isDefinedBy "Involves consecutive values whose absolute difference is 100.";
+    edu:expands :StepsOf10;
+    edu:partOf :StepMagnitude.
+:StepsOf1000 a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "For example, 250, 1250, 2250 advances in steps of 1000.";
+    rdfs:isDefinedBy "Involves consecutive values whose absolute difference is 1000.";
+    edu:expands :StepsOf100;
+    edu:partOf :StepMagnitude.
+:StepsOf2 a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "For example, 4, 6, 8 advances in steps of 2.";
+    rdfs:isDefinedBy "Involves consecutive values whose absolute difference is 2.";
+    edu:expands :StepsOf1;
+    edu:partOf :StepMagnitude.
+:StepsOf5 a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "For example, 12, 17, 22 advances in steps of 5.";
+    rdfs:isDefinedBy "Involves consecutive values whose absolute difference is 5.";
+    edu:expands :StepsOf1;
+    edu:partOf :StepMagnitude.
 :Stopwatch a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a stop watch.";
     edu:integrates :HourIntervals, :MillisecondIntervals, :MinuteIntervals, :SecondIntervals;
