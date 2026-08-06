@@ -538,6 +538,10 @@
 :OneDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves one spatial dimension.";
     edu:partOf :DimensionalAbstraction.
+:OperandCardinality a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "Examples include addition instances with two addends and addition instances with three addends.";
+    rdfs:isDefinedBy "Involves the cardinality of the set of explicit operands participating in a mathematical operation instance.";
+    edu:partOf :ComplexityScope.
 :OrderAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves ordering or comparison concepts.";
     edu:partOf :AbstractionScope.
@@ -717,6 +721,11 @@
     rdfs:isDefinedBy "Involves three spatial dimensions.";
     edu:expands :TwoDimensional;
     edu:partOf :DimensionalAbstraction.
+:ThreeOperands a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "For example, 4 + 7 + 5 presents exactly three operands.";
+    rdfs:isDefinedBy "Involves a mathematical operation instance with exactly three explicit operands.";
+    edu:expands :TwoOperands;
+    edu:partOf :OperandCardinality.
 :TimeAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves time or duration concepts.";
     edu:partOf :AbstractionScope.
@@ -737,6 +746,10 @@
     rdfs:isDefinedBy "Involves two spatial dimensions.";
     edu:expands :OneDimensional;
     edu:partOf :DimensionalAbstraction.
+:TwoOperands a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "For example, 7 + 5 presents exactly two operands.";
+    rdfs:isDefinedBy "Involves a mathematical operation instance with exactly two explicit operands.";
+    edu:partOf :OperandCardinality.
 :VectorObjects a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves graphic elements defined by geometric primitives such as circles, squares and stars.";
     edu:partOf :ObjectTypes.
