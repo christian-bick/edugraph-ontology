@@ -383,8 +383,8 @@
 :NumbersLarger1000 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value larger than or equal to 1000.";
     edu:contradicts :NumbersSmaller1000;
-    edu:expands :NumbersLarger100, :NumbersSmaller1000;
-    edu:implies :NumbersLarger100;
+    edu:expands :NumbersLarger120, :NumbersSmaller1000;
+    edu:implies :NumbersLarger120;
     edu:partOf :NumericRange.
 :NumbersLarger10000 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value larger than or equal to 10000.";
@@ -403,6 +403,13 @@
     edu:contradicts :NumbersSmaller1000000;
     edu:expands :NumbersLarger100000, :NumbersSmaller1000000;
     edu:implies :NumbersLarger100000;
+    edu:partOf :NumericRange.
+:NumbersLarger120 a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "For example, the values 120 and 121 satisfy this inclusive lower bound.";
+    rdfs:isDefinedBy "Only involves numbers with an absolute value larger than or equal to 120.";
+    edu:contradicts :NumbersSmaller120;
+    edu:expands :NumbersLarger100, :NumbersSmaller120;
+    edu:implies :NumbersLarger100;
     edu:partOf :NumericRange.
 :NumbersLarger20 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value larger than or equal to 20.";
@@ -430,12 +437,12 @@
     rdfs:isDefinedBy "Only involves numbers with an absolute value smaller than or equal to 100.";
     edu:contradicts :NumbersLarger100;
     edu:expands :NumbersSmaller20;
-    edu:implies :NumbersSmaller1000;
+    edu:implies :NumbersSmaller120;
     edu:partOf :NumericRange.
 :NumbersSmaller1000 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value smaller than or equal to 1000.";
     edu:contradicts :NumbersLarger1000;
-    edu:expands :NumbersSmaller100;
+    edu:expands :NumbersSmaller120;
     edu:implies :NumbersSmaller10000;
     edu:partOf :NumericRange.
 :NumbersSmaller10000 a owl:NamedIndividual, edu:Scope;
@@ -454,6 +461,13 @@
     rdfs:isDefinedBy "Only involves numbers with an absolute value smaller than or equal to 1000000.";
     edu:contradicts :NumbersLarger1000000;
     edu:expands :NumbersSmaller100000;
+    edu:partOf :NumericRange.
+:NumbersSmaller120 a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "For example, Grade 1 counting through 120 uses this inclusive upper bound.";
+    rdfs:isDefinedBy "Only involves numbers with an absolute value smaller than or equal to 120.";
+    edu:contradicts :NumbersLarger120;
+    edu:expands :NumbersSmaller100;
+    edu:implies :NumbersSmaller1000;
     edu:partOf :NumericRange.
 :NumbersSmaller20 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Only involves numbers with an absolute value smaller than or equal to 20.";
