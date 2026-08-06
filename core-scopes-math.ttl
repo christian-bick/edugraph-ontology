@@ -102,6 +102,12 @@
 :CompassDirections a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves cardinal and intercardinal orientation indicators.";
     edu:partOf :DirectionalRepresentation.
+:ComplexityScope a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the objective structural complexity of a concept, determined by factors such as composition depth, step count, and operand quantity.".
+:CompositionDepth a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "Examples include shapes assembled from component shapes, arithmetic expressions built from subexpressions, functions composed with other functions, and transformations built from earlier transformations.";
+    rdfs:isDefinedBy "Involves the number of successive composition levels used to construct a result, where an additional level occurs when the result of one composition is used as an input to another.";
+    edu:partOf :ComplexityScope.
 :CountingSymbols a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves counting symbols.";
     edu:partOf :VisualNumbers.
@@ -313,6 +319,11 @@
     rdfs:isDefinedBy "Involves the comparison of three or more entities to identify the one with the largest quantity, size, or value.";
     edu:expands :Greater;
     edu:partOf :OrderAbstraction.
+:MultiLevelComposition a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "Examples include using a square made from triangles to build a larger shape, using the sum 2 + 3 as an operand in (2 + 3) × 4, or composing an already-combined rotation and reflection with a translation.";
+    rdfs:isDefinedBy "Involves constructing a result across at least two successive composition levels, with at least one intermediate composite reused as an input to a further composition.";
+    edu:expands :SingleLevelComposition;
+    edu:partOf :CompositionDepth.
 :MultiplesOf10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the divisibility property of numbers divisible by 10.";
     edu:implies :EvenNumbers;
@@ -579,6 +590,10 @@
 :ShapeProperties a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the physical property of objects that allows for the identification and differentiation of geometric forms through attributes such as edges, faces, and vertices to determine spatial behavior and mechanical constraints.";
     edu:partOf :PhysicalAbstraction.
+:SingleLevelComposition a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "Examples include directly assembling component shapes into one figure, forming one sum directly from several numbers, or combining initial transformations into one composite transformation without reusing an intermediate result.";
+    rdfs:isDefinedBy "Involves constructing a result in one composition level from inputs that are not themselves produced by another composition represented in the task.";
+    edu:partOf :CompositionDepth.
 :Solid a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and description of matter with a definite shape and volume (example: ice).";
     edu:partOf :StateProperties.
