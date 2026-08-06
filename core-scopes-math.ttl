@@ -172,6 +172,10 @@
 :Equal a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the comparison of entities indicating they have the exact same quantity, size, or value.";
     edu:partOf :OrderAbstraction.
+:EqualShares a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "Examples include dividing a circle into regions of equal area, a length into equal segments, a set into equal-sized groups, or a quantity into shares of equal measure.";
+    rdfs:isDefinedBy "Involves partitioning one whole into parts that have equal measure with respect to the relevant attribute.";
+    edu:partOf :PartitionAbstraction.
 :Euro a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the Euro currency.";
     edu:integrates :MajorDenomination, :MinorDenomination;
@@ -226,6 +230,11 @@
     rdfs:isDefinedBy "Involves numbers within the imaginary numeric space.";
     edu:expands :IrrationalNumbers;
     edu:partOf :NumericSpace.
+:ImproperFractions a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves fractions where the absolute value of the numerator is greater than or equal to the absolute value of the denominator.";
+    edu:contradicts :ProperFractions;
+    edu:expands :ProperFractions;
+    edu:partOf :FractionNumbers.
 :IntegerNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves whole numbers and their negative counterparts within the real numeric space.";
     edu:partOf :RealNumbers.
@@ -321,6 +330,11 @@
 :MinuteIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed an intervals of minutes.";
     edu:partOf :TimeIntervals.
+:MixedNumbers a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves numbers represented as an integer combined with a proper fraction.";
+    edu:expands :ProperFractions;
+    edu:partOf :FractionNumbers;
+    edu:translates :ImproperFractions.
 :MonthIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of months.";
     edu:partOf :TimeIntervals.
@@ -351,6 +365,12 @@
 :NanosecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of nanoseconds.";
     edu:partOf :TimeIntervals.
+:NonUnitFractions a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "Examples include two thirds, three quarters, and five eighths. These are conceptually formed by iterating unit fractions.";
+    rdfs:isDefinedBy "Involves proper fractions where the numerator is an integer greater than one.";
+    edu:contradicts :UnitFractions;
+    edu:expands :UnitFractions;
+    edu:partOf :ProperFractions.
 :North a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the cardinal direction North.";
     edu:partOf :CardinalDirections.
@@ -545,6 +565,9 @@
 :OrderAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves ordering or comparison concepts.";
     edu:partOf :AbstractionScope.
+:PartitionAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves dividing a whole (such as a shape, length, or set) into distinct parts or regions.";
+    edu:partOf :AbstractionScope.
 :Patternblocks a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes with a pattern block.";
     edu:partOf :PhysicalGeometry.
@@ -561,6 +584,13 @@
     rdfs:isDefinedBy "Involves a physical ruler.";
     edu:integrates :CentimeterScale, :MillimeterScale;
     edu:partOf :LengthMeasurement.
+:ProperFractions a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves fractions where the absolute value of the numerator is strictly less than the absolute value of the denominator.";
+    edu:partOf :FractionNumbers.
+:ProportionalShares a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves partitioning a whole into parts according to a specified ratio or proportion.";
+    edu:expands :EqualShares;
+    edu:partOf :PartitionAbstraction.
 :Protractor a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a protractor.";
     edu:integrates :DegreeScale;
@@ -750,6 +780,14 @@
     rdfs:comment "For example, 7 + 5 presents exactly two operands.";
     rdfs:isDefinedBy "Involves a mathematical operation instance with exactly two explicit operands.";
     edu:partOf :OperandCardinality.
+:UnequalShares a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves partitioning a whole into parts that do not have equal measure.";
+    edu:contradicts :EqualShares;
+    edu:partOf :PartitionAbstraction.
+:UnitFractions a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "Examples include one half, one third, one quarter, and one eighth, each representing one of the equal parts of a whole.";
+    rdfs:isDefinedBy "Involves fraction values with numerator one and a positive integer denominator.";
+    edu:partOf :ProperFractions.
 :VectorObjects a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves graphic elements defined by geometric primitives such as circles, squares and stars.";
     edu:partOf :ObjectTypes.
