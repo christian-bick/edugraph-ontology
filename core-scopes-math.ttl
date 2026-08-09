@@ -36,6 +36,10 @@
     rdfs:isDefinedBy "Represents numbers with arabic numerals.";
     edu:partOf :Numerals;
     edu:translates :Base10.
+:AscendingOrder a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves arranging three or more entities in sequence from smallest to largest according to the relevant quantity, size, or value.";
+    edu:inverts :DescendingOrder;
+    edu:partOf :OrderAbstraction.
 :BalanceScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a balance scale.";
     edu:integrates :GramScale, :KilogramScale;
@@ -138,6 +142,9 @@
 :DerivedCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Counts manifested objects based on logical derivation of know facts.";
     edu:partOf :QuantityMeasurement.
+:DescendingOrder a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves arranging three or more entities in sequence from largest to smallest according to the relevant quantity, size, or value.";
+    edu:partOf :OrderAbstraction.
 :DigitalClock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a digital clock.";
     edu:integrates :HourIntervals, :MinuteIntervals, :SecondIntervals;
