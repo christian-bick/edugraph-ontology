@@ -418,8 +418,13 @@
     edu:expands :ObtuseAngle;
     edu:integrates :ObtuseAngle;
     edu:partOf :Triangle.
-:OddsAndEvens a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Shorthand methods of determining whether a given integer is divisible by two based on the parity of its final digit.";
+:OddAndEvenGroups a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Classifying physical or visual collections of objects as odd or even, typically through pairing or equal sharing.";
+    edu:expands :SetComparison, :Subitizing;
+    edu:partOf :GroupRecognition.
+:OddAndEvenNumbers a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining whether a given integer is odd or even in its symbolic numeric form, such as by using the final-digit divisibility rule.";
+    edu:expands :OddAndEvenGroups, :PlaceValue;
     edu:partOf :DivisibilityRules.
 :OneDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Geometric objects that have only length, such as line segments and rays.";
