@@ -10,7 +10,7 @@
     owl:imports <http://edugraph.io/edu#>.
 :AbsoluteValue a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The magnitude of a number without regard to its sign, representing its distance from zero on the number line.";
-    edu:expands :IntegerSigns, :ZeroConcept;
+    edu:expands :SignNotation, :ZeroConcept;
     edu:partOf :ArithmeticEvaluation;
     edu:translates :DistanceCalculation.
 :AcuteAngle a owl:NamedIndividual, edu:Area;
@@ -59,9 +59,6 @@
     rdfs:isDefinedBy "The structured formulation and evaluation of numerical statements through the combination of values and operations, governed by mathematical laws and conventions such as the order of operations to represent and simplify quantitative relationships.";
     edu:expands :ArithmeticOperations;
     edu:partOf :Arithmetic.
-:ArithmeticLaws a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The fundamental rules that govern the manipulation and simplification of arithmetic expressions, ensuring consistent and predictable results.";
-    edu:partOf :ArithmeticEvaluation.
 :ArithmeticOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The systematic application of mathematical rules and procedures to combine, transform, or calculate values through fundamental actions such as addition, subtraction, multiplication, and division.";
     edu:partOf :Arithmetic.
@@ -70,7 +67,7 @@
     edu:partOf :Arithmetic.
 :AssociativeLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that the way in which numbers are grouped by parentheses does not change their sum or product.";
-    edu:partOf :ArithmeticLaws.
+    edu:partOf :MathematicalLaws.
 :BaseOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The foundational application of mathematical rules and procedures to perform primary calculations through the core actions of addition, subtraction, multiplication, and division.";
     edu:partOf :ArithmeticOperations.
@@ -105,7 +102,7 @@
 :CommutativeLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that the order in which numbers are added or multiplied does not change their sum or product.";
     edu:expands :Addition, :Multiplication;
-    edu:partOf :ArithmeticLaws.
+    edu:partOf :MathematicalLaws.
 :ComplementaryAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles whose sum is exactly 90 degrees.";
     edu:partOf :AngleRelations.
@@ -153,13 +150,13 @@
 :DecimalNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent decimals, including the floating point and its meaning.";
     edu:expands :IntegerNotation;
-    edu:partOf :DecimalArithmetic.
+    edu:partOf :NumberNotation.
 :DecimalPadding a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures that adjust the digits following the floating point to ensure uniform decimal places as a part of decimal number operations such as addition.";
     edu:partOf :DecimalEquivalence.
 :DecimalPointAlignment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures that align the floating point as a part of decimal number operations.";
-    edu:partOf :DecimalNotation.
+    edu:partOf :DecimalArithmetic.
 :DecimalPrecission a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The specification of the number of digits within the fractional component of a base-10 positional notation, which determines the smallest negative power of ten represented and establishes the level of exactness or granularity in the representation of a rational value.";
     edu:expands :DecimalEquivalence;
@@ -192,7 +189,7 @@
 :DistributiveLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that multiplying a sum by a number gives the same result as multiplying each addend by the number and then adding the products together.";
     edu:expands :Addition, :Multiplication;
-    edu:partOf :ArithmeticLaws.
+    edu:partOf :MathematicalLaws.
 :DivisibilityRules a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Shorthand methods of determining whether a given integer is divisible by a fixed divisor without performing the division.";
     edu:partOf :Factorization.
@@ -200,6 +197,10 @@
     rdfs:isDefinedBy "Dividing one number by another.";
     edu:inverts :Multiplication;
     edu:partOf :BaseOperations.
+:Equation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A mathematical statement asserting that two expressions have equal value.";
+    edu:expands :NumericIdentity;
+    edu:partOf :MathematicalStatement.
 :EquilateralTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle in which all three sides are of equal length and all three angles are 60 degrees.";
     edu:expands :SymmetryRelation;
@@ -219,6 +220,8 @@
     rdfs:isDefinedBy "The study of integers that can be multiplied together to get another integer, and the products of an integer and another integer.";
     edu:expands :Division, :Multiplication;
     edu:partOf :Factorization.
+:FormalMathematics a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The branch of mathematics dealing with the rigorous, symbolic representation of mathematical concepts, expressions, and propositions, serving as the standardized language to communicate and manipulate mathematical ideas.".
 :FoundationalOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Base operations are the fundamental arithmetic actions performed on numbers that all other arithmetic operations are based one.";
     edu:partOf :NumberSense.
@@ -233,7 +236,7 @@
 :FractionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator.";
     edu:expands :IntegerNotation;
-    edu:partOf :FractionArithmetic.
+    edu:partOf :NumberNotation.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
     edu:expands :FactorsAndMultiples;
@@ -274,6 +277,10 @@
     rdfs:isDefinedBy "Raising a quantity by a certain amount.";
     edu:expands :NumericOrder;
     edu:partOf :FoundationalOperations.
+:Inequality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A mathematical statement asserting a relative order or lack of equality between two expressions, such as less than, greater than, or not equal.";
+    edu:expands :NumericComparison;
+    edu:partOf :MathematicalStatement.
 :IntegerArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The understanding and application of whole numbers, their additive inverses (negative numbers), and zero, representing discrete values that do not contain fractional or decimal components.";
     edu:expands :NumerationWithIntegers;
@@ -281,7 +288,7 @@
 :IntegerNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols used to represent integers.\n\nExample: Using the symbols -3, 0, and 12 to represent integers.";
     edu:expands :DigitNotation;
-    edu:partOf :IntegerArithmetic.
+    edu:partOf :NumberNotation.
 :IntegerRegrouping a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Also referred to as carrying or borrowing. The process of exchanging values between place value positions to facilitate arithmetic operations such as addition and subtraction within the set of integer numbers.";
     edu:expands :PlaceValue;
@@ -290,10 +297,6 @@
     rdfs:isDefinedBy "The rules and procedures for approximating a whole number to a specified place value, such as the nearest ten or hundred.";
     edu:expands :PlaceValue;
     edu:partOf :IntegerArithmetic.
-:IntegerSigns a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate an integer's direction and magnitude relative to zero.";
-    edu:expands :ZeroConcept;
-    edu:partOf :IntegerNotation.
 :IntersectionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification of objects that belong to two overlapping physical groups, often visualized through intersecting boundaries like Venn diagrams made of physical hoops.";
     edu:expands :ObjectSorting;
@@ -348,6 +351,15 @@
     rdfs:isDefinedBy "Finding the smallest common multiple of the denominators of two or more fractions.\n\nExample: The lowest common denominator of 1/4 and 1/6 is 12.";
     edu:expands :FactorsAndMultiples;
     edu:partOf :FractionEquivalence.
+:MathematicalExpression a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A well-formed, finite combination of symbols and operations that represents a value but does not contain a relational operator.";
+    edu:partOf :FormalMathematics.
+:MathematicalLaws a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The fundamental axiomatic rules that govern the manipulation and equivalence of mathematical expressions and statements.";
+    edu:partOf :FormalMathematics.
+:MathematicalStatement a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A declarative mathematical sentence that asserts a relation between expressions and can be evaluated as true or false.";
+    edu:partOf :FormalMathematics.
 :Measurement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Measurement is the process of assigning numbers to describe the properties of objects, such as length, weight, or volume.";
     edu:partOf :SpatialSense.
@@ -370,7 +382,7 @@
     edu:partOf :BaseOperations.
 :NumberNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Number notation is the system of symbols and rules used to express numerical values.";
-    edu:partOf :NumberSense.
+    edu:partOf :FormalMathematics.
 :NumberSense a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Number sense is the intuitive understanding of numbers, their magnitudes, and how they relate to each other.";
     edu:partOf :IntuitiveMathematics.
@@ -432,7 +444,7 @@
     edu:partOf :GeometricObjects.
 :OrderOfOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The standard set of rules that dictates the sequence in which multiple operations in an arithmetic expression must be performed to ensure a single, correct result.";
-    edu:partOf :ArithmeticEvaluation.
+    edu:partOf :MathematicalLaws.
 :Origin a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The point (0,0) where the coordinate axes intersect on the Cartesian plane.";
     edu:expands :CoordinateAxes;
@@ -449,7 +461,7 @@
 :ParenthesesUsage a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The use of grouping symbols in arithmetic expressions to override the standard order of operations and specify which calculations should be performed first.";
     edu:expands :OrderOfOperations;
-    edu:partOf :ArithmeticEvaluation.
+    edu:partOf :MathematicalExpression.
 :PatternRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identifying, extending, and creating repeating or growing patterns.";
     edu:partOf :IntuitiveMathematics.
@@ -466,7 +478,7 @@
 :PercentageNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent percentages, specifically the percent sign (%).";
     edu:expands :DecimalNotation;
-    edu:partOf :PercentageArithmetic.
+    edu:partOf :NumberNotation.
 :PerimeterCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the continuous line forming the boundary of a closed geometric figure.";
     edu:expands :LengthCalculation;
@@ -481,7 +493,7 @@
 :PlaceValue a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The numerical value that a digit has by virtue of its position in a number.";
     edu:expands :ZeroConcept;
-    edu:partOf :IntegerNotation.
+    edu:partOf :IntegerArithmetic.
 :PlaneConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A flat, two-dimensional surface that extends infinitely far.";
     edu:expands :LineConcept;
@@ -563,7 +575,7 @@
     edu:partOf :ArithmeticSpaces.
 :RatioNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols and conventions used to represent ratios.";
-    edu:partOf :ProportionAbstraction.
+    edu:partOf :NumberNotation.
 :RayConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A straight, one-dimensional figure that starts at a fixed point and extends infinitely in one direction.";
     edu:expands :LineConcept;
@@ -607,8 +619,8 @@
     edu:partOf :NumericApproximation.
 :RulesOfSigns a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fundamental rules that govern the manipulation and evaluation of signed numbers within arithmetic expressions, ensuring the consistent and accurate determination of positive and negative results.";
-    edu:expands :IntegerSigns;
-    edu:partOf :ArithmeticEvaluation.
+    edu:expands :SignNotation;
+    edu:partOf :MathematicalLaws.
 :ScaleneTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle in which all three sides have different lengths.";
     edu:inverts :EquilateralTriangle;
@@ -648,6 +660,10 @@
 :ShapeTranslation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding how a shape can be slid in a specific direction without altering its size or orientation.";
     edu:partOf :ShapeRecognition.
+:SignNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate a number's direction and magnitude relative to zero.";
+    edu:expands :ZeroConcept;
+    edu:partOf :NumberNotation.
 :SimilarityRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric figures that have the same shape, with corresponding angles being equal and corresponding sides being in proportion.";
     edu:expands :ShapeResizing;
