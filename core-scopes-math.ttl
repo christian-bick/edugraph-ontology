@@ -213,6 +213,14 @@
 :FaceCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and quantification of faces that constitute the physical structure of an object.";
     edu:partOf :ShapeAttributes.
+:FifthDenomination a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a denomination worth one fifth of its associated major denomination.";
+    edu:partOf :MinorDenomination;
+    edu:translates :UnitFractions.
+:FiftiethDenomination a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a denomination worth one fiftieth of its associated major denomination.";
+    edu:partOf :MinorDenomination;
+    edu:translates :UnitFractions.
 :Foldable a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the physical property of objects that allows for bending or overlapping of sections through flexible joints or creases to reduce volume or change configuration.";
     edu:partOf :ShapeProperties.
@@ -243,6 +251,10 @@
 :Greater a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the comparison of two entities where one has a larger quantity, size, or value than the other.";
     edu:partOf :OrderAbstraction.
+:HalfDenomination a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a denomination worth one half of its associated major denomination.";
+    edu:partOf :MinorDenomination;
+    edu:translates :UnitFractions.
 :HalfHourIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of half hours.";
     edu:partOf :TimeIntervals;
@@ -250,6 +262,10 @@
 :HourIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of hours in a day.";
     edu:partOf :TimeIntervals.
+:HundredthDenomination a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a denomination worth one hundredth of its associated major denomination.";
+    edu:partOf :MinorDenomination;
+    edu:translates :UnitFractions.
 :HyperDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves more dimensions than three spatial dimensions and time.";
     edu:expands :FourDimensional;
@@ -649,6 +665,10 @@
 :QuantityMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the measurement of object quantities.";
     edu:partOf :MeasurementScope.
+:QuarterDenomination a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a denomination worth one quarter of its associated major denomination.";
+    edu:partOf :MinorDenomination;
+    edu:translates :UnitFractions.
 :QuarterHourIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of quarter hours.";
     edu:partOf :TimeIntervals;
@@ -666,7 +686,8 @@
 :RelationMediation a owl:NamedIndividual, edu:Scope;
     rdfs:comment "Examples include comparing two lengths directly, deriving one inequality from an inequality chain, and establishing temporal order through an intermediate event.";
     rdfs:isDefinedBy "Involves whether a relation between target entities is established from evidence directly connecting those entities or inferred by chaining compatible relations through intermediary entities.";
-    edu:partOf :ComplexityScope.
+    edu:expands :DirectRelation;
+    edu:partOf :RelationMediation.
 :RepresentationalScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a form of representation such as geometric shapes or numbers.".
 :Right a owl:NamedIndividual, edu:Scope;
@@ -797,6 +818,10 @@
 :TenFrame a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a ten frame: Typically a table with 2 rows and 5 columns where numbers are indicated by filled cells starting at the top left.";
     edu:partOf :VisualNumbers.
+:TenthDenomination a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a denomination worth one tenth of its associated major denomination.";
+    edu:partOf :MinorDenomination;
+    edu:translates :UnitFractions.
 :Thermometer a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a thermometer.";
     edu:integrates :CelsiusScale, :KelvinScale;
@@ -826,6 +851,10 @@
     rdfs:isDefinedBy "Involves a triangle ruler.";
     edu:integrates :CentimeterScale, :DegreeScale, :MillimeterScale;
     edu:partOf :AngleMeasurement.
+:TwentiethDenomination a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a denomination worth one twentieth of its associated major denomination.";
+    edu:partOf :MinorDenomination;
+    edu:translates :UnitFractions.
 :TwoDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves two spatial dimensions.";
     edu:expands :OneDimensional;
