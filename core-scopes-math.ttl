@@ -422,6 +422,9 @@
 :Northwest a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the intercardinal direction Northwest.";
     edu:partOf :IntercardinalDirections.
+:NumberArray a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Represents a number through objects or cells arranged in a rectangular structure of rows and columns.";
+    edu:partOf :VisualNumbers.
 :Numberline a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with a number line.";
     edu:partOf :SpatialNumbers;
