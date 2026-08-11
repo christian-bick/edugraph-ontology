@@ -32,6 +32,9 @@
 :AngleMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves angle measurement.";
     edu:partOf :MeasurementScope.
+:AnteMeridiem a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves times from midnight up to but not including noon, conventionally denoted a.m.";
+    edu:partOf :Meridiem.
 :ArabicNumerals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with arabic numerals.";
     edu:partOf :Numerals;
@@ -323,6 +326,9 @@
     rdfs:isDefinedBy "Involves a target relation inferred from a chain of compatible relations containing at least one intermediary entity.";
     edu:expands :DirectRelation;
     edu:partOf :RelationMediation.
+:Meridiem a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves classifying a time of day according to the two twelve-hour periods conventionally denoted a.m. and p.m.";
+    edu:partOf :TimeAbstraction.
 :MeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distance expressed in meters.";
     edu:expands :Numberline;
@@ -610,6 +616,9 @@
     rdfs:isDefinedBy "Involves a physical ruler.";
     edu:integrates :CentimeterScale, :MillimeterScale;
     edu:partOf :LengthMeasurement.
+:PostMeridiem a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves times from noon up to but not including midnight, conventionally denoted p.m.";
+    edu:partOf :Meridiem.
 :ProperFractions a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves fractions where the absolute value of the numerator is strictly less than the absolute value of the denominator.";
     edu:partOf :FractionNumbers.
