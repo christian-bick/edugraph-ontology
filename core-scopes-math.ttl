@@ -171,7 +171,7 @@
 :DirectRelation a owl:NamedIndividual, edu:Scope;
     rdfs:comment "Examples include comparing two rods side by side, reading 3 < 5 directly from a number line, or observing that one event occurs before another.";
     rdfs:isDefinedBy "Involves a target relation established from evidence directly connecting its target entities, without an intermediary entity.";
-    edu:partOf :RelationMediation.
+    edu:partOf :RelationComplexity.
 :DistanceAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distance or length concepts.";
     edu:partOf :AbstractionScope.
@@ -351,7 +351,7 @@
     rdfs:comment "Examples include deriving A > B from A > C and C > B, x = z from x = y and y = z, or event A before C from event A before B and event B before C.";
     rdfs:isDefinedBy "Involves a target relation inferred from a chain of compatible relations containing at least one intermediary entity.";
     edu:expands :DirectRelation;
-    edu:partOf :RelationMediation.
+    edu:partOf :RelationComplexity.
 :Meridiem a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves classifying a time of day according to the two twelve-hour periods conventionally denoted a.m. and p.m.";
     edu:partOf :TimeAbstraction.
@@ -683,11 +683,10 @@
 :RealNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers within the real numeric space.";
     edu:partOf :NumericSpace.
-:RelationMediation a owl:NamedIndividual, edu:Scope;
+:RelationComplexity a owl:NamedIndividual, edu:Scope;
     rdfs:comment "Examples include comparing two lengths directly, deriving one inequality from an inequality chain, and establishing temporal order through an intermediate event.";
     rdfs:isDefinedBy "Involves whether a relation between target entities is established from evidence directly connecting those entities or inferred by chaining compatible relations through intermediary entities.";
-    edu:expands :DirectRelation;
-    edu:partOf :RelationMediation.
+    edu:partOf :ComplexityScope.
 :RepresentationalScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a form of representation such as geometric shapes or numbers.".
 :Right a owl:NamedIndividual, edu:Scope;
