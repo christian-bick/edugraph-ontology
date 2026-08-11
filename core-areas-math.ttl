@@ -372,6 +372,9 @@
 :MeasuringTime a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Measuring time involves quantifying the duration of events or the intervals between them.";
     edu:partOf :Measurement.
+:MeasuringWithUnits a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of standard units used to quantify physical properties, including their relative sizes, systems, and conversions.";
+    edu:partOf :Measurement.
 :MidpointCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of finding the exact center point of a line segment on the coordinate plane by averaging the coordinates of its endpoints.";
     edu:partOf :GeometricCalculations.
@@ -763,6 +766,22 @@
     rdfs:isDefinedBy "The physical or visual act of combining two or more distinct, bounded collections into a single larger group, removing the boundaries between them.";
     edu:expands :GroupRecognition;
     edu:partOf :CollectionSense.
+:UnitConversion a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The process of translating a measurement from one standardized system of units to another, typically involving approximate conversion rates and proportional reasoning.";
+    edu:expands :ProportionInteraction, :UnitFactorScaling, :UnitMagnitudeScaling;
+    edu:partOf :MeasuringWithUnits.
+:UnitFactorScaling a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The process of converting measurements within a system using specific, non-base-10 numerical conversion factors.";
+    edu:expands :FactorsAndMultiples, :UnitScaleRelation;
+    edu:partOf :MeasuringWithUnits.
+:UnitMagnitudeScaling a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The process of converting measurements within a base-10 metric system by scaling the magnitude, typically through shifting the decimal point or changing place values.";
+    edu:expands :PlaceValue, :UnitScaleRelation;
+    edu:partOf :MeasuringWithUnits.
+:UnitScaleRelation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The foundational understanding of the inverse relationship between the size of a measurement unit and the numerical value obtained, specifically that measuring the same quantity with a larger unit results in a smaller number.";
+    edu:expands :MeasuringObjects, :NumericComparison;
+    edu:partOf :MeasuringWithUnits.
 :VectorConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quantity characterized by both magnitude and direction, typically represented as a directed line segment.";
     edu:expands :LineConcept;
