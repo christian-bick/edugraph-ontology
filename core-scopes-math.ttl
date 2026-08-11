@@ -191,6 +191,16 @@
     rdfs:isDefinedBy "Involves the divisibility property of numbers divisible by 2.";
     edu:contradicts :OddNumbers;
     edu:partOf :NumericDivisibility.
+:ExpressionOnBothSides a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a mathematical statement where both sides consist of composite expressions.";
+    edu:contradicts :ExpressionOnOneSide, :NoExpressions;
+    edu:expands :ExpressionOnOneSide;
+    edu:partOf :StatementComplexity.
+:ExpressionOnOneSide a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a mathematical statement where exactly one side consists of a composite expression.";
+    edu:contradicts :ExpressionOnBothSides, :NoExpressions;
+    edu:expands :NoExpressions;
+    edu:partOf :StatementComplexity.
 :FaceCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and quantification of faces that constitute the physical structure of an object.";
     edu:partOf :ShapeAttributes.
@@ -372,6 +382,10 @@
 :NanosecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of nanoseconds.";
     edu:partOf :TimeIntervals.
+:NoExpressions a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a mathematical statement where neither side contains a composite expression (i.e., both sides are standalone values or variables).";
+    edu:contradicts :ExpressionOnBothSides, :ExpressionOnOneSide;
+    edu:partOf :StatementComplexity.
 :NonUnitFractions a owl:NamedIndividual, edu:Scope;
     rdfs:comment "Examples include two thirds, three quarters, and five eighths. These are conceptually formed by iterating unit fractions.";
     rdfs:isDefinedBy "Involves proper fractions where the numerator is an integer greater than one.";
@@ -683,6 +697,9 @@
 :Stackable a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the physical property of objects that allows for stable vertical arrangement or sequential layering.";
     edu:partOf :ShapeProperties.
+:StatementComplexity a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the structural complexity of a mathematical statement based on the presence of composite expressions on its sides.";
+    edu:partOf :ComplexityScope.
 :StateProperties a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and differentiation of states of matter.";
     edu:partOf :PhysicalAbstraction.
