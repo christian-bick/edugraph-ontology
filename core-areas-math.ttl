@@ -56,8 +56,7 @@
 :Arithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that deals with the properties and manipulation of numbers, including addition, subtraction, multiplication and division.".
 :ArithmeticEvaluation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The structured formulation and evaluation of numerical statements through the combination of values and operations, governed by mathematical laws and conventions such as the order of operations to represent and simplify quantitative relationships.";
-    edu:expands :ArithmeticOperations;
+    rdfs:isDefinedBy "The structured formulation and evaluation of numerical statements through the combination of values and operations.";
     edu:partOf :Arithmetic.
 :ArithmeticOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The systematic application of mathematical rules and procedures to combine, transform, or calculate values through fundamental actions such as addition, subtraction, multiplication, and division.";
@@ -314,6 +313,10 @@
     rdfs:isDefinedBy "A triangle that has at least two sides of equal length.";
     edu:expands :SymmetryRelation;
     edu:partOf :Triangle.
+:IteratedOperation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "An arithmetic evaluation that repeatedly applies the same arithmetic operations on a single operand value.";
+    edu:expands :ArithmeticOperations;
+    edu:partOf :ArithmeticEvaluation.
 :Kite a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quadrilateral with two distinct pairs of equal-length sides that are adjacent to each other.";
     edu:expands :SymmetryRelation;
