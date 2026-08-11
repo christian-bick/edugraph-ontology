@@ -211,6 +211,11 @@
     rdfs:isDefinedBy "Involves three spatial dimensions and time.";
     edu:expands :ThreeDimensional;
     edu:partOf :DimensionalAbstraction.
+:FourOperands a owl:NamedIndividual, edu:Scope;
+    rdfs:comment "For example, 4 + 7 + 5 + 2 presents exactly four operands.";
+    rdfs:isDefinedBy "Involves a mathematical operation instance with exactly four explicit operands.";
+    edu:expands :ThreeOperands;
+    edu:partOf :OperandCardinality.
 :FractionNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers represented as a numerator and a denominator within the real numeric space.";
     edu:partOf :RationalNumbers.
