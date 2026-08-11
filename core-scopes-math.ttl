@@ -51,6 +51,9 @@
     rdfs:isDefinedBy "Represents currency with banknotes.";
     edu:partOf :CurrencyRepresentation;
     edu:translates :MajorDenomination.
+:BarGraph a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Represents categorical quantities through bars whose lengths or heights encode values.";
+    edu:partOf :DataRepresentation.
 :Base10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers in base 10 (decimal).";
     edu:partOf :NumericBase.
@@ -133,6 +136,9 @@
 :CurrencySystem a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a specific currency system.";
     edu:partOf :CurrencyAbstraction.
+:DataRepresentation a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Represents collected or summarized data in a visual form.";
+    edu:partOf :RepresentationalScope.
 :DayIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of days.";
     edu:partOf :TimeIntervals.
@@ -301,6 +307,10 @@
 :LinearArrangement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the sequential positioning and one-dimensional organization of objects.";
     edu:partOf :ObjectArrangement.
+:LinePlot a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Represents data values as marks positioned above or along a numerical scale so their frequencies are visible.";
+    edu:integrates :Numberline;
+    edu:partOf :DataRepresentation.
 :LinkingCubes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers with linking cubes.";
     edu:partOf :PhysicalNumbers;
@@ -616,6 +626,9 @@
     rdfs:isDefinedBy "Involves a physical ruler.";
     edu:integrates :CentimeterScale, :MillimeterScale;
     edu:partOf :LengthMeasurement.
+:PictureGraph a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Represents categorical quantities using repeated pictures or symbols.";
+    edu:partOf :DataRepresentation.
 :PostMeridiem a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves times from noon up to but not including midnight, conventionally denoted p.m.";
     edu:partOf :Meridiem.
