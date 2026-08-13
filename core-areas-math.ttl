@@ -271,7 +271,7 @@
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
 :GroupRecognition a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The ability to perceive a collection of distinct physical objects or visual elements as a single, unified group or set.";
+    rdfs:isDefinedBy "The foundational cognitive ability to perceive multiple distinct items as a single, unified collection. This focuses on recognizing the boundary that separates a group from its environment, rather than analyzing the individual items within it.";
     edu:partOf :CollectionSense.
 :HalfCircle a owl:NamedIndividual, edu:Area;
     rdfs:comment "A semicircular shape, such as one of two congruent pieces formed by cutting a circle along a diameter.";
@@ -438,7 +438,7 @@
     edu:expands :NumericIdentity;
     edu:partOf :NumericComparison.
 :ObjectSorting a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The process of categorizing and grouping physical objects into distinct collections based on shared observable attributes like color, shape, or size.";
+    rdfs:isDefinedBy "The active process of separating a mixed collection of items into multiple distinct, newly formed groups based on shared observable attributes (e.g., color, shape, size). This requires comparing individual items against specific categorization rules.";
     edu:expands :GroupRecognition;
     edu:partOf :CollectionSense.
 :ObtuseAngle a owl:NamedIndividual, edu:Area;
@@ -733,7 +733,7 @@
     edu:expands :GroupRecognition;
     edu:partOf :NumericApproximation.
 :SubsetIdentification a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The ability to recognize and isolate a smaller specific group of objects within a larger bounded collection based on a distinguishing visual attribute.";
+    rdfs:isDefinedBy "The ability to identify a specific part within a larger, pre-existing whole collection based on a distinguishing attribute. This establishes a part-whole relationship (e.g., 'the red cars within the box of toys') without necessarily physically breaking the original group apart.";
     edu:expands :ObjectSorting;
     edu:partOf :CollectionSense.
 :Subtraction a owl:NamedIndividual, edu:Area;
