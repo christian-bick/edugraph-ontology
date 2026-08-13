@@ -170,7 +170,7 @@
     edu:partOf :FoundationalOperations.
 :Difference a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining the difference in quantities of mathematical object, including numbers where difference represents the amount by which one quantity is greater or less than another.";
-    edu:expands :Decrement, :SetComparison;
+    edu:expands :Decrement, :SeparationOfCollections;
     edu:inverts :Sum;
     edu:partOf :FoundationalOperations.
 :DigitNotation a owl:NamedIndividual, edu:Area;
@@ -194,8 +194,13 @@
     edu:partOf :Factorization.
 :Division a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing one number by another.";
-    edu:inverts :Multiplication;
+    edu:expands :Factor;
+    edu:inverts :Factor, :Multiplication;
     edu:partOf :BaseOperations.
+:DivisionOfCollections a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The physical or visual act of separating a collection into multiple distinct sub-collections that contain the exact same quantity of objects.";
+    edu:partOf :SeparationOfCollections;
+    edu:translates :Division.
 :Equation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A mathematical statement asserting that two expressions have equal value.";
     edu:expands :NumericIdentity;
@@ -212,6 +217,10 @@
     rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.";
     edu:expands :Multiplication;
     edu:partOf :PowerOperations.
+:Factor a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining the quantity that, when multiplied, results in a specific mathematical object, including a number.";
+    edu:expands :Sum;
+    edu:partOf :FoundationalOperations.
 :Factorization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of decomposing an integer into a product of other integers that, when multiplied together, result in the original number.";
     edu:partOf :NumberTheory.
@@ -384,7 +393,7 @@
     edu:partOf :BaseOperations.
 :Multiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or multiple numbers.";
-    edu:expands :Addition;
+    edu:expands :Addition, :Factor;
     edu:partOf :BaseOperations.
 :NumberNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Number notation is the system of symbols and rules used to express numerical values.";
@@ -468,6 +477,9 @@
     rdfs:isDefinedBy "The use of grouping symbols in arithmetic expressions to override the standard order of operations and specify which calculations should be performed first.";
     edu:expands :OrderOfOperations;
     edu:partOf :MathematicalExpression.
+:PartitiveDivision a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The physical or visual act of distributing objects from a primary collection into a fixed number of equal sub-collections to determine the size of each group.";
+    edu:partOf :DivisionOfCollections.
 :PatternRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identifying, extending, and creating repeating or growing patterns.";
     edu:partOf :IntuitiveMathematics.
@@ -566,6 +578,9 @@
     rdfs:comment "A quarter-circular shape, such as one of four congruent pieces formed by two perpendicular diameters.";
     rdfs:isDefinedBy "A two-dimensional geometric figure bounded by a quarter-circle arc and two perpendicular radii, representing one fourth of a circle.";
     edu:partOf :Circle.
+:QuotativeDivision a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The physical or visual act of sequentially separating objects from a primary collection into sub-collections of a fixed size to determine the total number of groups that can be formed.";
+    edu:partOf :DivisionOfCollections.
 :RadiusDiameterRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The proportional relationship stating that the diameter of a circle is exactly twice the length of its radius.";
     edu:partOf :CircleRelations.
@@ -631,6 +646,10 @@
     rdfs:isDefinedBy "A triangle in which all three sides have different lengths.";
     edu:inverts :EquilateralTriangle;
     edu:partOf :Triangle.
+:SeparationOfCollections a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The physical or visual act of splitting a single bounded collection into two or more distinct smaller groups, establishing boundaries between them.";
+    edu:inverts :UnionOfCollections;
+    edu:partOf :CollectionSense.
 :SetComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The intuitive visual comparison of two bounded collections to determine relative quantities such as more, less, or equal, relying on spatial arrangement rather than formal counting.";
     edu:expands :GroupRecognition;
