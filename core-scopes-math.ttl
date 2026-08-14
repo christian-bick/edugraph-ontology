@@ -131,11 +131,11 @@
     edu:partOf :VolumeAbstraction.
 :CubicCentimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves cubic centimeters to measure volumes.";
-    edu:integrates :CubicMeterScale;
+    edu:integrates :CentimeterScale, :CubicMeterScale;
     edu:partOf :MetricVolumeScale.
 :CubicDecimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves cubic decimeters to measure volumes.";
-    edu:integrates :CubicMeterScale;
+    edu:integrates :CubicMeterScale, :DecimeterScale;
     edu:partOf :MetricVolumeScale.
 :CubicFootScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves cubic feet to measure volumes.";
@@ -171,6 +171,10 @@
 :DecimalNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers represented using a base-ten positional notation system within the real numeric space.";
     edu:partOf :RationalNumbers.
+:DecimeterScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves distances expressed in decimeters.";
+    edu:integrates :MeterScale;
+    edu:partOf :MetricDistanceScale.
 :DegreeScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves degrees (°) to express the rotation of objects, oftentimes used to express the angle of two rays. Degrees are fractions of a circle rotation, where 360° represents a full circle, 180° a half circle and 90° a quarter circle.";
     edu:partOf :RotationAbstraction.
@@ -295,10 +299,10 @@
     edu:partOf :TimeIntervals;
     edu:translates :FractionNumbers.
 :HectareScale a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves the hectare unit or scale for surface measurement.";
+    rdfs:isDefinedBy "Involves the hectare unit or scale for surface measurement. A hectare equals 10,000 square meters.";
     edu:expands :SquareMeterScale;
-    edu:integrates :SquareMeterScale;
-    edu:partOf :MetricAreaScale.
+    edu:partOf :MetricAreaScale;
+    edu:translates :SquareMeterScale.
 :HectoLiter a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves hectoliters to measure volumes.";
     edu:integrates :LiterScale;
@@ -830,11 +834,11 @@
     edu:partOf :NumberRepresentation.
 :SquareCentimerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the square centimeter unit or scale for surface measurement.";
-    edu:integrates :SquareMeterScale;
+    edu:integrates :CentimeterScale, :SquareMeterScale;
     edu:partOf :MetricAreaScale.
 :SquareKilometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the square kilometer unit or scale for surface measurement.";
-    edu:integrates :SquareMeterScale;
+    edu:integrates :KilometerScale, :SquareMeterScale;
     edu:partOf :MetricAreaScale.
 :SquareMeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the square meter unit or scale for surface measurement.";
