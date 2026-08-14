@@ -836,6 +836,14 @@
     rdfs:isDefinedBy "Involves the square centimeter unit or scale for surface measurement.";
     edu:integrates :CentimeterScale, :SquareMeterScale;
     edu:partOf :MetricAreaScale.
+:SquareFootScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves square foot units or scale for surface measurement.";
+    edu:integrates :FootScale;
+    edu:partOf :ImperialAreaScale.
+:SquareInchScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves square inch units or scale for surface measurement.";
+    edu:integrates :InchScale;
+    edu:partOf :ImperialAreaScale.
 :SquareKilometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the square kilometer unit or scale for surface measurement.";
     edu:integrates :KilometerScale, :SquareMeterScale;
@@ -844,6 +852,10 @@
     rdfs:isDefinedBy "Involves the square meter unit or scale for surface measurement.";
     edu:expands :MeterScale;
     edu:partOf :MetricAreaScale.
+:SquareMileScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves square mile units or scale for surface measurement.";
+    edu:integrates :MileScale;
+    edu:partOf :ImperialAreaScale.
 :Stackable a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the physical property of objects that allows for stable vertical arrangement or sequential layering.";
     edu:partOf :ShapeProperties.
