@@ -404,12 +404,14 @@
 :Modulo a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the remainder after dividing one number by another.";
     edu:expands :Division;
-    edu:partOf :BaseOperations.
+    edu:partOf :BaseOperations;
+    edu:translates :ImperfectDivisibility.
 :Multiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Multiplying two or multiple numbers.";
     edu:expands :Addition;
     edu:integrates :Iteration;
-    edu:partOf :BaseOperations.
+    edu:partOf :BaseOperations;
+    edu:translates :PerfectDivisibility.
 :NumberNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Number notation is the system of symbols and rules used to express numerical values.";
     edu:partOf :FormalMathematics.
