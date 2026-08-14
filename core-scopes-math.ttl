@@ -142,7 +142,8 @@
 :CubicFootScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves cubic feet to measure volumes.";
     edu:integrates :FootScale;
-    edu:partOf :ImperialVolumeScale.
+    edu:partOf :ImperialVolumeScale;
+    edu:translates :CubicInchScale.
 :CubicInchScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves cubic inches to measure volumes.";
     edu:integrates :InchScale;
@@ -260,7 +261,8 @@
     edu:partOf :ShapeProperties.
 :FootScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in feet.";
-    edu:partOf :ImperialDistanceScale.
+    edu:partOf :ImperialDistanceScale;
+    edu:translates :InchScale.
 :FourDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves three spatial dimensions and time.";
     edu:expands :ThreeDimensional;
@@ -275,7 +277,8 @@
     edu:partOf :RationalNumbers.
 :GallonScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves gallons to measure volumes.";
-    edu:partOf :ImperialVolumeScale.
+    edu:partOf :ImperialVolumeScale;
+    edu:translates :CubicInchScale.
 :Gas a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and description of matter with no definite shape and no definite volume (example: vapor).";
     edu:partOf :StateProperties.
@@ -323,15 +326,18 @@
     edu:partOf :ObjectTypes.
 :ImperialAreaScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves imperial units or scale for surface measurement.";
+    edu:expands :TileScale;
     edu:partOf :AreaAbstraction.
 :ImperialDistanceScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in imperial or United States customary units.";
+    edu:expands :SegmentScale;
     edu:partOf :DistanceAbstraction.
 :ImperialTonScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in imperial or United States customary tons.";
     edu:partOf :ImperialWeightScale.
 :ImperialVolumeScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves imperial units to measure volumes.";
+    edu:expands :CubeScale;
     edu:partOf :VolumeAbstraction.
 :ImperialWeightScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves mass or weight measurements expressed using imperial or United States customary units.";
@@ -421,16 +427,18 @@
     edu:partOf :TimeAbstraction.
 :MeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distance expressed in meters.";
-    edu:expands :SegmentScale;
     edu:partOf :MetricDistanceScale.
 :MetricAreaScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves metric units or scale for surface measurement.";
+    edu:expands :TileScale;
     edu:partOf :AreaAbstraction.
 :MetricDistanceScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in meters.";
+    edu:expands :SegmentScale;
     edu:partOf :DistanceAbstraction.
 :MetricVolumeScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves metric units to measure volumes.";
+    edu:expands :CubeScale;
     edu:partOf :VolumeAbstraction.
 :MetricWeightScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves mass or weight measurements expressed using metric units.";
@@ -441,7 +449,8 @@
     edu:translates :MeterScale.
 :MileScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in miles.";
-    edu:partOf :ImperialDistanceScale.
+    edu:partOf :ImperialDistanceScale;
+    edu:translates :FootScale, :YardScale.
 :MilligramScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in milligrams.";
     edu:partOf :MetricWeightScale.
@@ -843,7 +852,8 @@
 :SquareFootScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves square foot units or scale for surface measurement.";
     edu:integrates :FootScale;
-    edu:partOf :ImperialAreaScale.
+    edu:partOf :ImperialAreaScale;
+    edu:translates :SquareInchScale.
 :SquareInchScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves square inch units or scale for surface measurement.";
     edu:integrates :InchScale;
@@ -860,11 +870,13 @@
 :SquareMileScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves square mile units or scale for surface measurement.";
     edu:integrates :MileScale;
-    edu:partOf :ImperialAreaScale.
+    edu:partOf :ImperialAreaScale;
+    edu:translates :SquareFootScale, :SquareYardScale.
 :SquareYardScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves square yard units or scale for surface measurement.";
     edu:integrates :YardScale;
-    edu:partOf :ImperialAreaScale.
+    edu:partOf :ImperialAreaScale;
+    edu:translates :SquareFootScale.
 :Stackable a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the physical property of objects that allows for stable vertical arrangement or sequential layering.";
     edu:partOf :ShapeProperties.
@@ -1027,7 +1039,8 @@
     edu:partOf :CardinalDirections.
 :YardScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in yards.";
-    edu:partOf :ImperialDistanceScale.
+    edu:partOf :ImperialDistanceScale;
+    edu:translates :FootScale.
 :YearIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of years.";
     edu:partOf :TimeIntervals.
