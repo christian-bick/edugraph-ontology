@@ -247,7 +247,7 @@
     edu:partOf :RepresentationalScope.
 :GramScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in grams.";
-    edu:partOf :WeightAbstraction.
+    edu:partOf :MetricWeightScale.
 :Greater a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the comparison of two entities where one has a larger quantity, size, or value than the other.";
     edu:partOf :OrderAbstraction.
@@ -277,6 +277,12 @@
     rdfs:isDefinedBy "Involves numbers within the imaginary numeric space.";
     edu:expands :IrrationalNumbers;
     edu:partOf :NumericSpace.
+:ImperialTonScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Weights measured in imperial or United States customary tons.";
+    edu:partOf :ImperialWeightScale.
+:ImperialWeightScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves mass or weight measurements expressed using imperial or United States customary units.";
+    edu:partOf :WeightAbstraction.
 :ImproperFractions a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves fractions where the absolute value of the numerator is greater than or equal to the absolute value of the denominator.";
     edu:contradicts :ProperFractions;
@@ -297,7 +303,7 @@
     edu:partOf :TemperatureAbstraction.
 :KilogramScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in kilograms.";
-    edu:partOf :WeightAbstraction.
+    edu:partOf :MetricWeightScale.
 :KilometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "involves distances expressed in kilometers.";
     edu:partOf :MetricScale.
@@ -362,12 +368,15 @@
 :MetricScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in meters.";
     edu:partOf :DistanceAbstraction.
+:MetricWeightScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves mass or weight measurements expressed using metric units.";
+    edu:partOf :WeightAbstraction.
 :MicrometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "involves distances expressed in micrometers.";
     edu:partOf :MetricScale.
 :MilligramScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in milligrams.";
-    edu:partOf :WeightAbstraction.
+    edu:partOf :MetricWeightScale.
 :MilliliterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves milliliters to measure volumes.";
     edu:partOf :VolumeAbstraction.
@@ -626,6 +635,9 @@
 :OrderAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves ordering or comparison concepts.";
     edu:partOf :AbstractionScope.
+:OunceScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves mass or weight measurements expressed in ounces.";
+    edu:partOf :ImperialWeightScale.
 :PartitionAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves dividing a whole (such as a shape, length, or set) into distinct parts or regions.";
     edu:partOf :AbstractionScope.
@@ -651,6 +663,9 @@
 :PostMeridiem a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves times from noon up to but not including midnight, conventionally denoted p.m.";
     edu:partOf :Meridiem.
+:PoundScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves mass or weight measurements expressed in pounds.";
+    edu:partOf :ImperialWeightScale.
 :ProperFractions a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves fractions where the absolute value of the numerator is strictly less than the absolute value of the denominator.";
     edu:partOf :FractionNumbers.
@@ -843,9 +858,9 @@
 :TimeMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves time measurement.";
     edu:partOf :MeasurementScope.
-:TonScale a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Weights measured in tons.";
-    edu:partOf :WeightAbstraction.
+:TonneScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Weights measured in metric tons (tonnes).";
+    edu:partOf :MetricWeightScale.
 :TriangleRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a triangle ruler.";
     edu:integrates :CentimeterScale, :DegreeScale, :MillimeterScale;
