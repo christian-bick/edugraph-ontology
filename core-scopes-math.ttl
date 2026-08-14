@@ -39,6 +39,9 @@
     rdfs:isDefinedBy "Represents numbers with arabic numerals.";
     edu:partOf :Numerals;
     edu:translates :Base10.
+:AreaAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves area or surface concepts.";
+    edu:partOf :AbstractionScope.
 :AscendingOrder a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves arranging three or more entities in sequence from smallest to largest according to the relevant quantity, size, or value.";
     edu:inverts :DescendingOrder;
@@ -121,6 +124,10 @@
 :CountingSymbols a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves counting symbols.";
     edu:partOf :VisualNumbers.
+:CubeScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves volumes expressed in numbers of cubes.";
+    edu:expands :TileScale;
+    edu:partOf :VolumeAbstraction.
 :CubicCentimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves cubic centimeters to measure volumes.";
     edu:integrates :CentimeterScale;
@@ -295,6 +302,9 @@
 :ImageObjects a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves graphic elements defined by a grid of pixels such as photographs and digital paintings.";
     edu:partOf :ObjectTypes.
+:ImperialAreaScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves imperial units or scale for surface measurement.";
+    edu:partOf :AreaAbstraction.
 :ImperialDistanceScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in imperial or United States customary units.";
     edu:partOf :DistanceAbstraction.
@@ -392,6 +402,9 @@
     rdfs:isDefinedBy "Involves distance expressed in meters.";
     edu:expands :Numberline;
     edu:partOf :MetricDistanceScale.
+:MetricAreaScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves metric units or scale for surface measurement.";
+    edu:partOf :AreaAbstraction.
 :MetricDistanceScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in meters.";
     edu:partOf :DistanceAbstraction.
@@ -412,7 +425,6 @@
     edu:partOf :MetricWeightScale.
 :MilliliterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves milliliters to measure volumes.";
-    edu:integrates :MillimeterScale;
     edu:partOf :MetricVolumeScale.
 :MillimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in millimeters";
@@ -765,6 +777,9 @@
 :SecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of seconds.";
     edu:partOf :TimeIntervals.
+:SegmentScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves distances expressed in numbers of segments.";
+    edu:partOf :DistanceAbstraction.
 :ShapeAttributes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification of specific geometric features, such as edges, faces, and vertices, that constitute the physical structure of an object.";
     edu:partOf :PhysicalAbstraction.
@@ -883,6 +898,10 @@
     rdfs:isDefinedBy "Involves a mathematical operation instance with exactly three explicit operands.";
     edu:expands :TwoOperands;
     edu:partOf :OperandCardinality.
+:TileScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves areas expressed in numbers of tiles.";
+    edu:expands :SegmentScale;
+    edu:partOf :AreaAbstraction.
 :TimeAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves time or duration concepts.";
     edu:partOf :AbstractionScope.
