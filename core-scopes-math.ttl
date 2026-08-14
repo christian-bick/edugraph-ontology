@@ -213,6 +213,9 @@
 :FaceCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and quantification of faces that constitute the physical structure of an object.";
     edu:partOf :ShapeAttributes.
+:FahrenheitScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves temperature ranges or differences on the Fahrenheit scale.";
+    edu:partOf :TemperatureAbstraction.
 :FifthDenomination a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a denomination worth one fifth of its associated major denomination.";
     edu:partOf :MinorDenomination;
@@ -379,6 +382,9 @@
 :MicrometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "involves distances expressed in micrometers.";
     edu:partOf :MetricDistanceScale.
+:MileScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves distances expressed in miles.";
+    edu:partOf :ImperialDistanceScale.
 :MilligramScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in milligrams.";
     edu:partOf :MetricWeightScale.
