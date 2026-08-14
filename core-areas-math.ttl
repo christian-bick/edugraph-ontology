@@ -24,7 +24,8 @@
 :Addition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Adding numbers together.";
     edu:expands :Sum;
-    edu:partOf :BaseOperations.
+    edu:partOf :BaseOperations;
+    edu:translates :UnionOfCollections.
 :AdjacentAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles that share a common vertex and a common side but do not overlap.";
     edu:partOf :AngleRelations.
@@ -199,11 +200,12 @@
     edu:expands :Subtraction;
     edu:integrates :Iteration;
     edu:inverts :Multiplication;
-    edu:partOf :BaseOperations.
+    edu:partOf :BaseOperations;
+    edu:translates :DivisionOfCollections.
 :DivisionOfCollections a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The physical, visual or symbolized partition of a collection into subcollections of equal cardinality. The source cardinality equals the number of subcollections multiplied by their shared cardinality, so either factor can be determined through division.";
-    edu:partOf :PartitionOfCollections;
-    edu:translates :Division.
+    rdfs:isDefinedBy "The physical, visual or symbolized act of splitting a single bounded collection into two or more distinct non-overlapping subcollections of equal cardinality. The source cardinality equals the number of subcollections multiplied by their shared cardinality, so either factor can be determined through division.";
+    edu:expands :NumericEquality, :PartitionOfCollections;
+    edu:partOf :CollectionSense.
 :Equation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A mathematical statement asserting that two expressions have equal value.";
     edu:expands :NumericIdentity;
@@ -430,6 +432,10 @@
 :NumericComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeric comparison involves evaluating whether one number is greater than, less than, or equal to another.";
     edu:partOf :NumberSense.
+:NumericEquality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Numeric equality refers to the determination that two numbers, counts, measurements, groupings or expressions represent the same value or magnitude.";
+    edu:expands :NumericOrder;
+    edu:partOf :NumericComparison.
 :NumericIdentity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeric identity refers to the understanding that a number remains the same regardless of its representation.";
     edu:partOf :NumericComparison.
@@ -657,7 +663,7 @@
     edu:partOf :Triangle.
 :SetComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The intuitive visual comparison of two bounded collections to determine relative quantities such as more, less, or equal, relying on spatial arrangement rather than formal counting.";
-    edu:expands :GroupRecognition;
+    edu:expands :GroupRecognition, :NumericOrder;
     edu:partOf :CollectionSense.
 :SetTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies sets, which are collections of objects. It provides a fundamental language and tools for defining and working with mathematical objects.".
@@ -740,7 +746,8 @@
     rdfs:isDefinedBy "Finding the difference between two numbers.";
     edu:expands :Difference;
     edu:inverts :Addition;
-    edu:partOf :BaseOperations.
+    edu:partOf :BaseOperations;
+    edu:translates :PartitionOfCollections.
 :Sum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Combining quantities to determine their total amount for any type of mathematical object, including numbers.";
     edu:expands :Increment, :UnionOfCollections;
