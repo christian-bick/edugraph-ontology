@@ -104,8 +104,8 @@
     edu:partOf :TemperatureAbstraction.
 :CentimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in centimeters.";
-    edu:integrates :MeterScale;
-    edu:partOf :MetricDistanceScale.
+    edu:partOf :MetricDistanceScale;
+    edu:translates :MeterScale.
 :CircularArrangement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the radial positioning and curvilinear organization of objects.";
     edu:partOf :ObjectArrangement.
@@ -131,12 +131,14 @@
     edu:partOf :VolumeAbstraction.
 :CubicCentimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves cubic centimeters to measure volumes.";
-    edu:integrates :CentimeterScale, :CubicMeterScale;
-    edu:partOf :MetricVolumeScale.
+    edu:integrates :CentimeterScale;
+    edu:partOf :MetricVolumeScale;
+    edu:translates :CubicMeterScale.
 :CubicDecimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves cubic decimeters to measure volumes.";
-    edu:integrates :CubicMeterScale, :DecimeterScale;
-    edu:partOf :MetricVolumeScale.
+    edu:integrates :DecimeterScale;
+    edu:partOf :MetricVolumeScale;
+    edu:translates :CubicMeterScale.
 :CubicFootScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves cubic feet to measure volumes.";
     edu:integrates :FootScale;
@@ -148,7 +150,6 @@
 :CubicMeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves cubic meters to measure volumes.";
     edu:expands :SquareMeterScale;
-    edu:integrates :MeterScale;
     edu:partOf :MetricVolumeScale.
 :CurrencyAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves currency or monetary concepts.";
@@ -173,8 +174,8 @@
     edu:partOf :RationalNumbers.
 :DecimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in decimeters.";
-    edu:integrates :MeterScale;
-    edu:partOf :MetricDistanceScale.
+    edu:partOf :MetricDistanceScale;
+    edu:translates :MeterScale.
 :DegreeScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves degrees (°) to express the rotation of objects, oftentimes used to express the angle of two rays. Degrees are fractions of a circle rotation, where 360° represents a full circle, 180° a half circle and 90° a quarter circle.";
     edu:partOf :RotationAbstraction.
@@ -300,13 +301,12 @@
     edu:translates :FractionNumbers.
 :HectareScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the hectare unit or scale for surface measurement. A hectare equals 10,000 square meters.";
-    edu:expands :SquareMeterScale;
     edu:partOf :MetricAreaScale;
     edu:translates :SquareMeterScale.
 :HectoLiter a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves hectoliters to measure volumes.";
-    edu:integrates :LiterScale;
-    edu:partOf :MetricVolumeScale.
+    edu:partOf :MetricVolumeScale;
+    edu:translates :LiterScale.
 :HourIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of hours in a day.";
     edu:partOf :TimeIntervals.
@@ -362,8 +362,8 @@
     edu:partOf :MetricWeightScale.
 :KilometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "involves distances expressed in kilometers.";
-    edu:integrates :MeterScale;
-    edu:partOf :MetricDistanceScale.
+    edu:partOf :MetricDistanceScale;
+    edu:translates :MeterScale.
 :LaserRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a laser ruler.";
     edu:integrates :MicrometerScale;
@@ -421,7 +421,7 @@
     edu:partOf :TimeAbstraction.
 :MeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distance expressed in meters.";
-    edu:expands :Numberline;
+    edu:expands :SegmentScale;
     edu:partOf :MetricDistanceScale.
 :MetricAreaScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves metric units or scale for surface measurement.";
@@ -437,8 +437,8 @@
     edu:partOf :WeightAbstraction.
 :MicrometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "involves distances expressed in micrometers.";
-    edu:integrates :MeterScale;
-    edu:partOf :MetricDistanceScale.
+    edu:partOf :MetricDistanceScale;
+    edu:translates :MeterScale.
 :MileScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in miles.";
     edu:partOf :ImperialDistanceScale.
@@ -447,11 +447,12 @@
     edu:partOf :MetricWeightScale.
 :MilliliterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves milliliters to measure volumes.";
-    edu:integrates :LiterScale;
-    edu:partOf :MetricVolumeScale.
+    edu:partOf :MetricVolumeScale;
+    edu:translates :LiterScale.
 :MillimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in millimeters";
-    edu:partOf :MetricDistanceScale.
+    edu:partOf :MetricDistanceScale;
+    edu:translates :MeterScale.
 :MillisecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of milliseconds.";
     edu:partOf :TimeIntervals.
@@ -494,7 +495,8 @@
 :NanometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in nanometers.";
     edu:integrates :MeterScale;
-    edu:partOf :MetricDistanceScale.
+    edu:partOf :MetricDistanceScale;
+    edu:translates :MeterScale.
 :NanosecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of nanoseconds.";
     edu:partOf :TimeIntervals.
@@ -803,6 +805,7 @@
     edu:partOf :TimeIntervals.
 :SegmentScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in numbers of segments.";
+    edu:expands :Numberline;
     edu:partOf :DistanceAbstraction.
 :ShapeAttributes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification of specific geometric features, such as edges, faces, and vertices, that constitute the physical structure of an object.";
@@ -834,8 +837,9 @@
     edu:partOf :NumberRepresentation.
 :SquareCentimerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the square centimeter unit or scale for surface measurement.";
-    edu:integrates :CentimeterScale, :SquareMeterScale;
-    edu:partOf :MetricAreaScale.
+    edu:integrates :CentimeterScale;
+    edu:partOf :MetricAreaScale;
+    edu:translates :SquareMeterScale.
 :SquareFootScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves square foot units or scale for surface measurement.";
     edu:integrates :FootScale;
@@ -846,8 +850,9 @@
     edu:partOf :ImperialAreaScale.
 :SquareKilometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the square kilometer unit or scale for surface measurement.";
-    edu:integrates :KilometerScale, :SquareMeterScale;
-    edu:partOf :MetricAreaScale.
+    edu:integrates :KilometerScale;
+    edu:partOf :MetricAreaScale;
+    edu:translates :SquareMeterScale.
 :SquareMeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the square meter unit or scale for surface measurement.";
     edu:expands :MeterScale;
