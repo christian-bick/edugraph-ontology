@@ -201,7 +201,7 @@
     edu:inverts :Multiplication;
     edu:partOf :BaseOperations.
 :DivisionOfCollections a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The physical or visual act of separating a collection into multiple distinct sub-collections that contain the exact same quantity of objects.";
+    rdfs:isDefinedBy "The physical, visual or symbolized partition of a collection into subcollections of equal cardinality. The source cardinality equals the number of subcollections multiplied by their shared cardinality, so either factor can be determined through division.";
     edu:partOf :PartitionOfCollections;
     edu:translates :Division.
 :Equation a owl:NamedIndividual, edu:Area;
@@ -482,12 +482,12 @@
     edu:expands :OrderOfOperations;
     edu:partOf :MathematicalExpression.
 :PartitionOfCollections a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The physical or visual act of splitting a single bounded collection into two or more distinct smaller groups, establishing boundaries between them.";
+    rdfs:isDefinedBy "The physical, visual or symbolized act of splitting a single bounded collection into two or more distinct non-overlapping subcollections, establishing boundaries between them.";
     edu:expands :GroupRecognition;
     edu:inverts :UnionOfCollections;
     edu:partOf :CollectionSense.
 :PartitiveDivision a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The physical or visual act of distributing objects from a primary collection into a fixed number of equal sub-collections to determine the size of each group.";
+    rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection and the required number of equal subcollections are given. Every source object is assigned to exactly one subcollection, and the quotient is the shared cardinality of each resulting subcollection.";
     edu:partOf :DivisionOfCollections.
 :PatternRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identifying, extending, and creating repeating or growing patterns.";
@@ -588,7 +588,7 @@
     rdfs:isDefinedBy "A two-dimensional geometric figure bounded by a quarter-circle arc and two perpendicular radii, representing one fourth of a circle.";
     edu:partOf :Circle.
 :QuotativeDivision a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The physical or visual act of sequentially separating objects from a primary collection into sub-collections of a fixed size to determine the total number of groups that can be formed.";
+    rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection and the required cardinality of each equal subcollection are given. Every source object is assigned to exactly one subcollection, and the quotient is the number of resulting subcollections.";
     edu:partOf :DivisionOfCollections.
 :RadiusDiameterRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The proportional relationship stating that the diameter of a circle is exactly twice the length of its radius.";
@@ -788,7 +788,7 @@
     edu:expands :PlaneConcept;
     edu:partOf :GeometricObjects.
 :UnionOfCollections a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The physical or visual act of combining two or more distinct, bounded collections into a single larger group, removing the boundaries between them.";
+    rdfs:isDefinedBy "The physical, visual or symbolized act of combining two or more distinct, bounded collections into a single larger collection, removing the boundaries between them.";
     edu:expands :GroupRecognition;
     edu:partOf :CollectionSense.
 :UnitConversion a owl:NamedIndividual, edu:Area;
