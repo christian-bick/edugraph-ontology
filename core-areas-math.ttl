@@ -218,6 +218,10 @@
     rdfs:isDefinedBy "Intuitively guessing relative quantities and sizes without counting.";
     edu:expands :NumericComparison;
     edu:partOf :NumericApproximation.
+:EvenDivisibility a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A division of collections in which the divisor is two, permitting the source collection to be partitioned into exactly two subcollections of equal cardinality. The result identifies the source cardinality as an even integer, consisting of a quotient that represents the shared cardinality of the subcollections and a remainder of zero.";
+    edu:expands :SetComparison, :Subitizing;
+    edu:partOf :DivisionOfCollections.
 :Exponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.";
     edu:expands :Multiplication;
@@ -282,6 +286,11 @@
 :Hexagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with six edges and six vertices.";
     edu:partOf :Polygon.
+:ImperfectDivisibility a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection is not an integer multiple of the divisor, preventing every source object from being assigned to the equal subcollections. The result consists of a quotient, representing the number or shared cardinality of the subcollections, and a remainder, representing the subset of source objects that cannot be distributed while maintaining equal cardinality.";
+    edu:contradicts :PerfectDivisibility;
+    edu:inverts :PerfectDivisibility;
+    edu:partOf :DivisionOfCollections.
 :Increment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a quantity by a certain amount.";
     edu:expands :NumericOrder;
@@ -439,6 +448,10 @@
 :NumericIdentity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeric identity refers to the understanding that a number remains the same regardless of its representation.";
     edu:partOf :NumericComparison.
+:NumericInequality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Numeric inequality refers to the determination that two numbers, counts, measurements, groupings or expressions represent different values or magnitudes.";
+    edu:contradicts :NumericEquality;
+    edu:partOf :NumericComparison.
 :NumericOrder a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeric order refers to the arrangement of numbers in ascending or descending sequence based on their magnitude.";
     edu:expands :NumericIdentity;
@@ -455,13 +468,9 @@
     edu:expands :ObtuseAngle;
     edu:integrates :ObtuseAngle;
     edu:partOf :Triangle.
-:OddAndEvenGroups a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Classifying physical or visual collections of objects as odd or even, typically through pairing or equal sharing.";
-    edu:expands :SetComparison, :Subitizing;
-    edu:partOf :GroupRecognition.
 :OddAndEvenNumbers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining whether a given integer is odd or even in its symbolic numeric form, such as by using the final-digit divisibility rule.";
-    edu:expands :OddAndEvenGroups, :PlaceValue;
+    edu:expands :EvenDivisibility, :PlaceValue;
     edu:partOf :DivisibilityRules.
 :OneDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Geometric objects that have only length, such as line segments and rays.";
@@ -512,6 +521,9 @@
     rdfs:isDefinedBy "The system of symbols used to represent percentages, specifically the percent sign (%).";
     edu:expands :DecimalNotation;
     edu:partOf :NumberNotation.
+:PerfectDivisibility a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection is an integer multiple of the divisor, permitting every source object to be assigned to the equal subcollections. The result consists of a quotient, representing the number or shared cardinality of the subcollections, and a remainder of zero, indicating that the source collection is partitioned entirely into subcollections of equal cardinality.";
+    edu:partOf :DivisionOfCollections.
 :PerimeterCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the continuous line forming the boundary of a closed geometric figure.";
     edu:expands :LengthCalculation;
@@ -794,6 +806,10 @@
     rdfs:isDefinedBy "Flat geometric figures that have length and width, such as polygons and circles.";
     edu:expands :PlaneConcept;
     edu:partOf :GeometricObjects.
+:UnevenDivisibility a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A division of collections in which the divisor is two, precluding the source collection from being partitioned into exactly two subcollections of equal cardinality. The result identifies the source cardinality as an odd integer, consisting of a quotient that represents the shared cardinality of the subcollections and a remainder of one.";
+    edu:contradicts :EvenDivisibility;
+    edu:partOf :DivisionOfCollections.
 :UnionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The physical, visual or symbolized act of combining two or more distinct, bounded collections into a single larger collection, removing the boundaries between them.";
     edu:expands :GroupRecognition;
