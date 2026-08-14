@@ -844,7 +844,7 @@
 :SpatialNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers visually along a spatial dimension.";
     edu:partOf :NumberRepresentation.
-:SquareCentimerScale a owl:NamedIndividual, edu:Scope;
+:SquareCentimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the square centimeter unit or scale for surface measurement.";
     edu:integrates :CentimeterScale;
     edu:partOf :MetricAreaScale;
