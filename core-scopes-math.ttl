@@ -856,6 +856,10 @@
     rdfs:isDefinedBy "Involves square mile units or scale for surface measurement.";
     edu:integrates :MileScale;
     edu:partOf :ImperialAreaScale.
+:SquareYardScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves square yard units or scale for surface measurement.";
+    edu:integrates :YardScale;
+    edu:partOf :ImperialAreaScale.
 :Stackable a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the physical property of objects that allows for stable vertical arrangement or sequential layering.";
     edu:partOf :ShapeProperties.
@@ -1016,6 +1020,9 @@
 :West a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the cardinal direction West.";
     edu:partOf :CardinalDirections.
+:YardScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves distances expressed in yards.";
+    edu:partOf :ImperialDistanceScale.
 :YearIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of years.";
     edu:partOf :TimeIntervals.
