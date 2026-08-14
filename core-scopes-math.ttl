@@ -121,9 +121,22 @@
 :CountingSymbols a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves counting symbols.";
     edu:partOf :VisualNumbers.
+:CubicCentimeterScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves cubic centimeters to measure volumes.";
+    edu:integrates :CentimeterScale;
+    edu:partOf :MetricVolumeScale.
+:CubicFootScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves cubic feet to measure volumes.";
+    edu:integrates :FootScale;
+    edu:partOf :ImperialVolumeScale.
+:CubicInchScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves cubic inches to measure volumes.";
+    edu:integrates :InchScale;
+    edu:partOf :ImperialVolumeScale.
 :CubicMeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves cubic meters to measure volumes.";
-    edu:partOf :VolumeAbstraction.
+    edu:integrates :MeterScale;
+    edu:partOf :MetricVolumeScale.
 :CurrencyAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves currency or monetary concepts.";
     edu:partOf :AbstractionScope.
@@ -242,6 +255,9 @@
 :FractionNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers represented as a numerator and a denominator within the real numeric space.";
     edu:partOf :RationalNumbers.
+:GallonScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves gallons to measure volumes.";
+    edu:partOf :ImperialVolumeScale.
 :Gas a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and description of matter with no definite shape and no definite volume (example: vapor).";
     edu:partOf :StateProperties.
@@ -285,6 +301,9 @@
 :ImperialTonScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in imperial or United States customary tons.";
     edu:partOf :ImperialWeightScale.
+:ImperialVolumeScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves imperial units to measure volumes.";
+    edu:partOf :VolumeAbstraction.
 :ImperialWeightScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves mass or weight measurements expressed using imperial or United States customary units.";
     edu:partOf :WeightAbstraction.
@@ -354,7 +373,7 @@
     edu:partOf :VolumeMeasurement.
 :LiterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves liters to measure volumes.";
-    edu:partOf :VolumeAbstraction.
+    edu:partOf :MetricVolumeScale.
 :MajorDenomination a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the major denomination of a currency. For example \"Dollar\" in US Dollar and \"Euro\" in Euro.";
     edu:partOf :CurrencyDenomination;
@@ -376,6 +395,9 @@
 :MetricDistanceScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in meters.";
     edu:partOf :DistanceAbstraction.
+:MetricVolumeScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves metric units to measure volumes.";
+    edu:partOf :VolumeAbstraction.
 :MetricWeightScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves mass or weight measurements expressed using metric units.";
     edu:partOf :WeightAbstraction.
@@ -390,7 +412,8 @@
     edu:partOf :MetricWeightScale.
 :MilliliterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves milliliters to measure volumes.";
-    edu:partOf :VolumeAbstraction.
+    edu:integrates :MillimeterScale;
+    edu:partOf :MetricVolumeScale.
 :MillimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in millimeters";
     edu:partOf :MetricDistanceScale.
