@@ -288,6 +288,12 @@
     rdfs:isDefinedBy "Time expressed in intervals of half hours.";
     edu:partOf :TimeIntervals;
     edu:translates :FractionNumbers.
+:HectareScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the hectare unit or scale for surface measurement.";
+    edu:partOf :MetricAreaScale.
+:HectoLiter a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves hectoliters to measure volumes.";
+    edu:partOf :MetricVolumeScale.
 :HourIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of hours in a day.";
     edu:partOf :TimeIntervals.
@@ -808,6 +814,15 @@
 :SpatialNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers visually along a spatial dimension.";
     edu:partOf :NumberRepresentation.
+:SquareCentimerScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the square centimeter unit or scale for surface measurement.";
+    edu:partOf :MetricAreaScale.
+:SquareKilometerScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the square kilometer unit or scale for surface measurement.";
+    edu:partOf :MetricAreaScale.
+:SquareMeterScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the square meter unit or scale for surface measurement.";
+    edu:partOf :MetricAreaScale.
 :Stackable a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the physical property of objects that allows for stable vertical arrangement or sequential layering.";
     edu:partOf :ShapeProperties.
