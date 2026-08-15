@@ -501,6 +501,10 @@
     rdfs:isDefinedBy "Involves the divisibility property of numbers divisible by 1000.";
     edu:implies :MultiplesOf100;
     edu:partOf :NumericDivisibility.
+:MultiStep a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Requires two or more successive logical or procedural steps to reach a solution, consisting of multiple discrete operations or transformations within a sequential process.";
+    edu:expands :SingleStep;
+    edu:partOf :StepComplexity.
 :NanometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in nanometers.";
     edu:integrates :MeterScale;
@@ -826,6 +830,9 @@
     rdfs:comment "Examples include directly assembling component shapes into one figure, forming one sum directly from several numbers, or combining initial transformations into one composite transformation without reusing an intermediate result.";
     rdfs:isDefinedBy "Involves constructing a result in one composition level from inputs that are not themselves produced by another composition represented in the task.";
     edu:partOf :CompositionDepth.
+:SingleStep a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Requires a single logical or procedural step to reach a solution, consisting of one discrete operation or transformation within a sequential process.";
+    edu:partOf :StepComplexity.
 :Solid a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and description of matter with a definite shape and volume (example: ice).";
     edu:partOf :StateProperties.
@@ -886,6 +893,9 @@
 :StateProperties a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and differentiation of states of matter.";
     edu:partOf :PhysicalAbstraction.
+:StepComplexity a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the number of successive logical or procedural steps required to reach a solution, where each step represents a discrete operation or transformation within a sequential process.";
+    edu:partOf :ComplexityScope.
 :StepMagnitude a owl:NamedIndividual, edu:Scope;
     rdfs:comment "Examples include counting by ones, fives, tens, hundreds, or thousands from aligned or unaligned starting values.";
     rdfs:isDefinedBy "Involves the absolute numeric interval between consecutive values in a fixed-step sequence.";
