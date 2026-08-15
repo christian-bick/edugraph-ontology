@@ -682,12 +682,12 @@
 :SetTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies sets, which are collections of objects. It provides a fundamental language and tools for defining and working with mathematical objects.".
 :ShapeClassification a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Understanding how geometric shapes can be identified by their defining attributes (number of edges, angles, etc).";
+    rdfs:isDefinedBy "Understanding how geometric shapes can be identified by abstract defining attributes (number of edges, angles, etc).";
     edu:expands :ShapeNaming;
     edu:partOf :ShapeIdentity.
 :ShapeConservation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding which properties of a shape remain unchanged when its position, orientation, or scale changes.";
-    edu:expands :ShapeNaming;
+    edu:expands :ShapeRecognition;
     edu:partOf :ShapeIdentity.
 :ShapeDecomposition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding how a whole shape can be resolved into component shapes.";
@@ -701,16 +701,20 @@
     edu:partOf :SpatialSense.
 :ShapeNaming a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding how to associate a represented geometric shape with its conventional name.";
+    edu:expands :ShapeRecognition;
     edu:partOf :ShapeIdentity.
 :ShapePartWholeRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding how shapes can be composed from or decomposed into other shapes, and how these part-whole structures reveal relationships between geometric forms.";
-    edu:expands :ShapeNaming;
+    edu:expands :ShapeRecognition;
     edu:partOf :ShapeIdentity.
 :ShapePlotting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of drawing geometric shapes, such as polygons, on a coordinate plane by plotting their vertices.";
     edu:expands :PointPlotting;
     edu:partOf :GeometricVisualization;
     edu:translates :Polygon.
+:ShapeRecognition a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Understanding how to visually identify and group multiple geometric shapes as belonging to the same category or concept based on their shared form and structural characteristics.";
+    edu:partOf :ShapeIdentity.
 :ShapeReflection a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding reflective symmetry as a defining property of a shape's form, where a line of symmetry divides the shape into identical, mirroring halves.";
     edu:expands :ShapeDecomposition;
