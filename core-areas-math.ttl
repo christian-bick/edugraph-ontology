@@ -106,6 +106,11 @@
 :ComplementaryAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles whose sum is exactly 90 degrees.";
     edu:partOf :AngleRelations.
+:CompositeNumbers a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study and classification of whole numbers greater than 1 that have more than two positive factors; equivalently, numbers divisible by a positive whole number other than 1 and themselves.";
+    edu:contradicts :PrimeNumbers;
+    edu:expands :FactorsAndMultiples;
+    edu:partOf :Factorization.
 :ComputationalMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
 :Cone a owl:NamedIndividual, edu:Area;
