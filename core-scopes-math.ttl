@@ -495,6 +495,10 @@
     rdfs:isDefinedBy "Involves constructing a result across at least two successive composition levels, with at least one intermediate composite reused as an input to a further composition.";
     edu:expands :SingleLevelComposition;
     edu:partOf :CompositionDepth.
+:MultipleFramesOfReference a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the processing of a concept or operation across two or more distinct systems of coordinates or perspectives, where cognitive demand is driven by the requirement to coordinate and perform transformations between multiple, disparate frames.";
+    edu:expands :SingleFrameOfReference;
+    edu:partOf :ReferenceFrameComplexity.
 :MultiplesOf10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the divisibility property of numbers divisible by 10.";
     edu:implies :EvenNumbers;
@@ -789,6 +793,9 @@
 :RealNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers within the real numeric space.";
     edu:partOf :NumericSpace.
+:ReferenceFrameComplexity a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the number and coordination of distinct frames of reference required to process a concept or operation, where complexity is determined by the requirement to operate within a single frame or to perform transformations between multiple, disparate frames.";
+    edu:partOf :ComplexityScope.
 :RelatedFractions a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves fractions characterized by commonalities, specifically those with an identical numerator or an identical denominator.";
     edu:partOf :FractionNumbers.
@@ -835,6 +842,9 @@
 :ShapeProperties a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the physical property of objects that allows for the identification and differentiation of geometric forms through attributes such as edges, faces, and vertices to determine spatial behavior and mechanical constraints.";
     edu:partOf :PhysicalAbstraction.
+:SingleFrameOfReference a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the processing of a concept or operation within a solitary, consistent system of coordinates or perspective, where cognitive demand is restricted to internal manipulation and does not necessitate transformations between disparate frames.";
+    edu:partOf :ReferenceFrameComplexity.
 :SingleLevelComposition a owl:NamedIndividual, edu:Scope;
     rdfs:comment "Examples include directly assembling component shapes into one figure, forming one sum directly from several numbers, or combining initial transformations into one composite transformation without reusing an intermediate result.";
     rdfs:isDefinedBy "Involves constructing a result in one composition level from inputs that are not themselves produced by another composition represented in the task.";
