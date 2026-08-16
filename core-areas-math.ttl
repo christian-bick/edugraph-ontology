@@ -242,14 +242,26 @@
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
     edu:expands :Division, :NumerationWithFractions, :ProportionInteraction;
     edu:partOf :RationalArithmetic.
+:FractionDenominatorInterpretation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Fraction denominator interpretation is the ability to understand the meaning of the bottom number (denominator) in a fraction and its relationship to the other quantities involved.";
+    edu:partOf :FractionInterpretation;
+    edu:translates :RatioConsequentInterpretation.
 :FractionEquivalence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The principle that distinct representations of rational numbers in the form a/b can express the same ratio, where transformations between different numerators and denominators maintain the same value relative to the unit or whole.";
     edu:expands :RatioEquivalence;
     edu:partOf :FractionArithmetic.
+:FractionInterpretation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Fraction interpretation is the ability to understand the meaning of a fraction and its relationship to the quantities involved.";
+    edu:partOf :FractionArithmetic;
+    edu:translates :RatioInterpretation.
 :FractionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator.";
     edu:expands :IntegerNotation;
     edu:partOf :NumberNotation.
+:FractionNumeratorInterpretation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Fraction numerator interpretation is the ability to understand the meaning of the top number (numerator) in a fraction and its relationship to the other quantities involved.";
+    edu:partOf :FractionInterpretation;
+    edu:translates :RatioAntecedentInterpretation.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
     edu:expands :FactorsAndMultiples;
@@ -578,6 +590,9 @@
 :ProportionAbstraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Proportion abstraction is the ability to generalize proportional relationships and apply them to new situations.";
     edu:partOf :ProportionSense.
+:ProportionalScaling a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Proportional scaling is the ability to apply a ratio to a reference quantity to determine an absolute quantity.";
+    edu:partOf :ProportionInteraction.
 :ProportionExpression a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Proportion expression is the ability to represent proportional relationships using mathematical symbols and equations.";
     edu:partOf :ProportionInteraction.
@@ -613,6 +628,12 @@
 :RadiusDiameterRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The proportional relationship stating that the diameter of a circle is exactly twice the length of its radius.";
     edu:partOf :CircleRelations.
+:RatioAntecedentInterpretation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Ratio antecedent interpretation is the ability to understand the meaning of the first quantity in a ratio and its relationship to the other quantities involved.";
+    edu:partOf :RatioInterpretation.
+:RatioConsequentInterpretation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Ratio consequent interpretation is the ability to understand the meaning of the second quantity in a ratio and its relationship to the other quantities involved.";
+    edu:partOf :RatioInterpretation.
 :RatioEquivalence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Ratio equivalence is the understanding that different ratios can represent the same proportional relationship.";
     edu:expands :ProportionManipulation;
