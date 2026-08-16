@@ -113,6 +113,12 @@
     rdfs:isDefinedBy "Represents currency with coins.";
     edu:partOf :CurrencyRepresentation;
     edu:translates :MajorDenomination, :MinorDenomination.
+:CommonDenominator a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves fractions characterized by an identical denominator.";
+    edu:partOf :RelatedFractions.
+:CommonNumerator a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves fractions characterized by an identical numerator.";
+    edu:partOf :RelatedFractions.
 :CompassDirections a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves cardinal and intercardinal orientation indicators.";
     edu:partOf :DirectionalRepresentation.
@@ -522,7 +528,7 @@
     rdfs:isDefinedBy "Involves proper fractions where the numerator is an integer greater than one.";
     edu:contradicts :UnitFractions;
     edu:expands :UnitFractions;
-    edu:partOf :ProperFractions.
+    edu:partOf :CommonNumerator, :ProperFractions.
 :North a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the cardinal direction North.";
     edu:partOf :CardinalDirections.
@@ -783,6 +789,9 @@
 :RealNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves numbers within the real numeric space.";
     edu:partOf :NumericSpace.
+:RelatedFractions a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves fractions characterized by commonalities, specifically those with an identical numerator or an identical denominator.";
+    edu:partOf :FractionNumbers.
 :RelationMediation a owl:NamedIndividual, edu:Scope;
     rdfs:comment "Examples include comparing two lengths directly, deriving one inequality from an inequality chain, and establishing temporal order through an intermediate event.";
     rdfs:isDefinedBy "Involves relation mediation of varying complexity between target entities, either established from direct evidence or inferred by chaining compatible relations through intermediary entities.";
