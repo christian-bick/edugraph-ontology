@@ -496,7 +496,7 @@
     edu:expands :SingleLevelComposition;
     edu:partOf :CompositionDepth.
 :MultipleFramesOfReference a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves the processing of a concept or operation across two or more distinct systems of coordinates or perspectives, where cognitive demand is driven by the requirement to coordinate and perform transformations between multiple, disparate frames.";
+    rdfs:isDefinedBy "Involves interpreting and operating on quantities, relations, or representations across multiple frames of reference. Examples are operating fractions, ratios and proportions across different wholes or reference quantities, converting between measurement scales or operating across multiple coordinate systems.";
     edu:expands :SingleFrameOfReference;
     edu:partOf :ReferenceFrameComplexity.
 :MultiplesOf10 a owl:NamedIndividual, edu:Scope;
@@ -532,7 +532,7 @@
     rdfs:isDefinedBy "Involves proper fractions where the numerator is an integer greater than one.";
     edu:contradicts :UnitFractions;
     edu:expands :UnitFractions;
-    edu:partOf :CommonNumerator, :ProperFractions.
+    edu:partOf :ProperFractions.
 :North a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the cardinal direction North.";
     edu:partOf :CardinalDirections.
@@ -843,7 +843,7 @@
     rdfs:isDefinedBy "Involves the physical property of objects that allows for the identification and differentiation of geometric forms through attributes such as edges, faces, and vertices to determine spatial behavior and mechanical constraints.";
     edu:partOf :PhysicalAbstraction.
 :SingleFrameOfReference a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves the processing of a concept or operation within a solitary, consistent system of coordinates or perspective, where cognitive demand is restricted to internal manipulation and does not necessitate transformations between disparate frames.";
+    rdfs:isDefinedBy "Involves interpreting and operating on quantities, relations, or representations within one consistent frame of reference. Examples are operating fractions, ratios and proportions within a common whole or reference quantity, using one measurement scale at a time or operating within one coordinate system.";
     edu:partOf :ReferenceFrameComplexity.
 :SingleLevelComposition a owl:NamedIndividual, edu:Scope;
     rdfs:comment "Examples include directly assembling component shapes into one figure, forming one sum directly from several numbers, or combining initial transformations into one composite transformation without reusing an intermediate result.";
