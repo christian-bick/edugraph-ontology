@@ -938,6 +938,14 @@
     rdfs:isDefinedBy "Involves consecutive values whose absolute difference is 1000.";
     edu:expands :StepsOf100;
     edu:partOf :StepMagnitude.
+:StepsOf10000 a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves consecutive values whose absolute difference is 10000.";
+    edu:expands :StepsOf1000;
+    edu:partOf :StepMagnitude.
+:StepsOf100000 a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves consecutive values whose absolute difference is 100000.";
+    edu:expands :StepsOf10000;
+    edu:partOf :StepMagnitude.
 :StepsOf2 a owl:NamedIndividual, edu:Scope;
     rdfs:comment "For example, 4, 6, 8 advances in steps of 2.";
     rdfs:isDefinedBy "Involves consecutive values whose absolute difference is 2.";
