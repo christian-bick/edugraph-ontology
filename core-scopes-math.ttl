@@ -213,6 +213,12 @@
 :DistanceAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distance or length concepts.";
     edu:partOf :AbstractionScope.
+:DividendDigitCount a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the exact digit count of the dividend.";
+    edu:partOf :OperandDigitCount.
+:DivisorDigitCount a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the exact digit count of the divisor.";
+    edu:partOf :OperandDigitCount.
 :Dollar a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the Dollar currency.";
     edu:integrates :MajorDenomination, :MinorDenomination;
@@ -269,6 +275,14 @@
     rdfs:isDefinedBy "Involves distances expressed in feet.";
     edu:partOf :ImperialDistanceScale;
     edu:translates :InchScale.
+:FourDigitDividend a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a dividend with exactly four digits.";
+    edu:expands :ThreeDigitDividend;
+    edu:partOf :MultipleDigitDividend.
+:FourDigitLargestOperand a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a largest operand with exactly four digits.";
+    edu:expands :ThreeDigitLargestOperand;
+    edu:partOf :MultipleDigitLargestOperand.
 :FourDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves three spatial dimensions and time.";
     edu:expands :ThreeDimensional;
@@ -376,6 +390,9 @@
     rdfs:isDefinedBy "involves distances expressed in kilometers.";
     edu:partOf :MetricDistanceScale;
     edu:translates :MeterScale.
+:LargestOperandDigitCount a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the exact digit count of the largest operand.";
+    edu:partOf :OperandDigitCount.
 :LaserRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a laser ruler.";
     edu:integrates :MicrometerScale;
@@ -495,6 +512,22 @@
     rdfs:isDefinedBy "Involves constructing a result across at least two successive composition levels, with at least one intermediate composite reused as an input to a further composition.";
     edu:expands :SingleLevelComposition;
     edu:partOf :CompositionDepth.
+:MultipleDigitDividend a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a dividend with multiple digits.";
+    edu:expands :SingleDigitDividend;
+    edu:partOf :DividendDigitCount.
+:MultipleDigitDivisor a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a divisor with multiple digits.";
+    edu:expands :SingleDigitDivisor;
+    edu:partOf :DivisorDigitCount.
+:MultipleDigitLargestOperand a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a largest operand with multiple digits.";
+    edu:expands :SingleDigitLargestOperand;
+    edu:partOf :LargestOperandDigitCount.
+:MultipleDigitSmallestOperand a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a smallest operand with multiple digits.";
+    edu:expands :SingleDigitSmallestOperand;
+    edu:partOf :SmallestOperandDigitCount.
 :MultipleFramesOfReference a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves interpreting and operating on quantities, relations, or representations across multiple frames of reference. Examples are operating fractions, ratios and proportions across different wholes or reference quantities, converting between measurement scales or operating across multiple coordinate systems.";
     edu:expands :SingleFrameOfReference;
@@ -727,6 +760,9 @@
     rdfs:comment "Examples include addition instances with two addends and addition instances with three addends.";
     rdfs:isDefinedBy "Involves the cardinality of the set of explicit operands participating in a mathematical operation instance.";
     edu:partOf :ComplexityScope.
+:OperandDigitCount a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the exact digit count of operands within a mathematical operation.";
+    edu:partOf :ComplexityScope.
 :OrderAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves ordering or comparison concepts.";
     edu:partOf :AbstractionScope.
@@ -842,6 +878,18 @@
 :ShapeProperties a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the physical property of objects that allows for the identification and differentiation of geometric forms through attributes such as edges, faces, and vertices to determine spatial behavior and mechanical constraints.";
     edu:partOf :PhysicalAbstraction.
+:SingleDigitDividend a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a dividend with a single digit.";
+    edu:partOf :DividendDigitCount.
+:SingleDigitDivisor a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a divisor with a single digit.";
+    edu:partOf :DivisorDigitCount.
+:SingleDigitLargestOperand a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a largest operand with a single digit.";
+    edu:partOf :LargestOperandDigitCount.
+:SingleDigitSmallestOperand a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a smallest operand with a single digit.";
+    edu:partOf :SmallestOperandDigitCount.
 :SingleFrameOfReference a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves interpreting and operating on quantities, relations, or representations within one consistent frame of reference. Examples are operating fractions, ratios and proportions within a common whole or reference quantity, using one measurement scale at a time or operating within one coordinate system.";
     edu:partOf :ReferenceFrameComplexity.
@@ -852,6 +900,9 @@
 :SingleStep a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Requires a single logical or procedural step to reach a solution, consisting of one discrete operation or transformation within a sequential process.";
     edu:partOf :StepComplexity.
+:SmallestOperandDigitCount a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the exact digit count of the smallest operand.";
+    edu:partOf :OperandDigitCount.
 :Solid a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and description of matter with a definite shape and volume (example: ice).";
     edu:partOf :StateProperties.
@@ -995,6 +1046,22 @@
     rdfs:isDefinedBy "Involves a thermometer.";
     edu:integrates :CelsiusScale, :KelvinScale;
     edu:partOf :TemperatureMeasurement.
+:ThreeDigitDividend a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a dividend with exactly three digits.";
+    edu:expands :TwoDigitDividend;
+    edu:partOf :MultipleDigitDividend.
+:ThreeDigitDivisor a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a divisor with exactly three digits.";
+    edu:expands :TwoDigitDivisor;
+    edu:partOf :MultipleDigitDivisor.
+:ThreeDigitLargestOperand a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a largest operand with exactly three digits.";
+    edu:expands :TwoDigitLargestOperand;
+    edu:partOf :MultipleDigitLargestOperand.
+:ThreeDigitSmallestOperand a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a smallest operand with exactly three digits.";
+    edu:expands :TwoDigitSmallestOperand;
+    edu:partOf :MultipleDigitSmallestOperand.
 :ThreeDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves three spatial dimensions.";
     edu:expands :TwoDimensional;
@@ -1028,6 +1095,18 @@
     rdfs:isDefinedBy "Involves a denomination worth one twentieth of its associated major denomination.";
     edu:partOf :MinorDenomination;
     edu:translates :UnitFractions.
+:TwoDigitDividend a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a dividend with exactly two digits.";
+    edu:partOf :MultipleDigitDividend.
+:TwoDigitDivisor a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a divisor with exactly two digits.";
+    edu:partOf :MultipleDigitDivisor.
+:TwoDigitLargestOperand a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a largest operand with exactly two digits.";
+    edu:partOf :MultipleDigitLargestOperand.
+:TwoDigitSmallestOperand a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a smallest operand with exactly two digits.";
+    edu:partOf :MultipleDigitSmallestOperand.
 :TwoDimensional a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves two spatial dimensions.";
     edu:expands :OneDimensional;
