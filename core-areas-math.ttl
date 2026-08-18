@@ -26,6 +26,30 @@
     edu:expands :Sum;
     edu:partOf :BaseOperations;
     edu:translates :UnionOfCollections.
+:AdditionCompensation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Adding after changing one addend to a convenient nearby value and compensating for that change in the result or other addend.";
+    edu:expands :Addition;
+    edu:partOf :IntegerStrategies.
+:AdditionCountingOn a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Adding by starting from one addend and counting forward by the amount of the other addend.";
+    edu:expands :Addition, :Increment;
+    edu:partOf :IntegerStrategies.
+:AdditionMakeTen a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Adding by decomposing an addend so that another addend first forms ten or a larger power-of-ten landmark.";
+    edu:expands :Addition, :PlaceValue;
+    edu:partOf :IntegerStrategies.
+:AdditionNearDoubles a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Adding near-equal addends by using a known double and adjusting by their difference.";
+    edu:expands :Addition;
+    edu:partOf :IntegerStrategies.
+:AdditionPlaceValuePartitioning a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Adding by decomposing addends into place-value parts, combining corresponding parts, and recomposing the sum.";
+    edu:expands :Addition, :PlaceValue;
+    edu:partOf :IntegerStrategies.
+:AdditionStandardAlgorithm a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conventional base-ten addition algorithm that operates by aligned place values and records any required regrouping across places.";
+    edu:expands :AdditionPlaceValuePartitioning, :IntegerRegrouping;
+    edu:partOf :IntegerStrategies.
 :AdjacentAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles that share a common vertex and a common side but do not overlap.";
     edu:partOf :AngleRelations.
@@ -207,10 +231,26 @@
     edu:inverts :Multiplication;
     edu:partOf :BaseOperations;
     edu:translates :DivisionOfCollections.
+:DivisionDividendPartitioning a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Dividing by decomposing the dividend into convenient divisible parts and combining their quotients.";
+    edu:expands :DistributiveLaw, :Division, :FactorsAndMultiples;
+    edu:partOf :IntegerStrategies.
+:DivisionKnownFactDerivation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Deriving a division result from a known multiplication or division fact through inverse-operation and number relationships.";
+    edu:expands :Division, :FactorsAndMultiples, :Multiplication;
+    edu:partOf :IntegerStrategies.
 :DivisionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The physical, visual or symbolized act of splitting a single bounded collection into two or more distinct non-overlapping subcollections of equal cardinality. The source cardinality equals the number of subcollections multiplied by their shared cardinality, so either factor can be determined through division.";
     edu:expands :NumericEquality, :PartitionOfCollections;
     edu:partOf :CollectionSense.
+:DivisionPartialQuotients a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Dividing by successively removing convenient multiples of the divisor and combining the associated partial quotients.";
+    edu:expands :Division, :FactorsAndMultiples, :Multiplication, :Subtraction;
+    edu:partOf :IntegerStrategies.
+:DivisionStandardAlgorithm a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conventional base-ten division algorithm that determines successive quotient places through repeated estimation, multiplication, subtraction, and redistribution of the remaining value.";
+    edu:expands :DivisionPartialQuotients, :IntegerRegrouping;
+    edu:partOf :IntegerStrategies.
 :EmergentFeatureRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizing a recurring, alternating, invariant, or otherwise systematic property of generated pattern elements that follows from, but is not itself, the generative rule.";
     edu:expands :GenerativeRuleRecognition;
@@ -358,6 +398,9 @@
     rdfs:isDefinedBy "The rules and procedures for approximating a whole number to a specified place value, such as the nearest ten or hundred.";
     edu:expands :PlaceValue;
     edu:partOf :IntegerArithmetic.
+:IntegerStrategies a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Recognizable methods for coordinating integer number relationships, place value, and arithmetic operations to obtain or explain a result.";
+    edu:partOf :IntegerArithmetic.
 :IntersectionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification of objects that belong to two overlapping physical groups, often visualized through intersecting boundaries like Venn diagrams made of physical hoops.";
     edu:expands :ObjectSorting;
@@ -459,6 +502,22 @@
     edu:integrates :Iteration;
     edu:partOf :BaseOperations;
     edu:translates :PerfectDivisibility.
+:MultiplicationDoublingAndHalving a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Preserving a product by repeatedly doubling one factor while halving the other.";
+    edu:expands :Division, :FactorsAndMultiples, :Multiplication;
+    edu:partOf :IntegerStrategies.
+:MultiplicationKnownFactDerivation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Deriving an unknown multiplication result from one or more known multiplication facts through operation properties or number relationships.";
+    edu:expands :FactorsAndMultiples, :Multiplication;
+    edu:partOf :IntegerStrategies.
+:MultiplicationPartialProducts a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Multiplying by decomposing one or both factors and combining the products of the resulting parts.";
+    edu:expands :DistributiveLaw, :Multiplication, :PlaceValue;
+    edu:partOf :IntegerStrategies.
+:MultiplicationStandardAlgorithm a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conventional base-ten multiplication algorithm that obtains and combines place-aligned partial products in its standard written form.";
+    edu:expands :IntegerRegrouping, :MultiplicationPartialProducts;
+    edu:partOf :IntegerStrategies.
 :NumberNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Number notation is the system of symbols and rules used to express numerical values.";
     edu:partOf :FormalMathematics.
@@ -854,6 +913,26 @@
     edu:inverts :Addition;
     edu:partOf :BaseOperations;
     edu:translates :PartitionOfCollections.
+:SubtractionCompensation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Subtracting after applying a value-preserving adjustment that makes the minuend or subtrahend more convenient.";
+    edu:expands :Subtraction;
+    edu:partOf :IntegerStrategies.
+:SubtractionCountingBack a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Subtracting by starting from the minuend and counting backward by the subtrahend.";
+    edu:expands :Decrement, :Subtraction;
+    edu:partOf :IntegerStrategies.
+:SubtractionPlaceValuePartitioning a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Subtracting by decomposing one or both operands into place-value parts and coordinating the partial differences.";
+    edu:expands :PlaceValue, :Subtraction;
+    edu:partOf :IntegerStrategies.
+:SubtractionStandardAlgorithm a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conventional base-ten subtraction algorithm that operates by aligned place values and records any required regrouping across places.";
+    edu:expands :IntegerRegrouping, :SubtractionPlaceValuePartitioning;
+    edu:partOf :IntegerStrategies.
+:SubtractionThinkAddition a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Solving a subtraction by determining the missing addend that combines with the subtrahend to produce the minuend.";
+    edu:expands :Addition, :Subtraction;
+    edu:partOf :IntegerStrategies.
 :Sum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Combining quantities to determine their total amount for any type of mathematical object, including numbers.";
     edu:expands :Increment, :UnionOfCollections;
