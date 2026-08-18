@@ -517,6 +517,10 @@
     rdfs:isDefinedBy "The conventional base-ten multiplication algorithm that obtains and combines place-aligned partial products in its standard written form.";
     edu:expands :IntegerRegrouping, :MultiplicationPartialProducts;
     edu:partOf :IntegerStrategies.
+:NumberNameNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The system of written words used to represent numerical values, such as 'four hundred thirty-seven'.";
+    edu:expands :NumericIdentity;
+    edu:partOf :NumberNotation.
 :NumberNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Number notation is the system of symbols and rules used to express numerical values.";
     edu:partOf :FormalMathematics.
