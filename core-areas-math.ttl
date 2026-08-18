@@ -920,6 +920,10 @@
     rdfs:isDefinedBy "Subtracting by starting from the minuend and counting backward by the subtrahend.";
     edu:expands :Decrement, :Subtraction;
     edu:partOf :IntegerStrategies.
+:SubtractionMakeTen a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Subtracting by decomposing the subtrahend so that an initial subtraction reaches ten or a larger power-of-ten landmark, then subtracting the remaining part.";
+    edu:expands :PlaceValue, :Subtraction;
+    edu:partOf :IntegerStrategies.
 :SubtractionPlaceValuePartitioning a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Subtracting by decomposing one or both operands into place-value parts and coordinating the partial differences.";
     edu:expands :PlaceValue, :Subtraction;
