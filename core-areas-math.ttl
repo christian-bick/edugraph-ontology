@@ -887,6 +887,9 @@
 :SpatialModelling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating mental or physical representations of objects and their spatial relationships.";
     edu:partOf :SpatialSense.
+:SpatialPosition a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Understanding the location, orientation, and direction of objects in space relative to other objects or a frame of reference.";
+    edu:partOf :SpatialSense.
 :SpatialSense a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding shapes, sizes, positions, and movements in two and three dimensions.";
     edu:partOf :IntuitiveMathematics.
