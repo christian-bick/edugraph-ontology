@@ -29,6 +29,9 @@
     rdfs:isDefinedBy "Involves an analog clock.";
     edu:integrates :HalfHourIntervals, :HourIntervals, :MinuteIntervals, :QuarterHourIntervals, :SecondIntervals;
     edu:partOf :TimeMeasurement.
+:AngleCount a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the identification and quantification of angles that constitute the physical structure of an object.";
+    edu:partOf :ShapeAttributes.
 :AngleMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves angle measurement.";
     edu:partOf :MeasurementScope.
