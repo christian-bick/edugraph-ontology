@@ -97,6 +97,7 @@
     edu:partOf :CompassDirections.
 :CartesianCoordinateSystem a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents functions and shapes in the cartesian coordinate system.";
+    edu:integrates :Numberline;
     edu:partOf :VisualGeometry;
     edu:translates :ThreeDimensional, :TwoDimensional.
 :CelsiusScale a owl:NamedIndividual, edu:Scope;
@@ -128,6 +129,18 @@
     rdfs:comment "Examples include shapes assembled from component shapes, arithmetic expressions built from subexpressions, functions composed with other functions, and transformations built from earlier transformations.";
     rdfs:isDefinedBy "Involves the number of successive composition levels used to construct a result, where an additional level occurs when the result of one composition is used as an input to another.";
     edu:partOf :ComplexityScope.
+:ConversionRepresentation a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "A representation that relates equivalent expressions of the same quantity under different units, scales, or representational forms.";
+    edu:integrates :MultipleFramesOfReference;
+    edu:partOf :RepresentationalScope.
+:ConversionScale a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "A graduated conversion representation in which aligned positions across two or more labeled bands or axes indicate equivalent quantities under different units, scales, or representational forms.";
+    edu:expands :Numberline;
+    edu:partOf :ConversionRepresentation.
+:ConversionTable a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "A tabular conversion representation in which columns identify different units, scales, or forms and each row aligns equivalent quantity expressions across those columns.";
+    edu:expands :DataTable;
+    edu:partOf :ConversionRepresentation.
 :CountingSymbols a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves counting symbols.";
     edu:partOf :VisualNumbers.
@@ -173,6 +186,9 @@
 :DataRepresentation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents collected or summarized data in a visual form.";
     edu:partOf :RepresentationalScope.
+:DataTable a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Represents data organized in rows and columns.";
+    edu:partOf :DataRepresentation.
 :DayIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of days.";
     edu:partOf :TimeIntervals.
