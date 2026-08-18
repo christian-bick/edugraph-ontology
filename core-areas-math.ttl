@@ -211,6 +211,10 @@
     rdfs:isDefinedBy "The physical, visual or symbolized act of splitting a single bounded collection into two or more distinct non-overlapping subcollections of equal cardinality. The source cardinality equals the number of subcollections multiplied by their shared cardinality, so either factor can be determined through division.";
     edu:expands :NumericEquality, :PartitionOfCollections;
     edu:partOf :CollectionSense.
+:EmergentFeatureRecognition a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Recognizing a recurring, alternating, invariant, or otherwise systematic property of generated pattern elements that follows from, but is not itself, the generative rule.";
+    edu:expands :GenerativeRuleRecognition;
+    edu:partOf :PatternRecognition.
 :Equation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A mathematical statement asserting that two expressions have equal value.";
     edu:expands :NumericIdentity;
@@ -271,6 +275,9 @@
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
     edu:expands :FactorsAndMultiples;
     edu:partOf :FractionEquivalence.
+:GenerativeRuleRecognition a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Recognizing a generative rule that accounts for how the presented elements of a pattern are produced.";
+    edu:partOf :PatternRecognition.
 :GeometricCalculations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The measurement and calculation of properties of geometric objects, such as perimeter, area, and volume.";
     edu:expands :MeasuringObjects;
@@ -523,9 +530,20 @@
 :PartitiveDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection and the required number of equal subcollections are given. Every source object is assigned to exactly one subcollection, and the quotient is the shared cardinality of each resulting subcollection.";
     edu:partOf :DivisionOfCollections.
-:PatternRecognition a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Identifying, extending, and creating repeating or growing patterns.";
+:PatternCorrespondence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Identifying a systematic relationship between aligned elements of two patterns.";
+    edu:expands :PatternRecognition;
+    edu:partOf :PatternMatching.
+:PatternGeneration a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Constructing successive elements of a pattern by repeatedly applying a given rule from a specified starting condition.";
+    edu:expands :Iteration;
+    edu:partOf :PatternMatching.
+:PatternMatching a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of systematic correspondences among pattern elements, generative rules, emergent features, and related patterns.";
     edu:partOf :IntuitiveMathematics.
+:PatternRecognition a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Recognizing that a sequence or configuration exhibits a systematic regularity.";
+    edu:partOf :PatternMatching.
 :Pentagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with five edges and five vertices.";
     edu:partOf :Polygon.
