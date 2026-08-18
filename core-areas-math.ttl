@@ -253,7 +253,6 @@
     edu:partOf :IntegerStrategies.
 :EmergentFeatureRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizing a recurring, alternating, invariant, or otherwise systematic property of generated pattern elements that follows from, but is not itself, the generative rule.";
-    edu:expands :GenerativeRuleRecognition;
     edu:partOf :PatternRecognition.
 :Equation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A mathematical statement asserting that two expressions have equal value.";
