@@ -251,6 +251,14 @@
     rdfs:isDefinedBy "The representation of rational numbers as a ratio of two integers, expressed in the form a/b, where the numerator (a) indicates a number of equal parts and the denominator (b) indicates how many of those parts make up a unit or whole.";
     edu:expands :Division, :NumerationWithFractions, :ProportionInteraction;
     edu:partOf :RationalArithmetic.
+:FractionCommonDenominatorComparison a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Comparing fraction magnitudes by expressing the fractions with an equal denominator and comparing their counts of equal-sized parts.";
+    edu:expands :FractionDenominatorInterpretation, :LowestCommonDenominator, :NumericComparison;
+    edu:partOf :FractionStrategies.
+:FractionCommonNumeratorComparison a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Comparing fraction magnitudes by expressing the fractions with an equal numerator and reasoning inversely about the sizes of their unit-fraction parts.";
+    edu:expands :FractionNumeratorInterpretation, :LowestCommonNumerator, :NumericComparison;
+    edu:partOf :FractionStrategies.
 :FractionDenominatorInterpretation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Fraction denominator interpretation is the ability to understand the meaning of the bottom number (denominator) in a fraction and its relationship to the other quantities involved.";
     edu:partOf :FractionInterpretation;
@@ -271,10 +279,21 @@
     rdfs:isDefinedBy "Fraction numerator interpretation is the ability to understand the meaning of the top number (numerator) in a fraction and its relationship to the other quantities involved.";
     edu:partOf :FractionInterpretation;
     edu:translates :RatioAntecedentInterpretation.
+:FractionReferenceComparison a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Comparing fraction magnitudes by evaluating their relative size against a shared, familiar reference value, such as one half or one whole.";
+    edu:expands :FractionInterpretation, :NumerationWithFractions, :NumericComparison;
+    edu:partOf :FractionStrategies.
+:FractionReferenceDistanceComparison a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Comparing fraction magnitudes located on the same side of a reference value by evaluating the size of their respective remaining distances to that value.";
+    edu:expands :Difference, :FractionReferenceComparison;
+    edu:partOf :FractionStrategies.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to its simplest form by dividing the numerator and denominator by their greatest common factor.\n\nExample: 12/18 simplifies to 2/3 by dividing both by 6";
     edu:expands :FactorsAndMultiples;
     edu:partOf :FractionEquivalence.
+:FractionStrategies a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Recognizable methods for coordinating fraction magnitude, equivalence, and arithmetic relationships to obtain or explain a result.";
+    edu:partOf :FractionArithmetic.
 :GenerativeRuleRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizing a generative rule that accounts for how the presented elements of a pattern are produced.";
     edu:partOf :PatternRecognition.
@@ -399,6 +418,10 @@
     rdfs:isDefinedBy "The branch of mathematics that studies reasoning and valid arguments. It provides a framework for determining whether something is true or false based on given premises. It is the foundation for constructing proofs, ensuring that conclusions follow logically from their premises.".
 :LowestCommonDenominator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the smallest common multiple of the denominators of two or more fractions.\n\nExample: The lowest common denominator of 1/4 and 1/6 is 12.";
+    edu:expands :FactorsAndMultiples;
+    edu:partOf :FractionEquivalence.
+:LowestCommonNumerator a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Finding the smallest common multiple of the numerators of two or more fractions.\n\nExample: The lowest common numerator of 2/5 and 3/7 is 6.";
     edu:expands :FactorsAndMultiples;
     edu:partOf :FractionEquivalence.
 :MathematicalExpression a owl:NamedIndividual, edu:Area;
