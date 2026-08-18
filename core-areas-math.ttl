@@ -292,12 +292,12 @@
     edu:expands :Division, :NumerationWithFractions, :ProportionInteraction;
     edu:partOf :RationalArithmetic.
 :FractionCommonDenominatorComparison a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Comparing fraction magnitudes by expressing the fractions with an equal denominator and comparing their counts of equal-sized parts.";
-    edu:expands :FractionDenominatorInterpretation, :LowestCommonDenominator, :NumericComparison;
+    rdfs:isDefinedBy "Comparing fraction magnitudes that share an equal denominator by comparing their counts of equal-sized parts.";
+    edu:expands :FractionNumeratorInterpretation, :NumericComparison;
     edu:partOf :FractionStrategies.
 :FractionCommonNumeratorComparison a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Comparing fraction magnitudes by expressing the fractions with an equal numerator and reasoning inversely about the sizes of their unit-fraction parts.";
-    edu:expands :FractionNumeratorInterpretation, :LowestCommonNumerator, :NumericComparison;
+    rdfs:isDefinedBy "Comparing fraction magnitudes that share an equal numerator by reasoning inversely about the sizes of their unit-fraction parts.";
+    edu:expands :FractionDenominatorInterpretation, :NumericComparison;
     edu:partOf :FractionStrategies.
 :FractionDenominatorInterpretation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Fraction denominator interpretation is the ability to understand the meaning of the bottom number (denominator) in a fraction and its relationship to the other quantities involved.";
