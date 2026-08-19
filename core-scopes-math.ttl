@@ -327,6 +327,9 @@
 :GeometryRepresentation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a geometric representation.";
     edu:partOf :RepresentationalScope.
+:GeometrySticks a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Represents geometric shapes with geometry sticks.";
+    edu:partOf :PhysicalGeometry.
 :GramScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in grams.";
     edu:partOf :MetricWeightScale.
