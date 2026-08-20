@@ -476,10 +476,10 @@
     rdfs:isDefinedBy "A declarative mathematical sentence that asserts a relation between expressions and can be evaluated as true or false.";
     edu:partOf :FormalMathematics.
 :Measurement a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Measurement is the process of assigning numbers to describe the properties of objects, such as length, weight, or volume.";
+    rdfs:isDefinedBy "Processes for comparing or quantifying measurable attributes such as length, weight, volume, or duration, either qualitatively or by assigning numerical values.";
     edu:partOf :SpatialSense.
 :MeasuringObjects a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Measuring objects involves determining their physical dimensions using appropriate tools and units.";
+    rdfs:isDefinedBy "Determining or comparing measurable physical dimensions of manifested objects directly, through an intermediary, or by using tools and units.";
     edu:partOf :Measurement.
 :MeasuringTime a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Measuring time involves quantifying the duration of events or the intervals between them.";
