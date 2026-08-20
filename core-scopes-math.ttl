@@ -125,7 +125,7 @@
     edu:partOf :RelatedFractions.
 :CompassDirections a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves cardinal and intercardinal orientation indicators.";
-    edu:partOf :DirectionalRepresentation.
+    edu:partOf :DirectionalAbstraction.
 :ComplexityScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the objective structural complexity of a concept, determined by factors such as composition depth, step count, and operand quantity.".
 :CompositionDepth a owl:NamedIndividual, edu:Scope;
@@ -222,9 +222,9 @@
 :DimensionalAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves spatial dimensions with or without time or hyperdimensional concepts.";
     edu:partOf :AbstractionScope.
-:DirectionalRepresentation a owl:NamedIndividual, edu:Scope;
+:DirectionalAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves direction or orientation concepts.";
-    edu:partOf :RepresentationalScope.
+    edu:partOf :AbstractionScope.
 :DirectRelation a owl:NamedIndividual, edu:Scope;
     rdfs:comment "Examples include comparing two rods side by side, reading 3 < 5 directly from a number line, or observing that one event occurs before another.";
     rdfs:isDefinedBy "Involves a target relation established from evidence directly connecting its target entities, without an intermediary entity.";
@@ -948,7 +948,7 @@
     edu:partOf :IntercardinalDirections.
 :SpatialDirection a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves relative or cardinal orientation and movement indicators.";
-    edu:partOf :DirectionalRepresentation.
+    edu:partOf :DirectionalAbstraction.
 :SpatialNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents numbers visually along a spatial dimension.";
     edu:partOf :NumberRepresentation.
@@ -1065,7 +1065,7 @@
     edu:partOf :MeasurementScope.
 :TemporalDirection a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves chronological or sequential orientation and progression indicators.";
-    edu:partOf :DirectionalRepresentation.
+    edu:partOf :DirectionalAbstraction.
 :TenFrame a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a ten frame: Typically a table with 2 rows and 5 columns where numbers are indicated by filled cells starting at the top left.";
     edu:partOf :VisualNumbers.
