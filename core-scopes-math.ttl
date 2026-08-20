@@ -762,6 +762,9 @@
 :NumericZero a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the inclusion or exclusion of zero.";
     edu:partOf :NumericAbstraction.
+:ObjectAbstraction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves properties, states, attributes, or variations of physical and geometric objects.";
+    edu:partOf :AbstractionScope.
 :ObjectArrangement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the relative positioning and spatial organization of objects.";
     edu:partOf :ObjectRepresentation.
@@ -803,9 +806,6 @@
 :Patternblocks a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes with a pattern block.";
     edu:partOf :PhysicalGeometry.
-:PhysicalAbstraction a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves physical properties or mechanical concepts.";
-    edu:partOf :AbstractionScope.
 :PhysicalGeometry a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Represents geometric shapes with physical objects.";
     edu:partOf :GeometryRepresentation.
@@ -905,10 +905,19 @@
     edu:partOf :DistanceAbstraction.
 :ShapeAttributes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification of specific geometric features, such as edges, faces, and vertices, that constitute the physical structure of an object.";
-    edu:partOf :PhysicalAbstraction.
+    edu:partOf :ObjectAbstraction.
+:ShapeOrientationVariation a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a geometric kind situated in one or more visibly different orientations while preserving its defining form.";
+    edu:partOf :ShapeVariation.
 :ShapeProperties a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the physical property of objects that allows for the identification and differentiation of geometric forms through attributes such as edges, faces, and vertices to determine spatial behavior and mechanical constraints.";
-    edu:partOf :PhysicalAbstraction.
+    edu:partOf :ObjectAbstraction.
+:ShapeSizeVariation a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a geometric kind possessing one or more visibly different overall sizes while preserving its defining form.";
+    edu:partOf :ShapeVariation.
+:ShapeVariation a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves a geometric kind subject to changes in non-defining spatial properties (such as size or orientation) while preserving its defining form.";
+    edu:partOf :ObjectAbstraction.
 :SingleDigitDividend a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a dividend with a single digit.";
     edu:partOf :DividendDigitCount.
@@ -993,7 +1002,7 @@
     edu:partOf :ComplexityScope.
 :StateProperties a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and differentiation of states of matter.";
-    edu:partOf :PhysicalAbstraction.
+    edu:partOf :ObjectAbstraction.
 :StepComplexity a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the number of successive logical or procedural steps required to reach a solution, where each step represents a discrete operation or transformation within a sequential process.";
     edu:partOf :ComplexityScope.
