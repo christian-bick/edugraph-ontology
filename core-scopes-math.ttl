@@ -765,12 +765,18 @@
 :ObjectArrangement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the relative positioning and spatial organization of objects.";
     edu:partOf :ObjectRepresentation.
+:ObjectMeasurement a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves the source of measurement evidence, distinguishing whether a value must be observed from a represented object or is provided as recorded data.";
+    edu:partOf :MeasurementScope.
 :ObjectRepresentation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the representation of objects.";
     edu:partOf :RepresentationalScope.
 :ObjectTypes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the representation of objects and classes of objects.";
     edu:partOf :ObjectRepresentation.
+:ObservedMeasurement a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Requires determining a measurement value by observing a represented measurable object, scale, or tool.";
+    edu:partOf :ObjectMeasurement.
 :OddNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the divisibility property of numbers not divisible by 2.";
     edu:contradicts :EvenNumbers;
@@ -830,6 +836,9 @@
     rdfs:isDefinedBy "Involves a protractor.";
     edu:integrates :DegreeScale;
     edu:partOf :AngleMeasurement.
+:ProvidedMeasurement a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Supplies measurement values explicitly as recorded data for representation, interpretation, or computation, without requiring direct observation of the source objects.";
+    edu:partOf :ObjectMeasurement.
 :QuantityMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the measurement of object quantities.";
     edu:partOf :MeasurementScope.
