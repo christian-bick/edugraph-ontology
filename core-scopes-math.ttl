@@ -428,7 +428,7 @@
     rdfs:isDefinedBy "Involves relative horizontal orientation situated at the left side position or direction than a reference point.";
     edu:partOf :SpatialDirection.
 :LengthMeasurement a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves length measurement.";
+    rdfs:isDefinedBy "Involves determining or comparing the lengths of objects, whether directly, through an intermediary, or by using measurement tools and units.";
     edu:partOf :MeasurementScope.
 :Less a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the comparison of two entities where one has a smaller quantity, size, or value than the other.";
