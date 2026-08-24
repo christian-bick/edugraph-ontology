@@ -248,6 +248,10 @@
 :EdgeCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and quantification of edges that constitute the physical structure of an object.";
     edu:partOf :ShapeAttributes.
+:EigthFractions a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves fractions characterized by a denominator of eight.";
+    edu:expands :QuarterFractions;
+    edu:partOf :CommonDenominator.
 :Equal a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the comparison of entities indicating they have the exact same quantity, size, or value.";
     edu:partOf :OrderAbstraction.
@@ -340,6 +344,9 @@
     rdfs:isDefinedBy "Involves a denomination worth one half of its associated major denomination.";
     edu:partOf :MinorDenomination;
     edu:translates :UnitFractions.
+:HalfFractions a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves fractions characterized by a denominator of two.";
+    edu:partOf :CommonDenominator.
 :HalfHourIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of half hours.";
     edu:partOf :TimeIntervals;
@@ -846,6 +853,10 @@
     rdfs:isDefinedBy "Involves a denomination worth one quarter of its associated major denomination.";
     edu:partOf :MinorDenomination;
     edu:translates :UnitFractions.
+:QuarterFractions a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves fractions characterized by a denominator of four.";
+    edu:expands :HalfFractions;
+    edu:partOf :CommonDenominator.
 :QuarterHourIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of quarter hours.";
     edu:partOf :TimeIntervals;
@@ -1082,10 +1093,16 @@
     rdfs:isDefinedBy "Involves a denomination worth one tenth of its associated major denomination.";
     edu:partOf :MinorDenomination;
     edu:translates :UnitFractions.
+:TenthFractions a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves fractions characterized by a denominator of ten.";
+    edu:partOf :CommonDenominator.
 :Thermometer a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a thermometer.";
     edu:integrates :CelsiusScale, :KelvinScale;
     edu:partOf :TemperatureMeasurement.
+:ThirdFractions a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves fractions characterized by a denominator of three.";
+    edu:partOf :CommonDenominator.
 :ThreeDigitDividend a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a dividend with exactly three digits.";
     edu:expands :TwoDigitDividend;
