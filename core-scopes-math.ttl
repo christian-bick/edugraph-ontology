@@ -248,7 +248,7 @@
 :EdgeCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the identification and quantification of edges that constitute the physical structure of an object.";
     edu:partOf :ShapeAttributes.
-:EigthFractions a owl:NamedIndividual, edu:Scope;
+:EighthFractions a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves fractions characterized by a denominator of eight.";
     edu:expands :QuarterFractions;
     edu:partOf :CommonDenominator.
