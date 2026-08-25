@@ -478,12 +478,21 @@
 :Measurement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Processes for comparing or quantifying measurable attributes such as length, weight, volume, or duration, either qualitatively or by assigning numerical values.";
     edu:partOf :SpatialSense.
+:MeasuringLength a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining or comparing the linear extent or one-dimensional distance of manifested objects directly, through an intermediary, or by using tools and units.";
+    edu:partOf :MeasuringObjects.
 :MeasuringObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining or comparing measurable physical dimensions of manifested objects directly, through an intermediary, or by using tools and units.";
     edu:partOf :Measurement.
 :MeasuringTime a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Measuring time involves quantifying the duration of events or the intervals between them.";
     edu:partOf :Measurement.
+:MeasuringVolumes a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining or comparing the three-dimensional extent or amount of space occupied by manifested objects directly, through an intermediary, or by using tools and units.";
+    edu:partOf :MeasuringObjects.
+:MeasuringWeight a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining or comparing the mass or heaviness of manifested objects directly, through an intermediary, or by using tools and units.";
+    edu:partOf :MeasuringObjects.
 :MeasuringWithUnits a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of standard units used to quantify physical properties, including their relative sizes, systems, and conversions.";
     edu:partOf :Measurement.
