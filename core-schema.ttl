@@ -153,7 +153,15 @@ edu:partOf rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf owl:topObjectProperty ;
            rdfs:domain owl:Thing ;
            rdfs:range owl:Thing ;
-           rdfs:isDefinedBy "An entity that is part of another entity inherits its attributes and relations." .
+           rdfs:isDefinedBy "An entity is part of another entity when it is a constituent of the whole represented by that entity. This relation expresses compositional structure and does not imply inheritance." .
+
+
+###  http://edugraph.io/edu#specializes
+edu:specializes rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain owl:Thing ;
+                rdfs:range owl:Thing ;
+                rdfs:isDefinedBy "An entity specializes another entity when it represents a more specific form of the same concept. The specializing entity inherits the attributes and relations of the more general entity." .
 
 
 ###  http://edugraph.io/edu#translatedBy
