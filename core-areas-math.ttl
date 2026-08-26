@@ -15,12 +15,12 @@
     edu:translates :DistanceCalculation.
 :AcuteAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures less than 90 degrees.";
-    edu:partOf :AngleConcept.
+    edu:specializes :AngleConcept.
 :AcuteTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle in which all three interior angles are acute angles.";
     edu:expands :AcuteAngle;
     edu:integrates :AcuteAngle;
-    edu:partOf :Triangle.
+    edu:specializes :Triangle.
 :Addition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Adding numbers together.";
     edu:expands :Sum;
@@ -119,7 +119,7 @@
 :CircumferenceCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the continuous line forming the boundary of a circle.";
     edu:expands :Circle, :Pi, :RadiusDiameterRelation;
-    edu:partOf :PerimeterCalculation.
+    edu:specializes :PerimeterCalculation.
 :CollectionSense a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Collection sense is the intuitive understanding of how objects are grouped and categorized as a foundational form of set theory.";
     edu:partOf :IntuitiveMathematics.
@@ -160,7 +160,7 @@
 :Cube a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six congruent square faces where each pair of opposite faces is parallel.";
     edu:expands :Square;
-    edu:partOf :RectangularPrism.
+    edu:specializes :RectangularPrism.
 :Cylinder a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A three-dimensional solid consisting of two parallel circular bases connected by a curved surface.";
     edu:expands :Circle, :Rectangle;
@@ -179,10 +179,10 @@
 :DecimalNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent decimals, including the floating point and its meaning.";
     edu:expands :IntegerNotation;
-    edu:partOf :NumberNotation.
+    edu:specializes :NumberNotation.
 :DecimalPadding a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures that adjust the digits following the floating point to ensure uniform decimal places as a part of decimal number operations such as addition.";
-    edu:partOf :DecimalEquivalence.
+    edu:specializes :DecimalEquivalence.
 :DecimalPointAlignment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures that align the floating point as a part of decimal number operations.";
     edu:partOf :DecimalArithmetic.
@@ -208,11 +208,11 @@
 :DigitNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Digit notation uses symbols from 0 to 9 to represent any number.";
     edu:expands :NumericIdentity;
-    edu:partOf :NumberNotation.
+    edu:specializes :NumberNotation.
 :Dilation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that produces an image that is the same shape as the original, but is a different size, altering the scale of the geometric object.";
     edu:expands :ShapeResizingConservation;
-    edu:partOf :GeometricTransformations.
+    edu:specializes :GeometricTransformations.
 :DistanceCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of distance between two points.";
     edu:expands :Difference;
@@ -253,23 +253,23 @@
     edu:partOf :IntegerStrategies.
 :EmergentFeatureRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizing a recurring, alternating, invariant, or otherwise systematic property of generated pattern elements that follows from, but is not itself, the generative rule.";
-    edu:partOf :PatternRecognition.
+    edu:specializes :PatternRecognition.
 :Equation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A mathematical statement asserting that two expressions have equal value.";
     edu:expands :NumericIdentity;
-    edu:partOf :MathematicalStatement.
+    edu:specializes :MathematicalStatement.
 :EquilateralTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle in which all three sides are of equal length and all three angles are 60 degrees.";
     edu:expands :SymmetryRelation;
-    edu:partOf :Triangle.
+    edu:specializes :Triangle.
 :Estimation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Intuitively guessing relative quantities and sizes without counting.";
     edu:expands :NumericComparison;
-    edu:partOf :NumericApproximation.
+    edu:specializes :NumericApproximation.
 :EvenDivisibility a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the divisor is two, permitting the source collection to be partitioned into exactly two subcollections of equal cardinality. The result identifies the source cardinality as an even integer, consisting of a quotient that represents the shared cardinality of the subcollections and a remainder of zero.";
     edu:expands :SetComparison, :Subitizing;
-    edu:partOf :DivisionOfCollections.
+    edu:specializes :DivisionOfCollections.
 :Exponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a number to a power, meaning multiplying it by itself a certain number of times.";
     edu:expands :Multiplication;
@@ -313,7 +313,7 @@
 :FractionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent fractions, including the numerator and denominator.";
     edu:expands :IntegerNotation;
-    edu:partOf :NumberNotation.
+    edu:specializes :NumberNotation.
 :FractionNumeratorInterpretation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Fraction numerator interpretation is the ability to understand the meaning of the top number (numerator) in a fraction and its relationship to the other quantities involved.";
     edu:partOf :FractionInterpretation;
@@ -335,7 +335,7 @@
     edu:partOf :FractionArithmetic.
 :GenerativeRuleRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizing a generative rule that accounts for how the presented elements of a pattern are produced.";
-    edu:partOf :PatternRecognition.
+    edu:specializes :PatternRecognition.
 :GeometricCalculations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The measurement and calculation of properties of geometric objects, such as perimeter, area, and volume.";
     edu:expands :MeasuringObjects;
@@ -367,12 +367,12 @@
     edu:partOf :Circle.
 :Hexagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with six edges and six vertices.";
-    edu:partOf :Polygon.
+    edu:specializes :Polygon.
 :ImperfectDivisibility a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection is not an integer multiple of the divisor, preventing every source object from being assigned to the equal subcollections. The result consists of a quotient, representing the number or shared cardinality of the subcollections, and a remainder, representing the subset of source objects that cannot be distributed while maintaining equal cardinality.";
     edu:contradicts :PerfectDivisibility;
     edu:inverts :PerfectDivisibility;
-    edu:partOf :DivisionOfCollections.
+    edu:specializes :DivisionOfCollections.
 :Increment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a quantity by a certain amount.";
     edu:expands :NumericOrder;
@@ -380,7 +380,7 @@
 :Inequality a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A mathematical statement asserting a relative order or lack of equality between two expressions, such as less than, greater than, or not equal.";
     edu:expands :NumericComparison;
-    edu:partOf :MathematicalStatement.
+    edu:specializes :MathematicalStatement.
 :IntegerArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The understanding and application of whole numbers, their additive inverses (negative numbers), and zero, representing discrete values that do not contain fractional or decimal components.";
     edu:expands :NumerationWithIntegers;
@@ -388,7 +388,7 @@
 :IntegerNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols used to represent integers.\n\nExample: Using the symbols -3, 0, and 12 to represent integers.";
     edu:expands :DigitNotation;
-    edu:partOf :NumberNotation.
+    edu:specializes :NumberNotation.
 :IntegerRegrouping a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Also referred to as carrying or borrowing. The process of exchanging values between place value positions to facilitate arithmetic operations such as addition and subtraction within the set of integer numbers.";
     edu:expands :PlaceValue;
@@ -410,17 +410,17 @@
     edu:partOf :PositionalRelations.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Intervals with infinity is used to represent sets of numbers with unbounded limits.";
-    edu:partOf :NumerationWithIntervals.
+    edu:specializes :NumerationWithIntervals.
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts.".
 :IsoscelesTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle that has at least two sides of equal length.";
     edu:expands :SymmetryRelation;
-    edu:partOf :Triangle.
+    edu:specializes :Triangle.
 :IteratedOperation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An arithmetic evaluation that repeatedly applies the same arithmetic operations on a single operand value.";
     edu:expands :ArithmeticOperations;
-    edu:partOf :ArithmeticEvaluation.
+    edu:specializes :ArithmeticEvaluation.
 :Iteration a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Repeatedly applying the exact same operation, evaluation or rule an exact number of times.";
     edu:expands :Numeration;
@@ -428,7 +428,7 @@
 :Kite a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quadrilateral with two distinct pairs of equal-length sides that are adjacent to each other.";
     edu:expands :SymmetryRelation;
-    edu:partOf :Quadrilateral.
+    edu:specializes :Quadrilateral.
 :LengthCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the linear extent or measurement of a geometric object.";
     edu:expands :DistanceCalculation;
@@ -480,7 +480,7 @@
     edu:partOf :SpatialSense.
 :MeasuringLength a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining or comparing the linear extent or one-dimensional distance of manifested objects directly, through an intermediary, or by using tools and units.";
-    edu:partOf :MeasuringObjects.
+    edu:specializes :MeasuringObjects.
 :MeasuringObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining or comparing measurable physical dimensions of manifested objects directly, through an intermediary, or by using tools and units.";
     edu:partOf :Measurement.
@@ -489,10 +489,10 @@
     edu:partOf :Measurement.
 :MeasuringVolumes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining or comparing the three-dimensional extent or amount of space occupied by manifested objects directly, through an intermediary, or by using tools and units.";
-    edu:partOf :MeasuringObjects.
+    edu:specializes :MeasuringObjects.
 :MeasuringWeight a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining or comparing the mass or heaviness of manifested objects directly, through an intermediary, or by using tools and units.";
-    edu:partOf :MeasuringObjects.
+    edu:specializes :MeasuringObjects.
 :MeasuringWithUnits a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of standard units used to quantify physical properties, including their relative sizes, systems, and conversions.";
     edu:partOf :Measurement.
@@ -529,7 +529,7 @@
 :NumberNameNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of written words used to represent numerical values, such as 'four hundred thirty-seven'.";
     edu:expands :NumericIdentity;
-    edu:partOf :NumberNotation.
+    edu:specializes :NumberNotation.
 :NumberNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Number notation is the system of symbols and rules used to express numerical values.";
     edu:partOf :FormalMathematics.
@@ -544,17 +544,17 @@
 :NumerationWithDecimals a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with decimals encompasses understanding the place value and magnitude of decimal numbers on the number line.";
     edu:expands :NumerationWithFractions;
-    edu:partOf :Numeration.
+    edu:specializes :Numeration.
 :NumerationWithFractions a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with fractions encompasses understanding the density of fraction numbers on the number line.";
     edu:expands :NumerationWithIntegers;
-    edu:partOf :Numeration.
+    edu:specializes :Numeration.
 :NumerationWithIntegers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with integers includes understanding the sequence and magnitude of whole numbers.";
-    edu:partOf :Numeration.
+    edu:specializes :Numeration.
 :NumerationWithIntervals a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeration with intervals is used to represent sets of numbers with specific limits.";
-    edu:partOf :Numeration.
+    edu:specializes :Numeration.
 :NumericApproximation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numeric approximation involves estimating values to represent quantities that are close to their exact values.";
     edu:partOf :NumberSense.
@@ -582,12 +582,12 @@
     edu:partOf :CollectionSense.
 :ObtuseAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures more than 90 degrees but less than 180 degrees.";
-    edu:partOf :AngleConcept.
+    edu:specializes :AngleConcept.
 :ObtuseTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle that has one obtuse angle.";
     edu:expands :ObtuseAngle;
     edu:integrates :ObtuseAngle;
-    edu:partOf :Triangle.
+    edu:specializes :Triangle.
 :OddAndEvenNumbers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining whether a given integer is odd or even in its symbolic numeric form, such as by using the final-digit divisibility rule.";
     edu:expands :EvenDivisibility, :PlaceValue;
@@ -611,7 +611,7 @@
 :Parallelogram a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with two pairs of parallel sides, their properties, and related measurements.";
     edu:expands :ParallelismRelation;
-    edu:partOf :Quadrilateral.
+    edu:specializes :Quadrilateral.
 :ParenthesesUsage a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The use of grouping symbols in arithmetic expressions to override the standard order of operations and specify which calculations should be performed first.";
     edu:expands :OrderOfOperations;
@@ -623,7 +623,7 @@
     edu:partOf :CollectionSense.
 :PartitiveDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection and the required number of equal subcollections are given. Every source object is assigned to exactly one subcollection, and the quotient is the shared cardinality of each resulting subcollection.";
-    edu:partOf :DivisionOfCollections.
+    edu:specializes :DivisionOfCollections.
 :PatternCorrespondence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identifying a systematic relationship between aligned elements of two patterns.";
     edu:expands :PatternRecognition;
@@ -640,7 +640,7 @@
     edu:partOf :PatternMatching.
 :Pentagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with five edges and five vertices.";
-    edu:partOf :Polygon.
+    edu:specializes :Polygon.
 :PercentageArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The understanding and application of numbers expressed as a fraction of 100.";
     edu:partOf :RationalArithmetic.
@@ -651,10 +651,10 @@
 :PercentageNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The system of symbols used to represent percentages, specifically the percent sign (%).";
     edu:expands :DecimalNotation;
-    edu:partOf :NumberNotation.
+    edu:specializes :NumberNotation.
 :PerfectDivisibility a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection is an integer multiple of the divisor, permitting every source object to be assigned to the equal subcollections. The result consists of a quotient, representing the number or shared cardinality of the subcollections, and a remainder of zero, indicating that the source collection is partitioned entirely into subcollections of equal cardinality.";
-    edu:partOf :DivisionOfCollections.
+    edu:specializes :DivisionOfCollections.
 :PerimeterCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the continuous line forming the boundary of a closed geometric figure.";
     edu:expands :LengthCalculation;
@@ -703,7 +703,7 @@
 :Prism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has two congruent and parallel bases and lateral faces that are parallelograms.";
     edu:expands :Parallelogram;
-    edu:partOf :Polyhedron.
+    edu:specializes :Polyhedron.
 :ProportionAbstraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Proportion abstraction is the ability to generalize proportional relationships and apply them to new situations.";
     edu:partOf :ProportionSense.
@@ -728,20 +728,20 @@
 :Pyramid a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polyhedron formed by connecting a polygonal base and a point, called the apex.";
     edu:expands :Rectangle, :Triangle;
-    edu:partOf :Polyhedron.
+    edu:specializes :Polyhedron.
 :Quadrants a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The four regions into which the coordinate axes divide the Cartesian plane, typically numbered I, II, III, and IV.";
     edu:partOf :CartesianPlane.
 :Quadrilateral a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with four edges and four vertices.";
-    edu:partOf :Polygon.
+    edu:specializes :Polygon.
 :QuarterCircle a owl:NamedIndividual, edu:Area;
     rdfs:comment "A quarter-circular shape, such as one of four congruent pieces formed by two perpendicular diameters.";
     rdfs:isDefinedBy "A two-dimensional geometric figure bounded by a quarter-circle arc and two perpendicular radii, representing one fourth of a circle.";
     edu:partOf :Circle.
 :QuotativeDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection and the required cardinality of each equal subcollection are given. Every source object is assigned to exactly one subcollection, and the quotient is the number of resulting subcollections.";
-    edu:partOf :DivisionOfCollections.
+    edu:specializes :DivisionOfCollections.
 :RadiusDiameterRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The proportional relationship stating that the diameter of a circle is exactly twice the length of its radius.";
     edu:partOf :CircleRelations.
@@ -763,7 +763,7 @@
     edu:partOf :ArithmeticSpaces.
 :RatioNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying the system of symbols and conventions used to represent ratios.";
-    edu:partOf :NumberNotation.
+    edu:specializes :NumberNotation.
 :RayConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A straight, one-dimensional figure that starts at a fixed point and extends infinitely in one direction.";
     edu:expands :LineConcept;
@@ -771,29 +771,29 @@
 :Rectangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements.";
     edu:expands :RightAngle;
-    edu:partOf :Parallelogram.
+    edu:specializes :Parallelogram.
 :RectangularPrism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six rectangular faces where each pair of opposite faces is congruent and parallel.";
     edu:expands :Rectangle;
-    edu:partOf :Prism.
+    edu:specializes :Prism.
 :Reflection a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that flips a geometric figure across a line, creating a mirror image.";
     edu:expands :ShapeReflection;
-    edu:partOf :GeometricTransformations.
+    edu:specializes :GeometricTransformations.
 :ReflexAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures more than 180 degrees but less than 360 degrees.";
-    edu:partOf :AngleConcept.
+    edu:specializes :AngleConcept.
 :Rhombus a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A parallelogram with four equal-length sides.";
-    edu:partOf :Parallelogram.
+    edu:specializes :Parallelogram.
 :RightAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle of exactly 90 degrees, corresponding to a quarter turn.";
     edu:expands :PerpendicularityRelation;
-    edu:partOf :AngleConcept.
+    edu:specializes :AngleConcept.
 :RightTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle that has one right angle.";
     edu:expands :RightAngle;
-    edu:partOf :Triangle.
+    edu:specializes :Triangle.
 :Root a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the number that, when raised to a certain power, produces a given number.\n\nExample: The cube root of 64 is 4 because 4 ^ 3 = 64";
     edu:inverts :Exponentiation;
@@ -801,10 +801,10 @@
 :Rotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that turns a geometric figure around a fixed point, known as the center of rotation, by a specific angle.";
     edu:expands :ShapeRotationConservation;
-    edu:partOf :GeometricTransformations.
+    edu:specializes :GeometricTransformations.
 :Rounding a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical procedure of adjusting a number to a simpler or shorter value that is close to its original value.";
-    edu:partOf :NumericApproximation.
+    edu:specializes :NumericApproximation.
 :RulesOfSigns a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fundamental rules that govern the manipulation and evaluation of signed numbers within arithmetic expressions, ensuring the consistent and accurate determination of positive and negative results.";
     edu:expands :SignNotation;
@@ -812,7 +812,7 @@
 :ScaleneTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle in which all three sides have different lengths.";
     edu:inverts :EquilateralTriangle;
-    edu:partOf :Triangle.
+    edu:specializes :Triangle.
 :SetComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The intuitive visual comparison of two bounded collections to determine relative quantities such as more, less, or equal, relying on spatial arrangement rather than formal counting.";
     edu:expands :GroupRecognition, :NumericOrder;
@@ -859,10 +859,10 @@
     edu:partOf :ShapePartWholeRelations.
 :ShapeResizingConservation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding how a shape can be increased or decreased in size while maintaining its original form.";
-    edu:partOf :ShapeConservation.
+    edu:specializes :ShapeConservation.
 :ShapeRotationConservation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding how a shape can be turned around a fixed point while maintaining its original size and form.";
-    edu:partOf :ShapeConservation.
+    edu:specializes :ShapeConservation.
 :ShapeSubsumption a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding containment relationships among shape categories, where every member of a narrower category also belongs to a broader category; for example, rectangles subsume squares and quadrilaterals subsume rectangles.";
     edu:expands :ShapeClassification;
@@ -872,11 +872,11 @@
     edu:partOf :ShapePartWholeRelations.
 :ShapeTranslationConservation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding how a shape can be slid in a specific direction while maintaining its original size, orientation, and form.";
-    edu:partOf :ShapeConservation.
+    edu:specializes :ShapeConservation.
 :SignNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate a number's direction and magnitude relative to zero.";
     edu:expands :ZeroConcept;
-    edu:partOf :NumberNotation.
+    edu:specializes :NumberNotation.
 :SimilarityRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric figures that have the same shape, with corresponding angles being equal and corresponding sides being in proportion.";
     edu:expands :ShapeResizingConservation;
@@ -908,12 +908,12 @@
     edu:partOf :ThreeDimensionalObjects.
 :Square a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles and four equal sides, their properties, and related measurements.";
-    edu:partOf :Rectangle.
+    edu:specializes :Rectangle.
 :Statistics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides a framework for collecting, organizing, analyzing, and interpreting data. It provides tools for quantifying and modeling randomness, variability, and uncertainty in data.".
 :StraightAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures exactly 180 degrees, forming a straight line.";
-    edu:partOf :AngleConcept.
+    edu:specializes :AngleConcept.
 :Subitizing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The ability to instantly recognize the number of objects in a small group without counting.";
     edu:expands :GroupRecognition;
@@ -982,14 +982,14 @@
 :Translation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that slides a geometric figure in a specific direction and by a specific distance without altering its shape, size, or orientation.";
     edu:expands :ShapeTranslationConservation;
-    edu:partOf :GeometricTransformations.
+    edu:specializes :GeometricTransformations.
 :Trapezoid a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quadrilateral with at least one pair of parallel sides.";
     edu:expands :ParallelismRelation;
-    edu:partOf :Quadrilateral.
+    edu:specializes :Quadrilateral.
 :Triangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of three-sided polygons, their properties, and related measurements.";
-    edu:partOf :Polygon.
+    edu:specializes :Polygon.
 :TrigonometricRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of the relationships between the angles and side lengths of triangles, primarily focusing on right-angled triangles.";
     edu:expands :AngleConcept;
@@ -1001,7 +1001,7 @@
 :UnevenDivisibility a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the divisor is two, precluding the source collection from being partitioned into exactly two subcollections of equal cardinality. The result identifies the source cardinality as an odd integer, consisting of a quotient that represents the shared cardinality of the subcollections and a remainder of one.";
     edu:contradicts :EvenDivisibility;
-    edu:partOf :DivisionOfCollections.
+    edu:specializes :DivisionOfCollections.
 :UnionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The physical, visual or symbolized act of combining two or more distinct, bounded collections into a single larger collection, removing the boundaries between them.";
     edu:expands :GroupRecognition;
