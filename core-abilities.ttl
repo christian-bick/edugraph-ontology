@@ -470,9 +470,9 @@
     rdfs:isDefinedBy "Breaking down complex visual information into smaller, more manageable parts. This involves analyzing visual elements, such as shapes, colors, and patterns, to understand the overall composition.";
     edu:specializes :VisualReception.
 :Visualization a owl:NamedIndividual, edu:Ability;
-    rdfs:comment "Example: Visualizing the steps in a mathematical problem or the structure of a molecule.";
-    rdfs:isDefinedBy "Creating mental images or representations to understand concepts. This involves using imagination and visual thinking to grasp complex ideas or solve problems.";
-    edu:partOf :Expression.
+    rdfs:comment "Example: Creating a diagram that shows the steps of a mathematical procedure or the structure of a molecule.";
+    rdfs:isDefinedBy "Externalizing concepts, relationships, processes, or data as visual representations such as diagrams, graphs, models, or sketches so their structure or meaning can be communicated.";
+    edu:specializes :Expression.
 :VisualReception a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Interpreting a graph in a science textbook to understand the relationship between variables.";
     rdfs:isDefinedBy "Understanding and interpreting visual information. This involves making sense of images, diagrams, charts, and other visual aids.";

@@ -51,8 +51,9 @@ assertOk(structures((Scope as any).PhysicalRuler).includes((Scope as any).Length
 assertOk(structuredBy((Scope as any).LengthMeasurement).includes((Scope as any).PhysicalRuler), "hasPart should contribute to structuredBy");
 assertOk(specializesTransitive(Ability.AxiomFormalization).includes(Ability.LogicalReasoning), "Axiom formalization should inherit logical reasoning through the axiomatic branch");
 assertOk(specializesTransitive(Ability.ReadingFluency).includes(Ability.Reception), "Reading fluency should inherit the reception capability through its linguistic modalities");
-assertOk(specializesTransitive(Ability.WritingFluency).includes(Ability.Expression), "Writing fluency should inherit expression through its linguistic modalities");
-assertOk(specializes(Ability.VisualArticulation).includes(Ability.Expression), "Visual articulation should directly specialize expression");
+assertOk(specializesTransitive(Ability.WritingFluency).includes(Ability.Articulation), "Writing fluency should inherit articulation through its linguistic modalities");
+assertOk(specializes(Ability.VisualArticulation).includes(Ability.Articulation), "Visual articulation should directly specialize articulation");
+assertOk(specializes(Ability.Visualization).includes(Ability.Expression), "Visualization should directly specialize expression");
 assertOk(specializes(Ability.ActiveVocabulary).includes(Ability.TextualArticulation), "Active vocabulary should directly specialize textual articulation");
 assertOk(specializes(Ability.ActiveVocabulary).includes(Ability.VocalArticulation), "Active vocabulary should directly specialize vocal articulation");
 assertOk(specializes(Ability.GrammaticalPrecision).includes(Ability.TextualArticulation), "Grammatical precision should directly specialize textual articulation");
