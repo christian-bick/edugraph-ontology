@@ -1,7 +1,8 @@
 import unittest
 from edugraph import (
     Area, Scope, Ability, relations,
-    part_of, expands, part_of_transitive, definition,
+    structures, structured_by, specializes, specialized_by,
+    part_of, expands, part_of_transitive, structures_transitive, specializes_transitive, definition,
     implies, implies_transitive, contradicts, deduct_compatible, deduct_admitting, incompatible
 )
 
@@ -23,6 +24,14 @@ class TestRelations(unittest.TestCase):
         self.assertIn("partOf", abs_val_relations)
         self.assertIn(Area.ArithmeticEvaluation, abs_val_relations["partOf"])
 
+    def test_structural_and_specialization_relations(self):
+        self.assertIn(Area.Rectangle, specializes(Area.Square))
+        self.assertIn(Area.Square, specialized_by(Area.Rectangle))
+        self.assertIn(Area.Rectangle, structures(Area.Square))
+        self.assertIn(Area.Square, structured_by(Area.Rectangle))
+        self.assertIn(Ability.DeductiveReasoning, structures(Ability.AxiomDefinition))
+        self.assertIn(Ability.AxiomDefinition, structured_by(Ability.DeductiveReasoning))
+
     def test_subproperty_relation(self):
         # Subtraction inverts Addition, so expands should also include Addition
         sub_expands = expands(Area.Subtraction)
@@ -32,6 +41,15 @@ class TestRelations(unittest.TestCase):
         # AbsoluteValue -> ArithmeticEvaluation -> Arithmetic
         transitive_parents = part_of_transitive(Area.AbsoluteValue)
         self.assertIn(Area.Arithmetic, transitive_parents)
+
+    def test_specialization_and_structural_closures(self):
+        square_specializations = specializes_transitive(Area.Square)
+        self.assertIn(Area.Polygon, square_specializations)
+        self.assertNotIn(Area.Geometry, square_specializations)
+
+        meter_structure = structures_transitive(Scope.MeterScale)
+        self.assertIn(Scope.MetricDistanceScale, meter_structure)
+        self.assertIn(Scope.DistanceAbstraction, meter_structure)
 
     def test_implies_contradicts(self):
         smaller_10_implies_direct = implies(Scope.NumbersSmaller10)
@@ -97,4 +115,3 @@ class TestRelations(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

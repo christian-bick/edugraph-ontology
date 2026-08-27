@@ -89,8 +89,10 @@ def generate_init_file(configs, output_dir):
 
     helpers = [
         "definitions", "definition",
+        "structures", "structured_by", "specializes", "specialized_by",
         "part_of", "has_part", "expands", "expanded_by", "integrates", "integrated_by", "inverts", "inverted_by", "translates", "translated_by",
         "constrains", "constrained_by", "implies", "implied_by", "contradicts", "contradicted_by",
+        "structures_transitive", "structured_by_transitive", "specializes_transitive", "specialized_by_transitive",
         "part_of_transitive", "has_part_transitive", "expands_transitive", "expanded_by_transitive", "integrates_transitive", "integrated_by_transitive", "inverts_transitive", "inverted_by_transitive", "translates_transitive", "translated_by_transitive",
         "constrains_transitive", "constrained_by_transitive", "implies_transitive", "implied_by_transitive", "contradicts_transitive", "contradicted_by_transitive",
         "deduct_compatible", "deduct_admitting", "incompatible"
@@ -139,7 +141,9 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
     all_individuals.sort(key=lambda x: (individual_to_class.get(x.name, ""), x.name))
 
     relation_properties = [
+        "structures", "structuredBy",
         "partOf", "hasPart",
+        "specializes", "specializedBy",
         "expands", "expandedBy",
         "integrates", "integratedBy",
         "inverts", "invertedBy",
@@ -179,6 +183,14 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
                     ind_relations[prop] = formatted
 
         # Propagate subproperties logically defined in the schema
+        if "partOf" in ind_relations:
+            ind_relations["structures"] = list(set(ind_relations.get("structures", []) + ind_relations["partOf"]))
+        if "specializes" in ind_relations:
+            ind_relations["structures"] = list(set(ind_relations.get("structures", []) + ind_relations["specializes"]))
+        if "hasPart" in ind_relations:
+            ind_relations["structuredBy"] = list(set(ind_relations.get("structuredBy", []) + ind_relations["hasPart"]))
+        if "specializedBy" in ind_relations:
+            ind_relations["structuredBy"] = list(set(ind_relations.get("structuredBy", []) + ind_relations["specializedBy"]))
         if "inverts" in ind_relations:
             ind_relations["expands"] = list(set(ind_relations.get("expands", []) + ind_relations["inverts"]))
         if "invertedBy" in ind_relations:

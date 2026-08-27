@@ -38,18 +38,22 @@ const relDef = relations(Area.AbsoluteValue).definition;
 ```
 
 ### 3. Individual Relations
-You can query direct and transitive relationships (e.g., taxonomic parents/children, progression paths) between individuals:
+You can query direct and transitive structural, specialization, and progression relationships between individuals:
 
 ```typescript
-import { Area, relations, partOfTransitive, expands } from "edugraph-ts";
+import { Area, Scope, relations, specializesTransitive, structuresTransitive, expands } from "edugraph-ts";
 
 // Direct relations map
-const absValRelations = relations(Area.AbsoluteValue);
+const squareRelations = relations(Area.Square);
 
 // Direct expands list
 const absoluteExpands = expands(Area.AbsoluteValue);  // [Area.IntegerSigns, Area.ZeroConcept]
 
-// Transitive partOf ancestors (AbsoluteValue -> ArithmeticEvaluation -> Arithmetic)
-const transitiveParents = partOfTransitive(Area.AbsoluteValue);
-console.log(transitiveParents.includes(Area.Arithmetic));  // true
+// Specialization inheritance does not traverse partOf
+const inheritedCapabilities = specializesTransitive(Area.Square);
+console.log(inheritedCapabilities.includes(Area.Polygon));  // true
+
+// Combined structural navigation traverses both partOf and specializes
+const structuralContext = structuresTransitive(Scope.MeterScale);
+console.log(structuralContext.includes(Scope.DistanceAbstraction));  // true
 ```

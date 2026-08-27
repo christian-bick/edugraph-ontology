@@ -1,4 +1,10 @@
-import { Area, Scope, Ability, relations, partOfTransitive, expands, definition, implies, impliesTransitive, contradicts, deductCompatible, deductAdmitting, incompatible } from "./index";
+import {
+  Area, Scope, Ability, relations,
+  structures, structuredBy, partOfTransitive, specializes, specializedBy,
+  structuresTransitive, specializesTransitive,
+  expands, definition, implies, impliesTransitive, contradicts,
+  deductCompatible, deductAdmitting, incompatible
+} from "./index";
 
 console.log("🧪 Running relation and definition tests with step-by-step progress logging...");
 
@@ -35,6 +41,16 @@ console.log("Direct match check:", absValPartOf.includes((Area as any).Arithmeti
 assertOk(absValPartOf.includes((Area as any).ArithmeticEvaluation));
 console.log("✅ Direct relation check passed.");
 
+// Test structural and specialization relations
+console.log("Asserting structural and specialization relations...");
+assertOk(specializes(Area.Square).includes(Area.Rectangle), "Square should specialize Rectangle");
+assertOk(specializedBy(Area.Rectangle).includes(Area.Square), "Rectangle should be specialized by Square");
+assertOk(structures(Area.Square).includes(Area.Rectangle), "specializes should contribute to structures");
+assertOk(structuredBy(Area.Rectangle).includes(Area.Square), "specializedBy should contribute to structuredBy");
+assertOk(structures((Ability as any).AxiomDefinition).includes((Ability as any).DeductiveReasoning), "partOf should contribute to structures");
+assertOk(structuredBy((Ability as any).DeductiveReasoning).includes((Ability as any).AxiomDefinition), "hasPart should contribute to structuredBy");
+console.log("✅ Structural and specialization relation checks passed.");
+
 // Test subproperty relation (inverts is subproperty of expands)
 // Subtraction inverts Addition, so expands should also include Addition
 console.log("Asserting subproperty expands relation for Subtraction...");
@@ -53,6 +69,15 @@ console.log("Target:", Area.Arithmetic);
 console.log("Transitive match check:", transitiveParents.includes(Area.Arithmetic));
 assertOk(transitiveParents.includes(Area.Arithmetic));
 console.log("✅ Transitive relation check passed.");
+
+console.log("Asserting specialization and combined structural closures...");
+const squareSpecializations = specializesTransitive(Area.Square);
+assertOk(squareSpecializations.includes(Area.Polygon), "Square should transitively specialize Polygon");
+assertOk(!squareSpecializations.includes(Area.Geometry), "Specialization closure should not traverse partOf");
+const meterStructure = structuresTransitive(Scope.MeterScale);
+assertOk(meterStructure.includes(Scope.MetricDistanceScale), "Meter should structurally reach the metric distance family");
+assertOk(meterStructure.includes(Scope.DistanceAbstraction), "Combined structural closure should cross specializes and partOf");
+console.log("✅ Specialization and combined structural closure checks passed.");
 
 // Test implies and contradicts relations
 console.log("Asserting implies and contradicts relations for Scope...");
@@ -122,4 +147,3 @@ assertOk(!incompatible(Scope.NumbersSmaller10, Scope.ArabicNumerals), "Unrelated
 console.log("✅ incompatible checks passed.");
 
 console.log("🎉 All relation tests passed successfully!");
-

@@ -113,12 +113,12 @@ The release job uploads the following files as assets to the Github Release:
 
 ## 6. Client Libraries API & Relations Usage
 
-Both the TypeScript and Python client libraries expose the core taxonomic and progression relationships defined in the ontology.
+Both the TypeScript and Python client libraries expose the structural, specialization, and progression relationships defined in the ontology.
 
 ### 6.1 TypeScript API Usage
 
 ```typescript
-import { Area, relations, partOfTransitive, expands, definition } from "edugraph-ts";
+import { Area, Scope, relations, specializesTransitive, structuresTransitive, expands, definition } from "edugraph-ts";
 
 // 1. Direct definition lookup (JSDoc also pops up on Area.AbsoluteValue in IDE)
 const def1 = definition(Area.AbsoluteValue);
@@ -126,17 +126,20 @@ const def1 = definition(Area.AbsoluteValue);
 const def2 = relations(Area.AbsoluteValue).definition; // Also accessible on the relations object
 
 // 2. Direct relations lookup
-const absValRelations = relations(Area.AbsoluteValue);
-// absValRelations is: { definition: "...", expands: [...], partOf: [...], translates: [...] }
-const isPartOfEvaluation = absValRelations.partOf?.includes(Area.ArithmeticEvaluation); // true
+const squareRelations = relations(Area.Square);
+const isRectangle = squareRelations.specializes?.includes(Area.Rectangle); // true
 
 // 3. Direct helper functions
 const absoluteExpands = expands(Area.AbsoluteValue); // [Area.IntegerSigns, Area.ZeroConcept]
 
 // 4. Transitive helper functions (BFS closure traversal)
-// Traverses: AbsoluteValue -> ArithmeticEvaluation -> Arithmetic
-const transitiveParents = partOfTransitive(Area.AbsoluteValue);
-const includesArithmetic = transitiveParents.includes(Area.Arithmetic); // true
+// Specialization inheritance only: Square -> Rectangle -> Parallelogram -> Quadrilateral -> Polygon
+const inheritedCapabilities = specializesTransitive(Area.Square);
+const includesPolygon = inheritedCapabilities.includes(Area.Polygon); // true
+
+// Combined structural navigation: MeterScale -> MetricDistanceScale -> DistanceAbstraction
+const structuralContext = structuresTransitive(Scope.MeterScale);
+const includesDistance = structuralContext.includes(Scope.DistanceAbstraction); // true
 ```
 
 ### 6.2 Python API Usage
@@ -144,7 +147,7 @@ const includesArithmetic = transitiveParents.includes(Area.Arithmetic); // true
 The Python library follows standard PEP 8 snake_case naming conventions for relationship helper functions.
 
 ```python
-from edugraph import Area, relations, part_of_transitive, expands, definition
+from edugraph import Area, Scope, relations, specializes_transitive, structures_transitive, expands, definition
 
 # 1. Direct definition lookup (PEP 258 docstring also displays on Area.AbsoluteValue in IDE)
 # Property access on enum member
@@ -155,18 +158,22 @@ def1 = Area.AbsoluteValue.definition
 def2 = definition(Area.AbsoluteValue)
 
 # 2. Direct relations lookup
-abs_val_relations = relations(Area.AbsoluteValue)
-# abs_val_relations is a TypedDict matching:
-# {"definition": "...", "expands": [...], "partOf": [...], "translates": [...]}
-is_part_of_evaluation = Area.ArithmeticEvaluation in abs_val_relations.get("partOf", [])  # True
+square_relations = relations(Area.Square)
+# square_relations is a TypedDict matching:
+# {"definition": "...", "specializes": [...], "structures": [...]}
+is_rectangle = Area.Rectangle in square_relations.get("specializes", [])  # True
 
 # 3. Direct helper functions
 absolute_expands = expands(Area.AbsoluteValue)  # [Area.IntegerSigns, Area.ZeroConcept]
 
 # 4. Transitive helper functions (BFS closure traversal)
-# Traverses: AbsoluteValue -> ArithmeticEvaluation -> Arithmetic
-transitive_parents = part_of_transitive(Area.AbsoluteValue)
-includes_arithmetic = Area.Arithmetic in transitive_parents  # True
+# Specialization inheritance only
+inherited_capabilities = specializes_transitive(Area.Square)
+includes_polygon = Area.Polygon in inherited_capabilities  # True
+
+# Combined structural navigation
+structural_context = structures_transitive(Scope.MeterScale)
+includes_distance = Scope.DistanceAbstraction in structural_context  # True
 ```
 
 ### 6.3 Relation Properties Mapping Reference
@@ -175,8 +182,12 @@ The following relation properties are supported:
 
 | RDF Object Property | TS Direct Helper | TS Transitive Helper | Python Direct Helper | Python Transitive Helper | Description |
 |---|---|---|---|---|---|
-| `partOf` | `partOf` | `partOfTransitive` | `part_of` | `part_of_transitive` | Taxonomic parent relationship |
-| `hasPart` | `hasPart` | `hasPartTransitive` | `has_part` | `has_part_transitive` | Taxonomic children relationship |
+| `structures` | `structures` | `structuresTransitive` | `structures` | `structures_transitive` | Combined structural parent relationship |
+| `structuredBy` | `structuredBy` | `structuredByTransitive` | `structured_by` | `structured_by_transitive` | Inverse combined structural relationship |
+| `partOf` | `partOf` | `partOfTransitive` | `part_of` | `part_of_transitive` | Non-inheriting constituent-to-whole relationship |
+| `hasPart` | `hasPart` | `hasPartTransitive` | `has_part` | `has_part_transitive` | Inverse whole-to-constituent relationship |
+| `specializes` | `specializes` | `specializesTransitive` | `specializes` | `specializes_transitive` | Inheriting narrower-to-broader relationship |
+| `specializedBy` | `specializedBy` | `specializedByTransitive` | `specialized_by` | `specialized_by_transitive` | Inverse broader-to-narrower relationship |
 | `expands` | `expands` | `expandsTransitive` | `expands` | `expands_transitive` | Progression expansion relationship |
 | `expandedBy` | `expandedBy` | `expandedByTransitive` | `expanded_by` | `expanded_by_transitive` | Progression expanded relationship |
 | `integrates` | `integrates` | `integratesTransitive` | `integrates` | `integrates_transitive` | Progression composition relationship |

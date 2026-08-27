@@ -41,18 +41,22 @@ print(relations(Area.AbsoluteValue).get("definition"))
 ```
 
 ### 3. Individual Relations
-You can query direct and transitive relationships (e.g., taxonomic parents/children, progression paths) between individuals:
+You can query direct and transitive structural, specialization, and progression relationships between individuals:
 
 ```python
-from edugraph import Area, relations, part_of_transitive, expands
+from edugraph import Area, Scope, relations, specializes_transitive, structures_transitive, expands
 
 # Direct relations dict
-abs_val_relations = relations(Area.AbsoluteValue)
+square_relations = relations(Area.Square)
 
 # Direct expands list
 absolute_expands = expands(Area.AbsoluteValue)  # [Area.IntegerSigns, Area.ZeroConcept]
 
-# Transitive partOf ancestors (AbsoluteValue -> ArithmeticEvaluation -> Arithmetic)
-transitive_parents = part_of_transitive(Area.AbsoluteValue)
-print(Area.Arithmetic in transitive_parents)  # True
+# Specialization inheritance does not traverse partOf
+inherited_capabilities = specializes_transitive(Area.Square)
+print(Area.Polygon in inherited_capabilities)  # True
+
+# Combined structural navigation traverses both partOf and specializes
+structural_context = structures_transitive(Scope.MeterScale)
+print(Scope.DistanceAbstraction in structural_context)  # True
 ```

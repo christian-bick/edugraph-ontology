@@ -98,7 +98,9 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
     all_individuals.sort(key=lambda x: (individual_to_class.get(x.name, ""), x.name))
 
     relation_properties = [
+        "structures", "structuredBy",
         "partOf", "hasPart",
+        "specializes", "specializedBy",
         "expands", "expandedBy",
         "integrates", "integratedBy",
         "inverts", "invertedBy",
@@ -138,6 +140,14 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
                     ind_relations[prop] = formatted
 
         # Propagate subproperties logically defined in the schema
+        if "partOf" in ind_relations:
+            ind_relations["structures"] = list(set(ind_relations.get("structures", []) + ind_relations["partOf"]))
+        if "specializes" in ind_relations:
+            ind_relations["structures"] = list(set(ind_relations.get("structures", []) + ind_relations["specializes"]))
+        if "hasPart" in ind_relations:
+            ind_relations["structuredBy"] = list(set(ind_relations.get("structuredBy", []) + ind_relations["hasPart"]))
+        if "specializedBy" in ind_relations:
+            ind_relations["structuredBy"] = list(set(ind_relations.get("structuredBy", []) + ind_relations["specializedBy"]))
         if "inverts" in ind_relations:
             ind_relations["expands"] = list(set(ind_relations.get("expands", []) + ind_relations["inverts"]))
         if "invertedBy" in ind_relations:

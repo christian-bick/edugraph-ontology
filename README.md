@@ -71,11 +71,14 @@ content with high accuracy and speed. This is the necessary foundation for creat
 
 #### Structure
 
-Each dimension is organized as it's own taxonomy in a hierarchical structure. For example, learning material that covers
-_IntegerMultiplication_, implicitly also covers _IntegerArithmetic_, _Arithmetic_ and _Mathematics_.
+Each dimension is organized through two explicit structural relations. `partOf` places a constituent
+inside a broader field without implying that the constituent covers the whole. `specializes` identifies
+a narrower form of the same observable concept and therefore supports inheritance to the more general
+concept. For example, _Square_ specializes _Rectangle_, whereas a measurement instrument is only part
+of its broader measurement context.
 
-This allows for more and less specific descriptions of learning material, e.g. explicitly describing specific instructions 
-and exercises with precise terms while describing chapters or lectures with automatically derived generic terms.
+This distinction allows precise and generic descriptions without treating every structural member as
+a substitute for its containing field.
 
 #### Logical Relations
 
