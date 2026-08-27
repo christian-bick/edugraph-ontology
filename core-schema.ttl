@@ -68,7 +68,7 @@ For example:
 
 ###  http://edugraph.io/edu#hasPart
 edu:hasPart rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:subPropertyOf edu:structuredBy ;
             owl:inverseOf edu:partOf ;
             rdfs:domain owl:Thing ;
             rdfs:range owl:Thing .
@@ -156,12 +156,28 @@ edu:partOf rdf:type owl:ObjectProperty ;
            rdfs:isDefinedBy "An entity is part of another entity when it is a constituent of the whole represented by that entity. This relation expresses compositional structure and does not imply inheritance." .
 
 
+###  http://edugraph.io/edu#specializedBy
+edu:specializedBy rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf edu:structuredBy ;
+                  owl:inverseOf edu:specializes ;
+                  rdfs:domain owl:Thing ;
+                  rdfs:range owl:Thing .
+
+
 ###  http://edugraph.io/edu#specializes
 edu:specializes rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf edu:structures ;
                 rdfs:domain owl:Thing ;
                 rdfs:range owl:Thing ;
                 rdfs:isDefinedBy "An entity specializes another entity when it represents a more specific form of the same concept. The specializing entity inherits the attributes and relations of the more general entity." .
+
+
+###  http://edugraph.io/edu#structuredBy
+edu:structuredBy rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 owl:inverseOf edu:structures ;
+                 rdfs:domain owl:Thing ;
+                 rdfs:range owl:Thing .
 
 
 ###  http://edugraph.io/edu#structures
