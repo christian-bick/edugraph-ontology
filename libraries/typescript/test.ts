@@ -8,8 +8,8 @@ import {
 
 console.log("🧪 Running relation and definition tests with step-by-step progress logging...");
 
-const absValRelations = relations((Area as any).AbsoluteValue);
-const absValPartOf = absValRelations.partOf || [];
+const magnitudeRelations = relations((Area as any).AbsoluteNumberMagnitude);
+const magnitudePartOf = magnitudeRelations.partOf || [];
 
 function assertOk(value: any, message?: string) {
   if (!value) {
@@ -24,21 +24,21 @@ function assertEqual(actual: any, expected: any, message?: string) {
 }
 
 // Test basic types
-assertEqual(typeof (Area as any).AbsoluteValue, "string");
+assertEqual(typeof (Area as any).AbsoluteNumberMagnitude, "string");
 
 // Test definition property and helper
 console.log("Asserting definition helper and property...");
-const expectedDefinition = "The magnitude of a number without regard to its sign, representing its distance from zero on the number line.";
-assertEqual(relations((Area as any).AbsoluteValue).definition, expectedDefinition);
-assertEqual(definition((Area as any).AbsoluteValue), expectedDefinition);
+const expectedDefinition = "The nonnegative magnitude of a rational number independently of its sign, represented as its distance from zero on the number line.";
+assertEqual(relations((Area as any).AbsoluteNumberMagnitude).definition, expectedDefinition);
+assertEqual(definition((Area as any).AbsoluteNumberMagnitude), expectedDefinition);
 console.log("✅ Definition check passed.");
 
 // Test direct relation
-console.log("Asserting direct relation of AbsoluteValue...");
-console.log("absValPartOf:", absValPartOf);
-console.log("Target:", (Area as any).ArithmeticEvaluation);
-console.log("Direct match check:", absValPartOf.includes((Area as any).ArithmeticEvaluation));
-assertOk(absValPartOf.includes((Area as any).ArithmeticEvaluation));
+console.log("Asserting direct relation of AbsoluteNumberMagnitude...");
+console.log("magnitudePartOf:", magnitudePartOf);
+console.log("Target:", (Area as any).NumberSense);
+console.log("Direct match check:", magnitudePartOf.includes((Area as any).NumberSense));
+assertOk(magnitudePartOf.includes((Area as any).NumberSense));
 console.log("✅ Direct relation check passed.");
 
 // Test structural and specialization relations
@@ -47,8 +47,25 @@ assertOk(specializes(Area.Square).includes(Area.Rectangle), "Square should speci
 assertOk(specializedBy(Area.Rectangle).includes(Area.Square), "Rectangle should be specialized by Square");
 assertOk(structures(Area.Square).includes(Area.Rectangle), "specializes should contribute to structures");
 assertOk(structuredBy(Area.Rectangle).includes(Area.Square), "specializedBy should contribute to structuredBy");
-assertOk(structures((Ability as any).AxiomDefinition).includes((Ability as any).DeductiveReasoning), "partOf should contribute to structures");
-assertOk(structuredBy((Ability as any).DeductiveReasoning).includes((Ability as any).AxiomDefinition), "hasPart should contribute to structuredBy");
+assertOk(structures((Scope as any).PhysicalRuler).includes((Scope as any).LengthMeasurement), "partOf should contribute to structures");
+assertOk(structuredBy((Scope as any).LengthMeasurement).includes((Scope as any).PhysicalRuler), "hasPart should contribute to structuredBy");
+assertOk(specializesTransitive(Ability.AxiomFormalization).includes(Ability.LogicalReasoning), "Axiom formalization should inherit logical reasoning through the axiomatic branch");
+assertOk(specializesTransitive(Ability.ReadingFluency).includes(Ability.Reception), "Reading fluency should inherit the reception capability through its linguistic modalities");
+assertOk(specializesTransitive(Ability.WritingFluency).includes(Ability.Expression), "Writing fluency should inherit expression through its linguistic modalities");
+assertOk(specializes(Ability.VisualArticulation).includes(Ability.Expression), "Visual articulation should directly specialize expression");
+assertOk(structures(Area.DecimalDivisorShift).includes(Area.DecimalStrategies), "Decimal divisor shift should belong to decimal strategies");
+assertOk(!specializes(Area.DecimalDivisorShift).includes(Area.DecimalEquivalence), "Decimal divisor shift should not specialize decimal equivalence");
+assertOk(structures(Area.Subitizing).includes(Area.NumberSense), "Subitizing should belong directly to number sense");
+assertOk(expands(Area.SignNotation).includes((Area as any).AbsoluteNumberMagnitude), "Sign notation should expand absolute number magnitude");
+assertOk(structures(Ability.ErrorDetection).includes(Ability.ErrorCorrection), "Error detection should be part of error correction");
+assertOk(specializes(Ability.ErrorDetection).includes(Ability.Evaluation), "Error detection should specialize evaluation");
+assertOk(structures(Ability.ErrorEvaluation).includes(Ability.ErrorCorrection), "Error evaluation should be part of error correction");
+assertOk(specializes(Ability.ErrorEvaluation).includes(Ability.Evaluation), "Error evaluation should specialize evaluation");
+assertOk(structures(Ability.ErrorResolution).includes(Ability.ErrorCorrection), "Error resolution should be part of error correction");
+assertOk(!specializes(Ability.ErrorResolution).includes(Ability.Evaluation), "Error resolution should not specialize evaluation");
+assertOk(structuredBy(Ability.ErrorCorrection).includes(Ability.ErrorDetection), "Error correction should contain error detection");
+assertOk(structuredBy(Ability.ErrorCorrection).includes(Ability.ErrorEvaluation), "Error correction should contain error evaluation");
+assertOk(structuredBy(Ability.ErrorCorrection).includes(Ability.ErrorResolution), "Error correction should contain error resolution");
 console.log("✅ Structural and specialization relation checks passed.");
 
 // Test subproperty relation (inverts is subproperty of expands)
@@ -61,13 +78,13 @@ console.log("Subproperty match check:", subExpands.includes(Area.Addition));
 assertOk(subExpands.includes(Area.Addition));
 console.log("✅ Subproperty relation check passed.");
 
-// Test transitive helper (AbsoluteValue -> ArithmeticEvaluation -> Arithmetic)
-console.log("Asserting transitive relation (partOf) for AbsoluteValue...");
-const transitiveParents = partOfTransitive((Area as any).AbsoluteValue);
+// Test transitive helper (AbsoluteNumberMagnitude -> NumberSense -> IntuitiveMathematics)
+console.log("Asserting transitive relation (partOf) for AbsoluteNumberMagnitude...");
+const transitiveParents = partOfTransitive((Area as any).AbsoluteNumberMagnitude);
 console.log("transitiveParents:", transitiveParents);
-console.log("Target:", Area.Arithmetic);
-console.log("Transitive match check:", transitiveParents.includes(Area.Arithmetic));
-assertOk(transitiveParents.includes(Area.Arithmetic));
+console.log("Target:", Area.IntuitiveMathematics);
+console.log("Transitive match check:", transitiveParents.includes(Area.IntuitiveMathematics));
+assertOk(transitiveParents.includes(Area.IntuitiveMathematics));
 console.log("✅ Transitive relation check passed.");
 
 console.log("Asserting specialization and combined structural closures...");

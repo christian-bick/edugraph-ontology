@@ -120,17 +120,17 @@ Both the TypeScript and Python client libraries expose the structural, specializ
 ```typescript
 import { Area, Scope, relations, specializesTransitive, structuresTransitive, expands, definition } from "edugraph-ts";
 
-// 1. Direct definition lookup (JSDoc also pops up on Area.AbsoluteValue in IDE)
-const def1 = definition(Area.AbsoluteValue);
-// def1 is: "The magnitude of a number without regard to its sign..."
-const def2 = relations(Area.AbsoluteValue).definition; // Also accessible on the relations object
+// 1. Direct definition lookup (JSDoc also pops up on Area.AbsoluteNumberMagnitude in IDE)
+const def1 = definition(Area.AbsoluteNumberMagnitude);
+// def1 is: "The nonnegative magnitude of a rational number independently of its sign..."
+const def2 = relations(Area.AbsoluteNumberMagnitude).definition; // Also accessible on the relations object
 
 // 2. Direct relations lookup
 const squareRelations = relations(Area.Square);
 const isRectangle = squareRelations.specializes?.includes(Area.Rectangle); // true
 
 // 3. Direct helper functions
-const absoluteExpands = expands(Area.AbsoluteValue); // [Area.IntegerSigns, Area.ZeroConcept]
+const signExpands = expands(Area.SignNotation); // [Area.AbsoluteNumberMagnitude, Area.ZeroConcept]
 
 // 4. Transitive helper functions (BFS closure traversal)
 // Specialization inheritance only: Square -> Rectangle -> Parallelogram -> Quadrilateral -> Polygon
@@ -149,13 +149,13 @@ The Python library follows standard PEP 8 snake_case naming conventions for rela
 ```python
 from edugraph import Area, Scope, relations, specializes_transitive, structures_transitive, expands, definition
 
-# 1. Direct definition lookup (PEP 258 docstring also displays on Area.AbsoluteValue in IDE)
+# 1. Direct definition lookup (PEP 258 docstring also displays on Area.AbsoluteNumberMagnitude in IDE)
 # Property access on enum member
-def1 = Area.AbsoluteValue.definition 
-# def1 is: "The magnitude of a number without regard to its sign..."
+def1 = Area.AbsoluteNumberMagnitude.definition
+# def1 is: "The nonnegative magnitude of a rational number independently of its sign..."
 
 # Helper function access
-def2 = definition(Area.AbsoluteValue)
+def2 = definition(Area.AbsoluteNumberMagnitude)
 
 # 2. Direct relations lookup
 square_relations = relations(Area.Square)
@@ -164,7 +164,7 @@ square_relations = relations(Area.Square)
 is_rectangle = Area.Rectangle in square_relations.get("specializes", [])  # True
 
 # 3. Direct helper functions
-absolute_expands = expands(Area.AbsoluteValue)  # [Area.IntegerSigns, Area.ZeroConcept]
+sign_expands = expands(Area.SignNotation)  # [Area.AbsoluteNumberMagnitude, Area.ZeroConcept]
 
 # 4. Transitive helper functions (BFS closure traversal)
 # Specialization inheritance only

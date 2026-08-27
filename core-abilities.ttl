@@ -34,10 +34,18 @@
     rdfs:comment "Understanding and appreciating artistic works, such as paintings, music, or literature. This involves analyzing the elements of art, such as form, style, and symbolism, to understand the artist's message and intent.";
     rdfs:isDefinedBy "Understanding and explaining the meaning of creative or aesthetic works. This involves recognizing the symbolic, stylistic, and technical elements in a piece of art, literature, or performance, and understanding the themes or messages being conveyed.";
     edu:specializes :Interpretation.
-:AxiomDefinition a owl:NamedIndividual, edu:Ability;
-    rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Defining the axioms of Euclidean geometry, such as \"Two points determine a line\" or \"Through a point not on a given line, there is exactly one line parallel to the given line.\"\n*  Establishing the axioms of set theory, such as the axiom of extensionality (two sets are equal if they have the same elements) or the axiom of choice.\n*  Defining the axioms of a number system, such as the commutative property of addition (a + b = b + a) or the distributive property of multiplication over addition (a(b + c) = ab + ac).\n\nScience:\n\n*  Defining the basic principles of physics, such as the laws of motion or the conservation of energy.\n*  Establishing the fundamental assumptions of a scientific theory, such as the theory of evolution or the theory of relativity.\n*  Defining the key terms and concepts used in a scientific field, such as \"species,\" \"ecosystem,\" or \"chemical reaction.\"";
-    rdfs:isDefinedBy "The ability to identify and clearly state the fundamental assumptions or self-evident truths that serve as the foundation for a deductive system. This involves recognizing basic principles, defining key terms, and establishing the starting points for logical reasoning. Axiom definition is crucial for building a coherent and consistent framework for deductive reasoning, ensuring that all conclusions follow logically from the initial assumptions.";
-    edu:partOf :DeductiveReasoning.
+:AxiomFormalization a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Stating the axioms of Euclidean geometry precisely enough that subsequent deductions can be checked against them.";
+    rdfs:isDefinedBy "Expressing the foundational assumptions, primitive terms, and rules of an axiomatic system in an explicit and internally consistent form.";
+    edu:specializes :AxiomaticReasoning.
+:AxiomIdentification a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Distinguishing the assumptions of a scientific model from conclusions derived from those assumptions.";
+    rdfs:isDefinedBy "Recognizing which statements function as foundational assumptions or self-evident starting points within an axiomatic system.";
+    edu:specializes :AxiomaticReasoning.
+:AxiomaticReasoning a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples include establishing the foundations of a geometric system and reasoning about which conclusions follow within a stated formal system.";
+    rdfs:isDefinedBy "Reasoning that establishes, interprets, formalizes, or draws conclusions within a system organized around explicit axioms or foundational assumptions.";
+    edu:specializes :LogicalReasoning.
 :BiasDetection a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Analyzing a news article to identify any potential bias in the reporting.";
     rdfs:isDefinedBy "Identifying prejudice or favoritism in information or arguments. This involves recognizing how personal opinions or perspectives can influence the way information is presented or interpreted.";
@@ -45,7 +53,7 @@
 :BiasPrevention a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Considering diverse perspectives and avoiding stereotypes when writing about a historical conflict.";
     rdfs:isDefinedBy "Identifying and avoiding biases in one's own thinking and communication. This involves being aware of personal prejudices and striving to present information objectively and fairly.";
-    edu:partOf :Expression.
+    edu:partOf :CommunicationCapability.
 :CommunicationCapability a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "The proficiency to effectively exchange, interpret, and synthesize information across diverse modalities and contexts to facilitate mutual understanding, align stakeholders, and achieve organizational objectives.".
 :ConceptClassification a owl:NamedIndividual, edu:Ability;
@@ -81,7 +89,7 @@
 :DeductiveReasoning a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  All squares are rectangles. This shape is a square. Therefore, this shape is a rectangle.\n*  If two angles are complementary, their sum is 90 degrees. Angles A and B are complementary. Therefore, the sum of angles A and B is 90 degrees.\n*  All prime numbers greater than 3 can be expressed in the form 6k ± 1. 17 is a prime number greater than 3. Therefore, 17 can be expressed in the form 6k ± 1.\n\nScience:\n\n*  All mammals have lungs. Whales are mammals. Therefore, whales have lungs.\n*  Force equals mass times acceleration (F=ma). This object has a mass of 2kg and an acceleration of 3 m/s². Therefore, the force acting on the object is 6 Newtons.\n*  In a chemical reaction, matter is neither created nor destroyed. In this experiment, the mass of the reactants was 10g. Therefore, the mass of the products will also be 10g.";
     rdfs:isDefinedBy "A type of reasoning where the conclusion is guaranteed to be true if the premises are true. It moves from general principles to specific conclusions, using logic and rules of inference to establish certainty. Deductive reasoning is often used in mathematics, logic, and other fields where absolute certainty is desired.";
-    edu:partOf :LogicalReasoning.
+    edu:specializes :LogicalReasoning.
 :DialogModeration a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: A student mediating a disagreement between two classmates by helping them to listen to each other and find common ground.";
     rdfs:isDefinedBy "Guiding and managing a conversation between two or more people. This involves ensuring that the conversation stays focused, productive, and respectful.";
@@ -116,13 +124,23 @@
     rdfs:isDefinedBy "The ability to understand and share the feelings of others. This involves putting oneself in another person's shoes and imagining how they might be feeling in a given situation.";
     edu:partOf :EmotionalCapability.
 :ErrorCorrection a owl:NamedIndividual, edu:Ability;
-    rdfs:comment "Example: Proofreading an essay for grammatical errors and typos before submitting it.";
-    rdfs:isDefinedBy "Finding and fixing mistakes in written or spoken work. This involves carefully reviewing work for accuracy and making necessary corrections to improve clarity and understanding.";
-    edu:partOf :Evaluation.
+    rdfs:comment "Example: Reviewing a solution by locating an error, determining its cause, and producing a verified correction.";
+    rdfs:isDefinedBy "The complete process of detecting, evaluating, and resolving an error.";
+    edu:partOf :Processing.
 :ErrorDetection a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Identifying a factual error in a textbook or spotting a contradiction in a scientific argument.";
     rdfs:isDefinedBy "Noticing mistakes or inconsistencies in information. This involves recognizing when something is incorrect, illogical, or doesn't fit with the overall context.";
+    edu:partOf :ErrorCorrection;
     edu:specializes :Evaluation.
+:ErrorEvaluation a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Analyzing a mistaken solution to determine why it failed and what consequences follow.";
+    rdfs:isDefinedBy "Characterizing the nature, cause, and consequences of a detected error.";
+    edu:partOf :ErrorCorrection;
+    edu:specializes :Evaluation.
+:ErrorResolution a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Example: Applying a corrected method and checking that the revised result is valid.";
+    rdfs:isDefinedBy "Applying and verifying the change required to eliminate a detected and evaluated error.";
+    edu:partOf :ErrorCorrection.
 :Evaluation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Carefully judging the quality, value, or significance of something. This involves assessing information or ideas based on criteria, evidence, and reasoning.";
     edu:partOf :Processing.
@@ -176,7 +194,7 @@
 :InformationCompression a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Writing a concise summary of a research article or a historical event.";
     rdfs:isDefinedBy "Summarizing information concisely and effectively. This involves condensing complex ideas or large amounts of information into a shorter, more manageable form while retaining the key message.";
-    edu:partOf :Interpretation.
+    edu:specializes :Interpretation.
 :InformationExtraction a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Extracting key statistics and data from a scientific article to include in a research report.";
     rdfs:isDefinedBy "Identifying and gathering important facts and details from a source. This involves selectively choosing and organizing information that is relevant to a specific task or purpose.";
@@ -199,13 +217,15 @@
 :LinguisticArticulation a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Expressing thoughts about someone's favorite animal, using complete sentences and appropriate vocabulary.";
     rdfs:isDefinedBy "Expressing oneself through spoken or written language. This involves using words, grammar, and syntax to convey meaning.";
-    edu:partOf :Articulation, :LinguisticCapability.
+    edu:partOf :LinguisticCapability;
+    edu:specializes :Expression.
 :LinguisticCapability a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "The capacity to apply the structural, lexical, and pragmatic rules of a language to facilitate effective communication, comprehension, and the expression of meaning across diverse professional and social contexts.".
 :LinguisticReception a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Listening attentively to a lecture and taking notes to understand the key concepts.";
     rdfs:isDefinedBy "Understanding spoken and written language. This involves comprehending the meaning of words, sentences, and texts, both spoken and written.";
-    edu:partOf :LinguisticCapability, :Reception.
+    edu:partOf :LinguisticCapability;
+    edu:specializes :Reception.
 :LogicalInference a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Examples from different subjects:\n\nMath:\n\n*  Using the axioms of Euclidean geometry and rules of inference to prove geometric theorems.\n*  Applying logical inference to solve algebraic equations or inequalities.\n*  Deriving new mathematical statements from existing theorems and definitions.\n\nScience:\n\n*  Using logical inference to draw conclusions from experimental data or observations.\n*  Applying deductive reasoning to test hypotheses and evaluate scientific theories.\n*  Making predictions about future events or phenomena based on established scientific principles.";
     rdfs:isDefinedBy "The ability to draw valid conclusions from given premises or axioms using deductive reasoning. This involves applying rules of inference, such as modus ponens or modus tollens, to derive new statements that necessarily follow from the initial assumptions.";
@@ -256,7 +276,7 @@
 :PassiveVocabulary a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Understanding the meaning of words from a specific subject like business administration in a foreign language.";
     rdfs:isDefinedBy "The words a person can understand but may not actively use in speaking or writing. This involves recognizing and comprehending a wide range of vocabulary when reading or listening.";
-    edu:partOf :LinguisticReception.
+    edu:specializes :LinguisticReception.
 :PeerAwareness a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: A student noticing that a classmate is feeling excluded from a group activity and taking steps to include them.";
     rdfs:isDefinedBy "The ability to understand and recognize the emotions, needs, and perspectives of one's peers. This involves being attuned to the social dynamics within a peer group and being sensitive to the feelings of others.";
@@ -326,19 +346,19 @@
 :Pronunciation a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Learning to pronounce new vocabulary words correctly in a foreign language class.";
     rdfs:isDefinedBy "Saying words correctly with accurate articulation and stress. This involves producing the sounds of a language clearly and accurately, paying attention to vowel and consonant sounds, syllable stress, and intonation patterns.";
-    edu:partOf :VocalArticulation.
+    edu:specializes :VocalArticulation.
 :ReadingFluency a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Reading aloud a passage from a novel with fluency and expression.";
     rdfs:isDefinedBy "Reading smoothly and effortlessly with good pacing and expression. This involves reading at a comfortable speed with accurate pronunciation and appropriate intonation.";
-    edu:partOf :TextualReception.
+    edu:specializes :TextualReception.
 :ReadingPrecision a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Carefully reading a historical document to understand the events and their significance.";
     rdfs:isDefinedBy "Reading accurately and with attention to detail. This involves understanding the meaning of words, sentences, and paragraphs, and identifying key information in the text.";
-    edu:partOf :TextualReception.
+    edu:specializes :TextualReception.
 :ReadingSpeed a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Skimming a news article to quickly grasp the main points.";
     rdfs:isDefinedBy "Reading quickly and efficiently while still comprehending the text. This involves processing written information at a fast pace without sacrificing understanding.";
-    edu:partOf :TextualReception.
+    edu:specializes :TextualReception.
 :Reception a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "The act of receiving and understanding information through various senses, such as listening, reading, and observing.";
     edu:partOf :Processing.
@@ -404,11 +424,11 @@
 :SpeakingFluency a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Delivering a presentation with confidence and fluency, maintaining a steady flow of speech.";
     rdfs:isDefinedBy "Speaking smoothly and continuously without unnecessary pauses or hesitations. This involves expressing oneself in a fluid and natural manner, with good pacing and rhythm.";
-    edu:partOf :VocalArticulation.
+    edu:specializes :VocalArticulation.
 :SpeakingSpeed a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Pacing oneself during a speech to ensure that the audience can follow along and understand the message.";
     rdfs:isDefinedBy "Speaking at an appropriate pace, neither too fast nor too slow. This involves adjusting one's speaking rate to ensure clarity and allow the audience to comprehend the information being conveyed.";
-    edu:partOf :VocalArticulation.
+    edu:specializes :VocalArticulation.
 :SubtextUnderstanding a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Understanding the underlying themes and messages in a novel.";
     rdfs:isDefinedBy "Understanding the implied or hidden meanings in communication. This involves reading between the lines and interpreting the underlying messages conveyed through tone, body language, and context.";
@@ -420,15 +440,15 @@
 :SyntacticalPrecision a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Using correct word order and punctuation in a sentence.";
     rdfs:isDefinedBy "Constructing sentences with a clear and logical arrangement of words and phrases. This involves using proper syntax to ensure that sentences are grammatically correct and easy to understand.";
-    edu:partOf :TextualArticulation.
+    edu:specializes :TextualArticulation.
 :TextualArticulation a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Writing a persuasive essay with a clear introduction, body, and conclusion.";
     rdfs:isDefinedBy "Expressing oneself effectively through writing. This involves organizing ideas logically, using appropriate language and style, and adhering to conventions of written communication.";
-    edu:partOf :LinguisticArticulation.
+    edu:specializes :LinguisticArticulation.
 :TextualReception a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Reading a book about animals and understanding their differences and commonalities.";
     rdfs:isDefinedBy "Understanding and interpreting written text. This involves reading and comprehending various types of texts, such as books, articles, and online resources.";
-    edu:partOf :LinguisticReception.
+    edu:specializes :LinguisticReception.
 :TonalArticulation a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: An individual sings a song with the intended tonality, volume, rhythm and pitch.";
     rdfs:isDefinedBy "Expressing oneself through vocal tone and inflection. This involves varying the pitch, volume, and rhythm of one's voice to convey meaning and emotion.";
@@ -444,7 +464,7 @@
 :VisualArticulation a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Examples from different subjects:\n\n* Math: Creating a graph to represent the relationship between two variables.\n* Science: Drawing a diagram of the human circulatory system.\n* Social Science: Using a map to illustrate population density across different regions.";
     rdfs:isDefinedBy "Expressing oneself through visual aids, such as drawings, diagrams, or images. This involves using visual elements to communicate information or ideas.";
-    edu:specializes :Articulation.
+    edu:specializes :Expression.
 :VisualDecomposition a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Analyzing a complex diagram in a biology textbook to understand the different components of a cell.";
     rdfs:isDefinedBy "Breaking down complex visual information into smaller, more manageable parts. This involves analyzing visual elements, such as shapes, colors, and patterns, to understand the overall composition.";
@@ -464,28 +484,28 @@
 :VocalArticulation a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Reading out aloud a poem, focusing on enunciating each word clearly and maintaining the poem's intended rhythm.";
     rdfs:isDefinedBy "Expressing oneself through spoke word. This involves pronouncing words clearly and distinctly so that they are easily understood by others.";
-    edu:partOf :LinguisticArticulation.
+    edu:specializes :LinguisticArticulation.
 :VocalListeningCapacity a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Listening attentively to a speaker's presentation for an hour.";
     rdfs:isDefinedBy "The ability to listen and comprehend spoken language for extended periods. This involves maintaining focus and attention during lectures, presentations, and conversations.";
-    edu:partOf :VocalReception.
+    edu:specializes :VocalReception.
 :VocalListeningFlexibility a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Understanding a classmate's presentation even though they have an accent from another geographic region.";
     rdfs:isDefinedBy "The ability to adapt to different speaking styles and accents. This involves understanding spoken language even when it is delivered with varying speeds, accents, or levels of clarity.";
-    edu:partOf :VocalReception.
+    edu:specializes :VocalReception.
 :VocalListeningPrecision a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Listening attentively to a debate and identifying the key arguments presented by each speaker.";
     rdfs:isDefinedBy "The ability to listen carefully and accurately to spoken language. This involves paying attention to details, nuances, and subtle cues in speech to fully understand the message.";
-    edu:partOf :VocalReception.
+    edu:specializes :VocalReception.
 :VocalReception a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example:  Following a teacher's instructions during a class activity.";
     rdfs:isDefinedBy "Understanding and interpreting spoken language. This involves listening attentively to speech and comprehending the meaning of words, phrases, and sentences.";
-    edu:partOf :LinguisticReception.
+    edu:specializes :LinguisticReception.
 :WritingFluency a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Writing a creative story with a natural flow, minimizing pauses, revisions and corrections.";
     rdfs:isDefinedBy "Writing smoothly and effortlessly. This involves expressing thoughts and ideas in a fluid manner without interruptions or hesitations.";
-    edu:partOf :TextualArticulation.
+    edu:specializes :TextualArticulation.
 :WritingSpeed a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Keeping up to the pace of a dictate.";
     rdfs:isDefinedBy "Writing quickly and efficiently. This involves being able to write at a pace that allows for timely completion of written tasks.";
-    edu:partOf :TextualArticulation.
+    edu:specializes :TextualArticulation.

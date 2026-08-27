@@ -8,29 +8,46 @@ from edugraph import (
 
 class TestRelations(unittest.TestCase):
     def test_basic_types(self):
-        self.assertIsInstance(Area.AbsoluteValue, str)
+        self.assertIsInstance(Area.AbsoluteNumberMagnitude, str)
 
     def test_definitions(self):
-        expected_definition = "The magnitude of a number without regard to its sign, representing its distance from zero on the number line."
+        expected_definition = "The nonnegative magnitude of a rational number independently of its sign, represented as its distance from zero on the number line."
         # Property access on enum member
-        self.assertEqual(Area.AbsoluteValue.definition, expected_definition)
+        self.assertEqual(Area.AbsoluteNumberMagnitude.definition, expected_definition)
         # Helper function access
-        self.assertEqual(definition(Area.AbsoluteValue), expected_definition)
+        self.assertEqual(definition(Area.AbsoluteNumberMagnitude), expected_definition)
         # Property on relations dict
-        self.assertEqual(relations(Area.AbsoluteValue).get("definition"), expected_definition)
+        self.assertEqual(relations(Area.AbsoluteNumberMagnitude).get("definition"), expected_definition)
 
     def test_direct_relation(self):
-        abs_val_relations = relations(Area.AbsoluteValue)
-        self.assertIn("partOf", abs_val_relations)
-        self.assertIn(Area.ArithmeticEvaluation, abs_val_relations["partOf"])
+        magnitude_relations = relations(Area.AbsoluteNumberMagnitude)
+        self.assertIn("partOf", magnitude_relations)
+        self.assertIn(Area.NumberSense, magnitude_relations["partOf"])
 
     def test_structural_and_specialization_relations(self):
         self.assertIn(Area.Rectangle, specializes(Area.Square))
         self.assertIn(Area.Square, specialized_by(Area.Rectangle))
         self.assertIn(Area.Rectangle, structures(Area.Square))
         self.assertIn(Area.Square, structured_by(Area.Rectangle))
-        self.assertIn(Ability.DeductiveReasoning, structures(Ability.AxiomDefinition))
-        self.assertIn(Ability.AxiomDefinition, structured_by(Ability.DeductiveReasoning))
+        self.assertIn(Scope.LengthMeasurement, structures(Scope.PhysicalRuler))
+        self.assertIn(Scope.PhysicalRuler, structured_by(Scope.LengthMeasurement))
+        self.assertIn(Ability.LogicalReasoning, specializes_transitive(Ability.AxiomFormalization))
+        self.assertIn(Ability.Reception, specializes_transitive(Ability.ReadingFluency))
+        self.assertIn(Ability.Expression, specializes_transitive(Ability.WritingFluency))
+        self.assertIn(Ability.Expression, specializes(Ability.VisualArticulation))
+        self.assertIn(Area.DecimalStrategies, structures(Area.DecimalDivisorShift))
+        self.assertNotIn(Area.DecimalEquivalence, specializes(Area.DecimalDivisorShift))
+        self.assertIn(Area.NumberSense, structures(Area.Subitizing))
+        self.assertIn(Area.AbsoluteNumberMagnitude, expands(Area.SignNotation))
+        self.assertIn(Ability.ErrorCorrection, structures(Ability.ErrorDetection))
+        self.assertIn(Ability.Evaluation, specializes(Ability.ErrorDetection))
+        self.assertIn(Ability.ErrorCorrection, structures(Ability.ErrorEvaluation))
+        self.assertIn(Ability.Evaluation, specializes(Ability.ErrorEvaluation))
+        self.assertIn(Ability.ErrorCorrection, structures(Ability.ErrorResolution))
+        self.assertNotIn(Ability.Evaluation, specializes(Ability.ErrorResolution))
+        self.assertIn(Ability.ErrorDetection, structured_by(Ability.ErrorCorrection))
+        self.assertIn(Ability.ErrorEvaluation, structured_by(Ability.ErrorCorrection))
+        self.assertIn(Ability.ErrorResolution, structured_by(Ability.ErrorCorrection))
 
     def test_subproperty_relation(self):
         # Subtraction inverts Addition, so expands should also include Addition
@@ -38,9 +55,9 @@ class TestRelations(unittest.TestCase):
         self.assertIn(Area.Addition, sub_expands)
 
     def test_transitive_relation(self):
-        # AbsoluteValue -> ArithmeticEvaluation -> Arithmetic
-        transitive_parents = part_of_transitive(Area.AbsoluteValue)
-        self.assertIn(Area.Arithmetic, transitive_parents)
+        # AbsoluteNumberMagnitude -> NumberSense -> IntuitiveMathematics
+        transitive_parents = part_of_transitive(Area.AbsoluteNumberMagnitude)
+        self.assertIn(Area.IntuitiveMathematics, transitive_parents)
 
     def test_specialization_and_structural_closures(self):
         square_specializations = specializes_transitive(Area.Square)

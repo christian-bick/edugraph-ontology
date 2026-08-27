@@ -8,10 +8,10 @@
 
 <http://edugraph.io/edu/> a owl:Ontology;
     owl:imports <http://edugraph.io/edu#>.
-:AbsoluteValue a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The magnitude of a number without regard to its sign, representing its distance from zero on the number line.";
-    edu:expands :SignNotation, :ZeroConcept;
-    edu:partOf :ArithmeticEvaluation;
+:AbsoluteNumberMagnitude a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nonnegative magnitude of a rational number independently of its sign, represented as its distance from zero on the number line.";
+    edu:expands :ZeroConcept;
+    edu:partOf :NumberSense;
     edu:translates :DistanceCalculation.
 :AcuteAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures less than 90 degrees.";
@@ -170,8 +170,9 @@
     edu:expands :NumerationWithDecimals;
     edu:partOf :RationalArithmetic.
 :DecimalDivisorShift a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Decimal equivalence is the understanding that decimals with trailing zeros represent the same decimal number.";
-    edu:partOf :DecimalEquivalence.
+    rdfs:isDefinedBy "A decimal-division strategy that multiplies both the dividend and divisor by the same power of ten until the divisor is an integer, preserving the quotient while making the division easier to perform.";
+    edu:expands :Division, :PlaceValue;
+    edu:partOf :DecimalStrategies.
 :DecimalEquivalence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures for identifying or establishing the equality between different representations of the same rational value, specifically between fractions and their base-10 positional notation or between decimals with varying digits at subsequent negative powers of ten that maintain the same magnitude.";
     edu:expands :FractionEquivalence;
@@ -193,6 +194,9 @@
 :DecimalRounding a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rules and procedures for approximating a decimal number to a specified degree of precision by adjusting the fractional component based on the value of digits at subsequent negative powers of ten.";
     edu:expands :DecimalPrecission, :IntegerRounding;
+    edu:partOf :DecimalArithmetic.
+:DecimalStrategies a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Recognizable methods for coordinating decimal place value and arithmetic relationships to obtain or explain a result.";
     edu:partOf :DecimalArithmetic.
 :Decrement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a quantity by a specific amount.";
@@ -875,7 +879,7 @@
     edu:specializes :ShapeConservation.
 :SignNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate a number's direction and magnitude relative to zero.";
-    edu:expands :ZeroConcept;
+    edu:expands :AbsoluteNumberMagnitude, :ZeroConcept;
     edu:specializes :NumberNotation.
 :SimilarityRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric figures that have the same shape, with corresponding angles being equal and corresponding sides being in proportion.";
@@ -917,7 +921,7 @@
 :Subitizing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The ability to instantly recognize the number of objects in a small group without counting.";
     edu:expands :GroupRecognition;
-    edu:partOf :NumericApproximation.
+    edu:partOf :NumberSense.
 :SubsetIdentification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The ability to identify a specific part within a larger, pre-existing whole collection based on a distinguishing attribute. This establishes a part-whole relationship (e.g., 'the red cars within the box of toys') without necessarily physically breaking the original group apart.";
     edu:expands :ObjectSorting;

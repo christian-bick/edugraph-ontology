@@ -13,7 +13,7 @@ npm install https://github.com/christian-bick/edugraph-ontology/releases/downloa
 ## Usage
 
 ### 1. Enum Mapping & Descriptions
-Hovering over any enum member (such as `Area.AbsoluteValue`) in your IDE will display the entity's RDF definition as a JSDoc tooltip.
+Hovering over any enum member (such as `Area.AbsoluteNumberMagnitude`) in your IDE will display the entity's RDF definition as a JSDoc tooltip.
 
 ```typescript
 import { Area, Scope, Ability } from "edugraph-ts";
@@ -30,11 +30,11 @@ You can query individual descriptions directly using the `definition` helper or 
 import { Area, definition, relations } from "edugraph-ts";
 
 // 1. Using the definition() helper function
-const def = definition(Area.AbsoluteValue);
-// def is: "The magnitude of a number without regard to its sign..."
+const def = definition(Area.AbsoluteNumberMagnitude);
+// def is: "The nonnegative magnitude of a rational number independently of its sign..."
 
 // 2. Accessing the definition property on the relations object
-const relDef = relations(Area.AbsoluteValue).definition;
+const relDef = relations(Area.AbsoluteNumberMagnitude).definition;
 ```
 
 ### 3. Individual Relations
@@ -47,7 +47,7 @@ import { Area, Scope, relations, specializesTransitive, structuresTransitive, ex
 const squareRelations = relations(Area.Square);
 
 // Direct expands list
-const absoluteExpands = expands(Area.AbsoluteValue);  // [Area.IntegerSigns, Area.ZeroConcept]
+const signExpands = expands(Area.SignNotation);  // [Area.AbsoluteNumberMagnitude, Area.ZeroConcept]
 
 // Specialization inheritance does not traverse partOf
 const inheritedCapabilities = specializesTransitive(Area.Square);

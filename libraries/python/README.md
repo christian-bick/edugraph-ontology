@@ -13,7 +13,7 @@ pip install "edugraph-py @ https://github.com/christian-bick/edugraph-ontology/r
 ## Usage
 
 ### 1. Enum Mapping & Descriptions
-Hovering over any enum member (such as `Area.AbsoluteValue`) in your IDE will display the entity's RDF definition as a docstring tooltip.
+Hovering over any enum member (such as `Area.AbsoluteNumberMagnitude`) in your IDE will display the entity's RDF definition as a docstring tooltip.
 
 ```python
 from edugraph import Area, Scope, Ability
@@ -30,14 +30,14 @@ You can access definitions directly using member properties, the `definition` he
 from edugraph import Area, definition, relations
 
 # 1. Accessing definition as a property on an enum member
-print(Area.AbsoluteValue.definition)
-# prints: "The magnitude of a number without regard to its sign..."
+print(Area.AbsoluteNumberMagnitude.definition)
+# prints: "The nonnegative magnitude of a rational number independently of its sign..."
 
 # 2. Using the definition() helper function
-print(definition(Area.AbsoluteValue))
+print(definition(Area.AbsoluteNumberMagnitude))
 
 # 3. Accessing the definition key on the relations dictionary
-print(relations(Area.AbsoluteValue).get("definition"))
+print(relations(Area.AbsoluteNumberMagnitude).get("definition"))
 ```
 
 ### 3. Individual Relations
@@ -50,7 +50,7 @@ from edugraph import Area, Scope, relations, specializes_transitive, structures_
 square_relations = relations(Area.Square)
 
 # Direct expands list
-absolute_expands = expands(Area.AbsoluteValue)  # [Area.IntegerSigns, Area.ZeroConcept]
+sign_expands = expands(Area.SignNotation)  # [Area.AbsoluteNumberMagnitude, Area.ZeroConcept]
 
 # Specialization inheritance does not traverse partOf
 inherited_capabilities = specializes_transitive(Area.Square)
