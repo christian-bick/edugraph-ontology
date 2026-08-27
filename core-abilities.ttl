@@ -29,11 +29,15 @@
     rdfs:isDefinedBy "The ability to examine information critically, break it down into its component parts, and identify patterns and relationships. It involves skills like critical thinking, problem-solving, and logical reasoning. Analytical capability allows individuals to evaluate information, draw inferences, and form their own conclusions.".
 :Articulation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Articulation refers to the clarity and effectiveness with which someone expresses themselves.";
-    edu:partOf :Expression.
+    edu:partOf :CommunicationCapability.
 :ArtisticInterpretation a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Understanding and appreciating artistic works, such as paintings, music, or literature. This involves analyzing the elements of art, such as form, style, and symbolism, to understand the artist's message and intent.";
     rdfs:isDefinedBy "Understanding and explaining the meaning of creative or aesthetic works. This involves recognizing the symbolic, stylistic, and technical elements in a piece of art, literature, or performance, and understanding the themes or messages being conveyed.";
     edu:specializes :Interpretation.
+:AxiomaticReasoning a owl:NamedIndividual, edu:Ability;
+    rdfs:comment "Examples include establishing the foundations of a geometric system and reasoning about which conclusions follow within a stated formal system.";
+    rdfs:isDefinedBy "Reasoning that establishes, interprets, formalizes, or draws conclusions within a system organized around explicit axioms or foundational assumptions.";
+    edu:specializes :LogicalReasoning.
 :AxiomFormalization a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Stating the axioms of Euclidean geometry precisely enough that subsequent deductions can be checked against them.";
     rdfs:isDefinedBy "Expressing the foundational assumptions, primitive terms, and rules of an axiomatic system in an explicit and internally consistent form.";
@@ -42,10 +46,6 @@
     rdfs:comment "Example: Distinguishing the assumptions of a scientific model from conclusions derived from those assumptions.";
     rdfs:isDefinedBy "Recognizing which statements function as foundational assumptions or self-evident starting points within an axiomatic system.";
     edu:specializes :AxiomaticReasoning.
-:AxiomaticReasoning a owl:NamedIndividual, edu:Ability;
-    rdfs:comment "Examples include establishing the foundations of a geometric system and reasoning about which conclusions follow within a stated formal system.";
-    rdfs:isDefinedBy "Reasoning that establishes, interprets, formalizes, or draws conclusions within a system organized around explicit axioms or foundational assumptions.";
-    edu:specializes :LogicalReasoning.
 :BiasDetection a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Analyzing a news article to identify any potential bias in the reporting.";
     rdfs:isDefinedBy "Identifying prejudice or favoritism in information or arguments. This involves recognizing how personal opinions or perspectives can influence the way information is presented or interpreted.";
@@ -218,7 +218,7 @@
     rdfs:comment "Example: Expressing thoughts about someone's favorite animal, using complete sentences and appropriate vocabulary.";
     rdfs:isDefinedBy "Expressing oneself through spoken or written language. This involves using words, grammar, and syntax to convey meaning.";
     edu:partOf :LinguisticCapability;
-    edu:specializes :Expression.
+    edu:specializes :Articulation.
 :LinguisticCapability a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "The capacity to apply the structural, lexical, and pragmatic rules of a language to facilitate effective communication, comprehension, and the expression of meaning across diverse professional and social contexts.".
 :LinguisticReception a owl:NamedIndividual, edu:Ability;
@@ -464,7 +464,7 @@
 :VisualArticulation a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Examples from different subjects:\n\n* Math: Creating a graph to represent the relationship between two variables.\n* Science: Drawing a diagram of the human circulatory system.\n* Social Science: Using a map to illustrate population density across different regions.";
     rdfs:isDefinedBy "Expressing oneself through visual aids, such as drawings, diagrams, or images. This involves using visual elements to communicate information or ideas.";
-    edu:specializes :Expression.
+    edu:specializes :Articulation.
 :VisualDecomposition a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Analyzing a complex diagram in a biology textbook to understand the different components of a cell.";
     rdfs:isDefinedBy "Breaking down complex visual information into smaller, more manageable parts. This involves analyzing visual elements, such as shapes, colors, and patterns, to understand the overall composition.";
