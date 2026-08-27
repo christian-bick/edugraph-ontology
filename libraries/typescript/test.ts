@@ -53,6 +53,12 @@ assertOk(specializesTransitive(Ability.AxiomFormalization).includes(Ability.Logi
 assertOk(specializesTransitive(Ability.ReadingFluency).includes(Ability.Reception), "Reading fluency should inherit the reception capability through its linguistic modalities");
 assertOk(specializesTransitive(Ability.WritingFluency).includes(Ability.Expression), "Writing fluency should inherit expression through its linguistic modalities");
 assertOk(specializes(Ability.VisualArticulation).includes(Ability.Expression), "Visual articulation should directly specialize expression");
+assertOk(specializes(Ability.ActiveVocabulary).includes(Ability.TextualArticulation), "Active vocabulary should directly specialize textual articulation");
+assertOk(specializes(Ability.ActiveVocabulary).includes(Ability.VocalArticulation), "Active vocabulary should directly specialize vocal articulation");
+assertOk(specializes(Ability.GrammaticalPrecision).includes(Ability.TextualArticulation), "Grammatical precision should directly specialize textual articulation");
+assertOk(specializes(Ability.GrammaticalPrecision).includes(Ability.VocalArticulation), "Grammatical precision should directly specialize vocal articulation");
+assertOk(specializesTransitive(Ability.ActiveVocabulary).includes(Ability.LinguisticArticulation), "Active vocabulary should inherit linguistic articulation through both modalities");
+assertOk(specializesTransitive(Ability.GrammaticalPrecision).includes(Ability.LinguisticArticulation), "Grammatical precision should inherit linguistic articulation through both modalities");
 assertOk(structures(Area.DecimalDivisorShift).includes(Area.DecimalStrategies), "Decimal divisor shift should belong to decimal strategies");
 assertOk(!specializes(Area.DecimalDivisorShift).includes(Area.DecimalEquivalence), "Decimal divisor shift should not specialize decimal equivalence");
 assertOk(structures(Area.Subitizing).includes(Area.NumberSense), "Subitizing should belong directly to number sense");

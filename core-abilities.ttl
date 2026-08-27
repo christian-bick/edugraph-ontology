@@ -15,7 +15,7 @@
 :ActiveVocabulary a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Using subject-specific terminology correctly in a class discussion or written assignment.";
     rdfs:isDefinedBy "Using a wide range of words in speaking and writing. This involves actively employing diverse vocabulary to express ideas precisely and effectively.";
-    edu:specializes :LinguisticArticulation.
+    edu:specializes :TextualArticulation, :VocalArticulation.
 :AdaptiveCreativity a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: A student modifying their design for a school project after receiving feedback from their teacher.";
     rdfs:isDefinedBy "The ability to adjust and modify ideas in response to new information or challenges. This involves being flexible and adaptable in one's thinking, and being willing to revise and refine ideas as needed.";
@@ -170,7 +170,7 @@
 :GrammaticalPrecision a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Using proper verb tenses and subject-verb agreement in a research paper.";
     rdfs:isDefinedBy "Using correct grammar in spoken and written communication. This involves applying grammatical rules accurately to ensure clear and understandable language.";
-    edu:specializes :LinguisticArticulation.
+    edu:specializes :TextualArticulation, :VocalArticulation.
 :GroupModeration a owl:NamedIndividual, edu:Ability;
     rdfs:comment "Example: Leading a group project by assigning roles, keeping the group organized, and facilitating communication among members.";
     rdfs:isDefinedBy "Facilitating interaction and collaboration within a group. This involves encouraging participation, managing group dynamics, and ensuring that the group stays on task and achieves its goals.";
