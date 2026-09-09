@@ -2,8 +2,9 @@
 
 This document explains the design rationale. [DOCS_ONTOLOGY.md](DOCS_ONTOLOGY.md) is the
 authoring reference for dimension boundaries, observable claims, and relation semantics.
-[DOCS.md](DOCS.md) describes the implemented APIs and build workflow. Research analogies below
-motivate the design; they are not additional inference rules or guarantees of learner mastery.
+[DOCS.md](DOCS.md) describes the implemented APIs and build workflow. The literature comparisons
+below offer familiar points of reference, not an account of where EduGraph's design originated.
+They do not add inference rules or establish learner mastery.
 
 **[A. Ontology Design](#a-ontology-design)**
 
@@ -43,9 +44,9 @@ motivate the design; they are not additional inference rules or guarantees of le
 
 [1.1 Competency Components](#11-competency-components-paquette)
 
-[1.2 Semantic Prerequisite Networks](#12-semantic-prerequisite-networks-sicilia--sampson)
+[1.2 Competency Relations](#12-competency-relations-sicilia-sampson--fytros)
 
-[1.3 Context-Awareness in Learning Analytics](#13-context-awareness-in-learning-analytics-cass--inloc)
+[1.3 Context in Competency Frameworks](#13-context-in-competency-frameworks-cass--inloc)
 
 [1.4 Summary](#14-summary-the-intersectional-and-reusable-nature-of-competency-descriptors)
 
@@ -79,11 +80,11 @@ motivate the design; they are not additional inference rules or guarantees of le
 
 [1.3 Multi-Dimensional Tagging](#13-multi-dimensional-tagging)
 
-[2. Embeddings and Knowledge Graph Extraction (KGE)](#2-embeddings-and-knowledge-graph-extraction-kge)
+[2. Embeddings and Knowledge Graph Embeddings (KGE)](#2-embeddings-and-knowledge-graph-embeddings-kge)
 
-[1.1 Ontology Structure and KGEs](#11-ontology-structure-and-kges)
+[2.1 Ontology Structure and KGEs](#21-ontology-structure-and-kges)
 
-[1.2 Search and Cluster Detection](#12-search-and-cluster-detection)
+[2.2 Search and Cluster Detection](#22-search-and-cluster-detection)
 
 [3. Graph Databases and Deterministic Logic](#3-graph-databases-and-deterministic-logic)
 
@@ -111,11 +112,11 @@ motivate the design; they are not additional inference rules or guarantees of le
 
 [1.1 Dimensional Atomicity](#11-dimensional-atomicity)
 
-[1.2 Relational Determinism](#12-relational-determinism)
+[1.2 Semantic Clarity](#12-semantic-clarity)
 
-[1.3 Cognitive Portability](#13-cognitive-portability)
+[1.3 Relational Determinism](#13-relational-determinism)
 
-[1.4 Semantic Clarity](#14-semantic-clarity)
+[1.4 Cognitive Portability](#14-cognitive-portability)
 
 [2. Pragmatic Development](#2-pragmatic-development)
 
@@ -125,9 +126,11 @@ motivate the design; they are not additional inference rules or guarantees of le
 
 [2.3 Fostering Interoperability](#23-fostering-interoperability)
 
-[2.4 Committed to Open Source](#24-committed-to-open-source)
+[3. Committed to Open Source](#3-committed-to-open-source)
 
 **[E. Summary](#e-summary)**
+
+[References](#references)
 
 ---
 
@@ -137,7 +140,7 @@ motivate the design; they are not additional inference rules or guarantees of le
 
 The EduGraph ontology defines competency not as a single concept, but through the intersection of three independent and reusable entity types: ***Area***, ***Scope***, and ***Ability***. 
 
-This multi-dimensional approach ensures that a specific competency such as "calculating the perimeter of a rectangle using integers"—is precisely defined by the convergence of the *knowledge domains* (the Areas, e.g., Rectangle and PerimeterCalculation), the *broader context affecting difficulty* (the Scope, e.g., IntegerNumbers), and the *cognitive skill* involved (the Ability, e.g., ProcedureExecution).
+This multi-dimensional approach ensures that a specific competency such as "calculating the perimeter of a rectangle using integers"—is precisely defined by the convergence of the *knowledge domains* (the Areas, e.g., Rectangle and PerimeterCalculation), the *context shaping difficulty and available solution approaches* (the Scope, e.g., IntegerNumbers), and the *cognitive skill* involved (the Ability, e.g., ProcedureExecution).
 
 By separating these components across independent dimensions, the system maximizes the reusability of each descriptor and allows for dynamic mapping and inference across subjects, moving beyond traditional, monolithic competency definitions.
 
@@ -152,7 +155,7 @@ different knowledge, even though both concern measurement.
 
 | Field | Example of Area |
 | :---- | :---- |
-| **Geometry** | **Acute Angle.** An angle that measures less than 90 degrees. |
+| **Geometry** | **Acute Angle.** An angle greater than 0 and less than 90 degrees. |
 | **Arithmetic** | **Addition.** Adding numbers together. |
 
 ### 1.1.2 Scope
@@ -261,7 +264,7 @@ Growing with implied inversion: Entity A inverts Entity B when the expands relat
 | Field | Example of Inversion |
 | :---- | :---- |
 | **Arithmetic**  | **Subtraction inverts Addition.** Students don’t learn addition in complete isolation of subtraction, both are based on an intuitive access to sums and differences with objects which is then formalized as Addition and Subtraction in close succession. |
-| **Algebra** | **Logarithm inverts Expontiation.** Here the order in reality will always be Expontiation before Logarithm, and even with long timespans between the introduction of the two. Nevertheless, logarithmic scales can be observed independently in nature. |
+| **Algebra** | **Logarithm inverts Exponentiation.** Exponentiation is commonly introduced before logarithms, sometimes with a long interval between them. Nevertheless, logarithmic scales can be observed independently in nature. |
 | **Counting** | **Subtractive Count inverts Additive Count.** When visually counting, tasks can be structured as counting forward (additive count) or backward (subtractive count) with an intuitive preference for counting forward. |
 
 ### 3.2 Integrates
@@ -308,128 +311,135 @@ Progression inference through these links requires a separately justified rule.
 
 ## 1. General Structure
 
-The development of structured competency frameworks often relies on established educational psychology, cognitive science, and epistemological theories. However, traditional academic models are frequently designed to describe human developmental stages or linear instructional taxonomies. When translating these theories into a machine-readable, graph-based knowledge representation (an ontology), principles must be adapted to function as relational, computable nodes rather than purely descriptive concepts.
+The following comparisons connect EduGraph to related concepts in the literature. Each
+“Academic Literature” section explains the related idea on its own terms. “Ontological
+Implementation” then describes the overlap, the difference, and the reason for EduGraph's
+choice. These are comparisons for readers familiar with that work, not claims that the
+ontology was derived from it.
 
 ### 1.1 Competency Components (Paquette)
 
 **Academic Literature:**
 
-Paquette, Marino, and Bejaoui describe competency through a generic skill applied to knowledge
-at a performance level. Their comparison identifies the COMP1 triple as skill, knowledge,
-and performance, not skill, knowledge, and context.
-See [A new competency ontology for learning environments personalization (2021), sections on
-the initial model and model comparison](https://doi.org/10.1186/s40561-021-00160-z).
+Paquette, Marino, and Bejaoui describe a competency in terms of the knowledge involved,
+the skill used to apply it, and how well it is performed. These three elements form their
+COMP1 model: knowledge, skill, and performance.[^paquette]
 
 **Ontological Implementation:**
 
-EduGraph adapts the separation of knowledge and generic skill as Area and Ability. Scope is
-EduGraph's explicit dimension for observable context and constraints; it is not a renaming of
-Paquette's performance dimension. Describing a task's demand does not measure a learner's
-proficiency. The following correspondences explain the adaptation, not an exact reproduction
-of the source model.
+**Overlap:** Both distinguish the knowledge involved from the skill used. Area and Ability provide a similar separation in EduGraph.
 
-| Academic Concept | Ontology Counterpart | Adaptation Rationale |
-| :---- | :---- | :---- |
-| **Action Verb / Skill** | *Ability*: Defined as "A general mental attribute that is trainable and applicable across various fields". Examples include *LogicalProcessing* and *AnalogicalReasoning*. | Traditional frameworks embed the verb directly into a text string (e.g., "Understands fractions"). The ontology extracts the ability as a standalone entity, allowing the system to track a student's *LogicalProcessing* across entirely different subjects like Math or Foreign Languages. |
-| **Knowledge Object** | *Area*: Defined as "A specific domain of knowledge and understanding within a field". Examples include *FractionArithmetic* and *IntegerArithmetic*. | In standard models, knowledge objects are static taxonomies. Here, *Areas* are interconnected nodes; for example, *FractionArithmetic* translates *ProportionInteraction*, creating a dynamic map of subject matter dependencies. |
-| **Competency Definition** | *CompetencyDescription*: Involves at least one Ability and Area, with zero or more Scopes. | Instead of a 1:1 mapping, the ontology uses an intersectional graph. A competency does not "own" an ability or area; it is defined by its relationship to them. This ensures high reusability and allows inference engines to identify overlapping skills across different descriptions. |
+**Difference:** EduGraph combines Area, Ability, and optional Scope labels to describe a task. Scope identifies context and constraints, not the learner's performance level. The dimensions are therefore not a direct mapping of COMP1.
 
-### 1.2 Semantic Prerequisite Networks (Sicilia & Sampson)
+**Reasoning:** Content must be describable without knowing who will use it or how well they will perform. Reusable labels also let different tasks share claims: Addition and ProcedureExecution, for example, can appear with different numeric Scopes. Learner performance needs separate evidence.
+
+### 1.2 Competency Relations (Sicilia; Sampson & Fytros)
 
 **Academic Literature:**
 
-Researchers such as Miguel-Angel Sicilia and Demetrios Sampson have extensively explored how to link learning objects and competencies using ontological relations. Their research emphasizes replacing traditional, rigid course syllabi with "Semantic Prerequisite Networks." In these networks, competencies are linked by relations such as requires, is-equivalent-to, or is-part-of. This allows an algorithm to calculate learning paths automatically based on the semantic dependencies of the concepts rather than a teacher's subjective lesson plan.
+Sicilia examines how explicit competency descriptions can connect an organization's needs,
+available skills, and learning resources.[^sicilia] Sampson and Fytros examine how competence
+information can be represented so that learning software can use it.[^sampson] The shared idea
+is to make competencies and their relationships available for software to compare and use.
 
 **Ontological Implementation:**
 
-The ontology adopts the concept of automated pathing but entirely discards the standard, subjective “requires” relation in favor of mathematically objective operators.
+**Overlap:** EduGraph also makes competency descriptions and their relationships explicit, so applications can use shared relations between content and systematically explore connections between competencies.
 
-| Academic Concept | Ontology Counterpart | Adaptation Rationale |
-| :---- | :---- | :---- |
-| **"Requires" / Prerequisite** | *expands*: "A expands B when understanding A is based on an understanding of B". *integrates*: "A integrates B when A is synthesized in parts using B". | The term "requires" is pedagogically ambiguous (e.g., does it require it as a building block, or as a broader concept?). The ontology alters this into precise structural relationships. For example, *Multiplication expands Addition*, meaning the domain is grown, whereas *GeometricCalculations integrates Arithmetic* to synthesize an entire new set of tools. |
-| **"Is-Equivalent-To"** | *translates*: "A translates B when one is a representation of the other". | True equivalence is rare in learning. The ontology adapts this into a "Translation" relation. For instance, *FractionArithmetic* translates *ProportionInteraction*. This allows the reasoner to understand that the underlying logic is identical, even if the representation differs. |
+**Difference:** EduGraph distinguishes relations such as *expands*, *integrates*, and *translates* rather than treating every connection as a prerequisite or equivalence. For example, *GeometricCalculations integrates Arithmetic* describes the use of arithmetic within geometry, not a required sequence of lessons.
 
-### 1.3 Context-Awareness in Learning Analytics (CASS & InLOC)
+**Reasoning:** Applications need to understand the connections that can be inferred between competencies. Distinguishing relations between their atomic parts makes claims inspectable without assuming that every learner follows the same path. Progression inference and learning-path recommendations at the competency level still need their own validation.
+
+For example, *Multiplication expands Addition* suggests an intuitive sequence, while *Subtraction inverts Addition* is compatible with introducing the two operations either sequentially or together. Similarly, using the Pythagorean theorem to find a missing side involves square roots, but square roots can be introduced alongside that application rather than beforehand.
+
+### 1.3 Context in Competency Frameworks (CaSS & InLOC)
 
 **Academic Literature:**
 
-Modern competency frameworks, such as the Competency and Academic Standards Exchange (CASS) and the Integrating Learning Outcomes and Competencies (InLOC) specifications, highlight the importance of "Context." A student might possess the ability to solve a mathematical operation on paper but fail to do so in a real-world word problem. Academic literature dictates that context (the environment, the tools allowed, the constraints) drastically alters the cognitive load and must be modeled to accurately assess mastery.
+CaSS (Competency and Skills System) includes a field for the scope in which a competency
+applies.[^cass] InLOC (Integrating Learning Outcomes and Competences) distinguishes a competency
+definition from information about its applicability, including context and scope.[^inloc]
+These mechanisms let a description say where or under what conditions it is relevant.
 
 **Ontological Implementation:**
 
-The ontology formalizes this environmental factor through the *Scope* class, elevating context from a mere metadata tag to a primary structural node.
+**Overlap:** EduGraph likewise distinguishes the task from the context in which it is presented.
 
-| Academic Concept | Ontology Counterpart | Adaptation Rationale |
-| :---- | :---- | :---- |
-| **Performance Context / Environment** | *Scope*: "An observable context of learning that affects abstraction, variation, generalization, complexity and ultimately measurable differences in difficulty". | Standard models treat context as a descriptive note attached to a test. The ontology models contexts as independent, interconnected entities. For example, *Base10* is a scope that can be translated by the physical scope *BaseTenBlocks*. |
-| **Contextual Hierarchy** | `partOf` organizes constituents; `specializes` identifies narrower contexts. | `Abacus` and `BaseTenBlocks` specialize `PhysicalNumbers`. Specialization supports comparison at a broader granularity. Performance across those contexts can inform a diagnostic hypothesis, but hierarchy alone does not prove the cause of a learner’s difficulty. |
+**Difference:** EduGraph represents observable contexts as reusable Scope entities with their own relationships, rather than only as descriptive text. For example, Abacus and BaseTenBlocks both specialize PhysicalNumbers.
+
+**Reasoning:** Explicit Scopes allow the same context to be identified across many tasks and compared consistently. They describe changes in difficulty and available solution approaches without treating every contextual variation as a different Area. Their effect on a learner must still be assessed. For example, moving from NumbersSmaller10 to NumbersLarger10 can be a substantial step when learning basic arithmetic at a young age, but only a minor change in difficulty when solving algebra problems later in school.
 
 ### 1.4 Summary: The Intersectional and Reusable Nature of Competency Descriptors
 
 The ontology shifts from viewing a competency as a single, opaque concept to an intersectional relationship defined by three independent, reusable entity types: *Area*, *Scope*, and *Ability*
 
-**Reusability:** By extracting the cognitive skill (*Ability*) and the context (*Scope*) from the subject matter (*Area*), the system maximizes reusability of descriptors. In combination with inference, the amount of explicitly declared relations is reduced to minimum.
+**Reusability:** By extracting the cognitive skill (*Ability*) and the context (*Scope*) from the subject matter (*Area*), the system maximizes reusability of descriptors. Explicit inference rules can reduce repeated declarations.
 
-**Dynamic Mapping:** The structural and progression relations replace rigid, linear taxonomies (e.g., syllabi) with a dynamic, graph-based map. This allows for solid reasoning over relations between competencies which are now rooted in fundamental structures with a high level objectivity.
+**Dynamic Mapping:** The structural and progression relations replace rigid, linear taxonomies (e.g., syllabi) with a dynamic, graph-based map. This makes the stated relationships inspectable and available for comparison.
 
-**Contextual Granularity:** The introduction of *Scope* as a first-class entity elevates the importance of context, enabling the system to model measurable differences in difficulty based on the environment (e.g., solving a problem with physical manipulatives vs. abstract notation).
+**Contextual Granularity:** The introduction of *Scope* as a first-class entity elevates the importance of context, enabling the system to describe contexts and investigate differences in difficulty (e.g., solving a problem with physical manipulatives vs. abstract notation).
 
 ## 2. Abilities as Independent Dimension
 
 The tracking of cognitive abilities as independent, domain-general dimensions represents a significant shift from traditional, subject-siloed educational models. In traditional grading, a student’s capacity to reason or evaluate is often obscured by their specific subject knowledge (e.g., failing a physics test might reflect poor mathematical calculation skills rather than a lack of scientific reasoning).
 
-Isolating "abilities" allows for longitudinal tracking of cognitive growth across a student's entire academic career and enables the design of cross-curricular learning paths. The following academic frameworks support this approach, alongside an analysis of how they are adapted into the computable ontology.
+Separating Abilities lets the same kind of cognitive performance be described across subjects
+and over time. The following comparisons explain how this relates to transfer, intelligence
+research, and self-regulation, while keeping task descriptions separate from evidence of a
+learner's capabilities.
 
 ### 2.1 Transfer of Learning (Salomon & Perkins)
 
 **Academic Literature:**
 
-Educational psychologists Gavriel Salomon and David Perkins established the framework for the "Transfer of Learning"—the application of skills learned in one context to novel situations. 
-
-They distinguish between "low-road transfer" (automatic triggering of well-practiced routines) and "high-road transfer" (mindful abstraction of a cognitive skill from one context to apply it to another). High-road transfer requires students to possess domain-general cognitive tools, such as analogical reasoning or hypothesis generation, that are not strictly bound to the subject in which they were first learned.
+Salomon and Perkins describe transfer as applying learning from one context in another.
+They distinguish “low-road transfer,” where practice makes a response readily available,
+from “high-road transfer,” where a learner deliberately identifies and applies a relevant
+idea in a new situation. Whether transfer occurs depends on the conditions of learning
+and use.[^transfer]
 
 **Ontological Implementation:**
 
-The ontology formalizes high-road transfer by extracting cognitive actions out of subject-specific silos and structuring them as an independent *Ability* class.
+**Overlap:** The same cognitive performance can be relevant in different subjects. For example, HypothesisGeneration can be demanded in both Biology and History.
 
-| Academic Concept | Ontology Counterpart | Adaptation Rationale |
-| :---- | :---- | :---- |
-| **Domain-General Cognitive Tools** | *Ability*: "A general mental attribute that is trainable and applicable across various fields." | Instead of embedding a verb inside a math or science standard, the ability is an independent node. For example, *AnalogicalReasoning* is applicable across Math, Science, and Social Science. |
-| **High-Road Transfer / Abstraction** | The *involves* property links multiple *CompetencyDescription* nodes to the same *Ability*. | The ontology allows an algorithm to track transferability. Evidence of *HypothesisGeneration* in Biology and History can be tracked under the same Ability. Transfer to another Area remains an empirical question rather than an automatic inheritance of mastery. |
+**Difference:** Transfer research asks how learning in one context carries into another. EduGraph's Ability labels describe what a task demands; using the same label in two subjects does not show that a learner has transferred the skill.
+
+**Reasoning:** A shared descriptor makes cross-subject observations comparable without assuming their outcome. It allows applications to investigate transfer while requiring learner evidence to establish whether it happened.
 
 ### 2.2 Fluid vs. Crystallized Intelligence (Cattell-Horn-Carroll Theory)
 
 **Academic Literature:**
 
-The Cattell-Horn-Carroll (CHC) Theory represents the consensus psychometric model of cognitive abilities, providing a heavily validated statistical framework for categorizing human cognition.
-
-It makes a fundamental distinction between *Crystallized Intelligence* (Gc)—the depth and breadth of acquired, domain-specific knowledge—and *Fluid Intelligence* (Gf)—the broad ability to reason, form concepts, and solve novel problems independent of past knowledge. For long-term observation, tracking Gf is critical because fluid abilities grow and mature across a lifespan, acting as the engine that allows students to acquire new Gc in unfamiliar domains.
+CHC theory describes several broad and more specific cognitive abilities. It distinguishes
+acquired knowledge (Gc) from reasoning with novel problems (Gf), alongside abilities such as
+visual processing and memory. Studies of intelligence tests examine and refine this
+structure.[^chc]
 
 **Ontological Implementation:**
 
-The ontology maps this precise psychological division directly into its structural architecture, ensuring that the engine of learning (the ability) is tracked independently from the accumulated facts (the area).
+**Overlap:** CHC and EduGraph both distinguish knowledge from aspects of cognitive performance.
 
-| Academic Concept | Ontology Counterpart | Adaptation Rationale |
-| :---- | :---- | :---- |
-| **Fluid Intelligence (Gf)** | *Ability*: Represents fluid reasoning processes such as *DeductiveReasoning*, *ConceptGeneralization*, and *SpatialGeneration*. | Academic theories treat Gf as a psychological trait. The ontology adapts this into a structural tracking dimension. Because *Ability* nodes are static across all grades, a school can longitudinally observe a student's *LogicalProcessing* from elementary arithmetic through advanced calculus. |
-| **Crystallized Knowledge (Gc)** | *Area*: "A specific domain of knowledge and understanding within a field." Examples include *FractionArithmetic* or *Geometry*. | By separating Gc (Area) from Gf (Ability), the ontology prevents false negatives in assessment. If a student fails a geometry assessment, the graph can isolate whether the failure was due to lacking the specific Gc (Geometry rules) or the Gf (*SpatialImagination*). |
+**Difference:** Area and Ability are not measures of Gc and Gf. EduGraph describes knowledge required by content and a wider range of task demands, including reasoning, communication, and self-regulation. It does not assign intelligence-test scores.
+
+**Reasoning:** The dataset needs labels that can be justified from observable content. A task can demand DeductiveReasoning without providing enough evidence to assess a learner's fluid intelligence. Keeping these purposes separate supports content classification without making unsupported claims about the learner.
 
 ### 2.3 Self-Regulated Learning and Executive Function (Zimmerman & Diamond)
 
 **Academic Literature:**
 
-Research on Executive Functions (by Adele Diamond) and Self-Regulated Learning (by Barry Zimmerman) emphasizes that academic success relies heavily on metacognitive abilities—planning, monitoring, evaluating one's own progress, and emotional regulation. 
-
-These are highly cross-curricular skills. A student's ability to evaluate the plausibility of an answer or moderate a group discussion applies equally in a physics lab and a literature seminar. Tracking these longitudinally is vital because executive functions develop gradually through adolescence.
+Diamond describes executive functions such as inhibition, working memory, and cognitive
+flexibility.[^diamond] Zimmerman describes self-regulated learning through planning,
+monitoring, and reflection.[^zimmerman] These related accounts examine how people manage
+their actions and learning, but do not treat all cognitive, emotional, and social processes
+as the same thing.
 
 **Ontological Implementation:**
 
-The ontology elevates metacognitive, emotional, and social functions to the exact same structural level as logic and mathematics, categorizing them as explicitly queryable abilities.
+**Overlap:** EduGraph includes related performances, such as SelfRegulation or ErrorDetection, alongside other Abilities.
 
-| Academic Concept | Ontology Counterpart | Adaptation Rationale |
-| :---- | :---- | :---- |
-| **Executive Evaluation** | *Evaluation*: Sub-abilities include *PlausibilityEvaluation*, *ErrorDetection*, and *RelevanceEvaluation*. | Traditional curriculums often fail to track "error detection" as a distinct, long-term skill. By making *ErrorDetection* an independent node, a system can observe a student's executive functioning maturing over years, across varied subjects. |
-| **Self-Regulation and Metacognition** | *Introspection*: Sub-abilities include *SelfAssessment*, *SelfAwareness*, and *SelfRegulation*. | Rather than treating emotional control as a "soft skill" outside the curriculum, the ontology models *SelfRegulation* as a foundational *Ability*. This allows educational software to trigger interventions based on cognitive and emotional regulation patterns rather than just academic scores. |
+**Difference:** The ontology does not reproduce either research model or equate each Ability with an executive function. It identifies what content explicitly or implicitly asks a learner to do, rather than explaining all the processes involved in doing it.
+
+**Reasoning:** These _observable_ demands should be describable across subjects just like reasoning or communication. Explicit labels allow relevant observations to be collected, while judgments about self-regulation or executive-function development require evidence beyond a task label.
 
 ### 2.4 Summary: The Structural Benefit for Cross-Subject Curriculums
 
@@ -445,51 +455,58 @@ A curriculum designer can query the ontology to find all competencies across the
 
 **Academic Literature:**
 
-Knowledge Space Theory (KST), developed by Jean-Claude Falmagne and Jean-Paul Doignon, maps a domain of knowledge by identifying dependencies between concepts. Initially, KST relied on deterministic "surmise relations" (if a student knows B, we can logically surmise they know A). However, because students sometimes guess correctly or make careless slips, modern KST relies on probabilistic interpretations. A prerequisite relation in modern KST is not a strict gatekeeper, but rather a hypothesis about the most probable learning pathways.
+Knowledge Space Theory describes possible states of knowledge and relationships between
+them. Its assessment models account for uncertainty, including careless errors and lucky
+guesses. A wrong answer can therefore be treated separately from the question of whether
+the learner has the relevant knowledge.[^kst]
 
 **Ontological Implementation:**
 
-The ontology avoids the rigid semantics of traditional prerequisite modeling (such as requires or hasPrerequisite), which break automated reasoning engines when exceptions occur. Instead, it utilizes structural dependency relations like *expands* and *integrates*.
+**Overlap:** Both distinguish a description of knowledge relationships from observations of learner performance.
 
-| Academic Concept | Ontology Counterpart | Adaptation Rationale |
-| :---- | :---- | :---- |
-| **Probabilistic Surmise Relations** | *expands*: "A expands B when understanding A is based on an understanding of B". | A strict "requires" relationship makes a strong behavioral assertion about the learner. The ontology alters this to a structural assertion about the subject matter. What appears logically obvious, serves as a hypothesis for statistical models to handle the behavioral probabilities. |
+**Difference:** EduGraph's *expands* and *integrates* relations describe conceptual connections. They do not define the set of possible learner knowledge states or the probabilities of observed answers.
+
+**Reasoning:** The same ontology should support different assessment approaches. Keeping conceptual relationships separate from response models allows applications to choose and test how they interpret learner evidence without changing the meaning of the content labels.
 
 ### 3.2 Probabilistic Graphical Models (PGMs) and Explanatory Skeletons
 
 **Academic Literature:**
 
-In artificial intelligence, Probabilistic Graphical Models (PGMs), such as Bayesian Networks, merge graph theory with probability theory. Judea Pearl’s work on causality emphasizes that while statistical correlation can identify that two variables move together, it takes a directed logical graph to explain *why*. In educational modeling, a pure statistical correlation might show that students who fail fractions also fail algebra. However, without a logical framework mapping the cognitive connection, educators cannot design targeted interventions.
+Probabilistic Graphical Models, such as Bayesian Networks, describe relationships between
+variables. Causal models go further by stating assumptions about how one variable affects
+another. Pearl distinguishes these causal claims from statistical associations: a correlation
+alone does not establish a cause.[^pearl]
 
 **Ontological Implementation:**
 
-The ontology is designed to function as the directed logical skeleton for a future statistical engine, explicitly defining the *type* of relationship connecting two nodes.
+**Overlap:** EduGraph also makes the type and direction of relationships explicit, so their meaning can be inspected.
 
-| Academic Concept | Ontology Counterpart | Adaptation Rationale |
-| :---- | :---- | :---- |
-| **Directed Causal Graphs** | Directional properties such as *integrates*, defined as "A integrates B when A is synthesized in parts using B". | A statistical model might notice a high correlation between measuring angles and drawing triangles. The ontology provides the logical explanation: *TriangleRuler* integrates *DegreeScale*. The logic provides the causal direction for the statistical correlation. |
-| **Conditional Independence** | The separation of *Area*, *Ability*, and *Scope* into independent classes. | In PGMs, separating variables reduces computational complexity. By making representations separate (e.g., *RomanNumerals* translates *Base10*), the ontology allows a statistical engine to test variables independently, isolating whether a student's struggle is with the underlying math or the specific notation. |
+**Difference:** Its relations describe concepts, not probability distributions or established causes of learner performance. Separate Area, Scope, and Ability dimensions do not imply statistical independence.
+
+**Reasoning:** A relation such as *TriangleRuler integrates DegreeScale* should remain useful for describing content even when no learner data is available. An application may use such connections when constructing a statistical model, but must justify that model's assumptions separately.
 
 ### 3.3 Educational Data Mining (EDM) and Hypothesis-Driven Curriculum
 
 **Academic Literature:**
 
-The field of Educational Data Mining (EDM), championed by researchers like Ryan Baker and George Siemens, focuses on extracting patterns from large-scale educational datasets. A key principle in EDM is the transition from "curriculum as prescription" to "curriculum as hypothesis." Expert-authored curriculum maps are subjective. True validation occurs when statistical analysis of student performance (e.g., through item response theory) confirms that mastering Concept A significantly increases the probability of mastering Concept B. When the statistics align with the expert map, the logical link transitions from a hypothesis to a validated explanation of cognitive growth.
+Educational Data Mining and Learning Analytics study patterns in educational data. Baker
+and Siemens discuss prediction, relationships between observations, and testing ideas about
+learning.[^edm] Different methods answer different questions; finding an association is not
+the same as establishing its cause.[^pearl]
 
 **Ontological Implementation:**
 
-The ontology encodes expert-authored logic not as absolute truths of human learning, but as structured, testable hypotheses using distinct operational vectors (*expands,* *integrates*).
+**Overlap:** EduGraph's descriptions and relations can be compared with observed performance to investigate ideas about learning.
 
-| Academic Concept | Ontology Counterpart | Adaptation Rationale |
-| :---- | :---- | :---- |
-| **Expert-Authored Hypotheses** | Defining specific domain relationships, such as *DigitNotation expands NumericIdentity*. | By formalizing these links using standard Semantic Web protocols (OWL/RDF), the ontology allows educational data systems to query the exact nature of the hypothesized relationship and test it against student performance datasets. |
-| **Transitioning to Explanation** | The descriptive definitions attached to the properties, such as *translates* ("A translates B when one is a representation of the other"). | Once EDM confirms a statistical correlation between two competencies, the ontology provides the semantic vocabulary to explain it. If success in physical counting correlates with success in symbolic counting, the ontology explains this structurally: *NumberTiles translates Base10*. |
+**Difference:** The ontology records authored conceptual claims; it is not itself a data-mining method. A frequent pattern in learner data does not automatically become an ontology relation.
+
+**Reasoning:** Keeping the claim separate from the evidence makes both reviewable. For example, *NumberTiles translates Base10* can guide a comparison of representations, while performance data can test whether the proposed connection helps explain learning. Agreement alone does not prove causality.
 
 ### 3.4 Summary: Logical and statistical relations inform each other
 
 To accommodate both the strict logic of machine-readable ontologies and the statistical reality of human learning, the schema abstracts human behavior out of its relationships. It does not dictate *how* or *when* a student must learn. 
 
-Instead, it defines the structural topology of the subject matter itself. By replacing rigid prerequisite commands with relational hypotheses *(expands, integrates, inverts, translates)*, the ontology provides a stable, explainable skeleton. This architecture allows statistical engines to overlay probabilities, track real-world variances, and eventually validate the logical hypotheses into robust educational explanations.
+Instead, it defines the structural topology of the subject matter itself. By replacing rigid prerequisite commands with relational hypotheses *(expands, integrates, inverts, translates)*, the ontology provides a stable, explainable skeleton. This architecture allows statistical engines to overlay probabilities, track real-world variances, and test whether the proposed relationships help explain learning.
 
 ---
 
@@ -499,14 +516,14 @@ Instead, it defines the structural topology of the subject matter itself. By rep
 
 ### 1.1 Avoiding Data Starvation through Reusable Descriptors
 
-Traditional educational taxonomies often suffer from data starvation because they rely on monolithic, highly specific competency statements (e.g., "Can add two-digit numbers using an abacus"). Training machine learning models on these isolated nodes requires massive datasets for each specific node. 
+Treating each highly specific competency statement (e.g., "Can add two-digit numbers using an abacus") as an unrelated training class can leave few examples per class. Reusable descriptors offer a way to share evidence across such combinations.[^caruana]
 
 Reusable Areas, Scopes, and Abilities let examples contribute annotations for shared descriptors
 across different competency combinations. For example, addition tasks in different numeric
 contexts can contribute evidence for the same Addition descriptor.
 
 This supports shared learning rather than requiring an unrelated class for every conjunction.
-The supporting research and its limits are separated in
+The related research and its limits are discussed in
 [D.1.1](#11-dimensional-atomicity): reuse makes data aggregation possible, but does not guarantee
 sufficient coverage or accurate recognition of unseen combinations.
 
@@ -517,27 +534,27 @@ ontology. Familiar terminology helps communicate the intended meaning; precise d
 distinguish nearby concepts that a name alone could conflate.
 
 This is a semantic clarity concern, independent of whether descriptors are decomposed into
-dimensions. [D.1.4](#14-semantic-clarity) separates the ontology-engineering basis from the
+dimensions. [D.1.2](#12-semantic-clarity) separates the ontology-engineering comparison from the
 evidence for language-based visual classification. Reliable classification of EduGraph
 descriptors remains an empirical requirement, not a consequence of familiar wording alone.
 
 ### 1.3 Multi-Dimensional Tagging
 
-This atomic structure enables a highly expressive multi-dimensional tagging system. Crucially, it allows for multiple labels from the same dimension. For example, a single learning activity might involve both the *AnalogClock* and *DigitalClock* scopes. Rather than creating a rigid, mutually exclusive hierarchy, this combinatorial tagging approach mirrors the messy reality of educational content, allowing classifiers to accurately capture nuances that single-label hierarchical systems miss.
+This atomic structure enables a highly expressive multi-dimensional tagging system. Crucially, it allows for multiple labels from the same dimension. For example, a single learning activity might involve both the *AnalogClock* and *DigitalClock* scopes. Rather than creating a rigid, mutually exclusive hierarchy, this combinatorial tagging approach mirrors the messy reality of educational content, allowing annotations to express combinations that a single label cannot capture.
 
-## 2. Embeddings and Knowledge Graph Extraction (KGE)
+## 2. Embeddings and Knowledge Graph Embeddings (KGE)
 
-### 1.1 Ontology Structure and KGEs
+### 2.1 Ontology Structure and KGEs
 
-When the ontology is projected into Knowledge Graph Embeddings (KGEs)—using models like TransE or Graph Neural Networks (GNNs)—the distinct relations (*partOf*, *specializes*) and progression relations (*expands*, *integrates*) are translated into geometric distances and directional vectors in a high-dimensional space. The embedding must preserve the difference between structural membership, specialization, and progression rather than treating every edge as an interchangeable parent relation.
+Knowledge Graph Embeddings (KGEs) represent entities and relations as learned vectors. TransE, for example, models a relation as a translation between entity vectors; Graph Neural Networks (GNNs) offer other ways to learn from graph structure.[^transe][^gnn] An EduGraph embedding should distinguish *partOf*, *specializes*, *expands*, and *integrates*. Whether it preserves those distinctions must be tested.
 
-### 1.2 Search and Cluster Detection 
+### 2.2 Search and Cluster Detection
 
-This mapped vector space revolutionizes how systems handle content.
+This vector space can support search and grouping of content.
 
-* **Semantic Search:** Queries are no longer keyword-based; they are spatial. Searching for content involves finding nodes clustered near a specific coordinate in the semantic space, ensuring results are conceptually and pedagogically relevant, even if the vocabulary differs.
+* **Semantic Search:** Queries are no longer keyword-based; they are spatial. Searching for content involves finding nodes clustered near a specific coordinate in the semantic space, potentially finding related content even when vocabulary differs. Pedagogical relevance still needs validation.
 
-* **Cluster Detection & Auto-Generation:** By running clustering algorithms (like DBSCAN or K-Means) over the KGEs of tagged educational content, the system can identify high-density clusters of *Areas*, *Scopes*, and *Abilities* that co-occur frequently. If a cluster exists but no formal Competency represents it, the AI can automatically generate a new *CompetencyEntity* and formally define it using the *involves* relation, effectively allowing the system to self-organize and discover unmapped curriculum paths.
+* **Cluster Detection & Auto-Generation:** By running clustering algorithms (like DBSCAN or K-Means) over the KGEs of tagged educational content, the system can identify high-density clusters of *Areas*, *Scopes*, and *Abilities* that co-occur frequently. If a cluster exists but no formal Competency represents it, the AI could propose a new *CompetencyEntity* using the *involves* relation. Frequent co-occurrence alone does not establish a coherent competency; the proposal needs review.
 
 ## 3. Graph Databases and Deterministic Logic
 
@@ -550,11 +567,11 @@ path is evidence in the authored model, not proof of a universal learning prereq
 
 ### 3.2 Pairing with Statistical Methods 
 
-The true power lies in pairing this deterministic graph with statistical AI. The graph provides the "rules of physics" for the educational domain—the hard constraints. Statistical methods (like predictive knowledge tracing algorithms) operate within these constraints. For instance, an algorithm predicting student success doesn't have to guess the relationship between *Addition* and *Multiplication*; the graph deterministically provides the *expands* relationship, allowing the statistical model to focus purely on calculating the probability of the student successfully making that leap based on historical data.
+The graph can provide explicit conceptual relationships to statistical methods, such as knowledge tracing. For example, the recorded *Multiplication expands Addition* relation can inform a model of student progress. It does not determine success probabilities or prove that every learner must follow that order; those questions need performance data and a tested model.
 
 ### 3.3 The Role of OWL 
 
-The schema declares inverse properties and subproperties. For example,
+OWL supports inverse properties and subproperties.[^owl] The schema declares both. For example,
 `A specializes B` entails `B specializedBy A` and `A structures B` under those declarations.
 The schema does not declare these properties as OWL transitive properties or encode generic
 relation-inheritance chains. Client-library transitive helpers compute graph reachability
@@ -566,11 +583,11 @@ definition of `specializes` turn descriptor individuals into OWL subclasses. See
 
 ### 4.1 Combining Deterministic Querying with ML 
 
-Hybrid AI architectures (Neurosymbolic AI) combine the best of both worlds. For example, deterministic querying can be used to dramatically reduce the search space for an ML algorithm. If a system wants to generate a learning path, it can first use a graph query to traverse structural and progression relations, eliminating implicitly redundant entities or logically impossible jumps. The ML model is then fed this optimized, logically sound subgraph to rank the best possible paths based on user engagement metrics or predicted success rates.
+Hybrid AI architectures (Neurosymbolic AI) combine symbolic methods with neural learning.[^nesy] For example, graph queries can select relevant concepts before an ML model ranks candidate learning paths. Only explicit, justified rules should exclude a path; graph structure alone does not make a learning sequence correct.
 
 ### 4.2 Individual Student Graphs 
 
-When this ontology is combined with a student's personal data (either mapped into the graph database directly or linked via an RDBMS), it creates an Individual Student Knowledge Graph. Instead of just a generic map of mathematics, the system now has a map of *what this specific student knows*.
+When this ontology is combined with a student's personal data (either mapped into the graph database directly or linked via an RDBMS), it creates an Individual Student Knowledge Graph. Instead of just a generic map of mathematics, the system now has a map of *evidence and estimates about what this specific student knows*.
 
 **Effects:** A system can trace `involves` edges to identify the Areas, Scopes, and Abilities
 whose contribution should be investigated. One failed task does not identify the exact cause.
@@ -580,17 +597,17 @@ Repeated observations across controlled contexts can support a diagnosis and tar
 
 ### 5.1 The Technological Bedrock 
 
-This ontology is the technological foundation for advanced educational AI because it provides a **computable ground truth**.
+This ontology is the technological foundation for advanced educational AI because it provides a **shared, explicit model of educational claims**.
 
 * **Progression Tracking:** Needs a standardized, multi-dimensional coordinate system to accurately map where a student started and where they are going.
 
-* **Recommendations:** Need the KGEs and progression vectors to ensure suggested content is in the student's Zone of Proximal Development.
+* **Recommendations:** Can use embeddings, progression relations, and learner evidence to suggest suitable challenges. Their suitability must be evaluated.
 
-* **AI Tutors:** Need the deterministic structural graph to correctly explain *why* a concept works, breaking it down into its atomic *Scopes* and *Areas*, rather than just hallucinating a plausible-sounding but pedagogically flawed explanation.
+* **AI Tutors:** Can use the graph to identify relevant concepts and relationships when explaining a task. Correct explanations still require mathematical evidence and validation.
 
 ### 5.2 The Consequences of Lacking this Foundation 
 
-Without this ontological foundation, educational technology degrades into "black box" systems. Recommender systems are forced to rely on collaborative filtering ("Students who clicked this also clicked that"), which ignores pedagogical prerequisites and structural logic entirely. AI tutors lack domain guardrails, leading to logical inconsistencies and unexplainable behavior. Data remains siloed because there is no common semantic vocabulary to link a student's performance in one platform to their performance in another. Ultimately, without the ontology, AI in education is just surface-level pattern matching; with it, it becomes a true engine for cognitive modeling.
+Without a shared vocabulary, linking learner evidence and content across systems requires additional mapping. Educational AI can use other approaches, including content models and collaborative filtering, but an explicit ontology makes its descriptions and assumptions easier to inspect. The ontology supports explainability; it does not by itself guarantee it.
 
 ---
 
@@ -598,24 +615,25 @@ Without this ontological foundation, educational technology degrades into "black
 
 ## 1. Core Concepts
 
-The EduGraph ontology is not merely a digital curriculum map; it is a **Neurosymbolic Engine** designed to bridge the gap between human pedagogical expertise and machine-learning efficiency. 
-The synthesis of educational theory and computational logic explains the combined design decisions for this ontology:
+The EduGraph ontology is designed to support **Neurosymbolic AI**, connecting human pedagogical expertise with machine learning.
+The following points summarize EduGraph's design choices and relate them to familiar ideas.
+“Pedagogical basis” describes the educational reasoning for each choice; references provide
+comparisons, not a history of how the schema was developed.
 
 ### 1.1 Dimensional Atomicity
 
 **Design questions:** Which reusable claims make up a competency description? Which claims can
 be reused when its context changes?
 
-**Pedagogical basis:** Competency modeling separates generic skill from the knowledge to which
-it is applied. [Paquette, Marino, and Bejaoui (2021)](https://doi.org/10.1186/s40561-021-00160-z)
-provide this basis, while also modeling performance. As explained in
-[B.1.1](#11-competency-components-paquette), EduGraph adapts that separation rather than
-attributing its Area, Ability, and Scope dimensions directly to Paquette.
+**Pedagogical basis:** A task's knowledge, cognitive demands, and context need to be
+distinguishable. Paquette's separation of knowledge and skill provides a useful comparison,
+but his performance dimension answers a different question.[^paquette] See
+[B.1.1](#11-competency-components-paquette) for the overlap and difference.
 
-**Technological basis:** [Caruana's Multitask Learning (1997)](https://www.cs.cornell.edu/~caruana/mlj97.pdf)
+**Technological basis:** Caruana's *Multitask Learning* (1997)[^caruana]
 shows how related tasks can benefit from shared representations and training signals.
-This motivates reusing descriptor-level evidence across competency combinations; it is not a
-validation of EduGraph's particular decomposition or a guarantee of compositional generalization.
+This offers a comparison for reusing descriptor-level evidence across competency combinations;
+it does not validate EduGraph's particular decomposition or guarantee recognition of unseen combinations.
 
 **EduGraph decision:** Describe a competency through a conjunction of reusable Areas, Abilities,
 and optional Scopes instead of creating a separate descriptor for every combination. For example,
@@ -624,7 +642,7 @@ context can reuse the same Area and Ability. Whether a classifier recognizes an 
 combination must still be tested.
 
 This principle governs **decomposition and reuse**. It does not determine how clearly each
-constituent is named and defined; that is the role of [semantic clarity](#14-semantic-clarity).
+constituent is named and defined; that is the role of [semantic clarity](#12-semantic-clarity).
 
 ### 1.2 Semantic Clarity
 
@@ -632,16 +650,15 @@ constituent is named and defined; that is the role of [semantic clarity](#14-sem
 Can they distinguish it from neighboring concepts?
 
 **Pedagogical basis:** Educators need a shared, precise account of what a descriptor means in
-learning content. The supporting definition principle comes from ontology engineering rather
-than a theory of learning: [Gruber's ontology design criteria, section 3](https://tomgruber.org/writing/onto-design.pdf)
-treat clarity as communicating intended meaning through objective definitions and documented
-semantics. This supports precise educational definitions regardless of how a competency is
+learning content. A related principle in
+ontology engineering is Gruber's clarity criterion: communicate intended meaning through
+objective definitions and documented semantics.[^gruber] This supports precise educational definitions regardless of how a competency is
 decomposed; it is not a claim about the effect of context on learning.
 
-**Technological basis:** [Radford et al., Learning Transferable Visual Models From Natural
-Language Supervision (2021)](https://proceedings.mlr.press/v139/radford21a.html) demonstrates
+**Technological basis:** Radford et al.'s *Learning Transferable Visual Models From Natural
+Language Supervision* (2021)[^clip] demonstrates
 natural-language descriptions as an interface for zero-shot visual classification.
-That motivates making ontology descriptions usable by language-based classifiers. It does not
+This is a relevant comparison for the use of ontology descriptions by language-based classifiers. It does not
 establish that educational Abilities are reliably observable or that familiar names guarantee
 accuracy without fine-tuning.
 
@@ -655,33 +672,39 @@ belongs in the Scope rationale; it is not the origin of semantic clarity. Classi
 test whether the definitions work in practice, without making the model's interpretation the
 authority for their meaning.
 
-### 1.2 Relational Determinism
+### 1.3 Relational Determinism
 
 **Design questions:** How should conceptual dependencies be made explicit? How can they provide
 a foundational understanding of educational progression for the AI?
 
-**Pedagogical basis:** *Semantic Prerequisite Networks* (Sicilia & Sampson) and *Knowledge Space Theory* (KST), which view learning as a directional growth through a structured topology.
+**Pedagogical basis:** Describing how concepts relate is a different task from predicting a
+learner's progress. Competency modeling and Knowledge Space Theory offer related distinctions,
+although their relations and assessment models differ from EduGraph's.[^sicilia][^sampson][^kst]
+The comparisons in section B explain those differences.
 
-**Technological basis:** **Neurosymbolic AI** and **Graph Databases**. Statistical models (LLMs/GNNs) excel at prediction but lack causal guardrails; graph logic provides deterministic certainty.
+**Technological basis:** **Neurosymbolic AI** combines learned models with explicit knowledge.[^nesy] **Graph Databases** make recorded relations available for consistent queries. Consistency with a graph is not proof that its educational claims are correct.
 
-**EduGraph decision:** The ontology provides a "logical skeleton" (*expands*, *integrates*) for "probabilistic muscles" (statistical AI). The pedagogical theory defines the *type* and *direction* of the relationship, which then acts as a foundational understanding of educational progression for the AI. This prevents "hallucinated" learning paths and ensures that recommendations are always grounded in a pedagogically sound structure.
+**EduGraph decision:** Record the *type* and *direction* of conceptual relationships through *expands* and *integrates*, providing a foundational understanding of educational progression for the AI. Keep those authored relationships separate from predictions about learners. They make recommendations inspectable, but do not guarantee correct learning paths.
 
-### 1.3 Cognitive Portability
+### 1.4 Cognitive Portability
 
 **Design questions:** How can the same Ability be tracked across subjects and over time? How can
 that shared dimension help investigate subject-specific and cognitive-processing difficulties?
 
-**Pedagogical basis:** *Transfer of Learning* (Salomon & Perkins) and the distinction between *Fluid and Crystallized Intelligence* (CHC Theory). These theories posit that cognitive abilities are domain-general engines of learning.
+**Pedagogical basis:** Comparing cognitive performance across subjects requires shared
+descriptions without assuming equal performance in every context. Transfer research asks how
+learning carries between contexts, while CHC examines the structure of cognitive abilities.[^transfer][^chc]
+These are useful comparisons, not direct mappings to Area and Ability.
 
-**Technological basis:** **Cross-Domain Data Aggregation** and **Longitudinal Tracking**. Traditional systems silo student data by subject; modern data architectures require a universal coordinate system.
+**Technological basis:** **Cross-Domain Data Aggregation** and **Longitudinal Tracking** benefit from shared labels. These allow observations from different subjects and times to be brought together without treating the tasks as identical.
 
-**EduGraph decision:** By treating *Abilities* as an independent dimension, the ontology enables cognitive portability. A student's *Analytical Capability* is tracked as a single vector that moves across Math, Science, and Language Arts. This integrates the psychological reality of human intelligence with the computational need for a unified student profile, allowing the system to diagnose whether a struggle is a subject-matter gap or a cognitive-processing bottleneck.
+**EduGraph decision:** Treat *Abilities* as an independent dimension so observations of *AnalyticalCapability*, for example, can be compared across Math, Science, and Language Arts. This supports a shared learner profile and investigation of subject-specific and cognitive-processing difficulties. A shared label does not establish transferable mastery or diagnose the cause of a difficulty.
 
 ## 2. Pragmatic Development
 
 The EduGraph ontology is not developed in a vacuum. It is the core of a three-way development cycle involving the **Ontology**, 
-a **Reference Dataset**, and **Statistical Models** (Classification and Embedding). This pragmatic approach ensures immediate 
-applicability and constant validation.
+a **Reference Dataset**, and **Statistical Models** (Classification and Embedding). This pragmatic approach supports practical
+application and continuing validation.
 
 ### 2.1 Implicit Validation
 Ontology development happens in direct lockstep with the annotation of a custom reference dataset. This dataset serves as 
@@ -697,37 +720,34 @@ time, without treating a model's verdict as the definition of the ontology.
 By developing a specialized **Classification Model** and an **Embedding Model** alongside, the ontology moves from a static 
 document to an active tool.
 
-**Automatically Tagged Content:** The classification model allows high-quality tagging of learning content with the EduGraph
-ontology without human oversight. Using modern multimodal models, the model can operates not only on text documents, but
-also on images and video. The high flexibility of modern models opens up the ontology to use cases beyond digital spaces
-and allows the tracking of learning activities in offline environments.
+**Automatically Tagged Content:** The classification model aims to make learning content easier to label and the ontology easier to adopt. Restricting outputs to valid ontology labels can rule out invented labels, while explicit rules can remove structurally redundant ones. Selecting the correct labels remains a statistical task. Fine-tuning aims for high recall (few missing labels) and high precision (few incorrect labels), with confidence scores calibrated for label combinations.
 
-**Vectorized Pedagogy:** The embedding model translates ontological nodes into a high-dimensional space where "pedagogical 
-distance" becomes measurable. This enables search and recommendation engines to operate with a degree of conceptual nuance 
-that keyword-based systems cannot match.
+Large Vision-Language Models (LVLMs) offer pretrained visual and language capabilities.[^clip] The aim is to focus fine-tuning on the meaning of the ontology's labels while retaining those capabilities, rather than training a separate model for every layout or modality. Performance across layouts and supported modalities still needs validation.
+
+**Vectorized Pedagogy:** The embedding model represents descriptors and their relationships as vectors. Distances between them can support similarity search and recommendation engines, or provide a fast initial filter before a reasoning model examines the results.
 
 ### 2.3 Fostering Interoperability
 A common barrier in educational technology is the difficulty of mapping disparate ontologies or standards (e.g., mapping 
-Common Core to a proprietary school curriculum). EduGraph bypasses the need for direct, manual "Schema-to-Schema" mapping 
-through **Content-Mediated Alignment**.
+Common Core to a proprietary school curriculum). EduGraph explores **Content-Mediated Alignment** as a way to support, rather than replace,
+reviewed mappings between standards.
 
-**Automated Mapping:** When enough content exists that is tagged with another standard, the existing models can 
-automatically generate high-confidence mappings. Tagged content itself can act as the "Rosetta Stone" between different systems.
+**Automated Mapping:** Content labeled under both systems can provide evidence for candidate mappings. Sufficient coverage and validation are needed before those mappings can be treated as reliable.
 
 **Ontological Ingestion:** These discovered mappings can then be formally ingested back into the ontology as relations. 
 Much like how a *CompetencyDescription* is defined by the *involves* relation, future iterations of the ontology can 
-include validated links to external standards, effectively allowing to grow autonomously as more content is processed.
+include validated links to external standards, allowing the ontology to grow through reviewed evidence from more content.
 
-### 2.4 Committed to Open Source
-The EduGraph ecosystem is built on the principle of radical transparency and community-driven growth. By making the 
-**Ontology**, the **Reference Datasets**, and the **Statistical Models** entirely open source, the project ensures 
+## 3. Committed to Open Source
+
+The EduGraph ecosystem is built on the principle of transparency and community-driven growth. By making the
+**Ontology**, the **Reference Datasets**, and the **Models** entirely open source, the project ensures
 that the technological bedrock of education remains a public good.
 
 **Extensibility & Customization:** The ontology is not a closed dogma. Users can customize and extend the model to fit specific local or institutional needs. This is supported by a **specialized online editor**, allowing educators and developers to branch the ontology while maintaining structural compatibility with the core engine.
 
 **Specialization through SFT:** The provided classification and embedding models are designed as foundational blocks. They can be used as a base for further **Supervised Fine-Tuning (SFT)**, allowing institutions to specialize the AI on their own proprietary content or unique pedagogical styles without starting from scratch.
 
-**Collaborative Interoperability:** This open-source approach fosters a culture of joined development. As more users contribute data, refine models, and map new content, the entire ecosystem gains interoperability. The community-driven feedback loop ensures that the ontology and its models evolve at the speed of educational innovation.
+**Collaborative Interoperability:** This open-source approach encourages shared development. As contributors refine models and map new content, they improve interoperability across the ecosystem. The feedback between content, models, and ontology helps all three evolve as our understanding improves.
 
 ---
 
@@ -737,3 +757,50 @@ EduGraph is more than an academic pipe dream. It is an applicable open source to
 with technological efficiency. Its combination of simplicity and openness makes it accessible to a wide education audience.
 
 Contributions and support are welcome :)
+
+---
+
+# References
+
+Footnotes identify related research or specifications. The comparisons are not claims about
+EduGraph's intellectual origins. Its design choices and proposed applications are not results
+established by those sources. Technical documentation
+was checked on 9 September 2026.
+
+[^paquette]: Paquette, G., Marino, O., & Bejaoui, R. (2021). [A new competency ontology for learning environments personalization](https://doi.org/10.1186/s40561-021-00160-z). *Smart Learning Environments*, 8, 16. See the initial competency model and model comparison.
+
+[^sicilia]: Sicilia, M.-A. (2005). [Ontology-Based Competency Management: Infrastructures for the Knowledge Intensive Learning Organization](https://www.cc.uah.es/msicilia/papers/SICI_COMP_05.pdf). Author's chapter manuscript; see competency description and knowledge-gap analysis.
+
+[^sampson]: Sampson, D., & Fytros, D. (2008). [Competence Models in Technology-Enhanced Competence-Based Learning](https://doi.org/10.1007/978-3-540-74155-8_9). In *Handbook on Information Technologies for Education and Training*, 2nd ed., pp. 155–177.
+
+[^cass]: CaSS Project. [CaSS Schema](https://schema.cassproject.org/), version 0.3, Competency `scope` property. This documents a context field, not a theory of cognitive load.
+
+[^inloc]: InLOC Project. [How to follow InLOC in the structuring of LOC information](https://www.simongrant.org/InLOC/How%2Bto%2Bfollow%2BInLOC). See “Recognising LOC definitions” and “What to leave out” for applicability and context.
+
+[^transfer]: Salomon, G., & Perkins, D. N. (1989). [Rocky Roads to Transfer: Rethinking Mechanisms of a Neglected Phenomenon](https://doi.org/10.1207/s15326985ep2402_1). *Educational Psychologist*, 24(2), 113–142.
+
+[^chc]: Reynolds, M. R., Keith, T. Z., Flanagan, D. P., & Alfonso, V. C. (2013). [A cross-battery, reference variable, confirmatory factor analytic investigation of the CHC taxonomy](https://doi.org/10.1016/j.jsp.2013.02.003). *Journal of School Psychology*, 51(4), 535–555. See the introduction for the wider CHC model and the study for supporting evidence.
+
+[^diamond]: Diamond, A. (2013). [Executive Functions](https://www.devcogneuro.com/Publications/ExecutiveFunctions2013.pdf). *Annual Review of Psychology*, 64, 135–168. DOI: 10.1146/annurev-psych-113011-143750.
+
+[^zimmerman]: Zimmerman, B. J. (2002). [Becoming a Self-Regulated Learner: An Overview](https://doi.org/10.1207/s15430421tip4102_2). *Theory Into Practice*, 41(2), 64–70.
+
+[^kst]: Doignon, J.-P., & Falmagne, J.-C. (2015). [Knowledge Spaces and Learning Spaces](https://arxiv.org/abs/1511.06757). Author manuscript. See the separate treatment of knowledge structures and probabilistic assessment.
+
+[^pearl]: Pearl, J. (2009). [Causal inference in statistics: An overview](https://escholarship.org/content/qt1kd1m111/qt1kd1m111.pdf). *Statistics Surveys*, 3, 96–146. See section 2 on causal assumptions and their distinction from associations.
+
+[^edm]: Baker, R., & Siemens, G. (2014). [Educational Data Mining and Learning Analytics](https://doi.org/10.1017/CBO9781139519526.016). In *The Cambridge Handbook of the Learning Sciences*, 2nd ed., pp. 253–272. [Author manuscript](https://learninganalytics.upenn.edu/ryanbaker/BakerSiemensHandbook2013.pdf).
+
+[^caruana]: Caruana, R. (1997). [Multitask Learning](https://www.cs.cornell.edu/~caruana/mlj97.pdf). *Machine Learning*, 28, 41–75.
+
+[^transe]: Bordes, A., Usunier, N., Garcia-Duran, A., Weston, J., & Yakhnenko, O. (2013). [Translating Embeddings for Modeling Multi-relational Data](https://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf). *Advances in Neural Information Processing Systems*, 26.
+
+[^gnn]: Schlichtkrull, M., et al. (2017). [Modeling Relational Data with Graph Convolutional Networks](https://arxiv.org/abs/1703.06103). Author preprint. Describes relation-aware graph learning, not a guarantee that vector distance measures educational similarity.
+
+[^owl]: W3C (2012). [OWL 2 Web Ontology Language Primer, Second Edition](https://www.w3.org/TR/owl2-primer/). Sections 4.5 and 6 distinguish property hierarchies, inverses, transitivity, and property chains. EduGraph's actual declarations are in [core-schema.ttl](core-schema.ttl).
+
+[^nesy]: Sarker, M. K., Zhou, L., Eberhart, A., & Hitzler, P. (2021). [Neuro-Symbolic Artificial Intelligence: Current Trends](https://arxiv.org/abs/2105.05330). Author preprint.
+
+[^gruber]: Gruber, T. R. (1995). [Toward Principles for the Design of Ontologies Used for Knowledge Sharing](https://tomgruber.org/writing/onto-design.pdf). *International Journal of Human-Computer Studies*, 43, 907–928; linked author report revised in 1993. See section 3, “Clarity.”
+
+[^clip]: Radford, A., et al. (2021). [Learning Transferable Visual Models From Natural Language Supervision](https://proceedings.mlr.press/v139/radford21a.html). *Proceedings of Machine Learning Research*, 139, 8748–8763.

@@ -47,7 +47,7 @@ When editing or extending the ontology, contributors must follow these design de
   For example, FractionNotation concerns learning the notation, not every task displaying fractions.
 - **Reasoning:** Humans and classifiers need an unambiguous description of what a label claims.
   This is independent of dimensional decomposition. See
-  [the ontology-engineering and language-model bases](DESIGN.md#14-semantic-clarity).
+  [the ontology-engineering and language-model bases](DESIGN.md#12-semantic-clarity).
   Classification accuracy must be validated rather than inferred from terminology.
 
 ---
