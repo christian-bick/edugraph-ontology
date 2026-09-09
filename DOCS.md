@@ -2,7 +2,9 @@
 
 This document provides developer guidelines for setting up, building, and contributing to the **EduGraph Ontology** repository. 
 
-For the core design rules, structural logic, and instructions on how to extend and manage the ontology itself (especially for the specialized agent in the online editor), see [DOCS_ONTOLOGY.md](DOCS_ONTOLOGY.md).
+For ontology authoring and review, use the [development references](docs/README.md).
+They provide focused rules, examples, and checklists for humans and agents. This document covers
+the repository tooling and generated APIs.
 
 ---
 
@@ -14,13 +16,14 @@ This repository contains the source definitions of the EduGraph core ontology, a
 - **Online Editor (Primary & Recommended)**: Official ontology edits should be performed using the specialized online editor. This editor is equipped with specialized tooling, including: 
   - simplified in-context editing capabilities 
   - sophisticated onology visualization and visual navigation
-  - an AI agent designed for batch operations and thorough reviews following the rules in [DOCS_ONTOLOGY.md](DOCS_ONTOLOGY.md).
+  - an AI agent designed for batch operations and reviews using the relevant [ontology references](docs/README.md).
 - **Protégé (Convenience Exploration)**: The configuration files such as [catalog-v001.xml](catalog-v001.xml) and related properties in the repository are provided as a convenience for developers who are accustomed to [Protégé](https://protege.stanford.edu/) and want to explore, visualize, or locally query the ontology using desktop tools.
 
 ---
 
 ## 2. Directory Structure
 
+- **[docs/](docs/README.md)**: Ontology authoring rules, review workflow, annotation and model guidance, and consolidation tracking.
 - **[.github/workflows/release.yml](.github/workflows/release.yml)**: GitHub Action workflow executing automated compilation, versioning, and publishing of releases.
 - **[src/ontology/generate-ts.py](src/ontology/generate-ts.py)**: Python script utilizing `owlready2` to parse the compiled XML/RDF file and generate TypeScript enums.
 - **[src/ontology/generate-py.py](src/ontology/generate-py.py)**: Python script utilizing `owlready2` to parse the compiled XML/RDF file and generate Python enums.
@@ -198,31 +201,33 @@ The following relation properties are supported:
 | `translates` | `translates` | `translatesTransitive` | `translates` | `translates_transitive` | Logical visualization translation (subproperty of integrates) |
 | `translatedBy` | `translatedBy` | `translatedByTransitive` | `translated_by` | `translated_by_transitive` | Inverse of logical translation (subproperty of integratedBy) |
 
-### 6.4 Deduction Helpers: Capabilities vs. Boundaries
+### 6.4 Deduction Helpers: Constraint Expansion
 
-Both libraries expose a dual pair of deduction helpers built on the `implies` and `contradicts` chains. These helpers expand constraint sets. `deductCompatible` can enumerate supported configurable
-capabilities; it does not mean that every returned label is simultaneously true of an artifact.
-`deductAdmitting` can enumerate exclusion boundaries. Applications separately resolve and record
-the actual observable claims.
+Both libraries expose deduction helpers built on the `implies` and `contradicts` chains.
+They compute label sets from the recorded constraint relations. They do not inspect content or
+establish that every returned label is simultaneously true of it.
 
-- **`deductCompatible(constraints)`** (Python: `deduct_compatible`) — the containment operator. Returns all labels guaranteed to stay within the window spanned by the given constraints: labels at least as strict as one of the constraints and satisfiable with all of them. Constraints compose conjunctively (more constraints → smaller set). Use it to declare what a component *can handle*, e.g. a generator supporting numbers within (0, 20):
+- **`deductCompatible(constraints)`** (Python: `deduct_compatible`) — the containment operator. Returns all labels guaranteed to stay within the window spanned by the given constraints: labels at least as strict as one of the constraints and satisfiable with all of them. Constraints compose conjunctively (more constraints → smaller set). For example, the recorded relations produce this set for two numeric constraints:
 
   ```typescript
   deductCompatible([Scope.NumbersLargerZero, Scope.NumbersSmaller20])
   // → [NumbersLargerZero, NumbersLarger10, NumbersSmaller10, NumbersSmaller20]
   ```
 
-- **`deductAdmitting(boundaries)`** (Python: `deduct_admitting`) — the reachability operator. Returns all labels that *admit* content crossing any of the given boundaries: the boundary and every label implying it (content must cross the line) plus the weakenings of the boundary's contradiction partners (bounds loose enough that content may cross the line). Boundaries compose disjunctively (more boundaries → larger set). Use it to declare what a component *must reject*, e.g. a view that cannot render numbers beyond 10:
+- **`deductAdmitting(boundaries)`** (Python: `deduct_admitting`) — the reachability operator. Returns all labels that *admit* content crossing any of the given boundaries: the boundary and every label implying it (content must cross the line) plus the weakenings of the boundary's contradiction partners (bounds loose enough that content may cross the line). Boundaries compose disjunctively (more boundaries → larger set). For example, expanding the `NumbersLarger10` boundary gives:
 
   ```typescript
   deductAdmitting([Scope.NumbersLarger10])
   // → [NumbersLarger10 … NumbersLarger1000000, NumbersSmaller20 … NumbersSmaller1000000]
-  // Spared: NumbersSmaller10 (guarantees safety), NumbersLargerZero (pure lower bound)
+  // Not returned: NumbersSmaller10 (declared contradiction), NumbersLargerZero (pure lower bound)
   ```
 
-  A band-limited component rejects both directions with one call: `deductAdmitting([Scope.NumbersLarger100, Scope.NumbersSmaller10])`.
+  Multiple boundaries can be supplied in one call: `deductAdmitting([Scope.NumbersLarger100, Scope.NumbersSmaller10])`.
 
-Note that a pure lower-bound label (e.g. `NumbersLargerZero`) is never returned by `deductAdmitting` for an upper boundary: rejection lists are evaluated per label, and a lower bound only exceeds a capacity in conjunction with a loose upper bound — which triggers the rejection by itself.
+For an upper boundary such as `NumbersLarger10`, `deductAdmitting` does not return the pure
+lower-bound label `NumbersLargerZero`. This helper follows recorded implication and contradiction
+paths; it is not a general numerical solver. Interpret its results against the definitions and
+relations, including the [numeric-boundary review](docs/plan/ontology-consolidation.md#2-reconcile-numeric-boundary-definitions-and-contradictions).
 
 #### Satisfiability Primitive
 
@@ -253,7 +258,7 @@ property chains implementing capability or progression inheritance. A helper nam
 `...Transitive` reports reachable nodes; whether that path entails a particular semantic claim
 depends on the relation and application rule. For the authoring contract and the deferred
 progression questions, see
-[DOCS_ONTOLOGY.md](DOCS_ONTOLOGY.md#33-capability-inheritance-and-other-inference).
+[the inference rules](docs/relations.md#ont-r4--state-the-inference-rule-separately).
 
 ### 6.6 Verification scope
 
@@ -261,7 +266,7 @@ The Docker build compiles both clients and runs their existing relation tests, i
 specialization, combined structural traversal, inverse access, and constraint deduction examples.
 Run it after changes to Turtle sources or code generation, using section 4.3.
 
-Those regression examples are not a complete ontology rule validator. The ordered composition
-and specialization rules still require semantic review; a centralized validator and any additional
-rule coverage are separate work. Documentation changes require checking local links, example
-names, and consistency with the schema and implemented helpers, without regenerating artifacts.
+Those regression examples are not a complete ontology rule validator. Use
+[change review](docs/change-review.md#ont-w3--verify-and-report-the-actual-change) for the checks
+appropriate to each change and [consolidation tracking](docs/plan/ontology-consolidation.md)
+for open ontology definition and semantic-validation work.

@@ -1,7 +1,7 @@
 # EduGraph Design Overview
 
-This document explains the design rationale. [DOCS_ONTOLOGY.md](DOCS_ONTOLOGY.md) is the
-authoring reference for dimension boundaries, observable claims, and relation semantics.
+This document explains the design rationale. [The development references](docs/README.md) define
+the authoring rules for dimension boundaries, observable claims, and relation semantics.
 [DOCS.md](DOCS.md) describes the implemented APIs and build workflow. The literature comparisons
 below offer familiar points of reference, not an account of where EduGraph's design originated.
 They do not add inference rules or establish learner mastery.
@@ -164,7 +164,7 @@ different knowledge, even though both concern measurement.
 task: a numeric range, representation, tool, scale, or other observable constraint. For example,
 meters and centimeters specify contexts for length measurement. Fraction notation is an Area
 when notation itself is studied; fractions used to display another task are a Scope.
-See [the dimension rules](DOCS_ONTOLOGY.md#21-area-changes-task-nature-scope-changes-task-context).
+See [the dimension rules](docs/descriptors.md#ont-d2--choose-the-dimension-by-meaning).
 
 | Field | Example of Scope |
 | :---- | :---- |
@@ -225,7 +225,7 @@ From a broad field toward its descendants, composition may be followed by specia
 but specialization must not be followed by composition. The transition is determined by meaning,
 not by a fixed hierarchy depth. Multiple parents require every path to be reviewed.
 The exact authoring rule, including mixed children, is in
-[DOCS_ONTOLOGY.md](DOCS_ONTOLOGY.md#32-ordered-structure-and-specialization).
+[the structural reference](docs/structure.md#ont-s4--composition-may-lead-into-specialization).
 
 Leaf status does not determine whether a descriptor is usable. A non-leaf such as
 `FractionNumbers` can describe the observable context at the intended granularity.
@@ -245,7 +245,7 @@ for `specializes` does not decide how progression propagates through a hierarchy
 a `partOf` relation may also contribute to a justified inference without permitting capability
 substitution. Existing progression assertions and the illustrative examples below are inputs to
 that review, not evidence that a propagation rule is correct. See
-[the inference boundary](DOCS_ONTOLOGY.md#33-capability-inheritance-and-other-inference).
+[the inference boundary](docs/relations.md#ont-r4--state-the-inference-rule-separately).
 
 ### 3.1 Expands
 
@@ -292,9 +292,9 @@ Application with a change of perspective: A *translates* B when the *integrates*
 ### 4.1 Involves
 
 `involves` composes a competency description from its defining descriptors. Its inverse,
-`involvedBy`, identifies competency entities that use a descriptor. A description has at
-least one Area and one Ability and zero or more Scopes. Multiple labels form a conjunction:
-all named claims must hold.
+`involvedBy`, identifies competency entities that use a descriptor. The ontology leaves the
+composition open, with no required dimension or descriptor count. Applications may impose their
+own completeness requirements. Multiple labels form a conjunction: all named claims must hold.
 
 For example, a competency for calculating a rectangle's perimeter with integers involves
 `Rectangle`, `PerimeterCalculation`, `ProcedureExecution`, and `IntegerNumbers`.
@@ -329,7 +329,7 @@ COMP1 model: knowledge, skill, and performance.[^paquette]
 
 **Overlap:** Both distinguish the knowledge involved from the skill used. Area and Ability provide a similar separation in EduGraph.
 
-**Difference:** EduGraph combines Area, Ability, and optional Scope labels to describe a task. Scope identifies context and constraints, not the learner's performance level. The dimensions are therefore not a direct mapping of COMP1.
+**Difference:** EduGraph describes content using Area, Ability, and Scope labels without requiring a fixed combination. Scope identifies context and constraints, not the learner's performance level. The dimensions are therefore not a direct mapping of COMP1.
 
 **Reasoning:** Content must be describable without knowing who will use it or how well they will perform. Reusable labels also let different tasks share claims: Addition and ProcedureExecution, for example, can appear with different numeric Scopes. Learner performance needs separate evidence.
 
@@ -421,7 +421,7 @@ structure.[^chc]
 
 **Difference:** Area and Ability are not measures of Gc and Gf. EduGraph describes knowledge required by content and a wider range of task demands, including reasoning, communication, and self-regulation. It does not assign intelligence-test scores.
 
-**Reasoning:** The dataset needs labels that can be justified from observable content. A task can demand DeductiveReasoning without providing enough evidence to assess a learner's fluid intelligence. Keeping these purposes separate supports content classification without making unsupported claims about the learner.
+**Reasoning:** Content annotations need labels that can be justified from observable content. A task can demand DeductiveReasoning without providing enough evidence to assess a learner's fluid intelligence. Keeping these purposes separate supports content classification without making unsupported claims about the learner.
 
 ### 2.3 Self-Regulated Learning and Executive Function (Zimmerman & Diamond)
 
@@ -636,7 +636,8 @@ This offers a comparison for reusing descriptor-level evidence across competency
 it does not validate EduGraph's particular decomposition or guarantee recognition of unseen combinations.
 
 **EduGraph decision:** Describe a competency through a conjunction of reusable Areas, Abilities,
-and optional Scopes instead of creating a separate descriptor for every combination. For example,
+and Scopes instead of creating a separate descriptor for every combination. The choice of
+dimensions remains open. For example,
 Addition, ProcedureExecution, and IntegerNumbers remain separate claims. Changing the numeric
 context can reuse the same Area and Ability. Whether a classifier recognizes an unseen
 combination must still be tested.
@@ -702,29 +703,31 @@ These are useful comparisons, not direct mappings to Area and Ability.
 
 ## 2. Pragmatic Development
 
-The EduGraph ontology is not developed in a vacuum. It is the core of a three-way development cycle involving the **Ontology**, 
-a **Reference Dataset**, and **Statistical Models** (Classification and Embedding). This pragmatic approach supports practical
-application and continuing validation.
+Ontology development benefits from feedback between definitions, **Annotated Content**, and
+**Classification and Embedding Models**. Applying descriptors to varied content helps test whether
+their meanings are useful and distinguishable, independently of any particular application.
 
 ### 2.1 Implicit Validation
-Ontology development happens in direct lockstep with the annotation of a custom reference dataset. This dataset serves as 
-a continuous sanity check. 
+Annotating varied learning content provides an ongoing check of the ontology's definitions
+and distinctions.
 
 **Classification as evidence:** Repeated difficulty assigning a descriptor to content is a reason
-to inspect its definition, neighboring concepts, annotation, and rendered evidence alongside the
+to inspect its definition, neighboring concepts, annotation, and content evidence alongside the
 model's limitations. A controlled example or counterexample helps determine which part needs
 correction. This connects observable classification with the goal of tracking capabilities over
 time, without treating a model's verdict as the definition of the ontology.
 
 ### 2.2 Direct Applicability
-By developing a specialized **Classification Model** and an **Embedding Model** alongside, the ontology moves from a static 
-document to an active tool.
+**Classification Models** can identify ontology descriptors in learning content, while
+**Embedding Models** can represent their meanings and relationships for comparison.
 
-**Automatically Tagged Content:** The classification model aims to make learning content easier to label and the ontology easier to adopt. Restricting outputs to valid ontology labels can rule out invented labels, while explicit rules can remove structurally redundant ones. Selecting the correct labels remains a statistical task. Fine-tuning aims for high recall (few missing labels) and high precision (few incorrect labels), with confidence scores calibrated for label combinations.
+**Automatically Tagged Content:** Classification can make learning content easier to label and the ontology easier to adopt. Restricting predictions to ontology identifiers prevents invented labels, but does not establish that the selected labels are correct. Evaluate both missing and incorrect annotations against the available content evidence.
 
-Large Vision-Language Models (LVLMs) offer pretrained visual and language capabilities.[^clip] The aim is to focus fine-tuning on the meaning of the ontology's labels while retaining those capabilities, rather than training a separate model for every layout or modality. Performance across layouts and supported modalities still needs validation.
+Large Vision-Language Models (LVLMs) offer pretrained visual and language capabilities.[^clip]
+Their use with EduGraph should preserve the ontology's intended meanings. No particular model
+or training method is required.
 
-**Vectorized Pedagogy:** The embedding model represents descriptors and their relationships as vectors. Distances between them can support similarity search and recommendation engines, or provide a fast initial filter before a reasoning model examines the results.
+**Vectorized Pedagogy:** An embedding model can represent descriptors and their relationships as vectors. Distances between them can support similarity search and recommendation engines, or provide a fast initial filter before a reasoning model examines the results.
 
 ### 2.3 Fostering Interoperability
 A common barrier in educational technology is the difficulty of mapping disparate ontologies or standards (e.g., mapping 
@@ -739,13 +742,13 @@ include validated links to external standards, allowing the ontology to grow thr
 
 ## 3. Committed to Open Source
 
-The EduGraph ecosystem is built on the principle of transparency and community-driven growth. By making the
-**Ontology**, the **Reference Datasets**, and the **Models** entirely open source, the project ensures
-that the technological bedrock of education remains a public good.
+The EduGraph ontology is open source so its definitions and relations can be inspected, reused,
+and improved collaboratively. Sharing annotated examples and model evaluations can help others
+assess whether those meanings work in practice.
 
 **Extensibility & Customization:** The ontology is not a closed dogma. Users can customize and extend the model to fit specific local or institutional needs. This is supported by a **specialized online editor**, allowing educators and developers to branch the ontology while maintaining structural compatibility with the core engine.
 
-**Specialization through SFT:** The provided classification and embedding models are designed as foundational blocks. They can be used as a base for further **Supervised Fine-Tuning (SFT)**, allowing institutions to specialize the AI on their own proprietary content or unique pedagogical styles without starting from scratch.
+**Specialization through SFT:** Classification and embedding models may be adapted to particular content through **Supervised Fine-Tuning (SFT)**. Adaptation should retain shared descriptor meanings rather than silently redefine them for a local collection.
 
 **Collaborative Interoperability:** This open-source approach encourages shared development. As contributors refine models and map new content, they improve interoperability across the ecosystem. The feedback between content, models, and ontology helps all three evolve as our understanding improves.
 

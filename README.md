@@ -12,16 +12,14 @@ Annotating learning content in the terms of the ontology allows for programmatic
 - describing learning journeys of students across distributed learning content
 - reasoning about potential root causes of student performance issues
 
-## Related Projects
+## Annotated Content and Models
 
-EduGraph is more than an ontology. It is also an ecosystem of tools to foster adoption in real world scenarios.
-We have trained two model for EduGraph, one that labels learning material in the terms of the ontology and
-another one that generates emebeddings for the those labels that take relationships into account to determine
-similarity/distance between different sets of labels.
+EduGraph provides shared terms for annotating learning content. Classification models can help
+identify those terms in content; embedding models can represent descriptors and their relationships
+for comparison and search. Neither use depends on a particular model or application architecture.
 
-**Classification Model:** https://github.com/christian-bick/edugraph-classify-qwen3vl
-
-**Embedding Model:** https://github.com/christian-bick/edugraph-embed
+See [Annotations and models](docs/annotations-and-models.md) for guidance on evidence, relation
+meaning, and interpreting annotations across ontology versions.
 
 ## Releases
 
@@ -33,7 +31,7 @@ be added upon demand.
 
 ## Ontology
 
-**Authoring rules:** [Ontology Editing & Design Guidelines](DOCS_ONTOLOGY.md)
+**Authoring rules:** [Ontology development references](docs/README.md)
 
 **Design rationale:** [Design Decisions with pedagogical & technological reasoning](DESIGN.md)
 
@@ -41,8 +39,8 @@ be added upon demand.
 
 **Ontology Browser:** [A dedicated visualization tool for the ontology](https://edugraph-editor.web.app)
 
-EduGraph is an Ontology designed with modern LLM capabilities in mind and intended to be used in tandem with
-open source models like Qwen, Gamma or Kimi with excellent vision-language and reasoning capabilities.
+EduGraph is designed to support both human annotation and interpretation by language and
+vision-language models.
 
 It is therefore divided into two layers:
 
@@ -65,7 +63,8 @@ The dimensions are:
 - **Ability:** The cognitive performance demanded (e.g. _ProcedureExecution_).
 - **Scope:** The context or challenge within that task (e.g. _IntegerNumbers_ or _NumbersLarger1000_).
 
-A competency description includes at least one Area and one Ability, with Scopes where relevant.
+A competency description combines whichever descriptors express its meaning. The ontology imposes
+no required dimension or descriptor count; applications define their own completeness requirements.
 For example, _Multiplication_, _ProcedureExecution_, _IntegerNumbers_, and _NumbersLarger1000_
 describe multiplication in a numeric context; they do not by themselves identify a particular
 written algorithm. The core ontology describes observables, while named competencies group
@@ -85,7 +84,7 @@ of its broader measurement context.
 Both relations are subproperties of `structures`. Their inverses are `hasPart` and
 `specializedBy`, under `structuredBy`. Moving from a broad field toward descendants,
 composition may lead into specialization, but specialization must not lead back into composition.
-See [the structural rules](DOCS_ONTOLOGY.md#31-structural-relations) for examples and path review.
+See [the structural rules](docs/structure.md) for examples and path review.
 
 This distinction allows precise and generic descriptions without treating every structural member as
 a substitute for its containing field. Leaf status alone does not determine whether a concept is

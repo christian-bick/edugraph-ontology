@@ -227,18 +227,6 @@ edu:Area rdf:type owl:Class ;
 
 ###  http://edugraph.io/edu#CompetencyDescription
 edu:CompetencyDescription rdf:type owl:Class ;
-                          owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                owl:onProperty edu:involves ;
-                                                owl:someValuesFrom edu:Ability
-                                              ] ,
-                                              [ rdf:type owl:Restriction ;
-                                                owl:onProperty edu:involves ;
-                                                owl:someValuesFrom edu:Area
-                                              ] ,
-                                              [ rdf:type owl:Restriction ;
-                                                owl:onProperty edu:involves ;
-                                                owl:someValuesFrom edu:Scope
-                                              ] ;
                           rdfs:subClassOf edu:CompetencyEntity ;
                           rdfs:isDefinedBy "Describes a competency through the involved observable attributes." .
 
