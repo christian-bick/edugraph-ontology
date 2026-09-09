@@ -1,5 +1,10 @@
 # EduGraph Design Overview
 
+This document explains the design rationale. [DOCS_ONTOLOGY.md](DOCS_ONTOLOGY.md) is the
+authoring reference for dimension boundaries, observable claims, and relation semantics.
+[DOCS.md](DOCS.md) describes the implemented APIs and build workflow. Research analogies below
+motivate the design; they are not additional inference rules or guarantees of learner mastery.
+
 **[A. Ontology Design](#a-ontology-design)**
 
 [1. Entities](#1-entities)
@@ -14,9 +19,9 @@
 
 [2. Structural Relations](#2-structural-relations)
 
-[1.2.1 PartOf](#121-partof)
+[2.1 PartOf](#21-partof)
 
-[1.2.2 Involves](#122-involves)
+[2.2 Specializes](#22-specializes)
 
 [3. Progression Relations](#3-progression-relations)
 
@@ -27,6 +32,10 @@
 [3.2 Integrates](#32-integrates)
 
 [3.2.1 Translates](#321-translates)
+
+[4. Composition Relations](#4-composition-relations)
+
+[4.1 Involves](#41-involves)
 
 **[B. Pedagogic Reasoning](#b-pedagogic-reasoning)**
 
@@ -128,7 +137,7 @@
 
 The EduGraph ontology defines competency not as a single concept, but through the intersection of three independent and reusable entity types: ***Area***, ***Scope***, and ***Ability***. 
 
-This multi-dimensional approach ensures that a specific competency such as "calculating the perimeter of a rectangle using integers"—is precisely defined by the convergence of the *knowledge domain* (the Area, e.g., Rectangle), the *broader context affecting difficulty* (the Scope, e.g., IntegerNumbers), and the *cognitive skill* involved (the Ability, e.g., ProcedureExecution). 
+This multi-dimensional approach ensures that a specific competency such as "calculating the perimeter of a rectangle using integers"—is precisely defined by the convergence of the *knowledge domains* (the Areas, e.g., Rectangle and PerimeterCalculation), the *broader context affecting difficulty* (the Scope, e.g., IntegerNumbers), and the *cognitive skill* involved (the Ability, e.g., ProcedureExecution).
 
 By separating these components across independent dimensions, the system maximizes the reusability of each descriptor and allows for dynamic mapping and inference across subjects, moving beyond traditional, monolithic competency definitions.
 
@@ -136,7 +145,10 @@ By separating these components across independent dimensions, the system maximiz
 
 ### 1.1.1 Area
 
-**Specific Domain of Knowledge:** An Area represents a specific domain of knowledge and understanding within a given field.
+**Specific Domain of Knowledge:** An Area represents a task, relation, procedure, concept, or
+independently learned body of knowledge within a field. Combining Areas changes the nature of
+the task or the knowledge required. For example, measuring length and measuring weight require
+different knowledge, even though both concern measurement.
 
 | Field | Example of Area |
 | :---- | :---- |
@@ -145,52 +157,92 @@ By separating these components across independent dimensions, the system maximiz
 
 ### 1.1.2 Scope
 
-**Observable Context of Learning:** A Scope is an observable context of learning that affects abstraction, variation, generalization, complexity, and ultimately measurable differences in difficulty across various areas.
+**Observable Context of Learning:** A Scope changes context or challenge within the same general
+task: a numeric range, representation, tool, scale, or other observable constraint. For example,
+meters and centimeters specify contexts for length measurement. Fraction notation is an Area
+when notation itself is studied; fractions used to display another task are a Scope.
+See [the dimension rules](DOCS_ONTOLOGY.md#21-area-changes-task-nature-scope-changes-task-context).
 
-| Field | Example of Area |
+| Field | Example of Scope |
 | :---- | :---- |
 | **Physical Numbers**  | **Abacus.** Represents numbers using a physical abacus.  |
 | **Time Measurement**  | **Analog Clock.** Involves measuring or representing time using an analog clock.  |
 
 ### 1.1.3 Ability
 
-**General Mental Attribute**: An Ability is a general mental attribute that is trainable and applicable across various fields.
+**General Mental Attribute**: An Ability is trainable and applicable across fields. Its definition
+must connect long-term cognitive development to the performance demanded by observable learning
+content. Multiple Abilities may apply together; there is no primary Ability. An annotation of
+a task's demand does not establish a learner's mastery.
 
-| Field | Example of Area |
+| Field | Example of Ability |
 | :---- | :---- |
 | **Logical Inference**  | **Abductive Reasoning.** A form of logical inference that starts with an observation or set of observations and then seeks to find the simplest and most likely explanation.  |
 | **Critical Analysis**  | **Analytical Capability.** The ability to examine information critically, break it down into its component parts, and identify patterns and relationships.  |
 
 ## 2. Structural Relations
 
-The EduGraph ontology is structured by key relations establishing taxonomic and compositional links. The primary structural relation is **PartOf**, which creates hierarchical knowledge domains, ensuring that a sub-entity automatically inherits the attributes and relations of its parent.
+The structural model distinguishes part-whole organization from capability inheritance.
+Both relations are dimension-neutral and connect descriptor individuals.
 
-In addition, the **Involves** relation is essential for precisely defining competencies. When a competency utilizes an Area, Scope, or Ability descriptor, it creates a specific definition. This allows the competency to inherit characteristics from its descriptors and facilitates the inference of connections between specialized skills.
+Both `partOf` and `specializes` are subproperties of `structures`, whose inverse is
+`structuredBy`. This shared property supports navigation through the hierarchy while the
+specific relation states whether an edge represents membership or inheritance.
 
-### 1.2.1 PartOf
+### 2.1 PartOf
 
-**Inheriting Attributes and Specializing Competencies:** Structural relations establish the taxonomic and compositional framework of the ontology. An entity that is *partOf* another entity automatically inherits its attributes and relations. Furthermore, when a competency entity *involves* a competency descriptor (such as an Area, Scope, or Ability), it forms a more specialized competency entity that can be identified through that descriptor.
+`partOf` places a constituent within a whole. A constituent can be a component, stage, or
+aspect of a broader field or process, without being a narrower form of that whole.
+Its inverse, `hasPart`, leads from the whole to its constituents.
 
-| Field | Example of Area |
-| :---- | :---- |
-| **Geometry** | **Acute Triangle partOf Triangle.** A triangle in which all three interior angles are acute angles is structurally defined as part of the broader concept of a Triangle.  |
-| **Arithmetic**  | **Addition partOf Base Operations.** The area of adding numbers together is categorized structurally as part of the base operations.  |
-| **Physical Numbers**  | **Abacus partOf Physical Numbers.** Representing numbers using an abacus is a scope that falls under the broader category of physical numbers.  |
+For example, `HalfCircle partOf Circle` describes a geometric part: a half circle is not
+a kind of complete circle. Likewise, `ErrorDetection partOf ErrorCorrection` identifies one
+stage of the correction process. Detecting an error alone does not establish that the complete
+process of evaluating and resolving it has been performed.
 
-### 1.2.2 Involves
+A `partOf` edge therefore provides no capability substitution. It can still be relevant to
+other explicitly justified inference rules, whose semantics must be established separately.
 
-**Specializing Competencies:** When a competency entity *involves* a competency descriptor, it forms a specialized competency entity that can be identified through its descriptors. It inherits all relations of its descriptors which can be used to infer relations between different specialized competencies. 
+### 2.2 Specializes
 
-| Field | Example of Area |
-| :---- | :---- |
-| **Geometry** | **CalculateParameterOfRectangleWithIntegers involves Rectangle, ParameterCalculation, ProcedureExection, IntegerNumbers.** Defines the specialized competency to calculate the circumvention of a rectangle with integers (opposed to determining it geometrically or involving relationals).  |
-| **Arithmetic**  | **AdditionWithWholeNumbersSmaller10 involves Addition, ProcedureExecution, IntegerNumber, NumbersWithoutZero, NumbersWithoutNegatives, NumbersSmaller10**. Defines the specialized competency of adding whole numbers with numbers smaller than 10, implying that carry over is not involved here, nor is the concept of adding 0 or dealing with signed integers in addition. |
+`specializes` connects a narrower form of a concept to its more general form. The narrower
+capability supports the broader claim, so it can substitute for that claim in matching.
+Its inverse, `specializedBy`, leads from the broader concept to its specializations.
+
+For example, `Square specializes Rectangle`: a square preserves the defining properties of a
+rectangle while adding a constraint on its side lengths. Similarly, `ProcedureInversion`
+specializes `ProcedureUnderstanding`: the inversion task realizes the broader understanding
+claim through a more specific cognitive performance.
+
+Specialization is directional. A rectangle claim does not establish the square constraint,
+and a general procedure-understanding task does not necessarily demand inversion.
+The same rule applies to Area, Scope, and Ability.
+
+From a broad field toward its descendants, composition may be followed by specialization,
+but specialization must not be followed by composition. The transition is determined by meaning,
+not by a fixed hierarchy depth. Multiple parents require every path to be reviewed.
+The exact authoring rule, including mixed children, is in
+[DOCS_ONTOLOGY.md](DOCS_ONTOLOGY.md#32-ordered-structure-and-specialization).
+
+Leaf status does not determine whether a descriptor is usable. A non-leaf such as
+`FractionNumbers` can describe the observable context at the intended granularity.
+A broad structural family does not become an observable capability merely because one
+of its constituent tools appears in the task.
 
 ## 3. Progression Relations
 
 The design of the EduGraph ontology thinks about progression spatially as a form of dynamic growth and transformation. Progression relations define how concepts and capabilities build upon one another, explaining the cognitive leap between different areas of knowledge. 
 
-They define the directionality of learning by specifying two general spatial relations (*expands* and *integrates*). These relations move beyond the notion of strict prerequisites to capture the precise structural relationship between competencies, providing a powerful framework for inferring learning pathways, while also opening the door to a probabilistic perspective on ontology relations.
+The two general relations are `expands` and `integrates`, with `inverts` and `translates`
+as their respective subproperties. They describe proposed conceptual dependencies rather than
+a mandatory sequence for every learner.
+
+Their coverage and inference semantics remain a separate refinement task. The capability rule
+for `specializes` does not decide how progression propagates through a hierarchy:
+a `partOf` relation may also contribute to a justified inference without permitting capability
+substitution. Existing progression assertions and the illustrative examples below are inputs to
+that review, not evidence that a propagation rule is correct. See
+[the inference boundary](DOCS_ONTOLOGY.md#33-capability-inheritance-and-other-inference).
 
 ### 3.1 Expands
 
@@ -232,6 +284,24 @@ Application with a change of perspective: A *translates* B when the *integrates*
 | **Geometry** | **Shape Plotting translates Polygons.**  Plotting a polygon on a scalar plane visualizes the abstract definition of a polygon and vice versa. |
 | **Number Visualization** | **Base Ten Block translates Base 10.**  Number blocks visualize the idea of the numeric base 10 system to provide an intuitive transition towards formal calculations in this system. |
 
+## 4. Composition Relations
+
+### 4.1 Involves
+
+`involves` composes a competency description from its defining descriptors. Its inverse,
+`involvedBy`, identifies competency entities that use a descriptor. A description has at
+least one Area and one Ability and zero or more Scopes. Multiple labels form a conjunction:
+all named claims must hold.
+
+For example, a competency for calculating a rectangle's perimeter with integers involves
+`Rectangle`, `PerimeterCalculation`, `ProcedureExecution`, and `IntegerNumbers`.
+The two Areas describe the knowledge required; the Scope describes the numeric context.
+
+This composition allows descriptions to be compared through their constituent claims.
+It does not automatically copy every relation of a descriptor onto the competency.
+Progression inference through these links requires a separately justified rule.
+
+
 ---
 
 # B. Pedagogic Reasoning
@@ -254,7 +324,7 @@ The ontology formalizes this tripartite structure by breaking down a competency 
 | :---- | :---- | :---- |
 | **Action Verb / Skill** | *Ability*: Defined as "A general mental attribute that is trainable and applicable across various fields". Examples include *LogicalProcessing* and *AnalogicalReasoning*. | Traditional frameworks embed the verb directly into a text string (e.g., "Understands fractions"). The ontology extracts the ability as a standalone entity, allowing the system to track a student's *LogicalProcessing* across entirely different subjects like Math or Foreign Languages. |
 | **Knowledge Object** | *Area*: Defined as "A specific domain of knowledge and understanding within a field". Examples include *FractionArithmetic* and *IntegerArithmetic*. | In standard models, knowledge objects are static taxonomies. Here, *Areas* are interconnected nodes; for example, *FractionArithmetic* translates *ProportionInteraction*, creating a dynamic map of subject matter dependencies. |
-| **Competency Definition** | *CompetencyDescription*: Defined as an entity that *involves* an *Ability*, an *Area*, and a *Scope*. | Instead of a 1:1 mapping, the ontology uses an intersectional graph. A competency does not "own" an ability or area; it is defined by its relationship to them. This ensures high reusability and allows inference engines to identify overlapping skills across different descriptions. |
+| **Competency Definition** | *CompetencyDescription*: Involves at least one Ability and Area, with zero or more Scopes. | Instead of a 1:1 mapping, the ontology uses an intersectional graph. A competency does not "own" an ability or area; it is defined by its relationship to them. This ensures high reusability and allows inference engines to identify overlapping skills across different descriptions. |
 
 ### 1.2 Semantic Prerequisite Networks (Sicilia & Sampson)
 
@@ -284,7 +354,7 @@ The ontology formalizes this environmental factor through the *Scope* class, ele
 | Academic Concept | Ontology Counterpart | Adaptation Rationale |
 | :---- | :---- | :---- |
 | **Performance Context / Environment** | *Scope*: "An observable context of learning that affects abstraction, variation, generalization, complexity and ultimately measurable differences in difficulty". | Standard models treat context as a descriptive note attached to a test. The ontology models contexts as independent, interconnected entities. For example, *Base10* is a scope that can be translated by the physical scope *BaseTenBlocks*. |
-| **Contextual Hierarchy** | *partOf*: "An entity that is part of another entity inherits its attributes and relations". | Scopes are organized hierarchically. *Abacus* and *BaseTenBlocks* are both *partOf PhysicalNumbers*. This adaptation allows the graph to infer that if a student struggles with multiple physical scopes, the root issue lies in *PhysicalNumbers* as a whole, enabling targeted, automated diagnostic interventions. |
+| **Contextual Hierarchy** | `partOf` organizes constituents; `specializes` identifies narrower contexts. | `Abacus` and `BaseTenBlocks` specialize `PhysicalNumbers`. Specialization supports comparison at a broader granularity. Performance across those contexts can inform a diagnostic hypothesis, but hierarchy alone does not prove the cause of a learner’s difficulty. |
 
 ### 1.4 Summary: The Intersectional and Reusable Nature of Competency Descriptors
 
@@ -317,7 +387,7 @@ The ontology formalizes high-road transfer by extracting cognitive actions out o
 | Academic Concept | Ontology Counterpart | Adaptation Rationale |
 | :---- | :---- | :---- |
 | **Domain-General Cognitive Tools** | *Ability*: "A general mental attribute that is trainable and applicable across various fields." | Instead of embedding a verb inside a math or science standard, the ability is an independent node. For example, *AnalogicalReasoning* is applicable across Math, Science, and Social Science. |
-| **High-Road Transfer / Abstraction** | The *involves* property links multiple *CompetencyDescription* nodes to the same *Ability*. | The ontology allows an algorithm to track transferability. If a student demonstrates *HypothesisGeneration* in Biology, the system graph can infer that they possess the underlying cognitive architecture to apply the same ability in History, even if the  *Area* differs. |
+| **High-Road Transfer / Abstraction** | The *involves* property links multiple *CompetencyDescription* nodes to the same *Ability*. | The ontology allows an algorithm to track transferability. Evidence of *HypothesisGeneration* in Biology and History can be tracked under the same Ability. Transfer to another Area remains an empirical question rather than an automatic inheritance of mastery. |
 
 ### 2.2 Fluid vs. Crystallized Intelligence (Cattell-Horn-Carroll Theory)
 
@@ -357,9 +427,9 @@ The ontology elevates metacognitive, emotional, and social functions to the exac
 
 When academic standards are written as monolithic text strings (e.g., *"The student will deduce the area of a triangle"*), the underlying ability (*Deduction*) is trapped inside the subject (*Geometry*).
 
-By structuring the ontology so that a *CompetencyDescription* requires a multi-dimensional intersection of *Ability*, *Area*, and *Scope*, the graph becomes a dynamic mapping tool. 
+By describing competencies through Areas and Abilities, with Scopes where relevant, the graph supports comparisons across subjects and contexts.
 
-A curriculum designer can query the ontology to find all competencies across the entire school system that involve *AbductiveReasoning*. This allows schools to construct genuinely cross-curricular projects—for example, pairing a science unit on fossil analysis with a history unit on primary source analysis—because the ontology supports mathematically that both units develop the exact same underlying cognitive ability.
+A curriculum designer can query the ontology to find all competencies across the entire school system that involve *AbductiveReasoning*. This allows schools to construct genuinely cross-curricular projects—for example, pairing a science unit on fossil analysis with a history unit on primary source analysis—because both units can request the same cognitive performance. Whether they develop transferable mastery must be measured.
 
 ## 3. Probabilistic vs Logical Relations
 
@@ -421,7 +491,7 @@ Instead, it defines the structural topology of the subject matter itself. By rep
 
 ### 1.1 Avoiding Data Starvation through Reusable Descriptors
 
- Traditional educational taxonomies often suffer from data starvation because they rely on monolithic, highly specific competency statements (e.g., "Can add two-digit numbers using an abacus"). Training machine learning models on these isolated nodes requires massive datasets for each specific node. 
+Traditional educational taxonomies often suffer from data starvation because they rely on monolithic, highly specific competency statements (e.g., "Can add two-digit numbers using an abacus"). Training machine learning models on these isolated nodes requires massive datasets for each specific node. 
 
 By utilizing an atomic, multi-dimensional ontology (breaking competencies down into reusable Areas, Scopes, and Abilities), data starvation is circumvented. An algorithm doesn't need to learn the monolithic competency from scratch; it learns the underlying patterns of *Addition (Area)*, *Physical Numbers (Scope)*, and *Analytical Capability (Ability)*. 
 
@@ -441,7 +511,7 @@ This atomic structure enables a highly expressive multi-dimensional tagging syst
 
 ### 1.1 Ontology Structure and KGEs
 
-When the ontology is projected into Knowledge Graph Embeddings (KGEs)—using models like TransE or Graph Neural Networks (GNNs)—the explicit structural relations (*partOf*, *involves*) and progression relations (*expands*, *integrates*) are translated into geometric distances and directional vectors in a high-dimensional space. An entity that expands another will have a vector relationship that the embedding model learns to associate with "pedagogical prerequisite" or "increased complexity."
+When the ontology is projected into Knowledge Graph Embeddings (KGEs)—using models like TransE or Graph Neural Networks (GNNs)—the distinct relations (*partOf*, *specializes*) and progression relations (*expands*, *integrates*) are translated into geometric distances and directional vectors in a high-dimensional space. The embedding must preserve the difference between structural membership, specialization, and progression rather than treating every edge as an interchangeable parent relation.
 
 ### 1.2 Search and Cluster Detection 
 
@@ -455,7 +525,10 @@ This mapped vector space revolutionizes how systems handle content.
 
 ### 3.1 Deterministic Operations via Graph Databases 
 
-While neural networks operate on probability, graph databases (like Neo4j or RDF triplestores) operate on deterministic logic. If Concept A is *partOf* Concept B, traversing that edge yields a 100% certain result. Graph databases allow educational applications to traverse complex prerequisite chains (*expands*), compositional structures (*involves*), and taxonomies (*partOf*) instantly and reliably, without the hallucination risks associated with generative AI.
+Graph databases can deterministically retrieve asserted relations and paths. The interpretation
+depends on the edge: `partOf` retrieves constituents, `specializes` supports capability
+substitution, and `involves` identifies a competency's descriptors. A retrieved progression
+path is evidence in the authored model, not proof of a universal learning prerequisite.
 
 ### 3.2 Pairing with Statistical Methods 
 
@@ -463,7 +536,13 @@ The true power lies in pairing this deterministic graph with statistical AI. The
 
 ### 3.3 The Role of OWL 
 
-The Web Ontology Language (OWL) is the W3C standard for semantic web frameworks. Because the ontology is written in OWL/RDF, it is natively supported by virtually all modern graph databases and reasoning engines. OWL enables automated inference—for example, if A is *partOf* B, and B is *partOf* C, an OWL reasoner automatically infers that A is partOf C. This keeps the database lean and allows for complex logical queries without writing endless custom code.
+The schema declares inverse properties and subproperties. For example,
+`A specializes B` entails `B specializedBy A` and `A structures B` under those declarations.
+The schema does not declare these properties as OWL transitive properties or encode generic
+relation-inheritance chains. Client-library transitive helpers compute graph reachability
+explicitly. Their availability does not make every path a semantic inference, nor does the
+definition of `specializes` turn descriptor individuals into OWL subclasses. See
+[the API semantics](DOCS.md#65-traversal-and-inference-boundaries).
 
 ## 4. Mixed Usage: Hybrid AI and Student Knowledge Graphs
 
@@ -475,7 +554,9 @@ Hybrid AI architectures (Neurosymbolic AI) combine the best of both worlds. For 
 
 When this ontology is combined with a student's personal data (either mapped into the graph database directly or linked via an RDBMS), it creates an Individual Student Knowledge Graph. Instead of just a generic map of mathematics, the system now has a map of *what this specific student knows*.
 
-**Effects:** If a student fails a complex competency, the system can trace the *involves* edges back to the atomic *Scopes* and *Abilities* to diagnose the exact failure point (e.g., "The student understands the *Area* of *Addition*, but failed because they lack the *AbductiveReasoning* Ability"). This enables pinpoint remediation rather than just suggesting "more addition practice."
+**Effects:** A system can trace `involves` edges to identify the Areas, Scopes, and Abilities
+whose contribution should be investigated. One failed task does not identify the exact cause.
+Repeated observations across controlled contexts can support a diagnosis and targeted remediation.
 
 ## 5. The Foundation for Content and AI
 
@@ -502,29 +583,29 @@ Without this ontological foundation, educational technology degrades into "black
 The EduGraph ontology is not merely a digital curriculum map; it is a **Neurosymbolic Engine** designed to bridge the gap between human pedagogical expertise and machine-learning efficiency. 
 The synthesis of educational theory and computational logic explains the combined design decisions for this ontology:
 
-### 1.1 Dimensional Atomicity (The Intersectional Descriptor)
+### 1.1 Dimensional Atomicity
 **Pedagogical Origin:** The *Tripartite Structure of Competency* (Paquette) defines a skill as the intersection of an action (Ability), a knowledge object (Area), and a context (Scope).
 
 **Technological Origin:** The requirement for **Data Efficiency** and the avoidance of "Data Starvation." Monolithic competency tags are sparse and difficult to train on; atomic descriptors are dense and highly reusable.
 
 **The Bridge:** By breaking competencies into atomic dimensions, the ontology mirrors the way humans conceptualize skills while providing the granular feature set required for machine learning. This integration allows a system to "understand" a never-before-seen competency (e.g., "Calculating the volume of a sphere using Roman Numerals") simply by combining its well-understood atomic parts.
 
-### 1.2 Relational Determinism (The Logical Skeleton)
+### 1.2 Relational Determinism
 
 **Pedagogical Origin:** *Semantic Prerequisite Networks* (Sicilia & Sampson) and *Knowledge Space Theory* (KST), which view learning as a directional growth through a structured topology.
 
 **Technological Origin:** **Neurosymbolic AI** and **Graph Databases**. Statistical models (LLMs/GNNs) excel at prediction but lack causal guardrails; graph logic provides deterministic certainty.
 
-**The Bridge:** The ontology provides a "logical skeleton" (*expands*, *integrates*) for "probabilistic muscles" (statistical AI). The pedagogical theory defines the *type* and *direction* of the relationship, which then acts as a hard constraint for the AI. This prevents "hallucinated" learning paths and ensures that recommendations are always grounded in a pedagogically sound structure.
+**The Bridge:** The ontology provides a "logical skeleton" (*expands*, *integrates*) for "probabilistic muscles" (statistical AI). The pedagogical theory defines the *type* and *direction* of the relationship, which then acts as a foundational understanding of educational progression for the AI. This prevents "hallucinated" learning paths and ensures that recommendations are always grounded in a pedagogically sound structure.
 
-### 1.3 Cognitive Portability (The Fluid Dimension)
+### 1.3 Cognitive Portability
 **Pedagogical Origin:** *Transfer of Learning* (Salomon & Perkins) and the distinction between *Fluid and Crystallized Intelligence* (CHC Theory). These theories posit that cognitive abilities are domain-general engines of learning.
 
 **Technological Origin:** **Cross-Domain Data Aggregation** and **Longitudinal Tracking**. Traditional systems silo student data by subject; modern data architectures require a universal coordinate system.
 
 **The Bridge:** By treating *Abilities* as an independent dimension, the ontology enables cognitive portability. A student's *Analytical Capability* is tracked as a single vector that moves across Math, Science, and Language Arts. This integrates the psychological reality of human intelligence with the computational need for a unified student profile, allowing the system to diagnose whether a struggle is a subject-matter gap or a cognitive-processing bottleneck.
 
-### 1.4 Latent Semantic Alignment (The Contextual Anchor)
+### 1.4 Latent Semantic Alignment
 
 **Pedagogical Origin:** *Context-Awareness in Learning Analytics* (CASS/InLOC) and *Representational Translation* (*translates* relation), acknowledging that the medium of expression (the Scope) defines the cognitive load.
 
@@ -542,10 +623,11 @@ applicability and constant validation.
 Ontology development happens in direct lockstep with the annotation of a custom reference dataset. This dataset serves as 
 a continuous sanity check. 
 
-**The Statistical Warning System:** As LLMs are essentially statistical mirrors of human language, their performance on the 
-reference dataset provides immediate feedback. If a high-quality model consistently struggles to classify specific content 
-under a particular ontological node, it is often a sign of **ontological ambiguity** rather than model failure. This allows 
-for an iterative refinement process where "fuzzy" ontological definitions are identified and sharpened already during development.
+**Classification as evidence:** Repeated difficulty assigning a descriptor to content is a reason
+to inspect its definition, neighboring concepts, annotation, and rendered evidence alongside the
+model's limitations. A controlled example or counterexample helps determine which part needs
+correction. This connects observable classification with the goal of tracking capabilities over
+time, without treating a model's verdict as the definition of the ontology.
 
 ### 2.2 Direct Applicability
 By developing a specialized **Classification Model** and an **Embedding Model** alongside, the ontology moves from a static 

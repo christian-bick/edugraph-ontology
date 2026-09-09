@@ -33,7 +33,11 @@ be added upon demand.
 
 ## Ontology
 
-**Full breakdown:**  [Design Decisions with pedagocial & technological reasoning](DESIGN.md)
+**Authoring rules:** [Ontology Editing & Design Guidelines](DOCS_ONTOLOGY.md)
+
+**Design rationale:** [Design Decisions with pedagogical & technological reasoning](DESIGN.md)
+
+**Build and APIs:** [Developer Documentation](DOCS.md)
 
 **Ontology Browser:** [A dedicated visualization tool for the ontology](https://edugraph-editor.web.app)
 
@@ -49,22 +53,23 @@ It is therefore divided into two layers:
 
 #### Foundations
 
-The core ontology allows for describing learning content with a set of terms that are mutual exclusive and collectively
-exhaustive. Accurately combining terms from different dimensions, learning content can be identified with high
-confidence as equivalent, complementary or related, based on proper annotations alone.
+The core ontology describes learning content by combining reusable claims across three dimensions.
+Multiple terms in a dimension can apply together. Each annotation must be supported by observable
+content; those claims allow applications to compare competencies and investigate related content.
 
 The terms of each dimension are organized and defined within a taxonomy for each dimension.
 
 The dimensions are:
 
-- **Area:** An area within a discipline (e.g. _IntegerMultiplication_)
-- **Ability:** A generally trainable ability (e.g. _ProcedureExecution_)
-- **Scope:** A relevant involved setting (e.g. _NumbersLarger1000_)
+- **Area:** The task, concept, or independently learned knowledge involved (e.g. _Multiplication_).
+- **Ability:** The cognitive performance demanded (e.g. _ProcedureExecution_).
+- **Scope:** The context or challenge within that task (e.g. _IntegerNumbers_ or _NumbersLarger1000_).
 
-Using the three example terms from above, we can already be relatively sure that the corresponding learning content would be
-educating, training or testing students about what is regularly referred to as the competency of _long multiplication_. The goal of the
-core ontology is to classify learning content with only a few terms of what is observable while competencies describe significant
-clusters of these observables. 
+A competency description includes at least one Area and one Ability, with Scopes where relevant.
+For example, _Multiplication_, _ProcedureExecution_, _IntegerNumbers_, and _NumbersLarger1000_
+describe multiplication in a numeric context; they do not by themselves identify a particular
+written algorithm. The core ontology describes observables, while named competencies group
+meaningful combinations of those claims.
 
 These concepts make it easy to build both classification models and embedding models, allowing AI models to reason over learning
 content with high accuracy and speed. This is the necessary foundation for creating high-value recommendation systems and AI agents. 
@@ -77,8 +82,14 @@ a narrower form of the same observable concept and therefore supports inheritanc
 concept. For example, _Square_ specializes _Rectangle_, whereas a measurement instrument is only part
 of its broader measurement context.
 
+Both relations are subproperties of `structures`. Their inverses are `hasPart` and
+`specializedBy`, under `structuredBy`. Moving from a broad field toward descendants,
+composition may lead into specialization, but specialization must not lead back into composition.
+See [the structural rules](DOCS_ONTOLOGY.md#31-structural-relations) for examples and path review.
+
 This distinction allows precise and generic descriptions without treating every structural member as
-a substitute for its containing field.
+a substitute for its containing field. Leaf status alone does not determine whether a concept is
+an appropriate observable claim.
 
 #### Logical Relations
 
@@ -100,8 +111,7 @@ commonly used terms for well-known solution strategies to a specific problem dom
 
 #### Flavors
 
-It is relatively easy to find consent about a mutual exclusive and collectively exhausitve terminology for describing
-what is observable through the core ontology. Competencies on the other hand, are typically described from an application 
+The core ontology seeks shared, distinguishable terms for observable claims, which can overlap through specialization or apply together. Competencies on the other hand, are typically described from an application
 perspective and therefore largely influenced by context. 
 
 That makes competencies inherently more likely to be influenced by purpose, culture and language, and that makes it way harder 
@@ -120,10 +130,11 @@ a mutually exclusive and collectively exhaustive set of competencies.
 
 #### Relations Inheritance
 
-Defining competencies in the terms of the core ontology also allows for competencies to inherit all logical relations from the core 
-ontology. As a consequence, the competency ontology only needs to define factual relations that specifically apply to  
-competencies. This drastically reduces the need for relations in the competency ontology itself and keeps it significantly 
-easier to manage.
+Defining competencies through core descriptors makes their shared claims and specialization
+relationships available for comparison. Deriving progression between whole competencies requires
+an explicit inference rule; `involves` does not copy every descriptor relation automatically.
+Progression coverage and propagation through structural or specialization paths remain a separate
+refinement task. Existing relations are evidence to review, not the specification of that rule.
 
 ## Contributions
 
