@@ -41,7 +41,7 @@ motivate the design; they are not additional inference rules or guarantees of le
 
 [1. General Structure](#1-general-structure)
 
-[1.1 The Tripartite Structure of Competency](#11-the-tripartite-structure-of-competency-paquette--ieee-rcd)
+[1.1 Competency Components](#11-competency-components-paquette)
 
 [1.2 Semantic Prerequisite Networks](#12-semantic-prerequisite-networks-sicilia--sampson)
 
@@ -109,13 +109,13 @@ motivate the design; they are not additional inference rules or guarantees of le
 
 [1. Core Concepts](#1-core-concepts)
 
-[1.1 Dimensional Atomicity](#11-dimensional-atomicity-the-intersectional-descriptor)
+[1.1 Dimensional Atomicity](#11-dimensional-atomicity)
 
-[1.2 Relational Determinism](#12-relational-determinism-the-logical-skeleton)
+[1.2 Relational Determinism](#12-relational-determinism)
 
-[1.3 Cognitive Portability](#13-cognitive-portability-the-fluid-dimension)
+[1.3 Cognitive Portability](#13-cognitive-portability)
 
-[1.4 Latent Semantic Alignment](#14-latent-semantic-alignment-the-contextual-anchor)
+[1.4 Semantic Clarity](#14-semantic-clarity)
 
 [2. Pragmatic Development](#2-pragmatic-development)
 
@@ -310,15 +310,23 @@ Progression inference through these links requires a separately justified rule.
 
 The development of structured competency frameworks often relies on established educational psychology, cognitive science, and epistemological theories. However, traditional academic models are frequently designed to describe human developmental stages or linear instructional taxonomies. When translating these theories into a machine-readable, graph-based knowledge representation (an ontology), principles must be adapted to function as relational, computable nodes rather than purely descriptive concepts.
 
-### 1.1 The Tripartite Structure of Competency (Paquette & IEEE RCD)
+### 1.1 Competency Components (Paquette)
 
 **Academic Literature:**
 
-In the realm of educational technology, Gilbert Paquette’s work on competency modeling, alongside standards like the IEEE Reusable Competency Definitions (RCD), establishes that a competency is not a single, monolithic concept. Instead, it is highly structured. Paquette defines a competency as a stated relationship between an *action verb* (a generic cognitive skill) and a *knowledge object* (a specific subject matter domain), often performed within a specific *context* or using specific tools.
+Paquette, Marino, and Bejaoui describe competency through a generic skill applied to knowledge
+at a performance level. Their comparison identifies the COMP1 triple as skill, knowledge,
+and performance, not skill, knowledge, and context.
+See [A new competency ontology for learning environments personalization (2021), sections on
+the initial model and model comparison](https://doi.org/10.1186/s40561-021-00160-z).
 
 **Ontological Implementation:**
 
-The ontology formalizes this tripartite structure by breaking down a competency into three distinct, reusable descriptor classes that intersect to define a specific skill.
+EduGraph adapts the separation of knowledge and generic skill as Area and Ability. Scope is
+EduGraph's explicit dimension for observable context and constraints; it is not a renaming of
+Paquette's performance dimension. Describing a task's demand does not measure a learner's
+proficiency. The following correspondences explain the adaptation, not an exact reproduction
+of the source model.
 
 | Academic Concept | Ontology Counterpart | Adaptation Rationale |
 | :---- | :---- | :---- |
@@ -493,15 +501,25 @@ Instead, it defines the structural topology of the subject matter itself. By rep
 
 Traditional educational taxonomies often suffer from data starvation because they rely on monolithic, highly specific competency statements (e.g., "Can add two-digit numbers using an abacus"). Training machine learning models on these isolated nodes requires massive datasets for each specific node. 
 
-By utilizing an atomic, multi-dimensional ontology (breaking competencies down into reusable Areas, Scopes, and Abilities), data starvation is circumvented. An algorithm doesn't need to learn the monolithic competency from scratch; it learns the underlying patterns of *Addition (Area)*, *Physical Numbers (Scope)*, and *Analytical Capability (Ability)*. 
+Reusable Areas, Scopes, and Abilities let examples contribute annotations for shared descriptors
+across different competency combinations. For example, addition tasks in different numeric
+contexts can contribute evidence for the same Addition descriptor.
 
-Because these atomic descriptors are reused across thousands of competencies, the system rapidly accrues training data for each descriptor, ensuring robust statistical significance even for rare or newly created competency combinations.
+This supports shared learning rather than requiring an unrelated class for every conjunction.
+The supporting research and its limits are separated in
+[D.1.1](#11-dimensional-atomicity): reuse makes data aggregation possible, but does not guarantee
+sufficient coverage or accurate recognition of unseen combinations.
 
 ### 1.2 Leveraging Pre-Trained Knowledge in LLMs
 
-Large Language Models (LLMs) are trained on a vast body of human knowledge, but they struggle with highly proprietary, institution-specific jargon. The ontology's atomic nature explicitly bridges this gap. Descriptors like *LogicalInference*, *Addition*, or *TimeMeasurement* align perfectly with the fundamental concepts deeply embedded in the latent space of foundational LLMs. 
+Names and definitions provide the language interface through which a model interprets the
+ontology. Familiar terminology helps communicate the intended meaning; precise definitions
+distinguish nearby concepts that a name alone could conflate.
 
-By describing educational content via these atomic, universally understood primitives, LLMs can perform highly accurate zero-shot or few-shot classification, reasoning, and generation without requiring heavy, expensive fine-tuning.
+This is a semantic clarity concern, independent of whether descriptors are decomposed into
+dimensions. [D.1.4](#14-semantic-clarity) separates the ontology-engineering basis from the
+evidence for language-based visual classification. Reliable classification of EduGraph
+descriptors remains an empirical requirement, not a consequence of familiar wording alone.
 
 ### 1.3 Multi-Dimensional Tagging
 
@@ -584,34 +602,80 @@ The EduGraph ontology is not merely a digital curriculum map; it is a **Neurosym
 The synthesis of educational theory and computational logic explains the combined design decisions for this ontology:
 
 ### 1.1 Dimensional Atomicity
-**Pedagogical Origin:** The *Tripartite Structure of Competency* (Paquette) defines a skill as the intersection of an action (Ability), a knowledge object (Area), and a context (Scope).
 
-**Technological Origin:** The requirement for **Data Efficiency** and the avoidance of "Data Starvation." Monolithic competency tags are sparse and difficult to train on; atomic descriptors are dense and highly reusable.
+**Design questions:** Which reusable claims make up a competency description? Which claims can
+be reused when its context changes?
 
-**The Bridge:** By breaking competencies into atomic dimensions, the ontology mirrors the way humans conceptualize skills while providing the granular feature set required for machine learning. This integration allows a system to "understand" a never-before-seen competency (e.g., "Calculating the volume of a sphere using Roman Numerals") simply by combining its well-understood atomic parts.
+**Pedagogical basis:** Competency modeling separates generic skill from the knowledge to which
+it is applied. [Paquette, Marino, and Bejaoui (2021)](https://doi.org/10.1186/s40561-021-00160-z)
+provide this basis, while also modeling performance. As explained in
+[B.1.1](#11-competency-components-paquette), EduGraph adapts that separation rather than
+attributing its Area, Ability, and Scope dimensions directly to Paquette.
+
+**Technological basis:** [Caruana's Multitask Learning (1997)](https://www.cs.cornell.edu/~caruana/mlj97.pdf)
+shows how related tasks can benefit from shared representations and training signals.
+This motivates reusing descriptor-level evidence across competency combinations; it is not a
+validation of EduGraph's particular decomposition or a guarantee of compositional generalization.
+
+**EduGraph decision:** Describe a competency through a conjunction of reusable Areas, Abilities,
+and optional Scopes instead of creating a separate descriptor for every combination. For example,
+Addition, ProcedureExecution, and IntegerNumbers remain separate claims. Changing the numeric
+context can reuse the same Area and Ability. Whether a classifier recognizes an unseen
+combination must still be tested.
+
+This principle governs **decomposition and reuse**. It does not determine how clearly each
+constituent is named and defined; that is the role of [semantic clarity](#14-semantic-clarity).
+
+### 1.2 Semantic Clarity
+
+**Design questions:** Can people and models identify the intended meaning of each descriptor?
+Can they distinguish it from neighboring concepts?
+
+**Pedagogical basis:** Educators need a shared, precise account of what a descriptor means in
+learning content. The supporting definition principle comes from ontology engineering rather
+than a theory of learning: [Gruber's ontology design criteria, section 3](https://tomgruber.org/writing/onto-design.pdf)
+treat clarity as communicating intended meaning through objective definitions and documented
+semantics. This supports precise educational definitions regardless of how a competency is
+decomposed; it is not a claim about the effect of context on learning.
+
+**Technological basis:** [Radford et al., Learning Transferable Visual Models From Natural
+Language Supervision (2021)](https://proceedings.mlr.press/v139/radford21a.html) demonstrates
+natural-language descriptions as an interface for zero-shot visual classification.
+That motivates making ontology descriptions usable by language-based classifiers. It does not
+establish that educational Abilities are reliably observable or that familiar names guarantee
+accuracy without fine-tuning.
+
+**EduGraph decision:** Use recognizable names together with definitions that state the intended
+educational meaning, observable evidence, and relevant boundaries. For example, FractionNotation
+must mean learning about fraction notation, not merely encountering fractions in a comparison
+task. A familiar name alone does not communicate that boundary.
+
+This principle governs **meaning and interpretation**, not descriptor decomposition. Context
+belongs in the Scope rationale; it is not the origin of semantic clarity. Classification results
+test whether the definitions work in practice, without making the model's interpretation the
+authority for their meaning.
 
 ### 1.2 Relational Determinism
 
-**Pedagogical Origin:** *Semantic Prerequisite Networks* (Sicilia & Sampson) and *Knowledge Space Theory* (KST), which view learning as a directional growth through a structured topology.
+**Design questions:** How should conceptual dependencies be made explicit? How can they provide
+a foundational understanding of educational progression for the AI?
 
-**Technological Origin:** **Neurosymbolic AI** and **Graph Databases**. Statistical models (LLMs/GNNs) excel at prediction but lack causal guardrails; graph logic provides deterministic certainty.
+**Pedagogical basis:** *Semantic Prerequisite Networks* (Sicilia & Sampson) and *Knowledge Space Theory* (KST), which view learning as a directional growth through a structured topology.
 
-**The Bridge:** The ontology provides a "logical skeleton" (*expands*, *integrates*) for "probabilistic muscles" (statistical AI). The pedagogical theory defines the *type* and *direction* of the relationship, which then acts as a foundational understanding of educational progression for the AI. This prevents "hallucinated" learning paths and ensures that recommendations are always grounded in a pedagogically sound structure.
+**Technological basis:** **Neurosymbolic AI** and **Graph Databases**. Statistical models (LLMs/GNNs) excel at prediction but lack causal guardrails; graph logic provides deterministic certainty.
+
+**EduGraph decision:** The ontology provides a "logical skeleton" (*expands*, *integrates*) for "probabilistic muscles" (statistical AI). The pedagogical theory defines the *type* and *direction* of the relationship, which then acts as a foundational understanding of educational progression for the AI. This prevents "hallucinated" learning paths and ensures that recommendations are always grounded in a pedagogically sound structure.
 
 ### 1.3 Cognitive Portability
-**Pedagogical Origin:** *Transfer of Learning* (Salomon & Perkins) and the distinction between *Fluid and Crystallized Intelligence* (CHC Theory). These theories posit that cognitive abilities are domain-general engines of learning.
 
-**Technological Origin:** **Cross-Domain Data Aggregation** and **Longitudinal Tracking**. Traditional systems silo student data by subject; modern data architectures require a universal coordinate system.
+**Design questions:** How can the same Ability be tracked across subjects and over time? How can
+that shared dimension help investigate subject-specific and cognitive-processing difficulties?
 
-**The Bridge:** By treating *Abilities* as an independent dimension, the ontology enables cognitive portability. A student's *Analytical Capability* is tracked as a single vector that moves across Math, Science, and Language Arts. This integrates the psychological reality of human intelligence with the computational need for a unified student profile, allowing the system to diagnose whether a struggle is a subject-matter gap or a cognitive-processing bottleneck.
+**Pedagogical basis:** *Transfer of Learning* (Salomon & Perkins) and the distinction between *Fluid and Crystallized Intelligence* (CHC Theory). These theories posit that cognitive abilities are domain-general engines of learning.
 
-### 1.4 Latent Semantic Alignment
+**Technological basis:** **Cross-Domain Data Aggregation** and **Longitudinal Tracking**. Traditional systems silo student data by subject; modern data architectures require a universal coordinate system.
 
-**Pedagogical Origin:** *Context-Awareness in Learning Analytics* (CASS/InLOC) and *Representational Translation* (*translates* relation), acknowledging that the medium of expression (the Scope) defines the cognitive load.
-
-**Technological Origin:** **Large Language Model (LLM) Synergy** and **Zero-Shot Classification**. LLMs have vast latent knowledge but require structured anchors to remain pedagogically accurate.
-
-**The Bridge:** The ontology maps human-readable pedagogical contexts to universally understood primitives. Because terms like "Abductive Reasoning" or "Analog Clock" align with the latent space of foundational LLMs, the ontology acts as a "contextual anchor." This allows the AI to perform complex pedagogical tasks—like generating hints or tagging new content—with high accuracy and zero fine-tuning, as both the human expert and the machine are speaking the same semantic language.
+**EduGraph decision:** By treating *Abilities* as an independent dimension, the ontology enables cognitive portability. A student's *Analytical Capability* is tracked as a single vector that moves across Math, Science, and Language Arts. This integrates the psychological reality of human intelligence with the computational need for a unified student profile, allowing the system to diagnose whether a struggle is a subject-matter gap or a cognitive-processing bottleneck.
 
 ## 2. Pragmatic Development
 

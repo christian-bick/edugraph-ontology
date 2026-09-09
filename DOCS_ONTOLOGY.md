@@ -19,7 +19,9 @@ When editing or extending the ontology, contributors must follow these design de
   - **Area (Knowledge):** e.g., `Addition`
   - **Ability (Cognitive Skill):** e.g., `ProcedureExecution`
   - **Scope (Context/Constraints):** e.g., `IntegerNumbers`, `NumbersSmaller20`
-- **Reasoning:** Monolithic tags suffer from data starvation and sparse representation in machine learning. Atomic descriptors are highly reusable, allowing ML models to classify or generate embeddings for unseen competencies by evaluating their well-understood constituent descriptors.
+- **Reasoning:** Reusable descriptors allow examples to contribute evidence across competency
+  combinations. This is a decomposition principle, not a naming rule or an accuracy guarantee.
+  See [the distinct pedagogical and technological bases](DESIGN.md#11-dimensional-atomicity).
 
 ### 1.2 Relational Determinism (The Logical Skeleton)
 
@@ -36,11 +38,17 @@ When editing or extending the ontology, contributors must follow these design de
 - **Implementation:** An ability must not reference a specific subject matter. For example, `AnalyticalCapability` or `AnalogicalReasoning` are universal and must not be coupled to math-specific concepts.
 - **Reasoning:** This allows a student's cognitive capabilities to be tracked as a single, fluid vector moving across multiple subjects (Math, Science, Language Arts), making it possible to identify whether a learning block is subject-specific or cognitive-processing related.
 
-### 1.4 Latent Semantic Alignment (The Contextual Anchor)
+### 1.4 Semantic Clarity
 
-- **Rule:** Choose clear, standard, and human-readable names for all entities.
-- **Implementation:** Align terminology with generally accepted educational standards (e.g., Common Core nomenclature) rather than inventing proprietary jargon.
-- **Reasoning:** EduGraph operates in tandem with large language models. Standard, descriptive terms anchor directly to the pre-trained latent space of LLMs, enabling high-performance zero-shot classification and hint generation.
+- **Rule:** Use clear, recognizable names and precise definitions that distinguish each entity
+  from neighboring concepts.
+- **Implementation:** Prefer established educational terminology where it expresses the intended
+  meaning. Define the observable claim and relevant boundaries; a familiar name alone is not enough.
+  For example, FractionNotation concerns learning the notation, not every task displaying fractions.
+- **Reasoning:** Humans and classifiers need an unambiguous description of what a label claims.
+  This is independent of dimensional decomposition. See
+  [the ontology-engineering and language-model bases](DESIGN.md#14-semantic-clarity).
+  Classification accuracy must be validated rather than inferred from terminology.
 
 ---
 
