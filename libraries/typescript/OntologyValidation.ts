@@ -73,6 +73,12 @@ export const RELATION_SCHEMA_CONTRACT = {
   ].map(([property, parent, ruleId]) => ({ property, parent, ruleId })) as SubpropertyContract[],
 } as const;
 
+export const PRIMARY_RELATION_FAMILIES = {
+  structural: ["structures", "partOf", "specializes"],
+  progression: ["expands", "inverts", "integrates", "translates"],
+  constraints: ["constrains", "implies", "contradicts"],
+} as const;
+
 export function parseOntologySources(sources: readonly OntologySource[]): OntologyStatement[] {
   return sources.flatMap(source => new Parser({ baseIRI: EDU }).parse(source.text).map(quad => ({
     subject: quad.subject.value,
@@ -161,9 +167,62 @@ export function validatePrimaryRelations(
       `${left.source}:${left.witness.join(":")}`.localeCompare(`${right.source}:${right.witness.join(":")}`));
 }
 
+/** O3b: a directed descriptor pair has at most one authored relation in each relation family. */
+export function validateOneRelationPerFamily(
+  statements: readonly OntologyStatement[],
+): OntologyValidationFinding[] {
+  const familyByPredicate = new Map<string, keyof typeof PRIMARY_RELATION_FAMILIES>();
+  for (const [family, properties] of Object.entries(PRIMARY_RELATION_FAMILIES)) {
+    for (const property of properties) {
+      familyByPredicate.set(relation(property), family as keyof typeof PRIMARY_RELATION_FAMILIES);
+    }
+  }
+
+  interface PairRelations {
+    family: keyof typeof PRIMARY_RELATION_FAMILIES;
+    subject: string;
+    object: string;
+    properties: Set<string>;
+    sources: Set<string>;
+  }
+  const pairs = new Map<string, PairRelations>();
+  for (const statement of statements) {
+    if (statement.sourceKind !== "descriptors") continue;
+    const family = familyByPredicate.get(statement.predicate);
+    if (!family) continue;
+    const key = `${family}\u0000${statement.subject}\u0000${statement.object}`;
+    const pair = pairs.get(key) ?? {
+      family,
+      subject: compactIri(statement.subject),
+      object: compactIri(statement.object),
+      properties: new Set<string>(),
+      sources: new Set<string>(),
+    };
+    pair.properties.add(compactIri(statement.predicate));
+    pair.sources.add(statement.source);
+    pairs.set(key, pair);
+  }
+
+  return [...pairs.values()]
+    .filter(pair => pair.properties.size > 1)
+    .map(pair => {
+      const properties = [...pair.properties].sort();
+      return {
+        checkId: "O3b",
+        ruleId: pair.family === "structural" ? "ONT-S3" : "ONT-R1",
+        code: "multiple-relations-in-family",
+        message: `${pair.subject} to ${pair.object} uses multiple ${pair.family} relations: ${properties.join(", ")}. Choose one.`,
+        witness: [pair.subject, pair.object, ...properties],
+        source: [...pair.sources].sort().join(", "),
+      };
+    })
+    .sort((left, right) => left.witness.join(":").localeCompare(right.witness.join(":")));
+}
+
 export function validateOntology(statements: readonly OntologyStatement[]): OntologyValidationFinding[] {
   return [
     ...validateRelationSchema(statements),
     ...validatePrimaryRelations(statements),
+    ...validateOneRelationPerFamily(statements),
   ];
 }

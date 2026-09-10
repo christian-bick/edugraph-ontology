@@ -2,6 +2,7 @@ import {
   OntologyStatement,
   RELATION_SCHEMA_CONTRACT,
   parseOntologySources,
+  validateOneRelationPerFamily,
   validatePrimaryRelations,
   validateRelationSchema,
 } from "./OntologyValidation";
@@ -87,4 +88,37 @@ const schemaInverse = { ...inverseDescriptor, source: "schema.ttl", sourceKind: 
 assert(validatePrimaryRelations([schemaInverse]).length === 0,
   "schema statements are outside the primary-only descriptor rule");
 
-console.log("Ontology validation tests passed (O2 relation schema contract, O3a primary relations).");
+function descriptor(subject: string, predicate: string, object: string): OntologyStatement {
+  return {
+    subject: `${EDU}${subject}`,
+    predicate: `${EDU}${predicate}`,
+    object: `${EDU}${object}`,
+    source: "areas.ttl",
+    sourceKind: "descriptors",
+  };
+}
+
+assert(validateOneRelationPerFamily([
+  descriptor("A", "expands", "B"),
+  descriptor("A", "integrates", "B"),
+]).length === 1, "distinct progression relations on one directed pair fail O3b");
+assert(validateOneRelationPerFamily([
+  descriptor("A", "translates", "B"),
+  descriptor("A", "integrates", "B"),
+])[0].witness.join("/") === "A/B/integrates/translates",
+"a subproperty and its parent fail with a deterministic witness");
+assert(validateOneRelationPerFamily([
+  descriptor("A", "expands", "B"),
+  descriptor("A", "implies", "B"),
+]).length === 0, "relations in different families remain independent");
+assert(validateOneRelationPerFamily([
+  descriptor("A", "expands", "B"),
+  descriptor("A", "integrates", "C"),
+  descriptor("B", "integrates", "A"),
+]).length === 0, "different directed endpoint pairs remain independent");
+assert(validateOneRelationPerFamily([
+  { ...descriptor("A", "expands", "B"), sourceKind: "schema" },
+  { ...descriptor("A", "integrates", "B"), sourceKind: "schema" },
+]).length === 0, "schema declarations are outside O3b");
+
+console.log("Ontology validation tests passed (O2, O3a, O3b).");
