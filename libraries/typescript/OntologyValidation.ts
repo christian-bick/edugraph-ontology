@@ -26,6 +26,7 @@ export interface OntologyValidationFinding {
   code: string;
   message: string;
   witness: readonly string[];
+  source?: string;
 }
 
 interface InverseContract {
@@ -86,6 +87,11 @@ function statementKey(subject: string, predicate: string, object: string): strin
   return `${subject}\u0000${predicate}\u0000${object}`;
 }
 
+function compactIri(iri: string): string {
+  const separator = Math.max(iri.lastIndexOf("#"), iri.lastIndexOf("/"));
+  return separator >= 0 ? iri.slice(separator + 1) : iri;
+}
+
 /** O2: verifies the inverse and subproperty declarations required by ONT-S3 and ONT-R1. */
 export function validateRelationSchema(
   statements: readonly OntologyStatement[],
@@ -130,6 +136,34 @@ export function validateRelationSchema(
       .localeCompare(`${right.ruleId}:${right.code}:${right.witness.join(":")}`));
 }
 
+/** O3a: descriptor sources assert primary relation directions, never their inverse properties. */
+export function validatePrimaryRelations(
+  statements: readonly OntologyStatement[],
+): OntologyValidationFinding[] {
+  const primaryByInverse = new Map(RELATION_SCHEMA_CONTRACT.inverses
+    .map(contract => [relation(contract.inverse), contract] as const));
+  return statements
+    .filter(statement => statement.sourceKind === "descriptors" && primaryByInverse.has(statement.predicate))
+    .map(statement => {
+      const contract = primaryByInverse.get(statement.predicate)!;
+      const subject = compactIri(statement.subject);
+      const object = compactIri(statement.object);
+      return {
+        checkId: "O3a",
+        ruleId: contract.ruleId,
+        code: "authored-inverse-relation",
+        message: `Use ${object} ${contract.primary} ${subject}; do not author ${contract.inverse}.`,
+        witness: [subject, contract.inverse, object],
+        source: statement.source,
+      };
+    })
+    .sort((left, right) =>
+      `${left.source}:${left.witness.join(":")}`.localeCompare(`${right.source}:${right.witness.join(":")}`));
+}
+
 export function validateOntology(statements: readonly OntologyStatement[]): OntologyValidationFinding[] {
-  return validateRelationSchema(statements);
+  return [
+    ...validateRelationSchema(statements),
+    ...validatePrimaryRelations(statements),
+  ];
 }

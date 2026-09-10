@@ -2,6 +2,7 @@ import {
   OntologyStatement,
   RELATION_SCHEMA_CONTRACT,
   parseOntologySources,
+  validatePrimaryRelations,
   validateRelationSchema,
 } from "./OntologyValidation";
 
@@ -67,4 +68,23 @@ assert(validateRelationSchema(descriptorSubstitute).some(finding =>
   finding.code === "missing-subproperty-declaration" && finding.witness[0] === "partOf"),
 "descriptor assertions do not substitute for schema declarations");
 
-console.log("Ontology validation tests passed (O2 relation schema contract).");
+const primaryDescriptor = statement(`${EDU}Square`, `${EDU}specializes`, `${EDU}Rectangle`);
+primaryDescriptor.source = "areas.ttl";
+primaryDescriptor.sourceKind = "descriptors";
+assert(validatePrimaryRelations([primaryDescriptor]).length === 0,
+  "primary relation assertions pass O3a");
+
+const inverseDescriptor = statement(`${EDU}Rectangle`, `${EDU}specializedBy`, `${EDU}Square`);
+inverseDescriptor.source = "areas.ttl";
+inverseDescriptor.sourceKind = "descriptors";
+const primaryFindings = validatePrimaryRelations([inverseDescriptor]);
+assert(primaryFindings.length === 1 && primaryFindings[0].code === "authored-inverse-relation",
+  "an inverse-only descriptor assertion fails O3a");
+assert(primaryFindings[0].message.includes("Square specializes Rectangle"),
+  "O3a suggests the equivalent primary assertion with reversed endpoints");
+
+const schemaInverse = { ...inverseDescriptor, source: "schema.ttl", sourceKind: "schema" as const };
+assert(validatePrimaryRelations([schemaInverse]).length === 0,
+  "schema statements are outside the primary-only descriptor rule");
+
+console.log("Ontology validation tests passed (O2 relation schema contract, O3a primary relations).");

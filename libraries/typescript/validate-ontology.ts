@@ -14,7 +14,8 @@ if (paths.length === 0) {
   }));
   const findings = validateOntology(parseOntologySources(sources));
   for (const finding of findings) {
-    console.error(`${finding.checkId} ${finding.ruleId} ${finding.code}: ${finding.message}`);
+    const location = finding.source ? ` ${finding.source}` : "";
+    console.error(`${finding.checkId} ${finding.ruleId} ${finding.code}${location}: ${finding.message}`);
   }
   if (findings.length > 0) {
     console.error(`Ontology validation failed with ${findings.length} finding(s).`);
