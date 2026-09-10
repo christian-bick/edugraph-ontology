@@ -496,6 +496,50 @@ export function validateStructuralOrdering(
   return findings;
 }
 
+/** O6: a structural parent cannot mix constituent and specializing children. */
+export function validateStructuralChildRoles(
+  statements: readonly OntologyStatement[],
+): OntologyValidationFinding[] {
+  interface ChildRoles {
+    partOf: DirectedRelationEdge[];
+    specializes: DirectedRelationEdge[];
+  }
+  const rolesByParent = new Map<string, ChildRoles>();
+  for (const edge of structuralEdges(statements)) {
+    const roles = rolesByParent.get(edge.to) ?? { partOf: [], specializes: [] };
+    roles[edge.relation as keyof ChildRoles].push(edge);
+    rolesByParent.set(edge.to, roles);
+  }
+
+  const findings: OntologyValidationFinding[] = [];
+  for (const [parent, roles] of rolesByParent) {
+    if (roles.partOf.length === 0 || roles.specializes.length === 0) continue;
+    const constituent = roles.partOf
+      .slice()
+      .sort((left, right) => left.from.localeCompare(right.from))[0];
+    const specialization = roles.specializes
+      .slice()
+      .sort((left, right) => left.from.localeCompare(right.from))[0];
+    const witness = [
+      compactIri(constituent.from),
+      "partOf",
+      compactIri(parent),
+      compactIri(specialization.from),
+      "specializes",
+      compactIri(parent),
+    ];
+    findings.push({
+      checkId: "O6",
+      ruleId: "ONT-S5",
+      code: "mixed-structural-child-roles",
+      message: `${compactIri(parent)} has both constituent child ${compactIri(constituent.from)} and specializing child ${compactIri(specialization.from)}.`,
+      witness,
+      source: [...new Set([constituent.source, specialization.source])].sort().join(", "),
+    });
+  }
+  return findings.sort((left, right) => left.witness.join(":").localeCompare(right.witness.join(":")));
+}
+
 export function validateOntology(statements: readonly OntologyStatement[]): OntologyValidationFinding[] {
   return [
     ...validateRelationSchema(statements),
@@ -503,5 +547,6 @@ export function validateOntology(statements: readonly OntologyStatement[]): Onto
     ...validateOneRelationPerFamily(statements),
     ...validateStructuralCycles(statements),
     ...validateStructuralOrdering(statements),
+    ...validateStructuralChildRoles(statements),
   ];
 }

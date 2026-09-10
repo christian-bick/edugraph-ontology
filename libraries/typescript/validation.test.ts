@@ -5,6 +5,7 @@ import {
   validateOneRelationPerFamily,
   validatePrimaryRelations,
   validateRelationSchema,
+  validateStructuralChildRoles,
   validateStructuralCycles,
   validateStructuralOrdering,
 } from "./OntologyValidation";
@@ -180,4 +181,29 @@ assert(validateStructuralOrdering([
   descriptor("B", "specializes", "A"),
 ]).length === 0, "O5 defers cyclic input to O4");
 
-console.log("Ontology validation tests passed (O2, O3a, O3b, O4, O5).");
+const mixedChildRoles = validateStructuralChildRoles([
+  descriptor("Constituent", "partOf", "Parent"),
+  descriptor("Narrower", "specializes", "Parent"),
+]);
+assert(mixedChildRoles.length === 1 &&
+  mixedChildRoles[0].witness.join("/") ===
+    "Constituent/partOf/Parent/Narrower/specializes/Parent",
+"a parent with both child roles fails O6 with one example of each role");
+assert(validateStructuralChildRoles([
+  descriptor("A", "partOf", "Parent"),
+  descriptor("B", "partOf", "Parent"),
+]).length === 0, "several constituent children are coherent");
+assert(validateStructuralChildRoles([
+  descriptor("A", "specializes", "Parent"),
+  descriptor("B", "specializes", "Parent"),
+]).length === 0, "several specializing children are coherent");
+assert(validateStructuralChildRoles([
+  descriptor("Child", "partOf", "Whole"),
+  descriptor("Child", "specializes", "BroaderChild"),
+]).length === 0, "a child may have parents in different roles");
+assert(validateStructuralChildRoles([
+  descriptor("Parent", "hasPart", "Constituent"),
+  descriptor("Parent", "specializedBy", "Narrower"),
+]).length === 1, "O6 derives child roles from inverse assertions");
+
+console.log("Ontology validation tests passed (O2, O3a, O3b, O4, O5, O6).");
