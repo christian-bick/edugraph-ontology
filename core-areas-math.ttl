@@ -18,7 +18,6 @@
     edu:specializes :AngleConcept.
 :AcuteTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle in which all three interior angles are acute angles.";
-    edu:expands :AcuteAngle;
     edu:integrates :AcuteAngle;
     edu:specializes :Triangle.
 :Addition a owl:NamedIndividual, edu:Area;
@@ -593,7 +592,6 @@
     edu:specializes :AngleConcept.
 :ObtuseTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle that has one obtuse angle.";
-    edu:expands :ObtuseAngle;
     edu:integrates :ObtuseAngle;
     edu:specializes :Triangle.
 :OddAndEvenNumbers a owl:NamedIndividual, edu:Area;
@@ -778,7 +776,7 @@
     edu:partOf :GeometricConcepts.
 :Rectangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements.";
-    edu:expands :RightAngle;
+    edu:integrates :RightAngle;
     edu:specializes :Parallelogram.
 :RectangularPrism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six rectangular faces where each pair of opposite faces is congruent and parallel.";
@@ -800,7 +798,7 @@
     edu:specializes :AngleConcept.
 :RightTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle that has one right angle.";
-    edu:expands :RightAngle;
+    edu:integrates :RightAngle;
     edu:specializes :Triangle.
 :Root a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the number that, when raised to a certain power, produces a given number.\n\nExample: The cube root of 64 is 4 because 4 ^ 3 = 64";

@@ -45,16 +45,9 @@ A `partOf` path may contribute to a justified progression inference. The behavio
 a traversal helper does not establish that rule.
 Any future inference through `involves` needs the same explicit treatment.
 
-The 2026-09-11 source review found three pairs requiring resolution under ONT-R1's
-one-relation-per-family rule. Their assertions remain unchanged pending review:
-
-- [ ] `AcuteTriangle` to `AcuteAngle` has both `expands` and `integrates`.
-  Choose the intended progression relationship; neither property specializes the other.
-- [ ] `ObtuseTriangle` to `ObtuseAngle` has the same `expands` / `integrates` combination.
-  Review it consistently with the acute-triangle case.
-- [ ] `NanometerScale` to `MeterScale` has both `integrates` and `translates`.
-  `translates` already supplies `integrates` through the schema, so the explicit parent is
-  redundant. Removing that duplicate is separate from reviewing whether `translates` is truthful.
+The concrete shape/angle and nanometer relation conflicts are resolved in
+[v0.25.1](../releases/v0.25.1.md). Broader progression definitions and inference remain open;
+the one-relation-per-family rule does not make `integrates` a subproperty of `expands`.
 
 Sources: [Areas](../../core-areas-math.ttl), [Scopes](../../core-scopes-math.ttl).
 Rules: ONT-R1, ONT-R3, ONT-R4, ONT-R5.

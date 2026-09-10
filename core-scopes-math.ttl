@@ -618,7 +618,6 @@
     edu:specializes :StepComplexity.
 :NanometerScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves distances expressed in nanometers.";
-    edu:integrates :MeterScale;
     edu:specializes :MetricDistanceScale;
     edu:translates :MeterScale.
 :NanosecondIntervals a owl:NamedIndividual, edu:Scope;
