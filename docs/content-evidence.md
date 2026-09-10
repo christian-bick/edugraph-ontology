@@ -33,16 +33,17 @@ across subjects and time without assuming identical performance in every context
 
 ## ONT-E3 — Choose defensible specificity
 
-Choose the most specific descriptor justified by the evidence and intended description.
-Specificity follows meaning and `specializes`, not tree depth.
+Among descriptors eligible under [ONT-E7](#ont-e7--label-observable-descriptors-not-organizational-nodes),
+choose the most specific meaning justified by the evidence. Specificity follows meaning and
+`specializes`, not tree depth.
 
 `FractionNumbers` can itself describe a numeric context. A concrete unit such as
 `SquareCentimeterScale` gives a more precise description when that unit is evident.
 `MetricAreaScale` remains meaningful when only that family is established; do not invent
 a particular unit to reach a leaf.
 
-A `Tapemeter` is a constituent of `LengthMeasurement` through `partOf`. That placement
-helps organize tools; it does not make the tool interchangeable with the whole context.
+A `Tapemeter` is a constituent of `LengthMeasurement` through `partOf`. The former can label
+evidenced use of that instrument; the latter organizes tools and is not a direct content label.
 See [ONT-S1](structure.md#ont-s1--partof-organizes-constituents).
 
 ## ONT-E4 — Describe meaningful context, including absence carefully
@@ -91,6 +92,39 @@ claim. Its role follows from what the content shows or asks. Evidence coverage d
 logical force, and an omitted uncertainty statement does not establish an error guarantee.
 See [Justification Scopes](justification.md) for the family distinctions and examples.
 
+## ONT-E7 — Label observable descriptors, not organizational nodes
+
+Direct annotations and classifier predictions must describe observable knowledge, context, or
+performance, not the fields used to organize those descriptors. The rule is the same for Area,
+Scope, and Ability: a descriptor is structurally eligible for labeling only when it has no
+constituent children (`hasPart`). It may have specialization children (`specializedBy`).
+
+| Structural children | Role in direct labeling |
+| --- | --- |
+| None | Eligible |
+| Only `specializedBy` children | Eligible; the broader concept may itself be observable |
+| Only `hasPart` children | Organizational; not eligible |
+| Both kinds | Ontology-design violation; not an exception to the rule |
+
+Inspect the complete ontology version being used, including inverse relations. A child asserting
+`partOf` establishes a constituent child even if `hasPart` is not written explicitly. A filtered
+tree can hide children; it cannot establish eligibility.
+
+For example, `CircularShapes` organizes `Circle`, `HalfCircle`, and `QuarterCircle` through
+`hasPart`, so it is not a direct content label. `Rectangle` remains eligible despite having
+`Square` as a specialization. Likewise, `FractionNumbers` and `MetricAreaScale` can describe
+observable contexts without forcing a narrower claim that the evidence does not support.
+
+Eligibility permits a descriptor to be considered; it does not prove that it applies. Use
+[ONT-E1](#ont-e1--ground-annotations-in-accessible-evidence) and
+[ONT-E3](#ont-e3--choose-defensible-specificity) to justify the actual claim. Do not replace an
+organizational label mechanically with all its children or an arbitrary leaf. Select only the
+evidenced constituents; if none expresses the intended meaning, review the ontology.
+
+Organizational nodes remain useful for navigation, summaries, and representations of relationships.
+Keep those uses distinct from direct content annotations under
+[ONT-E5](#ont-e5--keep-asserted-claims-and-derived-information-distinguishable).
+
 ## Audit
 
 - [ ] **ONT-E1:** Every annotation has accessible evidence beyond labels, metadata, or intention.
@@ -99,3 +133,4 @@ See [Justification Scopes](justification.md) for the family distinctions and exa
 - [ ] **ONT-E4:** Meaningful context is covered and absence claims hold throughout their defined domain.
 - [ ] **ONT-E5:** Conjunction, application cardinality rules, and derived information remain distinguishable.
 - [ ] **ONT-E6:** Justification annotations follow a supplied or required method, evidence, coverage, or guarantee, not a merely possible approach.
+- [ ] **ONT-E7:** Direct labels have no constituent children in the complete ontology version; specialization families remain eligible, and evidence justifies every selected claim.

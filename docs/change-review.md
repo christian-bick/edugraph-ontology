@@ -25,8 +25,9 @@ Review in this order:
    ONT-S5. Inspect incoming references as well as outgoing ones.
 3. **Other relations:** Check logical constraints and direct progression assertions separately
    under ONT-R1 through ONT-R5. Retain the acyclicity requirement for progression chains.
-4. **Content evidence:** Apply the descriptor to contrasting content examples under ONT-E1
-   through ONT-E5. A definition must work beyond the single example that motivated it.
+4. **Content evidence:** Check labeling eligibility and apply the descriptor to contrasting
+   content examples under ONT-E1 through ONT-E7. A definition must work beyond the single example
+   that motivated it.
 5. **Effects on annotations and models:** Identify changes to identifiers, definitions, dimensions,
    structural ancestry, specialization ancestry, and constraints. Review their implications using
    [annotations and models](annotations-and-models.md).
@@ -37,6 +38,12 @@ merely to agree with a model prediction is not sufficient justification.
 
 Record unresolved choices in a scoped tracking document, with evidence and the decision still
 needed. A documented limitation is not permission to introduce an exception into new work.
+
+Adding a descriptor's first constituent child is a change to labeling eligibility under
+[ONT-E7](content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes),
+not just a navigation change. Review existing direct uses. If the descriptor still represents an
+observable concept, consider a separate organizational parent or a corrected relationship according
+to meaning; do not change `partOf` to `specializes` merely to preserve labeling eligibility.
 
 ## ONT-W3 — Verify and report the actual change
 

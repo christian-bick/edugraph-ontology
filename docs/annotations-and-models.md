@@ -21,6 +21,11 @@ A classifier should use the content available to it, including necessary consequ
 is shown or stated. It should not infer a descriptor merely because that descriptor often
 appears with another one in its training examples.
 
+Use the eligible descriptors defined by
+[ONT-E7](content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes)
+as the vocabulary for direct predictions. Organizational nodes may support navigation or model
+representations, but are not additional direct labels.
+
 Evaluate whether a model can distinguish neighboring concepts and recognize valid combinations
 across different contexts. For Abilities, include examples across subjects: the shared label
 describes a cognitive demand, not evidence that a particular learner has mastered it.
@@ -61,8 +66,9 @@ Record which ontology version an annotation or model uses. Identifiers, definiti
 and relations must be interpreted together from that version.
 
 A definition change may require reviewing an annotation even when the identifier and content
-are unchanged. A relation change may affect derived claims or embedding relationships without
-changing a direct annotation.
+are unchanged. A relation change may affect derived claims, embedding relationships, or eligibility
+for direct labeling. In particular, adding a descriptor's first constituent child changes its
+eligibility under ONT-E7 and requires reviewing existing direct annotations and model vocabularies.
 
 Preserve original annotations and model predictions when translating them to a newer version.
 Document the translation and its reasons instead of silently applying new meanings to old records.

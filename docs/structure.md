@@ -91,6 +91,10 @@ A child with parents in different roles is not the same case as a parent with mi
 For example, `ErrorDetection` is `partOf ErrorCorrection` and `specializes Evaluation`.
 Each edge still needs a truthful meaning and each resulting path must respect ONT-S4.
 
+Child roles also determine eligibility for direct content labeling. Apply
+[ONT-E7](content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes)
+when reviewing a family change; structural organization is not an additional content claim.
+
 ## Audit
 
 - [ ] **ONT-S1:** Every part is a constituent; no part-whole edge is used as inheritance.
