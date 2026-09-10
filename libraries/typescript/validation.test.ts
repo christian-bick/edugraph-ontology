@@ -6,6 +6,7 @@ import {
   validatePrimaryRelations,
   validateRelationSchema,
   validateStructuralCycles,
+  validateStructuralOrdering,
 } from "./OntologyValidation";
 
 const EDU = "http://edugraph.io/edu#";
@@ -150,4 +151,33 @@ for (let index = 0; index < 5000; index++) {
 assert(validateStructuralCycles(deepStructure).length === 0,
   "O4 handles a deep acyclic graph without recursive traversal");
 
-console.log("Ontology validation tests passed (O2, O3a, O3b, O4).");
+assert(validateStructuralOrdering([
+  descriptor("A", "partOf", "B"),
+  descriptor("B", "specializes", "C"),
+])[0].witness.join("/") === "A/partOf/B/specializes/C",
+"composition followed by specialization fails with a concrete path");
+assert(validateStructuralOrdering([
+  descriptor("A", "partOf", "B"),
+  descriptor("B", "partOf", "C"),
+  descriptor("C", "specializes", "D"),
+])[0].witness.join("/") === "A/partOf/B/partOf/C/specializes/D",
+"O5 checks the full path rather than adjacent mixed edges only");
+assert(validateStructuralOrdering([
+  descriptor("A", "specializes", "B"),
+  descriptor("B", "partOf", "C"),
+]).length === 0, "specialization may lead into composition in authored direction");
+assert(validateStructuralOrdering([
+  descriptor("Child", "partOf", "Whole"),
+  descriptor("Child", "specializes", "BroaderChild"),
+]).length === 0, "separate parent paths are not combined into a false ordering violation");
+assert(validateStructuralOrdering([
+  descriptor("B", "hasPart", "A"),
+  descriptor("C", "specializedBy", "B"),
+])[0].witness.join("/") === "A/partOf/B/specializes/C",
+"O5 normalizes inverse assertions before checking paths");
+assert(validateStructuralOrdering([
+  descriptor("A", "partOf", "B"),
+  descriptor("B", "specializes", "A"),
+]).length === 0, "O5 defers cyclic input to O4");
+
+console.log("Ontology validation tests passed (O2, O3a, O3b, O4, O5).");

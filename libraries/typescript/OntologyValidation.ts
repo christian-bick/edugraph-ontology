@@ -390,15 +390,19 @@ function cycleWitness(component: readonly string[], edges: readonly DirectedRela
   throw new Error("Cyclic component did not yield a cycle witness.");
 }
 
-/** O4: the combined partOf/specializes descriptor graph is acyclic. */
-export function validateStructuralCycles(
-  statements: readonly OntologyStatement[],
-): OntologyValidationFinding[] {
-  const edges = normalizedRelationEdges(
+function structuralEdges(statements: readonly OntologyStatement[]): DirectedRelationEdge[] {
+  return normalizedRelationEdges(
     statements,
     ["partOf", "specializes"],
     { hasPart: "partOf", specializedBy: "specializes" },
   );
+}
+
+/** O4: the combined partOf/specializes descriptor graph is acyclic. */
+export function validateStructuralCycles(
+  statements: readonly OntologyStatement[],
+): OntologyValidationFinding[] {
+  const edges = structuralEdges(statements);
   return cyclicComponents(edges).map(component => {
     const cycle = cycleWitness(component, edges);
     return {
@@ -412,11 +416,92 @@ export function validateStructuralCycles(
   });
 }
 
+interface StructuralPathState {
+  edge: DirectedRelationEdge;
+  previous?: string;
+}
+
+function structuralPathWitness(
+  end: string,
+  states: ReadonlyMap<string, StructuralPathState>,
+  finalEdge: DirectedRelationEdge,
+): { witness: string[]; sources: string[] } {
+  const reversed: DirectedRelationEdge[] = [];
+  let current: string | undefined = end;
+  while (current !== undefined) {
+    const state = states.get(current);
+    if (!state) break;
+    reversed.push(state.edge);
+    current = state.previous;
+  }
+  const path = reversed.reverse().concat(finalEdge);
+  const witness: string[] = [];
+  for (const edge of path) witness.push(compactIri(edge.from), edge.relation);
+  witness.push(compactIri(finalEdge.to));
+  return {
+    witness,
+    sources: [...new Set(path.map(edge => edge.source))].sort(),
+  };
+}
+
+/** O5: in authored child-to-parent direction, partOf must never lead into specializes. */
+export function validateStructuralOrdering(
+  statements: readonly OntologyStatement[],
+): OntologyValidationFinding[] {
+  const edges = structuralEdges(statements);
+  if (cyclicComponents(edges).length > 0) return [];
+
+  const nodes = new Set<string>();
+  const outgoing = new Map<string, DirectedRelationEdge[]>();
+  const incomingCount = new Map<string, number>();
+  for (const edge of edges) {
+    nodes.add(edge.from);
+    nodes.add(edge.to);
+    const list = outgoing.get(edge.from) ?? [];
+    list.push(edge);
+    outgoing.set(edge.from, list);
+    incomingCount.set(edge.to, (incomingCount.get(edge.to) ?? 0) + 1);
+    if (!incomingCount.has(edge.from)) incomingCount.set(edge.from, 0);
+  }
+
+  const queue = [...nodes].filter(node => (incomingCount.get(node) ?? 0) === 0);
+  const pathWithComposition = new Map<string, StructuralPathState>();
+  const findings: OntologyValidationFinding[] = [];
+  for (let cursor = 0; cursor < queue.length; cursor++) {
+    const node = queue[cursor];
+    for (const edge of outgoing.get(node) ?? []) {
+      const prior = pathWithComposition.get(node);
+      if (edge.relation === "partOf" && !pathWithComposition.has(edge.to)) {
+        pathWithComposition.set(edge.to, {
+          edge,
+          previous: prior ? node : undefined,
+        });
+      } else if (edge.relation === "specializes" && prior) {
+        const path = structuralPathWitness(node, pathWithComposition, edge);
+        findings.push({
+          checkId: "O5",
+          ruleId: "ONT-S4",
+          code: "composition-before-specialization",
+          message: `In authored child-to-parent direction, partOf must not lead into specializes: ${path.witness.join(" -> ")}.`,
+          witness: path.witness,
+          source: path.sources.join(", "),
+        });
+      }
+
+      const remaining = (incomingCount.get(edge.to) ?? 0) - 1;
+      incomingCount.set(edge.to, remaining);
+      if (remaining === 0) queue.push(edge.to);
+    }
+  }
+  return findings;
+}
+
 export function validateOntology(statements: readonly OntologyStatement[]): OntologyValidationFinding[] {
   return [
     ...validateRelationSchema(statements),
     ...validatePrimaryRelations(statements),
     ...validateOneRelationPerFamily(statements),
     ...validateStructuralCycles(statements),
+    ...validateStructuralOrdering(statements),
   ];
 }
