@@ -48,6 +48,14 @@ QuarterCircle through partOf. Circle retains its complete-circle meaning. Physic
 between geometric objects is not sufficient evidence for composition between their knowledge
 concepts; the structural and annotation examples now make this distinction explicit.
 
+## Fraction-equivalence clarification
+
+Resolved for [v0.24.2](../releases/v0.24.2.md): FractionSimplification, LowestCommonDenominator,
+and LowestCommonNumerator belong to the existing FractionStrategies family through partOf.
+FractionEquivalence retains its meaning as the equal-value principle and has no constituent
+children. All definitions, identifiers, specialization edges, and progression relations remain
+unchanged; only structural grouping and its inverse navigation change.
+
 ## Open ontology work
 
 ### 1. Review measurement family definitions

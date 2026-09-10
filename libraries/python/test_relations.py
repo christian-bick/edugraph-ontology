@@ -7,6 +7,17 @@ from edugraph import (
 )
 
 class TestRelations(unittest.TestCase):
+    def test_fraction_strategy_grouping(self):
+        for strategy in [Area.FractionSimplification, Area.LowestCommonDenominator, Area.LowestCommonNumerator]:
+            with self.subTest(strategy=strategy):
+                self.assertEqual(part_of(strategy), [Area.FractionStrategies])
+                self.assertIn(strategy, has_part(Area.FractionStrategies))
+                self.assertIn(strategy, structured_by(Area.FractionStrategies))
+                self.assertIn(Area.FractionArithmetic, part_of_transitive(strategy))
+                self.assertNotIn(Area.FractionEquivalence, structures_transitive(strategy))
+                self.assertEqual(specializes_transitive(strategy), [])
+        self.assertEqual(has_part(Area.FractionEquivalence), [])
+
     def test_circular_shape_grouping(self):
         self.assertIn(Area.TwoDimensionalObjects, part_of(Area.CircularShapes))
         for shape in [Area.Circle, Area.HalfCircle, Area.QuarterCircle]:
