@@ -1,6 +1,7 @@
 # Ontology consolidation — open work
 
-Open definition, inference, and validation questions. Authoring rules live in
+Open definition and inference questions. Algorithmic validation is tracked separately in
+[automated rule checks](automated-rule-checks.md). Authoring rules live in
 [the reference library](../README.md); findings here are not exceptions to those rules.
 Completed changes and their verification are recorded in [release notes](../releases/)
 and Git history.
@@ -44,17 +45,16 @@ A `partOf` path may contribute to a justified progression inference. The behavio
 a traversal helper does not establish that rule.
 Any future inference through `involves` needs the same explicit treatment.
 
-Rules: ONT-R3, ONT-R4, ONT-R5.
+The 2026-09-11 source review found three pairs requiring resolution under ONT-R1's
+one-relation-per-family rule. Their assertions remain unchanged pending review:
 
-### 4. Centralize semantic validation as a separate implementation task
+- [ ] `AcuteTriangle` to `AcuteAngle` has both `expands` and `integrates`.
+  Choose the intended progression relationship; neither property specializes the other.
+- [ ] `ObtuseTriangle` to `ObtuseAngle` has the same `expands` / `integrates` combination.
+  Review it consistently with the acute-triangle case.
+- [ ] `NanometerScale` to `MeterScale` has both `integrates` and `translates`.
+  `translates` already supplies `integrates` through the schema, so the explicit parent is
+  redundant. Removing that duplicate is separate from reviewing whether `translates` is truthful.
 
-The Docker build and client tests cover selected relation behavior. They do not exhaustively
-validate graph ordering, mixed children, or definition truth.
-
-Build the agreed centralized validation module with documented rule coverage, using the rule IDs
-in this library. Include the structural eligibility contract in
-[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes)
-without confusing eligibility with proof from content. Historical migration checks are not proof
-that a permanent validator exists; implementation remains a separate task.
-
-Rules: ONT-E7, ONT-S4, ONT-S5, ONT-W3.
+Sources: [Areas](../../core-areas-math.ttl), [Scopes](../../core-scopes-math.ttl).
+Rules: ONT-R1, ONT-R3, ONT-R4, ONT-R5.

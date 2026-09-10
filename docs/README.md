@@ -12,6 +12,7 @@ Start here when changing a descriptor, relation, or competency description.
 | Use descriptors with annotated content or models | [Content evidence](content-evidence.md), especially [labeling eligibility](content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes), and [annotations and models](annotations-and-models.md) |
 | Review proof, evidence, or error-guarantee context | [Justification Scopes](justification.md) and [content evidence](content-evidence.md) |
 | Find pending consolidation decisions | [Consolidation record](plan/ontology-consolidation.md) |
+| Implement or review automated rule coverage | [Algorithmic check inventory](plan/automated-rule-checks.md) |
 
 ## How to use these references
 
@@ -42,6 +43,8 @@ rules. If they disagree, record the discrepancy and resolve its meaning explicit
 - [DOCS.md](../DOCS.md) covers builds, generated libraries, APIs, and release workflows.
 - This library defines ontology authoring and review rules.
 - [The consolidation record](plan/ontology-consolidation.md) tracks findings and unfinished work.
+- [The check inventory](plan/automated-rule-checks.md) separates existing automated coverage,
+  missing checks, and semantic review; it plans implementation rather than redefining rules.
 - Application repositories own their implementation, labeling format, and validation requirements.
 
 The Turtle files are the authored machine-readable model. The references explain how to develop

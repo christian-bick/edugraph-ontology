@@ -24,7 +24,8 @@ Review in this order:
 2. **Structure:** Classify each affected edge and check all resulting paths under ONT-S1 through
    ONT-S5. Inspect incoming references as well as outgoing ones.
 3. **Other relations:** Check logical constraints and direct progression assertions separately
-   under ONT-R1 through ONT-R5. Retain the acyclicity requirement for progression chains.
+   under ONT-R1 through ONT-R5. Check the combined progression graph for cycles under
+   [ONT-R3](relations.md#ont-r3--state-the-conceptual-progression-precisely).
 4. **Content evidence:** Check labeling eligibility and apply the descriptor to contrasting
    content examples under ONT-E1 through ONT-E7. A definition must work beyond the single example
    that motivated it.
@@ -58,8 +59,9 @@ use the workflow in [DOCS.md](../DOCS.md#43-compiling-via-docker) rather than ed
 | Annotation or model update | Compare affected annotations, predictions, or learned relationships under the stated evaluation method. |
 
 Existing client tests verify selected behavior. They do not prove that every ontology edge satisfies
-the authoring rules. The centralized semantic validator remains a separate task; report which
-checks were automated and which were reviewed.
+the authoring rules. The [algorithmic check inventory](plan/automated-rule-checks.md) tracks the
+centralized validator as a separate implementation task; report which checks were automated and
+which were reviewed.
 
 For a behavior change, report the identifiers and relations changed, the reason, the evidence,
 the validation performed, and any annotation or model review still required. Link to the exact rules

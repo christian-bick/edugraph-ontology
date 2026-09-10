@@ -23,9 +23,35 @@ Inverse subproperties follow the inverse parent: for example, `invertedBy` is a 
 of `expandedBy`. The structural family is listed in
 [ONT-S3](structure.md#ont-s3--keep-structural-navigation-distinct-from-inheritance).
 
-Do not duplicate both directions or repeat a superproperty assertion merely to make an
-application find it. Use the schema or the generated client's supported relation maps.
-An inverse property provides reverse access; it does not make a directed relation symmetric.
+Apply two authoring rules to relation assertions in the descriptor Turtle files:
+
+1. **Use only the primary relation.** Use the properties in the Relation column above and the
+   Authored relation column of ONT-S3, never their secondary inverse properties. Write
+   `Square specializes Rectangle`, not `Rectangle specializedBy Square`, even if the latter
+   would be the only assertion. Inverse property definitions remain in the schema; reverse
+   access is derived rather than authored.
+2. **Use at most one relation per family for the same directed pair.** For `A` to `B`, choose
+   at most one structural relation, one progression relation, and one logical constraint relation.
+   Choose the most specific applicable property, without also asserting its parent or another
+   property in that family.
+
+| Family | Primary properties counted together |
+| --- | --- |
+| Structural | `structures`, `partOf`, `specializes` |
+| Progression | `expands`, `inverts`, `integrates`, `translates` |
+| Logical constraints | `constrains`, `implies`, `contradicts` |
+
+For example, the hypothetical pair `A inverts B` and `A expands B` repeats a parent property.
+The pair `A expands B` and `A integrates B` is also disallowed, although neither assertion
+is derived from the other. It requires choosing the intended progression relationship.
+Relations in different families remain independent; this is not a one-relation-total rule or
+a restriction on how many different entities a descriptor may relate to. `involves` is separate
+composition, not a member of these three families.
+
+These rules check authored assertions, not schema definitions or generated inverse and parent
+facts. An inverse property provides reverse access; it does not make a directed relation symmetric.
+Progression is a family name here, not a declared `progresses` property; the constraint parent
+property is named `constrains`.
 
 ## ONT-R2 — Logical constraints concern truth
 
@@ -57,6 +83,16 @@ Use the existing progression relations for objective conceptual relationships:
 Explain the particular relationship before adding the edge. For `inverts` and `translates`,
 record the intended direction; do not add both forward directions merely because the conceptual
 connection can be understood either way.
+
+The combined progression graph of `expands`, `inverts`, `integrates`, and `translates` must
+be acyclic. This includes self-edges and cycles mixing different progression relations, not
+just cycles within one relation. For example, the hypothetical pair `A expands B` and
+`B integrates A` is invalid even though neither relation alone forms a cycle.
+
+Normalize inverse assertions to their forward direction before checking: `B expandedBy A`
+represents the same edge as `A expands B`, not a second edge back to A. Check progression
+separately from structural relations and logical constraints; this rule does not introduce
+progression inheritance or other inference across those families.
 
 A progression edge does not prove that every task concerning A independently demonstrates B,
 that a learner has mastered B, or that there is one correct teaching sequence.
@@ -103,8 +139,8 @@ competency descriptions must handle those schema relations explicitly.
 
 ## Audit
 
-- [ ] **ONT-R1:** Every assertion has a justified type and direction; inverse and parent facts are not duplicated.
+- [ ] **ONT-R1:** Authored assertions use only primary properties, with at most one relation per family for each directed pair; every choice has a justified meaning and direction.
 - [ ] **ONT-R2:** Implication and contradiction follow the definitions, including boundary cases.
-- [ ] **ONT-R3:** Progression expresses a specific conceptual relationship rather than an assumed teaching sequence.
+- [ ] **ONT-R3:** Progression expresses a specific conceptual relationship rather than an assumed teaching sequence; the combined progression graph has no self-edge or cycle, including mixed-relation cycles, after inverse normalization.
 - [ ] **ONT-R4:** Any inference names its rule and does not confuse traversal with entailment.
 - [ ] **ONT-R5:** Competency composition remains open, conjunctive, and separate from structural organization.

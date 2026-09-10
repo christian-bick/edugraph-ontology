@@ -268,5 +268,6 @@ Run it after changes to Turtle sources or code generation, using section 4.3.
 
 Those regression examples are not a complete ontology rule validator. Use
 [change review](docs/change-review.md#ont-w3--verify-and-report-the-actual-change) for the checks
-appropriate to each change and [consolidation tracking](docs/plan/ontology-consolidation.md)
-for open ontology definition and semantic-validation work.
+appropriate to each change. [Consolidation tracking](docs/plan/ontology-consolidation.md) holds open
+definition and inference decisions; the [algorithmic check inventory](docs/plan/automated-rule-checks.md)
+tracks current enforcement and missing validation work separately.
