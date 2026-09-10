@@ -58,7 +58,21 @@ const structuralContext = structuresTransitive(Scope.MeterScale);
 console.log(structuralContext.includes(Scope.DistanceAbstraction));  // true
 ```
 
-### 4. Ontology validation
+### 4. Direct-label eligibility
+
+Use `isLabelEligible` to distinguish descriptors that may directly label content from
+organizational descriptors. A descriptor with constituent children is organizational. A broader
+descriptor with specialization children can still be observable and eligible. Eligibility alone
+does not prove that particular content supports the label.
+
+```typescript
+import { Area, isLabelEligible } from "edugraph-ts";
+
+isLabelEligible(Area.CircularShapes); // false: it organizes constituent shape concepts
+isLabelEligible(Area.Rectangle);     // true: Square specializes it
+```
+
+### 5. Ontology validation
 
 The TypeScript library exports the ontology validation rules used by the repository and editor.
 Rules operate on normalized authored statements; `parseOntologySources` converts Turtle source

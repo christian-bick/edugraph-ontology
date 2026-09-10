@@ -213,6 +213,15 @@ def generate_relations_file(ontology, output_dir, individual_to_class):
         content += f'  return lookup[descriptor]?.{prop} || [];\n'
         content += '}\n'
 
+    content += '\n/**\n'
+    content += ' * Returns whether a descriptor is structurally eligible for direct content labeling.\n'
+    content += ' * Constituent children make a descriptor organizational; specialization children do not.\n'
+    content += ' * Eligibility does not establish that the descriptor is evidenced by particular content.\n'
+    content += ' */\n'
+    content += 'export function isLabelEligible(descriptor: CompetencyDescriptor): boolean {\n'
+    content += '  return hasPart(descriptor).length === 0;\n'
+    content += '}\n'
+
     # Add transitive helper and functions
     content += '\n// --- Transitive Helper Functions ---\n'
     content += 'export type RelationKeys = Exclude<keyof DescriptorRelations, "definition">;\n\n'

@@ -3,7 +3,7 @@ import {
   structures, structuredBy, partOf, hasPart, partOfTransitive, specializes, specializedBy,
   structuresTransitive, specializesTransitive,
   expands, definition, implies, impliesTransitive, contradicts,
-  deductCompatible, deductAdmitting, incompatible
+  deductCompatible, deductAdmitting, incompatible, isLabelEligible
 } from "./index";
 
 console.log("🧪 Running relation and definition tests with step-by-step progress logging...");
@@ -74,6 +74,19 @@ assertOk(structuredBy(Ability.ErrorCorrection).includes(Ability.ErrorDetection),
 assertOk(structuredBy(Ability.ErrorCorrection).includes(Ability.ErrorEvaluation), "Error correction should contain error evaluation");
 assertOk(structuredBy(Ability.ErrorCorrection).includes(Ability.ErrorResolution), "Error correction should contain error resolution");
 console.log("✅ Structural and specialization relation checks passed.");
+
+console.log("Asserting direct-label eligibility...");
+assertEqual(isLabelEligible(Area.CircularShapes), false,
+  "a descriptor with constituent children is organizational");
+assertEqual(isLabelEligible(Area.Rectangle), true,
+  "a descriptor with specialization children remains eligible");
+assertEqual(isLabelEligible(Area.Circle), true,
+  "a descriptor without constituent children is eligible");
+assertEqual(isLabelEligible(Scope.JustificationScope), false,
+  "eligibility is dimension-neutral");
+assertEqual(isLabelEligible(Scope.ProofMethod), true,
+  "a specialized family can itself remain observable");
+console.log("✅ Direct-label eligibility checks passed.");
 
 // Conceptual grouping must not inherit the physical part relationships of the figures.
 console.log("Asserting circular-shape grouping...");
