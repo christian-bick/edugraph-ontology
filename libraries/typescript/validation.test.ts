@@ -4,6 +4,7 @@ import {
   parseOntologySources,
   validateOneRelationPerFamily,
   validatePrimaryRelations,
+  validateProgressionCycles,
   validateRelationSchema,
   validateStructuralChildRoles,
   validateStructuralCycles,
@@ -206,4 +207,31 @@ assert(validateStructuralChildRoles([
   descriptor("Parent", "specializedBy", "Narrower"),
 ]).length === 1, "O6 derives child roles from inverse assertions");
 
-console.log("Ontology validation tests passed (O2, O3a, O3b, O4, O5, O6).");
+assert(validateProgressionCycles([
+  descriptor("A", "expands", "B"),
+  descriptor("B", "integrates", "A"),
+])[0].witness.join("/") === "A/expands/B/integrates/A",
+"a cycle mixing progression relations fails O8 with a concrete witness");
+assert(validateProgressionCycles([
+  descriptor("A", "expands", "B"),
+  descriptor("B", "inverts", "C"),
+  descriptor("C", "translates", "A"),
+]).length === 1, "a longer mixed progression cycle fails O8");
+assert(validateProgressionCycles([
+  descriptor("A", "integrates", "A"),
+]).length === 1, "a progression self-edge is a cycle");
+assert(validateProgressionCycles([
+  descriptor("A", "expands", "B"),
+  descriptor("B", "expandedBy", "A"),
+]).length === 0, "a repeated forward/inverse progression assertion normalizes to one edge");
+assert(validateProgressionCycles([
+  descriptor("A", "expands", "B"),
+  descriptor("B", "translates", "C"),
+]).length === 0, "an acyclic mixed progression chain passes O8");
+assert(validateProgressionCycles([
+  descriptor("A", "expands", "B"),
+  descriptor("B", "partOf", "A"),
+  descriptor("B", "implies", "A"),
+]).length === 0, "structural and constraint edges do not enter the progression graph");
+
+console.log("Ontology validation tests passed (O2, O3a, O3b, O4, O5, O6, O8).");

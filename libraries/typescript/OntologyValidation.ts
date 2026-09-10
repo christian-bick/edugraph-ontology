@@ -398,6 +398,19 @@ function structuralEdges(statements: readonly OntologyStatement[]): DirectedRela
   );
 }
 
+function progressionEdges(statements: readonly OntologyStatement[]): DirectedRelationEdge[] {
+  return normalizedRelationEdges(
+    statements,
+    ["expands", "inverts", "integrates", "translates"],
+    {
+      expandedBy: "expands",
+      invertedBy: "inverts",
+      integratedBy: "integrates",
+      translatedBy: "translates",
+    },
+  );
+}
+
 /** O4: the combined partOf/specializes descriptor graph is acyclic. */
 export function validateStructuralCycles(
   statements: readonly OntologyStatement[],
@@ -540,6 +553,24 @@ export function validateStructuralChildRoles(
   return findings.sort((left, right) => left.witness.join(":").localeCompare(right.witness.join(":")));
 }
 
+/** O8: the combined progression relation graph is acyclic. */
+export function validateProgressionCycles(
+  statements: readonly OntologyStatement[],
+): OntologyValidationFinding[] {
+  const edges = progressionEdges(statements);
+  return cyclicComponents(edges).map(component => {
+    const cycle = cycleWitness(component, edges);
+    return {
+      checkId: "O8",
+      ruleId: "ONT-R3",
+      code: "progression-cycle",
+      message: `Progression cycle: ${cycle.witness.join(" -> ")}.`,
+      witness: cycle.witness,
+      source: cycle.sources.join(", "),
+    };
+  });
+}
+
 export function validateOntology(statements: readonly OntologyStatement[]): OntologyValidationFinding[] {
   return [
     ...validateRelationSchema(statements),
@@ -548,5 +579,6 @@ export function validateOntology(statements: readonly OntologyStatement[]): Onto
     ...validateStructuralCycles(statements),
     ...validateStructuralOrdering(statements),
     ...validateStructuralChildRoles(statements),
+    ...validateProgressionCycles(statements),
   ];
 }
