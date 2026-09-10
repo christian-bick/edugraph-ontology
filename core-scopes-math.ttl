@@ -951,6 +951,10 @@
 :SingleStep a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Requires a single logical or procedural step to reach a solution, consisting of one discrete operation or transformation within a sequential process.";
     edu:specializes :StepComplexity.
+:SixthFractions a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Involves fractions characterized by a denominator of six.";
+    edu:expands :ThirdFractions;
+    edu:partOf :CommonDenominator.
 :SmallestOperandDigitCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the exact digit count of the smallest operand.";
     edu:partOf :OperandDigitCount.
