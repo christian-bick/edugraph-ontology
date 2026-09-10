@@ -89,3 +89,8 @@ const findings = validateOntology(statements);
 ```
 
 Each finding has a stable check ID, normative rule ID, code, message, and compact witness.
+
+The package also exports `validateDocumentation`. It accepts repository-relative Markdown
+sources, the available repository paths, and parsed ontology statements. This lets editors run the
+same local-link, rule-reference, Audit-entry, and named-example checks as the repository gate.
+External links are deliberately outside this mechanical validation.

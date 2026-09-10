@@ -54,14 +54,24 @@ COPY ./libraries/typescript/package.json ./package.json
 COPY ./libraries/typescript/tsconfig.json ./tsconfig.json
 COPY ./libraries/typescript/test.ts ./test.ts
 COPY ./libraries/typescript/OntologyValidation.ts ./OntologyValidation.ts
+COPY ./libraries/typescript/DocumentationValidation.ts ./DocumentationValidation.ts
 COPY ./libraries/typescript/validate-ontology.ts ./validate-ontology.ts
+COPY ./libraries/typescript/validate-documentation.ts ./validate-documentation.ts
 COPY ./libraries/typescript/validation.test.ts ./validation.test.ts
+COPY ./libraries/typescript/documentation-validation.test.ts ./documentation-validation.test.ts
 COPY ./libraries/typescript/README.md ./README.md
 
 RUN npm install
 RUN npm run build
 RUN npm test
 RUN npm run validate:ontology -- /ontology/core-schema.ttl /ontology/core-abilities.ttl /ontology/core-areas-math.ttl /ontology/core-scopes-math.ttl
+COPY ./README.md ./DOCS.md ./DESIGN.md ./AGENTS.md ./DOCS_ONTOLOGY.md ./LICENSE ./catalog-v001.xml ./Dockerfile ./pyproject.toml ./uv.lock /repository/
+COPY ./.github /repository/.github
+COPY ./docs /repository/docs
+COPY ./src /repository/src
+COPY ./libraries /repository/libraries
+COPY ./core-schema.ttl ./core-abilities.ttl ./core-areas-math.ttl ./core-scopes-math.ttl /repository/
+RUN npm run validate:docs -- /repository /ontology/core-schema.ttl /ontology/core-abilities.ttl /ontology/core-areas-math.ttl /ontology/core-scopes-math.ttl
 
 FROM ghcr.io/astral-sh/uv:python3.13-alpine AS python-builder
 

@@ -62,7 +62,8 @@ graph TD
    - Sets up Python 3.13 via `astral-sh/uv`.
    - Runs [generate-ts.py](src/ontology/generate-ts.py) and [generate-py.py](src/ontology/generate-py.py), which read the compiled RDF, extract individuals for `Area`, `Scope`, and `Ability`, and write enums, definitions, relation maps, and helper functions into `dist/typescript` and `dist/python/src/edugraph` respectively.
 3. **Stage 3 (`typescript-compiler`)**:
-   - Installs node dependencies, compiles the generated TypeScript with `tsc`, and runs the client relation tests.
+   - Installs node dependencies, compiles the generated TypeScript with `tsc`, runs the client
+     relation tests, validates the ontology source rules, and checks documentation references.
 4. **Stage 4 (`python-builder`)**:
    - Updates the version using the `PACKAGE_VERSION` build argument, runs the Python client relation tests, and uses `uv build` to produce a `.whl` and `.tar.gz` archive.
 5. **Stage 5 (`export`)**:
@@ -96,6 +97,11 @@ To run the full compilation pipeline and output the generated distribution files
 ```powershell
 docker build . --output dist
 ```
+
+This is the authoritative local gate. It includes the TypeScript ontology validators and the
+mechanical documentation checks described in the
+[algorithmic check inventory](docs/plan/automated-rule-checks.md). The same validation functions
+are exported by `edugraph-ts` for editor integration.
 
 ---
 
@@ -264,12 +270,10 @@ progression questions, see
 
 ### 6.6 Verification scope
 
-The Docker build compiles both clients and runs their existing relation tests, including
-specialization, combined structural traversal, inverse access, and constraint deduction examples.
-Run it after changes to Turtle sources or code generation, using section 4.3.
-
-Those regression examples are not a complete ontology rule validator. Use
-[change review](docs/change-review.md#ont-w3--verify-and-report-the-actual-change) for the checks
-appropriate to each change. [Consolidation tracking](docs/plan/ontology-consolidation.md) holds open
+The Docker build compiles both clients, runs their focused relation tests, validates the agreed
+ontology source rules, and checks mechanical documentation integrity. Run it after changes using
+section 4.3. These checks do not judge definitions, the educational meaning of a relation, or the
+truth of scholarly claims. Use [change review](docs/change-review.md#ont-w3--verify-and-report-the-actual-change)
+for that semantic review. [Consolidation tracking](docs/plan/ontology-consolidation.md) holds open
 definition and inference decisions; the [algorithmic check inventory](docs/plan/automated-rule-checks.md)
-tracks current enforcement and missing validation work separately.
+states the exact automated boundary.

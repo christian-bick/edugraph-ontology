@@ -10,15 +10,17 @@ invalid relation path; it cannot establish that a definition is educationally co
 
 ## Current enforcement
 
-The [Docker build](../../Dockerfile) parses Turtle through Jena, generates both clients, compiles
-TypeScript, and runs [TypeScript](../../libraries/typescript/test.ts) and
-[Python](../../libraries/python/test_relations.py) relation examples. The release workflow runs that
-build. These are real gates, but selected examples are not complete graph-rule validation.
+The [Docker build](../../Dockerfile) parses Turtle through Jena, runs the centralized TypeScript
+source validator, generates both clients, compiles TypeScript, checks documentation, and runs
+[TypeScript](../../libraries/typescript/test.ts) and
+[Python](../../libraries/python/test_relations.py) relation examples. The release workflow runs the
+same build. The source validator covers O2–O6 and O8; generated examples cover O7 and O9; O10 checks
+mechanical reference integrity.
 
 Source integrity relies on the existing parsing, generation, and compilation checks; no separate
 O1 validator is planned. This is an accepted baseline, not a claim that the build detects every
-incomplete descriptor. There is no permanent central validator covering the additional relation
-rules below. Library-provided eligibility and code-generation regression tests have separate roles.
+incomplete descriptor. Library-provided eligibility and code-generation regression tests retain
+their separate roles from ontology-validity findings.
 
 ## Check inventory
 
@@ -38,14 +40,13 @@ Item numbers are implementation work references, not new normative rule IDs.
 | O7. Library-provided label eligibility | Provide a consumer-facing check using the complete child-role set: no constituent children means eligible; specialization children alone do not disqualify it. See ONT-E7. | **Implemented in the generated TypeScript library, with release tests; not an ontology-validity gate.** `isLabelEligible` uses generated `hasPart` relations, including inverse children derived from authored `partOf`. Annotation consumers enforce eligibility on their own labels. Organizational nodes do not fail ontology release merely because they are ineligible. Mixed roles remain an independent O6 error. Eligibility never proves content evidence. |
 | O8. Progression cycles | The combined `expands`/`inverts`/`integrates`/`translates` graph has no cycle, including self-edges and cycles mixing these relations. See ONT-R3 and ONT-W2. | **Implemented in the TypeScript library and mandatory Docker gate.** Primary and inverse assertions are normalized into one forward graph and one concrete cycle is reported per cyclic component. Structural and logical constraint edges remain outside the graph. The check introduces no progression inference and does not judge the meaning or completeness of individual assertions. |
 | O9. Code-generation regressions | Both generated libraries build and pass focused tests for identifiers, definitions, relation direction, inverse access, subproperty expansion, and helper behavior. See ONT-R1, ONT-R4, ONT-W3. | **Existing build gates and regressions; extend with relevant cases when generators change.** The source validator checks the ontology; focused tests check its translation into library APIs. Do not add an exhaustive source-to-library or cross-library record comparison that reimplements generation. `involves` remains a schema relation, not an implicit expansion of the descriptor-client API. |
-| O10. Reference integrity | Check local document links/anchors, rule-ID definitions and citations, Audit entries, and named ontology examples against source. See ONT-W3. | **No permanent repository gate.** Recent documentation work used a temporary checker. Promote the mechanical parts with tests; distinguish illustrative/hypothetical edges from examples claimed to exist. External source availability is advisory, not proof or disproof of a scholarly claim. |
+| O10. Reference integrity | Check local document links/anchors, rule-ID definitions and citations, Audit entries, and named ontology examples against source. See ONT-W3. | **Implemented in the TypeScript library and mandatory Docker gate.** The reusable validator checks repository-local link targets and Markdown anchors, unique and defined rule IDs, an Audit entry for every rule definition, and inline named ontology-relation examples against authored plus schema-derived direct relations. Generic, explicitly hypothetical or negated examples and historical release notes are not treated as current source claims. External links and scholarly claims remain outside mechanical validation. |
 
 For O3a, an inverse-only descriptor assertion must fail, while an inverse property definition
 in the schema must pass. For O3b, test both parent/child duplication and two distinct progression
 properties on the same directed pair. Separate families and separate endpoint pairs must pass.
-Derived inverse and parent access must not add violations. The source check for
-[v0.25.1](../releases/v0.25.1.md) covers primary-only authoring and one relation per family
-after correcting the three conflicts. This release check is not a permanent validation gate.
+Derived inverse and parent access must not add violations. The findings behind
+[v0.25.1](../releases/v0.25.1.md) are now protected by the permanent O3a and O3b gates.
 
 For O7, an eligible `Rectangle` with a specializing `Square` is a necessary positive test. A
 `CircularShapes` with constituent children is an organizational example, not a defective ontology
@@ -65,8 +66,9 @@ functions. Keep authored assertions separate from derived inverse and superprope
 result should identify its stable rule ID, severity, source entity/property, and a compact witness.
 Collect independent errors; mark dependent checks as blocked when their prerequisites are invalid.
 
-Run source checks before artifact generation and generated-library regression tests after it.
-The same mandatory source-rule functions must serve local checks and the Docker/release gate.
+Source checks do not depend on generated artifacts and must pass before the Docker build can export
+them; generated-library regression tests run on the generated clients. The same mandatory
+source-rule functions serve local checks, editor integration, and the Docker/release gate.
 O7 instead supplies eligibility to consumers, with helper tests in the library test suite; it
 does not require every ontology descriptor to be usable as a direct annotation. This plan does
 not prescribe a new public command name, package API, or storage format before implementation.
@@ -100,9 +102,10 @@ multi-parent graphs, plus full-versus-incremental equivalence after edits and re
   organizational descriptors without making the latter ontology release failures.
 - [x] **Source/schema contracts:** O8 uses existing definitions of the rules and keeps
   unrelated modeling questions out of the gate.
-- [ ] **Code-generation regressions:** retain O9 across both supplied clients and the Docker
+- [x] **Code-generation regressions:** retain O9 across both supplied clients and the Docker
   build; add focused cases for changed behavior, not an exhaustive record-comparison gate.
-- [ ] **Reference integration:** O10 and links from authoring workflows to the actual commands.
+- [x] **Reference integration:** O10 is part of the Docker gate and the TypeScript library API;
+  authoring workflows point to the Docker command that runs it.
 - [ ] **For every batch:** unit tests, stable diagnostics, linear-work tests, and affected-result
   reuse tests. Exercise the public gate with invalid fixtures, not only helper functions.
 - [ ] **Completion:** local and release commands use the same mandatory checks; each reference

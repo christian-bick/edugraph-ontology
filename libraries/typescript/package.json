@@ -6,8 +6,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "node dist/test.js && node dist/validation.test.js",
-    "validate:ontology": "node dist/validate-ontology.js"
+    "test": "node dist/test.js && node dist/validation.test.js && node dist/documentation-validation.test.js",
+    "validate:ontology": "node dist/validate-ontology.js",
+    "validate:docs": "node dist/validate-documentation.js"
   },
   "dependencies": {
     "n3": "^2.0.1"

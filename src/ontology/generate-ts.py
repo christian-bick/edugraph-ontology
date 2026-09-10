@@ -74,6 +74,7 @@ def generate_index_file(configs, output_dir):
         index_content += f'export * from "./{module_name}";\n'
     index_content += 'export * from "./Relations";\n'
     index_content += 'export * from "./OntologyValidation";\n'
+    index_content += 'export * from "./DocumentationValidation";\n'
 
     # Write the content to the index file
     with open(index_filename, "w") as f:

@@ -58,10 +58,10 @@ use the workflow in [DOCS.md](../DOCS.md#43-compiling-via-docker) rather than ed
 | Schema or code generation | Inspect the resulting RDF and both generated clients; run the Docker build and relevant client tests. |
 | Annotation or model update | Compare affected annotations, predictions, or learned relationships under the stated evaluation method. |
 
-Existing client tests verify selected behavior. They do not prove that every ontology edge satisfies
-the authoring rules. The [algorithmic check inventory](plan/automated-rule-checks.md) tracks the
-centralized validator as a separate implementation task; report which checks were automated and
-which were reviewed.
+The Docker gate runs focused generated-client tests and the agreed mechanical ontology and
+documentation checks. It does not prove that every definition or relation is semantically correct.
+The [algorithmic check inventory](plan/automated-rule-checks.md) states the automated boundary;
+report which checks ran and which meanings were reviewed.
 
 For a behavior change, report the identifiers and relations changed, the reason, the evidence,
 the validation performed, and any annotation or model review still required. Link to the exact rules
