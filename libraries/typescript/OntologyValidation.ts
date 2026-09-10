@@ -79,6 +79,13 @@ export const PRIMARY_RELATION_FAMILIES = {
   constraints: ["constrains", "implies", "contradicts"],
 } as const;
 
+interface DirectedRelationEdge {
+  from: string;
+  to: string;
+  relation: string;
+  source: string;
+}
+
 export function parseOntologySources(sources: readonly OntologySource[]): OntologyStatement[] {
   return sources.flatMap(source => new Parser({ baseIRI: EDU }).parse(source.text).map(quad => ({
     subject: quad.subject.value,
@@ -219,10 +226,197 @@ export function validateOneRelationPerFamily(
     .sort((left, right) => left.witness.join(":").localeCompare(right.witness.join(":")));
 }
 
+function normalizedRelationEdges(
+  statements: readonly OntologyStatement[],
+  primaryRelations: readonly string[],
+  inverseRelations: Readonly<Record<string, string>>,
+): DirectedRelationEdge[] {
+  const primary = new Set(primaryRelations.map(relation));
+  const inverse = new Map(Object.entries(inverseRelations)
+    .map(([inverseName, primaryName]) => [relation(inverseName), primaryName]));
+  const edges = new Map<string, DirectedRelationEdge>();
+  for (const statement of statements) {
+    if (statement.sourceKind !== "descriptors") continue;
+    let edge: DirectedRelationEdge | undefined;
+    if (primary.has(statement.predicate)) {
+      edge = {
+        from: statement.subject,
+        to: statement.object,
+        relation: compactIri(statement.predicate),
+        source: statement.source,
+      };
+    } else {
+      const primaryName = inverse.get(statement.predicate);
+      if (primaryName) {
+        edge = {
+          from: statement.object,
+          to: statement.subject,
+          relation: primaryName,
+          source: statement.source,
+        };
+      }
+    }
+    if (edge) edges.set(`${edge.from}\u0000${edge.to}\u0000${edge.relation}`, edge);
+  }
+  return [...edges.values()];
+}
+
+function cyclicComponents(edges: readonly DirectedRelationEdge[]): string[][] {
+  const nodes = new Set<string>();
+  const outgoingSets = new Map<string, Set<string>>();
+  const incomingSets = new Map<string, Set<string>>();
+  for (const edge of edges) {
+    nodes.add(edge.from);
+    nodes.add(edge.to);
+    const outgoing = outgoingSets.get(edge.from) ?? new Set<string>();
+    outgoing.add(edge.to);
+    outgoingSets.set(edge.from, outgoing);
+    const incoming = incomingSets.get(edge.to) ?? new Set<string>();
+    incoming.add(edge.from);
+    incomingSets.set(edge.to, incoming);
+  }
+  const outgoing = new Map([...nodes].map(node =>
+    [node, [...(outgoingSets.get(node) ?? [])].sort()] as const));
+  const incoming = new Map([...nodes].map(node =>
+    [node, [...(incomingSets.get(node) ?? [])].sort()] as const));
+
+  const visited = new Set<string>();
+  const finished: string[] = [];
+  for (const start of [...nodes].sort()) {
+    if (visited.has(start)) continue;
+    visited.add(start);
+    const stack: Array<{ node: string; next: number }> = [{ node: start, next: 0 }];
+    while (stack.length > 0) {
+      const frame = stack[stack.length - 1];
+      const neighbors = outgoing.get(frame.node) ?? [];
+      if (frame.next < neighbors.length) {
+        const next = neighbors[frame.next++];
+        if (!visited.has(next)) {
+          visited.add(next);
+          stack.push({ node: next, next: 0 });
+        }
+      } else {
+        finished.push(frame.node);
+        stack.pop();
+      }
+    }
+  }
+
+  const assigned = new Set<string>();
+  const components: string[][] = [];
+  for (const start of finished.reverse()) {
+    if (assigned.has(start)) continue;
+    const component: string[] = [];
+    const stack = [start];
+    assigned.add(start);
+    while (stack.length > 0) {
+      const node = stack.pop()!;
+      component.push(node);
+      for (const next of incoming.get(node) ?? []) {
+        if (!assigned.has(next)) {
+          assigned.add(next);
+          stack.push(next);
+        }
+      }
+    }
+    component.sort();
+    if (component.length > 1 || (outgoing.get(component[0]) ?? []).includes(component[0])) {
+      components.push(component);
+    }
+  }
+  return components.sort((left, right) => left[0].localeCompare(right[0]));
+}
+
+function cycleWitness(component: readonly string[], edges: readonly DirectedRelationEdge[]): {
+  witness: string[];
+  sources: string[];
+} {
+  const members = new Set(component);
+  const relevant = edges.filter(edge => members.has(edge.from) && members.has(edge.to));
+  const outgoing = new Map<string, DirectedRelationEdge[]>();
+  for (const edge of relevant) {
+    const list = outgoing.get(edge.from) ?? [];
+    list.push(edge);
+    outgoing.set(edge.from, list);
+  }
+  for (const list of outgoing.values()) {
+    list.sort((left, right) =>
+      `${left.to}:${left.relation}`.localeCompare(`${right.to}:${right.relation}`));
+  }
+
+  const visited = new Set<string>();
+  const activeAt = new Map<string, number>();
+  const path: string[] = [];
+  const pathEdges: DirectedRelationEdge[] = [];
+  for (const start of [...component].sort()) {
+    if (visited.has(start)) continue;
+    visited.add(start);
+    activeAt.set(start, 0);
+    path.push(start);
+    const stack: Array<{ node: string; next: number }> = [{ node: start, next: 0 }];
+    while (stack.length > 0) {
+      const frame = stack[stack.length - 1];
+      const candidates = outgoing.get(frame.node) ?? [];
+      if (frame.next >= candidates.length) {
+        activeAt.delete(frame.node);
+        stack.pop();
+        path.pop();
+        if (pathEdges.length >= path.length) pathEdges.pop();
+        continue;
+      }
+      const edge = candidates[frame.next++];
+      const cycleStart = activeAt.get(edge.to);
+      if (cycleStart !== undefined) {
+        const cycleEdges = [...pathEdges.slice(cycleStart), edge];
+        const witness: string[] = [];
+        for (const cycleEdge of cycleEdges) {
+          witness.push(compactIri(cycleEdge.from), cycleEdge.relation);
+        }
+        witness.push(compactIri(edge.to));
+        return {
+          witness,
+          sources: [...new Set(cycleEdges.map(cycleEdge => cycleEdge.source))].sort(),
+        };
+      }
+      if (!visited.has(edge.to)) {
+        visited.add(edge.to);
+        activeAt.set(edge.to, path.length);
+        pathEdges.push(edge);
+        path.push(edge.to);
+        stack.push({ node: edge.to, next: 0 });
+      }
+    }
+  }
+  throw new Error("Cyclic component did not yield a cycle witness.");
+}
+
+/** O4: the combined partOf/specializes descriptor graph is acyclic. */
+export function validateStructuralCycles(
+  statements: readonly OntologyStatement[],
+): OntologyValidationFinding[] {
+  const edges = normalizedRelationEdges(
+    statements,
+    ["partOf", "specializes"],
+    { hasPart: "partOf", specializedBy: "specializes" },
+  );
+  return cyclicComponents(edges).map(component => {
+    const cycle = cycleWitness(component, edges);
+    return {
+      checkId: "O4",
+      ruleId: "ONT-S5",
+      code: "structural-cycle",
+      message: `Structural cycle: ${cycle.witness.join(" -> ")}.`,
+      witness: cycle.witness,
+      source: cycle.sources.join(", "),
+    };
+  });
+}
+
 export function validateOntology(statements: readonly OntologyStatement[]): OntologyValidationFinding[] {
   return [
     ...validateRelationSchema(statements),
     ...validatePrimaryRelations(statements),
     ...validateOneRelationPerFamily(statements),
+    ...validateStructuralCycles(statements),
   ];
 }

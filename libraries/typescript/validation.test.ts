@@ -5,6 +5,7 @@ import {
   validateOneRelationPerFamily,
   validatePrimaryRelations,
   validateRelationSchema,
+  validateStructuralCycles,
 } from "./OntologyValidation";
 
 const EDU = "http://edugraph.io/edu#";
@@ -121,4 +122,32 @@ assert(validateOneRelationPerFamily([
   { ...descriptor("A", "integrates", "B"), sourceKind: "schema" },
 ]).length === 0, "schema declarations are outside O3b");
 
-console.log("Ontology validation tests passed (O2, O3a, O3b).");
+assert(validateStructuralCycles([
+  descriptor("A", "partOf", "B"),
+  descriptor("B", "specializes", "A"),
+])[0].witness.join("/") === "A/partOf/B/specializes/A",
+"a mixed structural cycle has a concrete deterministic witness");
+assert(validateStructuralCycles([
+  descriptor("A", "specializes", "A"),
+]).length === 1, "a structural self-edge is a cycle");
+assert(validateStructuralCycles([
+  descriptor("A", "partOf", "B"),
+  descriptor("B", "hasPart", "A"),
+]).length === 0, "the same edge authored in both directions is normalized, not treated as a cycle");
+assert(validateStructuralCycles([
+  descriptor("A", "specializes", "B"),
+  descriptor("B", "partOf", "C"),
+]).length === 0, "an acyclic mixed structural chain passes O4");
+assert(validateStructuralCycles([
+  descriptor("A", "partOf", "B"), descriptor("B", "partOf", "A"),
+  descriptor("C", "specializes", "D"), descriptor("D", "specializes", "C"),
+]).length === 2, "independent cyclic components produce one finding each");
+
+const deepStructure: OntologyStatement[] = [];
+for (let index = 0; index < 5000; index++) {
+  deepStructure.push(descriptor(`N${index}`, "partOf", `N${index + 1}`));
+}
+assert(validateStructuralCycles(deepStructure).length === 0,
+  "O4 handles a deep acyclic graph without recursive traversal");
+
+console.log("Ontology validation tests passed (O2, O3a, O3b, O4).");
