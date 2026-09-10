@@ -56,6 +56,16 @@ FractionEquivalence retains its meaning as the equal-value principle and has no 
 children. All definitions, identifiers, specialization edges, and progression relations remain
 unchanged; only structural grouping and its inverse navigation change.
 
+## Justification Scope families
+
+Added in [v0.25.0](../releases/v0.25.0.md): JustificationScope organizes ProofMethod,
+EvidenceBasis, EvidenceCoverage, and ErrorControl through partOf. Fifteen specific Scopes
+specialize those families. Existing descriptors and relations are unchanged.
+
+[Justification Scopes](../justification.md) explains the independent contexts and their
+observable boundaries. ONT-E6 states the annotation rule. Client tests cover all new members,
+inverse navigation, and the boundary between specialization and organizational ancestry.
+
 ## Open ontology work
 
 ### 1. Review measurement family definitions

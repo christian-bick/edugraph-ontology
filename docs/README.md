@@ -10,6 +10,7 @@ Start here when changing a descriptor, relation, or competency description.
 | Change a constraint, progression, or competency composition | [Other relations](relations.md) and [content evidence](content-evidence.md) |
 | Review or implement any ontology change | [Change review](change-review.md), plus the relevant references above |
 | Use descriptors with annotated content or models | [Annotations and models](annotations-and-models.md) |
+| Review proof, evidence, or error-guarantee context | [Justification Scopes](justification.md) and [content evidence](content-evidence.md) |
 | Find pending consolidation decisions | [Consolidation record](plan/ontology-consolidation.md) |
 
 ## How to use these references

@@ -7,6 +7,56 @@ from edugraph import (
 )
 
 class TestRelations(unittest.TestCase):
+    def test_justification_families_and_inference_boundaries(self):
+        families = {
+            Scope.ProofMethod: [
+                Scope.DirectProof,
+                Scope.ProofByConstruction,
+                Scope.ProofByContraposition,
+                Scope.ProofByContradiction,
+                Scope.ProofByCases,
+                Scope.ProofByInduction,
+                Scope.DisproofByCounterexample,
+            ],
+            Scope.EvidenceBasis: [
+                Scope.ConstructedCaseEvidence,
+                Scope.ObservedDataEvidence,
+                Scope.SimulationEvidence,
+                Scope.ComputedEvidence,
+            ],
+            Scope.EvidenceCoverage: [
+                Scope.SelectedCaseEvidence,
+                Scope.ExhaustiveCaseEvidence,
+            ],
+            Scope.ErrorControl: [
+                Scope.DeterministicErrorBound,
+                Scope.ProbabilisticErrorBound,
+            ],
+        }
+        self.assertTrue(definition(Scope.JustificationScope))
+        self.assertEqual(structures(Scope.JustificationScope), [])
+        for family, members in families.items():
+            with self.subTest(family=family):
+                self.assertTrue(definition(family))
+                self.assertIn(Scope.JustificationScope, part_of(family))
+                self.assertIn(family, has_part(Scope.JustificationScope))
+                self.assertIn(family, structured_by(Scope.JustificationScope))
+                self.assertEqual(specializes(family), [])
+            for member in members:
+                with self.subTest(member=member):
+                    self.assertTrue(definition(member))
+                    self.assertEqual(member.definition, definition(member))
+                    self.assertEqual(relations(member).get("definition"), definition(member))
+                    self.assertIn(family, specializes(member))
+                    self.assertIn(member, specialized_by(family))
+                    self.assertIn(family, structures(member))
+                    self.assertIn(member, structured_by(family))
+                    self.assertIn(family, specializes_transitive(member))
+                    self.assertNotIn(Scope.JustificationScope, specializes_transitive(member))
+                    self.assertIn(Scope.JustificationScope, structures_transitive(member))
+                    self.assertEqual(part_of(member), [])
+                    self.assertEqual(has_part(member), [])
+
     def test_fraction_strategy_grouping(self):
         for strategy in [Area.FractionSimplification, Area.LowestCommonDenominator, Area.LowestCommonNumerator]:
             with self.subTest(strategy=strategy):

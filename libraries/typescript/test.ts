@@ -105,6 +105,38 @@ for (const strategy of [Area.FractionSimplification, Area.LowestCommonDenominato
 assertEqual(hasPart(Area.FractionEquivalence).length, 0);
 console.log("✅ Fraction strategy grouping checks passed.");
 
+// Justification has independent families; inheritance stops before the organizational root.
+console.log("Asserting justification families and inference boundaries...");
+const justificationFamilies: Array<[Scope, Scope[]]> = [
+  [Scope.ProofMethod, [Scope.DirectProof, Scope.ProofByConstruction, Scope.ProofByContraposition, Scope.ProofByContradiction, Scope.ProofByCases, Scope.ProofByInduction, Scope.DisproofByCounterexample]],
+  [Scope.EvidenceBasis, [Scope.ConstructedCaseEvidence, Scope.ObservedDataEvidence, Scope.SimulationEvidence, Scope.ComputedEvidence]],
+  [Scope.EvidenceCoverage, [Scope.SelectedCaseEvidence, Scope.ExhaustiveCaseEvidence]],
+  [Scope.ErrorControl, [Scope.DeterministicErrorBound, Scope.ProbabilisticErrorBound]]
+];
+assertOk(definition(Scope.JustificationScope).length > 0);
+assertEqual(structures(Scope.JustificationScope).length, 0);
+for (const [family, members] of justificationFamilies) {
+  assertOk(definition(family).length > 0);
+  assertOk(partOf(family).includes(Scope.JustificationScope));
+  assertOk(hasPart(Scope.JustificationScope).includes(family));
+  assertOk(structuredBy(Scope.JustificationScope).includes(family));
+  assertEqual(specializes(family).length, 0);
+  for (const member of members) {
+    assertOk(definition(member).length > 0);
+    assertEqual(relations(member).definition, definition(member));
+    assertOk(specializes(member).includes(family));
+    assertOk(specializedBy(family).includes(member));
+    assertOk(structures(member).includes(family));
+    assertOk(structuredBy(family).includes(member));
+    assertOk(specializesTransitive(member).includes(family));
+    assertOk(!specializesTransitive(member).includes(Scope.JustificationScope));
+    assertOk(structuresTransitive(member).includes(Scope.JustificationScope));
+    assertEqual(partOf(member).length, 0);
+    assertEqual(hasPart(member).length, 0);
+  }
+}
+console.log("✅ Justification family checks passed.");
+
 // Test sixth-fraction specialization and its inherited context.
 console.log("Asserting sixth-fraction inheritance...");
 assertOk(specializes(Scope.SixthFractions).includes(Scope.CommonDenominator));

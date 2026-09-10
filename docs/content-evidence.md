@@ -79,6 +79,18 @@ by traversing relations. A minimal serialization may omit a broader claim alread
 specialization, but the ontology does not prescribe one storage format or silently rewrite an
 application's label set. See [annotations and models](annotations-and-models.md).
 
+## ONT-E6 — Identify the observable role of justification
+
+Apply a justification Scope when the relevant method, evidence, coverage, or guarantee is
+supplied or clearly required by the content. A method that could merely be used is insufficient.
+Read the claim and its domain together with the argument or evidence; a name or an author's
+intention is not a substitute for the structure that supports the annotation.
+
+The same configuration can illustrate a property, establish possibility, or refute a general
+claim. Its role follows from what the content shows or asks. Evidence coverage does not determine
+logical force, and an omitted uncertainty statement does not establish an error guarantee.
+See [Justification Scopes](justification.md) for the family distinctions and examples.
+
 ## Audit
 
 - [ ] **ONT-E1:** Every annotation has accessible evidence beyond labels, metadata, or intention.
@@ -86,3 +98,4 @@ application's label set. See [annotations and models](annotations-and-models.md)
 - [ ] **ONT-E3:** Specificity is justified; neither leaf status nor structural membership substitutes for evidence.
 - [ ] **ONT-E4:** Meaningful context is covered and absence claims hold throughout their defined domain.
 - [ ] **ONT-E5:** Conjunction, application cardinality rules, and derived information remain distinguishable.
+- [ ] **ONT-E6:** Justification annotations follow a supplied or required method, evidence, coverage, or guarantee, not a merely possible approach.
