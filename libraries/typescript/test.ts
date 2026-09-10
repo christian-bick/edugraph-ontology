@@ -1,6 +1,6 @@
 import {
   Area, Scope, Ability, relations,
-  structures, structuredBy, partOfTransitive, specializes, specializedBy,
+  structures, structuredBy, partOf, partOfTransitive, specializes, specializedBy,
   structuresTransitive, specializesTransitive,
   expands, definition, implies, impliesTransitive, contradicts,
   deductCompatible, deductAdmitting, incompatible
@@ -74,6 +74,15 @@ assertOk(structuredBy(Ability.ErrorCorrection).includes(Ability.ErrorDetection),
 assertOk(structuredBy(Ability.ErrorCorrection).includes(Ability.ErrorEvaluation), "Error correction should contain error evaluation");
 assertOk(structuredBy(Ability.ErrorCorrection).includes(Ability.ErrorResolution), "Error correction should contain error resolution");
 console.log("✅ Structural and specialization relation checks passed.");
+
+// Test sixth-fraction specialization and its inherited context.
+console.log("Asserting sixth-fraction inheritance...");
+assertOk(specializes(Scope.SixthFractions).includes(Scope.CommonDenominator));
+assertOk(specializedBy(Scope.CommonDenominator).includes(Scope.SixthFractions));
+assertOk(specializesTransitive(Scope.SixthFractions).includes(Scope.RelatedFractions));
+assertOk(!partOf(Scope.SixthFractions).includes(Scope.CommonDenominator));
+assertOk(expands(Scope.SixthFractions).includes(Scope.ThirdFractions));
+console.log("✅ Sixth-fraction inheritance checks passed.");
 
 // Test subproperty relation (inverts is subproperty of expands)
 // Subtraction inverts Addition, so expands should also include Addition

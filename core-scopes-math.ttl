@@ -954,7 +954,7 @@
 :SixthFractions a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves fractions characterized by a denominator of six.";
     edu:expands :ThirdFractions;
-    edu:partOf :CommonDenominator.
+    edu:specializes :CommonDenominator.
 :SmallestOperandDigitCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves the exact digit count of the smallest operand.";
     edu:partOf :OperandDigitCount.

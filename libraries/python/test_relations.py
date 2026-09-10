@@ -56,6 +56,13 @@ class TestRelations(unittest.TestCase):
         self.assertIn(Ability.ErrorEvaluation, structured_by(Ability.ErrorCorrection))
         self.assertIn(Ability.ErrorResolution, structured_by(Ability.ErrorCorrection))
 
+    def test_sixth_fractions_inheritance(self):
+        self.assertIn(Scope.CommonDenominator, specializes(Scope.SixthFractions))
+        self.assertIn(Scope.SixthFractions, specialized_by(Scope.CommonDenominator))
+        self.assertIn(Scope.RelatedFractions, specializes_transitive(Scope.SixthFractions))
+        self.assertNotIn(Scope.CommonDenominator, part_of(Scope.SixthFractions))
+        self.assertIn(Scope.ThirdFractions, expands(Scope.SixthFractions))
+
     def test_subproperty_relation(self):
         # Subtraction inverts Addition, so expands should also include Addition
         sub_expands = expands(Area.Subtraction)

@@ -26,8 +26,14 @@ This was a documentation and source review, not a new classification or embeddin
 - [ ] Verify the resulting schema export and generated clients through the supplied Docker build.
   The 2026-09-09 attempt could not start compilation: Docker Desktop was running, but its engine
   did not answer bounded pings on either Linux endpoint. The task's waiting build and diagnostic
-  commands were stopped. Retry the build after the engine is responsive; client validation is
-  not yet claimed for this schema change.
+  commands were stopped. Retry the Docker build after the engine is responsive. Client
+  validation was not claimed at that time; the later native validation is recorded below.
+- [x] Validate the schema export and generated clients through a native build on 2026-09-10
+  while preparing [v0.24.0](../releases/v0.24.0.md). Jena 5.6.0 validated all four sources;
+  export inspection confirmed the superclass and absence of equivalence restrictions.
+  TypeScript compilation and relation checks and all 12 Python tests passed, including
+  when run against the packaged assets. The Docker retry still did not respond, so the
+  separate Docker verification above remains open.
 - [x] Verify reference links, rule IDs, and worked ontology examples: 13 Markdown files,
   24 rules, and 15 concrete relation examples pass. All four Turtle sources parse successfully;
   the parsed schema retains the superclass and has no descriptor-presence restriction.
