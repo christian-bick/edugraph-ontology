@@ -23,17 +23,16 @@ This was a documentation and source review, not a new classification or embeddin
 - [x] Leave `CompetencyDescription` composition open, as explicitly decided in this review:
   remove its three `owl:equivalentClass` descriptor-presence restrictions and remove global
   dimension-count requirements from the documentation.
-- [ ] Verify the resulting schema export and generated clients through the supplied Docker build.
-  The 2026-09-09 attempt could not start compilation: Docker Desktop was running, but its engine
-  did not answer bounded pings on either Linux endpoint. The task's waiting build and diagnostic
-  commands were stopped. Retry the Docker build after the engine is responsive. Client
-  validation was not claimed at that time; the later native validation is recorded below.
+- [x] Verify the resulting schema export and generated clients through the supplied Docker build.
+  The complete v0.24.1 build passed on 2026-09-10, including TypeScript compilation and relation
+  tests, all 13 Python tests, and packaging. Export and source inspection retain the open
+  CompetencyDescription composition. This closes the earlier Docker verification blocker.
 - [x] Validate the schema export and generated clients through a native build on 2026-09-10
   while preparing [v0.24.0](../releases/v0.24.0.md). Jena 5.6.0 validated all four sources;
   export inspection confirmed the superclass and absence of equivalence restrictions.
   TypeScript compilation and relation checks and all 12 Python tests passed, including
-  when run against the packaged assets. The Docker retry still did not respond, so the
-  separate Docker verification above remains open.
+  when run against the packaged assets. Docker verification was subsequently completed for
+  v0.24.1 as recorded above.
 - [x] Verify reference links, rule IDs, and worked ontology examples: 13 Markdown files,
   24 rules, and 15 concrete relation examples pass. All four Turtle sources parse successfully;
   the parsed schema retains the superclass and has no descriptor-presence restriction.
@@ -41,6 +40,13 @@ This was a documentation and source review, not a new classification or embeddin
 The former schema made the class equivalent to each of three separate existential restrictions.
 That did not express the intended open composition. The class now remains a subclass of
 `CompetencyEntity`, with no descriptor-presence or cardinality restriction.
+
+## Circular-shape clarification
+
+Resolved for [v0.24.1](../releases/v0.24.1.md): CircularShapes groups Circle, HalfCircle, and
+QuarterCircle through partOf. Circle retains its complete-circle meaning. Physical composition
+between geometric objects is not sufficient evidence for composition between their knowledge
+concepts; the structural and annotation examples now make this distinction explicit.
 
 ## Open ontology work
 

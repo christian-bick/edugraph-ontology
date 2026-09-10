@@ -1,6 +1,6 @@
 import {
   Area, Scope, Ability, relations,
-  structures, structuredBy, partOf, partOfTransitive, specializes, specializedBy,
+  structures, structuredBy, partOf, hasPart, partOfTransitive, specializes, specializedBy,
   structuresTransitive, specializesTransitive,
   expands, definition, implies, impliesTransitive, contradicts,
   deductCompatible, deductAdmitting, incompatible
@@ -74,6 +74,22 @@ assertOk(structuredBy(Ability.ErrorCorrection).includes(Ability.ErrorDetection),
 assertOk(structuredBy(Ability.ErrorCorrection).includes(Ability.ErrorEvaluation), "Error correction should contain error evaluation");
 assertOk(structuredBy(Ability.ErrorCorrection).includes(Ability.ErrorResolution), "Error correction should contain error resolution");
 console.log("✅ Structural and specialization relation checks passed.");
+
+// Conceptual grouping must not inherit the physical part relationships of the figures.
+console.log("Asserting circular-shape grouping...");
+assertOk(partOf(Area.CircularShapes).includes(Area.TwoDimensionalObjects));
+for (const shape of [Area.Circle, Area.HalfCircle, Area.QuarterCircle]) {
+  assertEqual(partOf(shape).length, 1);
+  assertOk(partOf(shape).includes(Area.CircularShapes));
+  assertOk(hasPart(Area.CircularShapes).includes(shape));
+  assertOk(structuredBy(Area.CircularShapes).includes(shape));
+  assertOk(partOfTransitive(shape).includes(Area.TwoDimensionalObjects));
+  assertEqual(hasPart(shape).length, 0);
+  assertEqual(specializesTransitive(shape).length, 0);
+}
+assertOk(!partOfTransitive(Area.HalfCircle).includes(Area.Circle));
+assertOk(!partOfTransitive(Area.QuarterCircle).includes(Area.Circle));
+console.log("✅ Circular-shape grouping checks passed.");
 
 // Test sixth-fraction specialization and its inherited context.
 console.log("Asserting sixth-fraction inheritance...");

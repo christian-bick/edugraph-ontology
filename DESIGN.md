@@ -198,8 +198,10 @@ specific relation states whether an edge represents membership or inheritance.
 aspect of a broader field or process, without being a narrower form of that whole.
 Its inverse, `hasPart`, leads from the whole to its constituents.
 
-For example, `HalfCircle partOf Circle` describes a geometric part: a half circle is not
-a kind of complete circle. Likewise, `ErrorDetection partOf ErrorCorrection` identifies one
+For example, `Circle partOf CircularShapes` places complete circles in a field alongside half
+circles and quarter circles. The fact that a semicircular piece is physically part of a circle
+does not establish the same relationship between their concepts.
+Likewise, `ErrorDetection partOf ErrorCorrection` identifies one
 stage of the correction process. Detecting an error alone does not establish that the complete
 process of evaluating and resolving it has been performed.
 

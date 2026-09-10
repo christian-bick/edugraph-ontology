@@ -11,13 +11,18 @@ make A a narrower form of B and does not transfer B's meaning to A.
 
 Examples from the ontology:
 
-- `HalfCircle partOf Circle`: one geometric part is not a complete circle.
+- `Circle partOf CircularShapes`: knowledge of complete circles is one constituent of the field,
+  alongside knowledge of half circles and quarter circles.
 - `ErrorDetection partOf ErrorCorrection`: detecting an error is one stage of detecting,
   evaluating, and resolving it.
 - `Tapemeter partOf LengthMeasurement`: the instrument belongs in that measurement context.
 
 This relation can continue all the way to a leaf. A terminal node does not have to specialize
 its parent.
+
+These edges organize concepts, not physical objects. A semicircular piece is physically part of
+a circular object, but that alone does not establish `HalfCircle partOf Circle` between Areas.
+`Circle`, `HalfCircle`, and `QuarterCircle` are distinct constituents of `CircularShapes`.
 
 ## ONT-S2 — specializes preserves the broader meaning
 

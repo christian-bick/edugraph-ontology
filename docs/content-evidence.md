@@ -70,7 +70,8 @@ there is no primary Ability and no ontology-wide minimum or fixed count in any d
 Applications may impose their own requirements for a complete record.
 
 A `Square` assertion supports a broader `Rectangle` claim through specialization.
-A `HalfCircle` assertion does not support a `Circle` claim through `partOf`.
+A `HalfCircle` assertion does not support a `Circle` claim: they are distinct constituents of
+`CircularShapes`, not specializations of one another.
 A related or prerequisite concept is not automatically an additional content annotation.
 
 Consumers should distinguish their explicit assertions or predictions from information obtained

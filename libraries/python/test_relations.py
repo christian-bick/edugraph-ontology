@@ -2,11 +2,24 @@ import unittest
 from edugraph import (
     Area, Scope, Ability, relations,
     structures, structured_by, specializes, specialized_by,
-    part_of, expands, part_of_transitive, structures_transitive, specializes_transitive, definition,
+    part_of, has_part, expands, part_of_transitive, structures_transitive, specializes_transitive, definition,
     implies, implies_transitive, contradicts, deduct_compatible, deduct_admitting, incompatible
 )
 
 class TestRelations(unittest.TestCase):
+    def test_circular_shape_grouping(self):
+        self.assertIn(Area.TwoDimensionalObjects, part_of(Area.CircularShapes))
+        for shape in [Area.Circle, Area.HalfCircle, Area.QuarterCircle]:
+            with self.subTest(shape=shape):
+                self.assertEqual(part_of(shape), [Area.CircularShapes])
+                self.assertIn(shape, has_part(Area.CircularShapes))
+                self.assertIn(shape, structured_by(Area.CircularShapes))
+                self.assertIn(Area.TwoDimensionalObjects, part_of_transitive(shape))
+                self.assertEqual(has_part(shape), [])
+                self.assertEqual(specializes_transitive(shape), [])
+        self.assertNotIn(Area.Circle, part_of_transitive(Area.HalfCircle))
+        self.assertNotIn(Area.Circle, part_of_transitive(Area.QuarterCircle))
+
     def test_basic_types(self):
         self.assertIsInstance(Area.AbsoluteNumberMagnitude, str)
 

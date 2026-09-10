@@ -106,9 +106,9 @@
     edu:expands :LineSegment, :PerpendicularityRelation;
     edu:partOf :CircleRelations.
 :Circle a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of circles, their properties, and related functions including Pi.";
+    rdfs:isDefinedBy "Knowledge of complete circles as closed curves whose points are equally distant from a center, including the circular regions they enclose.";
     edu:expands :CircularShapeDrawing;
-    edu:partOf :TwoDimensionalObjects.
+    edu:partOf :CircularShapes.
 :CircleRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of proportional and spatial relationships between various elements of a circle, such as its center, radius, diameter, circumference, arcs, chords, and tangent lines.";
     edu:expands :Circle;
@@ -116,6 +116,10 @@
 :CircularShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Circular shape drawing is the ability to create drawings or models of circular shapes.";
     edu:partOf :SpatialModelling.
+:CircularShapes a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The field of knowledge concerning complete circles and plane figures formed from portions of circles, including their boundaries, properties, and relationships.";
+    rdfs:comment "Circle, HalfCircle, and QuarterCircle are distinct concepts within this field. A physical piece of a circle does not make its concept a constituent or specialization of the complete-circle concept.";
+    edu:partOf :TwoDimensionalObjects.
 :CircumferenceCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the continuous line forming the boundary of a circle.";
     edu:expands :Circle, :Pi, :RadiusDiameterRelation;
@@ -368,7 +372,7 @@
 :HalfCircle a owl:NamedIndividual, edu:Area;
     rdfs:comment "A semicircular shape, such as one of two congruent pieces formed by cutting a circle along a diameter.";
     rdfs:isDefinedBy "A two-dimensional geometric figure bounded by a semicircular arc and its diameter, representing one half of a circle.";
-    edu:partOf :Circle.
+    edu:partOf :CircularShapes.
 :Hexagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with six edges and six vertices.";
     edu:specializes :Polygon.
@@ -742,7 +746,7 @@
 :QuarterCircle a owl:NamedIndividual, edu:Area;
     rdfs:comment "A quarter-circular shape, such as one of four congruent pieces formed by two perpendicular diameters.";
     rdfs:isDefinedBy "A two-dimensional geometric figure bounded by a quarter-circle arc and two perpendicular radii, representing one fourth of a circle.";
-    edu:partOf :Circle.
+    edu:partOf :CircularShapes.
 :QuotativeDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection and the required cardinality of each equal subcollection are given. Every source object is assigned to exactly one subcollection, and the quotient is the number of resulting subcollections.";
     edu:specializes :DivisionOfCollections.

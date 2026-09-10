@@ -35,7 +35,8 @@ confidence alone proves that a definition is sound.
 
 Keep direct annotations and predictions distinguishable from information derived through
 relations. For example, a `Square` annotation supports a broader `Rectangle` claim through
-`specializes`; a `HalfCircle` annotation does not establish `Circle` through `partOf`.
+`specializes`; a `HalfCircle` annotation does not establish `Circle`. Sharing the
+`CircularShapes` field does not make those concepts interchangeable.
 See [ONT-E5](content-evidence.md#ont-e5--keep-asserted-claims-and-derived-information-distinguishable).
 
 State what a classification evaluation measures. Recognizing a descriptor directly and deriving
