@@ -46,14 +46,22 @@ FROM node:20-alpine AS typescript-compiler
 WORKDIR /app/typescript
 
 COPY --from=python-code-gen /dist/typescript ./
+COPY --from=ontology-formats /opt/app/core-schema.ttl /ontology/core-schema.ttl
+COPY --from=ontology-formats /opt/app/core-abilities.ttl /ontology/core-abilities.ttl
+COPY --from=ontology-formats /opt/app/core-areas-math.ttl /ontology/core-areas-math.ttl
+COPY --from=ontology-formats /opt/app/core-scopes-math.ttl /ontology/core-scopes-math.ttl
 COPY ./libraries/typescript/package.json ./package.json
 COPY ./libraries/typescript/tsconfig.json ./tsconfig.json
 COPY ./libraries/typescript/test.ts ./test.ts
+COPY ./libraries/typescript/OntologyValidation.ts ./OntologyValidation.ts
+COPY ./libraries/typescript/validate-ontology.ts ./validate-ontology.ts
+COPY ./libraries/typescript/validation.test.ts ./validation.test.ts
 COPY ./libraries/typescript/README.md ./README.md
 
 RUN npm install
 RUN npm run build
 RUN npm test
+RUN npm run validate:ontology -- /ontology/core-schema.ttl /ontology/core-abilities.ttl /ontology/core-areas-math.ttl /ontology/core-scopes-math.ttl
 
 FROM ghcr.io/astral-sh/uv:python3.13-alpine AS python-builder
 

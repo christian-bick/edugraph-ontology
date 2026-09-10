@@ -57,3 +57,21 @@ console.log(inheritedCapabilities.includes(Area.Polygon));  // true
 const structuralContext = structuresTransitive(Scope.MeterScale);
 console.log(structuralContext.includes(Scope.DistanceAbstraction));  // true
 ```
+
+### 4. Ontology validation
+
+The TypeScript library exports the ontology validation rules used by the repository and editor.
+Rules operate on normalized authored statements; `parseOntologySources` converts Turtle source
+text while preserving its source kind and filename.
+
+```typescript
+import { parseOntologySources, validateOntology } from "edugraph-ts";
+
+const statements = parseOntologySources([
+  { name: "core-schema.ttl", kind: "schema", text: schemaTurtle },
+  { name: "core-areas-math.ttl", kind: "descriptors", text: areasTurtle },
+]);
+const findings = validateOntology(statements);
+```
+
+Each finding has a stable check ID, normative rule ID, code, message, and compact witness.

@@ -118,6 +118,8 @@ The release job uploads the following files as assets to the Github Release:
 ## 6. Client Libraries API & Relations Usage
 
 Both the TypeScript and Python client libraries expose the structural, specialization, and progression relationships defined in the ontology.
+Ontology validation is implemented only in the TypeScript library so the repository and ontology
+editor can use the same rules. Python remains a descriptor and relation client.
 
 ### 6.1 TypeScript API Usage
 

@@ -73,6 +73,7 @@ def generate_index_file(configs, output_dir):
         module_name = os.path.splitext(config["output_file"])[0]
         index_content += f'export * from "./{module_name}";\n'
     index_content += 'export * from "./Relations";\n'
+    index_content += 'export * from "./OntologyValidation";\n'
 
     # Write the content to the index file
     with open(index_filename, "w") as f:

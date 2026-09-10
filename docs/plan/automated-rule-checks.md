@@ -1,7 +1,7 @@
 # Automated rule checks — ontology
 
 Implementation inventory for the consolidated authoring rules. Status was checked against source
-at `aa7b9b4`. This document plans checks; it neither implements them nor introduces new inference
+at `079d1ef`. This document tracks checks; it does not introduce new inference
 semantics. The [reference library](../README.md) remains authoritative.
 
 Definition changes and progression design stay in [ontology consolidation](ontology-consolidation.md).
@@ -29,7 +29,7 @@ Item numbers are implementation work references, not new normative rule IDs.
 | Item | Algorithmic check | Current coverage and intended boundary |
 | --- | --- | --- |
 | O1. Source and descriptor integrity | Rely on the existing Turtle parsing, library generation, and compilation checks. Authoring expectations remain in ONT-D4 and ONT-D6. | **Existing implicit checks accepted; no additional implementation planned.** Do not add a separate descriptor-integrity validator or duplicate the build checks. Definition quality and correct dimension remain review. |
-| O2. Relation schema contract | Verify declared inverse pairs and subproperty relationships, including inverse subproperties, against ONT-S3 and ONT-R1. Check schema declarations separately from generated access. | **Regression only.** Cover the full declared property family, not just `specializes`. An inverse declaration on one side suffices; do not require both statements or make directed properties symmetric. Do not introduce OWL transitivity or progression propagation. |
+| O2. Relation schema contract | Verify declared inverse pairs and subproperty relationships, including inverse subproperties, against ONT-S3 and ONT-R1. Check schema declarations separately from generated access. | **Implemented in the TypeScript library and mandatory Docker gate.** The full declared property family is checked, not just `specializes`. An inverse declaration on one side suffices; both statements are not required and directed properties are not made symmetric. No OWL transitivity or progression propagation is introduced. |
 | O3a. Primary relations only | Reject secondary inverse properties used as predicates in authored descriptor assertions, even when no primary counterpart is authored. See ONT-S3 and ONT-R1. | **Missing permanent check; current descriptor sources comply.** Schema declarations and generated inverse access are excluded. Suggest the equivalent primary assertion with endpoints reversed; do not require both directions. |
 | O3b. One relation per family and directed pair | For each authored subject/object pair, allow at most one primary property in each structural, progression, and logical constraint family defined by ONT-R1. | **Missing permanent check; current descriptor sources comply after the v0.25.1 corrections.** Count only authored assertions, not generated parent facts. Reject parent/child combinations and distinct properties in the same family, such as `expands` plus `integrates`. Different families and different endpoint pairs remain independent. Do not enforce transitive reduction or choose a replacement relation automatically. |
 | O4. Structural cycles | The combined `partOf`/`specializes` graph has no cycle, including self-edges and cycles mixing the two relations. See ONT-S5. | **Missing.** Normalize inverse assertions to one direction before checking. Otherwise every legitimate forward/inverse pair would look cyclic. Report a concrete cycle, not every path through it. |
@@ -58,7 +58,9 @@ one edge, not fail as a cycle. An acyclic mixed-relation chain must pass.
 
 ## Implementation design
 
-Use one source loader and normalized graph index shared by small, independently testable rule
+Implement every ontology validation rule in the TypeScript library so the editor and repository
+can call the same functions. Python remains a generated client library and does not duplicate
+validation semantics. Use one source loader and normalized graph index shared by small, independently testable rule
 functions. Keep authored assertions separate from derived inverse and superproperty access. A rule
 result should identify its stable rule ID, severity, source entity/property, and a compact witness.
 Collect independent errors; mark dependent checks as blocked when their prerequisites are invalid.
@@ -96,7 +98,7 @@ multi-parent graphs, plus full-versus-incremental equivalence after edits and re
 - [ ] **Graph core:** shared loading/indexing and O4–O6, with positive and negative fixtures.
 - [ ] **Library eligibility:** O7 as a consumer-facing helper, tested with eligible and
   organizational descriptors without making the latter ontology release failures.
-- [ ] **Source/schema contracts:** O2, O3a, O3b, and O8; use existing definitions of the rules and keep
+- [ ] **Source/schema contracts:** O3a, O3b, and O8; use existing definitions of the rules and keep
   unrelated modeling questions out of the gate.
 - [ ] **Code-generation regressions:** retain O9 across both supplied clients and the Docker
   build; add focused cases for changed behavior, not an exhaustive record-comparison gate.
