@@ -1,7 +1,13 @@
+import { deepStrictEqual } from "node:assert";
+import { spawnSync } from "node:child_process";
+import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import {
   OntologyStatement,
   RELATION_SCHEMA_CONTRACT,
   parseOntologySources,
+  validateOntology,
   validateOneRelationPerFamily,
   validatePrimaryRelations,
   validateProgressionCycles,
@@ -234,4 +240,129 @@ assert(validateProgressionCycles([
   descriptor("B", "implies", "A"),
 ]).length === 0, "structural and constraint edges do not enter the progression graph");
 
-console.log("Ontology validation tests passed (O2, O3a, O3b, O4, O5, O6, O8).");
+// Exercise parsing and orchestration together, beyond the focused rule tests above.
+const schemaTurtle = validSchema().map(item =>
+  `<${item.subject}> <${item.predicate}> <${item.object}> .`).join("\n");
+const prefixes = `@prefix edu: <${EDU}> .\n`;
+const validDescriptors = [
+  "edu:Child edu:partOf edu:Whole .",
+  "edu:Child edu:specializes edu:BroaderChild .",
+  "edu:BroaderChild edu:partOf edu:Field .",
+  "edu:Child edu:expands edu:Foundation .",
+  "edu:Child edu:implies edu:Foundation .",
+];
+
+function validateTurtle(lines: readonly string[], schema = schemaTurtle) {
+  return validateOntology(parseOntologySources([
+    { name: "schema.ttl", kind: "schema", text: schema },
+    { name: "areas.ttl", kind: "descriptors", text: prefixes + lines.join("\n") },
+  ]));
+}
+
+deepStrictEqual(validateTurtle(validDescriptors), [],
+  "the public gate accepts separate parent roles, valid ordering, and independent relation families");
+
+const gateCases = [
+  {
+    lines: ["edu:Rectangle edu:specializedBy edu:Square ."],
+    checkId: "O3a", ruleId: "ONT-S3", code: "authored-inverse-relation",
+    witness: ["Rectangle", "specializedBy", "Square"],
+  },
+  {
+    lines: ["edu:A edu:translates edu:B .", "edu:A edu:integrates edu:B ."],
+    checkId: "O3b", ruleId: "ONT-R1", code: "multiple-relations-in-family",
+    witness: ["A", "B", "integrates", "translates"],
+  },
+  {
+    lines: ["edu:A edu:partOf edu:B .", "edu:B edu:specializes edu:A ."],
+    checkId: "O4", ruleId: "ONT-S5", code: "structural-cycle",
+    witness: ["A", "partOf", "B", "specializes", "A"],
+  },
+  {
+    lines: ["edu:A edu:partOf edu:B .", "edu:B edu:partOf edu:C .",
+      "edu:C edu:specializes edu:D ."],
+    checkId: "O5", ruleId: "ONT-S4", code: "composition-before-specialization",
+    witness: ["A", "partOf", "B", "partOf", "C", "specializes", "D"],
+  },
+  {
+    lines: ["edu:Constituent edu:partOf edu:Parent .", "edu:Narrower edu:specializes edu:Parent ."],
+    checkId: "O6", ruleId: "ONT-S5", code: "mixed-structural-child-roles",
+    witness: ["Constituent", "partOf", "Parent", "Narrower", "specializes", "Parent"],
+  },
+  {
+    lines: ["edu:A edu:expands edu:B .", "edu:B edu:integrates edu:A ."],
+    checkId: "O8", ruleId: "ONT-R3", code: "progression-cycle",
+    witness: ["A", "expands", "B", "integrates", "A"],
+  },
+];
+
+function diagnosticFields(findings: ReturnType<typeof validateOntology>) {
+  return findings.map(({ checkId, ruleId, code, source, witness }) =>
+    ({ checkId, ruleId, code, source, witness }));
+}
+
+for (const { lines, ...expected } of gateCases) {
+  const findings = validateTurtle(lines);
+  deepStrictEqual(diagnosticFields(findings), [{ ...expected, source: "areas.ttl" }],
+    `${expected.checkId} is wired into the public gate with a useful diagnostic`);
+  assert(findings[0].message.length > 0, `${expected.checkId} explains the finding`);
+  deepStrictEqual(diagnosticFields(validateTurtle([...lines].reverse())), diagnosticFields(findings),
+    `${expected.checkId} preserves diagnostic fields when these fixture statements are reordered`);
+}
+
+for (const [predicate, subject, code, witness] of [
+  [OWL_INVERSE_OF, "structuredBy", "missing-inverse-declaration", ["structures", "structuredBy"]],
+  [RDFS_SUBPROPERTY_OF, "partOf", "missing-subproperty-declaration", ["partOf", "structures"]],
+] as const) {
+  const incompleteSchema = validSchema().filter(item =>
+    !(item.predicate === predicate && item.subject === `${EDU}${subject}`))
+    .map(item => `<${item.subject}> <${item.predicate}> <${item.object}> .`).join("\n");
+  deepStrictEqual(diagnosticFields(validateTurtle([], incompleteSchema)), [{
+    checkId: "O2", ruleId: "ONT-S3", code, witness: [...witness], source: undefined,
+  }], "the public gate detects missing schema contracts");
+}
+
+const combined = validateTurtle([
+  ...gateCases[2].lines, // Structural cycle: O5 must defer while independent checks still run.
+  "edu:X edu:expandedBy edu:Y .",
+  "edu:P edu:expands edu:Q .", "edu:Q edu:integrates edu:P .",
+]);
+deepStrictEqual(combined.map(finding => finding.checkId).sort(), ["O3a", "O4", "O8"],
+  "the gate collects independent errors and defers ordering on cyclic structure");
+
+// Run the same compiled CLI used by the build, using isolated temporary input files.
+const cliDirectory = mkdtempSync(join(tmpdir(), "edugraph-validation-"));
+try {
+  const schemaPath = join(cliDirectory, "schema.ttl");
+  const descriptorPath = join(cliDirectory, "areas.ttl");
+  writeFileSync(schemaPath, schemaTurtle);
+  const runCli = (text: string) => {
+    writeFileSync(descriptorPath, text);
+    const result = spawnSync(process.execPath,
+      [join(__dirname, "validate-ontology.js"), schemaPath, descriptorPath],
+      { encoding: "utf8", timeout: 10000 });
+    assert(!result.error, `CLI could not run: ${result.error?.message}`);
+    assert(result.signal === null, "CLI completes without a signal");
+    return result;
+  };
+  const valid = runCli(prefixes + validDescriptors.join("\n"));
+  assert(valid.status === 0 && valid.stdout.includes("Ontology validation passed"),
+    "CLI succeeds for valid Turtle");
+  assert(valid.stderr === "", "valid input has no error diagnostics");
+
+  const invalid = runCli(prefixes + gateCases[5].lines.join("\n"));
+  assert(invalid.status === 1, "CLI exits with validation failure for a progression cycle");
+  assert(invalid.stderr.includes("O8 ONT-R3 progression-cycle areas.ttl") &&
+    invalid.stderr.includes("A -> expands -> B -> integrates -> A"),
+  "CLI prints the rule, code, source, and cycle witness");
+  assert(!invalid.stdout.includes("Ontology validation passed"), "invalid input cannot report success");
+
+  const malformed = runCli(prefixes + "edu:A edu:partOf .");
+  assert(malformed.status !== null && malformed.status !== 0, "CLI rejects malformed Turtle");
+  assert(/line\s+\d+/i.test(malformed.stderr), "parse failure identifies the input line");
+  assert(!malformed.stdout.includes("Ontology validation passed"), "parse failure cannot report success");
+} finally {
+  rmSync(cliDirectory, { recursive: true, force: true });
+}
+
+console.log("Ontology validation tests passed (O2, O3a, O3b, O4, O5, O6, O8, public gate, CLI).");

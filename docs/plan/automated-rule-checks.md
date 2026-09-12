@@ -22,6 +22,13 @@ O1 validator is planned. This is an accepted baseline, not a claim that the buil
 incomplete descriptor. Library-provided eligibility and code-generation regression tests retain
 their separate roles from ontology-validity findings.
 
+The [validation tests](../../libraries/typescript/validation.test.ts) exercise O2–O6 and O8
+through parsing and the public validator, including valid multi-parent structure, independent
+errors, ordering deferral on cyclic input, and diagnostic fields on reordered fixtures. CLI
+tests cover valid, invalid, and malformed Turtle inputs with exit codes and error output.
+Broader performance and work-counter coverage remains open; these tests do not complete the
+full batch acceptance item below.
+
 ## Check inventory
 
 **Partial** means existing tooling covers only part of the condition. **Regression** means selected
