@@ -82,18 +82,22 @@ order. Neither requires enumerating every path or constructing an all-pairs ance
 Keep code-generation and traversal regression fixtures focused and bounded rather than computing
 every node's full closure or comparing all generated records with a second translation engine.
 
-Development runs should compare records by stable IRI and recheck affected rule dependencies.
-Additions, removals, and reparenting affect both previous and current neighborhoods. Child-role
-and eligibility results depend on incoming edges, even when the new child was not previously
-used. Ordering and cycles can affect more than immediate neighbors; their invalidation must follow
-the required graph closure. A complete linear pass is the safe baseline where incremental reuse
-cannot yet be justified, not a claim of completed delta support.
+Use complete validation by default in development and release runs. Test representative workloads
+and adverse graph shapes, including work counters on wide, deep, multi-parent, and independently
+cyclic graphs. Introduce incremental result reuse only when measured latency warrants it;
+implementing reuse is not a completion requirement.
 
-Key reused results by source identity and validator policy. Do not silently adopt unversioned
-external changes; retain known inputs and report unassessed updates when a reliable delta is
-unavailable. An explicitly selected new input must be validated before it is certified. Release
-validation performs a complete authoritative pass. Test work counters on wide, deep, and
-multi-parent graphs, plus full-versus-incremental equivalence after edits and removals.
+If incremental reuse is introduced, compare records by stable IRI and recheck affected rule
+dependencies. Additions, removals, and reparenting affect both previous and current neighborhoods.
+Child-role and eligibility results depend on incoming edges, even when the new child was not
+previously used. Ordering and cycles can affect more than immediate neighbors; their invalidation
+must follow the required graph closure. Require equivalence with full validation after additions,
+removals, and reparenting, and key reused results by source identity and validator policy.
+
+Do not silently adopt unversioned external changes; retain known inputs and report unassessed
+updates. An explicitly selected new input must be validated before it is certified. If reuse is
+implemented but a reliable delta is unavailable, perform complete validation. Release validation
+always performs a complete authoritative pass.
 
 ## Implementation order and acceptance
 
@@ -106,8 +110,10 @@ multi-parent graphs, plus full-versus-incremental equivalence after edits and re
   build; add focused cases for changed behavior, not an exhaustive record-comparison gate.
 - [x] **Reference integration:** O10 is part of the Docker gate and the TypeScript library API;
   authoring workflows point to the Docker command that runs it.
-- [ ] **For every batch:** unit tests, stable diagnostics, linear-work tests, and affected-result
-  reuse tests. Exercise the public gate with invalid fixtures, not only helper functions.
+- [ ] **For every batch:** unit tests, stable diagnostics, and full-validation performance and
+  linear-work tests on representative workloads and adverse graph shapes. Exercise the public
+  gate with invalid fixtures, not only helper functions. Require affected-result reuse and
+  full-versus-incremental equivalence tests only if incremental reuse is introduced.
 - [ ] **Completion:** local and release commands use the same mandatory checks; each reference
   identifies what is enforced and what still needs human or content-based review.
 
