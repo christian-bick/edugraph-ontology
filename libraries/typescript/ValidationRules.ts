@@ -1,4 +1,4 @@
-import { OntologyStatement, OntologyValidationFinding, FindingReferences } from "./OntologyTypes";
+import { OntologyStatement, OntologyValidationFinding, FindingReferences, LiteralTerm } from "./OntologyTypes";
 export type { OntologyStatement, OntologyValidationFinding } from "./OntologyTypes";
 
 const EDU = "http://edugraph.io/edu#";
@@ -139,7 +139,20 @@ export function validateRelationSchema(
     compare(`${left.ruleId}:${left.code}:${left.witness.join(":")}`, `${right.ruleId}:${right.code}:${right.witness.join(":")}`));
 }
 
-/** O3a: descriptor sources assert primary relation directions, never their inverse properties. */
+/** Display RDF identity without treating literal values or blank-node labels as entity IRIs. */
+function diagnosticTerm(value: string, kind: NonNullable<OntologyStatement["objectKind"]>, literal?: LiteralTerm): string {
+  switch (kind) {
+    case "NamedNode": return compactIri(value);
+    case "BlankNode": return `blank node _:${value}`;
+    case "Literal": {
+      const qualifier = literal?.language ? `@${literal.language}`
+        : literal && literal.datatype !== "http://www.w3.org/2001/XMLSchema#string" ? `^^<${literal.datatype}>` : "";
+      return `literal ${JSON.stringify(value)}${qualifier}`;
+    }
+  }
+}
+
+/** O3a: reject authored inverse predicates; only named endpoints receive reversal guidance. */
 export function validatePrimaryRelations(
   statements: readonly OntologyStatement[],
 ): OntologyValidationFinding[] {
@@ -149,15 +162,29 @@ export function validatePrimaryRelations(
     .filter(statement => statement.sourceKind === "descriptors" && primaryByInverse.has(statement.predicate))
     .map(statement => {
       const contract = primaryByInverse.get(statement.predicate)!;
-      const subject = compactIri(statement.subject);
-      const object = compactIri(statement.object);
+      const subjectKind = statement.subjectKind ?? statement.rdf?.subject.termType ?? "NamedNode";
+      const objectKind = statement.objectKind ?? statement.rdf?.object.termType ?? "NamedNode";
+      const subject = diagnosticTerm(statement.subject, subjectKind);
+      const object = diagnosticTerm(statement.object, objectKind,
+        statement.rdf?.object.termType === "Literal" ? statement.rdf.object : undefined);
+      const entities = [
+        ...(subjectKind === "NamedNode" ? [statement.subject] : []),
+        ...(objectKind === "NamedNode" ? [statement.object] : []),
+      ];
+      const message = objectKind === "Literal"
+        ? `Review ${subject} ${contract.inverse} ${object}; do not author ${contract.inverse}. ` +
+          "A literal cannot be an RDF subject, so this assertion cannot be repaired by simply reversing endpoints."
+        : subjectKind === "NamedNode" && objectKind === "NamedNode"
+          ? `Use ${object} ${contract.primary} ${subject}; do not author ${contract.inverse}.`
+          : `Review ${subject} ${contract.inverse} ${object}; do not author ${contract.inverse}. ` +
+            `This assertion involves a blank node; determine the intended endpoints before choosing a ${contract.primary} assertion.`;
       return {
         checkId: "O3a",
         ruleId: contract.ruleId,
         code: "authored-inverse-relation",
-        message: `Use ${object} ${contract.primary} ${subject}; do not author ${contract.inverse}.`,
+        message,
         witness: [subject, contract.inverse, object],
-        references: refs([statement.subject, statement.object], [statement.predicate], [statement.source]),
+        references: refs(entities, [statement.predicate], [statement.source]),
         source: statement.source,
       };
     })

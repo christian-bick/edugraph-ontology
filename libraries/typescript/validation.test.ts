@@ -3,6 +3,7 @@ import { spawnSync } from "node:child_process";
 import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { assessOntologySources } from "./rdf";
 import {
   OntologyStatement,
   RELATION_SCHEMA_CONTRACT,
@@ -329,6 +330,59 @@ const combined = validateTurtle([
 ]);
 deepStrictEqual(combined.map(finding => finding.checkId).sort(), ["O3a", "O4", "O8"],
   "the gate collects independent errors and defers ordering on cyclic structure");
+
+// O3a diagnoses any authored inverse assertion without inventing named-entity identity.
+const inverseTermCases = [
+  { text: "edu:A edu:hasPart edu:B .", entities: [`${EDU}A`, `${EDU}B`], kind: "NamedNode" },
+  { text: 'edu:A edu:hasPart "some text" .', entities: [`${EDU}A`], kind: "Literal", display: 'literal "some text"' },
+  { text: 'edu:A edu:hasPart "https://example.org/B" .', entities: [`${EDU}A`], kind: "Literal", display: 'literal "https://example.org/B"' },
+  { text: 'edu:A edu:hasPart "Text"@de .', entities: [`${EDU}A`], kind: "Literal", display: 'literal "Text"@de' },
+  { text: 'edu:A edu:hasPart "12"^^<http://www.w3.org/2001/XMLSchema#integer> .', entities: [`${EDU}A`], kind: "Literal", display: 'literal "12"^^<http://www.w3.org/2001/XMLSchema#integer>' },
+  { text: "edu:A edu:hasPart _:b .", entities: [`${EDU}A`], kind: "BlankNode" },
+  { text: "_:a edu:hasPart edu:B .", entities: [`${EDU}B`], kind: "BlankNode" },
+  { text: "_:a edu:hasPart _:b .", entities: [], kind: "BlankNode" },
+] as const;
+for (const fixture of inverseTermCases) {
+  const sources = [
+    { name: "schema.ttl", kind: "schema" as const, text: schemaTurtle },
+    { name: "terms.ttl", kind: "descriptors" as const, text: prefixes + fixture.text },
+  ];
+  const statements = parseOntologySources(sources);
+  const direct = validatePrimaryRelations(statements);
+  const assessment = assessOntologySources(sources);
+  assert(assessment.status === "invalid", "an inverse assertion remains invalid for every RDF term kind");
+  assert(assessment.checks.find(check => check.checkId === "O3a")?.status === "failed", "the public assessment runs O3a");
+  const publicFindings = assessment.findings.filter(finding => finding.checkId === "O3a");
+  assert(direct.length === 1 && publicFindings.length === 1, "both APIs preserve the O3a finding");
+  deepStrictEqual(publicFindings, direct, "the public path preserves the individual validator's diagnostic");
+  const finding = direct[0];
+  deepStrictEqual([finding.checkId, finding.ruleId, finding.code], ["O3a", "ONT-S3", "authored-inverse-relation"]);
+  deepStrictEqual(finding.references, {
+    entities: [...fixture.entities], properties: [`${EDU}hasPart`], sources: [{ name: "terms.ttl", kind: "descriptors" }],
+  }, "navigation references contain only named nodes plus the property and source");
+  assert(finding.source === "terms.ttl", "legacy source information remains available");
+  if (fixture.kind === "NamedNode") {
+    assert(finding.message.includes("Use B partOf A"), "named endpoints retain valid reversal guidance");
+    deepStrictEqual(finding.witness, ["A", "hasPart", "B"]);
+  } else {
+    assert(!finding.message.startsWith("Use "), "non-named endpoints receive review guidance");
+    if (fixture.kind === "Literal") {
+      assert(finding.message.includes("cannot be repaired by simply reversing endpoints"), "literal reversal is explicitly ruled out");
+      assert(finding.message.includes(fixture.display) && finding.witness.includes(fixture.display), "literal identity survives in text and witness");
+    } else {
+      assert(finding.message.includes("blank node") && finding.witness.some(term => term.startsWith("blank node _:")), "blank-node identity is explicit");
+    }
+  }
+  // Flattened callers may supply term kinds without retaining the original RDF objects.
+  deepStrictEqual(validatePrimaryRelations(statements.map(({ rdf, ...flat }) => flat))[0].references,
+    finding.references, "flat term kinds are sufficient for safe navigation");
+}
+const iriValue = `${EDU}B`;
+for (const objectKind of ["NamedNode", "Literal", "BlankNode"] as const) {
+  const finding = validatePrimaryRelations([{ ...descriptor("A", "hasPart", "B"), objectKind }])[0];
+  assert(finding.references?.entities.includes(iriValue) === (objectKind === "NamedNode"),
+    "the same IRI-looking value changes identity only with its RDF term kind");
+}
 
 // Run the same compiled CLI used by the build, using isolated temporary input files.
 const cliDirectory = mkdtempSync(join(tmpdir(), "edugraph-validation-"));
