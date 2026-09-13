@@ -53,7 +53,8 @@ COPY --from=ontology-formats /opt/app/core-scopes-math.ttl /ontology/core-scopes
 COPY ./libraries/typescript/package.json ./package.json
 COPY ./libraries/typescript/tsconfig.json ./tsconfig.json
 COPY ./libraries/typescript/test.ts ./test.ts
-COPY ./libraries/typescript/OntologyValidation.ts ./OntologyValidation.ts
+COPY ./libraries/typescript/*.ts ./
+COPY ./libraries/typescript/tsconfig.core.json ./tsconfig.core.json
 COPY ./libraries/typescript/DocumentationValidation.ts ./DocumentationValidation.ts
 COPY ./libraries/typescript/validate-ontology.ts ./validate-ontology.ts
 COPY ./libraries/typescript/validate-documentation.ts ./validate-documentation.ts

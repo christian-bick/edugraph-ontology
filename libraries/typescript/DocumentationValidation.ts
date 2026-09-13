@@ -2,7 +2,7 @@ import {
   OntologyStatement,
   OntologyValidationFinding,
   RELATION_SCHEMA_CONTRACT,
-} from "./OntologyValidation";
+} from "./core";
 
 export interface DocumentationSource {
   /** Repository-relative path using forward slashes. */
