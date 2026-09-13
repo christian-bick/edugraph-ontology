@@ -1,3 +1,4 @@
+import { assessOntology, OntologyAssessment } from "./Assessment";
 import { Parser, Quad } from "n3";
 import { GraphTerm, OntologySource, RdfStatement, ResourceTerm, LiteralTerm } from "./OntologyTypes";
 export type { OntologySource, RdfStatement } from "./OntologyTypes";
@@ -58,3 +59,17 @@ export function parseOntologySources(sources: readonly OntologySource[]): readon
   }
   return Object.freeze(result);
 }
+
+/** Parsing plus the complete gate; malformed input is distinct from graph validity. */
+export function assessOntologySources(sources: readonly OntologySource[]): SourceAssessment {
+  try { return assessOntology(parseOntologySources(sources)); }
+  catch (error) {
+    if (!(error instanceof OntologyParseError)) throw error;
+    return Object.freeze({ status: "input-error", error, findings: Object.freeze([] as const), checks: Object.freeze([] as const) });
+  }
+}
+/** Input failure has no completed checks; successful parsing returns an explicit assessment. */
+export type SourceAssessment = OntologyAssessment | Readonly<{
+  status: "input-error"; error: OntologyParseError; findings: readonly []; checks: readonly [];
+}>;
+

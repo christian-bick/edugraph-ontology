@@ -55,6 +55,12 @@ export function projectRdfStatements(statements: readonly RdfStatement[]): Ontol
 }
 
 /** Stable diagnostic fields; compact witnesses are display text. */
+/** Navigation identity independent of compact display names. */
+export interface FindingReferences {
+  readonly entities: readonly string[];
+  readonly properties: readonly string[];
+  readonly sources: readonly { readonly name: string; readonly kind: OntologySourceKind }[];
+}
 export interface OntologyValidationFinding {
   checkId: string;
   ruleId: string;
@@ -62,5 +68,6 @@ export interface OntologyValidationFinding {
   message: string;
   witness: readonly string[];
   source?: string;
+  references?: FindingReferences;
 }
 

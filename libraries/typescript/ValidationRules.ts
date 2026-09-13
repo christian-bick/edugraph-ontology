@@ -1,4 +1,4 @@
-import { OntologyStatement, OntologyValidationFinding } from "./OntologyTypes";
+import { OntologyStatement, OntologyValidationFinding, FindingReferences } from "./OntologyTypes";
 export type { OntologyStatement, OntologyValidationFinding } from "./OntologyTypes";
 
 const EDU = "http://edugraph.io/edu#";
@@ -60,8 +60,22 @@ interface DirectedRelationEdge {
   to: string;
   relation: string;
   source: string;
+  sources: readonly string[];
 }
 
+const compare = (a: string, b: string): number => a < b ? -1 : a > b ? 1 : 0;
+function refs(entities: readonly string[], properties: readonly string[], sources: readonly string[], kind: "schema" | "descriptors" = "descriptors"): FindingReferences {
+  return {
+    entities: [...new Set(entities)].sort(compare), properties: [...new Set(properties)].sort(compare),
+    sources: [...new Set(sources)].sort(compare).map(name => ({ name, kind })),
+  };
+}
+function named(s: OntologyStatement): boolean {
+  return (s.subjectKind ?? "NamedNode") === "NamedNode" && (s.objectKind ?? "NamedNode") === "NamedNode";
+}
+function edgeRefs(edges: readonly DirectedRelationEdge[]): FindingReferences {
+  return refs(edges.flatMap(e => [e.from, e.to]), edges.map(e => relation(e.relation)), edges.flatMap(e => e.sources));
+}
 function statementKey(subject: string, predicate: string, object: string): string {
   return `${subject}\u0000${predicate}\u0000${object}`;
 }
@@ -76,7 +90,7 @@ export function validateRelationSchema(
   statements: readonly OntologyStatement[],
 ): OntologyValidationFinding[] {
   const keys = new Set(statements
-    .filter(statement => statement.sourceKind === "schema")
+    .filter(statement => statement.sourceKind === "schema" && named(statement))
     .map(statement => statementKey(statement.subject, statement.predicate, statement.object)));
   const findings: OntologyValidationFinding[] = [];
 
@@ -92,6 +106,7 @@ export function validateRelationSchema(
         code: "missing-inverse-declaration",
         message: `${contract.primary} and ${contract.inverse} must be declared as inverse properties.`,
         witness: [contract.primary, contract.inverse],
+        references: refs([], [primary, inverse], statements.filter(s => s.sourceKind === "schema").map(s => s.source), "schema"),
       });
     }
   }
@@ -106,13 +121,13 @@ export function validateRelationSchema(
         code: "missing-subproperty-declaration",
         message: `${contract.property} must be declared as a subproperty of ${contract.parent}.`,
         witness: [contract.property, contract.parent],
+        references: refs([], [property, parent], statements.filter(s => s.sourceKind === "schema").map(s => s.source), "schema"),
       });
     }
   }
 
   return findings.sort((left, right) =>
-    `${left.ruleId}:${left.code}:${left.witness.join(":")}`
-      .localeCompare(`${right.ruleId}:${right.code}:${right.witness.join(":")}`));
+    compare(`${left.ruleId}:${left.code}:${left.witness.join(":")}`, `${right.ruleId}:${right.code}:${right.witness.join(":")}`));
 }
 
 /** O3a: descriptor sources assert primary relation directions, never their inverse properties. */
@@ -133,11 +148,12 @@ export function validatePrimaryRelations(
         code: "authored-inverse-relation",
         message: `Use ${object} ${contract.primary} ${subject}; do not author ${contract.inverse}.`,
         witness: [subject, contract.inverse, object],
+        references: refs([statement.subject, statement.object], [statement.predicate], [statement.source]),
         source: statement.source,
       };
     })
     .sort((left, right) =>
-      `${left.source}:${left.witness.join(":")}`.localeCompare(`${right.source}:${right.witness.join(":")}`));
+      compare(`${left.source}:${left.witness.join(":")}`, `${right.source}:${right.witness.join(":")}`));
 }
 
 /** O3b: a directed descriptor pair has at most one authored relation in each relation family. */
@@ -160,14 +176,14 @@ export function validateOneRelationPerFamily(
   }
   const pairs = new Map<string, PairRelations>();
   for (const statement of statements) {
-    if (statement.sourceKind !== "descriptors") continue;
+    if (statement.sourceKind !== "descriptors" || !named(statement)) continue;
     const family = familyByPredicate.get(statement.predicate);
     if (!family) continue;
     const key = `${family}\u0000${statement.subject}\u0000${statement.object}`;
     const pair = pairs.get(key) ?? {
       family,
-      subject: compactIri(statement.subject),
-      object: compactIri(statement.object),
+      subject: statement.subject,
+      object: statement.object,
       properties: new Set<string>(),
       sources: new Set<string>(),
     };
@@ -185,11 +201,12 @@ export function validateOneRelationPerFamily(
         ruleId: pair.family === "structural" ? "ONT-S3" : "ONT-R1",
         code: "multiple-relations-in-family",
         message: `${pair.subject} to ${pair.object} uses multiple ${pair.family} relations: ${properties.join(", ")}. Choose one.`,
-        witness: [pair.subject, pair.object, ...properties],
+        witness: [compactIri(pair.subject), compactIri(pair.object), ...properties],
+        references: refs([pair.subject, pair.object], properties.map(relation), [...pair.sources]),
         source: [...pair.sources].sort().join(", "),
       };
     })
-    .sort((left, right) => left.witness.join(":").localeCompare(right.witness.join(":")));
+    .sort((left, right) => compare(left.witness.join(":"), right.witness.join(":")));
 }
 
 function normalizedRelationEdges(
@@ -202,7 +219,7 @@ function normalizedRelationEdges(
     .map(([inverseName, primaryName]) => [relation(inverseName), primaryName]));
   const edges = new Map<string, DirectedRelationEdge>();
   for (const statement of statements) {
-    if (statement.sourceKind !== "descriptors") continue;
+    if (statement.sourceKind !== "descriptors" || !named(statement)) continue;
     let edge: DirectedRelationEdge | undefined;
     if (primary.has(statement.predicate)) {
       edge = {
@@ -210,6 +227,7 @@ function normalizedRelationEdges(
         to: statement.object,
         relation: compactIri(statement.predicate),
         source: statement.source,
+        sources: [statement.source],
       };
     } else {
       const primaryName = inverse.get(statement.predicate);
@@ -219,15 +237,23 @@ function normalizedRelationEdges(
           to: statement.subject,
           relation: primaryName,
           source: statement.source,
+          sources: [statement.source],
         };
       }
     }
-    if (edge) edges.set(`${edge.from}\u0000${edge.to}\u0000${edge.relation}`, edge);
+    if (edge) {
+      const key = `${edge.from}\u0000${edge.to}\u0000${edge.relation}`;
+      const previous = edges.get(key);
+      const sources = [...new Set([...(previous?.sources ?? []), ...edge.sources])].sort(compare);
+      edges.set(key, { ...edge, source: sources[0], sources });
+    }
   }
-  return [...edges.values()];
+  return [...edges.values()].sort((a, b) => compare(`${a.from}\u0000${a.to}\u0000${a.relation}`, `${b.from}\u0000${b.to}\u0000${b.relation}`));
 }
 
 function cyclicComponents(edges: readonly DirectedRelationEdge[]): string[][] {
+  const cached = cycleCache.get(edges);
+  if (cached) return cached;
   const nodes = new Set<string>();
   const outgoingSets = new Map<string, Set<string>>();
   const incomingSets = new Map<string, Set<string>>();
@@ -290,12 +316,15 @@ function cyclicComponents(edges: readonly DirectedRelationEdge[]): string[][] {
       components.push(component);
     }
   }
-  return components.sort((left, right) => left[0].localeCompare(right[0]));
+  components.sort((left, right) => compare(left[0], right[0]));
+  cycleCache.set(edges, components);
+  return components;
 }
 
 function cycleWitness(component: readonly string[], edges: readonly DirectedRelationEdge[]): {
   witness: string[];
   sources: string[];
+  references: FindingReferences;
 } {
   const members = new Set(component);
   const relevant = edges.filter(edge => members.has(edge.from) && members.has(edge.to));
@@ -307,7 +336,7 @@ function cycleWitness(component: readonly string[], edges: readonly DirectedRela
   }
   for (const list of outgoing.values()) {
     list.sort((left, right) =>
-      `${left.to}:${left.relation}`.localeCompare(`${right.to}:${right.relation}`));
+      compare(`${left.to}:${left.relation}`, `${right.to}:${right.relation}`));
   }
 
   const visited = new Set<string>();
@@ -341,7 +370,8 @@ function cycleWitness(component: readonly string[], edges: readonly DirectedRela
         witness.push(compactIri(edge.to));
         return {
           witness,
-          sources: [...new Set(cycleEdges.map(cycleEdge => cycleEdge.source))].sort(),
+          sources: [...new Set(cycleEdges.flatMap(cycleEdge => cycleEdge.sources))].sort(),
+          references: edgeRefs(cycleEdges),
         };
       }
       if (!visited.has(edge.to)) {
@@ -356,12 +386,18 @@ function cycleWitness(component: readonly string[], edges: readonly DirectedRela
   throw new Error("Cyclic component did not yield a cycle witness.");
 }
 
+const structuralCache = new WeakMap<readonly OntologyStatement[], DirectedRelationEdge[]>();
+const cycleCache = new WeakMap<readonly DirectedRelationEdge[], string[][]>();
 function structuralEdges(statements: readonly OntologyStatement[]): DirectedRelationEdge[] {
-  return normalizedRelationEdges(
+  const cached = structuralCache.get(statements);
+  if (cached) return cached;
+  const edges = normalizedRelationEdges(
     statements,
     ["partOf", "specializes"],
     { hasPart: "partOf", specializedBy: "specializes" },
   );
+  if (Object.isFrozen(statements) && statements.every(Object.isFrozen)) structuralCache.set(statements, edges);
+  return edges;
 }
 
 function progressionEdges(statements: readonly OntologyStatement[]): DirectedRelationEdge[] {
@@ -390,6 +426,7 @@ export function validateStructuralCycles(
       code: "structural-cycle",
       message: `Structural cycle: ${cycle.witness.join(" -> ")}.`,
       witness: cycle.witness,
+      references: cycle.references,
       source: cycle.sources.join(", "),
     };
   });
@@ -404,7 +441,7 @@ function structuralPathWitness(
   end: string,
   states: ReadonlyMap<string, StructuralPathState>,
   finalEdge: DirectedRelationEdge,
-): { witness: string[]; sources: string[] } {
+): { witness: string[]; sources: string[]; references: FindingReferences } {
   const reversed: DirectedRelationEdge[] = [];
   let current: string | undefined = end;
   while (current !== undefined) {
@@ -419,7 +456,8 @@ function structuralPathWitness(
   witness.push(compactIri(finalEdge.to));
   return {
     witness,
-    sources: [...new Set(path.map(edge => edge.source))].sort(),
+    sources: [...new Set(path.flatMap(edge => edge.sources))].sort(),
+    references: edgeRefs(path),
   };
 }
 
@@ -463,6 +501,7 @@ export function validateStructuralOrdering(
           code: "composition-before-specialization",
           message: `In authored child-to-parent direction, partOf must not lead into specializes: ${path.witness.join(" -> ")}.`,
           witness: path.witness,
+          references: path.references,
           source: path.sources.join(", "),
         });
       }
@@ -495,10 +534,10 @@ export function validateStructuralChildRoles(
     if (roles.partOf.length === 0 || roles.specializes.length === 0) continue;
     const constituent = roles.partOf
       .slice()
-      .sort((left, right) => left.from.localeCompare(right.from))[0];
+      .sort((left, right) => compare(left.from, right.from))[0];
     const specialization = roles.specializes
       .slice()
-      .sort((left, right) => left.from.localeCompare(right.from))[0];
+      .sort((left, right) => compare(left.from, right.from))[0];
     const witness = [
       compactIri(constituent.from),
       "partOf",
@@ -513,10 +552,11 @@ export function validateStructuralChildRoles(
       code: "mixed-structural-child-roles",
       message: `${compactIri(parent)} has both constituent child ${compactIri(constituent.from)} and specializing child ${compactIri(specialization.from)}.`,
       witness,
-      source: [...new Set([constituent.source, specialization.source])].sort().join(", "),
+      source: [...new Set([...constituent.sources, ...specialization.sources])].sort().join(", "),
+      references: edgeRefs([constituent, specialization]),
     });
   }
-  return findings.sort((left, right) => left.witness.join(":").localeCompare(right.witness.join(":")));
+  return findings.sort((left, right) => compare(left.witness.join(":"), right.witness.join(":")));
 }
 
 /** O8: the combined progression relation graph is acyclic. */
@@ -532,11 +572,13 @@ export function validateProgressionCycles(
       code: "progression-cycle",
       message: `Progression cycle: ${cycle.witness.join(" -> ")}.`,
       witness: cycle.witness,
+      references: cycle.references,
       source: cycle.sources.join(", "),
     };
   });
 }
 
+/** Legacy findings-only view. Use assessOntology for explicit skipped/error outcomes. */
 export function validateOntology(statements: readonly OntologyStatement[]): OntologyValidationFinding[] {
   return [
     ...validateRelationSchema(statements),

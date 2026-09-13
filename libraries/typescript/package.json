@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "node dist/test.js && node dist/validation.test.js && node dist/documentation-validation.test.js && node dist/rdf.test.js && node dist/core.test.js",
+    "test": "node dist/test.js && node dist/validation.test.js && node dist/documentation-validation.test.js && node dist/rdf.test.js && node dist/core.test.js && node dist/assessment.test.js",
     "validate:ontology": "node dist/validate-ontology.js",
     "validate:docs": "node dist/validate-documentation.js",
     "build:core": "tsc -p tsconfig.core.json"
