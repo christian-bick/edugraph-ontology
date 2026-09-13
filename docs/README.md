@@ -14,6 +14,7 @@ Start here when changing a descriptor, relation, or competency description.
 | Find pending consolidation decisions | [Consolidation record](plan/ontology-consolidation.md) |
 | Implement or review automated rule coverage | [Algorithmic check inventory](plan/automated-rule-checks.md) |
 | Plan shared library capabilities for the editor, dataset labelling, and content classification | [Shared library capabilities and requirements](plan/shared-typescript-library.md) |
+| Implement the shared library requirements | [Coverage and implementation sequence](plan/shared-typescript-library-implementation.md) |
 
 ## How to use these references
 
