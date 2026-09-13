@@ -1,0 +1,141 @@
+{
+  "schema": {
+    "inverses": [
+      {
+        "primary": "structures",
+        "inverse": "structuredBy",
+        "ruleId": "ONT-S3"
+      },
+      {
+        "primary": "partOf",
+        "inverse": "hasPart",
+        "ruleId": "ONT-S3"
+      },
+      {
+        "primary": "specializes",
+        "inverse": "specializedBy",
+        "ruleId": "ONT-S3"
+      },
+      {
+        "primary": "constrains",
+        "inverse": "constrainedBy",
+        "ruleId": "ONT-R1"
+      },
+      {
+        "primary": "implies",
+        "inverse": "impliedBy",
+        "ruleId": "ONT-R1"
+      },
+      {
+        "primary": "contradicts",
+        "inverse": "contradictedBy",
+        "ruleId": "ONT-R1"
+      },
+      {
+        "primary": "expands",
+        "inverse": "expandedBy",
+        "ruleId": "ONT-R1"
+      },
+      {
+        "primary": "inverts",
+        "inverse": "invertedBy",
+        "ruleId": "ONT-R1"
+      },
+      {
+        "primary": "integrates",
+        "inverse": "integratedBy",
+        "ruleId": "ONT-R1"
+      },
+      {
+        "primary": "translates",
+        "inverse": "translatedBy",
+        "ruleId": "ONT-R1"
+      },
+      {
+        "primary": "involves",
+        "inverse": "involvedBy",
+        "ruleId": "ONT-R1"
+      }
+    ],
+    "subproperties": [
+      {
+        "property": "partOf",
+        "parent": "structures",
+        "ruleId": "ONT-S3"
+      },
+      {
+        "property": "specializes",
+        "parent": "structures",
+        "ruleId": "ONT-S3"
+      },
+      {
+        "property": "hasPart",
+        "parent": "structuredBy",
+        "ruleId": "ONT-S3"
+      },
+      {
+        "property": "specializedBy",
+        "parent": "structuredBy",
+        "ruleId": "ONT-S3"
+      },
+      {
+        "property": "implies",
+        "parent": "constrains",
+        "ruleId": "ONT-R1"
+      },
+      {
+        "property": "contradicts",
+        "parent": "constrains",
+        "ruleId": "ONT-R1"
+      },
+      {
+        "property": "impliedBy",
+        "parent": "constrainedBy",
+        "ruleId": "ONT-R1"
+      },
+      {
+        "property": "contradictedBy",
+        "parent": "constrainedBy",
+        "ruleId": "ONT-R1"
+      },
+      {
+        "property": "inverts",
+        "parent": "expands",
+        "ruleId": "ONT-R1"
+      },
+      {
+        "property": "invertedBy",
+        "parent": "expandedBy",
+        "ruleId": "ONT-R1"
+      },
+      {
+        "property": "translates",
+        "parent": "integrates",
+        "ruleId": "ONT-R1"
+      },
+      {
+        "property": "translatedBy",
+        "parent": "integratedBy",
+        "ruleId": "ONT-R1"
+      }
+    ]
+  },
+  "families": {
+    "structural": [
+      "structures",
+      "partOf",
+      "specializes"
+    ],
+    "progression": [
+      "expands",
+      "inverts",
+      "integrates",
+      "translates"
+    ],
+    "constraints": [
+      "constrains",
+      "implies",
+      "contradicts"
+    ]
+  }
+}

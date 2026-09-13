@@ -8,7 +8,7 @@ on:
       - 'v*.*.*'
 
 jobs:
-  release:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -27,6 +27,68 @@ jobs:
 
       - name: Generate all ontology files
         run: docker build --build-arg PACKAGE_VERSION=${{ env.PACKAGE_VERSION }} . --output dist
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-assets
+          path: dist
+
+  python:
+    needs: build
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-latest, python: '3.11' }
+          - { os: ubuntu-latest, python: '3.12' }
+          - { os: ubuntu-latest, python: '3.13' }
+          - { os: ubuntu-latest, python: '3.14' }
+          - { os: windows-latest, python: '3.14' }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-assets
+          path: dist
+      - name: Install test environment
+        shell: bash
+        run: |
+          uv venv --no-project --python ${{ matrix.python }}
+          uv pip install -r libraries/python/requirements-dev.lock
+          uv pip install dist/python/dist/*.whl
+      - name: Verify installed Python API and distributions
+        shell: bash
+        run: |
+          uv run --no-project --no-sync python -m pytest libraries/python/tests libraries/python/test_relations.py -q
+          uv run --no-project --no-sync python -m mypy --strict libraries/python/tests/typed_consumer.py
+          uv run --no-project --no-sync python libraries/python/verify_package.py dist/python/dist
+
+  release:
+    needs: [build, python]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Set Short SHA
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short=12 HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Set Release Version
+        if: startsWith(github.ref, 'refs/tags/')
+        run: echo "PACKAGE_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+
+      - name: Set Pre-release Version
+        if: startsWith(github.ref, 'refs/heads/')
+        run: echo "PACKAGE_VERSION=0.0.0-pre.${{ steps.vars.outputs.sha_short }}" >> $GITHUB_ENV
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-assets
+          path: dist
 
       - name: Update package.json version
         run: |

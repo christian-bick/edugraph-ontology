@@ -26,7 +26,7 @@ This repository contains the source definitions of the EduGraph core ontology, a
 - **[docs/](docs/README.md)**: Ontology authoring rules, review workflow, annotation and model guidance, and consolidation tracking.
 - **[.github/workflows/release.yml](.github/workflows/release.yml)**: GitHub Action workflow executing automated compilation, versioning, and publishing of releases.
 - **[src/ontology/generate-ts.py](src/ontology/generate-ts.py)**: Python script utilizing `owlready2` to parse the compiled XML/RDF file and generate TypeScript enums.
-- **[src/ontology/generate-py.py](src/ontology/generate-py.py)**: Python script utilizing `owlready2` to parse the compiled XML/RDF file and generate Python enums.
+- **[src/ontology/generate-py.py](src/ontology/generate-py.py)**: Python assembler generating typed enums from the shared authored JSON snapshot and copying maintained runtime modules.
 - **[libraries/typescript/](libraries/typescript/)**: Mapped package configuration for compiling the generated TypeScript into common distribution formats.
 - **[libraries/python/](libraries/python/)**: Mapped package configuration for packaging the generated Python enums into wheel and source distribution formats.
 - **[core-schema.ttl](core-schema.ttl)**: Core RDF schema defining OWL classes, structural properties, and progression properties.
@@ -48,7 +48,8 @@ graph TD
     TTL[Turtle Source Files] -->|riot compiler| RDF[core-ontology-math.rdf]
     RDF -->|generate-ts.py| TS[TS Enums]
     TS -->|tsc compiler| JS[Compiled TS/JS Packages]
-    RDF -->|generate-py.py| PY[Python Enums]
+    TTL -->|generate-snapshot.ts| JSON[Shared authored snapshot]
+    JSON -->|generate-py.py| PY[Python modules and enums]
     PY -->|uv build| WHL[Compiled Python Packages]
 ```
 
@@ -60,12 +61,12 @@ graph TD
      ```
 2. **Stage 2 (`python-code-gen`)**:
    - Sets up Python 3.13 via `astral-sh/uv`.
-   - Runs [generate-ts.py](src/ontology/generate-ts.py) and [generate-py.py](src/ontology/generate-py.py), which read the compiled RDF, extract individuals for `Area`, `Scope`, and `Ability`, and write generated client data into `dist/typescript` and `dist/python/src/edugraph` respectively. TypeScript relation helpers are maintained adapters over the shared core; a separate bootstrap step generates its bundled snapshot from authored Turtle.
+   - Runs [generate-ts.py](src/ontology/generate-ts.py) to extract TypeScript enums from the compiled RDF. TypeScript relation helpers are maintained adapters over the shared core; a separate bootstrap step generates its bundled snapshot from authored Turtle.
 3. **Stage 3 (`typescript-compiler`)**:
    - Installs node dependencies, compiles the generated TypeScript with `tsc`, runs the client
      relation tests, validates the ontology source rules, and checks documentation references.
 4. **Stage 4 (`python-builder`)**:
-   - Updates the version using the `PACKAGE_VERSION` build argument, runs the Python client relation tests, and uses `uv build` to produce a `.whl` and `.tar.gz` archive.
+   - Assembles maintained Python modules and enums from the shared authored JSON snapshot, maps `PACKAGE_VERSION` to PEP 440, runs strict typing/lint, conformance and client tests, and builds/verifies wheel and sdist consumers. The optional parser is included in test environments; core runtime dependencies remain empty.
 5. **Stage 5 (`export`)**:
    - Outputs the compiled assets (TypeScript and Python distribution files) back to the host filesystem.
 
@@ -89,7 +90,7 @@ uv sync
 uv run src/ontology/generate-ts.py
 
 # Run the Python generator script (requires core-ontology-math.rdf to be present)
-uv run src/ontology/generate-py.py
+uv run src/ontology/generate-py.py # requires dist/typescript/snapshot.json from the build
 ```
 
 ### 4.3 Compiling via Docker
@@ -125,7 +126,7 @@ The release job uploads the following files as assets to the Github Release:
 
 Both the TypeScript and Python client libraries expose the structural, specialization, and progression relationships defined in the ontology.
 Ontology validation is implemented only in the TypeScript library so the repository and ontology
-editor can use the same rules. Python remains a descriptor and relation client.
+editor can use the same rules. Python provides descriptor and relation queries over released or supplied snapshots.
 
 ### 6.1 TypeScript API Usage
 
@@ -284,7 +285,10 @@ states the exact automated boundary.
 The TypeScript package exposes `edugraph-ts/core`, `edugraph-ts/rdf`, and
 `edugraph-ts/generated`. See the [package API guide](libraries/typescript/README.md#6-supplied-snapshots-and-portable-imports)
 for supplied snapshots, query semantics, explicit assessments, and compatibility adapters.
-The root import remains available. Python remains a generated descriptor/relation client.
+The root import remains available. Python provides typed snapshot queries, optional RDF parsing, and bundled compatibility helpers.
+See the [Python API guide](libraries/python/README.md#4-typed-snapshot-queries) and
+[implementation record](docs/plan/shared-python-library-implementation.md); ontology validation
+remains TypeScript-only.
 
 The Docker build compiles the parser-independent core separately, bootstraps the authored
 TypeScript snapshot, builds both clients, and runs their tests. It then copies original rule

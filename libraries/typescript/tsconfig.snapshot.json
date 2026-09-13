@@ -1,7 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es2019", "module": "commonjs", "strict": true,
-    "esModuleInterop": true, "skipLibCheck": true, "outDir": "./bootstrap"
+    "target": "es2019",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "outDir": "./bootstrap",
+    "resolveJsonModule": true
   },
-  "files": ["generate-snapshot.ts"]
+  "files": [
+    "generate-snapshot.ts"
+  ]
 }

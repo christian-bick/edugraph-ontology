@@ -1,5 +1,5 @@
 import { OntologyStatement, RdfStatement, projectRdfStatements } from "./OntologyTypes";
-import { PRIMARY_RELATION_FAMILIES, RELATION_SCHEMA_CONTRACT } from "./ValidationRules";
+import { PRIMARY_RELATION_FAMILIES, RELATION_SCHEMA_CONTRACT } from "./RelationContracts";
 
 const EDU = "http://edugraph.io/edu#";
 const TYPE = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type";

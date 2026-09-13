@@ -1,0 +1,968 @@
+{
+  "snapshot": {
+    "formatVersion": 1,
+    "statements": [
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#structures"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2002/07/owl#inverseOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#structuredBy"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#partOf"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2002/07/owl#inverseOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#hasPart"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#specializes"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2002/07/owl#inverseOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#specializedBy"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#constrains"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2002/07/owl#inverseOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#constrainedBy"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#implies"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2002/07/owl#inverseOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#impliedBy"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#contradicts"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2002/07/owl#inverseOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#contradictedBy"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#expands"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2002/07/owl#inverseOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#expandedBy"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#inverts"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2002/07/owl#inverseOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#invertedBy"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#integrates"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2002/07/owl#inverseOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#integratedBy"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#translates"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2002/07/owl#inverseOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#translatedBy"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#involves"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2002/07/owl#inverseOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#involvedBy"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#partOf"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#structures"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#specializes"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#structures"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#hasPart"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#structuredBy"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#specializedBy"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#structuredBy"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#implies"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#constrains"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#contradicts"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#constrains"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#impliedBy"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#constrainedBy"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#contradictedBy"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#constrainedBy"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#inverts"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#expands"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#invertedBy"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#expandedBy"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#translates"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#integrates"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#translatedBy"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#integratedBy"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "schema.ttl",
+        "sourceKind": "schema"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/A"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#Area"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/B"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#Area"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/C"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#Area"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/D"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#Area"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/K"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#Area"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/L"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#Area"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/X"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#Area"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/Y"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#Area"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/A"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#specializes"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "https://example.org/B"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/B"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#partOf"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "https://example.org/C"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/B"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#specializes"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "https://example.org/D"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/D"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#specializes"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "https://example.org/B"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/X"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#implies"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "https://example.org/Y"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/Y"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#contradicts"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "https://example.org/K"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/K"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#implies"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "https://example.org/L"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/A"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#specializes"
+        },
+        "object": {
+          "termType": "NamedNode",
+          "value": "https://example.org/B"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/A"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+        },
+        "object": {
+          "termType": "Literal",
+          "value": "Alpha",
+          "language": "en",
+          "datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      },
+      {
+        "subject": {
+          "termType": "NamedNode",
+          "value": "https://example.org/A"
+        },
+        "predicate": {
+          "termType": "NamedNode",
+          "value": "http://edugraph.io/edu#hasPart"
+        },
+        "object": {
+          "termType": "Literal",
+          "value": "https://example.org/Ghost",
+          "language": "",
+          "datatype": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "graph": {
+          "termType": "DefaultGraph",
+          "value": ""
+        },
+        "source": "descriptors.ttl",
+        "sourceKind": "descriptors"
+      }
+    ]
+  },
+  "queries": [
+    {
+      "op": "related",
+      "iri": "https://example.org/A",
+      "property": "http://edugraph.io/edu#structures",
+      "access": "authored",
+      "expected": []
+    },
+    {
+      "op": "related",
+      "iri": "https://example.org/A",
+      "property": "http://edugraph.io/edu#structures",
+      "access": "entailed",
+      "expected": [
+        "https://example.org/B"
+      ]
+    },
+    {
+      "op": "related",
+      "iri": "https://example.org/C",
+      "property": "http://edugraph.io/edu#hasPart",
+      "expected": [
+        "https://example.org/B"
+      ]
+    },
+    {
+      "op": "related",
+      "iri": "https://example.org/A",
+      "property": "http://edugraph.io/edu#hasPart",
+      "expected": []
+    },
+    {
+      "op": "traverse",
+      "iri": "https://example.org/A",
+      "property": "http://edugraph.io/edu#specializes",
+      "expected": [
+        "https://example.org/B",
+        "https://example.org/D"
+      ]
+    },
+    {
+      "op": "traverse",
+      "iri": "https://example.org/B",
+      "property": "http://edugraph.io/edu#specializes",
+      "expected": [
+        "https://example.org/B",
+        "https://example.org/D"
+      ]
+    },
+    {
+      "op": "traverse",
+      "iri": "https://example.org/A",
+      "property": "http://edugraph.io/edu#structures",
+      "expected": [
+        "https://example.org/B",
+        "https://example.org/C",
+        "https://example.org/D"
+      ]
+    },
+    {
+      "op": "incompatible",
+      "a": "https://example.org/X",
+      "b": "https://example.org/K",
+      "expected": true
+    },
+    {
+      "op": "deductCompatible",
+      "iris": [
+        "https://example.org/K"
+      ],
+      "expected": [
+        "https://example.org/K",
+        "https://example.org/L"
+      ]
+    },
+    {
+      "op": "deductAdmitting",
+      "iris": [
+        "https://example.org/Y"
+      ],
+      "expected": [
+        "https://example.org/L",
+        "https://example.org/X",
+        "https://example.org/Y"
+      ]
+    },
+    {
+      "op": "deductCompatible",
+      "iris": [],
+      "expected": []
+    },
+    {
+      "op": "deductAdmitting",
+      "iris": [],
+      "expected": []
+    },
+    {
+      "op": "inspectLabel",
+      "iri": "https://example.org/A",
+      "expected": {
+        "status": "known",
+        "iri": "https://example.org/A",
+        "eligible": true,
+        "constituentChildren": []
+      }
+    },
+    {
+      "op": "inspectLabel",
+      "iri": "https://example.org/B",
+      "expected": {
+        "status": "known",
+        "iri": "https://example.org/B",
+        "eligible": true,
+        "constituentChildren": []
+      }
+    },
+    {
+      "op": "inspectLabel",
+      "iri": "https://example.org/C",
+      "expected": {
+        "status": "known",
+        "iri": "https://example.org/C",
+        "eligible": false,
+        "constituentChildren": [
+          "https://example.org/B"
+        ]
+      }
+    },
+    {
+      "op": "inspectLabel",
+      "iri": "https://example.org/Ghost",
+      "expected": {
+        "status": "unknown",
+        "iri": "https://example.org/Ghost"
+      }
+    }
+  ]
+}

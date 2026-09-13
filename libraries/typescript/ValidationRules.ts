@@ -5,64 +5,9 @@ const EDU = "http://edugraph.io/edu#";
 const OWL_INVERSE_OF = "http://www.w3.org/2002/07/owl#inverseOf";
 const RDFS_SUBPROPERTY_OF = "http://www.w3.org/2000/01/rdf-schema#subPropertyOf";
 
-interface InverseContract {
-  readonly primary: string;
-  readonly inverse: string;
-  readonly ruleId: "ONT-S3" | "ONT-R1";
-}
-
-interface SubpropertyContract {
-  readonly property: string;
-  readonly parent: string;
-  readonly ruleId: "ONT-S3" | "ONT-R1";
-}
-
+import { RELATION_SCHEMA_CONTRACT, PRIMARY_RELATION_FAMILIES } from "./RelationContracts";
+export { RELATION_SCHEMA_CONTRACT, PRIMARY_RELATION_FAMILIES } from "./RelationContracts";
 const relation = (name: string): string => `${EDU}${name}`;
-
-export const RELATION_SCHEMA_CONTRACT = {
-  inverses: [
-    ["structures", "structuredBy", "ONT-S3"],
-    ["partOf", "hasPart", "ONT-S3"],
-    ["specializes", "specializedBy", "ONT-S3"],
-    ["constrains", "constrainedBy", "ONT-R1"],
-    ["implies", "impliedBy", "ONT-R1"],
-    ["contradicts", "contradictedBy", "ONT-R1"],
-    ["expands", "expandedBy", "ONT-R1"],
-    ["inverts", "invertedBy", "ONT-R1"],
-    ["integrates", "integratedBy", "ONT-R1"],
-    ["translates", "translatedBy", "ONT-R1"],
-    ["involves", "involvedBy", "ONT-R1"],
-  ].map(([primary, inverse, ruleId]) => ({ primary, inverse, ruleId })) as readonly InverseContract[],
-  subproperties: [
-    ["partOf", "structures", "ONT-S3"],
-    ["specializes", "structures", "ONT-S3"],
-    ["hasPart", "structuredBy", "ONT-S3"],
-    ["specializedBy", "structuredBy", "ONT-S3"],
-    ["implies", "constrains", "ONT-R1"],
-    ["contradicts", "constrains", "ONT-R1"],
-    ["impliedBy", "constrainedBy", "ONT-R1"],
-    ["contradictedBy", "constrainedBy", "ONT-R1"],
-    ["inverts", "expands", "ONT-R1"],
-    ["invertedBy", "expandedBy", "ONT-R1"],
-    ["translates", "integrates", "ONT-R1"],
-    ["translatedBy", "integratedBy", "ONT-R1"],
-  ].map(([property, parent, ruleId]) => ({ property, parent, ruleId })) as readonly SubpropertyContract[],
-} as const;
-
-export const PRIMARY_RELATION_FAMILIES = {
-  structural: ["structures", "partOf", "specializes"],
-  progression: ["expands", "inverts", "integrates", "translates"],
-  constraints: ["constrains", "implies", "contradicts"],
-} as const;
-
-// Exported policy contracts are immutable, including their nested records.
-for (const contract of RELATION_SCHEMA_CONTRACT.inverses) Object.freeze(contract);
-for (const contract of RELATION_SCHEMA_CONTRACT.subproperties) Object.freeze(contract);
-Object.freeze(RELATION_SCHEMA_CONTRACT.inverses);
-Object.freeze(RELATION_SCHEMA_CONTRACT.subproperties);
-Object.freeze(RELATION_SCHEMA_CONTRACT);
-for (const family of Object.values(PRIMARY_RELATION_FAMILIES)) Object.freeze(family);
-Object.freeze(PRIMARY_RELATION_FAMILIES);
 
 interface DirectedRelationEdge {
   from: string;

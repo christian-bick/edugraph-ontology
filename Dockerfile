@@ -39,7 +39,6 @@ COPY ./src ./src
 
 RUN uv sync
 RUN uv run src/ontology/generate-ts.py
-RUN uv run src/ontology/generate-py.py
 
 FROM node:20-alpine AS typescript-compiler
 
@@ -54,6 +53,8 @@ COPY ./libraries/typescript/package.json ./package.json
 COPY ./libraries/typescript/tsconfig*.json ./
 COPY ./libraries/typescript/*.ts ./
 COPY ./libraries/typescript/README.md ./README.md
+COPY ./libraries/shared/relation-contracts.json ./relation-contracts.json
+COPY ./libraries/shared/query-fixtures.json ./query-fixtures.json
 
 RUN npm install
 RUN npm run build:core
@@ -73,18 +74,27 @@ RUN npm run validate:docs -- /repository /ontology/core-schema.ttl /ontology/cor
 RUN node dist/package-docs.js /repository .
 RUN npm pack --pack-destination /tmp && node dist/package.test.js /tmp/edugraph-ts-0.0.0.tgz
 
-FROM ghcr.io/astral-sh/uv:python3.13-alpine AS python-builder
+FROM ghcr.io/astral-sh/uv:python3.13-bookworm-slim AS python-builder
 
 WORKDIR /app/python
-
-COPY --from=python-code-gen /dist/python ./
-COPY ./libraries/python/pyproject.toml ./pyproject.toml
-COPY ./libraries/python/README.md ./README.md
-COPY ./libraries/python/test_relations.py ./test_relations.py
+COPY --from=typescript-compiler /repository/libraries/python /repository/libraries/python
+COPY --from=typescript-compiler /repository/LICENSE /repository/LICENSE
+COPY --from=typescript-compiler /app/typescript/snapshot.json /shared/snapshot.json
+COPY --from=typescript-compiler /app/typescript/references /shared/references
+COPY --from=typescript-compiler /app/typescript/RULES.md /shared/RULES.md
+COPY ./libraries/shared /shared
+COPY ./src/ontology/generate-py.py /repository/src/ontology/generate-py.py
+RUN python /repository/src/ontology/generate-py.py --output /app/python --snapshot /shared/snapshot.json --contracts /shared/relation-contracts.json --references /shared/references --rules /shared/RULES.md
 ARG PACKAGE_VERSION=0.0.0
-RUN python -c "import pathlib, os; p = pathlib.Path('pyproject.toml'); p.write_text(p.read_text().replace('version = \"0.0.0\"', 'version = \"' + os.environ.get('PACKAGE_VERSION', '0.0.0').replace('-', '+') + '\"'))"
-RUN PYTHONPATH=src python -m unittest test_relations.py
+RUN python /repository/libraries/python/set_version.py pyproject.toml "$PACKAGE_VERSION"
+RUN uv venv && uv pip install -r /repository/libraries/python/requirements-dev.lock && uv pip install --no-deps -e .
+RUN uv run --no-sync ruff check /repository/libraries/python/src && uv run --no-sync ruff format --check /repository/libraries/python/src
+RUN uv run --no-sync mypy src/edugraph /repository/libraries/python/tests/typed_consumer.py /repository/src/ontology/generate-py.py /repository/libraries/python/verify_package.py /repository/libraries/python/set_version.py
+RUN uv run --no-sync mypy /repository/libraries/python/src/edugraph/__init__.py
+ENV EDUGRAPH_FIXTURES=/shared
+RUN uv run --no-sync pytest /repository/libraries/python/tests /repository/libraries/python/test_relations.py -q
 RUN uv build
+RUN uv run --no-sync python /repository/libraries/python/verify_package.py dist
 
 FROM scratch AS export
 
@@ -103,3 +113,6 @@ COPY --from=typescript-compiler /app/typescript/references ./typescript/referenc
 COPY --from=typescript-compiler /app/typescript/RULES.md ./typescript/RULES.md
 
 COPY --from=python-builder /app/python/dist ./python/dist
+
+# The shared authored snapshot also supports independent Python-version CI consumers.
+COPY --from=typescript-compiler /app/typescript/snapshot.json ./typescript/snapshot.json

@@ -1,7 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es2019", "module": "commonjs", "strict": true,
-    "declaration": true, "outDir": "./core-dist", "types": [], "lib": ["es2019"]
+    "target": "es2019",
+    "module": "commonjs",
+    "strict": true,
+    "declaration": true,
+    "outDir": "./core-dist",
+    "types": [],
+    "lib": [
+      "es2019"
+    ],
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
-  "files": ["core.ts"]
+  "files": [
+    "core.ts"
+  ]
 }

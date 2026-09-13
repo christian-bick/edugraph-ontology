@@ -1,395 +1,126 @@
-from owlready2 import *
-import os
+"""Assemble a Python distribution from maintained code and shared authored data."""
 
-# --- Main Configuration ---
-ONTOLOGY_FILE = "core-ontology-math.rdf"
-OUTPUT_DIR = "dist/python/src/edugraph"
-BASE_IRI = "http://edugraph.io/edu#"
-
-# Define all enums to be generated from the ontology
-ENUM_CONFIGS = [
-    {"class_name": "Area", "output_file": "area.py"},
-    {"class_name": "Scope", "output_file": "scope.py"},
-    {"class_name": "Ability", "output_file": "ability.py"},
-]
+from __future__ import annotations
+import argparse
+import re
+import shutil
+import sys
+from pathlib import Path
 
 
-def generate_enum_for_class(ontology, config: dict):
-    """Generates a single Python enum file based on a configuration."""
-    class_name = config["class_name"]
-    output_filename = os.path.join(OUTPUT_DIR, config["output_file"])
-    target_class_iri = f"{BASE_IRI}{class_name}"
+def prepare(
+    library: Path,
+    contracts: Path,
+    snapshot: Path,
+    output: Path,
+    references: Path | None = None,
+    rules: Path | None = None,
+) -> None:
+    """Copy runtime modules and generate only enum data from the shared snapshot."""
+    package = output / "src" / "edugraph"
+    package.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(
+        library / "src" / "edugraph",
+        package,
+        dirs_exist_ok=True,
+        ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
+    )
+    shutil.copy2(contracts, package / "relation-contracts.json")
+    shutil.copy2(snapshot, package / "snapshot.json")
+    for name in ("pyproject.toml", "README.md"):
+        shutil.copy2(library / name, output / name)
+    shutil.copy2(library.parents[1] / "LICENSE", output / "LICENSE")
+    if references is not None:
+        shutil.copytree(references, package / "references", dirs_exist_ok=True)
+    if rules is not None:
+        shutil.copy2(rules, package / "RULES.md")
+    # Use the same checked record decoder as installed consumers. Imports remain parser-free.
+    sys.path.insert(0, str(output / "src"))
+    from edugraph.core import LiteralTerm, NamedNode, snapshot_from_json
 
-    print(f"⚙️  Processing class: {class_name}")
-
-    target_class = IRIS[target_class_iri]
-    if not target_class:
-        print(f"  ❌ Error: Class <{target_class_iri}> not found.")
-        return
-
-    individuals = list(target_class.instances())
-    if not individuals:
-        print(f"  ⚠️ Warning: No individuals found for class <{target_class_iri}>.")
-        return
-
-    # Build the Python StrEnum string
-    enum_content = "# This file is auto-generated. Do not edit manually.\n\n"
-    enum_content += "from enum import StrEnum\n\n\n"
-    enum_content += f"class {class_name}(StrEnum):\n"
-    enum_content += f'    """{class_name} individuals from the EduGraph ontology."""\n'
-
-    for individual in individuals:
-        enum_key = individual.name
-        iri = individual.iri
-
-        print(f"    -> Found: {enum_key} ({iri})")
-
-        def_val = getattr(individual, "isDefinedBy", None)
-        definition = def_val[0] if def_val else ""
-        definition_escaped = definition.replace('"', '\\"').replace('\n', ' ')
-
-        enum_content += f'\n    # IRI: {iri}\n'
-        enum_content += f'    {enum_key} = "{iri}"\n'
-        if definition_escaped:
-            enum_content += f'    """{definition_escaped}"""\n'
-
-    enum_content += "\n    @property\n"
-    enum_content += "    def definition(self) -> str:\n"
-    enum_content += "        return _DEFINITIONS.get(self, \"\")\n"
-
-    enum_content += "\n\n# Private dictionary mapping each enum member to its description\n"
-    enum_content += "_DEFINITIONS = {\n"
-    for individual in individuals:
-        enum_key = individual.name
-        def_val = getattr(individual, "isDefinedBy", None)
-        definition = def_val[0] if def_val else ""
-        definition_escaped = definition.replace('"', '\\"').replace('\n', ' ')
-        enum_content += f"    {class_name}.{enum_key}: \"{definition_escaped}\",\n"
-    enum_content += "}\n"
-
-    # Write the content to the output file
-    with open(output_filename, "w", encoding="utf-8") as f:
-        f.write(enum_content)
-
-    print(f"  ✅ Successfully generated {output_filename}\n")
-
-
-def generate_init_file(configs, output_dir):
-    """Generates an __init__.py file that exports all generated enums and relations."""
-    init_filename = os.path.join(output_dir, "__init__.py")
-    print(f"⚙️  Generating __init__.py file: {init_filename}")
-
-    # Build the content for the __init__.py file
-    init_content = "# This file is auto-generated. Do not edit manually.\n\n"
-
-    for config in configs:
-        module_name = os.path.splitext(config["output_file"])[0]
-        class_name = config["class_name"]
-        init_content += f"from .{module_name} import {class_name}\n"
-
-    helpers = [
-        "definitions", "definition",
-        "structures", "structured_by", "specializes", "specialized_by",
-        "part_of", "has_part", "expands", "expanded_by", "integrates", "integrated_by", "inverts", "inverted_by", "translates", "translated_by",
-        "constrains", "constrained_by", "implies", "implied_by", "contradicts", "contradicted_by",
-        "structures_transitive", "structured_by_transitive", "specializes_transitive", "specialized_by_transitive",
-        "part_of_transitive", "has_part_transitive", "expands_transitive", "expanded_by_transitive", "integrates_transitive", "integrated_by_transitive", "inverts_transitive", "inverted_by_transitive", "translates_transitive", "translated_by_transitive",
-        "constrains_transitive", "constrained_by_transitive", "implies_transitive", "implied_by_transitive", "contradicts_transitive", "contradicted_by_transitive",
-        "deduct_compatible", "deduct_admitting", "incompatible"
-    ]
-
-    init_content += "from .relations import (\n"
-    init_content += "    CompetencyDescriptor,\n"
-    init_content += "    DescriptorRelations,\n"
-    init_content += "    relations,\n"
-    for h in helpers:
-        init_content += f"    {h},\n"
-    init_content += ")\n"
-
-    init_content += "\n__all__ = [\n"
-    for config in configs:
-        class_name = config["class_name"]
-        init_content += f'    "{class_name}",\n'
-    init_content += '    "CompetencyDescriptor",\n'
-    init_content += '    "DescriptorRelations",\n'
-    init_content += '    "relations",\n'
-    for h in helpers:
-        init_content += f'    "{h}",\n'
-    init_content += "]\n"
-
-    # Write the content to the __init__.py file
-    with open(init_filename, "w", encoding="utf-8") as f:
-        f.write(init_content)
-
-    print(f"  ✅ Successfully generated {init_filename}\n")
-
-
-def generate_relations_file(ontology, output_dir, individual_to_class):
-    """Generates a relations.py file that defines all individual relations and helper functions."""
-    relations_filename = os.path.join(output_dir, "relations.py")
-    print(f"⚙️  Generating relations file: {relations_filename}")
-
-    # Collect all individuals from all three classes
-    all_individuals = []
-    for cname in ["Area", "Scope", "Ability"]:
-        class_iri = f"{BASE_IRI}{cname}"
-        target_class = IRIS[class_iri]
-        if target_class:
-            all_individuals.extend(list(target_class.instances()))
-
-    # Sort individuals by class and name for deterministic generation
-    all_individuals.sort(key=lambda x: (individual_to_class.get(x.name, ""), x.name))
-
-    relation_properties = [
-        "structures", "structuredBy",
-        "partOf", "hasPart",
-        "specializes", "specializedBy",
-        "expands", "expandedBy",
-        "integrates", "integratedBy",
-        "inverts", "invertedBy",
-        "translates", "translatedBy",
-        "constrains", "constrainedBy",
-        "implies", "impliedBy",
-        "contradicts", "contradictedBy"
-    ]
-
-    entity_relations_entries = []
-    entity_definitions_entries = []
-
-    for ind in all_individuals:
-        ind_cname = individual_to_class.get(ind.name)
-        if not ind_cname:
+    statements = snapshot_from_json(snapshot.read_text(encoding="utf-8"))
+    definitions: dict[str, str] = {}
+    dimensions: dict[str, set[str]] = {
+        name: set() for name in ("Area", "Ability", "Scope")
+    }
+    edu = "http://edugraph.io/edu#"
+    for row in statements:
+        if row.source_kind != "descriptors" or not isinstance(row.subject, NamedNode):
             continue
-
-        def_val = getattr(ind, "isDefinedBy", None)
-        definition_str = def_val[0] if def_val else ""
-        definition_escaped = definition_str.replace('"', '\\"').replace('\n', ' ')
-
-        if definition_escaped:
-            entity_definitions_entries.append(f"    {ind_cname}.{ind.name}: \"{definition_escaped}\"")
-
-        ind_relations = {}
-        for prop in relation_properties:
-            val = getattr(ind, prop, None)
-            if val:
-                if not isinstance(val, list):
-                    val = [val]
-                formatted = []
-                for v in val:
-                    if hasattr(v, "name") and v.name in individual_to_class:
-                        ref_cname = individual_to_class[v.name]
-                        formatted.append(f"{ref_cname}.{v.name}")
-                if formatted:
-                    ind_relations[prop] = formatted
-
-        # Propagate subproperties logically defined in the schema
-        if "partOf" in ind_relations:
-            ind_relations["structures"] = list(set(ind_relations.get("structures", []) + ind_relations["partOf"]))
-        if "specializes" in ind_relations:
-            ind_relations["structures"] = list(set(ind_relations.get("structures", []) + ind_relations["specializes"]))
-        if "hasPart" in ind_relations:
-            ind_relations["structuredBy"] = list(set(ind_relations.get("structuredBy", []) + ind_relations["hasPart"]))
-        if "specializedBy" in ind_relations:
-            ind_relations["structuredBy"] = list(set(ind_relations.get("structuredBy", []) + ind_relations["specializedBy"]))
-        if "inverts" in ind_relations:
-            ind_relations["expands"] = list(set(ind_relations.get("expands", []) + ind_relations["inverts"]))
-        if "invertedBy" in ind_relations:
-            ind_relations["expandedBy"] = list(set(ind_relations.get("expandedBy", []) + ind_relations["invertedBy"]))
-        if "translates" in ind_relations:
-            ind_relations["integrates"] = list(set(ind_relations.get("integrates", []) + ind_relations["translates"]))
-        if "translatedBy" in ind_relations:
-            ind_relations["integratedBy"] = list(set(ind_relations.get("integratedBy", []) + ind_relations["translatedBy"]))
-        if "implies" in ind_relations:
-            ind_relations["constrains"] = list(set(ind_relations.get("constrains", []) + ind_relations["implies"]))
-        if "impliedBy" in ind_relations:
-            ind_relations["constrainedBy"] = list(set(ind_relations.get("constrainedBy", []) + ind_relations["impliedBy"]))
-        if "contradicts" in ind_relations:
-            ind_relations["constrains"] = list(set(ind_relations.get("constrains", []) + ind_relations["contradicts"]))
-        if "contradictedBy" in ind_relations:
-            ind_relations["constrainedBy"] = list(set(ind_relations.get("constrainedBy", []) + ind_relations["contradictedBy"]))
-
-        entry = f"    {ind_cname}.{ind.name}: {{\n"
-        if definition_escaped:
-            entry += f'        "definition": "{definition_escaped}",\n'
-        for prop in sorted(ind_relations.keys()):
-            vals_str = ", ".join(sorted(ind_relations[prop]))
-            entry += f'        "{prop}": [{vals_str}],\n'
-        entry += "    }"
-        entity_relations_entries.append(entry)
-
-    # Build the output file content
-    content = "# This file is auto-generated. Do not edit manually.\n\n"
-    content += "from typing import Union, TypedDict, List, Optional\n"
-    content += "from .area import Area\n"
-    content += "from .scope import Scope\n"
-    content += "from .ability import Ability\n\n"
-    content += "CompetencyDescriptor = Union[Area, Scope, Ability]\n\n"
-    
-    content += "class DescriptorRelations(TypedDict, total=False):\n"
-    content += "    definition: str\n"
-    for prop in relation_properties:
-        content += f"    {prop}: List[CompetencyDescriptor]\n"
-    content += "\n\n"
-
-    content += "ENTITY_RELATIONS: dict[CompetencyDescriptor, DescriptorRelations] = {\n"
-    content += ",\n".join(entity_relations_entries)
-    content += "\n}\n\n"
-
-    content += "def relations(descriptor: CompetencyDescriptor) -> DescriptorRelations:\n"
-    content += '    """Returns all relations defined for a given descriptor, or an empty dict."""\n'
-    content += "    return ENTITY_RELATIONS.get(descriptor, {})\n\n"
-
-    content += "definitions: dict[CompetencyDescriptor, str] = {\n"
-    content += ",\n".join(entity_definitions_entries)
-    content += "\n}\n\n"
-
-    content += "def definition(descriptor: CompetencyDescriptor) -> str:\n"
-    content += '    """Returns the description/definition of a given descriptor, or an empty string."""\n'
-    content += "    return definitions.get(descriptor, \"\")\n\n"
-
-    # Add direct helpers
-    content += "# --- Direct Helper Functions ---\n"
-    for prop in relation_properties:
-        snake_prop = "".join(["_" + c.lower() if c.isupper() else c for c in prop]).lstrip("_")
-        content += f"def {snake_prop}(descriptor: CompetencyDescriptor) -> List[CompetencyDescriptor]:\n"
-        content += f'    return ENTITY_RELATIONS.get(descriptor, {{}}).get("{prop}", [])\n\n'
-
-    # Add transitive helper and functions
-    content += "# --- Transitive Helper Functions ---\n"
-    content += "def transitive_closure(\n"
-    content += "    descriptor: CompetencyDescriptor,\n"
-    content += "    relation: str\n"
-    content += ") -> List[CompetencyDescriptor]:\n"
-    content += "    visited = set()\n"
-    content += "    queue = [descriptor]\n"
-    content += "    while queue:\n"
-    content += "        current = queue.pop(0)\n"
-    content += '        related = ENTITY_RELATIONS.get(current, {}).get(relation, [])\n'
-    content += "        for item in related:\n"
-    content += "            if item not in visited:\n"
-    content += "                visited.add(item)\n"
-    content += "                queue.append(item)\n"
-    content += "    return list(visited)\n\n"
-
-    for prop in relation_properties:
-        snake_prop = "".join(["_" + c.lower() if c.isupper() else c for c in prop]).lstrip("_")
-        content += f"def {snake_prop}_transitive(descriptor: CompetencyDescriptor) -> List[CompetencyDescriptor]:\n"
-        content += f'    return transitive_closure(descriptor, "{prop}")\n\n'
-
-    content += "# --- Logical Type Helpers ---\n"
-    content += "def is_bound_typed(descriptor: CompetencyDescriptor) -> bool:\n"
-    content += '    """\n'
-    content += '    A label is bound-typed when its implication family (the label plus its\n'
-    content += '    implies/implied_by closures) contains a contradiction edge. Bounds (e.g.\n'
-    content += '    numeric range limits) come in contradicting pairs, so compatibility for\n'
-    content += '    them traverses towards tighter labels (implied_by), while contradiction-free\n'
-    content += '    families propagate capabilities along implies.\n'
-    content += '    """\n'
-    content += "    if contradicts(descriptor):\n"
-    content += "        return True\n"
-    content += "    related_labels = implies_transitive(descriptor) + implied_by_transitive(descriptor)\n"
-    content += "    return any(contradicts(related) for related in related_labels)\n\n"
-    content += "def incompatible(a: CompetencyDescriptor, b: CompetencyDescriptor) -> bool:\n"
-    content += '    """\n'
-    content += '    Returns True when two labels cannot be satisfied together: some label in\n'
-    content += "    a's implication closure contradicts a label in b's implication closure.\n"
-    content += '    Note this composes implies with contradicts — contradicts_transitive alone\n'
-    content += '    closes only over contradiction edges and does not detect far-apart\n'
-    content += '    unsatisfiable pairs (e.g. NumbersSmaller10 vs NumbersLarger100).\n'
-    content += '    """\n'
-    content += "    a_closure = [a] + implies_transitive(a)\n"
-    content += "    b_closure = set([b] + implies_transitive(b))\n"
-    content += "    return any(y in b_closure for x in a_closure for y in contradicts(x))\n\n"
-    content += "# --- Deduct Compatible Helper ---\n"
-    content += "def deduct_compatible(base_constraints: List[CompetencyDescriptor]) -> List[CompetencyDescriptor]:\n"
-    content += '    """\n'
-    content += '    Deducts the exact compatible subset of bounds from a given list of base constraints,\n'
-    content += '    applying logical implication and pruning logical contradictions.\n'
-    content += '    """\n'
-    content += "    implied = set()\n"
-    content += "    for constraint in base_constraints:\n"
-    content += "        implied.add(constraint)\n"
-    content += "        transitive_collection = (\n"
-    content += "            implied_by_transitive(constraint)\n"
-    content += "            if is_bound_typed(constraint)\n"
-    content += "            else implies_transitive(constraint)\n"
-    content += "        )\n"
-    content += "        for imp in transitive_collection:\n"
-    content += "            implied.add(imp)\n"
-    content += "\n"
-    content += "    contradicted_set = set()\n"
-    content += "    for constraint in base_constraints:\n"
-    content += "        for c in contradicts(constraint):\n"
-    content += "            contradicted_set.add(c)\n"
-    content += "            transitive_collection = (\n"
-    content += "                implied_by_transitive(c)\n"
-    content += "                if is_bound_typed(c)\n"
-    content += "                else implies_transitive(c)\n"
-    content += "            )\n"
-    content += "            for imp in transitive_collection:\n"
-    content += "                contradicted_set.add(imp)\n"
-    content += "\n"
-    content += "    final_set = {item for item in implied if item not in contradicted_set}\n"
-    content += "    return list(final_set)\n\n"
-
-    content += "# --- Deduct Admitting Helper ---\n"
-    content += "def deduct_admitting(boundaries: List[CompetencyDescriptor]) -> List[CompetencyDescriptor]:\n"
-    content += '    """\n'
-    content += '    Deducts all labels that admit content crossing any of the given boundaries.\n'
-    content += '\n'
-    content += '    Dual of deduct_compatible: capabilities are declared with deduct_compatible\n'
-    content += '    (labels guaranteed to stay within a declared window), boundaries with\n'
-    content += '    deduct_admitting (labels that permit content beyond a line). For each\n'
-    content += '    boundary B the result unions B and all labels implying B (content must\n'
-    content += '    cross the line) with the weakenings of B\'s contradiction partners\n'
-    content += '    (bounds loose enough that content may cross the line).\n'
-    content += '    """\n'
-    content += "    admitting = set()\n"
-    content += "    for boundary in boundaries:\n"
-    content += "        admitting.add(boundary)\n"
-    content += "        for tighter in implied_by_transitive(boundary):\n"
-    content += "            admitting.add(tighter)\n"
-    content += "        for partner in contradicts(boundary):\n"
-    content += "            for weaker in implies_transitive(partner):\n"
-    content += "                admitting.add(weaker)\n"
-    content += "    return list(admitting)\n\n"
-
-    with open(relations_filename, "w", encoding="utf-8") as f:
-        f.write(content)
-
-    print(f"  ✅ Successfully generated {relations_filename}\n")
+        iri, prop, obj = row.subject.value, row.predicate.value, row.object
+        if prop == "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" and isinstance(
+            obj, NamedNode
+        ):
+            for dimension in dimensions:
+                if obj.value == edu + dimension:
+                    dimensions[dimension].add(iri)
+        if prop == "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" and isinstance(
+            obj, LiteralTerm
+        ):
+            definitions.setdefault(iri, obj.value.replace("\n", " "))
+    for dimension, iris in dimensions.items():
+        lines = [
+            "# Generated enum data; algorithms are maintained separately.",
+            "from enum import StrEnum",
+            "",
+            f"class {dimension}(StrEnum):",
+            f'    """Released {dimension} descriptors identified by full IRIs."""',
+        ]
+        members: dict[str, str] = {}
+        for iri in sorted(iris):
+            name = re.split(r"[/#]", iri)[-1]
+            if not name.isidentifier() or name in members:
+                raise ValueError(f"Invalid or duplicate enum member: {name}")
+            members[name] = iri
+            lines.append(f"    {name} = {iri!r}")
+            if text := definitions.get(iri):
+                lines.append(f"    {text!r}")
+        lines.extend(
+            [
+                "",
+                "    @property",
+                "    def definition(self) -> str:",
+                '        """Return the definition with legacy newline flattening."""',
+                '        return _DEFINITIONS.get(self, "")',
+                "",
+                f"_DEFINITIONS: dict[{dimension}, str] = {{",
+            ]
+        )
+        lines.extend(
+            f"    {dimension}.{name}: {definitions.get(iri, '')!r},"
+            for name, iri in members.items()
+        )
+        lines.append("}")
+        (package / f"{dimension.lower()}.py").write_text(
+            "\n".join(lines) + "\n", encoding="utf-8"
+        )
 
 
-def main():
-    """Loads the ontology once and generates all configured enums and relations."""
-    print("🚀 Starting Python enum and relations generation...")
-
-    # Ensure the output directory exists
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-
-    # Load the ontology from the file
-    onto = get_ontology(f"file://{os.path.abspath(ONTOLOGY_FILE)}").load()
-
-    # Build maps of individuals to their core class names
-    individual_to_class = {}
-    for cname in ["Area", "Scope", "Ability"]:
-        class_iri = f"{BASE_IRI}{cname}"
-        target_class = IRIS[class_iri]
-        if target_class:
-            for ind in target_class.instances():
-                individual_to_class[ind.name] = cname
-
-    # Generate an enum for each item in the configuration list
-    for config in ENUM_CONFIGS:
-        generate_enum_for_class(onto, config)
-
-    # Generate relations file
-    generate_relations_file(onto, OUTPUT_DIR, individual_to_class)
-
-    # Generate the __init__.py file
-    generate_init_file(ENUM_CONFIGS, OUTPUT_DIR)
-
-    print("✨ All Python files generated successfully.")
+def main() -> None:
+    """Assemble sources; packaging and ontology validation are separate build steps."""
+    root = Path(__file__).resolve().parents[2]
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--library", type=Path, default=root / "libraries/python")
+    parser.add_argument(
+        "--contracts",
+        type=Path,
+        default=root / "libraries/shared/relation-contracts.json",
+    )
+    parser.add_argument(
+        "--snapshot", type=Path, default=root / "dist/typescript/snapshot.json"
+    )
+    parser.add_argument("--output", type=Path, default=root / "dist/python")
+    parser.add_argument("--references", type=Path)
+    parser.add_argument("--rules", type=Path)
+    args = parser.parse_args()
+    prepare(
+        args.library,
+        args.contracts,
+        args.snapshot,
+        args.output,
+        args.references,
+        args.rules,
+    )
 
 
 if __name__ == "__main__":

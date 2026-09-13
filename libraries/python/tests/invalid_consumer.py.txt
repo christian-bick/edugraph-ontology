@@ -1,0 +1,3 @@
+from edugraph.core import LiteralTerm, NamedNode, RdfStatement
+
+RdfStatement(LiteralTerm("invalid subject"), NamedNode("urn:p"), NamedNode("urn:o"), "x", "descriptors")
