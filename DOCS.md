@@ -112,7 +112,7 @@ The automated build and publish pipeline is defined in [.github/workflows/releas
 
 ### 5.1 Trigger Rules
 - **Releases:** Triggered on Git tags matching `v*.*.*`. The package version is set to the exact tag value (e.g., `1.0.0`).
-- **Previews:** Triggered on any push to the `main` branch. The pre-release version is generated using the format `0.0.0-pre.<short-commit-sha>` (e.g., `0.0.0-pre.ab12cd34ef56`).
+- **Previews:** Triggered on any push to the `main` branch. The version uses the latest reachable stable ontology tag, the number of commits since that tag, and the SHA: `0.26.0-pre.2.ab12cd34ef56`, for example. Python uses the equivalent `0.26.0.dev2+gab12cd34ef56`. The preview release name/tag and both packages share that ontology version base. Development versions sort before the corresponding official release; install previews explicitly.
 
 ### 5.2 Release Assets
 The release job uploads the following files as assets to the Github Release:

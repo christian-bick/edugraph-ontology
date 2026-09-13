@@ -159,5 +159,8 @@ that index links the `references/` tree and lists intentional repository-only li
 The repository assembles maintained modules with generated enums and the shared authored snapshot,
 then runs strict mypy, Ruff, shared conformance cases, existing regressions, and installed consumers.
 Wheel and sdist include generated data: consumers need no Node, Jena, or Owlready2 to build/install.
-Stable versions match the ontology tag; previews map `0.0.0-pre.SHA` to
-`0.0.0.dev0+gSHA`, explicitly a Python development release with revision traceability.
+Stable versions match the ontology tag. Previews derive their base from the latest reachable
+stable ontology tag: `0.26.0-pre.2.SHA` becomes `0.26.0.dev2+gSHA`. The numeric suffix
+counts commits since that tag; the SHA identifies the snapshot. These development versions
+sort before the official base release, so install previews explicitly. The build resolves
+one version for both client artifacts and the ontology preview release name.

@@ -10,23 +10,26 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      package_version: ${{ steps.version.outputs.package_version }}
+      release_tag: ${{ steps.version.outputs.release_tag }}
+      release_name: ${{ steps.version.outputs.release_name }}
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
-      - name: Set Short SHA
-        id: vars
-        run: echo "sha_short=$(git rev-parse --short=12 HEAD)" >> $GITHUB_OUTPUT
+      - name: Test version resolution
+        run: python -m unittest discover -s src/ontology -p test_release_version.py
 
-      - name: Set Release Version
-        if: startsWith(github.ref, 'refs/tags/')
-        run: echo "PACKAGE_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
-
-      - name: Set Pre-release Version
-        if: startsWith(github.ref, 'refs/heads/')
-        run: echo "PACKAGE_VERSION=0.0.0-pre.${{ steps.vars.outputs.sha_short }}" >> $GITHUB_ENV
+      - name: Resolve ontology artifact version
+        id: version
+        env:
+          RELEASE_REF: ${{ github.ref }}
+        run: python src/ontology/release-version.py "$RELEASE_REF" >> "$GITHUB_OUTPUT"
 
       - name: Generate all ontology files
-        run: docker build --build-arg PACKAGE_VERSION=${{ env.PACKAGE_VERSION }} . --output dist
+        run: docker build --build-arg PACKAGE_VERSION=${{ steps.version.outputs.package_version }} . --output dist
 
       - uses: actions/upload-artifact@v4
         with:
@@ -70,20 +73,10 @@ jobs:
   release:
     needs: [build, python]
     runs-on: ubuntu-latest
+    env:
+      PACKAGE_VERSION: ${{ needs.build.outputs.package_version }}
     steps:
       - uses: actions/checkout@v5
-
-      - name: Set Short SHA
-        id: vars
-        run: echo "sha_short=$(git rev-parse --short=12 HEAD)" >> $GITHUB_OUTPUT
-
-      - name: Set Release Version
-        if: startsWith(github.ref, 'refs/tags/')
-        run: echo "PACKAGE_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
-
-      - name: Set Pre-release Version
-        if: startsWith(github.ref, 'refs/heads/')
-        run: echo "PACKAGE_VERSION=0.0.0-pre.${{ steps.vars.outputs.sha_short }}" >> $GITHUB_ENV
 
       - uses: actions/download-artifact@v4
         with:
@@ -116,8 +109,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('preview-{0}', steps.vars.outputs.sha_short) }}
-          release_name: ${{ startsWith(github.ref, 'refs/tags/') && format('Release {0}', github.ref_name) || format('Preview {0}', steps.vars.outputs.sha_short) }}
+          tag_name: ${{ needs.build.outputs.release_tag }}
+          release_name: ${{ needs.build.outputs.release_name }}
           body_path: ${{ startsWith(github.ref, 'refs/tags/') && format('docs/releases/{0}.md', github.ref_name) || '' }}
           draft: false
           prerelease: ${{ !startsWith(github.ref, 'refs/tags/') }}

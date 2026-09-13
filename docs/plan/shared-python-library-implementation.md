@@ -274,7 +274,9 @@ Verification on 2026-09-13:
 - Release CI now builds once, then gates publication on Linux Python 3.11-3.14 and Windows 3.14
   consumers. These remote jobs have been configured, not executed in this local implementation run.
 
-Stable tags retain their version; preview identifiers now map to development releases such as
-0.0.0.dev0+g14b9676e2980. The wheel and sdist include types, shared data, and original reference
+Stable tags retain their version. Preview versions now derive their base from the latest
+reachable official ontology tag, with commit distance and SHA: for example,
+0.26.0-pre.2.ab12cd34ef56 maps to Python 0.26.0.dev2+gab12cd34ef56. One workflow output
+versions both packages and the preview release name/tag; there is no published 0.0.0 fallback. The wheel and sdist include types, shared data, and original reference
 assets. No Node, Jena, or Owlready2 is needed to rebuild the shipped sdist. Local release checks
 are complete; tagging/publication and the remote CI matrix remain separate delivery actions.

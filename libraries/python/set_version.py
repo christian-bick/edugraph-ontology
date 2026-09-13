@@ -9,9 +9,9 @@ def python_version(version: str) -> str:
     """Stable tags stay unchanged; Git previews are development releases with local SHAs."""
     if re.fullmatch(r"\d+\.\d+\.\d+", version):
         return version
-    match = re.fullmatch(r"(\d+\.\d+\.\d+)-pre\.([0-9a-f]+)", version)
+    match = re.fullmatch(r"(\d+\.\d+\.\d+)-pre\.(?:(\d+)\.)?([0-9a-f]+)", version)
     if match:
-        return f"{match[1]}.dev0+g{match[2]}"
+        return f"{match[1]}.dev{match[2] or '0'}+g{match[3]}"
     raise ValueError(f"Unsupported release identifier: {version}")
 
 

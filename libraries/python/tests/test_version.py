@@ -11,6 +11,7 @@ def test_versions():
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     assert module.python_version("0.26.0") == "0.26.0"
+    assert module.python_version("0.26.0-pre.2.ab12cd34ef56") == "0.26.0.dev2+gab12cd34ef56"
     assert module.python_version("0.0.0-pre.14b9676e2980") == "0.0.0.dev0+g14b9676e2980"
     with pytest.raises(ValueError):
         module.python_version("arbitrary version")
