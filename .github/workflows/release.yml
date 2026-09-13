@@ -36,9 +36,10 @@ jobs:
 
       - name: Create tarball
         run: |
-          cd dist
-          tar -czvf ../edugraph-ts.tgz typescript
-          cd ..
+          cd dist/typescript
+          npm pack --pack-destination ../..
+          cd ../..
+          mv edugraph-ts-${{ env.PACKAGE_VERSION }}.tgz edugraph-ts.tgz
 
       - name: Set Python Asset Paths
         run: |

@@ -72,4 +72,3 @@ export function assessOntologySources(sources: readonly OntologySource[]): Sourc
 export type SourceAssessment = OntologyAssessment | Readonly<{
   status: "input-error"; error: OntologyParseError; findings: readonly []; checks: readonly [];
 }>;
-

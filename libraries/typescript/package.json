@@ -9,7 +9,8 @@
     "test": "node dist/test.js && node dist/validation.test.js && node dist/documentation-validation.test.js && node dist/rdf.test.js && node dist/core.test.js && node dist/assessment.test.js",
     "validate:ontology": "node dist/validate-ontology.js",
     "validate:docs": "node dist/validate-documentation.js",
-    "build:core": "tsc -p tsconfig.core.json"
+    "build:core": "tsc -p tsconfig.core.json",
+    "build:snapshot": "tsc -p tsconfig.snapshot.json"
   },
   "dependencies": {
     "n3": "^2.0.1"
@@ -17,7 +18,8 @@
   "devDependencies": {
     "@types/n3": "^1.26.1",
     "@types/node": "^24.5.1",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "esbuild": "^0.25.0"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,46 @@
   },
   "homepage": "https://github.com/EduGraph/edugraph-ontology#readme",
   "files": [
-    "dist"
-  ]
+    "dist",
+    "!dist/*.test.*",
+    "!dist/test.*",
+    "!dist/generate-snapshot.*",
+    "!dist/package-docs.*",
+    "references",
+    "RULES.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./core": {
+      "types": "./dist/core.d.ts",
+      "default": "./dist/core.js"
+    },
+    "./rdf": {
+      "types": "./dist/rdf.d.ts",
+      "default": "./dist/rdf.js"
+    },
+    "./generated": {
+      "types": "./dist/generated.d.ts",
+      "default": "./dist/generated.js"
+    },
+    "./references/*": "./references/*",
+    "./RULES.md": "./RULES.md",
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "core": [
+        "dist/core.d.ts"
+      ],
+      "rdf": [
+        "dist/rdf.d.ts"
+      ],
+      "generated": [
+        "dist/generated.d.ts"
+      ]
+    }
+  }
 }

@@ -51,18 +51,14 @@ COPY --from=ontology-formats /opt/app/core-abilities.ttl /ontology/core-abilitie
 COPY --from=ontology-formats /opt/app/core-areas-math.ttl /ontology/core-areas-math.ttl
 COPY --from=ontology-formats /opt/app/core-scopes-math.ttl /ontology/core-scopes-math.ttl
 COPY ./libraries/typescript/package.json ./package.json
-COPY ./libraries/typescript/tsconfig.json ./tsconfig.json
-COPY ./libraries/typescript/test.ts ./test.ts
+COPY ./libraries/typescript/tsconfig*.json ./
 COPY ./libraries/typescript/*.ts ./
-COPY ./libraries/typescript/tsconfig.core.json ./tsconfig.core.json
-COPY ./libraries/typescript/DocumentationValidation.ts ./DocumentationValidation.ts
-COPY ./libraries/typescript/validate-ontology.ts ./validate-ontology.ts
-COPY ./libraries/typescript/validate-documentation.ts ./validate-documentation.ts
-COPY ./libraries/typescript/validation.test.ts ./validation.test.ts
-COPY ./libraries/typescript/documentation-validation.test.ts ./documentation-validation.test.ts
 COPY ./libraries/typescript/README.md ./README.md
 
 RUN npm install
+RUN npm run build:core
+RUN npm run build:snapshot
+RUN node bootstrap/generate-snapshot.js BundledSnapshot.ts /ontology/core-schema.ttl /ontology/core-abilities.ttl /ontology/core-areas-math.ttl /ontology/core-scopes-math.ttl
 RUN npm run build
 RUN npm test
 RUN npm run validate:ontology -- /ontology/core-schema.ttl /ontology/core-abilities.ttl /ontology/core-areas-math.ttl /ontology/core-scopes-math.ttl
@@ -73,6 +69,9 @@ COPY ./src /repository/src
 COPY ./libraries /repository/libraries
 COPY ./core-schema.ttl ./core-abilities.ttl ./core-areas-math.ttl ./core-scopes-math.ttl /repository/
 RUN npm run validate:docs -- /repository /ontology/core-schema.ttl /ontology/core-abilities.ttl /ontology/core-areas-math.ttl /ontology/core-scopes-math.ttl
+
+RUN node dist/package-docs.js /repository .
+RUN npm pack --pack-destination /tmp && node dist/package.test.js /tmp/edugraph-ts-0.0.0.tgz
 
 FROM ghcr.io/astral-sh/uv:python3.13-alpine AS python-builder
 
@@ -100,5 +99,7 @@ COPY --from=ontology-formats ${JENA_HOME_DIR}/core-ontology-math.rdf core-ontolo
 COPY --from=typescript-compiler /app/typescript/dist ./typescript/dist
 COPY --from=typescript-compiler /app/typescript/package.json ./typescript/package.json
 COPY --from=typescript-compiler /app/typescript/README.md ./typescript/README.md
+COPY --from=typescript-compiler /app/typescript/references ./typescript/references
+COPY --from=typescript-compiler /app/typescript/RULES.md ./typescript/RULES.md
 
 COPY --from=python-builder /app/python/dist ./python/dist

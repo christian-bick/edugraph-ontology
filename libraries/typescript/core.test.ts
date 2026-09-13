@@ -45,5 +45,16 @@ const constraints = createOntologyContext([...schema,
 strictEqual(constraints.incompatible("small", "large"), true);
 deepStrictEqual(constraints.deductCompatible(["medium", "large"]), []);
 deepStrictEqual(constraints.deductAdmitting(["medium"]), ["medium", "small"]);
+const definitionProperty = "http://www.w3.org/2000/01/rdf-schema#isDefinedBy";
+const oldVersion = createOntologyContext([...base, { ...fact(parent, definitionProperty, "Original"), objectKind: "Literal" }]);
+const newVersion = createOntologyContext([...base, { ...fact(parent, definitionProperty, "Revised"), objectKind: "Literal" }, fact("https://new.example/Concept", type, E + "Scope")]);
+deepStrictEqual(oldVersion.lookupDescriptor(parent)?.definitions, ["Original"]);
+deepStrictEqual(newVersion.lookupDescriptor(parent)?.definitions, ["Revised"]);
+strictEqual(oldVersion.lookupDescriptor("https://new.example/Concept"), undefined);
+strictEqual(newVersion.lookupDescriptor("https://new.example/Concept")?.dimensions[0], E + "Scope");
+throws(() => {
+  // @ts-expect-error Snapshot records cannot be changed through the public context.
+  edited.statements[0].object = "changed";
+});
 console.log("Snapshot isolation, navigation, eligibility and deduction tests passed.");
 

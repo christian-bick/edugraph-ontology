@@ -9,9 +9,30 @@ const SUBPROPERTY = "http://www.w3.org/2000/01/rdf-schema#subPropertyOf";
 const compare = (a: string, b: string): number => a < b ? -1 : a > b ? 1 : 0;
 
 /** Full-IRI schema contracts; names are convenience keys, never navigation identities. */
-export const RELATION_IRIS: Readonly<Record<string, string>> = Object.freeze(Object.fromEntries(
-  RELATION_SCHEMA_CONTRACT.inverses.flatMap(c => [[c.primary, EDU + c.primary], [c.inverse, EDU + c.inverse]]),
-));
+export const RELATION_IRIS = Object.freeze({
+  structures: EDU + "structures",
+  structuredBy: EDU + "structuredBy",
+  partOf: EDU + "partOf",
+  hasPart: EDU + "hasPart",
+  specializes: EDU + "specializes",
+  specializedBy: EDU + "specializedBy",
+  constrains: EDU + "constrains",
+  constrainedBy: EDU + "constrainedBy",
+  implies: EDU + "implies",
+  impliedBy: EDU + "impliedBy",
+  contradicts: EDU + "contradicts",
+  contradictedBy: EDU + "contradictedBy",
+  expands: EDU + "expands",
+  expandedBy: EDU + "expandedBy",
+  inverts: EDU + "inverts",
+  invertedBy: EDU + "invertedBy",
+  integrates: EDU + "integrates",
+  integratedBy: EDU + "integratedBy",
+  translates: EDU + "translates",
+  translatedBy: EDU + "translatedBy",
+  involves: EDU + "involves",
+  involvedBy: EDU + "involvedBy",
+});
 /** Required inverse/subproperty declarations expressed entirely as IRIs. */
 export const IRI_SCHEMA_CONTRACT = Object.freeze({
   inverses: Object.freeze(RELATION_SCHEMA_CONTRACT.inverses.map(c => Object.freeze({
@@ -65,7 +86,7 @@ function copyStatement(input: OntologyStatement | RdfStatement): OntologyStateme
  * context after edits. All indexes belong to this instance; returned records are frozen.
  */
 export class OntologyContext {
-  readonly statements: readonly OntologyStatement[];
+  readonly statements: readonly Readonly<OntologyStatement>[];
   private readonly inventory = new Map<string, DescriptorRecord>();
   private readonly authoredIndex: Adjacency = new Map();
   private readonly entailedIndex: Adjacency = new Map();
@@ -103,13 +124,14 @@ export class OntologyContext {
       for (const inv of inverse.get(p) ?? []) queue.push([o, inv, s]);
       for (const parent of parents.get(p) ?? []) queue.push([s, parent, o]);
     }
+    Object.freeze(this);
   }
   /** Resolve an explicitly typed descriptor by full IRI; absence returns undefined. */
   lookupDescriptor(iri: string): DescriptorRecord | undefined { return this.inventory.get(iri); }
   /** Inventory sorted by full IRI. Records contain no generated-enum assumptions. */
   descriptors(): readonly DescriptorRecord[] { return Object.freeze([...this.inventory.values()].sort((a, b) => compare(a.iri, b.iri))); }
   /** Original facts, including literals, source references, and retained RDF graph terms. */
-  authoredAssertions(iri?: string): readonly OntologyStatement[] {
+  authoredAssertions(iri?: string): readonly Readonly<OntologyStatement>[] {
     return iri === undefined ? this.statements : Object.freeze(this.statements.filter(s => s.subject === iri));
   }
   /** Direct unique targets, sorted by IRI. Entailed access adds only declared inverses/subproperties. */

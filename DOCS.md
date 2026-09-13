@@ -60,7 +60,7 @@ graph TD
      ```
 2. **Stage 2 (`python-code-gen`)**:
    - Sets up Python 3.13 via `astral-sh/uv`.
-   - Runs [generate-ts.py](src/ontology/generate-ts.py) and [generate-py.py](src/ontology/generate-py.py), which read the compiled RDF, extract individuals for `Area`, `Scope`, and `Ability`, and write enums, definitions, relation maps, and helper functions into `dist/typescript` and `dist/python/src/edugraph` respectively.
+   - Runs [generate-ts.py](src/ontology/generate-ts.py) and [generate-py.py](src/ontology/generate-py.py), which read the compiled RDF, extract individuals for `Area`, `Scope`, and `Ability`, and write generated client data into `dist/typescript` and `dist/python/src/edugraph` respectively. TypeScript relation helpers are maintained adapters over the shared core; a separate bootstrap step generates its bundled snapshot from authored Turtle.
 3. **Stage 3 (`typescript-compiler`)**:
    - Installs node dependencies, compiles the generated TypeScript with `tsc`, runs the client
      relation tests, validates the ontology source rules, and checks documentation references.
@@ -277,3 +277,27 @@ truth of scholarly claims. Use [change review](docs/change-review.md#ont-w3--ver
 for that semantic review. [Consolidation tracking](docs/plan/ontology-consolidation.md) holds open
 definition and inference decisions; the [algorithmic check inventory](docs/plan/automated-rule-checks.md)
 states the exact automated boundary.
+
+
+### 6.7 Shared snapshot APIs and package verification
+
+The TypeScript package exposes `edugraph-ts/core`, `edugraph-ts/rdf`, and
+`edugraph-ts/generated`. See the [package API guide](libraries/typescript/README.md#6-supplied-snapshots-and-portable-imports)
+for supplied snapshots, query semantics, explicit assessments, and compatibility adapters.
+The root import remains available. Python remains a generated descriptor/relation client.
+
+The Docker build compiles the parser-independent core separately, bootstraps the authored
+TypeScript snapshot, builds both clients, and runs their tests. It then copies original rule
+and supporting documents into `references/`, creates an npm tarball, and tests that artifact's
+public exports, declarations, parser-free core import, browser bundles, and document links.
+The release workflow also uses `npm pack` so the tested inclusion rules govern released assets.
+
+Browser checks bundle the actual core and parser exports and execute them in a sandbox providing
+browser globals without Node filesystem/process access. They are focused integration smoke tests,
+not a complete browser or editor test suite. The editor's model projection and serializer remain
+in its repository; its reviewed parser boundary uses N3 terms and deliberately filters inverse
+predicates from the editable model. The shared parser retains those assertions for validation.
+
+The [implementation record](docs/plan/shared-typescript-library-implementation.md) tracks coverage
+and deferred performance evidence. Full validation remains the default; no delta-validation or
+mutable editor-state API is introduced.

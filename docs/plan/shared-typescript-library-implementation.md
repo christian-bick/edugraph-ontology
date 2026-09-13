@@ -1,7 +1,7 @@
 # Shared TypeScript library implementation plan
 
-Status: planned, based on a source review of `ceeebce` and the requirements committed in
-`5ea52e5` on 2026-09-13. No library implementation changes are included in this plan.
+Status: batches 1-5 implemented on 2026-09-13; final delivery verification is recorded below.
+The baseline review used `ceeebce` and requirements commit `5ea52e5`. Batch 6 remains deferred.
 
 [Shared library requirements](shared-typescript-library.md) define the requested capabilities.
 The authoring references remain authoritative, especially ONT-E7, ONT-S3 through ONT-S5,
@@ -9,7 +9,7 @@ and ONT-R1 through ONT-R5. This plan changes library access and assessment contr
 ontology semantics. The [automated-check inventory](automated-rule-checks.md) remains the
 record of existing rule coverage.
 
-## Current coverage
+## Baseline coverage
 
 **Fulfilled** means the stated capability exists in source; it does not certify a released
 artifact or a downstream integration. **Partial** means useful implementation can be retained,
@@ -182,3 +182,44 @@ justify any further optimization. Incremental validation and cross-snapshot reus
   classifier policy, content evidence, and adoption workflows in their owning repositories.
 - This plan contains no new progression propagation, semantic rename/diff engine, partial-ontology
   subsystem, or new descriptor/cardinality rule. Unresolved meaning stays in consolidation.
+
+
+## Implementation and verification record
+
+Batches 1-5 retain the original rule implementation and add typed public boundaries:
+
+- `core` builds independently; `rdf` preserves terms and reports source-associated errors;
+  `generated` exposes released enums and adapters using one bundled context. Root APIs remain
+  compatibility wrappers. The package README documents migration and sorted query outputs.
+- Contexts copy input, expose frozen records, and keep indexes isolated. Tests cover unpublished
+  IRIs, distinct definitions/entities across snapshots, authored/derived access, incoming child
+  eligibility, unknown descriptors, traversal, and existing deduction operations.
+- `assessOntology` reports explicit per-check outcomes with full-IRI references and structured
+  sources. Tests cover ordering skips, independent failures, alternate-path ordering, duplicate
+  source assertions, namespace collisions, and CLI parse failures.
+- Generated TypeScript algorithm templates were replaced with maintained core adapters. The
+  original authored Turtle supplies the bundled snapshot; expanded maps are not treated as
+  authored assertions. Python retains its descriptor/relation client and regression tests.
+- Docker packages original references and verifies the npm artifact's exports, declarations,
+  parser-free core imports, browser bundles, document links, and selected adapter equivalence.
+  Release packaging uses the same npm inclusion rules.
+
+Editor compatibility review inspected `src/infrastructure/rdf/ontology-parser.ts`,
+`ontology-serializer.ts`, and `ontology-rdf.test.ts` in the sibling editor repository. Both
+parsers use N3 and supplied text. The editor's model intentionally discards inverse predicates,
+keeps selected definitions/examples, and regenerates headers on serialization. Those are
+consumer projection policies: the shared parser preserves all source assertions. Its immutable
+term records are not N3 Quad instances (literal datatype is an IRI string), so adoption requires
+an explicit projection/type adapter and rerunning the editor's roundtrip suite. No editor files
+were changed and no downstream migration is claimed. The source review prerequisite is complete.
+
+The new library tests are part of the Docker gate. Browser smoke tests execute bundled code with
+browser globals in a sandbox; they do not replace downstream UI tests. Performance/work-counter
+coverage from batch 6 remains open and does not block the requested batches 1-5 release scope.
+Incremental validation remains optional and unimplemented.
+
+
+Verification on 2026-09-13: `docker build . --output dist` passed, including TypeScript core and
+full builds, Python client build/tests, existing and new functional suites, repository ontology
+and documentation gates, and the packed artifact checks above. Batches 1-5 are ready for release;
+no version tag or publication is part of this implementation run.

@@ -6,15 +6,15 @@ const OWL_INVERSE_OF = "http://www.w3.org/2002/07/owl#inverseOf";
 const RDFS_SUBPROPERTY_OF = "http://www.w3.org/2000/01/rdf-schema#subPropertyOf";
 
 interface InverseContract {
-  primary: string;
-  inverse: string;
-  ruleId: "ONT-S3" | "ONT-R1";
+  readonly primary: string;
+  readonly inverse: string;
+  readonly ruleId: "ONT-S3" | "ONT-R1";
 }
 
 interface SubpropertyContract {
-  property: string;
-  parent: string;
-  ruleId: "ONT-S3" | "ONT-R1";
+  readonly property: string;
+  readonly parent: string;
+  readonly ruleId: "ONT-S3" | "ONT-R1";
 }
 
 const relation = (name: string): string => `${EDU}${name}`;
@@ -32,7 +32,7 @@ export const RELATION_SCHEMA_CONTRACT = {
     ["integrates", "integratedBy", "ONT-R1"],
     ["translates", "translatedBy", "ONT-R1"],
     ["involves", "involvedBy", "ONT-R1"],
-  ].map(([primary, inverse, ruleId]) => ({ primary, inverse, ruleId })) as InverseContract[],
+  ].map(([primary, inverse, ruleId]) => ({ primary, inverse, ruleId })) as readonly InverseContract[],
   subproperties: [
     ["partOf", "structures", "ONT-S3"],
     ["specializes", "structures", "ONT-S3"],
@@ -46,7 +46,7 @@ export const RELATION_SCHEMA_CONTRACT = {
     ["invertedBy", "expandedBy", "ONT-R1"],
     ["translates", "integrates", "ONT-R1"],
     ["translatedBy", "integratedBy", "ONT-R1"],
-  ].map(([property, parent, ruleId]) => ({ property, parent, ruleId })) as SubpropertyContract[],
+  ].map(([property, parent, ruleId]) => ({ property, parent, ruleId })) as readonly SubpropertyContract[],
 } as const;
 
 export const PRIMARY_RELATION_FAMILIES = {
@@ -54,6 +54,15 @@ export const PRIMARY_RELATION_FAMILIES = {
   progression: ["expands", "inverts", "integrates", "translates"],
   constraints: ["constrains", "implies", "contradicts"],
 } as const;
+
+// Exported policy contracts are immutable, including their nested records.
+for (const contract of RELATION_SCHEMA_CONTRACT.inverses) Object.freeze(contract);
+for (const contract of RELATION_SCHEMA_CONTRACT.subproperties) Object.freeze(contract);
+Object.freeze(RELATION_SCHEMA_CONTRACT.inverses);
+Object.freeze(RELATION_SCHEMA_CONTRACT.subproperties);
+Object.freeze(RELATION_SCHEMA_CONTRACT);
+for (const family of Object.values(PRIMARY_RELATION_FAMILIES)) Object.freeze(family);
+Object.freeze(PRIMARY_RELATION_FAMILIES);
 
 interface DirectedRelationEdge {
   from: string;
