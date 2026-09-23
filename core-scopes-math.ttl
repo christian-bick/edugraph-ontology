@@ -1144,10 +1144,6 @@
     rdfs:isDefinedBy "Involves a stop watch.";
     edu:integrates :HourIntervals, :MillisecondIntervals, :MinuteIntervals, :SecondIntervals;
     edu:partOf :TimeMeasurement.
-:SubtractiveCount a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Counts manifested objects by counting what's missing.";
-    edu:inverts :AdditiveCount;
-    edu:specializes :QuantityMeasurement.
 :Sunclock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Involves a sun clock.";
     edu:integrates :HourIntervals;
