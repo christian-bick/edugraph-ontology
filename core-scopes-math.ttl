@@ -524,7 +524,7 @@
     edu:expands :TileScale;
     edu:partOf :AreaAbstraction.
 :MetricDistanceScale a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Involves distances expressed in meters.";
+    rdfs:isDefinedBy "Involves distances expressed in metric units of length.";
     edu:expands :SegmentScale;
     edu:partOf :DistanceAbstraction.
 :MetricVolumeScale a owl:NamedIndividual, edu:Scope;

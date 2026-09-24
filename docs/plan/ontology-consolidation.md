@@ -10,13 +10,19 @@ and Git history.
 
 ### 1. Review measurement family definitions
 
-`MetricDistanceScale` currently says “Involves distances expressed in meters.”
-`MeterScale` has the same definition, while `CentimeterScale` and `MillimeterScale`
-also specialize the family. The family wording describes just one member.
+Implemented; pending merge and release. `MetricDistanceScale` now says “Involves distances
+expressed in metric units of length.” Its previous wording described only meters.
 
-Review the family and its unit children together. Define the shared metric-distance context
-without erasing the concrete unit distinctions. This is a definition review, not evidence that
-the family must become unusable or that labels must always be leaves.
+Reviewed all seven direct specializations: `CentimeterScale`, `DecimeterScale`, `KilometerScale`,
+`MeterScale`, `MicrometerScale`, `MillimeterScale`, and `NanometerScale`. Their definitions retain
+the concrete unit distinctions and each preserves the broader family meaning. For example,
+3 centimeters supports `CentimeterScale` and the family claim; 3 inches does not support this
+metric family, and 3 square meters describes area rather than distance.
+
+Identifiers, unit definitions, relations, and labeling eligibility are unchanged. The family
+remains usable when only metric length units are established; use a concrete unit when the
+evidence supports it. Consumers interpreting the old family definition as meter-only should
+review those uses when adopting the corrected definition.
 
 Source: [core-scopes-math.ttl](../../core-scopes-math.ttl).
 Rules: ONT-D4, ONT-E3, ONT-S2.
