@@ -29,14 +29,16 @@ Rules: ONT-D4, ONT-E3, ONT-S2.
 
 ### 2. Reconcile numeric boundary definitions and contradictions
 
-`NumbersSmaller10` says absolute value is less than or equal to 10.
-`NumbersLarger10` says it is greater than or equal to 10. Both include the endpoint,
-yet they contradict each other.
+Resolved by clarifying the intended relation semantics in
+[ONT-R2](../relations.md#ont-r2--interpret-constraints-at-the-descriptor-level).
+Inclusive endpoints and the existing numeric contradiction assertions are intentional.
+`NumbersSmaller10` and `NumbersLarger10` both include magnitude 10; their contradiction
+concerns the opposing educational ranges, not exclusion of the shared boundary value.
 
-Test the exact endpoints and review the rest of the bound families before changing a definition
-or relation. Decide how endpoints and the set of covered quantities should work; then align
-definitions, deduction helpers, and examples. A passing deduction test does not resolve a mismatch
-between its encoded exclusion and the prose definitions.
+Keep the current definitions, relation assertions, and deduction behavior. Exact interval
+intersection and a separate relation for opposite bounds are not required. The schema and helper
+documentation now explain partial conflict at the descriptor level. The separate question of
+which quantities a particular content annotation covers remains subject to ONT-D4 and ONT-E4.
 
 Source: [core-scopes-math.ttl](../../core-scopes-math.ttl).
 Rules: ONT-D4, ONT-R2.

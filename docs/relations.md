@@ -53,14 +53,24 @@ facts. An inverse property provides reverse access; it does not make a directed 
 Progression is a family name here, not a declared `progresses` property; the constraint parent
 property is named `constrains`.
 
-## ONT-R2 — Logical constraints concern truth
+## ONT-R2 — Interpret constraints at the descriptor level
 
-Use `A implies B` when A logically guarantees B, and `A contradicts B` when the two
-claims cannot both be true. `constrains` groups these logical relations.
+Use `A implies B` when A logically guarantees B. Use `A contradicts B` when the requirements
+represented by A and B conflict, wholly or partially. `constrains` groups these relations.
+Describe the conflict at the level of the concepts; contradiction need not make every possible
+instance mutually exclusive.
 
-A tighter upper bound can imply a looser upper bound. Whether two numeric bounds contradict
-depends on their exact definitions, including the endpoints. Test a value on each boundary
-before asserting exclusion.
+For example, `NumbersSmaller10` and `NumbersLarger10` describe opposing number ranges, with
+absolute values at most 10 and at least 10 respectively. Both intentionally include magnitude 10:
+educational progression commonly includes an endpoint in both adjacent ranges. Their recorded
+contradiction expresses a partial conflict between the ranges themselves, not exclusion of the
+shared boundary. Keep the inclusive definitions; the relation does not assert an empty
+mathematical intersection.
+
+A tighter upper bound can still imply a looser upper bound. Review definitions and boundary
+examples together to explain a contradiction, rather than requiring strict inequalities or
+separate endpoint labels. Different or overlapping ranges alone do not establish a contradiction;
+the asserted relation must express an intended conflict.
 
 These relations do not express teaching order or frequent co-occurrence.
 Missing relations do not prove that two claims are incompatible.
@@ -68,6 +78,8 @@ Missing relations do not prove that two claims are incompatible.
 When checking compatibility, consider implication before contradiction: a consequence of A can
 contradict B even when A has no direct contradiction edge to B. Use the documented client
 helpers in [DOCS.md](../DOCS.md#64-deduction-helpers-constraint-expansion) for their implemented behavior.
+They honor recorded exclusions, including partial range conflicts, rather than computing exact
+interval intersections.
 
 ## ONT-R3 — State the conceptual progression precisely
 
@@ -140,7 +152,7 @@ competency descriptions must handle those schema relations explicitly.
 ## Audit
 
 - [ ] **ONT-R1:** Authored assertions use only primary properties, with at most one relation per family for each directed pair; every choice has a justified meaning and direction.
-- [ ] **ONT-R2:** Implication and contradiction follow the definitions, including boundary cases.
+- [ ] **ONT-R2:** Implication follows the definitions; every contradiction has a justified conflict at the descriptor level, with any intentionally shared boundary cases explained.
 - [ ] **ONT-R3:** Progression expresses a specific conceptual relationship rather than an assumed teaching sequence; the combined progression graph has no self-edge or cycle, including mixed-relation cycles, after inverse normalization.
 - [ ] **ONT-R4:** Any inference names its rule and does not confuse traversal with entailment.
 - [ ] **ONT-R5:** Competency composition remains open, conjunctive, and separate from structural organization.

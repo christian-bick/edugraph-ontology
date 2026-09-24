@@ -216,14 +216,15 @@ Both libraries expose deduction helpers built on the `implies` and `contradicts`
 They compute label sets from the recorded constraint relations. They do not inspect content or
 establish that every returned label is simultaneously true of it.
 
-- **`deductCompatible(constraints)`** (Python: `deduct_compatible`) — the containment operator. Returns all labels guaranteed to stay within the window spanned by the given constraints: labels at least as strict as one of the constraints and satisfiable with all of them. Constraints compose conjunctively (more constraints → smaller set). For example, the recorded relations produce this set for two numeric constraints:
+- **`deductCompatible(constraints)`** (Python: `deduct_compatible`) — the containment operator. Expands the supplied constraints and filters candidate labels using their recorded contradiction relations. Numeric ranges follow the descriptor-level convention in [ONT-R2](docs/relations.md#ont-r2--interpret-constraints-at-the-descriptor-level), rather than exact interval satisfiability. For example, the recorded relations produce this set for two numeric constraints:
 
   ```typescript
   deductCompatible([Scope.NumbersLargerZero, Scope.NumbersSmaller20])
-  // → [NumbersLargerZero, NumbersLarger10, NumbersSmaller10, NumbersSmaller20]
+  // Contains: NumbersLargerZero, NumbersLarger5, NumbersLarger10,
+  //           NumbersSmaller5, NumbersSmaller10, NumbersSmaller20
   ```
 
-- **`deductAdmitting(boundaries)`** (Python: `deduct_admitting`) — the reachability operator. Returns all labels that *admit* content crossing any of the given boundaries: the boundary and every label implying it (content must cross the line) plus the weakenings of the boundary's contradiction partners (bounds loose enough that content may cross the line). Boundaries compose disjunctively (more boundaries → larger set). For example, expanding the `NumbersLarger10` boundary gives:
+- **`deductAdmitting(boundaries)`** (Python: `deduct_admitting`) — the reachability operator. Returns each boundary label, every label implying it, and the weakenings of its recorded contradiction partners. For numeric ranges this supports excluding ranges that admit values beyond a supported boundary; a shared endpoint does not remove the exclusion. Boundaries compose disjunctively (more boundaries → larger set). For example, expanding the `NumbersLarger10` boundary gives:
 
   ```typescript
   deductAdmitting([Scope.NumbersLarger10])
@@ -236,15 +237,25 @@ establish that every returned label is simultaneously true of it.
 For an upper boundary such as `NumbersLarger10`, `deductAdmitting` does not return the pure
 lower-bound label `NumbersLargerZero`. This helper follows recorded implication and contradiction
 paths; it is not a general numerical solver. Interpret its results against the definitions and
-relations, including the [numeric-boundary review](docs/plan/ontology-consolidation.md#2-reconcile-numeric-boundary-definitions-and-contradictions).
+relations, including the inclusive-range example in
+[ONT-R2](docs/relations.md#ont-r2--interpret-constraints-at-the-descriptor-level).
 
-#### Satisfiability Primitive
+#### Recorded incompatibility
 
-Both deduction helpers are built on a shared satisfiability check, also exported for direct use:
+The libraries also expose a check for incompatibility under the recorded relations:
 
-- **`incompatible(a, b)`** (Python: `incompatible`) — returns `true` when two labels cannot be jointly satisfied: some label in `a`'s `implies` closure contradicts some label in `b`'s `implies` closure. This composition is necessary because `contradictsTransitive` alone only closes over contradiction edges and misses far-apart unsatisfiable pairs — e.g. `NumbersSmaller10` and `NumbersLarger100` have no direct contradiction edge, but `NumbersSmaller10` implies `NumbersSmaller100`, which contradicts `NumbersLarger100`. Prefer `incompatible` over ad hoc `contradictsTransitive` checks whenever satisfiability (not just direct/transitive contradiction) is the actual question.
+- **`incompatible(a, b)`** (Python: `incompatible`) — returns `true` when some label in `a`'s `implies` closure contradicts some label in `b`'s `implies` closure, including each input label itself. This composition detects indirect exclusions that `contradictsTransitive` alone misses: `NumbersSmaller10` implies `NumbersSmaller100`, which contradicts `NumbersLarger100`. Prefer `incompatible` when checking recorded incompatibility through implications.
 
-Internally, `deductCompatible` and `deductAdmitting` also rely on `isBoundTyped` (not exported) to decide whether a constraint should traverse `impliedByTransitive` (bound-typed labels, whose implication family contains a contradiction edge, e.g. `NumbersSmaller20`) or `impliesTransitive` (contradiction-free labels, e.g. `Area.Addition`). This replaced an earlier implementation that matched on the substrings `"Smaller"`/`"Larger"` in the label name — `isBoundTyped` is derived purely from the relation graph and generalizes to any future bound-typed dimension without a source-code change.
+For example, `incompatible(NumbersSmaller10, NumbersLarger10)` is `true`, and
+`deductCompatible([NumbersSmaller10, NumbersLarger10])` is empty. These results retain the
+declared conflict between the ranges; they do not make magnitude 10 invalid under either
+individual label or assert that their mathematical intersection is empty.
+
+Internally, `deductCompatible` detects bound-like constraints from contradiction edges in their
+implication family. It expands those constraints through `impliedBy`, and contradiction-free
+constraints through `implies`. `deductAdmitting` follows `impliedBy` from each boundary and
+`implies` from its contradiction partners. Neither helper parses label names, definitions, or
+generated content to decide endpoint membership.
 
 
 ### 6.5 Traversal and inference boundaries

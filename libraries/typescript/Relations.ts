@@ -101,7 +101,7 @@ export function transitiveClosure(descriptor: CompetencyDescriptor, relation: Re
 }
 /** Structural eligibility only; unknown runtime IRIs throw instead of receiving a positive answer. */
 export function isLabelEligible(descriptor: CompetencyDescriptor): boolean { return bundledContext.isLabelEligible(descriptor); }
-/** Existing implication/contradiction satisfiability; not a general logical solver. */
+/** Recorded implication/contradiction incompatibility; shared range endpoints do not override exclusions. */
 export function incompatible(a: CompetencyDescriptor, b: CompetencyDescriptor): boolean { return bundledContext.incompatible(a, b); }
 /** Existing conjunctive compatible-label deduction via the shared core. */
 export function deductCompatible(constraints: CompetencyDescriptor[]): CompetencyDescriptor[] { return descriptors(bundledContext.deductCompatible(constraints)); }

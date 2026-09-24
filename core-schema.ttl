@@ -26,7 +26,7 @@ edu:constrains rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:domain edu:CompetencyEntity ;
                rdfs:range edu:CompetencyEntity ;
-               rdfs:isDefinedBy "A constrains B when the truth of A logically restricts or determines the truth of B. This is to be understood purely logically rather than pedagogically." .
+               rdfs:isDefinedBy "A constrains B when the requirements represented by A restrict or determine compatibility with B. These relations concern constraints on the described concepts, rather than teaching order." .
 
 
 ###  http://edugraph.io/edu#contradictedBy
@@ -42,7 +42,8 @@ edu:contradicts rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf edu:constrains ;
                 rdfs:domain edu:CompetencyEntity ;
                 rdfs:range edu:CompetencyEntity ;
-                rdfs:isDefinedBy "A contradicts B when the truth of A logically excludes the truth of B." .
+                rdfs:isDefinedBy "A contradicts B when the requirements represented by A and B conflict, wholly or partially. The conflict is interpreted at the level of the described concepts, rather than requiring every possible instance to be mutually exclusive." ;
+                rdfs:comment "For example, NumbersSmaller10 and NumbersLarger10 describe opposing inclusive number ranges. Both include numbers of magnitude 10, as shared endpoints are useful in educational progression. Their contradiction concerns the ranges themselves, not exclusion of the shared boundary value." .
 
 
 ###  http://edugraph.io/edu#expandedBy
