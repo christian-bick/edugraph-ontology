@@ -131,7 +131,7 @@ Keep these questions separate from a passing structural check:
 - whether `specializes` truly preserves meaning, or `partOf` expresses a conceptual constituent;
 - whether a descriptor belongs in Area, Scope, or Ability, and whether its definition is useful;
 - whether content supports an eligible label, including absence and justification claims;
-- whether numeric definitions and contradiction edges agree at exact boundaries;
+- whether contradiction assertions express a justified conflict under ONT-R2, including intentionally shared numeric endpoints;
 - which progression assertions are correct and what future propagation rules should be.
 
 The existing constraint helpers can be regression-tested against their documented operations now.

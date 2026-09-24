@@ -170,7 +170,7 @@ export class OntologyContext {
     ])].sort(compare));
   }
   private readonly incomingParts = new Map<string, Set<string>>();
-  /** Recorded implication/contradiction satisfiability; not a numeric or general logical solver. */
+  /** Recorded implication/contradiction incompatibility; shared range endpoints do not override exclusions. */
   incompatible(a: string, b: string): boolean {
     const targets = new Set([b, ...this.traverse(b, EDU + "implies")]);
     return [a, ...this.traverse(a, EDU + "implies")].some(x => this.related(x, EDU + "contradicts").some(y => targets.has(y)));
