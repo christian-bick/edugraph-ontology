@@ -12,7 +12,7 @@ and Git history.
 
 Resolved. `MetricDistanceScale` covers distances expressed in metric units of length.
 Its previous wording described only meters. The
-[definition normalization change](../releases/unreleased-definition-normalization.md)
+[definition normalization change](../releases/v0.28.0.md)
 preserves that correction and applies the reusable text convention.
 
 Reviewed all seven direct specializations: `CentimeterScale`, `DecimeterScale`, `KilometerScale`,
@@ -78,7 +78,7 @@ Rules: ONT-D4, ONT-S2, ONT-W2.
 ### 5. Adopt the revised definition and comment text
 
 Review definition-dependent annotations, prompts, and model inputs when adopting the
-[normalized text](../releases/unreleased-definition-normalization.md). Identifiers and graph
+[normalized text](../releases/v0.28.0.md). Identifiers and graph
 edges are unchanged, but clarified definitions and revised examples can affect interpretation.
 Application-specific rendering and dataset changes belong in their owning repositories.
 

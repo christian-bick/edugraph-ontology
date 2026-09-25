@@ -130,7 +130,7 @@ The definition and comment format in
 [ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries)
 remains an authoring-review requirement. The release gate does not currently enforce sentence
 length, reusable phrasing, or example placement. The focused source audit recorded in the
-[normalization change](../releases/unreleased-definition-normalization.md) is verification of
+[normalization change](../releases/v0.28.0.md) is verification of
 that edit, not a new permanent descriptor-integrity validator.
 
 Keep these questions separate from a passing structural check:
