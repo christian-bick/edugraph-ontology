@@ -75,7 +75,8 @@ a concept's importance or benefits.
 
 Write example content directly in the comment, without a "For example:" prefix. A comment may
 be an example list, supporting explanation, or examples followed by explanation. Keep its
-content understandable on its own. Comments are optional; omit the comment portion of a
+content understandable on its own. Start prose comments with a capital letter; preserve the
+case of leading formulas and mathematical symbols. Comments are optional; omit the comment portion of a
 constructed statement when none is supplied. For Abilities, use concrete examples from
 different subjects where practical. Examples illustrate the definition; they do not replace
 it or change its boundaries.
@@ -128,6 +129,6 @@ and its intended replacement through [change review](change-review.md).
 - [ ] **ONT-D1:** The proposed concept adds a distinction that an existing combination cannot express.
 - [ ] **ONT-D2:** Its dimension follows the knowledge, context, or cognitive performance involved.
 - [ ] **ONT-D3:** An Ability remains usable across subjects and has identifiable content evidence.
-- [ ] **ONT-D4:** The definition has at most two sentences, composes with the generic prefix, and retains exact boundaries; examples appear only in comments without an introductory marker and agree with the concept and its neighbors.
+- [ ] **ONT-D4:** The definition has at most two sentences, composes with the generic prefix, and retains exact boundaries; examples appear only in comments without an introductory marker and agree with the concept and its neighbors. Prose comments start with a capital letter; formulas and mathematical symbols retain their case.
 - [ ] **ONT-D5:** A notation Area describes knowledge of notation, not its incidental presence.
 - [ ] **ONT-D6:** The identifier is valid, unambiguous, and reviewed for effects on existing usage.

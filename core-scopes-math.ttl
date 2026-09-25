@@ -10,29 +10,29 @@
     owl:imports <http://edugraph.io/edu#>.
 :Abacus a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Number representations using movable beads on rods or wires.";
-    rdfs:comment "an arrangement of abacus beads representing 23.";
+    rdfs:comment "An arrangement of abacus beads representing 23.";
     edu:specializes :PhysicalNumbers.
 :Above a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A vertical position higher than a reference point.";
-    rdfs:comment "an object positioned above a marked horizontal line.";
+    rdfs:comment "An object positioned above a marked horizontal line.";
     edu:specializes :SpatialDirection.
 :AbstractionScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Abstract quantities, properties, and relationships used to describe a task's context.";
-    rdfs:comment "numerical values, spatial dimensions, or measurable attributes.".
+    rdfs:comment "Numerical values, spatial dimensions, or measurable attributes.".
 :AdditiveCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Counting objects by successively adding their contributions to an accumulating total.";
-    rdfs:comment "counting a collection one object at a time while increasing the total.";
+    rdfs:comment "Counting a collection one object at a time while increasing the total.";
     edu:specializes :QuantityMeasurement.
 :After a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Identifying a later chronological point or a subsequent position within a sequence.";
     edu:specializes :TemporalDirection.
 :Ahead a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A position farther forward relative to a reference point and an identified direction.";
-    rdfs:comment "an object ahead of another along their direction of travel.";
+    rdfs:comment "An object ahead of another along their direction of travel.";
     edu:specializes :SpatialDirection.
 :AnalogClock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time represented by the positions of hands on a graduated clock dial.";
-    rdfs:comment "an hour hand between 3 and 4 with the minute hand at 6 to show half past three.";
+    rdfs:comment "An hour hand between 3 and 4 with the minute hand at 6 to show half past three.";
     edu:integrates :HalfHourIntervals, :HourIntervals, :MinuteIntervals, :QuarterHourIntervals, :SecondIntervals;
     edu:partOf :TimeMeasurement.
 :AngleCount a owl:NamedIndividual, edu:Scope;
@@ -40,7 +40,7 @@
     edu:specializes :ShapeAttributes.
 :AngleMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Tools and representations used to determine or compare angle measures.";
-    rdfs:comment "reading a protractor scale or using the marked angles of a triangle ruler.";
+    rdfs:comment "Reading a protractor scale or using the marked angles of a triangle ruler.";
     edu:partOf :MeasurementScope.
 :AnteMeridiem a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Times from midnight up to but not including noon, conventionally denoted a.m.";
@@ -59,37 +59,37 @@
     edu:specializes :OrderAbstraction.
 :BalanceScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A device or representation that compares mass by balancing loads on opposing sides.";
-    rdfs:comment "balancing an object against known masses.";
+    rdfs:comment "Balancing an object against known masses.";
     edu:integrates :GramScale, :KilogramScale;
     edu:partOf :WeightMeasurement.
 :Banknotes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Currency represented by paper or polymer notes with stated monetary values.";
-    rdfs:comment "two ten-euro notes used to represent twenty euros.";
+    rdfs:comment "Two ten-euro notes used to represent twenty euros.";
     edu:specializes :CurrencyRepresentation;
     edu:translates :MajorDenomination.
 :BarGraph a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Categorical quantities represented by bars whose lengths or heights encode their values.";
-    rdfs:comment "one bar per category showing the number of votes received.";
+    rdfs:comment "One bar per category showing the number of votes received.";
     edu:specializes :DataRepresentation.
 :Base10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Positional number representations in which successive place values differ by a factor of ten.";
-    rdfs:comment "the numeral 234 represents two hundreds, three tens, and four ones.";
+    rdfs:comment "The numeral 234 represents two hundreds, three tens, and four ones.";
     edu:specializes :NumericBase.
 :Base16 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Positional number representations in which successive place values differ by a factor of sixteen.";
-    rdfs:comment "hexadecimal 1A represents one sixteen and ten ones, or decimal 26.";
+    rdfs:comment "Hexadecimal 1A represents one sixteen and ten ones, or decimal 26.";
     edu:specializes :NumericBase.
 :Base2 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Positional number representations in which successive place values differ by a factor of two.";
-    rdfs:comment "binary 101 represents decimal 5.";
+    rdfs:comment "Binary 101 represents decimal 5.";
     edu:specializes :NumericBase.
 :Base8 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Positional number representations in which successive place values differ by a factor of eight.";
-    rdfs:comment "octal 17 represents decimal 15.";
+    rdfs:comment "Octal 17 represents decimal 15.";
     edu:specializes :NumericBase.
 :BaseTenBlocks a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Number representations using blocks whose sizes model successive base-ten place values.";
-    rdfs:comment "two tens rods and three unit cubes representing 23.";
+    rdfs:comment "Two tens rods and three unit cubes representing 23.";
     edu:specializes :PhysicalNumbers;
     edu:translates :Base10.
 :Before a owl:NamedIndividual, edu:Scope;
@@ -97,22 +97,22 @@
     edu:specializes :TemporalDirection.
 :Behind a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A position farther backward relative to a reference point and an identified direction.";
-    rdfs:comment "an object behind another along their direction of travel.";
+    rdfs:comment "An object behind another along their direction of travel.";
     edu:specializes :SpatialDirection.
 :Below a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A vertical position lower than a reference point.";
-    rdfs:comment "an object positioned below a marked horizontal line.";
+    rdfs:comment "An object positioned below a marked horizontal line.";
     edu:specializes :SpatialDirection.
 :Beside a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A position next to the side of a reference object or point.";
-    rdfs:comment "one object beside another in a row.";
+    rdfs:comment "One object beside another in a row.";
     edu:specializes :SpatialDirection.
 :BoxArrangement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The rectangular positioning and two-dimensional organization of objects.";
     edu:specializes :ObjectArrangement.
 :Calendar a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Dates and time intervals represented through an ordered arrangement of days, weeks, months, and years.";
-    rdfs:comment "finding the number of days between two marked calendar dates.";
+    rdfs:comment "Finding the number of days between two marked calendar dates.";
     edu:integrates :DayIntervals, :MonthIntervals, :WeekIntervals, :YearIntervals;
     edu:partOf :TimeMeasurement.
 :CardinalDirections a owl:NamedIndividual, edu:Scope;
@@ -120,7 +120,7 @@
     edu:specializes :CompassDirections.
 :CartesianCoordinateSystem a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Positions or relationships represented relative to perpendicular coordinate axes with defined origins and scales.";
-    rdfs:comment "locating a point from its horizontal and vertical coordinates.";
+    rdfs:comment "Locating a point from its horizontal and vertical coordinates.";
     edu:integrates :Numberline;
     edu:specializes :VisualGeometry;
     edu:translates :ThreeDimensional, :TwoDimensional.
@@ -136,7 +136,7 @@
     edu:specializes :ObjectArrangement.
 :Coins a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Currency represented by physical or depicted coins with stated monetary values.";
-    rdfs:comment "combining coins to represent a given amount.";
+    rdfs:comment "Combining coins to represent a given amount.";
     edu:specializes :CurrencyRepresentation;
     edu:translates :MajorDenomination, :MinorDenomination.
 :CommonDenominator a owl:NamedIndividual, edu:Scope;
@@ -150,18 +150,18 @@
     edu:partOf :DirectionalAbstraction.
 :ComplexityScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Structural conditions of a task that affect how many components, stages, or coordinated relationships must be processed.";
-    rdfs:comment "the number of operands, the depth of a composition, or the coordination of reference frames.".
+    rdfs:comment "The number of operands, the depth of a composition, or the coordination of reference frames.".
 :CompositionDepth a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The number of successive composition levels used to construct a result, where an additional level occurs when the result of one composition is used as an input to another.";
-    rdfs:comment "shapes assembled from component shapes, arithmetic expressions built from subexpressions, functions composed with other functions, and transformations built from earlier transformations.";
+    rdfs:comment "Shapes assembled from component shapes, arithmetic expressions built from subexpressions, functions composed with other functions, and transformations built from earlier transformations.";
     edu:partOf :ComplexityScope.
 :ComputedEvidence a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Results of explicit calculations or enumerations used to support or examine a claim.";
-    rdfs:comment "calculated values used to examine an algebraic conjecture. Calculations can process observed or simulated data; a computed result alone establishes neither exhaustive coverage nor a general proof.";
+    rdfs:comment "Calculated values used to examine an algebraic conjecture. Calculations can process observed or simulated data; a computed result alone establishes neither exhaustive coverage nor a general proof.";
     edu:specializes :EvidenceBasis.
 :ConstructedCaseEvidence a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Explicitly specified mathematical instances or configurations used to illustrate or examine a claim.";
-    rdfs:comment "two equal-area configurations used to compare different partitions of a whole. A construction may illustrate a claim, establish existence, or refute a general claim depending on its demonstrated role.";
+    rdfs:comment "Two equal-area configurations used to compare different partitions of a whole. A construction may illustrate a claim, establish existence, or refute a general claim depending on its demonstrated role.";
     edu:specializes :EvidenceBasis.
 :ConversionRepresentation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A representation that relates equivalent expressions of the same quantity under different units, scales, or representational forms.";
@@ -177,7 +177,7 @@
     edu:specializes :ConversionRepresentation.
 :CountingSymbols a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Discrete marks used to represent the number of objects or occurrences in a count.";
-    rdfs:comment "tally marks recording counted objects.";
+    rdfs:comment "Tally marks recording counted objects.";
     edu:specializes :VisualNumbers.
 :CubeScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Volumes expressed in numbers of cubes.";
@@ -211,23 +211,23 @@
     edu:partOf :AbstractionScope.
 :CurrencyDenomination a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Monetary unit values assigned to the forms in which a currency is expressed.";
-    rdfs:comment "notes or coins representing one, five, or ten units of a currency.";
+    rdfs:comment "Notes or coins representing one, five, or ten units of a currency.";
     edu:partOf :CurrencyAbstraction.
 :CurrencyRepresentation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Physical, visual, or symbolic representations of monetary amounts.";
-    rdfs:comment "notes, coins, or written currency amounts.";
+    rdfs:comment "Notes, coins, or written currency amounts.";
     edu:partOf :RepresentationalScope.
 :CurrencySystem a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "An identified monetary system with its own units and conventions for expressing value.";
-    rdfs:comment "amounts expressed in euros or US dollars.";
+    rdfs:comment "Amounts expressed in euros or US dollars.";
     edu:partOf :CurrencyAbstraction.
 :DataRepresentation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Collected or summarized data expressed in a visual arrangement.";
-    rdfs:comment "a data table, bar graph, picture graph, or line plot.";
+    rdfs:comment "A data table, bar graph, picture graph, or line plot.";
     edu:partOf :RepresentationalScope.
 :DataTable a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Data organized in rows and columns whose headings identify the quantities or categories shown.";
-    rdfs:comment "a table listing each plant and its recorded height.";
+    rdfs:comment "A table listing each plant and its recorded height.";
     edu:specializes :DataRepresentation.
 :DayIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of days.";
@@ -246,23 +246,23 @@
     edu:specializes :RotationAbstraction.
 :DerivedCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Determining the number of objects from known counts and justified relationships without counting every object individually.";
-    rdfs:comment "inferring a total from a known number of equal-sized groups.";
+    rdfs:comment "Inferring a total from a known number of equal-sized groups.";
     edu:specializes :QuantityMeasurement.
 :DescendingOrder a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Arranging three or more entities in sequence from largest to smallest according to the relevant quantity, size, or value.";
     edu:specializes :OrderAbstraction.
 :DeterministicErrorBound a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A specified error limit guaranteed not to be exceeded when the stated assumptions hold.";
-    rdfs:comment "an approximation guaranteed to differ from the true value by at most 0.01. A rounded decimal without a supplied guarantee is insufficient.";
+    rdfs:comment "An approximation guaranteed to differ from the true value by at most 0.01. A rounded decimal without a supplied guarantee is insufficient.";
     edu:specializes :ErrorControl.
 :DigitalClock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time represented by numerical digits on a clock display.";
-    rdfs:comment "a display reading 14:35.";
+    rdfs:comment "A display reading 14:35.";
     edu:integrates :HourIntervals, :MinuteIntervals, :SecondIntervals;
     edu:partOf :TimeMeasurement.
 :DigitalScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A weighing device or representation that reports a measured value on a numerical display.";
-    rdfs:comment "reading 250 grams from a scale's display.";
+    rdfs:comment "Reading 250 grams from a scale's display.";
     edu:integrates :GramScale, :KilogramScale, :MilligramScale;
     edu:partOf :WeightMeasurement.
 :DimensionalAbstraction a owl:NamedIndividual, edu:Scope;
@@ -273,15 +273,15 @@
     edu:partOf :AbstractionScope.
 :DirectProof a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Arguments deriving a conclusion from stated assumptions through valid implications and established facts.";
-    rdfs:comment "deriving an algebraic identity through transformations valid throughout its stated domain. Checking a few substitutions alone does not prove an unrestricted identity.";
+    rdfs:comment "Deriving an algebraic identity through transformations valid throughout its stated domain. Checking a few substitutions alone does not prove an unrestricted identity.";
     edu:specializes :ProofMethod.
 :DirectRelation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A target relation established from evidence directly connecting its target entities, without an intermediary entity.";
-    rdfs:comment "comparing two rods side by side, reading 3 < 5 directly from a number line, or observing that one event occurs before another.";
+    rdfs:comment "Comparing two rods side by side, reading 3 < 5 directly from a number line, or observing that one event occurs before another.";
     edu:specializes :RelationMediation.
 :DisproofByCounterexample a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Refutation of a general claim by an instance that satisfies its conditions but violates its conclusion.";
-    rdfs:comment "equal shares of identical wholes with different shapes refute the claim that such shares must always have the same shape. The claim and the instance's role must be identifiable.";
+    rdfs:comment "Equal shares of identical wholes with different shapes refute the claim that such shares must always have the same shape. The claim and the instance's role must be identifiable.";
     edu:specializes :ProofMethod.
 :DistanceAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Distance or length concepts.";
@@ -311,7 +311,7 @@
     edu:specializes :OrderAbstraction.
 :EqualShares a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Partitioning one whole into parts that have equal measure with respect to the relevant attribute.";
-    rdfs:comment "dividing a circle into regions of equal area, a length into equal segments, a set into equal-sized groups, or a quantity into shares of equal measure.";
+    rdfs:comment "Dividing a circle into regions of equal area, a length into equal segments, a set into equal-sized groups, or a quantity into shares of equal measure.";
     edu:specializes :PartitionAbstraction.
 :ErrorControl a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Explicit bounds on the discrepancy of an approximation or estimate, or on the probability of an erroneous conclusion.";
@@ -332,11 +332,11 @@
     edu:partOf :JustificationScope.
 :EvidenceCoverage a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The extent to which examined individual instances cover the population or domain identified in the content.";
-    rdfs:comment "examining a sample from a larger domain or enumerating every instance in a finite domain. Coverage does not determine logical force; a single counterexample can be conclusive.";
+    rdfs:comment "Examining a sample from a larger domain or enumerating every instance in a finite domain. Coverage does not determine logical force; a single counterexample can be conclusive.";
     edu:partOf :JustificationScope.
 :ExhaustiveCaseEvidence a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Examination of every individual instance in an identified finite population or domain.";
-    rdfs:comment "checking every integer from 1 through 10, or all 36 ordered outcomes of two six-sided dice. Coverage does not extend beyond the identified domain.";
+    rdfs:comment "Checking every integer from 1 through 10, or all 36 ordered outcomes of two six-sided dice. Coverage does not extend beyond the identified domain.";
     edu:specializes :EvidenceCoverage.
 :ExpressionOnBothSides a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A mathematical statement where both sides consist of composite expressions.";
@@ -396,19 +396,19 @@
     edu:translates :CubicInchScale.
 :Gas a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Matter in a state with neither a fixed shape nor a fixed volume.";
-    rdfs:comment "water vapor. The state depends on the conditions under which the material is considered.";
+    rdfs:comment "Water vapor. The state depends on the conditions under which the material is considered.";
     edu:specializes :StateProperties.
 :Geoboard a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Geometric figures represented by bands stretched between fixed pegs on a board.";
-    rdfs:comment "a triangle formed by stretching a band around three pegs.";
+    rdfs:comment "A triangle formed by stretching a band around three pegs.";
     edu:specializes :PhysicalGeometry.
 :GeometryRepresentation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Physical or visual forms used to represent geometric figures and relationships.";
-    rdfs:comment "a solid model, a drawn figure, or a shape assembled from manipulatives.";
+    rdfs:comment "A solid model, a drawn figure, or a shape assembled from manipulatives.";
     edu:partOf :RepresentationalScope.
 :GeometrySticks a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Geometric figures represented by straight physical pieces arranged or joined as sides or edges.";
-    rdfs:comment "joining three sticks to form a triangle.";
+    rdfs:comment "Joining three sticks to form a triangle.";
     edu:specializes :PhysicalGeometry.
 :GramScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in grams.";
@@ -448,7 +448,7 @@
     edu:specializes :DimensionalAbstraction.
 :ImageObjects a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Graphic objects represented by a grid of pixels.";
-    rdfs:comment "a photograph or a raster painting used as an object in a task.";
+    rdfs:comment "A photograph or a raster painting used as an object in a task.";
     edu:specializes :ObjectTypes.
 :ImperialAreaScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Imperial units or scale for surface measurement.";
@@ -506,7 +506,7 @@
     edu:partOf :OperandDigitCount.
 :LaserRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A device or representation that determines distance using a laser-based measurement.";
-    rdfs:comment "reading a room's length from a laser distance meter.";
+    rdfs:comment "Reading a room's length from a laser distance meter.";
     edu:integrates :MicrometerScale;
     edu:partOf :LengthMeasurement.
 :Least a owl:NamedIndividual, edu:Scope;
@@ -516,7 +516,7 @@
     edu:specializes :OrderAbstraction.
 :Left a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A position on the left side of a reference object or point in the stated frame of reference.";
-    rdfs:comment "an object to the left of another in a displayed arrangement.";
+    rdfs:comment "An object to the left of another in a displayed arrangement.";
     edu:specializes :SpatialDirection.
 :LengthMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Determining or comparing the lengths of objects, whether directly, through an intermediary, or by using measurement tools and units.";
@@ -530,17 +530,17 @@
     edu:specializes :ObjectArrangement.
 :LinePlot a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Data values represented by marks along a numerical scale so their frequencies are visible.";
-    rdfs:comment "crosses above each measured length, with repeated crosses showing repeated values.";
+    rdfs:comment "Crosses above each measured length, with repeated crosses showing repeated values.";
     edu:integrates :Numberline;
     edu:specializes :DataRepresentation.
 :LinkingCubes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Number representations using equal-sized cubes that can be connected into groups or chains.";
-    rdfs:comment "a chain of eight connected cubes representing eight.";
+    rdfs:comment "A chain of eight connected cubes representing eight.";
     edu:specializes :PhysicalNumbers;
     edu:translates :Base10.
 :Liquid a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Matter in a state with a fixed volume but no fixed shape.";
-    rdfs:comment "liquid water taking the shape of its container under the stated conditions.";
+    rdfs:comment "Liquid water taking the shape of its container under the stated conditions.";
     edu:specializes :StateProperties.
 :LiquidVolumes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Liquid volumes as means of measurement.";
@@ -548,20 +548,20 @@
     edu:specializes :VolumeMeasurement.
 :LiterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Volumes expressed in liters, with one liter equal to one cubic decimeter.";
-    rdfs:comment "a two-liter container has a volume of two cubic decimeters. The mass of a liter of a substance depends on its density and is not part of the unit's definition.";
+    rdfs:comment "A two-liter container has a volume of two cubic decimeters. The mass of a liter of a substance depends on its density and is not part of the unit's definition.";
     edu:specializes :MetricVolumeScale;
     edu:translates :CubicDecimeterScale.
 :MajorDenomination a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The principal monetary unit of a currency, relative to which its smaller units are valued.";
-    rdfs:comment "the dollar in US currency or the euro in euro currency.";
+    rdfs:comment "The dollar in US currency or the euro in euro currency.";
     edu:specializes :CurrencyDenomination;
     edu:translates :IntegerNumbers.
 :MeasurementScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The conditions, tools, and representations through which quantities or measurable attributes are determined or supplied.";
-    rdfs:comment "counting objects, reading an instrument, or interpreting a provided measurement.".
+    rdfs:comment "Counting objects, reading an instrument, or interpreting a provided measurement.".
 :MediatedRelation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A target relation inferred from a chain of compatible relations containing at least one intermediary entity.";
-    rdfs:comment "deriving A > B from A > C and C > B, x = z from x = y and y = z, or event A before C from event A before B and event B before C.";
+    rdfs:comment "Deriving A > B from A > C and C > B, x = z from x = y and y = z, or event A before C from event A before B and event B before C.";
     edu:expands :DirectRelation;
     edu:specializes :RelationMediation.
 :Meridiem a owl:NamedIndividual, edu:Scope;
@@ -576,7 +576,7 @@
     edu:partOf :AreaAbstraction.
 :MetricDistanceScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Distances expressed in metric units of length.";
-    rdfs:comment "meters, centimeters, millimeters, or kilometers.";
+    rdfs:comment "Meters, centimeters, millimeters, or kilometers.";
     edu:expands :SegmentScale;
     edu:partOf :DistanceAbstraction.
 :MetricVolumeScale a owl:NamedIndividual, edu:Scope;
@@ -610,12 +610,12 @@
     edu:specializes :TimeIntervals.
 :MinorDenomination a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A subdivision of a currency's principal monetary unit.";
-    rdfs:comment "the cent in US dollar or euro currency.";
+    rdfs:comment "The cent in US dollar or euro currency.";
     edu:specializes :CurrencyDenomination;
     edu:translates :DecimalNumbers, :FractionNumbers.
 :MinuteIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of minutes.";
-    rdfs:comment "a duration of fifteen minutes.";
+    rdfs:comment "A duration of fifteen minutes.";
     edu:specializes :TimeIntervals.
 :MixedNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Numbers represented as an integer combined with a proper fraction.";
@@ -631,7 +631,7 @@
     edu:specializes :OrderAbstraction.
 :MultiLevelComposition a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Constructing a result across at least two successive composition levels, with at least one intermediate composite reused as an input to a further composition.";
-    rdfs:comment "using a square made from triangles to build a larger shape, using the sum 2 + 3 as an operand in (2 + 3) × 4, or composing an already-combined rotation and reflection with a translation.";
+    rdfs:comment "Using a square made from triangles to build a larger shape, using the sum 2 + 3 as an operand in (2 + 3) × 4, or composing an already-combined rotation and reflection with a translation.";
     edu:expands :SingleLevelComposition;
     edu:specializes :CompositionDepth.
 :MultipleDigitDividend a owl:NamedIndividual, edu:Scope;
@@ -652,7 +652,7 @@
     edu:specializes :SmallestOperandDigitCount.
 :MultipleFramesOfReference a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Interpreting or operating on quantities, relations, or representations across more than one frame of reference.";
-    rdfs:comment "comparing fractions of different wholes, converting between measurement scales, or relating positions in different coordinate systems.";
+    rdfs:comment "Comparing fractions of different wholes, converting between measurement scales, or relating positions in different coordinate systems.";
     edu:expands :SingleFrameOfReference;
     edu:specializes :ReferenceFrameComplexity.
 :MultiplesOf10 a owl:NamedIndividual, edu:Scope;
@@ -672,7 +672,7 @@
     edu:specializes :NumericDivisibility.
 :MultiStep a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Solutions requiring two or more successive logical or procedural steps.";
-    rdfs:comment "using one calculated result as the input to a further operation.";
+    rdfs:comment "Using one calculated result as the input to a further operation.";
     edu:expands :SingleStep;
     edu:specializes :StepComplexity.
 :NanometerScale a owl:NamedIndividual, edu:Scope;
@@ -688,7 +688,7 @@
     edu:specializes :StatementComplexity.
 :NonUnitFractions a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Proper fractions where the numerator is an integer greater than one.";
-    rdfs:comment "two thirds, three quarters, and five eighths. These are conceptually formed by iterating unit fractions.";
+    rdfs:comment "Two thirds, three quarters, and five eighths. These are conceptually formed by iterating unit fractions.";
     edu:contradicts :UnitFractions;
     edu:expands :UnitFractions;
     edu:specializes :ProperFractions.
@@ -703,16 +703,16 @@
     edu:specializes :IntercardinalDirections.
 :NumberArray a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A number represented by objects or cells arranged in rectangular rows and columns.";
-    rdfs:comment "three rows of four objects representing twelve.";
+    rdfs:comment "Three rows of four objects representing twelve.";
     edu:specializes :VisualNumbers.
 :Numberline a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Numbers represented by positions on a line with an origin, direction, and numerical scale.";
-    rdfs:comment "locating -2, 0, and 3 at their corresponding positions on a marked line.";
+    rdfs:comment "Locating -2, 0, and 3 at their corresponding positions on a marked line.";
     edu:specializes :SpatialNumbers;
     edu:translates :OneDimensional.
 :NumberRepresentation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Physical, visual, or symbolic forms used to express numerical values.";
-    rdfs:comment "a numeral, a number line, or a collection of counters representing the same value.";
+    rdfs:comment "A numeral, a number line, or a collection of counters representing the same value.";
     edu:partOf :RepresentationalScope.
 :NumbersLarger10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values greater than or equal to 10.";
@@ -851,15 +851,15 @@
     edu:specializes :NumericSign.
 :NumbersWithoutNegatives a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Numeric contexts in which none of the involved numbers is negative.";
-    rdfs:comment "a calculation whose given, intermediate, and result values are all nonnegative. Omitting a negative-number label does not establish this absence.";
+    rdfs:comment "A calculation whose given, intermediate, and result values are all nonnegative. Omitting a negative-number label does not establish this absence.";
     edu:specializes :NumericSign.
 :NumbersWithoutZero a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Numeric contexts in which zero does not occur as an involved numerical value.";
-    rdfs:comment "a calculation whose given, intermediate, and result values are all nonzero. A zero digit within a nonzero numeral does not itself represent a separate zero-valued quantity.";
+    rdfs:comment "A calculation whose given, intermediate, and result values are all nonzero. A zero digit within a nonzero numeral does not itself represent a separate zero-valued quantity.";
     edu:specializes :NumericZero.
 :NumbersWithZero a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Numeric contexts containing zero as an involved numerical value.";
-    rdfs:comment "a zero-valued operand or result. A zero digit within the numeral 10 does not by itself establish a zero-valued quantity.";
+    rdfs:comment "A zero-valued operand or result. A zero digit within the numeral 10 does not by itself establish a zero-valued quantity.";
     edu:expands :NumbersWithoutZero;
     edu:specializes :NumericZero.
 :NumberTiles a owl:NamedIndividual, edu:Scope;
@@ -875,7 +875,7 @@
     edu:partOf :AbstractionScope.
 :NumericBase a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The base that determines how places or symbols in a numeral system represent numerical values.";
-    rdfs:comment "binary, octal, decimal, or hexadecimal positional notation.";
+    rdfs:comment "Binary, octal, decimal, or hexadecimal positional notation.";
     edu:partOf :NumericAbstraction.
 :NumericDivisibility a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Constraints on whether integers are divisible by specified divisors.";
@@ -888,7 +888,7 @@
     edu:partOf :NumericAbstraction.
 :NumericSpace a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Numbers considered within an identified number system.";
-    rdfs:comment "real numbers or the integer values within them.";
+    rdfs:comment "Real numbers or the integer values within them.";
     edu:partOf :NumericAbstraction.
 :NumericZero a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The inclusion or exclusion of zero.";
@@ -907,15 +907,15 @@
     edu:partOf :RepresentationalScope.
 :ObjectTypes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The representational form of graphic objects used in the content.";
-    rdfs:comment "objects represented by pixel images or by geometric primitives.";
+    rdfs:comment "Objects represented by pixel images or by geometric primitives.";
     edu:partOf :ObjectRepresentation.
 :ObservedDataEvidence a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Data presented as records of observations or measurements of a real process or population.";
-    rdfs:comment "a table of recorded plant heights used to examine a growth claim. Reading supplied data need not require observing a measurement directly from an object or instrument.";
+    rdfs:comment "A table of recorded plant heights used to examine a growth claim. Reading supplied data need not require observing a measurement directly from an object or instrument.";
     edu:specializes :EvidenceBasis.
 :ObservedMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Measurement values that must be determined by observing a represented measurable object, scale, or instrument.";
-    rdfs:comment "reading the length indicated by an object placed against a ruler, rather than using a length already supplied as text.";
+    rdfs:comment "Reading the length indicated by an object placed against a ruler, rather than using a length already supplied as text.";
     edu:specializes :ObjectMeasurement.
 :OddNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Integer values not divisible by two without a remainder.";
@@ -940,28 +940,28 @@
     edu:specializes :ImperialWeightScale.
 :PartitionAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Dividing a whole into distinct parts or regions.";
-    rdfs:comment "partitioning a shape, a length, a set, or a quantity.";
+    rdfs:comment "Partitioning a shape, a length, a set, or a quantity.";
     edu:partOf :AbstractionScope.
 :Patternblocks a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Geometric figures represented by arranged pieces from a set of standard polygonal tiles.";
-    rdfs:comment "combining triangular pattern blocks to form a hexagonal figure.";
+    rdfs:comment "Combining triangular pattern blocks to form a hexagonal figure.";
     edu:specializes :PhysicalGeometry.
 :PhysicalGeometry a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Geometric figures represented by manipulable physical objects.";
-    rdfs:comment "a solid model or a shape constructed from sticks.";
+    rdfs:comment "A solid model or a shape constructed from sticks.";
     edu:specializes :GeometryRepresentation.
 :PhysicalNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Numerical values represented by manipulable physical objects.";
-    rdfs:comment "counters, linking cubes, or abacus beads.";
+    rdfs:comment "Counters, linking cubes, or abacus beads.";
     edu:specializes :NumberRepresentation.
 :PhysicalRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A rigid straightedge with a graduated scale used to determine or compare lengths.";
-    rdfs:comment "reading the length of an object aligned with a marked ruler.";
+    rdfs:comment "Reading the length of an object aligned with a marked ruler.";
     edu:integrates :CentimeterScale, :MillimeterScale;
     edu:partOf :LengthMeasurement.
 :PictureGraph a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Categorical quantities represented by repeated pictures or symbols with a stated numerical value per symbol.";
-    rdfs:comment "a row of symbols showing how many votes a category received.";
+    rdfs:comment "A row of symbols showing how many votes a category received.";
     edu:specializes :DataRepresentation.
 :PostMeridiem a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Times from noon up to but not including midnight, conventionally denoted p.m.";
@@ -971,27 +971,27 @@
     edu:specializes :ImperialWeightScale.
 :ProbabilisticErrorBound a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A stated limit on the probability of exceeding a specified error criterion under identified model or sampling assumptions.";
-    rdfs:comment "a procedure with at most a five-percent probability of exceeding a stated error tolerance. A confidence-interval coverage guarantee concerns repeated sampling, not an automatic probability assignment to a fixed parameter after observing data.";
+    rdfs:comment "A procedure with at most a five-percent probability of exceeding a stated error tolerance. A confidence-interval coverage guarantee concerns repeated sampling, not an automatic probability assignment to a fixed parameter after observing data.";
     edu:specializes :ErrorControl.
 :ProofByCases a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Arguments establishing a claim separately for cases that collectively cover all possibilities in its stated domain.";
-    rdfs:comment "proving a claim for arbitrary odd integers and for arbitrary even integers. This need not enumerate every individual integer.";
+    rdfs:comment "Proving a claim for arbitrary odd integers and for arbitrary even integers. This need not enumerate every individual integer.";
     edu:specializes :ProofMethod.
 :ProofByConstruction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Arguments establishing existence or possibility by exhibiting a valid instance or a construction that produces one.";
-    rdfs:comment "exhibiting equal shares of identical wholes with different shapes establishes that such a configuration is possible. The construction must satisfy the claimed conditions.";
+    rdfs:comment "Exhibiting equal shares of identical wholes with different shapes establishes that such a configuration is possible. The construction must satisfy the claimed conditions.";
     edu:specializes :ProofMethod.
 :ProofByContradiction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Arguments establishing a claim by showing that its denial, together with the stated assumptions, leads to a contradiction.";
-    rdfs:comment "assuming a proposed quantity is rational and deriving incompatible requirements. Merely identifying an incorrect statement is not a proof by contradiction.";
+    rdfs:comment "Assuming a proposed quantity is rational and deriving incompatible requirements. Merely identifying an incorrect statement is not a proof by contradiction.";
     edu:specializes :ProofMethod.
 :ProofByContraposition a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Arguments establishing an implication by showing that failure of its conclusion entails failure of its premise.";
-    rdfs:comment "proving that an integer with an even square is even by showing that an odd integer has an odd square.";
+    rdfs:comment "Proving that an integer with an even square is even by showing that an odd integer has an odd square.";
     edu:specializes :ProofMethod.
 :ProofByInduction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Arguments establishing a claim through initial cases and an induction step that covers the remaining instances in the stated domain.";
-    rdfs:comment "proving a formula at the initial integer and then proving that its truth for an integer entails its truth for the next. Mathematical induction is deductive proof, not empirical generalization from observed cases.";
+    rdfs:comment "Proving a formula at the initial integer and then proving that its truth for an integer entails its truth for the next. Mathematical induction is deductive proof, not empirical generalization from observed cases.";
     edu:specializes :ProofMethod.
 :ProofMethod a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The logical method supplied or required to establish a mathematical claim or demonstrate that it does not hold.";
@@ -1006,16 +1006,16 @@
     edu:specializes :PartitionAbstraction.
 :Protractor a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A graduated instrument or representation used to measure or construct angles.";
-    rdfs:comment "aligning an angle's vertex and one ray with a protractor and reading the other ray's position.";
+    rdfs:comment "Aligning an angle's vertex and one ray with a protractor and reading the other ray's position.";
     edu:integrates :DegreeScale;
     edu:partOf :AngleMeasurement.
 :ProvidedMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Measurement values supplied explicitly as recorded data for interpretation or computation without requiring direct observation of their source objects.";
-    rdfs:comment "a stated length of 12 centimeters or a table of recorded temperatures.";
+    rdfs:comment "A stated length of 12 centimeters or a table of recorded temperatures.";
     edu:specializes :ObjectMeasurement.
 :QuantityMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Determining the number of objects in a collection through counting or relationships among counts.";
-    rdfs:comment "counting each object, accumulating groups, or subtracting a known missing part from a known total.";
+    rdfs:comment "Counting each object, accumulating groups, or subtracting a known missing part from a known total.";
     edu:partOf :MeasurementScope.
 :QuarterDenomination a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A denomination worth one quarter of its associated major denomination.";
@@ -1031,7 +1031,7 @@
     edu:translates :FractionNumbers.
 :RadianScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Angular measures expressed in radians, where the numerical angle equals the ratio of subtended arc length to radius.";
-    rdfs:comment "a full turn is 2π radians, a half-turn is π radians, and a quarter-turn is π/2 radians.";
+    rdfs:comment "A full turn is 2π radians, a half-turn is π radians, and a quarter-turn is π/2 radians.";
     edu:specializes :RotationAbstraction.
 :RationalNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Numbers expressible as a quotient of two integers with a nonzero denominator.";
@@ -1050,18 +1050,18 @@
     edu:specializes :FractionNumbers.
 :RelationMediation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Relation mediation of varying complexity between target entities, either established from direct evidence or inferred by chaining compatible relations through intermediary entities.";
-    rdfs:comment "comparing two lengths directly, deriving one inequality from an inequality chain, and establishing temporal order through an intermediate event.";
+    rdfs:comment "Comparing two lengths directly, deriving one inequality from an inequality chain, and establishing temporal order through an intermediate event.";
     edu:partOf :ComplexityScope.
 :RepresentationalScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The forms through which quantities, objects, and relationships are presented.";
-    rdfs:comment "physical models, diagrams, numerals, or tables.".
+    rdfs:comment "Physical models, diagrams, numerals, or tables.".
 :Right a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A position on the right side of a reference object or point in the stated frame of reference.";
-    rdfs:comment "an object to the right of another in a displayed arrangement.";
+    rdfs:comment "An object to the right of another in a displayed arrangement.";
     edu:specializes :SpatialDirection.
 :RodNumerals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Numbers represented by conventional arrangements of counting rods whose positions and orientations encode digits and place values.";
-    rdfs:comment "rod arrangements representing units, tens, and hundreds.";
+    rdfs:comment "Rod arrangements representing units, tens, and hundreds.";
     edu:specializes :Numerals;
     edu:translates :Base10.
 :Rollable a owl:NamedIndividual, edu:Scope;
@@ -1077,7 +1077,7 @@
     edu:partOf :AbstractionScope.
 :SandClock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Elapsed time represented by the transfer of sand between connected chambers of a timing device.";
-    rdfs:comment "timing an interval by waiting for the upper chamber to empty.";
+    rdfs:comment "Timing an interval by waiting for the upper chamber to empty.";
     edu:integrates :HourIntervals, :MinuteIntervals;
     edu:partOf :TimeMeasurement.
 :ScatteredArrangement a owl:NamedIndividual, edu:Scope;
@@ -1092,31 +1092,31 @@
     edu:partOf :DistanceAbstraction.
 :SelectedCaseEvidence a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Examination of individual instances that form only part of the identified population or domain.";
-    rdfs:comment "checking a claim for three integers from a larger domain, or examining a sample from a population. A small displayed set does not establish partial coverage when the reference domain is unknown.";
+    rdfs:comment "Checking a claim for three integers from a larger domain, or examining a sample from a population. A small displayed set does not establish partial coverage when the reference domain is unknown.";
     edu:specializes :EvidenceCoverage.
 :ShapeAttributes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Identifying or quantifying the geometric features that constitute an object's structure.";
-    rdfs:comment "counting edges, faces, vertices, or angles.";
+    rdfs:comment "Counting edges, faces, vertices, or angles.";
     edu:partOf :ObjectAbstraction.
 :ShapeOrientationVariation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Geometric forms shown in different orientations while retaining their defining attributes.";
-    rdfs:comment "identifying the same triangle before and after it is turned.";
+    rdfs:comment "Identifying the same triangle before and after it is turned.";
     edu:specializes :ShapeVariation.
 :ShapeProperties a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Physical features of objects that determine how their form permits or constrains manipulation and arrangement.";
-    rdfs:comment "curved surfaces that permit rolling, flexible joints that permit folding, or stable faces that permit stacking.";
+    rdfs:comment "Curved surfaces that permit rolling, flexible joints that permit folding, or stable faces that permit stacking.";
     edu:partOf :ObjectAbstraction.
 :ShapeSizeVariation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Geometric forms shown at different overall sizes while retaining their defining attributes.";
-    rdfs:comment "identifying the same shape category in both a small and a large figure.";
+    rdfs:comment "Identifying the same shape category in both a small and a large figure.";
     edu:specializes :ShapeVariation.
 :ShapeVariation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Geometric forms whose non-defining spatial properties vary while their defining attributes are preserved.";
-    rdfs:comment "a figure shown in different sizes or orientations while retaining its shape category.";
+    rdfs:comment "A figure shown in different sizes or orientations while retaining its shape category.";
     edu:partOf :ObjectAbstraction.
 :SimulationEvidence a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Outcomes produced by carrying out a model of a process or system and used as evidence for a claim.";
-    rdfs:comment "simulated coin tosses used to estimate a probability. The model-based origin must be evident in the content.";
+    rdfs:comment "Simulated coin tosses used to estimate a probability. The model-based origin must be evident in the content.";
     edu:specializes :EvidenceBasis.
 :SingleDigitDividend a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A dividend with a single digit.";
@@ -1132,15 +1132,15 @@
     edu:specializes :SmallestOperandDigitCount.
 :SingleFrameOfReference a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Interpreting or operating on quantities, relations, or representations within one consistent frame of reference.";
-    rdfs:comment "comparing fractions of one common whole, using one measurement scale, or locating positions in one coordinate system.";
+    rdfs:comment "Comparing fractions of one common whole, using one measurement scale, or locating positions in one coordinate system.";
     edu:specializes :ReferenceFrameComplexity.
 :SingleLevelComposition a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Constructing a result in one composition level from inputs that are not themselves produced by another composition represented in the task.";
-    rdfs:comment "directly assembling component shapes into one figure, forming one sum directly from several numbers, or combining initial transformations into one composite transformation without reusing an intermediate result.";
+    rdfs:comment "Directly assembling component shapes into one figure, forming one sum directly from several numbers, or combining initial transformations into one composite transformation without reusing an intermediate result.";
     edu:specializes :CompositionDepth.
 :SingleStep a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Solutions requiring one logical or procedural step, consisting of one operation or transformation.";
-    rdfs:comment "obtaining the requested result by applying one stated operation directly to the supplied values.";
+    rdfs:comment "Obtaining the requested result by applying one stated operation directly to the supplied values.";
     edu:specializes :StepComplexity.
 :SixthFractions a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Fractions characterized by a denominator of six.";
@@ -1151,7 +1151,7 @@
     edu:partOf :OperandDigitCount.
 :Solid a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Matter in a state with a fixed shape and volume.";
-    rdfs:comment "ice under conditions in which it remains solid.";
+    rdfs:comment "Ice under conditions in which it remains solid.";
     edu:specializes :StateProperties.
 :South a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The cardinal direction South.";
@@ -1167,7 +1167,7 @@
     edu:partOf :DirectionalAbstraction.
 :SpatialNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Numerical values represented by positions or extents along a spatial dimension.";
-    rdfs:comment "positions on a number line or lengths used to represent values.";
+    rdfs:comment "Positions on a number line or lengths used to represent values.";
     edu:specializes :NumberRepresentation.
 :SquareCentimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The square centimeter unit or scale for surface measurement.";
@@ -1216,7 +1216,7 @@
     edu:partOf :ComplexityScope.
 :StepMagnitude a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The absolute numeric interval between consecutive values in a fixed-step sequence.";
-    rdfs:comment "counting by ones, fives, tens, hundreds, or thousands from aligned or unaligned starting values.";
+    rdfs:comment "Counting by ones, fives, tens, hundreds, or thousands from aligned or unaligned starting values.";
     edu:partOf :NumericAbstraction.
 :StepsOf1 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Consecutive values whose absolute difference is 1.";
@@ -1257,26 +1257,26 @@
     edu:specializes :StepMagnitude.
 :Stopwatch a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A timing device or representation that records elapsed time between an explicit start and stop.";
-    rdfs:comment "measuring the duration of a race.";
+    rdfs:comment "Measuring the duration of a race.";
     edu:integrates :HourIntervals, :MillisecondIntervals, :MinuteIntervals, :SecondIntervals;
     edu:partOf :TimeMeasurement.
 :SubtractiveCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Determining a collection's size by subtracting a known missing part from a known total.";
-    rdfs:comment "finding how many objects remain from a group of ten when three are missing.";
+    rdfs:comment "Finding how many objects remain from a group of ten when three are missing.";
     edu:inverts :AdditiveCount;
     edu:specializes :QuantityMeasurement.
 :Sunclock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time represented by the position of a shadow cast by sunlight on a marked surface.";
-    rdfs:comment "reading the hour indicated by a sundial's shadow.";
+    rdfs:comment "Reading the hour indicated by a sundial's shadow.";
     edu:integrates :HourIntervals;
     edu:partOf :TimeMeasurement.
 :Tangrams a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Geometric figures formed by arranging pieces from the traditional seven-piece tangram set.";
-    rdfs:comment "arranging the pieces into a square or another silhouette.";
+    rdfs:comment "Arranging the pieces into a square or another silhouette.";
     edu:specializes :PhysicalGeometry.
 :Tapemeter a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A flexible graduated tape used to measure distances or the lengths of straight or curved objects.";
-    rdfs:comment "measuring a curved boundary with a measuring tape.";
+    rdfs:comment "Measuring a curved boundary with a measuring tape.";
     edu:integrates :CentimeterScale, :MeterScale, :MillimeterScale;
     edu:partOf :LengthMeasurement.
 :TemperatureAbstraction a owl:NamedIndividual, edu:Scope;
@@ -1284,14 +1284,14 @@
     edu:partOf :AbstractionScope.
 :TemperatureMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Tools and representations used to determine or compare temperature.";
-    rdfs:comment "reading a thermometer against a marked temperature scale.";
+    rdfs:comment "Reading a thermometer against a marked temperature scale.";
     edu:partOf :MeasurementScope.
 :TemporalDirection a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Chronological or sequential orientation and progression indicators.";
     edu:partOf :DirectionalAbstraction.
 :TenFrame a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A two-row, five-column arrangement of cells in which filled positions represent a quantity up to ten.";
-    rdfs:comment "seven filled cells representing seven, conventionally filling the top row from the left before continuing in the second row.";
+    rdfs:comment "Seven filled cells representing seven, conventionally filling the top row from the left before continuing in the second row.";
     edu:specializes :VisualNumbers.
 :TenthDenomination a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A denomination worth one tenth of its associated major denomination.";
@@ -1302,7 +1302,7 @@
     edu:specializes :CommonDenominator.
 :Thermometer a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "An instrument or representation that indicates temperature on a graduated or numerical scale.";
-    rdfs:comment "reading the indicated temperature from a liquid-column thermometer.";
+    rdfs:comment "Reading the indicated temperature from a liquid-column thermometer.";
     edu:integrates :CelsiusScale, :KelvinScale;
     edu:partOf :TemperatureMeasurement.
 :ThirdFractions a owl:NamedIndividual, edu:Scope;
@@ -1345,14 +1345,14 @@
     edu:partOf :TimeAbstraction.
 :TimeMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Tools and representations used to determine times of day, dates, or elapsed durations.";
-    rdfs:comment "a clock, calendar, or stopwatch.";
+    rdfs:comment "A clock, calendar, or stopwatch.";
     edu:partOf :MeasurementScope.
 :TonneScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in metric tons (tonnes).";
     edu:specializes :MetricWeightScale.
 :TriangleRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A triangular straightedge with fixed reference angles and a graduated length scale.";
-    rdfs:comment "using its right-angle corner to construct perpendicular lines or its scale to measure a segment.";
+    rdfs:comment "Using its right-angle corner to construct perpendicular lines or its scale to measure a segment.";
     edu:integrates :CentimeterScale, :DegreeScale, :MillimeterScale;
     edu:partOf :AngleMeasurement.
 :TwentiethDenomination a owl:NamedIndividual, edu:Scope;
@@ -1385,29 +1385,29 @@
     edu:specializes :PartitionAbstraction.
 :UnitFractions a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Fraction values with numerator one and a positive integer denominator.";
-    rdfs:comment "one half, one third, one quarter, and one eighth, each representing one of the equal parts of a whole.";
+    rdfs:comment "One half, one third, one quarter, and one eighth, each representing one of the equal parts of a whole.";
     edu:specializes :ProperFractions.
 :VectorObjects a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Graphic objects represented by geometrically defined paths and shapes.";
-    rdfs:comment "a circle, polygon, or star described by geometric primitives rather than a pixel grid.";
+    rdfs:comment "A circle, polygon, or star described by geometric primitives rather than a pixel grid.";
     edu:specializes :ObjectTypes.
 :VertexCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The identification and quantification of vertices that constitute the physical structure of an object.";
     edu:specializes :ShapeAttributes.
 :VisualGeometry a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Geometric figures represented by images or diagrams rather than physical manipulatives.";
-    rdfs:comment "a drawn polygon or a diagram of a solid.";
+    rdfs:comment "A drawn polygon or a diagram of a solid.";
     edu:specializes :GeometryRepresentation.
 :VisualNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Numerical values represented by visual quantities or spatial arrangements rather than physical manipulatives or numerals alone.";
-    rdfs:comment "a drawn array of objects or marked positions on a number line.";
+    rdfs:comment "A drawn array of objects or marked positions on a number line.";
     edu:specializes :NumberRepresentation.
 :VolumeAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Volume or capacity concepts.";
     edu:partOf :AbstractionScope.
 :VolumeMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Determining or comparing how much three-dimensional space a quantity or object occupies.";
-    rdfs:comment "comparing capacities using a known volume of liquid.";
+    rdfs:comment "Comparing capacities using a known volume of liquid.";
     edu:partOf :MeasurementScope.
 :WeekIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed as intervals of weeks.";
@@ -1417,7 +1417,7 @@
     edu:partOf :AbstractionScope.
 :WeightMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Tools and representations used to determine or compare mass or weight.";
-    rdfs:comment "a balance scale or a scale with a numerical display.";
+    rdfs:comment "A balance scale or a scale with a numerical display.";
     edu:partOf :MeasurementScope.
 :West a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The cardinal direction West.";

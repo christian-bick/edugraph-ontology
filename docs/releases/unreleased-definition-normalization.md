@@ -13,6 +13,7 @@ The convention is defined in [ONT-D4](../descriptors.md#ont-d4--define-the-educa
 - Move embedded examples into comments and revise Ability examples to describe concrete
   performances across subjects where practical.
 - Store example content directly in comments, without a "For example:" prefix.
+- Capitalize prose comment openings while preserving the case of formulas and mathematical symbols.
 - Supply explanatory text for tools and representations that previously repeated only their names.
 - Provide definitions and separate comments for all 28 schema classes and object properties.
   Schema text describes schema roles, rather than objects of a competency's `involves` statement.

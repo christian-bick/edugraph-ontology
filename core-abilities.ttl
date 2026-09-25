@@ -10,516 +10,516 @@
     owl:imports <http://edugraph.io/edu#>.
 :AbductiveReasoning a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Inferring a plausible explanation for observations from incomplete evidence, while recognizing that other explanations may remain possible.";
-    rdfs:comment "proposing a rule that could explain a number sequence, or suggesting a cause for an unexpected experimental result.";
+    rdfs:comment "Proposing a rule that could explain a number sequence, or suggesting a cause for an unexpected experimental result.";
     edu:specializes :NonDeductiveReasoning.
 :ActiveVocabulary a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Using a range of words accurately and appropriately to express ideas in speech or writing.";
-    rdfs:comment "using geometric terminology in an explanation, or choosing precise descriptive words in a story.";
+    rdfs:comment "Using geometric terminology in an explanation, or choosing precise descriptive words in a story.";
     edu:specializes :TextualArticulation, :VocalArticulation.
 :AdaptiveCreativity a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Revising ideas or solutions in response to new information, constraints, or feedback while preserving their intended purpose.";
-    rdfs:comment "modifying an experimental design after a failed trial, or revising a story after feedback reveals an unclear motivation.";
+    rdfs:comment "Modifying an experimental design after a failed trial, or revising a story after feedback reveals an unclear motivation.";
     edu:specializes :CreativeCapability.
 :AnalogicalReasoning a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Drawing tentative conclusions about one situation from relevant similarities with another situation.";
-    rdfs:comment "conjecturing that a fraction procedure also works for algebraic ratios by comparing their structures, or using a water-flow analogy to predict circuit behavior. The analogy's limits must still be considered.";
+    rdfs:comment "Conjecturing that a fraction procedure also works for algebraic ratios by comparing their structures, or using a water-flow analogy to predict circuit behavior. The analogy's limits must still be considered.";
     edu:specializes :NonDeductiveReasoning.
 :AnalyticalCapability a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Examining information by separating its components, identifying relationships, and evaluating the conclusions they support.";
-    rdfs:comment "identifying relevant quantities in a word problem, or comparing the evidence in two historical accounts.".
+    rdfs:comment "Identifying relevant quantities in a word problem, or comparing the evidence in two historical accounts.".
 :Articulation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Expressing meaning with clarity and control through a chosen communication modality.";
-    rdfs:comment "explaining a geometric relationship with a clear diagram, or delivering spoken instructions that an audience can follow.";
+    rdfs:comment "Explaining a geometric relationship with a clear diagram, or delivering spoken instructions that an audience can follow.";
     edu:partOf :CommunicationCapability.
 :ArtisticInterpretation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Interpreting the meaning of creative works through their formal, stylistic, symbolic, and expressive features.";
-    rdfs:comment "explaining how imagery contributes to a poem's theme, or how musical phrasing conveys tension.";
+    rdfs:comment "Explaining how imagery contributes to a poem's theme, or how musical phrasing conveys tension.";
     edu:specializes :Interpretation.
 :AxiomaticReasoning a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Reasoning that establishes, interprets, formalizes, or draws conclusions within a system organized around explicit axioms or foundational assumptions.";
-    rdfs:comment "identifying the starting assumptions of a geometric system, or determining which conclusions follow from a formal model.";
+    rdfs:comment "Identifying the starting assumptions of a geometric system, or determining which conclusions follow from a formal model.";
     edu:specializes :LogicalReasoning.
 :AxiomFormalization a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Expressing the foundational assumptions, primitive terms, and rules of an axiomatic system in an explicit and internally consistent form.";
-    rdfs:comment "stating geometric axioms precisely, or formalizing the starting assumptions of a model before deriving its consequences.";
+    rdfs:comment "Stating geometric axioms precisely, or formalizing the starting assumptions of a model before deriving its consequences.";
     edu:specializes :AxiomaticReasoning.
 :AxiomIdentification a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Recognizing which statements function as foundational assumptions within an axiomatic system.";
-    rdfs:comment "distinguishing a geometric postulate from a theorem, or separating a model's assumptions from its predictions.";
+    rdfs:comment "Distinguishing a geometric postulate from a theorem, or separating a model's assumptions from its predictions.";
     edu:specializes :AxiomaticReasoning.
 :BiasDetection a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Identifying prejudice, favoritism, or systematic distortion in information, arguments, or their presentation.";
-    rdfs:comment "detecting selective use of data in a report, or identifying loaded language in a historical account.";
+    rdfs:comment "Detecting selective use of data in a report, or identifying loaded language in a historical account.";
     edu:specializes :Evaluation.
 :BiasPrevention a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Recognizing and limiting biases in one's own reasoning and communication.";
-    rdfs:comment "choosing a balanced sample for an investigation, or revising an account to represent differing perspectives fairly.";
+    rdfs:comment "Choosing a balanced sample for an investigation, or revising an account to represent differing perspectives fairly.";
     edu:partOf :CommunicationCapability.
 :CommunicationCapability a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Exchanging, interpreting, and producing information through appropriate modalities to establish shared understanding.";
-    rdfs:comment "discussing a proposed solution with a partner, or explaining an investigation's findings to an audience.".
+    rdfs:comment "Discussing a proposed solution with a partner, or explaining an investigation's findings to an audience.".
 :ConceptClassification a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Organizing concepts into categories by their defining attributes, similarities, differences, and relationships.";
-    rdfs:comment "classifying triangles by their sides, or classifying words by their grammatical functions.";
+    rdfs:comment "Classifying triangles by their sides, or classifying words by their grammatical functions.";
     edu:specializes :ConceptualThinking.
 :ConceptComposition a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Combining related concepts to form a coherent new or more complex concept.";
-    rdfs:comment "combining area and height to explain volume, or combining food chains into the concept of a food web.";
+    rdfs:comment "Combining area and height to explain volume, or combining food chains into the concept of a food web.";
     edu:specializes :ConceptualThinking.
 :ConceptDerivation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Inferring a new concept or conceptual relationship from existing knowledge and evidence.";
-    rdfs:comment "deriving the concept of a triangle's area from a rectangle, or inferring an unfamiliar word's meaning from its roots and context.";
+    rdfs:comment "Deriving the concept of a triangle's area from a rectangle, or inferring an unfamiliar word's meaning from its roots and context.";
     edu:specializes :ConceptualThinking.
 :ConceptGeneralization a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Identifying shared features or principles across instances to form a broader concept applicable beyond those instances.";
-    rdfs:comment "forming a polygon definition from several shapes, or generalizing a grammatical pattern from multiple sentences.";
+    rdfs:comment "Forming a polygon definition from several shapes, or generalizing a grammatical pattern from multiple sentences.";
     edu:specializes :ConceptualThinking.
 :ConceptSpecification a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Refining a general concept into a more specific concept or instance by identifying its distinguishing features.";
-    rdfs:comment "specifying a triangle as equilateral, or describing the characteristics of a particular ecosystem within a general ecological model.";
+    rdfs:comment "Specifying a triangle as equilateral, or describing the characteristics of a particular ecosystem within a general ecological model.";
     edu:specializes :ConceptualThinking.
 :ConceptualThinking a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Understanding and connecting concepts through their underlying attributes, principles, and relationships.";
-    rdfs:comment "connecting multiplication with equal groups, or relating energy transfer across different physical processes.";
+    rdfs:comment "Connecting multiplication with equal groups, or relating energy transfer across different physical processes.";
     edu:partOf :AnalyticalCapability.
 :ConvergentCreativity a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Combining different ideas or perspectives into a coherent solution that meets a shared purpose or set of constraints.";
-    rdfs:comment "combining several proposed layouts into a workable model, or integrating different story ideas into one consistent plot.";
+    rdfs:comment "Combining several proposed layouts into a workable model, or integrating different story ideas into one consistent plot.";
     edu:specializes :CreativeCapability.
 :CreativeCapability a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Generating original and useful ideas, interpretations, or solutions within a given context.";
-    rdfs:comment "devising a new way to represent a mathematical relationship, or developing an original ending to a story.".
+    rdfs:comment "Devising a new way to represent a mathematical relationship, or developing an original ending to a story.".
 :DeductiveReasoning a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Drawing conclusions that necessarily follow from stated premises through valid reasoning.";
-    rdfs:comment "concluding that a square has four right angles from the properties of rectangles, or deriving a prediction from a stated scientific law. The guarantee depends on the premises being true and the inference being valid.";
+    rdfs:comment "Concluding that a square has four right angles from the properties of rectangles, or deriving a prediction from a stated scientific law. The guarantee depends on the premises being true and the inference being valid.";
     edu:specializes :LogicalReasoning.
 :DialogModeration a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Guiding a conversation so participants can exchange views, remain focused, and respond constructively to one another.";
-    rdfs:comment "moderating a discussion of competing solutions, or helping participants resolve a disagreement about a text.";
+    rdfs:comment "Moderating a discussion of competing solutions, or helping participants resolve a disagreement about a text.";
     edu:specializes :Facilitation.
 :DirectUnderstanding a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Comprehending information's explicitly stated or directly represented meaning.";
-    rdfs:comment "identifying a value explicitly given in a table, or restating the literal instructions in a passage.";
+    rdfs:comment "Identifying a value explicitly given in a table, or restating the literal instructions in a passage.";
     edu:specializes :Understanding.
 :DivergentCreativity a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Generating multiple distinct ideas or possible solutions before selecting an approach.";
-    rdfs:comment "proposing different ways to arrange shapes into a figure, or brainstorming alternative explanations for an observation.";
+    rdfs:comment "Proposing different ways to arrange shapes into a figure, or brainstorming alternative explanations for an observation.";
     edu:specializes :CreativeCapability.
 :DiversityTolerance a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Responding respectfully to differences in people's backgrounds, perspectives, and practices.";
-    rdfs:comment "comparing cultural accounts without dismissing unfamiliar practices, or considering a classmate's different approach during group work.";
+    rdfs:comment "Comparing cultural accounts without dismissing unfamiliar practices, or considering a classmate's different approach during group work.";
     edu:partOf :SocialScaling.
 :EmotionalCapability a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Recognizing, interpreting, regulating, and expressing emotions in oneself and in interactions with others.";
-    rdfs:comment "explaining a character's emotional response, or selecting a constructive response to frustration during a collaborative task.".
+    rdfs:comment "Explaining a character's emotional response, or selecting a constructive response to frustration during a collaborative task.".
 :EmotionalCreativity a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Using emotional awareness and expression to develop original ideas or creative work.";
-    rdfs:comment "using color and composition to express a mood, or writing a scene from an unfamiliar emotional perspective.";
+    rdfs:comment "Using color and composition to express a mood, or writing a scene from an unfamiliar emotional perspective.";
     edu:specializes :CreativeCapability.
 :Emotionalization a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Conveying emotion intentionally through the content and delivery of communication.";
-    rdfs:comment "using vocal emphasis in a persuasive speech, or choosing imagery to convey a narrator's excitement.";
+    rdfs:comment "Using vocal emphasis in a persuasive speech, or choosing imagery to convey a narrator's excitement.";
     edu:specializes :Expression.
 :EmotionExtraction a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Identifying emotions conveyed by verbal, visual, or other communicative evidence.";
-    rdfs:comment "identifying a character's anxiety from dialogue and actions, or identifying the emotion conveyed by a performed scene.";
+    rdfs:comment "Identifying a character's anxiety from dialogue and actions, or identifying the emotion conveyed by a performed scene.";
     edu:specializes :Extraction.
 :Empathy a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Understanding another person's feelings and perspective and considering an appropriate response.";
-    rdfs:comment "explaining how a character experiences a conflict, or considering a partner's frustration when planning a shared task.";
+    rdfs:comment "Explaining how a character experiences a conflict, or considering a partner's frustration when planning a shared task.";
     edu:partOf :EmotionalCapability.
 :ErrorCorrection a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "The complete process of detecting, evaluating, and resolving an error.";
-    rdfs:comment "locating an error in a calculation, explaining its cause, and verifying a correction; or applying the same sequence to an experimental procedure.";
+    rdfs:comment "Locating an error in a calculation, explaining its cause, and verifying a correction; or applying the same sequence to an experimental procedure.";
     edu:partOf :Processing.
 :ErrorDetection a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Recognizing a mistake, inconsistency, or conflict with a stated requirement or established fact.";
-    rdfs:comment "spotting a sign error in a calculation, or identifying a contradiction within an argument.";
+    rdfs:comment "Spotting a sign error in a calculation, or identifying a contradiction within an argument.";
     edu:partOf :ErrorCorrection;
     edu:specializes :Evaluation.
 :ErrorEvaluation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Characterizing the nature, cause, and consequences of a detected error.";
-    rdfs:comment "explaining why a calculation failed, or determining how a measurement error affects an experimental conclusion.";
+    rdfs:comment "Explaining why a calculation failed, or determining how a measurement error affects an experimental conclusion.";
     edu:partOf :ErrorCorrection;
     edu:specializes :Evaluation.
 :ErrorResolution a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Applying and verifying the change required to eliminate a detected and evaluated error.";
-    rdfs:comment "correcting a mistaken calculation and checking the result, or revising an experimental step and confirming that it addresses the identified problem.";
+    rdfs:comment "Correcting a mistaken calculation and checking the result, or revising an experimental step and confirming that it addresses the identified problem.";
     edu:partOf :ErrorCorrection.
 :Evaluation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Judging quality, value, or significance against relevant criteria and evidence.";
-    rdfs:comment "assessing a solution against stated conditions, or comparing the credibility of two sources.";
+    rdfs:comment "Assessing a solution against stated conditions, or comparing the credibility of two sources.";
     edu:partOf :Processing.
 :Expression a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Conveying thoughts, feelings, or information in a form that others can interpret.";
-    rdfs:comment "representing a relationship in a diagram, or communicating a viewpoint in a speech.";
+    rdfs:comment "Representing a relationship in a diagram, or communicating a viewpoint in a speech.";
     edu:partOf :CommunicationCapability.
 :Extraction a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Identifying and isolating information or elements relevant to a purpose within a larger source.";
-    rdfs:comment "selecting the necessary measurements from a diagram, or locating evidence for a claim in an article.";
+    rdfs:comment "Selecting the necessary measurements from a diagram, or locating evidence for a claim in an article.";
     edu:partOf :Processing.
 :Facilitation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Supporting others in carrying out a process, participating in an activity, or reaching a shared goal.";
-    rdfs:comment "guiding a group through a problem-solving discussion, or helping partners coordinate an investigation.";
+    rdfs:comment "Guiding a group through a problem-solving discussion, or helping partners coordinate an investigation.";
     edu:partOf :CommunicationCapability.
 :Formalization a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Expressing information according to the formal rules and conventions of a communication context.";
-    rdfs:comment "presenting a mathematical argument in a required format, or adapting informal notes into an academic report.";
+    rdfs:comment "Presenting a mathematical argument in a required format, or adapting informal notes into an academic report.";
     edu:specializes :Expression.
 :GesticArticulation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Conveying meaning through deliberate bodily gestures and posture.";
-    rdfs:comment "using hand movements to indicate rotation, or using body posture to communicate a character's intention.";
+    rdfs:comment "Using hand movements to indicate rotation, or using body posture to communicate a character's intention.";
     edu:specializes :Articulation.
 :GesticReception a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Interpreting meaning conveyed through bodily gestures and posture.";
-    rdfs:comment "interpreting a gesture indicating direction, or explaining what an actor's posture communicates.";
+    rdfs:comment "Interpreting a gesture indicating direction, or explaining what an actor's posture communicates.";
     edu:specializes :Reception.
 :GrammaticalPrecision a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Applying grammatical rules accurately in speech or writing.";
-    rdfs:comment "maintaining agreement in a written explanation, or using correct verb forms during an oral presentation.";
+    rdfs:comment "Maintaining agreement in a written explanation, or using correct verb forms during an oral presentation.";
     edu:specializes :TextualArticulation, :VocalArticulation.
 :GroupModeration a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Guiding participation, interaction, and coordination within a group working toward a shared purpose.";
-    rdfs:comment "distributing turns during a solution discussion, or helping an investigation team agree on roles and next steps.";
+    rdfs:comment "Distributing turns during a solution discussion, or helping an investigation team agree on roles and next steps.";
     edu:specializes :Facilitation.
 :HumoristicInterpretation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Recognizing humor and explaining how its meaning arises from language, context, or presentation.";
-    rdfs:comment "explaining a wordplay-based joke, or identifying the incongruity that makes a scene humorous.";
+    rdfs:comment "Explaining a wordplay-based joke, or identifying the incongruity that makes a scene humorous.";
     edu:specializes :Interpretation.
 :HypothesisGeneration a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Formulating testable explanations or predictions from observations and existing knowledge.";
-    rdfs:comment "proposing a rule for a number pattern, or predicting how light exposure affects plant growth.";
+    rdfs:comment "Proposing a rule for a number pattern, or predicting how light exposure affects plant growth.";
     edu:partOf :ScientificThinking.
 :HypothesisValidation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Evaluating a hypothesis by comparing its predictions with systematically gathered evidence.";
-    rdfs:comment "checking a mathematical conjecture against relevant cases, or testing a prediction with controlled observations. Supporting cases alone do not prove an unrestricted mathematical claim.";
+    rdfs:comment "Checking a mathematical conjecture against relevant cases, or testing a prediction with controlled observations. Supporting cases alone do not prove an unrestricted mathematical claim.";
     edu:partOf :ScientificThinking.
 :InductiveReasoning a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Drawing a tentative generalization from particular observations or cases.";
-    rdfs:comment "conjecturing a numerical pattern from several instances, or inferring a biological trend from observations. This differs from mathematical induction, which is a deductive proof method.";
+    rdfs:comment "Conjecturing a numerical pattern from several instances, or inferring a biological trend from observations. This differs from mathematical induction, which is a deductive proof method.";
     edu:specializes :NonDeductiveReasoning.
 :InformationCompression a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Summarizing information while preserving its essential meaning and relevant relationships.";
-    rdfs:comment "condensing a multi-step explanation into its main argument, or summarizing a research report without omitting its central qualification.";
+    rdfs:comment "Condensing a multi-step explanation into its main argument, or summarizing a research report without omitting its central qualification.";
     edu:specializes :Interpretation.
 :InformationExtraction a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Identifying and gathering specific facts or details relevant to a task from a source.";
-    rdfs:comment "retrieving values needed for a calculation from a table, or collecting dates and events from a historical account.";
+    rdfs:comment "Retrieving values needed for a calculation from a table, or collecting dates and events from a historical account.";
     edu:specializes :Extraction.
 :IntentIdentification a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Inferring the purpose of a communication from its content, context, and presentation.";
-    rdfs:comment "distinguishing an explanation from a persuasive argument, or identifying what a speaker hopes an audience will do.";
+    rdfs:comment "Distinguishing an explanation from a persuasive argument, or identifying what a speaker hopes an audience will do.";
     edu:specializes :Interpretation.
 :Interpretation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Explaining meaning by relating information to its context, evidence, and relevant knowledge.";
-    rdfs:comment "explaining what a graph implies about a situation, or interpreting a passage in light of its historical context.";
+    rdfs:comment "Explaining what a graph implies about a situation, or interpreting a passage in light of its historical context.";
     edu:partOf :Processing.
 :Introspection a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Examining one's own thoughts, feelings, motives, and actions.";
-    rdfs:comment "reflecting on why a problem-solving approach was chosen, or explaining how an emotional response affected participation in a discussion.";
+    rdfs:comment "Reflecting on why a problem-solving approach was chosen, or explaining how an emotional response affected participation in a discussion.";
     edu:partOf :EmotionalCapability.
 :LateralCreativity a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Developing unconventional ideas by questioning assumptions and reframing a problem.";
-    rdfs:comment "exploring a simple mechanical solution to a problem usually approached electronically, or retelling a story from an unexpected viewpoint.";
+    rdfs:comment "Exploring a simple mechanical solution to a problem usually approached electronically, or retelling a story from an unexpected viewpoint.";
     edu:specializes :CreativeCapability.
 :LinguisticArticulation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Expressing meaning through the words and structures of a language in speech or writing.";
-    rdfs:comment "explaining a calculation orally, or writing a coherent account of an investigation.";
+    rdfs:comment "Explaining a calculation orally, or writing a coherent account of an investigation.";
     edu:partOf :LinguisticCapability;
     edu:specializes :Articulation.
 :LinguisticCapability a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Using a language's vocabulary, structures, and contextual conventions to understand and communicate meaning.";
-    rdfs:comment "interpreting an unfamiliar explanation, or adapting a written account for a particular audience.".
+    rdfs:comment "Interpreting an unfamiliar explanation, or adapting a written account for a particular audience.".
 :LinguisticReception a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Understanding meaning expressed in spoken or written language.";
-    rdfs:comment "following an oral explanation, or interpreting written instructions for an experiment.";
+    rdfs:comment "Following an oral explanation, or interpreting written instructions for an experiment.";
     edu:partOf :LinguisticCapability;
     edu:specializes :Reception.
 :LogicalInference a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Deriving a conclusion from stated premises by applying valid deductive inference rules.";
-    rdfs:comment "applying modus ponens to a conditional statement, or deriving a consequence of a formal model.";
+    rdfs:comment "Applying modus ponens to a conditional statement, or deriving a consequence of a formal model.";
     edu:specializes :DeductiveReasoning.
 :LogicalProcessing a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Carrying out an ordered sequence of reasoning operations whose steps are justified by logical relationships.";
-    rdfs:comment "following a chain of implications in a proof, or applying a decision procedure to classify observations.";
+    rdfs:comment "Following a chain of implications in a proof, or applying a decision procedure to classify observations.";
     edu:partOf :LogicalThinking.
 :LogicalReasoning a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Using premises and evidence to reach and justify conclusions, with the strength of the conclusion appropriate to the inference.";
-    rdfs:comment "deriving a necessary conclusion from stated premises, or comparing explanations supported to different degrees by observations.";
+    rdfs:comment "Deriving a necessary conclusion from stated premises, or comparing explanations supported to different degrees by observations.";
     edu:partOf :LogicalThinking.
 :LogicalThinking a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Organizing and examining ideas for consistency, justified relationships, and well-supported conclusions.";
-    rdfs:comment "checking the consistency of a solution, or distinguishing a supported conclusion from an unsupported claim in a report.";
+    rdfs:comment "Checking the consistency of a solution, or distinguishing a supported conclusion from an unsupported claim in a report.";
     edu:partOf :AnalyticalCapability.
 :MessageExtraction a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Identifying the central point or message within a communication.";
-    rdfs:comment "stating the main claim of a mathematical explanation, or identifying the central message of a speech.";
+    rdfs:comment "Stating the main claim of a mathematical explanation, or identifying the central message of a speech.";
     edu:specializes :Extraction.
 :Messaging a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Communicating information or instructions clearly for a particular purpose and audience.";
-    rdfs:comment "writing directions for a construction task, or explaining what a group should do during an investigation.";
+    rdfs:comment "Writing directions for a construction task, or explaining what a group should do during an investigation.";
     edu:specializes :Expression.
 :MimicArticulation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Conveying meaning or emotion through deliberate facial expressions.";
-    rdfs:comment "portraying a character's surprise without words, or using facial expression to support the intended meaning of a spoken line.";
+    rdfs:comment "Portraying a character's surprise without words, or using facial expression to support the intended meaning of a spoken line.";
     edu:specializes :Articulation.
 :MimicReception a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Interpreting meaning or emotion conveyed through facial expressions.";
-    rdfs:comment "explaining a character's reaction in an illustrated scene, or interpreting an actor's changing expression.";
+    rdfs:comment "Explaining a character's reaction in an illustrated scene, or interpreting an actor's changing expression.";
     edu:specializes :Reception.
 :MoodIdentification a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Identifying the prevailing emotional tone of a communication or represented situation.";
-    rdfs:comment "explaining how a passage creates a tense atmosphere, or identifying the mood conveyed by music and imagery in a scene.";
+    rdfs:comment "Explaining how a passage creates a tense atmosphere, or identifying the mood conveyed by music and imagery in a scene.";
     edu:specializes :Interpretation.
 :Narration a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Communicating a connected sequence of events as a coherent story or account.";
-    rdfs:comment "recounting the stages of an investigation, or telling a story with a clear sequence and viewpoint.";
+    rdfs:comment "Recounting the stages of an investigation, or telling a story with a clear sequence and viewpoint.";
     edu:specializes :Expression.
 :NarrativeExtraction a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Identifying the events, participants, and relationships that form the underlying narrative of a communication.";
-    rdfs:comment "reconstructing a sequence of historical events from several sources, or identifying a story's central conflict and resolution.";
+    rdfs:comment "Reconstructing a sequence of historical events from several sources, or identifying a story's central conflict and resolution.";
     edu:specializes :Extraction.
 :NonDeductiveReasoning a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Drawing conclusions supported to some degree by premises or evidence without those conclusions being logically guaranteed.";
-    rdfs:comment "proposing the most plausible explanation for an observation, or predicting a pattern from previously examined cases.";
+    rdfs:comment "Proposing the most plausible explanation for an observation, or predicting a pattern from previously examined cases.";
     edu:specializes :LogicalReasoning.
 :PassiveVocabulary a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Understanding the meanings of words encountered in speech or writing, whether or not those words are actively used.";
-    rdfs:comment "interpreting a technical term in a science passage, or explaining an unfamiliar word encountered in a story.";
+    rdfs:comment "Interpreting a technical term in a science passage, or explaining an unfamiliar word encountered in a story.";
     edu:specializes :LinguisticReception.
 :PeerAwareness a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Recognizing peers' feelings, needs, and perspectives from available interpersonal evidence.";
-    rdfs:comment "identifying a partner's difficulty during a shared task, or explaining different participants' concerns in a group discussion.";
+    rdfs:comment "Identifying a partner's difficulty during a shared task, or explaining different participants' concerns in a group discussion.";
     edu:partOf :Empathy.
 :PeerRelatability a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Establishing understanding and rapport with peers by recognizing shared experiences and differing perspectives.";
-    rdfs:comment "relating a partner's explanation to a shared experience, or adapting a response to acknowledge a classmate's viewpoint.";
+    rdfs:comment "Relating a partner's explanation to a shared experience, or adapting a response to acknowledge a classmate's viewpoint.";
     edu:partOf :Empathy.
 :PeerSupport a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Offering appropriate encouragement, assistance, or guidance to peers in response to their needs.";
-    rdfs:comment "helping a partner identify the next step in a task, or responding constructively when a group member encounters difficulty.";
+    rdfs:comment "Helping a partner identify the next step in a task, or responding constructively when a group member encounters difficulty.";
     edu:partOf :Empathy.
 :Performance a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Presenting oneself or one's work to an audience through deliberate, expressive delivery.";
-    rdfs:comment "performing a dramatic scene, or delivering a practiced explanation of a project to an audience.";
+    rdfs:comment "Performing a dramatic scene, or delivering a practiced explanation of a project to an audience.";
     edu:specializes :Expression.
 :PlausibilityEvaluation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Judging how credible or likely a claim is in light of the available evidence and context.";
-    rdfs:comment "assessing whether a calculated measurement is realistic, or comparing the plausibility of two explanations for an event.";
+    rdfs:comment "Assessing whether a calculated measurement is realistic, or comparing the plausibility of two explanations for an event.";
     edu:specializes :Evaluation.
 :PoliticalAwareness a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Recognizing how political institutions, decisions, interests, and power relationships affect a situation.";
-    rdfs:comment "explaining how a policy influences a community, or interpreting the competing interests represented in a historical debate.";
+    rdfs:comment "Explaining how a policy influences a community, or interpreting the competing interests represented in a historical debate.";
     edu:partOf :SocialScaling.
 :Presentation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Organizing and delivering information in a coherent form suited to a purpose and audience.";
-    rdfs:comment "presenting the reasoning behind a solution, or reporting an investigation's findings with an organized sequence of supporting material.";
+    rdfs:comment "Presenting the reasoning behind a solution, or reporting an investigation's findings with an organized sequence of supporting material.";
     edu:specializes :Expression.
 :ProcedureApplicability a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Judging whether a procedure's purpose, assumptions, and conditions make it suitable for a task.";
-    rdfs:comment "deciding whether a conversion method applies to the given units, or whether an experimental procedure can test a stated hypothesis.";
+    rdfs:comment "Deciding whether a conversion method applies to the given units, or whether an experimental procedure can test a stated hypothesis.";
     edu:specializes :ProcedureUnderstanding.
 :ProcedureApplication a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Selecting and using a procedure suited to a task's conditions and intended outcome.";
-    rdfs:comment "selecting and using a method to solve an equation, or choosing and carrying out an appropriate measurement procedure.";
+    rdfs:comment "Selecting and using a method to solve an equation, or choosing and carrying out an appropriate measurement procedure.";
     edu:partOf :LogicalProcessing.
 :ProcedureComposition a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Combining or adapting known procedures into a coherent procedure for a new or more complex task.";
-    rdfs:comment "combining area calculations to measure a composite figure, or combining sampling and measurement procedures into an investigation.";
+    rdfs:comment "Combining area calculations to measure a composite figure, or combining sampling and measurement procedures into an investigation.";
     edu:specializes :ProcedureUnderstanding.
 :ProcedureDerivation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Developing a procedure from underlying principles, relationships, or previously established procedures.";
-    rdfs:comment "deriving a method for finding a triangle's area, or deriving an experimental sequence from a model's predictions.";
+    rdfs:comment "Deriving a method for finding a triangle's area, or deriving an experimental sequence from a model's predictions.";
     edu:specializes :ProcedureUnderstanding.
 :ProcedureExecution a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Carrying out the steps of a procedure accurately and in the required order.";
-    rdfs:comment "carrying out a supplied calculation algorithm, or following an experimental protocol. Execution alone does not establish that the learner selected or derived the procedure.";
+    rdfs:comment "Carrying out a supplied calculation algorithm, or following an experimental protocol. Execution alone does not establish that the learner selected or derived the procedure.";
     edu:partOf :ProcedureApplication.
 :ProcedureIdentification a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Recognizing which known procedure matches a task's features and intended outcome.";
-    rdfs:comment "identifying a suitable algorithm for a calculation, or naming the procedure needed to measure a specimen's volume.";
+    rdfs:comment "Identifying a suitable algorithm for a calculation, or naming the procedure needed to measure a specimen's volume.";
     edu:partOf :ProcedureApplication.
 :ProcedureInversion a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Working backward through a procedure from a known outcome to determine an unknown input or intermediate state using the relationships between its steps.";
-    rdfs:comment "recovering an original number from the result of stated operations, or reconstructing an earlier state in a described experimental sequence. Steps must supply enough information for the requested reconstruction.";
+    rdfs:comment "Recovering an original number from the result of stated operations, or reconstructing an earlier state in a described experimental sequence. Steps must supply enough information for the requested reconstruction.";
     edu:specializes :ProcedureUnderstanding.
 :ProcedureMemorization a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Remembering and recalling the ordered steps, rules, and conditions of a procedure.";
-    rdfs:comment "recalling an algorithm's steps without consulting instructions, or reciting the sequence of an experimental protocol.";
+    rdfs:comment "Recalling an algorithm's steps without consulting instructions, or reciting the sequence of an experimental protocol.";
     edu:partOf :ProcedureApplication.
 :ProcedureUnderstanding a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Explaining how and why a procedure's steps, order, and conditions produce its intended outcome.";
-    rdfs:comment "explaining why regrouping works in an arithmetic algorithm, or why a control step is necessary in an experiment.";
+    rdfs:comment "Explaining why regrouping works in an arithmetic algorithm, or why a control step is necessary in an experiment.";
     edu:partOf :LogicalProcessing.
 :Processing a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Working with information to identify its meaning, assess it, and use it for a purpose.";
-    rdfs:comment "organizing the information in a word problem, or evaluating and interpreting evidence in a report.";
+    rdfs:comment "Organizing the information in a word problem, or evaluating and interpreting evidence in a report.";
     edu:partOf :CommunicationCapability.
 :Pronunciation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Producing spoken words with the sounds, stress, and articulation appropriate to the language and intended meaning.";
-    rdfs:comment "pronouncing subject terminology clearly in a presentation, or distinguishing similar words through their spoken sounds.";
+    rdfs:comment "Pronouncing subject terminology clearly in a presentation, or distinguishing similar words through their spoken sounds.";
     edu:specializes :VocalArticulation.
 :ReadingFluency a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Reading connected text smoothly and accurately with phrasing that supports comprehension.";
-    rdfs:comment "reading a passage with coherent phrase grouping, or reading instructions without pauses that obscure their meaning.";
+    rdfs:comment "Reading a passage with coherent phrase grouping, or reading instructions without pauses that obscure their meaning.";
     edu:specializes :TextualReception.
 :ReadingPrecision a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Reading accurately enough to retain the details, qualifications, and relationships expressed in a text.";
-    rdfs:comment "noticing an exception in written problem conditions, or distinguishing a source's claim from its qualification.";
+    rdfs:comment "Noticing an exception in written problem conditions, or distinguishing a source's claim from its qualification.";
     edu:specializes :TextualReception.
 :ReadingSpeed a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Reading at a pace that supports efficient access to information while retaining comprehension.";
-    rdfs:comment "locating and understanding relevant material within a timed reading task, or reading instructions efficiently before applying them.";
+    rdfs:comment "Locating and understanding relevant material within a timed reading task, or reading instructions efficiently before applying them.";
     edu:specializes :TextualReception.
 :Reception a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Receiving and interpreting information through a perceptual or communicative modality.";
-    rdfs:comment "interpreting a spoken explanation, or understanding a diagram's information.";
+    rdfs:comment "Interpreting a spoken explanation, or understanding a diagram's information.";
     edu:partOf :Processing.
 :RelevanceEvaluation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Determining how information contributes to a stated question, task, or purpose.";
-    rdfs:comment "selecting the quantities needed to solve a word problem, or distinguishing relevant evidence from background detail in an argument.";
+    rdfs:comment "Selecting the quantities needed to solve a word problem, or distinguishing relevant evidence from background detail in an argument.";
     edu:specializes :Evaluation.
 :ResultInterpretation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Explaining what results mean in relation to the question, assumptions, and evidence that produced them.";
-    rdfs:comment "interpreting a calculated value in a problem's context, or explaining what an experiment's results support and what remains uncertain.";
+    rdfs:comment "Interpreting a calculated value in a problem's context, or explaining what an experiment's results support and what remains uncertain.";
     edu:partOf :ScientificThinking.
 :ScientificThinking a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Investigating questions systematically through testable hypotheses, evidence gathering, analysis, and revision of explanations.";
-    rdfs:comment "testing a proposed relationship between quantities, or comparing a model's predictions with observations.";
+    rdfs:comment "Testing a proposed relationship between quantities, or comparing a model's predictions with observations.";
     edu:partOf :AnalyticalCapability.
 :SelfAssessment a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Evaluating one's own knowledge, skills, or performance against relevant evidence and criteria.";
-    rdfs:comment "checking a solution against a rubric, or identifying strengths and weaknesses in a recorded presentation.";
+    rdfs:comment "Checking a solution against a rubric, or identifying strengths and weaknesses in a recorded presentation.";
     edu:partOf :Introspection.
 :SelfAwareness a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Recognizing one's own thoughts, emotions, and responses and how they affect actions.";
-    rdfs:comment "identifying frustration during problem solving, or explaining how assumptions influenced an interpretation.";
+    rdfs:comment "Identifying frustration during problem solving, or explaining how assumptions influenced an interpretation.";
     edu:partOf :Introspection.
 :SelfConfidence a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Trust in one's capacity to attempt a task and make judgments while acknowledging uncertainty and limitations.";
-    rdfs:comment "explaining why one is prepared to attempt an unfamiliar task, or reflecting on the reasons for confidence in a proposed approach. Task completion alone does not establish this attribute.";
+    rdfs:comment "Explaining why one is prepared to attempt an unfamiliar task, or reflecting on the reasons for confidence in a proposed approach. Task completion alone does not establish this attribute.";
     edu:partOf :Introspection.
 :SelfMotivation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Initiating and sustaining purposeful effort toward a goal without relying entirely on external direction.";
-    rdfs:comment "setting and following a personal investigation goal, or planning independent practice in response to a self-identified need.";
+    rdfs:comment "Setting and following a personal investigation goal, or planning independent practice in response to a self-identified need.";
     edu:partOf :Introspection.
 :SelfRegulation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Monitoring and adjusting one's attention, emotions, and actions to meet a task's demands.";
-    rdfs:comment "changing a study strategy after noticing distraction, or managing frustration while revising a solution.";
+    rdfs:comment "Changing a study strategy after noticing distraction, or managing frustration while revising a solution.";
     edu:partOf :Introspection.
 :ServiceOrientation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Recognizing opportunities to help others and choosing actions that contribute to a shared or community need.";
-    rdfs:comment "planning a project around a community's stated needs, or selecting a supportive role in a collaborative activity.";
+    rdfs:comment "Planning a project around a community's stated needs, or selecting a supportive role in a collaborative activity.";
     edu:partOf :SocialScaling.
 :SocialScaling a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Adapting one's behavior and communication to the participants, expectations, and relationships of a social context.";
-    rdfs:comment "changing an explanation for a younger audience, or adjusting participation when moving from a pair discussion to a group debate.";
+    rdfs:comment "Changing an explanation for a younger audience, or adjusting participation when moving from a pair discussion to a group debate.";
     edu:partOf :EmotionalCapability.
 :SpatialGeneration a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Creating or transforming spatial arrangements and reasoning about the resulting structures and relationships.";
-    rdfs:comment "arranging component shapes into a new figure, or designing a layout that meets stated spatial constraints.";
+    rdfs:comment "Arranging component shapes into a new figure, or designing a layout that meets stated spatial constraints.";
     edu:specializes :SpatialThinking.
 :SpatialImagination a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Forming and manipulating mental representations of spatial objects and relationships without physically transforming the objects.";
-    rdfs:comment "predicting the result of rotating a solid, or imagining how a folded net will look when assembled.";
+    rdfs:comment "Predicting the result of rotating a solid, or imagining how a folded net will look when assembled.";
     edu:specializes :SpatialThinking.
 :SpatialInterpretation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Interpreting spatial information by relating its symbols, scale, orientation, and arrangement to the represented objects or space.";
-    rdfs:comment "interpreting a map's distances and directions, or explaining the relationships shown in a geometric diagram.";
+    rdfs:comment "Interpreting a map's distances and directions, or explaining the relationships shown in a geometric diagram.";
     edu:specializes :SpatialThinking.
 :SpatialNavigation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Planning and following a route through physical or represented space using positions, directions, and spatial cues.";
-    rdfs:comment "tracing a route on a map, or describing movements through a three-dimensional model.";
+    rdfs:comment "Tracing a route on a map, or describing movements through a three-dimensional model.";
     edu:specializes :SpatialThinking.
 :SpatialThinking a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Representing and reasoning about objects' positions, dimensions, orientations, and spatial relationships.";
-    rdfs:comment "comparing objects under rotation, or reasoning about relative locations in a plan.";
+    rdfs:comment "Comparing objects under rotation, or reasoning about relative locations in a plan.";
     edu:partOf :AnalyticalCapability.
 :SpeakingFluency a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Producing connected speech smoothly, with phrasing and continuity that support understanding.";
-    rdfs:comment "explaining a solution without disruptive hesitations, or recounting an event in coherent spoken phrases.";
+    rdfs:comment "Explaining a solution without disruptive hesitations, or recounting an event in coherent spoken phrases.";
     edu:specializes :VocalArticulation.
 :SpeakingSpeed a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Adjusting the pace of speech to the message, audience, and communicative situation.";
-    rdfs:comment "slowing an explanation at a difficult step, or adjusting delivery to make spoken instructions easy to follow.";
+    rdfs:comment "Slowing an explanation at a difficult step, or adjusting delivery to make spoken instructions easy to follow.";
     edu:specializes :VocalArticulation.
 :SubtextUnderstanding a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Interpreting meaning implied by a communication beyond what it explicitly states.";
-    rdfs:comment "identifying an unstated criticism in a dialogue, or explaining how tone changes the meaning of a spoken response.";
+    rdfs:comment "Identifying an unstated criticism in a dialogue, or explaining how tone changes the meaning of a spoken response.";
     edu:specializes :Understanding.
 :SupertextUnderstanding a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Interpreting a communication in relation to broader knowledge, context, and implications.";
-    rdfs:comment "relating a historical passage to its political setting, or explaining how a scientific account connects with earlier findings.";
+    rdfs:comment "Relating a historical passage to its political setting, or explaining how a scientific account connects with earlier findings.";
     edu:specializes :Understanding.
 :SyntacticalPrecision a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Constructing written sentences whose arrangement of words and clauses expresses the intended relationships clearly and correctly.";
-    rdfs:comment "revising an ambiguous explanation by changing clause order, or constructing a sentence that clearly identifies a cause and its consequence.";
+    rdfs:comment "Revising an ambiguous explanation by changing clause order, or constructing a sentence that clearly identifies a cause and its consequence.";
     edu:specializes :TextualArticulation.
 :TextualArticulation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Expressing meaning clearly through written language and its organizational conventions.";
-    rdfs:comment "writing an explanation of a solution, or producing a coherent account of an investigation.";
+    rdfs:comment "Writing an explanation of a solution, or producing a coherent account of an investigation.";
     edu:specializes :LinguisticArticulation.
 :TextualReception a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Understanding meaning conveyed through written language.";
-    rdfs:comment "interpreting written problem conditions, or explaining the argument developed in an article.";
+    rdfs:comment "Interpreting written problem conditions, or explaining the argument developed in an article.";
     edu:specializes :LinguisticReception.
 :TonalArticulation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Conveying meaning or emotion through deliberate control of vocal pitch, intensity, and inflection.";
-    rdfs:comment "emphasizing a contrast during an explanation, or changing vocal inflection to convey a character's uncertainty.";
+    rdfs:comment "Emphasizing a contrast during an explanation, or changing vocal inflection to convey a character's uncertainty.";
     edu:specializes :Articulation.
 :TonalReception a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Interpreting meaning or emotion conveyed by vocal pitch, intensity, and inflection.";
-    rdfs:comment "recognizing a question from its spoken intonation, or explaining how a performer's tone conveys doubt.";
+    rdfs:comment "Recognizing a question from its spoken intonation, or explaining how a performer's tone conveys doubt.";
     edu:specializes :Reception.
 :Understanding a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Grasping information's meaning and relating it to relevant ideas or contexts.";
-    rdfs:comment "explaining a mathematical statement in one's own words, or relating a passage's meaning to its context.";
+    rdfs:comment "Explaining a mathematical statement in one's own words, or relating a passage's meaning to its context.";
     edu:partOf :Processing.
 :VisualArticulation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Communicating meaning clearly through the deliberate organization and presentation of visual elements.";
-    rdfs:comment "arranging a diagram so relationships are clear, or designing an image that communicates a particular message.";
+    rdfs:comment "Arranging a diagram so relationships are clear, or designing an image that communicates a particular message.";
     edu:specializes :Articulation.
 :VisualDecomposition a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Separating a visual representation into meaningful components and interpreting how they contribute to the whole.";
-    rdfs:comment "identifying component shapes in a figure, or separating the layers of information in a map.";
+    rdfs:comment "Identifying component shapes in a figure, or separating the layers of information in a map.";
     edu:specializes :VisualReception.
 :Visualization a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Externalizing concepts, relationships, processes, or data as visual representations that communicate their structure or meaning.";
-    rdfs:comment "drawing a graph to communicate a numerical relationship, or constructing a diagram of a biological process.";
+    rdfs:comment "Drawing a graph to communicate a numerical relationship, or constructing a diagram of a biological process.";
     edu:specializes :Expression.
 :VisualReception a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Interpreting information conveyed by visual forms and their relationships.";
-    rdfs:comment "explaining a graph's information, or interpreting the sequence represented in a diagram.";
+    rdfs:comment "Explaining a graph's information, or interpreting the sequence represented in a diagram.";
     edu:specializes :Reception.
 :VisualRecognition a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Identifying familiar visual forms or patterns by relating their features to previously encountered representations.";
-    rdfs:comment "recognizing a shape despite a changed orientation, or identifying a familiar symbol within a diagram.";
+    rdfs:comment "Recognizing a shape despite a changed orientation, or identifying a familiar symbol within a diagram.";
     edu:specializes :VisualReception.
 :VocalArticulation a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Expressing meaning clearly through spoken language.";
-    rdfs:comment "giving understandable oral instructions, or explaining the reasoning behind a conclusion aloud.";
+    rdfs:comment "Giving understandable oral instructions, or explaining the reasoning behind a conclusion aloud.";
     edu:specializes :LinguisticArticulation.
 :VocalListeningCapacity a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Sustaining attention and comprehension across an extended spoken communication.";
-    rdfs:comment "following a multi-stage oral explanation, or retaining the argument across a sustained discussion.";
+    rdfs:comment "Following a multi-stage oral explanation, or retaining the argument across a sustained discussion.";
     edu:specializes :VocalReception.
 :VocalListeningFlexibility a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Understanding spoken language across variations in accent, speaking style, and delivery.";
-    rdfs:comment "following explanations by speakers with different accents, or adapting to a speaker's changing pace.";
+    rdfs:comment "Following explanations by speakers with different accents, or adapting to a speaker's changing pace.";
     edu:specializes :VocalReception.
 :VocalListeningPrecision a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Distinguishing and retaining the details and qualifications conveyed in spoken language.";
-    rdfs:comment "following oral instructions that distinguish similar quantities, or identifying a qualification in a spoken argument.";
+    rdfs:comment "Following oral instructions that distinguish similar quantities, or identifying a qualification in a spoken argument.";
     edu:specializes :VocalReception.
 :VocalReception a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Understanding meaning conveyed through spoken language.";
-    rdfs:comment "following a spoken explanation of a method, or interpreting an oral account of an event.";
+    rdfs:comment "Following a spoken explanation of a method, or interpreting an oral account of an event.";
     edu:specializes :LinguisticReception.
 :WritingFluency a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Producing connected written language smoothly while maintaining coherent expression.";
-    rdfs:comment "writing an explanation without interruptions that disrupt its structure, or developing a connected narrative from a prompt.";
+    rdfs:comment "Writing an explanation without interruptions that disrupt its structure, or developing a connected narrative from a prompt.";
     edu:specializes :TextualArticulation.
 :WritingSpeed a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Producing written language at a pace suited to a task while maintaining legibility or readability and intended meaning.";
-    rdfs:comment "recording understandable notes during an explanation, or completing a coherent written response within an allotted time.";
+    rdfs:comment "Recording understandable notes during an explanation, or completing a coherent written response within an allotted time.";
     edu:specializes :TextualArticulation.
