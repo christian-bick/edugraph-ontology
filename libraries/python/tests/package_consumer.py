@@ -19,7 +19,7 @@ from edugraph.core import OntologyContext, snapshot_from_json
 assert OntologyContext(()).descriptors() == ()
 sys.meta_path.remove(guard)
 
-from edugraph import Area, Scope, definition, relations, specializes, is_label_eligible
+from edugraph import Area, Scope, definition, relations, specializes, is_label_eligible, involvement_statement
 from edugraph.generated import bundled_context
 import edugraph
 assert callable(edugraph.relations)
@@ -28,6 +28,8 @@ assert Area.Rectangle in specializes(Area.Square)
 assert is_label_eligible(Area.Square)
 assert not is_label_eligible(Scope.JustificationScope)
 assert definition(Area.Square) == Area.Square.definition
+assert involvement_statement(Scope.IntegerNumbers).startswith("Involves Integer Numbers:")
+assert " For example: -3, 0, 1, 10, and 1345." in involvement_statement(Scope.IntegerNumbers)
 data = relations(Area.Square)
 data["specializes"].clear()
 assert Area.Rectangle in specializes(Area.Square)

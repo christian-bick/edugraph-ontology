@@ -36,6 +36,7 @@ from .relations import inverted_by as inverted_by
 from .relations import inverted_by_transitive as inverted_by_transitive
 from .relations import inverts as inverts
 from .relations import inverts_transitive as inverts_transitive
+from .relations import involvement_statement as involvement_statement
 from .relations import is_label_eligible as is_label_eligible
 from .relations import part_of as part_of
 from .relations import part_of_transitive as part_of_transitive
@@ -63,6 +64,7 @@ __all__ = [
     "relations",
     "definitions",
     "definition",
+    "involvement_statement",
     "bundled_context",
     "is_label_eligible",
     "incompatible",

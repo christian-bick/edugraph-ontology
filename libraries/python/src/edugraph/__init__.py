@@ -11,6 +11,7 @@ __all__ = [
     "relations",
     "definitions",
     "definition",
+    "involvement_statement",
     "bundled_context",
     "is_label_eligible",
     "incompatible",

@@ -1,7 +1,7 @@
 import { Area } from "./Area";
 import { Scope } from "./Scope";
 import { Ability } from "./Ability";
-import { createOntologyContext } from "./core";
+import { createOntologyContext, InvolvementStatementOptions } from "./core";
 import { bundledStatements } from "./BundledSnapshot";
 
 /** Released descriptor IRIs. Supplied snapshots can contain additional IRIs. */
@@ -40,6 +40,10 @@ export interface DescriptorRelations {
 /** Lexically first released definition, or empty text when unavailable. */
 export function definition(descriptor: CompetencyDescriptor): string {
   return bundledContext.lookupDescriptor(descriptor)?.definitions[0] ?? "";
+}
+/** Combine a released descriptor's label, definition, and optional comment for display. */
+export function involvementStatement(descriptor: CompetencyDescriptor, options: InvolvementStatementOptions = {}): string {
+  return bundledContext.involvementStatement(descriptor, options);
 }
 /** Fresh relation view. Mutating it cannot modify the bundled ontology context. */
 export function relations(descriptor: CompetencyDescriptor): DescriptorRelations {

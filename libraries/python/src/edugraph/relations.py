@@ -61,6 +61,19 @@ def definition(descriptor: CompetencyDescriptor) -> str:
     return member.definition if member is not None else ""
 
 
+def involvement_statement(
+    descriptor: CompetencyDescriptor,
+    *,
+    label: str | None = None,
+    include_comment: bool = True,
+    comment_prefix: str = "For example:",
+) -> str:
+    """Combine a released descriptor's label, definition, and optional comment for display."""
+    return bundled_context().involvement_statement(
+        str(descriptor), label=label, include_comment=include_comment, comment_prefix=comment_prefix
+    )
+
+
 def relations(descriptor: CompetencyDescriptor) -> DescriptorRelations:
     """Return detached relation lists; mutation never changes the bundled ontology."""
     if str(descriptor) not in _MEMBERS:

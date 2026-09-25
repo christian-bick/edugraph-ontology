@@ -35,6 +35,7 @@ from .generated import inverted_by as inverted_by
 from .generated import inverted_by_transitive as inverted_by_transitive
 from .generated import inverts as inverts
 from .generated import inverts_transitive as inverts_transitive
+from .generated import involvement_statement as involvement_statement
 from .generated import is_label_eligible as is_label_eligible
 from .generated import part_of as part_of
 from .generated import part_of_transitive as part_of_transitive

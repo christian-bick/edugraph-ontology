@@ -55,6 +55,7 @@ COPY ./libraries/typescript/*.ts ./
 COPY ./libraries/typescript/README.md ./README.md
 COPY ./libraries/shared/relation-contracts.json ./relation-contracts.json
 COPY ./libraries/shared/query-fixtures.json ./query-fixtures.json
+COPY ./libraries/shared/statement-fixtures.json ./statement-fixtures.json
 
 RUN npm install
 RUN npm run build:core

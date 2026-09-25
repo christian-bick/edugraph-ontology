@@ -1,0 +1,100 @@
+[
+  {
+    "name": "integer example",
+    "iri": "http://edugraph.io/edu/IntegerNumbers",
+    "dimension": "Scope",
+    "definitions": ["Numbers with no fractional part, whether negative, zero, or positive."],
+    "comments": ["-3, 0, 1, 10, and 1345."],
+    "expected": "Involves Integer Numbers: Numbers with no fractional part, whether negative, zero, or positive. For example: -3, 0, 1, 10, and 1345."
+  },
+  {
+    "name": "no comment",
+    "iri": "urn:ProcedureExecution",
+    "dimension": "Ability",
+    "definitions": ["Carrying out a procedure."],
+    "expected": "Involves Procedure Execution: Carrying out a procedure."
+  },
+  {
+    "name": "formula case and punctuation",
+    "iri": "https://example.org/math#Inequality",
+    "dimension": "Area",
+    "definitions": ["Comparing expressions"],
+    "comments": ["x < 5, y ≥ 3, or a ≠ b."],
+    "expected": "Involves Inequality: Comparing expressions. For example: x < 5, y ≥ 3, or a ≠ b."
+  },
+  {
+    "name": "whitespace, multiple sentences and decimal",
+    "iri": "urn:DecimalNumbers",
+    "definitions": ["  Numbers\n written as decimals.\tTrailing zeros do not change their values.  "],
+    "comments": ["  3.14  "],
+    "expected": "Involves Decimal Numbers: Numbers written as decimals. Trailing zeros do not change their values. For example: 3.14."
+  },
+  {
+    "name": "authored label and explanation",
+    "iri": "urn:InternalCode",
+    "definitions": ["An explanatory context."],
+    "labels": ["Reviewed label"],
+    "comments": ["This is supporting explanation."],
+    "options": {"commentPrefix": ""},
+    "expected": "Involves Reviewed label: An explanatory context. This is supporting explanation."
+  },
+  {
+    "name": "custom label and prefix",
+    "iri": "urn:InternalCode",
+    "definitions": ["A context."],
+    "labels": ["Ignored label"],
+    "comments": ["An illustration!"],
+    "options": {"label": "  Custom\nlabel ", "commentPrefix": "  Examples: "},
+    "expected": "Involves Custom label: A context. Examples: An illustration!"
+  },
+  {
+    "name": "comment omitted by request",
+    "iri": "urn:Context",
+    "definitions": ["A context."],
+    "comments": ["An example."],
+    "options": {"includeComment": false},
+    "expected": "Involves Context: A context."
+  },
+  {
+    "name": "empty comments",
+    "iri": "urn:Base10",
+    "definitions": ["Base-ten notation."],
+    "comments": ["", " \n\t "],
+    "expected": "Involves Base 10: Base-ten notation."
+  },
+  {
+    "name": "acronym and separator label fallback",
+    "iri": "urn:RDFData_item-2D",
+    "definitions": ["An illustrative descriptor."],
+    "expected": "Involves RDF Data item 2 D: An illustrative descriptor."
+  },
+  {
+    "name": "deterministic nonempty annotation selection",
+    "iri": "urn:Concept",
+    "definitions": ["Z definition.", "  A definition.  ", ""],
+    "labels": ["Z label", "A label", " "],
+    "comments": ["Z example.", "A example.", "A example."],
+    "expected": "Involves A label: A definition. For example: A example."
+  },
+  {
+    "name": "unknown descriptor",
+    "iri": "urn:Unknown",
+    "known": false,
+    "definitions": ["Unattached text does not establish a descriptor."],
+    "error": "Unknown descriptor"
+  },
+  {
+    "name": "missing definition",
+    "iri": "urn:Empty",
+    "definitions": ["", " \n "],
+    "comments": ["An example cannot replace a definition."],
+    "error": "Missing definition"
+  },
+  {
+    "name": "empty explicit label",
+    "iri": "urn:Concept",
+    "definitions": ["A concept."],
+    "options": {"label": " \t "},
+    "error": "Statement label must not be empty"
+  }
+]

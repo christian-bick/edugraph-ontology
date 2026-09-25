@@ -85,8 +85,9 @@ Application-specific rendering and dataset changes belong in their owning reposi
 Definition lookup in the TypeScript and Python clients returns definitions without comments.
 Consumers can read the separate `rdfs:comment` assertions through the shared snapshot APIs;
 Turtle and RDF releases also retain both annotations. Review consumers that previously obtained
-examples from definition lookup alone, and decide separately whether a dedicated comment
-accessor would be useful. Follow
+examples from definition lookup alone. The combined statement helpers added in
+[v0.29.0](../releases/v0.29.0.md) provide reusable rendering; adoption by downstream
+consumers remains application-owned. A dedicated comment accessor can be considered separately. Follow
 [the shared text guidance](../annotations-and-models.md#constructing-statements-from-descriptor-text)
 and [client access guidance](../../DOCS.md#61-typescript-api-usage).
 

@@ -2,12 +2,13 @@
 
 from typing import assert_type
 
-from edugraph import Area, CompetencyDescriptor, definition, specializes
+from edugraph import Area, CompetencyDescriptor, definition, involvement_statement, specializes
 from edugraph.core import (
     LabelEligibility, NamedNode, OntologyContext, RdfStatement, UnknownLabel,
 )
 
 assert_type(definition(Area.Square), str)
+assert_type(involvement_statement(Area.Square, include_comment=False), str)
 assert_type(specializes(Area.Square), list[CompetencyDescriptor])
 row = RdfStatement(NamedNode("urn:A"), NamedNode("urn:p"), NamedNode("urn:B"), "x", "descriptors")
 context = OntologyContext([row])

@@ -30,6 +30,10 @@ Omit the comment portion when absent. An illustrative example describes the conc
 necessarily the particular content being annotated, and must not be treated as evidence
 visible in that content.
 
+Both libraries provide an involvement statement helper with the example introduction as its
+default. Callers can omit comments or change that introduction for explanatory prose. See
+[the API contract](../DOCS.md#68-combined-descriptor-statements) for formatting and text selection.
+
 This text convention supports all three descriptor dimensions. It does not make organizational
 nodes eligible for direct labeling or replace evidence for a competency's `involves` assertions.
 Applications own their display labels, statement serialization, and use in datasets or models.

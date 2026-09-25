@@ -1,9 +1,12 @@
 import { OntologyStatement, RdfStatement, projectRdfStatements } from "./OntologyTypes";
 import { PRIMARY_RELATION_FAMILIES, RELATION_SCHEMA_CONTRACT } from "./RelationContracts";
+import { formatInvolvementStatement, InvolvementStatementOptions, normalizedText } from "./DescriptorText";
 
 const EDU = "http://edugraph.io/edu#";
 const TYPE = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type";
 const DEFINITION = "http://www.w3.org/2000/01/rdf-schema#isDefinedBy";
+const COMMENT = "http://www.w3.org/2000/01/rdf-schema#comment";
+const LABEL = "http://www.w3.org/2000/01/rdf-schema#label";
 const INVERSE = "http://www.w3.org/2002/07/owl#inverseOf";
 const SUBPROPERTY = "http://www.w3.org/2000/01/rdf-schema#subPropertyOf";
 const compare = (a: string, b: string): number => a < b ? -1 : a > b ? 1 : 0;
@@ -90,11 +93,14 @@ export class OntologyContext {
   private readonly inventory = new Map<string, DescriptorRecord>();
   private readonly authoredIndex: Adjacency = new Map();
   private readonly entailedIndex: Adjacency = new Map();
+  private readonly presentation = new Map<string, Readonly<{ definition: string; comment: string; label: string }>>();
 
   constructor(snapshot: OntologySnapshot) {
     this.statements = Object.freeze(snapshot.map(copyStatement));
     const dimensions = new Map<string, Set<string>>();
     const definitions = new Map<string, Set<string>>();
+    const comments = new Map<string, Set<string>>();
+    const labels = new Map<string, Set<string>>();
     const inverse = new Map<string, Set<string>>();
     const parents = new Map<string, Set<string>>();
     const put = (index: Map<string, Set<string>>, key: string, value: string): void => {
@@ -113,10 +119,18 @@ export class OntologyContext {
         if (add(this.authoredIndex, s.subject, s.predicate, s.object)) queue.push([s.subject, s.predicate, s.object]);
       }
       if (s.predicate === DEFINITION && (s.objectKind === "Literal" || s.objectKind === undefined)) put(definitions, s.subject, s.object);
+      if (s.objectKind === "Literal") {
+        if (s.predicate === COMMENT) put(comments, s.subject, s.object);
+        if (s.predicate === LABEL) put(labels, s.subject, s.object);
+      }
     }
+    const first = (index: Map<string, Set<string>>, iri: string): string =>
+      [...(index.get(iri) ?? [])].map(normalizedText).filter(Boolean).sort(compare)[0] ?? "";
     for (const [iri, values] of dimensions) {
       this.inventory.set(iri, Object.freeze({ iri, dimensions: Object.freeze([...values].sort(compare)),
         definitions: Object.freeze([...(definitions.get(iri) ?? [])].sort(compare)) }));
+      this.presentation.set(iri, Object.freeze({ definition: first(definitions, iri),
+        comment: first(comments, iri), label: first(labels, iri) }));
     }
     for (let cursor = 0; cursor < queue.length; cursor++) {
       const [s, p, o] = queue[cursor];
@@ -128,6 +142,16 @@ export class OntologyContext {
   }
   /** Resolve an explicitly typed descriptor by full IRI; absence returns undefined. */
   lookupDescriptor(iri: string): DescriptorRecord | undefined { return this.inventory.get(iri); }
+  /** English display text, not an inference or evidence of involvement.
+   * Selects the lexically first nonempty normalized definition, comment, and label.
+   * Throws for unknown descriptors, missing definitions, or an empty explicit label.
+   */
+  involvementStatement(iri: string, options: InvolvementStatementOptions = {}): string {
+    const text = this.presentation.get(iri);
+    if (!text) throw new Error(`Unknown descriptor: ${iri}`);
+    if (!text.definition) throw new Error(`Missing definition: ${iri}`);
+    return formatInvolvementStatement(iri, text.definition, text.comment, text.label, options);
+  }
   /** Inventory sorted by full IRI. Records contain no generated-enum assumptions. */
   descriptors(): readonly DescriptorRecord[] { return Object.freeze([...this.inventory.values()].sort((a, b) => compare(a.iri, b.iri))); }
   /** Original facts, including literals, source references, and retained RDF graph terms. */

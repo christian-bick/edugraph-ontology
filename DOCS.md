@@ -136,8 +136,9 @@ explanation are authored in `rdfs:comment`. The
 use `context.authoredAssertions(iri)` in TypeScript or `context.authored_assertions(iri)` in
 Python and select the literal assertions whose predicate is
 `http://www.w3.org/2000/01/rdf-schema#comment`. There is no dedicated comment convenience accessor.
-Turtle and RDF releases also retain both annotations. Consumers constructing statements with
-examples must obtain the comments as well. Follow
+Turtle and RDF releases also retain both annotations. For the combined display string, use
+the [involvement statement helpers](#68-combined-descriptor-statements), which read the
+definition and comment together. Follow
 [the text composition guidance](docs/annotations-and-models.md#constructing-statements-from-descriptor-text)
 instead of assuming a definition contains examples.
 
@@ -327,3 +328,54 @@ predicates from the editable model. The shared parser retains those assertions f
 The [implementation record](docs/plan/shared-typescript-library-implementation.md) tracks coverage
 and deferred performance evidence. Full validation remains the default; no delta-validation or
 mutable editor-state API is introduced.
+
+### 6.8 Combined descriptor statements
+
+Use `involvementStatement(descriptor, options?)` in TypeScript or
+`involvement_statement(descriptor, **options)` in Python. Both are exported from the package
+root and the `generated` entry point. Supplied snapshots offer the same operation through
+`context.involvementStatement(iri, options?)` and `context.involvement_statement(iri, **options)`.
+
+```typescript
+import { Scope, involvementStatement } from "edugraph-ts";
+
+const text = involvementStatement(Scope.IntegerNumbers);
+const shortText = involvementStatement(Scope.IntegerNumbers, { includeComment: false });
+```
+
+```python
+from edugraph import Scope, involvement_statement
+
+text = involvement_statement(Scope.IntegerNumbers)
+short_text = involvement_statement(Scope.IntegerNumbers, include_comment=False)
+```
+
+The default result for `IntegerNumbers` is the single-line string:
+
+```text
+Involves Integer Numbers: Numbers with no fractional part, whether negative, zero, or positive. For example: -3, 0, 1, 10, and 1345. The value 2 remains an integer when written as 2.0.
+```
+
+| TypeScript option | Python keyword | Default and meaning |
+| --- | --- | --- |
+| `label` | `label` | Use the authored `rdfs:label`, otherwise split the IRI local name at CamelCase, acronym, digit, underscore, and hyphen boundaries. An explicit label overrides both. |
+| `includeComment` | `include_comment` | `true` / `True`; omit the comment and its introduction when false. |
+| `commentPrefix` | `comment_prefix` | `"For example:"`; set `""` to append explanatory prose directly, or supply another introduction. |
+
+Missing or whitespace-only comments produce no introduction. Presentation whitespace is
+collapsed, and a full stop is added to a definition or comment without terminal sentence
+punctuation. Formulas and letter case are retained. Definition lookup and the authored RDF
+remain unchanged.
+
+Each annotation uses its lexically first nonempty normalized literal, ordered consistently
+across both libraries. This deterministic choice is not language negotiation. Supply an
+appropriate snapshot and label for multilingual use. Unknown descriptors and missing
+definitions raise errors; an explicitly empty label also raises an error. Python uses
+`UnknownDescriptorError` for unknown descriptors and `ValueError` for other invalid text;
+TypeScript throws `Error`.
+
+The default introduction reproduces the example format. Comments can also contain supporting
+explanation, so consumers should choose `commentPrefix` / `comment_prefix` for their content.
+The helper formats a descriptor; it does not establish content evidence, labeling eligibility,
+or a competency's involvement assertion. See
+[the text guidance](docs/annotations-and-models.md#constructing-statements-from-descriptor-text).

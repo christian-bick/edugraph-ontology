@@ -42,13 +42,19 @@ try {
     assert.equal(released.isLabelEligible(released.Area.Rectangle), supplied.isLabelEligible(released.Area.Rectangle));
     assert.deepEqual(released.specializesTransitive(released.Area.Square), supplied.traverse(released.Area.Square, core.RELATION_IRIS.specializes));
     assert.deepEqual(released.deductCompatible([released.Scope.NumbersSmaller10]), supplied.deductCompatible([released.Scope.NumbersSmaller10]));
+    assert.equal(released.involvementStatement(released.Scope.IntegerNumbers), supplied.involvementStatement(released.Scope.IntegerNumbers));
+    assert.ok(released.involvementStatement(released.Scope.IntegerNumbers).startsWith('Involves Integer Numbers:'));
   `], directory, { ...process.env, NODE_PATH: "" });
   writeFileSync(join(directory, "consumer.ts"), `
     import { createOntologyContext, assessOntology, OntologyStatement } from 'edugraph-ts/core';
+    import { involvementStatement, Scope } from 'edugraph-ts/generated';
     const facts: readonly OntologyStatement[] = [];
     const context = createOntologyContext(facts);
     const status: 'valid' | 'invalid' | 'incomplete' = assessOntology(context).status;
     void status;
+    const rendered: string = involvementStatement(Scope.IntegerNumbers, { includeComment: false });
+    const supplied: string = context.involvementStatement('urn:descriptor', { label: 'Custom label', commentPrefix: '' });
+    void rendered; void supplied;
   `);
   run(process.execPath, [require.resolve("typescript/bin/tsc"), "--strict", "--skipLibCheck", "--target", "es2019", "--module", "node16", "--moduleResolution", "node16", "--noEmit", "consumer.ts"]);
   for (const entry of ["core", "rdf"]) {

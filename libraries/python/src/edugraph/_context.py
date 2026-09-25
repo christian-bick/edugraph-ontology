@@ -6,10 +6,13 @@ from dataclasses import dataclass, field
 from typing import Literal, TypeAlias
 
 from ._terms import LiteralTerm, NamedNode, RdfStatement
+from ._text import format_involvement_statement, normalized_text
 
 EDU = "http://edugraph.io/edu#"
 TYPE = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
 DEFINITION = "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+COMMENT = "http://www.w3.org/2000/01/rdf-schema#comment"
+LABEL = "http://www.w3.org/2000/01/rdf-schema#label"
 INVERSE = "http://www.w3.org/2002/07/owl#inverseOf"
 SUBPROPERTY = "http://www.w3.org/2000/01/rdf-schema#subPropertyOf"
 RelationAccess: TypeAlias = Literal["authored", "entailed"]
@@ -52,7 +55,7 @@ LabelEligibility: TypeAlias = KnownLabel | UnknownLabel
 
 
 class UnknownDescriptorError(ValueError):
-    """Raised when boolean eligibility is requested for an unknown descriptor."""
+    """Raised when eligibility or statement text is requested for an unknown descriptor."""
 
 
 class OntologyContext:
@@ -62,7 +65,14 @@ class OntologyContext:
     indexes. Construct another context for changed data; no bundled schema is added.
     """
 
-    __slots__ = ("_statements", "_inventory", "_authored", "_entailed", "_incoming")
+    __slots__ = (
+        "_statements",
+        "_inventory",
+        "_authored",
+        "_entailed",
+        "_incoming",
+        "_presentation",
+    )
 
     def __init__(self, snapshot: Iterable[RdfStatement]) -> None:
         self._statements = tuple(snapshot)
@@ -72,6 +82,9 @@ class OntologyContext:
         self._incoming: dict[str, set[str]] = defaultdict(set)
         dimensions: dict[str, set[str]] = defaultdict(set)
         definitions: dict[str, set[str]] = defaultdict(set)
+        comments: dict[str, set[str]] = defaultdict(set)
+        labels: dict[str, set[str]] = defaultdict(set)
+        self._presentation: dict[str, tuple[str, str, str]] = {}
         inverse: dict[str, set[str]] = defaultdict(set)
         parents: dict[str, set[str]] = defaultdict(set)
         queue: deque[tuple[str, str, str]] = deque()
@@ -100,9 +113,24 @@ class OntologyContext:
                     queue.append((s, p, o))
             if p == DEFINITION and isinstance(statement.object, LiteralTerm):
                 definitions[s].add(o)
+            if isinstance(statement.object, LiteralTerm):
+                if p == COMMENT:
+                    comments[s].add(o)
+                if p == LABEL:
+                    labels[s].add(o)
+
+        def first(index: dict[str, set[str]], iri: str) -> str:
+            values = _ordered(normalized_text(value) for value in index.get(iri, ()))
+            return next((value for value in values if value), "")
+
         for iri, values in dimensions.items():
             self._inventory[iri] = DescriptorRecord(
                 iri, _ordered(values), _ordered(definitions[iri])
+            )
+            self._presentation[iri] = (
+                first(definitions, iri),
+                first(comments, iri),
+                first(labels, iri),
             )
         while queue:
             s, p, o = queue.popleft()
@@ -120,6 +148,34 @@ class OntologyContext:
     def lookup_descriptor(self, iri: str) -> DescriptorRecord | None:
         """Resolve an explicitly typed descriptor; unknown IRIs return None."""
         return self._inventory.get(iri)
+
+    def involvement_statement(
+        self,
+        iri: str,
+        *,
+        label: str | None = None,
+        include_comment: bool = True,
+        comment_prefix: str = "For example:",
+    ) -> str:
+        """English display text, not inference or evidence of involvement.
+
+        Select the lexically first nonempty normalized definition, comment, and label.
+        Raise for unknown descriptors, missing definitions, or an empty explicit label.
+        """
+        if iri not in self._presentation:
+            raise UnknownDescriptorError(f"Unknown descriptor: {iri}")
+        definition, comment, authored_label = self._presentation[iri]
+        if not definition:
+            raise ValueError(f"Missing definition: {iri}")
+        return format_involvement_statement(
+            iri,
+            definition,
+            comment,
+            authored_label,
+            label=label,
+            include_comment=include_comment,
+            comment_prefix=comment_prefix,
+        )
 
     def descriptors(self) -> tuple[DescriptorRecord, ...]:
         """Return the inventory ordered by full IRI."""
