@@ -55,12 +55,43 @@ See [ONT-E2](content-evidence.md#ont-e2--describe-the-performance-supported-by-t
 
 ## ONT-D4 — Define the educational meaning and its boundaries
 
-Write a concise educational definition in `rdfs:isDefinedBy`. State what the concept covers
-and the distinction needed to separate it from its closest neighbors. Read the definition with
-its dimension, parents, children, and relevant siblings.
+Write an educational definition of one or two sentences in `rdfs:isDefinedBy`. Begin with a
+self-contained noun phrase or gerund phrase describing the concept, context, or performance.
+The definition must read naturally after both `Involves {definition}` and
+`Involves {label}: {definition}`. The surrounding statement supplies the relation and label:
+do not begin the definition with "Involves", repeat the descriptor name, or use an opening
+such as "Represents" that depends on an unstated subject.
 
-Use `rdfs:comment` for examples and supporting explanation. For Abilities, use examples from
-different subjects where practical. Examples illustrate the definition; they do not replace it.
+State what the concept covers and the distinction needed to separate it from its closest
+neighbors. Keep defining conditions, exclusions, and exact boundaries in the definition.
+Do not meet the sentence limit by joining unrelated explanations into a long sentence.
+Read the definition with its dimension, parents, children, and relevant siblings.
+
+Put all illustrative examples in `rdfs:comment`, including parenthetical examples and lists
+introduced by "such as". An exhaustive list of defining alternatives or an exact mathematical
+relationship can remain in the definition when it establishes the meaning rather than
+illustrating it. Use comments for supporting explanation as well; omit generic claims about
+a concept's importance or benefits.
+
+Write example content directly in the comment, without a "For example:" prefix. A comment may
+be an example list, supporting explanation, or examples followed by explanation. Keep its
+content understandable on its own. Start prose comments with a capital letter; preserve the
+case of leading formulas and mathematical symbols. Comments are optional; omit the comment portion of a
+constructed statement when none is supplied. For Abilities, use concrete examples from
+different subjects where practical. Examples illustrate the definition; they do not replace
+it or change its boundaries.
+
+For example, `IntegerNumbers` can be defined as "Numbers with no fractional part, whether
+negative, zero, or positive." Its comment can read "-3, 0, 1, 10, and 1345."
+A renderer adding an example marker can produce "Involves Integer Numbers: Numbers with no fractional part, whether
+negative, zero, or positive. For example: -3, 0, 1, 10, and 1345."
+Presentation markers belong to the renderer. Since comments can also contain supporting
+explanation, consumers must not assume every comment is an example list.
+
+This composition convention applies to descriptor individuals in all three dimensions.
+Schema classes and relations also keep concise definitions separate from examples, but
+describe their schema role rather than being phrased as objects of `involves`. Formatting
+does not change [labeling eligibility](content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
 
 For a numeric boundary, specify inclusivity, whether magnitude or signed value is meant, and
 which quantities the condition covers. For a family, describe what its members have in common
@@ -98,6 +129,6 @@ and its intended replacement through [change review](change-review.md).
 - [ ] **ONT-D1:** The proposed concept adds a distinction that an existing combination cannot express.
 - [ ] **ONT-D2:** Its dimension follows the knowledge, context, or cognitive performance involved.
 - [ ] **ONT-D3:** An Ability remains usable across subjects and has identifiable content evidence.
-- [ ] **ONT-D4:** Definition, examples, and neighboring concepts agree, including exact boundaries.
+- [ ] **ONT-D4:** The definition has at most two sentences, composes with the generic prefix, and retains exact boundaries; examples appear only in comments without an introductory marker and agree with the concept and its neighbors. Prose comments start with a capital letter; formulas and mathematical symbols retain their case.
 - [ ] **ONT-D5:** A notation Area describes knowledge of notation, not its incidental presence.
 - [ ] **ONT-D6:** The identifier is valid, unambiguous, and reviewed for effects on existing usage.
