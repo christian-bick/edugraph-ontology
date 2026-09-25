@@ -15,7 +15,7 @@
     edu:translates :DistanceCalculation.
 :AcuteAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle greater than zero degrees and less than 90 degrees.";
-    rdfs:comment "For example: angles measuring 30 degrees or 60 degrees.";
+    rdfs:comment "angles measuring 30 degrees or 60 degrees.";
     edu:specializes :AngleConcept.
 :AcuteTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle in which all three interior angles are acute angles.";
@@ -23,7 +23,7 @@
     edu:specializes :Triangle.
 :Addition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Combining numerical quantities to determine their total.";
-    rdfs:comment "For example: combining 3 and 4 to obtain 7.";
+    rdfs:comment "combining 3 and 4 to obtain 7.";
     edu:expands :Sum;
     edu:partOf :BaseOperations;
     edu:translates :UnionOfCollections.
@@ -56,13 +56,13 @@
     edu:partOf :AngleRelations.
 :Algebra a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of mathematical relationships expressed through symbols for quantities, together with the rules for manipulating those expressions.";
-    rdfs:comment "For example: representing an unknown quantity with a variable, or solving an equation that relates several quantities.".
+    rdfs:comment "representing an unknown quantity with a variable, or solving an equation that relates several quantities.".
 :Analysis a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of limits, continuity, and the behavior of functions and infinite processes.";
-    rdfs:comment "For example: investigating convergence of a sequence, differentiating a function, or examining an infinite series.".
+    rdfs:comment "investigating convergence of a sequence, differentiating a function, or examining an infinite series.".
 :AngleCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining the magnitude of an angle from given measurements and geometric relationships.";
-    rdfs:comment "For example: finding a triangle's missing angle from its other two angles.";
+    rdfs:comment "finding a triangle's missing angle from its other two angles.";
     edu:expands :AngleConcept;
     edu:integrates :TrigonometricRelations;
     edu:partOf :GeometricCalculations.
@@ -72,7 +72,7 @@
     edu:partOf :GeometricConcepts.
 :AngleRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships between angles based on their positions or measures.";
-    rdfs:comment "For example: adjacent angles, complementary angles, or opposite angles formed by intersecting lines.";
+    rdfs:comment "adjacent angles, complementary angles, or opposite angles formed by intersecting lines.";
     edu:expands :AngleConcept;
     edu:partOf :GeometricRelations.
 :ArchConcept a owl:NamedIndividual, edu:Area;
@@ -85,17 +85,17 @@
     edu:partOf :GeometricCalculations.
 :Arithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of numerical values and the operations and relationships used to calculate with them.";
-    rdfs:comment "For example: addition, subtraction, multiplication, and division.".
+    rdfs:comment "addition, subtraction, multiplication, and division.".
 :ArithmeticEvaluation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The structured formulation and evaluation of numerical statements through the combination of values and operations.";
     edu:partOf :Arithmetic.
 :ArithmeticOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Mathematical operations that combine or transform numerical values according to defined rules.";
-    rdfs:comment "For example: addition, subtraction, multiplication, division, exponentiation, or root extraction.";
+    rdfs:comment "addition, subtraction, multiplication, division, exponentiation, or root extraction.";
     edu:partOf :Arithmetic.
 :ArithmeticSpaces a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of number systems, their properties, and the representations used to express and operate on their values.";
-    rdfs:comment "For example: integers, rational numbers written as fractions, and numbers written in decimal notation.";
+    rdfs:comment "integers, rational numbers written as fractions, and numbers written in decimal notation.";
     edu:partOf :Arithmetic.
 :AssociativeLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that the way in which numbers are grouped by parentheses does not change their sum or product.";
@@ -119,25 +119,25 @@
     edu:partOf :CircularShapes.
 :CircleRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of spatial and quantitative relationships among the elements of a circle.";
-    rdfs:comment "For example: relating a radius to a diameter, a chord to the center, or a tangent to the radius at its point of contact.";
+    rdfs:comment "relating a radius to a diameter, a chord to the center, or a tangent to the radius at its point of contact.";
     edu:expands :Circle;
     edu:partOf :GeometricRelations.
 :CircularShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating drawings or models of complete circles and figures formed from portions of circles.";
-    rdfs:comment "For example: drawing a circle with a compass, or constructing a semicircular outline.";
+    rdfs:comment "drawing a circle with a compass, or constructing a semicircular outline.";
     edu:partOf :SpatialModelling.
 :CircularShapes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The field of knowledge concerning complete circles and plane figures formed from portions of circles, including their boundaries, properties, and relationships.";
-    rdfs:comment "For example: complete circles, half circles, and quarter circles. These are distinct concepts within the field; a physical piece of a circle does not make its concept a specialization of the complete-circle concept.";
+    rdfs:comment "complete circles, half circles, and quarter circles. These are distinct concepts within the field; a physical piece of a circle does not make its concept a specialization of the complete-circle concept.";
     edu:partOf :TwoDimensionalObjects.
 :CircumferenceCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Calculating the length of a circle's boundary.";
-    rdfs:comment "For example: calculating a circle's circumference from its radius using 2πr.";
+    rdfs:comment "calculating a circle's circumference from its radius using 2πr.";
     edu:expands :Circle, :Pi, :RadiusDiameterRelation;
     edu:specializes :PerimeterCalculation.
 :CollectionSense a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Intuitive understanding of how objects form collections and how collections relate through grouping and quantity.";
-    rdfs:comment "For example: recognizing a group as a whole, identifying a subgroup, or comparing two collections visually.";
+    rdfs:comment "recognizing a group as a whole, identifying a subgroup, or comparing two collections visually.";
     edu:partOf :IntuitiveMathematics.
 :CommutativeLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that the order in which numbers are added or multiplied does not change their sum or product.";
@@ -183,7 +183,7 @@
     edu:partOf :ThreeDimensionalObjects.
 :DecimalArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding and operating on rational numbers expressed in base-ten positional notation with decimal places.";
-    rdfs:comment "For example: adding aligned decimal values, rounding a decimal, or interpreting equivalent decimal representations.";
+    rdfs:comment "adding aligned decimal values, rounding a decimal, or interpreting equivalent decimal representations.";
     edu:expands :NumerationWithDecimals;
     edu:partOf :RationalArithmetic.
 :DecimalDivisorShift a owl:NamedIndividual, edu:Area;
@@ -196,25 +196,25 @@
     edu:partOf :DecimalArithmetic.
 :DecimalNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The symbols and conventions used to write numbers in base-ten positional notation, including the decimal separator and the place values on either side of it.";
-    rdfs:comment "For example: explaining why the 3 in 2.35 represents three tenths.";
+    rdfs:comment "explaining why the 3 in 2.35 represents three tenths.";
     edu:expands :IntegerNotation;
     edu:specializes :NumberNotation.
 :DecimalPadding a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Appending trailing zeros to a finite decimal representation to express the same value with additional decimal places.";
-    rdfs:comment "For example: writing 2.5 as 2.50 before aligning decimal places in an addition.";
+    rdfs:comment "writing 2.5 as 2.50 before aligning decimal places in an addition.";
     edu:specializes :DecimalEquivalence.
 :DecimalPointAlignment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Aligning the decimal separators of numbers so corresponding place values line up during an operation.";
-    rdfs:comment "For example: placing the decimal points of 3.2 and 0.45 in one column before adding.";
+    rdfs:comment "placing the decimal points of 3.2 and 0.45 in one column before adding.";
     edu:partOf :DecimalArithmetic.
 :DecimalPrecission a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The number of decimal places used to represent a value and the place value of the last displayed digit.";
-    rdfs:comment "For example: 3.14 is written to two decimal places. The number of displayed places does not by itself establish a measurement's accuracy.";
+    rdfs:comment "3.14 is written to two decimal places. The number of displayed places does not by itself establish a measurement's accuracy.";
     edu:expands :DecimalEquivalence;
     edu:partOf :DecimalArithmetic.
 :DecimalRounding a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Approximating a decimal value to a specified place by selecting the appropriate nearby value under a stated rounding convention.";
-    rdfs:comment "For example: rounding 3.146 to 3.15 to the nearest hundredth.";
+    rdfs:comment "rounding 3.146 to 3.15 to the nearest hundredth.";
     edu:expands :DecimalPrecission, :IntegerRounding;
     edu:partOf :DecimalArithmetic.
 :DecimalStrategies a owl:NamedIndividual, edu:Area;
@@ -227,14 +227,14 @@
     edu:partOf :FoundationalOperations.
 :Difference a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining how two quantities or mathematical objects differ, including the amount separating two numerical values.";
-    rdfs:comment "For example: finding how many more objects one collection contains than another.";
+    rdfs:comment "finding how many more objects one collection contains than another.";
     edu:expands :Decrement, :PartitionOfCollections;
     edu:integrates :Iteration;
     edu:inverts :Sum;
     edu:partOf :FoundationalOperations.
 :DigitNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The use and interpretation of the digit symbols 0 through 9 in numerical representations.";
-    rdfs:comment "For example: identifying the digit symbols in 307 and distinguishing them from the value of the whole numeral.";
+    rdfs:comment "identifying the digit symbols in 307 and distinguishing them from the value of the whole numeral.";
     edu:expands :NumericIdentity;
     edu:specializes :NumberNotation.
 :Dilation a owl:NamedIndividual, edu:Area;
@@ -254,7 +254,7 @@
     edu:partOf :Factorization.
 :Division a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the value that, when multiplied by a nonzero divisor, gives the dividend.";
-    rdfs:comment "For example: 12 divided by 3 equals 4 because 3 × 4 = 12.";
+    rdfs:comment "12 divided by 3 equals 4 because 3 × 4 = 12.";
     edu:expands :Subtraction;
     edu:integrates :Iteration;
     edu:inverts :Multiplication;
@@ -301,7 +301,7 @@
     edu:specializes :DivisionOfCollections.
 :Exponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a number to a specified power.";
-    rdfs:comment "For example: 3 to the fourth power is 3 × 3 × 3 × 3 = 81. Repeated multiplication directly describes positive integer exponents; other exponents require the corresponding extended definitions.";
+    rdfs:comment "3 to the fourth power is 3 × 3 × 3 × 3 = 81. Repeated multiplication directly describes positive integer exponents; other exponents require the corresponding extended definitions.";
     edu:expands :Multiplication;
     edu:partOf :PowerOperations.
 :Factorization a owl:NamedIndividual, edu:Area;
@@ -315,11 +315,11 @@
     rdfs:isDefinedBy "The branch of mathematics dealing with the rigorous, symbolic representation of mathematical concepts, expressions, and propositions, serving as the standardized language to communicate and manipulate mathematical ideas.".
 :FoundationalOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The foundational arithmetic concepts and operations on which more complex numerical procedures are built.";
-    rdfs:comment "For example: combining quantities, finding differences, repeating an operation, or reversing an operation.";
+    rdfs:comment "combining quantities, finding differences, repeating an operation, or reversing an operation.";
     edu:partOf :NumberSense.
 :FractionArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding and operating on rational numbers expressed as a quotient of two integers with a nonzero denominator.";
-    rdfs:comment "For example: adding fractions with a common denominator, simplifying a fraction, or comparing fraction magnitudes.";
+    rdfs:comment "adding fractions with a common denominator, simplifying a fraction, or comparing fraction magnitudes.";
     edu:expands :Division, :NumerationWithFractions, :ProportionInteraction;
     edu:partOf :RationalArithmetic.
 :FractionCommonDenominatorComparison a owl:NamedIndividual, edu:Area;
@@ -332,7 +332,7 @@
     edu:partOf :FractionStrategies.
 :FractionDenominatorInterpretation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Interpreting a fraction's denominator as the number of equal-sized parts making one whole and relating it to the numerator and reference whole.";
-    rdfs:comment "For example: explaining that the denominator 4 in 3/4 divides the reference whole into four equal parts.";
+    rdfs:comment "explaining that the denominator 4 in 3/4 divides the reference whole into four equal parts.";
     edu:partOf :FractionInterpretation;
     edu:translates :RatioConsequentInterpretation.
 :FractionEquivalence a owl:NamedIndividual, edu:Area;
@@ -341,22 +341,22 @@
     edu:partOf :FractionArithmetic.
 :FractionInterpretation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Interpreting a fraction's value through its numerator, denominator, and reference whole or quantity.";
-    rdfs:comment "For example: explaining how 3/4 describes three of four equal parts of the same whole.";
+    rdfs:comment "explaining how 3/4 describes three of four equal parts of the same whole.";
     edu:partOf :FractionArithmetic;
     edu:translates :RatioInterpretation.
 :FractionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The symbols and conventions used to express a fraction through a numerator, a denominator, and their division relationship.";
-    rdfs:comment "For example: explaining what the fraction bar and the two positions mean in 3/4.";
+    rdfs:comment "explaining what the fraction bar and the two positions mean in 3/4.";
     edu:expands :IntegerNotation;
     edu:specializes :NumberNotation.
 :FractionNumeratorInterpretation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Interpreting a fraction's numerator as the count of parts of the size determined by its denominator.";
-    rdfs:comment "For example: explaining that the numerator 3 in 3/4 counts three quarter-sized parts.";
+    rdfs:comment "explaining that the numerator 3 in 3/4 counts three quarter-sized parts.";
     edu:partOf :FractionInterpretation;
     edu:translates :RatioAntecedentInterpretation.
 :FractionReferenceComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Comparing fraction magnitudes against a shared reference value.";
-    rdfs:comment "For example: comparing 3/8 and 5/8 by locating each relative to one half.";
+    rdfs:comment "comparing 3/8 and 5/8 by locating each relative to one half.";
     edu:expands :FractionInterpretation, :NumerationWithFractions, :NumericComparison;
     edu:partOf :FractionStrategies.
 :FractionReferenceDistanceComparison a owl:NamedIndividual, edu:Area;
@@ -365,7 +365,7 @@
     edu:partOf :FractionStrategies.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to an equivalent simplest form by dividing its numerator and denominator by their greatest common factor.";
-    rdfs:comment "For example: 12/18 simplifies to 2/3 by dividing both numerator and denominator by 6.";
+    rdfs:comment "12/18 simplifies to 2/3 by dividing both numerator and denominator by 6.";
     edu:expands :FactorsAndMultiples;
     edu:partOf :FractionStrategies.
 :FractionStrategies a owl:NamedIndividual, edu:Area;
@@ -376,24 +376,24 @@
     edu:specializes :PatternRecognition.
 :GeometricCalculations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining measurable properties of geometric objects through mathematical calculation.";
-    rdfs:comment "For example: calculating a perimeter, an area, or a volume.";
+    rdfs:comment "calculating a perimeter, an area, or a volume.";
     edu:expands :MeasuringObjects;
     edu:integrates :Arithmetic;
     edu:partOf :Geometry.
 :GeometricConcepts a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fundamental objects, quantities, and structures used to describe geometric space.";
-    rdfs:comment "For example: points, lines, planes, angles, and vectors.";
+    rdfs:comment "points, lines, planes, angles, and vectors.";
     edu:partOf :Geometry.
 :GeometricObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of specific geometric shapes and figures in one, two, and three dimensions.";
     edu:partOf :Geometry.
 :GeometricRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of spatial and quantitative relationships between geometric entities.";
-    rdfs:comment "For example: congruence, similarity, parallelism, and perpendicularity.";
+    rdfs:comment "congruence, similarity, parallelism, and perpendicularity.";
     edu:partOf :Geometry.
 :GeometricTransformations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Mappings that change a geometric figure's position, orientation, or scale according to a specified rule.";
-    rdfs:comment "For example: a rotation, reflection, translation, or dilation.";
+    rdfs:comment "a rotation, reflection, translation, or dilation.";
     edu:partOf :Geometry.
 :GeometricVisualization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of geometry using a coordinate system to define the position of points, lines, and shapes.";
@@ -405,7 +405,7 @@
     edu:partOf :CollectionSense.
 :HalfCircle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A two-dimensional geometric figure bounded by a semicircular arc and its diameter, representing one half of a circle.";
-    rdfs:comment "For example: one of the two congruent regions formed by cutting a circular region along a diameter.";
+    rdfs:comment "one of the two congruent regions formed by cutting a circular region along a diameter.";
     edu:partOf :CircularShapes.
 :Hexagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with six edges and six vertices.";
@@ -421,27 +421,27 @@
     edu:partOf :FoundationalOperations.
 :Inequality a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A mathematical statement asserting an order relation or non-equality between two expressions.";
-    rdfs:comment "For example: x < 5, y ≥ 3, or a ≠ b.";
+    rdfs:comment "x < 5, y ≥ 3, or a ≠ b.";
     edu:expands :NumericComparison;
     edu:specializes :MathematicalStatement.
 :IntegerArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding and operating on numbers with no fractional part, including positive integers, negative integers, and zero.";
-    rdfs:comment "For example: adding signed integers or exchanging units between integer place values. Integer value is independent of whether a representation includes a decimal separator.";
+    rdfs:comment "adding signed integers or exchanging units between integer place values. Integer value is independent of whether a representation includes a decimal separator.";
     edu:expands :NumerationWithIntegers;
     edu:partOf :ArithmeticSpaces.
 :IntegerNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The symbols and conventions used to represent integer values.";
-    rdfs:comment "For example: writing -3, 0, and 12, or interpreting a sign as part of an integer representation.";
+    rdfs:comment "writing -3, 0, and 12, or interpreting a sign as part of an integer representation.";
     edu:expands :DigitNotation;
     edu:specializes :NumberNotation.
 :IntegerRegrouping a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Exchanging an integer quantity between place-value units while preserving its value.";
-    rdfs:comment "For example: exchanging one ten for ten ones during subtraction, or ten ones for one ten during addition. These operations are commonly called borrowing and carrying.";
+    rdfs:comment "exchanging one ten for ten ones during subtraction, or ten ones for one ten during addition. These operations are commonly called borrowing and carrying.";
     edu:expands :PlaceValue;
     edu:partOf :IntegerArithmetic.
 :IntegerRounding a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Approximating an integer to a specified place value under a stated rounding convention.";
-    rdfs:comment "For example: rounding 347 to 350 to the nearest ten, or to 300 to the nearest hundred.";
+    rdfs:comment "rounding 347 to 350 to the nearest ten, or to 300 to the nearest hundred.";
     edu:expands :PlaceValue;
     edu:partOf :IntegerArithmetic.
 :IntegerStrategies a owl:NamedIndividual, edu:Area;
@@ -449,7 +449,7 @@
     edu:partOf :IntegerArithmetic.
 :IntersectionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identifying the objects that belong to each of two overlapping collections.";
-    rdfs:comment "For example: identifying the objects in the overlap of two physical hoops or two represented groups.";
+    rdfs:comment "identifying the objects in the overlap of two physical hoops or two represented groups.";
     edu:expands :ObjectSorting;
     edu:partOf :CollectionSense.
 :IntersectionRelation a owl:NamedIndividual, edu:Area;
@@ -458,7 +458,7 @@
     edu:partOf :PositionalRelations.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Intervals of numbers with no finite bound in at least one direction.";
-    rdfs:comment "For example: the interval of all real numbers greater than 3. Infinity indicates an unbounded direction rather than an included endpoint.";
+    rdfs:comment "the interval of all real numbers greater than 3. Infinity indicates an unbounded direction rather than an included endpoint.";
     edu:specializes :NumerationWithIntervals.
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts.".
@@ -485,11 +485,11 @@
     edu:partOf :GeometricCalculations.
 :LinearDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating drawings or models of straight lines.";
-    rdfs:comment "For example: drawing a straight line through two given points.";
+    rdfs:comment "drawing a straight line through two given points.";
     edu:partOf :SpatialModelling.
 :LinearShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating drawings or models of figures bounded by straight line segments.";
-    rdfs:comment "For example: drawing a triangle from specified vertices.";
+    rdfs:comment "drawing a triangle from specified vertices.";
     edu:partOf :SpatialModelling.
 :LineConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A straight, one-dimensional figure that has no thickness and extends infinitely in both directions.";
@@ -497,7 +497,7 @@
     edu:partOf :GeometricConcepts.
 :LineGraphing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Representing a straight line in a coordinate plane from its defining points or algebraic relationship.";
-    rdfs:comment "For example: plotting two points satisfying y = 2x + 1 and drawing the line through them.";
+    rdfs:comment "plotting two points satisfying y = 2x + 1 and drawing the line through them.";
     edu:expands :PointPlotting;
     edu:partOf :GeometricVisualization.
 :LineSegment a owl:NamedIndividual, edu:Area;
@@ -510,15 +510,15 @@
     edu:partOf :PowerOperations.
 :Logic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of valid reasoning and the conditions under which conclusions follow from premises.";
-    rdfs:comment "For example: evaluating an implication or checking the structure of a proof.".
+    rdfs:comment "evaluating an implication or checking the structure of a proof.".
 :LowestCommonDenominator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the least common multiple of the positive denominators of two or more fractions.";
-    rdfs:comment "For example: the lowest common denominator of 1/4 and 1/6 is 12.";
+    rdfs:comment "the lowest common denominator of 1/4 and 1/6 is 12.";
     edu:expands :FactorsAndMultiples;
     edu:partOf :FractionStrategies.
 :LowestCommonNumerator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the least common multiple of the positive numerators of two or more fractions to express them with a shared numerator.";
-    rdfs:comment "For example: 2/5 and 3/7 can be written as 6/15 and 6/14 using the lowest common numerator 6.";
+    rdfs:comment "2/5 and 3/7 can be written as 6/15 and 6/14 using the lowest common numerator 6.";
     edu:expands :FactorsAndMultiples;
     edu:partOf :FractionStrategies.
 :MathematicalExpression a owl:NamedIndividual, edu:Area;
@@ -532,7 +532,7 @@
     edu:partOf :FormalMathematics.
 :Measurement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Comparing or quantifying a measurable attribute, either qualitatively or by assigning a value relative to a unit.";
-    rdfs:comment "For example: comparing two lengths directly, reading a weight, or measuring a duration.";
+    rdfs:comment "comparing two lengths directly, reading a weight, or measuring a duration.";
     edu:partOf :SpatialSense.
 :MeasuringLength a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining or comparing the linear extent or one-dimensional distance of manifested objects directly, through an intermediary, or by using tools and units.";
@@ -542,7 +542,7 @@
     edu:partOf :Measurement.
 :MeasuringTime a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining or comparing the durations of events or the intervals between them.";
-    rdfs:comment "For example: finding how long an activity lasts from its start and finish times.";
+    rdfs:comment "finding how long an activity lasts from its start and finish times.";
     edu:partOf :Measurement.
 :MeasuringVolumes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining or comparing the three-dimensional extent or amount of space occupied by manifested objects directly, through an intermediary, or by using tools and units.";
@@ -563,7 +563,7 @@
     edu:translates :ImperfectDivisibility.
 :Multiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Combining numerical factors to determine their product, corresponding to equal groups for nonnegative whole-number factors.";
-    rdfs:comment "For example: three groups of four have a total of twelve, expressed as 3 × 4 = 12. Fractional factors also describe proportional scaling.";
+    rdfs:comment "three groups of four have a total of twelve, expressed as 3 × 4 = 12. Fractional factors also describe proportional scaling.";
     edu:expands :Addition;
     edu:integrates :Iteration;
     edu:partOf :BaseOperations;
@@ -586,72 +586,72 @@
     edu:partOf :IntegerStrategies.
 :NumberNameNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The words and conventions used to express numerical values in written language.";
-    rdfs:comment "For example: writing 437 as four hundred thirty-seven.";
+    rdfs:comment "writing 437 as four hundred thirty-seven.";
     edu:expands :NumericIdentity;
     edu:specializes :NumberNotation.
 :NumberNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The systems of symbols and conventions used to express numerical values.";
-    rdfs:comment "For example: positional numerals, fraction notation, decimal notation, or number names.";
+    rdfs:comment "positional numerals, fraction notation, decimal notation, or number names.";
     edu:partOf :FormalMathematics.
 :NumberSense a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Intuitive understanding of numbers, their magnitudes, and their relationships.";
-    rdfs:comment "For example: locating a value relative to zero or estimating which of two quantities is larger.";
+    rdfs:comment "locating a value relative to zero or estimating which of two quantities is larger.";
     edu:partOf :IntuitiveMathematics.
 :NumberTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of integers and their arithmetic properties and relationships.";
-    rdfs:comment "For example: investigating prime numbers, divisibility, or integer factorization.".
+    rdfs:comment "investigating prime numbers, divisibility, or integer factorization.".
 :Numeration a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Counting, ordering, and grouping numbers and relating them to numerical representations.";
-    rdfs:comment "For example: continuing a counting sequence or organizing quantities by place value.";
+    rdfs:comment "continuing a counting sequence or organizing quantities by place value.";
     edu:partOf :NumberSense.
 :NumerationWithDecimals a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding decimal place values and the order and magnitude of decimal values on the number line.";
-    rdfs:comment "For example: placing 0.3 and 0.35 on a number line or identifying the value of a hundredths digit.";
+    rdfs:comment "placing 0.3 and 0.35 on a number line or identifying the value of a hundredths digit.";
     edu:expands :NumerationWithFractions;
     edu:specializes :Numeration.
 :NumerationWithFractions a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding fraction magnitudes, their order, and the availability of further fraction values between distinct values on the number line.";
-    rdfs:comment "For example: locating 1/2 and 3/4 and identifying a fraction between them.";
+    rdfs:comment "locating 1/2 and 3/4 and identifying a fraction between them.";
     edu:expands :NumerationWithIntegers;
     edu:specializes :Numeration.
 :NumerationWithIntegers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding the sequence, order, and magnitude of integer values.";
-    rdfs:comment "For example: ordering -2, 0, and 3 on a number line.";
+    rdfs:comment "ordering -2, 0, and 3 on a number line.";
     edu:specializes :Numeration.
 :NumerationWithIntervals a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Representing sets of numbers by their lower and upper bounds and the inclusion or exclusion of their endpoints.";
-    rdfs:comment "For example: describing all values from 2 through 5 inclusive, or values greater than 2 and less than 5.";
+    rdfs:comment "describing all values from 2 through 5 inclusive, or values greater than 2 and less than 5.";
     edu:specializes :Numeration.
 :NumericApproximation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Estimating or replacing a numerical value with a nearby value suited to a stated purpose or precision.";
-    rdfs:comment "For example: using a rounded measurement when estimating a total.";
+    rdfs:comment "using a rounded measurement when estimating a total.";
     edu:partOf :NumberSense.
 :NumericComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining whether one numerical value is greater than, less than, or equal to another.";
-    rdfs:comment "For example: comparing quantities represented by 3/4 and 0.8.";
+    rdfs:comment "comparing quantities represented by 3/4 and 0.8.";
     edu:partOf :NumberSense.
 :NumericEquality a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining that two numerical quantities or expressions have the same value.";
-    rdfs:comment "For example: establishing that 1/2 and 0.5 represent equal quantities.";
+    rdfs:comment "establishing that 1/2 and 0.5 represent equal quantities.";
     edu:expands :NumericOrder;
     edu:partOf :NumericComparison.
 :NumericIdentity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding that a number retains its value across different representations.";
-    rdfs:comment "For example: recognizing the same quantity in a numeral, a number name, and a collection of objects.";
+    rdfs:comment "recognizing the same quantity in a numeral, a number name, and a collection of objects.";
     edu:partOf :NumericComparison.
 :NumericInequality a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining that two numerical quantities or expressions have different values.";
-    rdfs:comment "For example: establishing that 3 + 4 and 2 + 6 are unequal.";
+    rdfs:comment "establishing that 3 + 4 and 2 + 6 are unequal.";
     edu:contradicts :NumericEquality;
     edu:partOf :NumericComparison.
 :NumericOrder a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Arranging numerical values in a sequence according to their magnitude.";
-    rdfs:comment "For example: ordering 0.2, 1/2, and 1 from least to greatest.";
+    rdfs:comment "ordering 0.2, 1/2, and 1 from least to greatest.";
     edu:expands :NumericIdentity;
     edu:partOf :NumericComparison.
 :ObjectSorting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Separating a mixed collection into distinct groups according to shared observable attributes.";
-    rdfs:comment "For example: sorting objects by color, shape, or size. Sorting forms groups; identifying a subgroup need not rearrange the collection.";
+    rdfs:comment "sorting objects by color, shape, or size. Sorting forms groups; identifying a subgroup need not rearrange the collection.";
     edu:expands :GroupRecognition;
     edu:partOf :CollectionSense.
 :ObtuseAngle a owl:NamedIndividual, edu:Area;
@@ -663,12 +663,12 @@
     edu:specializes :Triangle.
 :OddAndEvenNumbers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining whether an integer is divisible by two from its numerical representation.";
-    rdfs:comment "For example: using the last digit of 348 to identify it as even.";
+    rdfs:comment "using the last digit of 348 to identify it as even.";
     edu:expands :EvenDivisibility, :PlaceValue;
     edu:partOf :DivisibilityRules.
 :OneDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Geometric objects with length but no width or depth.";
-    rdfs:comment "For example: lines, line segments, and rays.";
+    rdfs:comment "lines, line segments, and rays.";
     edu:expands :LineConcept;
     edu:partOf :GeometricObjects.
 :OrderOfOperations a owl:NamedIndividual, edu:Area;
@@ -732,7 +732,7 @@
     edu:specializes :DivisionOfCollections.
 :PerimeterCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Calculating the total length of a closed plane figure's boundary.";
-    rdfs:comment "For example: adding the side lengths of a polygon.";
+    rdfs:comment "adding the side lengths of a polygon.";
     edu:expands :LengthCalculation;
     edu:partOf :GeometricCalculations.
 :PerpendicularityRelation a owl:NamedIndividual, edu:Area;
@@ -782,31 +782,31 @@
     edu:specializes :Polyhedron.
 :ProportionAbstraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Generalizing a proportional relationship beyond a particular representation or situation.";
-    rdfs:comment "For example: recognizing the same scaling relationship in a recipe and a geometric enlargement.";
+    rdfs:comment "recognizing the same scaling relationship in a recipe and a geometric enlargement.";
     edu:partOf :ProportionSense.
 :ProportionalScaling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Applying a ratio or scale factor to a reference quantity to determine a corresponding quantity.";
-    rdfs:comment "For example: tripling a recipe's quantities while preserving their proportions.";
+    rdfs:comment "tripling a recipe's quantities while preserving their proportions.";
     edu:partOf :ProportionInteraction.
 :ProportionExpression a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Representing proportional relationships with mathematical symbols or equations.";
-    rdfs:comment "For example: expressing a constant ratio as y = 3x.";
+    rdfs:comment "expressing a constant ratio as y = 3x.";
     edu:partOf :ProportionInteraction.
 :ProportionIdentification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizing when quantities are related by a constant ratio or scale factor.";
-    rdfs:comment "For example: determining whether a table pairs quantities in a fixed ratio.";
+    rdfs:comment "determining whether a table pairs quantities in a fixed ratio.";
     edu:partOf :ProportionInteraction.
 :ProportionInteraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Analyzing and using proportional relationships to solve a problem.";
-    rdfs:comment "For example: finding an unknown quantity from a known ratio and a reference quantity.";
+    rdfs:comment "finding an unknown quantity from a known ratio and a reference quantity.";
     edu:partOf :ProportionSense.
 :ProportionManipulation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Changing quantities in a proportional relationship while preserving the ratio that relates them.";
-    rdfs:comment "For example: doubling both quantities in a ratio to form an equivalent pair.";
+    rdfs:comment "doubling both quantities in a ratio to form an equivalent pair.";
     edu:partOf :ProportionInteraction.
 :ProportionSense a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding and reasoning about relative quantities through ratios and proportional relationships.";
-    rdfs:comment "For example: recognizing that doubling every ingredient preserves a mixture's proportions.";
+    rdfs:comment "recognizing that doubling every ingredient preserves a mixture's proportions.";
     edu:partOf :IntuitiveMathematics.
 :Pyramid a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polyhedron formed by connecting a polygonal base and a point, called the apex.";
@@ -814,14 +814,14 @@
     edu:specializes :Polyhedron.
 :Quadrants a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The four regions formed by the perpendicular coordinate axes in a Cartesian plane.";
-    rdfs:comment "For example: a point with positive x and negative y lies in quadrant IV. The conventional numbering starts at the upper right and proceeds counterclockwise.";
+    rdfs:comment "a point with positive x and negative y lies in quadrant IV. The conventional numbering starts at the upper right and proceeds counterclockwise.";
     edu:partOf :CartesianPlane.
 :Quadrilateral a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with four edges and four vertices.";
     edu:specializes :Polygon.
 :QuarterCircle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A two-dimensional geometric figure bounded by a quarter-circle arc and two perpendicular radii, representing one fourth of a circle.";
-    rdfs:comment "For example: one of four congruent regions formed by two perpendicular diameters.";
+    rdfs:comment "one of four congruent regions formed by two perpendicular diameters.";
     edu:partOf :CircularShapes.
 :QuotativeDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection and the required cardinality of each equal subcollection are given. Every source object is assigned to exactly one subcollection, and the quotient is the number of resulting subcollections.";
@@ -831,20 +831,20 @@
     edu:partOf :CircleRelations.
 :RatioAntecedentInterpretation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Interpreting the first quantity in an ordered ratio and its relationship to the second quantity.";
-    rdfs:comment "For example: explaining what the 2 represents in a ratio of two red objects to three blue objects.";
+    rdfs:comment "explaining what the 2 represents in a ratio of two red objects to three blue objects.";
     edu:partOf :RatioInterpretation.
 :RatioConsequentInterpretation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Interpreting the second quantity in an ordered ratio and its relationship to the first quantity.";
-    rdfs:comment "For example: explaining what the 3 represents in a ratio of two red objects to three blue objects.";
+    rdfs:comment "explaining what the 3 represents in a ratio of two red objects to three blue objects.";
     edu:partOf :RatioInterpretation.
 :RatioEquivalence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding that different ordered pairs of quantities can express the same ratio.";
-    rdfs:comment "For example: relating 2:3 to 4:6 by scaling both quantities by the same factor.";
+    rdfs:comment "relating 2:3 to 4:6 by scaling both quantities by the same factor.";
     edu:expands :ProportionManipulation;
     edu:partOf :ProportionAbstraction.
 :RatioInterpretation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Interpreting the quantities and multiplicative relationship expressed by an ordered ratio.";
-    rdfs:comment "For example: explaining the reference quantities represented by 2:3 in a mixture.";
+    rdfs:comment "explaining the reference quantities represented by 2:3 in a mixture.";
     edu:partOf :ProportionAbstraction.
 :RationalArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The understanding and application of numbers that can be expressed as the quotient or fraction of two integers, where the denominator is non-zero.";
@@ -884,7 +884,7 @@
     edu:specializes :Triangle.
 :Root a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding a value whose specified power equals a given number, within the stated number system and root convention.";
-    rdfs:comment "For example: the cube root of 64 is 4 because 4 × 4 × 4 = 64.";
+    rdfs:comment "the cube root of 64 is 4 because 4 × 4 × 4 = 64.";
     edu:inverts :Exponentiation;
     edu:partOf :PowerOperations.
 :Rotation a owl:NamedIndividual, edu:Area;
@@ -904,14 +904,14 @@
     edu:specializes :Triangle.
 :SetComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Comparing the quantities of two bounded collections intuitively or visually without formal counting.";
-    rdfs:comment "For example: judging which of two visibly matched groups has extra objects.";
+    rdfs:comment "judging which of two visibly matched groups has extra objects.";
     edu:expands :GroupRecognition, :NumericOrder;
     edu:partOf :CollectionSense.
 :SetTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies sets, which are collections of objects. It provides a fundamental language and tools for defining and working with mathematical objects.".
 :ShapeClassification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Classifying geometric shapes by their defining attributes.";
-    rdfs:comment "For example: classifying a figure by its number of sides and the relationships among its angles.";
+    rdfs:comment "classifying a figure by its number of sides and the relationships among its angles.";
     edu:expands :ShapeNaming;
     edu:partOf :ShapeIdentity.
 :ShapeConservation a owl:NamedIndividual, edu:Area;
@@ -938,7 +938,7 @@
     edu:partOf :ShapeIdentity.
 :ShapePlotting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Drawing a geometric figure in a coordinate system from its defining coordinates or relationships.";
-    rdfs:comment "For example: plotting a polygon's vertices and joining adjacent vertices.";
+    rdfs:comment "plotting a polygon's vertices and joining adjacent vertices.";
     edu:expands :PointPlotting;
     edu:partOf :GeometricVisualization;
     edu:translates :Polygon.
@@ -957,7 +957,7 @@
     edu:specializes :ShapeConservation.
 :ShapeSubsumption a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding containment among shape categories, where every member of a narrower category also belongs to a broader category.";
-    rdfs:comment "For example: every square is a rectangle, and every rectangle is a quadrilateral.";
+    rdfs:comment "every square is a rectangle, and every rectangle is a quadrilateral.";
     edu:expands :ShapeClassification;
     edu:partOf :ShapeIdentity.
 :ShapeSynthesis a owl:NamedIndividual, edu:Area;
@@ -1013,7 +1013,7 @@
     edu:partOf :NumberSense.
 :SubsetIdentification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identifying a part of a pre-existing collection by a distinguishing attribute while retaining its relationship to the whole.";
-    rdfs:comment "For example: identifying the red cars within a box of toys without rearranging the collection.";
+    rdfs:comment "identifying the red cars within a box of toys without rearranging the collection.";
     edu:expands :ObjectSorting;
     edu:partOf :CollectionSense.
 :Subtraction a owl:NamedIndividual, edu:Area;
@@ -1048,7 +1048,7 @@
     edu:partOf :IntegerStrategies.
 :Sum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Combining mathematical quantities to determine their total.";
-    rdfs:comment "For example: combining numerical values or adding vectors.";
+    rdfs:comment "combining numerical values or adding vectors.";
     edu:expands :Increment, :UnionOfCollections;
     edu:integrates :Iteration;
     edu:partOf :FoundationalOperations.
@@ -1061,7 +1061,7 @@
     edu:partOf :GeometricCalculations.
 :SymmetryRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The invariance of a geometric figure under a transformation that maps it onto itself.";
-    rdfs:comment "For example: a reflection across a square's diagonal or a half-turn about its center.";
+    rdfs:comment "a reflection across a square's diagonal or a half-turn about its center.";
     edu:expands :ShapeReflection;
     edu:partOf :ShapeEquivalenceRelations;
     edu:translates :ShapeResizingConservation, :ShapeRotationConservation.
@@ -1073,7 +1073,7 @@
     edu:partOf :CircleRelations.
 :ThreeDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Solid geometric figures with length, width, and depth.";
-    rdfs:comment "For example: spheres, cubes, and cylinders.";
+    rdfs:comment "spheres, cubes, and cylinders.";
     edu:expands :SpaceConcept;
     edu:partOf :GeometricObjects.
 :Translation a owl:NamedIndividual, edu:Area;
@@ -1093,7 +1093,7 @@
     edu:partOf :GeometricRelations.
 :TwoDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Plane geometric figures with length and width but no depth.";
-    rdfs:comment "For example: polygons, circles, and semicircular regions.";
+    rdfs:comment "polygons, circles, and semicircular regions.";
     edu:expands :PlaneConcept;
     edu:partOf :GeometricObjects.
 :UnevenDivisibility a owl:NamedIndividual, edu:Area;
@@ -1106,7 +1106,7 @@
     edu:partOf :CollectionSense.
 :UnitConversion a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Expressing the same measured quantity in a different unit by applying the relationship between the units.";
-    rdfs:comment "For example: converting meters to centimeters or hours to minutes. Conversion factors may be exact; approximation is not an intrinsic requirement.";
+    rdfs:comment "converting meters to centimeters or hours to minutes. Conversion factors may be exact; approximation is not an intrinsic requirement.";
     edu:expands :ProportionInteraction, :UnitFactorScaling, :UnitMagnitudeScaling;
     edu:partOf :MeasuringWithUnits.
 :UnitFactorScaling a owl:NamedIndividual, edu:Area;
@@ -1115,7 +1115,7 @@
     edu:partOf :MeasuringWithUnits.
 :UnitMagnitudeScaling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Converting a measurement between metric units related by powers of ten while preserving the measured quantity.";
-    rdfs:comment "For example: expressing 1.5 meters as 150 centimeters by multiplying the numerical value by 100.";
+    rdfs:comment "expressing 1.5 meters as 150 centimeters by multiplying the numerical value by 100.";
     edu:expands :PlaceValue, :UnitScaleRelation;
     edu:partOf :MeasuringWithUnits.
 :UnitScaleRelation a owl:NamedIndividual, edu:Area;
@@ -1124,7 +1124,7 @@
     edu:partOf :MeasuringWithUnits.
 :VectorConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quantity with both magnitude and direction.";
-    rdfs:comment "For example: a displacement represented by a directed line segment.";
+    rdfs:comment "a displacement represented by a directed line segment.";
     edu:expands :LineConcept;
     edu:partOf :GeometricConcepts.
 :VerticalAngles a owl:NamedIndividual, edu:Area;
@@ -1136,5 +1136,5 @@
     edu:partOf :GeometricCalculations.
 :ZeroConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding zero as an integer expressing absence of quantity, the additive identity, and the origin between negative and positive values.";
-    rdfs:comment "For example: recognizing that adding zero leaves a value unchanged, or using a zero digit as a placeholder in 305.";
+    rdfs:comment "recognizing that adding zero leaves a value unchanged, or using a zero digit as a placeholder in 305.";
     edu:partOf :IntegerArithmetic.

@@ -48,7 +48,7 @@ edu:contradicts rdf:type owl:ObjectProperty ;
                 rdfs:domain edu:CompetencyEntity ;
                 rdfs:range edu:CompetencyEntity ;
                 rdfs:isDefinedBy "A contradicts B when the requirements represented by A and B conflict, wholly or partially. The conflict is interpreted at the level of the described concepts, rather than requiring every possible instance to be mutually exclusive." ;
-                rdfs:comment "For example: NumbersSmaller10 and NumbersLarger10 describe opposing inclusive number ranges. Both include numbers of magnitude 10, as shared endpoints are useful in educational progression. Their contradiction concerns the ranges themselves, not exclusion of the shared boundary value." .
+                rdfs:comment "NumbersSmaller10 and NumbersLarger10 describe opposing inclusive number ranges. Both include numbers of magnitude 10, as shared endpoints are useful in educational progression. Their contradiction concerns the ranges themselves, not exclusion of the shared boundary value." .
 
 
 ###  http://edugraph.io/edu#expandedBy
@@ -67,7 +67,7 @@ edu:expands rdf:type owl:ObjectProperty ;
             rdfs:domain edu:CompetencyEntity ;
             rdfs:range edu:CompetencyEntity ;
             rdfs:isDefinedBy "A expands B when understanding A builds on understanding B through a conceptual extension." ;
-            rdfs:comment "For example: Multiplication expands Addition. A conceptual relationship does not establish a mandatory teaching order for every learner." .
+            rdfs:comment "Multiplication expands Addition. A conceptual relationship does not establish a mandatory teaching order for every learner." .
 
 
 ###  http://edugraph.io/edu#hasPart
@@ -77,7 +77,7 @@ edu:hasPart rdf:type owl:ObjectProperty ;
             rdfs:domain owl:Thing ;
             rdfs:range owl:Thing ;
             rdfs:isDefinedBy "A has part B when B is a constituent of the whole or field represented by A." ;
-            rdfs:comment "For example: CircularShapes has part Circle. Membership does not make a constituent interchangeable with its containing field." .
+            rdfs:comment "CircularShapes has part Circle. Membership does not make a constituent interchangeable with its containing field." .
 
 
 ###  http://edugraph.io/edu#impliedBy
@@ -96,7 +96,7 @@ edu:implies rdf:type owl:ObjectProperty ;
             rdfs:domain edu:CompetencyEntity ;
             rdfs:range edu:CompetencyEntity ;
             rdfs:isDefinedBy "A implies B when the truth of A logically guarantees the truth of B." ;
-            rdfs:comment "For example: a magnitude at most 10 is also at most 20. The implication concerns truth rather than teaching order." .
+            rdfs:comment "a magnitude at most 10 is also at most 20. The implication concerns truth rather than teaching order." .
 
 
 ###  http://edugraph.io/edu#integratedBy
@@ -115,7 +115,7 @@ edu:integrates rdf:type owl:ObjectProperty ;
                rdfs:domain edu:CompetencyEntity ;
                rdfs:range edu:CompetencyEntity ;
                rdfs:isDefinedBy "A integrates B when B is used as a component in constructing or applying A." ;
-               rdfs:comment "For example: Multiplication integrates Iteration." .
+               rdfs:comment "Multiplication integrates Iteration." .
 
 
 ###  http://edugraph.io/edu#invertedBy
@@ -134,7 +134,7 @@ edu:inverts rdf:type owl:ObjectProperty ;
             rdfs:domain edu:CompetencyEntity ;
             rdfs:range edu:CompetencyEntity ;
             rdfs:isDefinedBy "A inverts B when A extends B by reversing its underlying operation or conceptual relationship." ;
-            rdfs:comment "For example: Subtraction inverts Addition. The authored direction does not declare the property symmetric." .
+            rdfs:comment "Subtraction inverts Addition. The authored direction does not declare the property symmetric." .
 
 
 ###  http://edugraph.io/edu#involvedBy
@@ -153,7 +153,7 @@ edu:involves rdf:type owl:ObjectProperty ;
              rdfs:domain edu:CompetencyEntity ;
              rdfs:range edu:CompetencyDescriptor ;
              rdfs:isDefinedBy "A involves B when competency entity A is described by competency descriptor B." ;
-             rdfs:comment "For example: a competency concerning multiplication with integers can involve Multiplication and IntegerNumbers. Descriptors in one description apply together; no fixed count or required dimension is imposed." .
+             rdfs:comment "a competency concerning multiplication with integers can involve Multiplication and IntegerNumbers. Descriptors in one description apply together; no fixed count or required dimension is imposed." .
 
 
 ###  http://edugraph.io/edu#partOf
@@ -162,7 +162,7 @@ edu:partOf rdf:type owl:ObjectProperty ;
            rdfs:domain owl:Thing ;
            rdfs:range owl:Thing ;
            rdfs:isDefinedBy "A is part of B when A is a constituent of the whole or field represented by B." ;
-           rdfs:comment "For example: Circle is part of CircularShapes. This relation expresses composition without capability inheritance." .
+           rdfs:comment "Circle is part of CircularShapes. This relation expresses composition without capability inheritance." .
 
 
 ###  http://edugraph.io/edu#specializedBy
@@ -181,7 +181,7 @@ edu:specializes rdf:type owl:ObjectProperty ;
                 rdfs:domain owl:Thing ;
                 rdfs:range owl:Thing ;
                 rdfs:isDefinedBy "A specializes B when A is a narrower form of the same concept and preserves B's defining meaning." ;
-                rdfs:comment "For example: Square specializes Rectangle. A claim of the narrower concept supports the broader claim; transferring other relations requires its own inference rule." .
+                rdfs:comment "Square specializes Rectangle. A claim of the narrower concept supports the broader claim; transferring other relations requires its own inference rule." .
 
 
 ###  http://edugraph.io/edu#structuredBy
@@ -219,7 +219,7 @@ edu:translates rdf:type owl:ObjectProperty ;
                rdfs:domain edu:CompetencyEntity ;
                rdfs:range edu:CompetencyEntity ;
                rdfs:isDefinedBy "A translates B when A represents B through a different form or perspective, using B as a component of that representation." ;
-               rdfs:comment "For example: BaseTenBlocks translates Base10. The authored direction does not declare the property symmetric." .
+               rdfs:comment "BaseTenBlocks translates Base10. The authored direction does not declare the property symmetric." .
 
 
 #################################################################
@@ -230,21 +230,21 @@ edu:translates rdf:type owl:ObjectProperty ;
 edu:Ability rdf:type owl:Class ;
             rdfs:subClassOf edu:CompetencyDescriptor ;
             rdfs:isDefinedBy "A trainable cognitive performance or mental capability usable across subjects." ;
-            rdfs:comment "For example: reasoning from premises, interpreting information, or carrying out a procedure. A content annotation describes a demand or demonstrated performance, not a particular learner's mastery." .
+            rdfs:comment "reasoning from premises, interpreting information, or carrying out a procedure. A content annotation describes a demand or demonstrated performance, not a particular learner's mastery." .
 
 
 ###  http://edugraph.io/edu#Area
 edu:Area rdf:type owl:Class ;
          rdfs:subClassOf edu:CompetencyDescriptor ;
          rdfs:isDefinedBy "A reusable domain of knowledge, concept, relationship, or activity being learned or applied." ;
-         rdfs:comment "For example: multiplication, knowledge of circles, or measuring length." .
+         rdfs:comment "multiplication, knowledge of circles, or measuring length." .
 
 
 ###  http://edugraph.io/edu#CompetencyDescription
 edu:CompetencyDescription rdf:type owl:Class ;
                           rdfs:subClassOf edu:CompetencyEntity ;
                           rdfs:isDefinedBy "A competency entity described through its involved descriptors." ;
-                          rdfs:comment "For example: a description combining an activity, a cognitive demand, and a numeric context. Such a combination is illustrative; the ontology requires no particular dimension or descriptor count." .
+                          rdfs:comment "a description combining an activity, a cognitive demand, and a numeric context. Such a combination is illustrative; the ontology requires no particular dimension or descriptor count." .
 
 
 ###  http://edugraph.io/edu#CompetencyDescriptor
@@ -265,7 +265,7 @@ edu:CompetencyEntity rdf:type owl:Class ;
 edu:Scope rdf:type owl:Class ;
           rdfs:subClassOf edu:CompetencyDescriptor ;
           rdfs:isDefinedBy "A reusable context or condition that shapes how knowledge or a performance is applied." ;
-          rdfs:comment "For example: a numeric range, a representation, a measurement unit, or a required proof method. A Scope need not increase difficulty." .
+          rdfs:comment "a numeric range, a representation, a measurement unit, or a required proof method. A Scope need not increase difficulty." .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

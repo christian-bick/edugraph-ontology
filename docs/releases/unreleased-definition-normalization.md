@@ -2,7 +2,7 @@
 
 Definitions describe reusable concepts independently of the relation prefix used in a
 competency statement. All 764 descriptor definitions have at most two sentences and can
-follow `Involves {label}:`; examples and supporting explanation are separate, complete comments.
+follow `Involves {label}:`; examples and supporting explanation are separate comments.
 The convention is defined in [ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries).
 
 ## Authored text
@@ -12,12 +12,13 @@ The convention is defined in [ONT-D4](../descriptors.md#ont-d4--define-the-educa
   with descriptions of the concept, context, or performance.
 - Move embedded examples into comments and revise Ability examples to describe concrete
   performances across subjects where practical.
+- Store example content directly in comments, without a "For example:" prefix.
 - Supply explanatory text for tools and representations that previously repeated only their names.
 - Provide definitions and separate comments for all 28 schema classes and object properties.
   Schema text describes schema roles, rather than objects of a competency's `involves` statement.
 
-Comments are optional and may contain explanation as well as examples. Consumers append them
-as written; they must not prepend an example marker unconditionally. See
+Comments are optional and may contain explanation as well as examples. Consumers own
+presentation markers and must not treat every comment as an example list. See
 [constructing statements](../annotations-and-models.md#constructing-statements-from-descriptor-text).
 
 ## Meaning and adoption
@@ -60,7 +61,7 @@ No client API or application-specific dataset format changes in this update.
   identical to the updated `main` baseline. Only `rdfs:isDefinedBy` and `rdfs:comment` differ.
 - A source text audit checks all 764 descriptors and all 28 schema definitions. Every definition
   has at most two sentences; descriptor definitions have no relation-style opening, embedded
-  example marker, or paragraph break. Comments follow the appendable-text convention.
+  example marker, or paragraph break. Comments contain no introductory "For example:" prefix.
 - There are 400 descriptor comments: 129 for Abilities, 99 for Areas, and 172 for Scopes.
   The other descriptors retain optional comments as absent.
 - Semantic review covers the rewritten definitions and examples in their families, including
