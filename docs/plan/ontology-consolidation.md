@@ -10,8 +10,10 @@ and Git history.
 
 ### 1. Review measurement family definitions
 
-Implemented; pending merge and release. `MetricDistanceScale` now says “Involves distances
-expressed in metric units of length.” Its previous wording described only meters.
+Resolved. `MetricDistanceScale` covers distances expressed in metric units of length.
+Its previous wording described only meters. The
+[definition normalization change](../releases/unreleased-definition-normalization.md)
+preserves that correction and applies the reusable text convention.
 
 Reviewed all seven direct specializations: `CentimeterScale`, `DecimeterScale`, `KilometerScale`,
 `MeterScale`, `MicrometerScale`, `MillimeterScale`, and `NanometerScale`. Their definitions retain
@@ -35,7 +37,7 @@ Inclusive endpoints and the existing numeric contradiction assertions are intent
 `NumbersSmaller10` and `NumbersLarger10` both include magnitude 10; their contradiction
 concerns the opposing educational ranges, not exclusion of the shared boundary value.
 
-Keep the current definitions, relation assertions, and deduction behavior. Exact interval
+Keep the current inclusive meanings, relation assertions, and deduction behavior. Exact interval
 intersection and a separate relation for opposite bounds are not required. The schema and helper
 documentation now explain partial conflict at the descriptor level. The separate question of
 which quantities a particular content annotation covers remains subject to ONT-D4 and ONT-E4.
@@ -59,3 +61,33 @@ the one-relation-per-family rule does not make `integrates` a subproperty of `ex
 
 Sources: [Areas](../../core-areas-math.ttl), [Scopes](../../core-scopes-math.ttl).
 Rules: ONT-R1, ONT-R3, ONT-R4, ONT-R5.
+
+### 4. Review the unit-fraction endpoint
+
+`UnitFractions` allows numerator one and any positive integer denominator, so it includes 1/1.
+Its parent `ProperFractions` requires the numerator's absolute value to be strictly less than
+the denominator's. The definitions and specialization therefore disagree at 1/1.
+
+Decide whether this context should exclude denominator one or belong under a broader fraction
+family. The normalization preserves the existing meanings and placement; changing this boundary
+requires reviewing existing annotations as well as the relation.
+
+Source: [core-scopes-math.ttl](../../core-scopes-math.ttl).
+Rules: ONT-D4, ONT-S2, ONT-W2.
+
+### 5. Adopt the revised definition and comment text
+
+Review definition-dependent annotations, prompts, and model inputs when adopting the
+[normalized text](../releases/unreleased-definition-normalization.md). Identifiers and graph
+edges are unchanged, but clarified definitions and revised examples can affect interpretation.
+Application-specific rendering and dataset changes belong in their owning repositories.
+
+Definition lookup in the TypeScript and Python clients returns definitions without comments.
+Consumers can read the separate `rdfs:comment` assertions through the shared snapshot APIs;
+Turtle and RDF releases also retain both annotations. Review consumers that previously obtained
+examples from definition lookup alone, and decide separately whether a dedicated comment
+accessor would be useful. Follow
+[the shared text guidance](../annotations-and-models.md#constructing-statements-from-descriptor-text)
+and [client access guidance](../../DOCS.md#61-typescript-api-usage).
+
+Rules: ONT-D4, ONT-E5, ONT-W2, ONT-W3.

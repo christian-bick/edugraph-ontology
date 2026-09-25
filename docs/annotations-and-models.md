@@ -15,6 +15,23 @@ Annotations should follow [the content-evidence rules](content-evidence.md).
 The ontology does not prescribe a storage format, an input modality, or a minimum descriptor
 count. Any requirements for a particular collection or use belong in its own documentation.
 
+## Constructing statements from descriptor text
+
+Descriptor definitions follow the composition convention in
+[ONT-D4](descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries).
+A consumer can construct `Involves {label}: {definition}` and append the optional comment
+as written, separated by a space. The surrounding statement supplies the relation; the
+definition describes its object without repeating that relation or the descriptor's name.
+
+Comments contain self-contained examples or supporting explanation. They are not an
+examples-only field, so do not prepend "For example:" to every comment. Omit the comment
+portion when absent. An illustrative example describes the concept, not necessarily the
+particular content being annotated, and must not be treated as evidence visible in that content.
+
+This text convention supports all three descriptor dimensions. It does not make organizational
+nodes eligible for direct labeling or replace evidence for a competency's `involves` assertions.
+Applications own their display labels, statement serialization, and use in datasets or models.
+
 ## Classification from content evidence
 
 A classifier should use the content available to it, including necessary consequences of what

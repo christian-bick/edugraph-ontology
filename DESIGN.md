@@ -168,8 +168,8 @@ See [the dimension rules](docs/descriptors.md#ont-d2--choose-the-dimension-by-me
 
 | Field | Example of Scope |
 | :---- | :---- |
-| **Physical Numbers**  | **Abacus.** Represents numbers using a physical abacus.  |
-| **Time Measurement**  | **Analog Clock.** Involves measuring or representing time using an analog clock.  |
+| **Physical Numbers**  | **Abacus.** Number representations using movable beads on rods or wires.  |
+| **Time Measurement**  | **Analog Clock.** Time represented by the positions of hands on a graduated clock dial.  |
 
 ### 1.1.3 Ability
 
@@ -669,6 +669,11 @@ accuracy without fine-tuning.
 educational meaning, observable evidence, and relevant boundaries. For example, FractionNotation
 must mean learning about fraction notation, not merely encountering fractions in a comparison
 task. A familiar name alone does not communicate that boundary.
+
+Definitions describe reusable concepts independently of the sentence in which a consumer places
+them. Keeping the relation prefix outside the definition and examples in comments supports
+consistent competency statements without changing descriptor meaning. The authoring contract is
+[ONT-D4](docs/descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries).
 
 This principle governs **meaning and interpretation**, not descriptor decomposition. Context
 belongs in the Scope rationale; it is not the origin of semantic clarity. Classification results

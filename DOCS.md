@@ -130,6 +130,17 @@ editor can use the same rules. Python provides descriptor and relation queries o
 
 ### 6.1 TypeScript API Usage
 
+Definition lookups in both clients return `rdfs:isDefinedBy` only. Examples and supporting
+explanation are authored in `rdfs:comment`. The
+[shared snapshot APIs](#67-shared-snapshot-apis-and-package-verification) retain those assertions:
+use `context.authoredAssertions(iri)` in TypeScript or `context.authored_assertions(iri)` in
+Python and select the literal assertions whose predicate is
+`http://www.w3.org/2000/01/rdf-schema#comment`. There is no dedicated comment convenience accessor.
+Turtle and RDF releases also retain both annotations. Consumers constructing statements with
+examples must obtain the comments as well. Follow
+[the text composition guidance](docs/annotations-and-models.md#constructing-statements-from-descriptor-text)
+instead of assuming a definition contains examples.
+
 ```typescript
 import { Area, Scope, relations, specializesTransitive, structuresTransitive, expands, definition } from "edugraph-ts";
 

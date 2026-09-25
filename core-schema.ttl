@@ -18,7 +18,9 @@ edu:constrainedBy rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf owl:topObjectProperty ;
                   owl:inverseOf edu:constrains ;
                   rdfs:domain edu:CompetencyEntity ;
-                  rdfs:range edu:CompetencyEntity .
+                  rdfs:range edu:CompetencyEntity ;
+                  rdfs:isDefinedBy "A is constrained by B when the requirements represented by B restrict or determine compatibility with A." ;
+                  rdfs:comment "This is the inverse direction of constrains." .
 
 
 ###  http://edugraph.io/edu#constrains
@@ -26,7 +28,8 @@ edu:constrains rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:domain edu:CompetencyEntity ;
                rdfs:range edu:CompetencyEntity ;
-               rdfs:isDefinedBy "A constrains B when the requirements represented by A restrict or determine compatibility with B. These relations concern constraints on the described concepts, rather than teaching order." .
+               rdfs:isDefinedBy "A constrains B when the requirements represented by A restrict or determine compatibility with B." ;
+               rdfs:comment "These relations concern constraints on the described concepts, rather than teaching order." .
 
 
 ###  http://edugraph.io/edu#contradictedBy
@@ -34,7 +37,9 @@ edu:contradictedBy rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf edu:constrainedBy ;
                    owl:inverseOf edu:contradicts ;
                    rdfs:domain edu:CompetencyEntity ;
-                   rdfs:range edu:CompetencyEntity .
+                   rdfs:range edu:CompetencyEntity ;
+                   rdfs:isDefinedBy "A is contradicted by B when the requirements represented by B and A conflict, wholly or partially, at the level of the described concepts." ;
+                   rdfs:comment "This is the inverse direction of contradicts. A conflict between concepts need not exclude every shared instance." .
 
 
 ###  http://edugraph.io/edu#contradicts
@@ -43,7 +48,7 @@ edu:contradicts rdf:type owl:ObjectProperty ;
                 rdfs:domain edu:CompetencyEntity ;
                 rdfs:range edu:CompetencyEntity ;
                 rdfs:isDefinedBy "A contradicts B when the requirements represented by A and B conflict, wholly or partially. The conflict is interpreted at the level of the described concepts, rather than requiring every possible instance to be mutually exclusive." ;
-                rdfs:comment "For example, NumbersSmaller10 and NumbersLarger10 describe opposing inclusive number ranges. Both include numbers of magnitude 10, as shared endpoints are useful in educational progression. Their contradiction concerns the ranges themselves, not exclusion of the shared boundary value." .
+                rdfs:comment "For example: NumbersSmaller10 and NumbersLarger10 describe opposing inclusive number ranges. Both include numbers of magnitude 10, as shared endpoints are useful in educational progression. Their contradiction concerns the ranges themselves, not exclusion of the shared boundary value." .
 
 
 ###  http://edugraph.io/edu#expandedBy
@@ -51,7 +56,9 @@ edu:expandedBy rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
                owl:inverseOf edu:expands ;
                rdfs:domain edu:CompetencyEntity ;
-               rdfs:range edu:CompetencyEntity .
+               rdfs:range edu:CompetencyEntity ;
+               rdfs:isDefinedBy "A is expanded by B when understanding B builds on understanding A through a conceptual extension." ;
+               rdfs:comment "This is the inverse direction of expands." .
 
 
 ###  http://edugraph.io/edu#expands
@@ -59,12 +66,8 @@ edu:expands rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:domain edu:CompetencyEntity ;
             rdfs:range edu:CompetencyEntity ;
-            rdfs:isDefinedBy """A expands B when understanding A is based on an understanding of B.
-
-For example: 
-
-- Multiplication expands addition
-- Fraction notation expands division""" .
+            rdfs:isDefinedBy "A expands B when understanding A builds on understanding B through a conceptual extension." ;
+            rdfs:comment "For example: Multiplication expands Addition. A conceptual relationship does not establish a mandatory teaching order for every learner." .
 
 
 ###  http://edugraph.io/edu#hasPart
@@ -72,7 +75,9 @@ edu:hasPart rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf edu:structuredBy ;
             owl:inverseOf edu:partOf ;
             rdfs:domain owl:Thing ;
-            rdfs:range owl:Thing .
+            rdfs:range owl:Thing ;
+            rdfs:isDefinedBy "A has part B when B is a constituent of the whole or field represented by A." ;
+            rdfs:comment "For example: CircularShapes has part Circle. Membership does not make a constituent interchangeable with its containing field." .
 
 
 ###  http://edugraph.io/edu#impliedBy
@@ -80,7 +85,9 @@ edu:impliedBy rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf edu:constrainedBy ;
               owl:inverseOf edu:implies ;
               rdfs:domain edu:CompetencyEntity ;
-              rdfs:range edu:CompetencyEntity .
+              rdfs:range edu:CompetencyEntity ;
+              rdfs:isDefinedBy "A is implied by B when the truth of B logically guarantees the truth of A." ;
+              rdfs:comment "This is the inverse direction of implies." .
 
 
 ###  http://edugraph.io/edu#implies
@@ -88,7 +95,8 @@ edu:implies rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf edu:constrains ;
             rdfs:domain edu:CompetencyEntity ;
             rdfs:range edu:CompetencyEntity ;
-            rdfs:isDefinedBy "A implies B when the truth of A logically guarantees the truth of B. This is to be understood purely logically rather than pedagogically (e.g., condition X > 100 logically implies condition X > 10, and X < 10 logically implies X < 100)." .
+            rdfs:isDefinedBy "A implies B when the truth of A logically guarantees the truth of B." ;
+            rdfs:comment "For example: a magnitude at most 10 is also at most 20. The implication concerns truth rather than teaching order." .
 
 
 ###  http://edugraph.io/edu#integratedBy
@@ -96,7 +104,9 @@ edu:integratedBy rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf owl:topObjectProperty ;
                  owl:inverseOf edu:integrates ;
                  rdfs:domain edu:CompetencyEntity ;
-                 rdfs:range edu:CompetencyEntity .
+                 rdfs:range edu:CompetencyEntity ;
+                 rdfs:isDefinedBy "A is integrated by B when A is used as a component in constructing or applying B." ;
+                 rdfs:comment "This is the inverse direction of integrates." .
 
 
 ###  http://edugraph.io/edu#integrates
@@ -104,12 +114,8 @@ edu:integrates rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:domain edu:CompetencyEntity ;
                rdfs:range edu:CompetencyEntity ;
-               rdfs:isDefinedBy """A integrates B when A is synthesized in parts using B.
-
-For example: 
-
-- Fraction addition integrates determining the smallest common denominator
-- The Pythagorean theorem integrates the addition, exponation and root operations""" .
+               rdfs:isDefinedBy "A integrates B when B is used as a component in constructing or applying A." ;
+               rdfs:comment "For example: Multiplication integrates Iteration." .
 
 
 ###  http://edugraph.io/edu#invertedBy
@@ -117,7 +123,9 @@ edu:invertedBy rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf edu:expandedBy ;
                owl:inverseOf edu:inverts ;
                rdfs:domain edu:CompetencyEntity ;
-               rdfs:range edu:CompetencyEntity .
+               rdfs:range edu:CompetencyEntity ;
+               rdfs:isDefinedBy "A is inverted by B when B extends A by reversing its underlying operation or conceptual relationship." ;
+               rdfs:comment "This is the inverse direction of inverts." .
 
 
 ###  http://edugraph.io/edu#inverts
@@ -125,12 +133,8 @@ edu:inverts rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf edu:expands ;
             rdfs:domain edu:CompetencyEntity ;
             rdfs:range edu:CompetencyEntity ;
-            rdfs:isDefinedBy """A inverts B when one is the logical inverse concept of the other. This relation is in theory symmetric but in practice oftentimes has a high likelyhood of one concept preceeding the other.
-
-For example:
-
-- Subtraction inverts addition
-- Root inverts exponentiation""" .
+            rdfs:isDefinedBy "A inverts B when A extends B by reversing its underlying operation or conceptual relationship." ;
+            rdfs:comment "For example: Subtraction inverts Addition. The authored direction does not declare the property symmetric." .
 
 
 ###  http://edugraph.io/edu#involvedBy
@@ -138,7 +142,9 @@ edu:involvedBy rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
                owl:inverseOf edu:involves ;
                rdfs:domain edu:CompetencyDescriptor ;
-               rdfs:range edu:CompetencyEntity .
+               rdfs:range edu:CompetencyEntity ;
+               rdfs:isDefinedBy "A is involved by B when descriptor A is included in the description of competency entity B." ;
+               rdfs:comment "This is the inverse direction of involves." .
 
 
 ###  http://edugraph.io/edu#involves
@@ -146,7 +152,8 @@ edu:involves rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:domain edu:CompetencyEntity ;
              rdfs:range edu:CompetencyDescriptor ;
-             rdfs:isDefinedBy "When a competency entity involves a competency descriptor, it forms a more specialized competency entity that can be identified through that descriptor." .
+             rdfs:isDefinedBy "A involves B when competency entity A is described by competency descriptor B." ;
+             rdfs:comment "For example: a competency concerning multiplication with integers can involve Multiplication and IntegerNumbers. Descriptors in one description apply together; no fixed count or required dimension is imposed." .
 
 
 ###  http://edugraph.io/edu#partOf
@@ -154,7 +161,8 @@ edu:partOf rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf edu:structures ;
            rdfs:domain owl:Thing ;
            rdfs:range owl:Thing ;
-           rdfs:isDefinedBy "An entity is part of another entity when it is a constituent of the whole represented by that entity. This relation expresses compositional structure and does not imply inheritance." .
+           rdfs:isDefinedBy "A is part of B when A is a constituent of the whole or field represented by B." ;
+           rdfs:comment "For example: Circle is part of CircularShapes. This relation expresses composition without capability inheritance." .
 
 
 ###  http://edugraph.io/edu#specializedBy
@@ -162,7 +170,9 @@ edu:specializedBy rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf edu:structuredBy ;
                   owl:inverseOf edu:specializes ;
                   rdfs:domain owl:Thing ;
-                  rdfs:range owl:Thing .
+                  rdfs:range owl:Thing ;
+                  rdfs:isDefinedBy "A is specialized by B when B is a narrower form of the same concept that preserves A's defining meaning." ;
+                  rdfs:comment "This is the inverse direction of specializes." .
 
 
 ###  http://edugraph.io/edu#specializes
@@ -170,7 +180,8 @@ edu:specializes rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf edu:structures ;
                 rdfs:domain owl:Thing ;
                 rdfs:range owl:Thing ;
-                rdfs:isDefinedBy "An entity specializes another entity when it represents a more specific form of the same concept. The specializing entity inherits the attributes and relations of the more general entity." .
+                rdfs:isDefinedBy "A specializes B when A is a narrower form of the same concept and preserves B's defining meaning." ;
+                rdfs:comment "For example: Square specializes Rectangle. A claim of the narrower concept supports the broader claim; transferring other relations requires its own inference rule." .
 
 
 ###  http://edugraph.io/edu#structuredBy
@@ -178,7 +189,9 @@ edu:structuredBy rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf owl:topObjectProperty ;
                  owl:inverseOf edu:structures ;
                  rdfs:domain owl:Thing ;
-                 rdfs:range owl:Thing .
+                 rdfs:range owl:Thing ;
+                 rdfs:isDefinedBy "A is structured by B when B is a constituent or narrower specialization within A's structural organization." ;
+                 rdfs:comment "This is the inverse direction of structures and groups hasPart and specializedBy for navigation." .
 
 
 ###  http://edugraph.io/edu#structures
@@ -186,7 +199,8 @@ edu:structures rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:domain owl:Thing ;
                rdfs:range owl:Thing ;
-               rdfs:isDefinedBy "An entity structures another entity when it relates to that entity through the ontology's structural organization, either as one of its constituent parts or as one of its narrower specializations." .
+               rdfs:isDefinedBy "A structures B when A relates to B as a constituent or as a narrower specialization within the ontology's structural organization." ;
+               rdfs:comment "Use partOf or specializes to state which relationship holds. Combined structural navigation does not by itself establish capability inheritance." .
 
 
 ###  http://edugraph.io/edu#translatedBy
@@ -194,7 +208,9 @@ edu:translatedBy rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf edu:integratedBy ;
                  owl:inverseOf edu:translates ;
                  rdfs:domain edu:CompetencyEntity ;
-                 rdfs:range edu:CompetencyEntity .
+                 rdfs:range edu:CompetencyEntity ;
+                 rdfs:isDefinedBy "A is translated by B when B represents A through a different form or perspective." ;
+                 rdfs:comment "This is the inverse direction of translates." .
 
 
 ###  http://edugraph.io/edu#translates
@@ -202,12 +218,8 @@ edu:translates rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf edu:integrates ;
                rdfs:domain edu:CompetencyEntity ;
                rdfs:range edu:CompetencyEntity ;
-               rdfs:isDefinedBy """A translates B when one is a representation of the other. This relation is in theory symmetric but in practice oftentimes has a high likelyhood of one representation preceeding the other.
-
-For example:
-
-- Fraction notation translates proportions
-- Graphs translate functions""" .
+               rdfs:isDefinedBy "A translates B when A represents B through a different form or perspective, using B as a component of that representation." ;
+               rdfs:comment "For example: BaseTenBlocks translates Base10. The authored direction does not declare the property symmetric." .
 
 
 #################################################################
@@ -217,37 +229,43 @@ For example:
 ###  http://edugraph.io/edu#Ability
 edu:Ability rdf:type owl:Class ;
             rdfs:subClassOf edu:CompetencyDescriptor ;
-            rdfs:isDefinedBy "A general mental attribute that is trainable and applicable across various fields." .
+            rdfs:isDefinedBy "A trainable cognitive performance or mental capability usable across subjects." ;
+            rdfs:comment "For example: reasoning from premises, interpreting information, or carrying out a procedure. A content annotation describes a demand or demonstrated performance, not a particular learner's mastery." .
 
 
 ###  http://edugraph.io/edu#Area
 edu:Area rdf:type owl:Class ;
          rdfs:subClassOf edu:CompetencyDescriptor ;
-         rdfs:comment "A specific domain of knowledge and understanding within a field." .
+         rdfs:isDefinedBy "A reusable domain of knowledge, concept, relationship, or activity being learned or applied." ;
+         rdfs:comment "For example: multiplication, knowledge of circles, or measuring length." .
 
 
 ###  http://edugraph.io/edu#CompetencyDescription
 edu:CompetencyDescription rdf:type owl:Class ;
                           rdfs:subClassOf edu:CompetencyEntity ;
-                          rdfs:isDefinedBy "Describes a competency through the involved observable attributes." .
+                          rdfs:isDefinedBy "A competency entity described through its involved descriptors." ;
+                          rdfs:comment "For example: a description combining an activity, a cognitive demand, and a numeric context. Such a combination is illustrative; the ontology requires no particular dimension or descriptor count." .
 
 
 ###  http://edugraph.io/edu#CompetencyDescriptor
 edu:CompetencyDescriptor rdf:type owl:Class ;
                          rdfs:subClassOf edu:CompetencyEntity ;
-                         rdfs:isDefinedBy "A significant and observable attribute to describe competencies." .
+                         rdfs:isDefinedBy "A reusable concept, context, or performance used to describe a competency." ;
+                         rdfs:comment "Area, Scope, and Ability are the descriptor dimensions. Organizational descriptors support navigation; their existence does not make them eligible for direct content labeling." .
 
 
 ###  http://edugraph.io/edu#CompetencyEntity
 edu:CompetencyEntity rdf:type owl:Class ;
                      rdfs:subClassOf owl:Thing ;
-                     rdfs:isDefinedBy "An entity involved in the description and expression of competencies." .
+                     rdfs:isDefinedBy "An entity participating in the expression or description of competencies." ;
+                     rdfs:comment "Competency descriptions and their descriptors are both competency entities." .
 
 
 ###  http://edugraph.io/edu#Scope
 edu:Scope rdf:type owl:Class ;
           rdfs:subClassOf edu:CompetencyDescriptor ;
-          rdfs:comment "An observable context of learning that affects abstraction, variation, generalization, complexity and ultimately measurable differences in difficulty across various areas." .
+          rdfs:isDefinedBy "A reusable context or condition that shapes how knowledge or a performance is applied." ;
+          rdfs:comment "For example: a numeric range, a representation, a measurement unit, or a required proof method. A Scope need not increase difficulty." .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
