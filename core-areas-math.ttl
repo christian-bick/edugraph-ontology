@@ -541,7 +541,7 @@
     rdfs:isDefinedBy "Determining or comparing measurable physical dimensions of manifested objects directly, through an intermediary, or by using tools and units.";
     edu:partOf :Measurement.
 :MeasuringTime a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Determining or comparing the durations of events or the intervals between them.";
+    rdfs:isDefinedBy "Determining, representing, or comparing times of day, calendar dates, or elapsed durations using temporal reference systems and units.";
     rdfs:comment "Finding how long an activity lasts from its start and finish times.";
     edu:partOf :Measurement.
 :MeasuringVolumes a owl:NamedIndividual, edu:Area;
