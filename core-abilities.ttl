@@ -86,6 +86,9 @@
     rdfs:isDefinedBy "Combining different ideas or perspectives into a coherent solution that meets a shared purpose or set of constraints.";
     rdfs:comment "Combining several proposed layouts into a workable model, or integrating different story ideas into one consistent plot.";
     edu:specializes :CreativeCapability.
+:CorrectnessEvaluation a owl:NamedIndividual, edu:Ability;
+    rdfs:isDefinedBy "Judging whether a statement, result, or solution is correct according to applicable facts, definitions, rules, or task requirements.";
+    edu:specializes :Evaluation.
 :CreativeCapability a owl:NamedIndividual, edu:Ability;
     rdfs:isDefinedBy "Generating original and useful ideas, interpretations, or solutions within a given context.";
     rdfs:comment "Devising a new way to represent a mathematical relationship, or developing an original ending to a story.".
