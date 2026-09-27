@@ -715,7 +715,7 @@
     rdfs:comment "A numeral, a number line, or a collection of counters representing the same value.";
     edu:partOf :RepresentationalScope.
 :NumbersLarger10 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values greater than or equal to 10.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values greater than or equal to 10.";
     rdfs:comment "-10, 10, and 11 each satisfy this inclusive lower bound on absolute value.";
     edu:contradicts :NumbersSmaller10;
     edu:expands :NumbersLarger5, :NumbersSmaller10;
@@ -723,67 +723,67 @@
     edu:specializes :NumericRange;
     edu:translates :BaseTenBlocks, :LinkingCubes, :NumberTiles.
 :NumbersLarger100 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values greater than or equal to 100.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values greater than or equal to 100.";
     rdfs:comment "-100, 100, and 101 each satisfy this inclusive lower bound on absolute value.";
     edu:contradicts :NumbersSmaller100;
     edu:expands :NumbersLarger20, :NumbersSmaller100;
     edu:implies :NumbersLarger20;
     edu:specializes :NumericRange.
 :NumbersLarger1000 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values greater than or equal to 1000.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values greater than or equal to 1000.";
     rdfs:comment "-1000, 1000, and 1001 each satisfy this inclusive lower bound on absolute value.";
     edu:contradicts :NumbersSmaller1000;
     edu:expands :NumbersLarger120, :NumbersSmaller1000;
     edu:implies :NumbersLarger120;
     edu:specializes :NumericRange.
 :NumbersLarger10000 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values greater than or equal to 10000.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values greater than or equal to 10000.";
     rdfs:comment "-10000, 10000, and 10001 each satisfy this inclusive lower bound on absolute value.";
     edu:contradicts :NumbersSmaller10000;
     edu:expands :NumbersLarger1000, :NumbersSmaller10000;
     edu:implies :NumbersLarger1000;
     edu:specializes :NumericRange.
 :NumbersLarger100000 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values greater than or equal to 100000.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values greater than or equal to 100000.";
     rdfs:comment "-100000, 100000, and 100001 each satisfy this inclusive lower bound on absolute value.";
     edu:contradicts :NumbersSmaller100000;
     edu:expands :NumbersLarger10000, :NumbersSmaller100000;
     edu:implies :NumbersLarger10000;
     edu:specializes :NumericRange.
 :NumbersLarger1000000 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values greater than or equal to 1000000.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values greater than or equal to 1000000.";
     rdfs:comment "-1000000, 1000000, and 1000001 each satisfy this inclusive lower bound on absolute value.";
     edu:contradicts :NumbersSmaller1000000;
     edu:expands :NumbersLarger100000, :NumbersSmaller1000000;
     edu:implies :NumbersLarger100000;
     edu:specializes :NumericRange.
 :NumbersLarger120 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values greater than or equal to 120.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values greater than or equal to 120.";
     rdfs:comment "-120, 120, and 121 each satisfy this inclusive lower bound on absolute value.";
     edu:contradicts :NumbersSmaller120;
     edu:expands :NumbersLarger100, :NumbersSmaller120;
     edu:implies :NumbersLarger100;
     edu:specializes :NumericRange.
 :NumbersLarger20 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values greater than or equal to 20.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values greater than or equal to 20.";
     rdfs:comment "-20, 20, and 21 each satisfy this inclusive lower bound on absolute value.";
     edu:contradicts :NumbersSmaller20;
     edu:expands :NumbersLarger10, :NumbersSmaller20;
     edu:implies :NumbersLarger10;
     edu:specializes :NumericRange.
 :NumbersLarger5 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values greater than or equal to 5.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values greater than or equal to 5.";
     rdfs:comment "-5, 5, and 6 each satisfy this inclusive lower bound on absolute value.";
     edu:contradicts :NumbersSmaller5;
     edu:expands :NumbersLargerZero, :NumbersSmaller5;
     edu:implies :NumbersLargerZero;
     edu:specializes :NumericRange.
 :NumbersLargerZero a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values greater than or equal to 0.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values greater than or equal to 0.";
     rdfs:comment "-3, 0, and 5 all satisfy this inclusive bound on absolute value.";
     edu:specializes :NumericRange.
 :NumbersSmaller10 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values less than or equal to 10.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values less than or equal to 10.";
     rdfs:comment "-10, 0, and 10 each satisfy this inclusive upper bound on absolute value.";
     edu:contradicts :NumbersLarger10;
     edu:expands :NumbersSmaller5;
@@ -791,55 +791,55 @@
     edu:specializes :NumericRange;
     edu:translates :CountingSymbols, :TenFrame.
 :NumbersSmaller100 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values less than or equal to 100.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values less than or equal to 100.";
     rdfs:comment "-100, 0, and 100 each satisfy this inclusive upper bound on absolute value.";
     edu:contradicts :NumbersLarger100;
     edu:expands :NumbersSmaller20;
     edu:implies :NumbersSmaller120;
     edu:specializes :NumericRange.
 :NumbersSmaller1000 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values less than or equal to 1000.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values less than or equal to 1000.";
     rdfs:comment "-1000, 0, and 1000 each satisfy this inclusive upper bound on absolute value.";
     edu:contradicts :NumbersLarger1000;
     edu:expands :NumbersSmaller120;
     edu:implies :NumbersSmaller10000;
     edu:specializes :NumericRange.
 :NumbersSmaller10000 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values less than or equal to 10000.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values less than or equal to 10000.";
     rdfs:comment "-10000, 0, and 10000 each satisfy this inclusive upper bound on absolute value.";
     edu:contradicts :NumbersLarger10000;
     edu:expands :NumbersSmaller1000;
     edu:implies :NumbersSmaller100000;
     edu:specializes :NumericRange.
 :NumbersSmaller100000 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values less than or equal to 100000.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values less than or equal to 100000.";
     rdfs:comment "-100000, 0, and 100000 each satisfy this inclusive upper bound on absolute value.";
     edu:contradicts :NumbersLarger100000;
     edu:expands :NumbersSmaller10000;
     edu:implies :NumbersSmaller1000000;
     edu:specializes :NumericRange.
 :NumbersSmaller1000000 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values less than or equal to 1000000.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values less than or equal to 1000000.";
     rdfs:comment "-1000000, 0, and 1000000 each satisfy this inclusive upper bound on absolute value.";
     edu:contradicts :NumbersLarger1000000;
     edu:expands :NumbersSmaller100000;
     edu:specializes :NumericRange.
 :NumbersSmaller120 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values less than or equal to 120.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values less than or equal to 120.";
     rdfs:comment "-120, 0, and 120 each satisfy this inclusive upper bound on absolute value.";
     edu:contradicts :NumbersLarger120;
     edu:expands :NumbersSmaller100;
     edu:implies :NumbersSmaller1000;
     edu:specializes :NumericRange.
 :NumbersSmaller20 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values less than or equal to 20.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values less than or equal to 20.";
     rdfs:comment "-20, 0, and 20 each satisfy this inclusive upper bound on absolute value.";
     edu:contradicts :NumbersLarger20;
     edu:expands :NumbersSmaller10;
     edu:implies :NumbersSmaller100;
     edu:specializes :NumericRange.
 :NumbersSmaller5 a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numeric contexts in which all involved numbers have absolute values less than or equal to 5.";
+    rdfs:isDefinedBy "Numeric contexts in which all numerical values serving as inputs or results of the task have absolute values less than or equal to 5.";
     rdfs:comment "-5, 0, and 5 each satisfy this inclusive upper bound on absolute value.";
     edu:contradicts :NumbersLarger5;
     edu:implies :NumbersSmaller10;
