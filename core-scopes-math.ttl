@@ -382,8 +382,8 @@
     edu:expands :ThreeDimensional;
     edu:specializes :DimensionalAbstraction.
 :FourOperands a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "A mathematical operation instance with exactly four explicit operands.";
-    rdfs:comment "4 + 7 + 5 + 2 presents exactly four operands.";
+    rdfs:isDefinedBy "A mathematical expression with exactly four explicit operand occurrences, counted across all nested operations.";
+    rdfs:comment "4 + 7 + 5 + 2 and (8 × 2) + (8 × 10) each present four operands; the repeated 8 counts twice.";
     edu:expands :ThreeOperands;
     edu:specializes :OperandCardinality.
 :FractionNumbers a owl:NamedIndividual, edu:Scope;
@@ -926,8 +926,8 @@
     rdfs:isDefinedBy "One spatial dimension.";
     edu:specializes :DimensionalAbstraction.
 :OperandCardinality a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "The number of explicit operand occurrences participating in a mathematical operation instance.";
-    rdfs:comment "4 + 4 has two operands even though their values are equal.";
+    rdfs:isDefinedBy "The number of explicit operand occurrences in a mathematical expression, counted across all nested operations.";
+    rdfs:comment "4 + 4 has two operands, 8 × (2 + 10) has three, and (8 × 2) + (8 × 10) has four. Repeated values count separately. In 8 × (2 + 10) = 96, the composite 2 + 10 and the result 96 are not additional operands of the left-hand expression.";
     edu:partOf :ComplexityScope.
 :OperandDigitCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The exact digit count of operands within a mathematical operation.";
@@ -1329,8 +1329,8 @@
     edu:expands :TwoDimensional;
     edu:specializes :DimensionalAbstraction.
 :ThreeOperands a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "A mathematical operation instance with exactly three explicit operands.";
-    rdfs:comment "4 + 7 + 5 presents exactly three operands.";
+    rdfs:isDefinedBy "A mathematical expression with exactly three explicit operand occurrences, counted across all nested operations.";
+    rdfs:comment "4 + 7 + 5 and 8 × (2 + 10) each present three operands. In 8 × (2 + 10) = 96, the operands of the left-hand expression are 8, 2, and 10.";
     edu:expands :TwoOperands;
     edu:specializes :OperandCardinality.
 :TileScale a owl:NamedIndividual, edu:Scope;
@@ -1376,8 +1376,8 @@
     edu:expands :OneDimensional;
     edu:specializes :DimensionalAbstraction.
 :TwoOperands a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "A mathematical operation instance with exactly two explicit operands.";
-    rdfs:comment "7 + 5 presents exactly two operands.";
+    rdfs:isDefinedBy "A mathematical expression with exactly two explicit operand occurrences, counted across all nested operations.";
+    rdfs:comment "7 + 5 and 4 + 4 each present two operands, even when their values are equal.";
     edu:specializes :OperandCardinality.
 :UnequalShares a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Partitioning a whole into parts that do not have equal measure.";
