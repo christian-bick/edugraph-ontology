@@ -670,6 +670,10 @@
     rdfs:comment "1000, 2000, and 5000, when divisibility by 1000 is relevant to the task.";
     edu:implies :MultiplesOf100;
     edu:specializes :NumericDivisibility.
+:MultiplesOf5 a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Integer values divisible by 5 without a remainder.";
+    rdfs:comment "5, -15, and 25, when divisibility by 5 is relevant to the task.";
+    edu:specializes :NumericDivisibility.
 :MultiStep a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Solutions requiring two or more successive logical or procedural steps.";
     rdfs:comment "Using one calculated result as the input to a further operation.";
