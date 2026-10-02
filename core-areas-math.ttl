@@ -671,6 +671,11 @@
     rdfs:comment "Lines, line segments, and rays.";
     edu:expands :LineConcept;
     edu:partOf :GeometricObjects.
+:OrderedCoordinatePair a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A pair of numerical components whose first and second positions associate each value with a designated coordinate axis or contextual quantity.";
+    rdfs:comment "Explaining why the pair (3, 6) differs from (6, 3), or forming a pair from corresponding terms in two patterns. The component order determines the pair's meaning independently of whether a point is plotted.";
+    edu:expands :CoordinateAxes;
+    edu:partOf :GeometricVisualization.
 :OrderOfOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The standard set of rules that dictates the sequence in which multiple operations in an arithmetic expression must be performed to ensure a single, correct result.";
     edu:partOf :ArithmeticLaws.
@@ -756,7 +761,7 @@
     edu:partOf :GeometricConcepts.
 :PointPlotting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of locating and marking a point on a coordinate plane using a pair of numerical coordinates.";
-    edu:expands :NumericOrder, :PointConcept;
+    edu:expands :NumericOrder, :OrderedCoordinatePair, :PointConcept;
     edu:partOf :GeometricVisualization.
 :Polygon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
