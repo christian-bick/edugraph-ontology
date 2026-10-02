@@ -438,6 +438,12 @@
 :HourIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of hours in a day.";
     edu:specializes :TimeIntervals.
+:HundredthDecimals a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Numeric contexts in which the input or displayed decimal values are specified through at most the hundredths place.";
+    rdfs:comment "0.45, 7.02, or 3.10.";
+    edu:expands :TenthDecimals;
+    edu:implies :ThousandthDecimals;
+    edu:specializes :DecimalNumbers.
 :HundredthDenomination a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A denomination worth one hundredth of its associated major denomination.";
     edu:specializes :MinorDenomination;
@@ -1310,6 +1316,11 @@
     rdfs:isDefinedBy "A two-row, five-column arrangement of cells in which filled positions represent a quantity up to ten.";
     rdfs:comment "Seven filled cells representing seven, conventionally filling the top row from the left before continuing in the second row.";
     edu:specializes :VisualNumbers.
+:TenthDecimals a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Numeric contexts in which the input or displayed decimal values are specified through at most the tenths place.";
+    rdfs:comment "0.3, 4.5, or 12.0.";
+    edu:implies :HundredthDecimals;
+    edu:specializes :DecimalNumbers.
 :TenthDenomination a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A denomination worth one tenth of its associated major denomination.";
     edu:specializes :MinorDenomination;
@@ -1325,6 +1336,11 @@
 :ThirdFractions a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Fractions characterized by a denominator of three.";
     edu:specializes :CommonDenominator.
+:ThousandthDecimals a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Numeric contexts in which the input or displayed decimal values are specified through at most the thousandths place.";
+    rdfs:comment "0.146, 5.008, or 12.340.";
+    edu:expands :HundredthDecimals;
+    edu:specializes :DecimalNumbers.
 :ThreeDigitDividend a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A dividend with exactly three digits.";
     edu:expands :TwoDigitDividend;
