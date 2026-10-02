@@ -1404,6 +1404,11 @@
     rdfs:isDefinedBy "Fraction values with numerator one and a positive integer denominator.";
     rdfs:comment "One half, one third, one quarter, and one eighth, each representing one of the equal parts of a whole.";
     edu:specializes :ProperFractions.
+:UnlikeDenominators a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Fractional operands presented with at least two distinct denominator values before any conversion to equivalent fractions.";
+    rdfs:comment "The operands in 2/3 + 5/4 or the fractional parts in 1 1/2 - 3/4.";
+    edu:expands :CommonDenominator;
+    edu:specializes :FractionNumbers.
 :VectorObjects a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Graphic objects represented by geometrically defined paths and shapes.";
     rdfs:comment "A circle, polygon, or star described by geometric primitives rather than a pixel grid.";
