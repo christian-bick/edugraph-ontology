@@ -942,6 +942,11 @@
 :OunceScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Mass or weight measurements expressed in ounces.";
     edu:specializes :ImperialWeightScale.
+:PairedPatterns a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Two sequences aligned term by term, each with its respective generative rule and starting condition.";
+    rdfs:comment "Generating or analyzing two numerical patterns together, such as applying 'add 3' to one sequence and 'add 6' to another starting from zero. The paired structure can be evidenced without requiring the learner to infer a cross-sequence relationship.";
+    edu:expands :SinglePattern;
+    edu:partOf :PatternComplexity.
 :PartitionAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Dividing a whole into distinct parts or regions.";
     rdfs:comment "Partitioning a shape, a length, a set, or a quantity.";
@@ -950,6 +955,10 @@
     rdfs:isDefinedBy "Geometric figures represented by arranged pieces from a set of standard polygonal tiles.";
     rdfs:comment "Combining triangular pattern blocks to form a hexagonal figure.";
     edu:specializes :PhysicalGeometry.
+:PatternComplexity a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Structural conditions of a pattern task that affect how many sequences must be coordinated or how generative rules are combined.";
+    rdfs:comment "Generating a single sequence, coordinating paired sequences, or applying alternating rules.";
+    edu:partOf :ComplexityScope.
 :PhysicalGeometry a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Geometric figures represented by manipulable physical objects.";
     rdfs:comment "A solid model or a shape constructed from sticks.";
@@ -1142,6 +1151,10 @@
     rdfs:isDefinedBy "Constructing a result in one composition level from inputs that are not themselves produced by another composition represented in the task.";
     rdfs:comment "Directly assembling component shapes into one figure, forming one sum directly from several numbers, or combining initial transformations into one composite transformation without reusing an intermediate result.";
     edu:specializes :CompositionDepth.
+:SinglePattern a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "A single sequence of terms generated or analyzed according to a rule.";
+    rdfs:comment "Generating a pattern by repeatedly adding 3.";
+    edu:partOf :PatternComplexity.
 :SingleStep a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Solutions requiring one logical or procedural step, consisting of one operation or transformation.";
     rdfs:comment "Obtaining the requested result by applying one stated operation directly to the supplied values.";
