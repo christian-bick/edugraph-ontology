@@ -88,6 +88,7 @@
     rdfs:comment "Addition, subtraction, multiplication, and division.".
 :ArithmeticEvaluation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The structured formulation and evaluation of numerical statements through the combination of values and operations.";
+    edu:integrates :NumericalExpression;
     edu:partOf :Arithmetic.
 :ArithmeticLaws a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fundamental axiomatic rules that govern the manipulation and equivalence of mathematical expressions and statements.";
@@ -403,6 +404,10 @@
     edu:partOf :Geometry.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
+:GroupedExpression a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A mathematical expression that incorporates parentheses or other grouping symbols to override the standard order of operations and specify which calculations must be performed first.";
+    edu:expands :OrderOfOperations;
+    edu:specializes :MathematicalExpression.
 :GroupRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The foundational cognitive ability to perceive multiple distinct items as a single, unified collection. This focuses on recognizing the boundary that separates a group from its environment, rather than analyzing the individual items within it.";
     edu:partOf :CollectionSense.
@@ -622,6 +627,11 @@
     rdfs:isDefinedBy "Representing sets of numbers by their lower and upper bounds and the inclusion or exclusion of their endpoints.";
     rdfs:comment "Describing all values from 2 through 5 inclusive, or values greater than 2 and less than 5.";
     edu:specializes :Numeration.
+:NumericalExpression a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A mathematical expression built exclusively from numerical values and operations, containing no variables or relational operators.";
+    rdfs:comment "Writing 2 × (8 + 7) to record a calculation, or interpreting its structure without evaluating it.";
+    edu:expands :ArithmeticOperations;
+    edu:specializes :MathematicalExpression.
 :NumericApproximation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Estimating or replacing a numerical value with a nearby value suited to a stated purpose or precision.";
     rdfs:comment "Using a rounded measurement when estimating a total.";
@@ -692,10 +702,6 @@
     rdfs:isDefinedBy "The study of four-sided polygons with two pairs of parallel sides, their properties, and related measurements.";
     edu:expands :ParallelismRelation;
     edu:specializes :Quadrilateral.
-:ParenthesesUsage a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The use of grouping symbols in arithmetic expressions to override the standard order of operations and specify which calculations should be performed first.";
-    edu:expands :OrderOfOperations;
-    edu:partOf :MathematicalExpression.
 :PartitionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The physical, visual or symbolized act of splitting a single bounded collection into two or more distinct non-overlapping subcollections, establishing boundaries between them.";
     edu:expands :GroupRecognition;
