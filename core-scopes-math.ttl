@@ -397,6 +397,12 @@
     rdfs:isDefinedBy "A division context in which the divisor is expressed as a fraction.";
     edu:implies :FractionNumbers;
     edu:partOf :ValueNumberType.
+:FractionExponent a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "An exponentiation context in which an exponent is expressed as a fraction.";
+    rdfs:comment "16^(1/2).";
+    edu:expands :IntegerExponent;
+    edu:implies :FractionNumbers;
+    edu:partOf :ValueNumberType.
 :FractionNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Real numbers represented as a numerator divided by a nonzero denominator.";
     rdfs:comment "3/4 or 7/2.";
@@ -503,6 +509,11 @@
     edu:partOf :ValueNumberType.
 :IntegerDivisor a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A division context in which the divisor is an integer.";
+    edu:implies :IntegerNumbers;
+    edu:partOf :ValueNumberType.
+:IntegerExponent a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "An exponentiation context in which an exponent is an integer.";
+    rdfs:comment "2^3 or 10^-2.";
     edu:implies :IntegerNumbers;
     edu:partOf :ValueNumberType.
 :IntegerNumbers a owl:NamedIndividual, edu:Scope;
@@ -715,6 +726,12 @@
 :NanosecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of nanoseconds.";
     edu:specializes :TimeIntervals.
+:NegativeExponent a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "An exponentiation context in which an exponent is a strictly negative number.";
+    rdfs:comment "2^-3 or 10^-2.";
+    edu:expands :PositiveExponent;
+    edu:implies :NumbersWithNegatives;
+    edu:partOf :ValueNumberType.
 :NoExpressions a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A mathematical statement where neither side contains a composite expression (i.e., both sides are standalone values or variables).";
     edu:contradicts :ExpressionOnBothSides, :ExpressionOnOneSide;
@@ -913,6 +930,9 @@
 :NumericDivisibility a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Constraints on whether integers are divisible by specified divisors.";
     edu:partOf :NumericAbstraction.
+:NumericPowers a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Numeric contexts involving mathematical powers with specified bases.";
+    edu:partOf :NumericAbstraction.
 :NumericRange a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Numbers within a certain range of absolute values, inclusive of its boundaries.";
     edu:partOf :NumericAbstraction.
@@ -1005,12 +1025,24 @@
     rdfs:isDefinedBy "Categorical quantities represented by repeated pictures or symbols with a stated numerical value per symbol.";
     rdfs:comment "A row of symbols showing how many votes a category received.";
     edu:specializes :DataRepresentation.
+:PositiveExponent a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "An exponentiation context in which an exponent is a strictly positive number.";
+    rdfs:comment "2^3 or 10^2.";
+    edu:partOf :ValueNumberType.
 :PostMeridiem a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Times from noon up to but not including midnight, conventionally denoted p.m.";
     edu:specializes :Meridiem.
 :PoundScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Mass or weight measurements expressed in pounds.";
     edu:specializes :ImperialWeightScale.
+:PowersOf10 a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Numeric contexts containing a power with base ten.";
+    rdfs:comment "3.47 × 10^2, 10^0, or 10^-2.";
+    edu:partOf :NumericPowers.
+:PowersOf2 a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Numeric contexts containing a power with base two.";
+    rdfs:comment "2^3, 2^0, or 2^-1.";
+    edu:partOf :NumericPowers.
 :ProbabilisticErrorBound a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A stated limit on the probability of exceeding a specified error criterion under identified model or sampling assumptions.";
     rdfs:comment "A procedure with at most a five-percent probability of exceeding a stated error tolerance. A confidence-interval coverage guarantee concerns repeated sampling, not an automatic probability assignment to a fixed parameter after observing data.";
