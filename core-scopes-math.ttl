@@ -338,6 +338,9 @@
     rdfs:isDefinedBy "Examination of every individual instance in an identified finite population or domain.";
     rdfs:comment "Checking every integer from 1 through 10, or all 36 ordered outcomes of two six-sided dice. Coverage does not extend beyond the identified domain.";
     edu:specializes :EvidenceCoverage.
+:ExpressionComplexity a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "The structural and numerical conditions of a mathematical expression or operation, including the forms, sizes, and counts of its constituent values.";
+    edu:partOf :ComplexityScope.
 :ExpressionOnBothSides a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A mathematical statement where both sides consist of composite expressions.";
     edu:contradicts :ExpressionOnOneSide, :NoExpressions;
@@ -386,10 +389,22 @@
     rdfs:comment "4 + 7 + 5 + 2 and (8 × 2) + (8 × 10) each present four operands; the repeated 8 counts twice.";
     edu:expands :ThreeOperands;
     edu:specializes :OperandCardinality.
+:FractionDividend a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "A division context in which the dividend is expressed as a fraction.";
+    edu:implies :FractionNumbers;
+    edu:partOf :ValueNumberType.
+:FractionDivisor a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "A division context in which the divisor is expressed as a fraction.";
+    edu:implies :FractionNumbers;
+    edu:partOf :ValueNumberType.
 :FractionNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Real numbers represented as a numerator divided by a nonzero denominator.";
     rdfs:comment "3/4 or 7/2.";
     edu:specializes :RationalNumbers.
+:FractionQuotient a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "A division context in which the quotient is expressed as a fraction or mixed number.";
+    edu:implies :FractionNumbers;
+    edu:partOf :ValueNumberType.
 :GallonScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Gallons to measure volumes.";
     edu:specializes :ImperialVolumeScale;
@@ -482,6 +497,14 @@
 :InchScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Distances expressed in inches.";
     edu:specializes :ImperialDistanceScale.
+:IntegerDividend a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "A division context in which the dividend is an integer.";
+    edu:implies :IntegerNumbers;
+    edu:partOf :ValueNumberType.
+:IntegerDivisor a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "A division context in which the divisor is an integer.";
+    edu:implies :IntegerNumbers;
+    edu:partOf :ValueNumberType.
 :IntegerNumbers a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Numbers with no fractional part, whether negative, zero, or positive.";
     rdfs:comment "-3, 0, 1, 10, and 1345. The value 2 remains an integer when written as 2.0.";
@@ -938,10 +961,10 @@
 :OperandCardinality a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The number of explicit operand occurrences in a mathematical expression, counted across all nested operations.";
     rdfs:comment "4 + 4 has two operands, 8 × (2 + 10) has three, and (8 × 2) + (8 × 10) has four. Repeated values count separately. In 8 × (2 + 10) = 96, the composite 2 + 10 and the result 96 are not additional operands of the left-hand expression.";
-    edu:partOf :ComplexityScope.
+    edu:partOf :ExpressionComplexity.
 :OperandDigitCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The exact digit count of operands within a mathematical operation.";
-    edu:partOf :ComplexityScope.
+    edu:partOf :ExpressionComplexity.
 :OrderAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Ordering or comparison concepts.";
     edu:partOf :AbstractionScope.
@@ -1425,6 +1448,9 @@
     rdfs:comment "The operands in 2/3 + 5/4 or the fractional parts in 1 1/2 - 3/4.";
     edu:expands :CommonDenominator;
     edu:specializes :FractionNumbers.
+:ValueNumberType a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "The specific numeric form or number system required for a designated value or role within a mathematical operation.";
+    edu:partOf :ExpressionComplexity.
 :VectorObjects a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Graphic objects represented by geometrically defined paths and shapes.";
     rdfs:comment "A circle, polygon, or star described by geometric primitives rather than a pixel grid.";
