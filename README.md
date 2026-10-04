@@ -50,7 +50,8 @@ It is therefore divided into two layers:
 ### Core Ontology
 
 The [Algebra family draft](docs/plan/algebra-family-draft.md) records the proposed hierarchy,
-including functions and relations, its boundary with analysis, and the effects on existing labels.
+including functions and relations, formal expression roles, its boundary with analysis, and
+the effects on existing labels.
 
 #### Foundations
 

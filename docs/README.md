@@ -12,7 +12,7 @@ Start here when changing a descriptor, relation, or competency description.
 | Use descriptors with annotated content or models | [Content evidence](content-evidence.md), especially [labeling eligibility](content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes), and [annotations and models](annotations-and-models.md) |
 | Review proof, evidence, or error-guarantee context | [Justification Scopes](justification.md) and [content evidence](content-evidence.md) |
 | Find pending consolidation decisions | [Consolidation record](plan/ontology-consolidation.md) |
-| Review the draft Algebra hierarchy, including functions and relations | [Algebra family draft](plan/algebra-family-draft.md) |
+| Review the draft Algebra hierarchy and formal expression roles | [Algebra family draft](plan/algebra-family-draft.md) |
 | Implement or review automated rule coverage | [Algorithmic check inventory](plan/automated-rule-checks.md) |
 | Plan shared library capabilities for the editor, dataset labelling, and content classification | [Shared library capabilities and requirements](plan/shared-typescript-library.md) |
 | Implement the shared library requirements | [Coverage and implementation sequence](plan/shared-typescript-library-implementation.md) |

@@ -16,11 +16,12 @@ In the [ontology editor](https://edugraph-editor.web.app), refresh the branch li
 descendants to see the complete family. Visual diff against Main shows the proposed changes.
 The editor reads the branch's authored Turtle files; a package release is not required.
 For the shared expression family, select FormalMathematics and then MathematicalExpression.
-ExpressionStructure is a sibling constituent of FormalMathematics.
+ExpressionStructure is a sibling constituent of FormalMathematics; select it to review the
+formal roles of constants, variables, operators, and expression components.
 
 ## Shape of the draft
 
-The draft adds 69 Areas, revises Algebra's definition to cover the adopted function/relationship
+The draft adds 98 Areas, revises Algebra's definition to cover the adopted function/relationship
 scope, and adds function-specialization links to the existing Sine, Cosine, and Tangent Areas.
 Their definitions now cover circular functions; acute-triangle ratios remain concrete examples.
 No Scope or Ability identifiers are changed.
@@ -103,7 +104,37 @@ The focused FormalMathematics branch below omits its unrelated existing constitu
 ```text
 FormalMathematics
   P ExpressionStructure
+    P BranchCondition
+    P ConditionalBranch
+    P Constant
+    P ExpressionIndex
+    P Factor
+      S Coefficient
+    P GroupingSymbol
+    P Operand
+      S Dividend
+        S Numerator
+      S Divisor
+        S Denominator
+      S Exponent
+      S FunctionArgument
+      S Minuend
+      S PowerBase
+      S Radicand
+      S Subtrahend
+    P Operator
+      S BinaryOperator
+      S FunctionSymbol
+      S UnaryOperator
+    P OperatorArity
+    P OrderOfOperations
+    P RootIndex
+    P Subexpression
+    P Term
+      S ConstantTerm
     P Variable
+      S BoundVariable
+      S FreeVariable
       S GeneralizedVariable
       S Parameter
       S UnknownVariable
@@ -142,7 +173,7 @@ It does not retain the earlier restriction to arithmetic operations and fixed ra
 Explicit limits, derivatives, integrals, and infinite sums or products remain outside this
 family. MathematicalExpression remains the general parent available to those later forms.
 The expression definitions also distinguish outer assertions from embedded conditions, require
-unambiguous piecewise values, and preserve denominator exclusions. All 35 Areas in the complete
+unambiguous piecewise values, and preserve denominator exclusions. All 65 Areas in the complete
 FormalMathematics subtree have illustrative comments.
 
 The specialization families overlap: `sin(1)` is both NumericalExpression and
@@ -155,6 +186,66 @@ function application nor numerical calculation alone establishes a variable-reas
 The main organizers use only constituent children. Observable object families use only
 specializing children. Methods and features sit beside those object families, preserving
 every path's composition-before-specialization order (ONT-S4, ONT-S5).
+
+## Formal roles in ExpressionStructure
+
+This extension adds 29 Areas for the primitives and component roles used in school algebra.
+ExpressionStructure organizes them through `partOf`; narrower roles use `specializes`.
+All role descriptors remain eligible for direct labels. None becomes a constituent of an
+expression-form specialization, and no role inherits a computational Area merely because
+its notation is used in a calculation (ONT-D2, ONT-D5, ONT-S2, ONT-S4, ONT-E7).
+
+| Family | Included roles | Boundary |
+|---|---|---|
+| Fixed and variable values | Constant; existing Variable roles plus FreeVariable and BoundVariable | A constant is a literal or designated name fixed in the stated context. Free/bound concerns an occurrence within a selected expression; a fixed parameter and a constant role can overlap without making every Variable a Constant. |
+| Additive and multiplicative components | Term, ConstantTerm, Factor, Coefficient | Terms include their additive signs and respect the selected grouping level. Factors and coefficients may be implicit. A constant term may be compound, so it does not specialize the atomic Constant role. |
+| Explicit components and inputs | Subexpression, Operand; FunctionArgument, Minuend, Subtrahend, Dividend, Divisor, PowerBase, Exponent, Radicand | Operand refers to an explicit local input, which may itself be a compound expression. Subexpression remains a separate complete-component role. |
+| Fraction and radical positions | Numerator specializes Dividend; Denominator specializes Divisor; RootIndex is separate | Numerator and denominator are formal positions, distinct from interpreting fractions as parts of a whole. RootIndex includes the implicit two in a square root, so it does not specialize explicit Operand. |
+| Operations and applied functions | Operator; UnaryOperator, BinaryOperator, FunctionSymbol; OperatorArity | Operators include conventional implicit multiplication and named function heads. Arity belongs to a specified application and notation; it does not count all leaves in a nested expression. |
+| Grouping, indexing, and cases | GroupingSymbol, ExpressionIndex, ConditionalBranch, BranchCondition; shared OrderOfOperations | Grouping identifies extent, an index selects a family member, and a branch condition selects when a value expression applies. These roles do not by themselves establish numerical evaluation. |
+
+Operator describes the formal role of an operation or function head. FunctionSymbol specializes
+it because `f` in `f(x)` occupies that role; it does not specialize Function, which describes
+the mapping. FunctionArgument identifies the input component, while FunctionApplicationExpression
+describes the whole applied expression. Existing FunctionNotation remains the knowledge of the
+notation's conventions and retains its current eligibility and placement.
+
+Existing OrderOfOperations is shared with ExpressionStructure while retaining its ArithmeticLaws
+placement. Its definition now states precedence and prescribed grouping directly, without
+requiring numerical evaluation. This is different from AssociativeLaw: parsing `a - b - c`
+as `(a - b) - c` does not assert that subtraction is associative. GroupedExpression now admits
+grouping that reinforces the default precedence as well as grouping that overrides it.
+
+The primitive set does not duplicate Addition, Multiplication, Factorization, or other
+mathematical activities as operator-specific wrappers. Existing exponent Scopes still describe
+the exponent's number context; Exponent identifies its structural position. NumberNotation,
+SignNotation, and FractionNotation retain their own notation-learning meanings.
+
+### Contrastive checks
+
+| Written context | Supported structural distinction |
+|---|---|
+| `3x + 5` | `3` is a Constant, Factor, Coefficient, and explicit Operand; `5` is a ConstantTerm. These claims describe different roles. |
+| `3 - x` | The signed terms are `3` and `-x`; the subtraction inputs are `3` and `x`. Term therefore does not specialize Operand or Subexpression. |
+| `-x` | The coefficient `-1` is implicit; the explicit operand of the unary minus is `x`. Factor and Coefficient do not inherit explicit-operand claims. |
+| `f(x + 1)` | `f` is FunctionSymbol; `x + 1` is FunctionArgument and Operand. The outer application has arity one; the inner addition has two inputs. |
+| `(a + b)/(c - d)` | The numerator and denominator are the two local division operands; each is also a compound subexpression. |
+| `sqrt(x)` | `x` is Radicand; the RootIndex is implicitly two. An implicit index is not an additional explicit operand. |
+| `x + sum_(x=1)^4 x` | The first occurrence of `x` is free and the summation occurrences are bound within the complete expression. Binding roles concern occurrences, not a permanent property of a letter. |
+| `a_n` and `a^n` | The first `n` is ExpressionIndex; the second is Exponent. Their written positions carry different roles. |
+
+Scope.OperandCardinality keeps its existing convention of counting explicit operand occurrences
+across the complete expression. In `(a + b)/(c - d)`, its four leaf occurrences are distinct from
+the two local division operands and the arity of that division. This extension does not change
+that Scope or infer its count from the number of Operand annotations.
+
+The role boundaries cover the expression-part reasoning in
+[CCSS 6.EE.A.2b](https://www.thecorestandards.org/Math/Content/EE/) and the later
+[structure-of-expressions standards](https://www.thecorestandards.org/Math/Content/HSA/SSE/).
+The distinction between application heads, arguments, and local arity is also consistent with
+the [MathML content application model](https://www.w3.org/TR/MathML3/chapter4.html#contm.apply).
+These references motivate the educational and formal distinctions; the ontology's role
+definitions and relations remain its own authoring decisions.
 
 ## Definitions worth reviewing
 
@@ -230,6 +321,14 @@ algebraic-versus-transcendental distinction and cannot alone separate numerical 
 from reasoning with variables. Use the evidenced NumericalExpression, VariableExpression,
 variable roles, or reasoning concepts for that distinction. These changes require
 reconciliation of any provisional draft labels.
+
+The new expression-role Areas provide direct labels for component knowledge previously grouped
+under the organizational ExpressionStructure. Choose the evidenced role rather than replacing
+that organizer with every child. In particular, Grade 6 expression-part targets can use Term,
+Factor, Coefficient, Subexpression, or the relevant operator/input roles when those are required.
+OrderOfOperations gains structural navigation under FormalMathematics but no new specialization
+ancestry; its existing arithmetic uses remain valid. No existing descriptor becomes ineligible
+as a result of this role-family extension.
 
 The Grade 6 content plan needs a later reconciliation of its provisional algebra labels and
 dispositions. Grade 5 numerical-expression targets remain numerical; formula substitution and
