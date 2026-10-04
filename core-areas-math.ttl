@@ -85,10 +85,6 @@
     rdfs:isDefinedBy "The study of functions through their types, domains, representations, constructions, and rates of change.";
     rdfs:comment "Interpreting f(3) = 7 for f(x) = 2x + 1; composing f(x) = x^2 with g(x) = x + 1 to obtain f(g(x)) = (x + 1)^2.";
     edu:partOf :Algebra.
-:AlgebraicLaws a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The identities and laws used to justify symbolic transformations in algebra.";
-    rdfs:comment "(a + b)^2 = a^2 + 2ab + b^2; b^(u + v) = b^u*b^v for b > 0 and real u, v.";
-    edu:partOf :Algebra.
 :AlgebraicModeling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Constructing a symbolic model of a situation by selecting relevant quantities and identifying the relationships and admissible values the model must represent.";
     rdfs:comment "Choosing distance d and time t to model a journey at a fixed speed of 5 units per hour by d = 5t for t >= 0.";
@@ -115,11 +111,6 @@
     rdfs:comment "Adjacent angles, complementary angles, or opposite angles formed by intersecting lines.";
     edu:expands :AngleConcept;
     edu:partOf :GeometricRelations.
-:ApplyingBinomialIdentities a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Directly rewriting matching expressions with the square-of-a-sum, square-of-a-difference, or difference-of-squares identity in either direction.";
-    rdfs:comment "(x + 3)^2 = x^2 + 6x + 9; x^2 - 9 = (x + 3)(x - 3); (x^3 + 2)^2 = x^6 + 4x^3 + 4.";
-    edu:integrates :BinomialIdentities;
-    edu:specializes :QuadraticRewriting.
 :ArchConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A continuous portion of the circumference of a circle or any other curved line.";
     edu:expands :Circle, :RatioInterpretation;
@@ -145,13 +136,15 @@
 :ArithmeticSequence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A numerical sequence in which every pair of consecutive terms has the same fixed additive difference, including the zero difference.";
     rdfs:comment "2, 5, 8, 11, and onward with difference 3; 4, 4, 4, and onward with difference 0.";
-    edu:specializes :NumericSequence.
+    edu:specializes :NumericFunction, :Sequence.
 :ArithmeticSpaces a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of number systems, their properties, and the representations used to express and operate on their values.";
     rdfs:comment "Integers, rational numbers written as fractions, and numbers written in decimal notation.";
     edu:partOf :Arithmetic.
 :AssociativeLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that the way in which numbers are grouped by parentheses does not change their sum or product.";
+    rdfs:comment "(2 + 3) + 4 = 2 + (3 + 4); (a*b)*c = a*(b*c) for real a, b, c.";
+    edu:specializes :AlgebraicEquivalence;
     edu:partOf :ArithmeticLaws.
 :AverageRateOfChange a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The quotient of the change in a real-valued function's output by the nonzero change between two distinct real inputs in its stated domain.";
@@ -167,7 +160,7 @@
 :BinomialIdentities a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identities for the square of a sum, square of a difference, and product of a sum and difference of real or complex quantities.";
     rdfs:comment "(a + b)^2 = a^2 + 2ab + b^2; (a - b)^2 = a^2 - 2ab + b^2; (a + b)(a - b) = a^2 - b^2.";
-    edu:partOf :AlgebraicLaws.
+    edu:specializes :QuadraticRewriting.
 :BoundVariable a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a variable occurrence governed by a binding construct within the expression under consideration.";
     rdfs:comment "Identifying i as the bound summation index in sum_(i=1)^4 i*x; replacing the bound index k by j throughout product_(k=1)^3 (x + k).";
@@ -233,7 +226,9 @@
     edu:specializes :ExponentialRewriting.
 :CommutativeLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that the order in which numbers are added or multiplied does not change their sum or product.";
+    rdfs:comment "3 + 5 = 5 + 3; a*b = b*a for real a, b.";
     edu:expands :Addition, :Multiplication;
+    edu:specializes :AlgebraicEquivalence;
     edu:partOf :ArithmeticLaws.
 :ComplementaryAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles whose sum is exactly 90 degrees.";
@@ -375,7 +370,9 @@
     edu:specializes :LinearRewriting.
 :DistributiveLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that multiplying a sum by a number gives the same result as multiplying each addend by the number and then adding the products together.";
+    rdfs:comment "3*(4 + 2) = 3*4 + 3*2; a*(b + c) = a*b + a*c for real a, b, c.";
     edu:expands :Addition, :Multiplication;
+    edu:specializes :AlgebraicEquivalence;
     edu:partOf :ArithmeticLaws.
 :Dividend a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of the input being divided in a division expression.";
@@ -460,7 +457,8 @@
 :ExponentLaws a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identities relating products, quotients, and powers of powers to operations on exponents, with base and exponent restrictions that make each identity valid.";
     rdfs:comment "b^u*b^v = b^(u + v), b^u/b^v = b^(u - v), and (b^u)^v = b^(uv) for b > 0 and real u, v; (x^2)^3 = x^6 for real x.";
-    edu:partOf :AlgebraicLaws, :ArithmeticLaws.
+    edu:specializes :AlgebraicEquivalence;
+    edu:partOf :ArithmeticLaws.
 :ExpressionIndex a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of an expression identifying a member or position within an indexed collection.";
     rdfs:comment "Interpreting n in a_n as the position of a sequence term; interpreting i and j in A_(i,j) as the row and column positions of a matrix entry.";
@@ -632,7 +630,7 @@
 :GeometricSequence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A numerical sequence in which each term with a predecessor equals that predecessor multiplied by one fixed numerical factor, allowing zero or negative factors and zero terms.";
     rdfs:comment "3, 6, 12, 24, and onward with factor 2; 1, -2, 4, -8, and onward with factor -2; 5, 0, 0, and onward with factor 0.";
-    edu:specializes :NumericSequence.
+    edu:specializes :NumericFunction, :Sequence.
 :GeometricTransformations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Mappings that change a geometric figure's position, orientation, or scale according to a specified rule.";
     rdfs:comment "A rotation, reflection, translation, or dilation.";
@@ -923,10 +921,6 @@
     rdfs:comment "Ordering 0.2, 1/2, and 1 from least to greatest.";
     edu:expands :NumericIdentity;
     edu:partOf :NumericComparison.
-:NumericSequence a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A sequence whose terms are numerical values in a stated number system.";
-    rdfs:comment "The sequence 2, 5, 8, 11 indexed by 1 through 4; a_n = 1/n for positive integer n.";
-    edu:specializes :NumericFunction, :Sequence.
 :ObjectSorting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Separating a mixed collection into distinct groups according to shared observable attributes.";
     rdfs:comment "Sorting objects by color, shape, or size. Sorting forms groups; identifying a subgroup need not rearrange the collection.";
@@ -1146,7 +1140,7 @@
     rdfs:comment "Obtaining x = (5 +/- sqrt(25 - 24))/2, hence x = 2 or x = 3, from x^2 - 5x + 6 = 0.";
     edu:partOf :AlgebraicConstraints.
 :QuadraticRewriting a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Equivalent rewriting of expressions using degree-two polynomial patterns in designated variables or subexpressions.";
+    rdfs:isDefinedBy "Equivalent forms of expressions based on degree-two polynomial patterns in designated variables or subexpressions, and value-preserving rewriting between those forms.";
     rdfs:comment "x^2 + 6x + 5 = (x + 3)^2 - 4; (x^3 + 2)^2 = x^6 + 4x^3 + 4, using a quadratic pattern in x^3.";
     edu:specializes :AlgebraicEquivalence.
 :Quadrilateral a owl:NamedIndividual, edu:Area;

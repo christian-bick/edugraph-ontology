@@ -1,8 +1,10 @@
 # Algebra family — compositional editor draft
 
-Draft branch: `codex/algebra-family-draft`. Revised 2026-10-05 after the manual simplification.
+Draft branch: `codex/algebra-family-draft`. Revised 2026-10-05 after the redundancy review.
 The authored sources are [Areas](../../core-areas-math.ttl) and [Scopes](../../core-scopes-math.ttl).
-This document reflects the manual refinement through `0f277c5` and its definition/example review.
+This document builds on the manual refinement through `0f277c5` and the definition/example
+review in `35d3482`, the formal concept definitions in `6d67042`, and the approved consolidation
+of laws and numerical sequences.
 
 This draft separates formal objects and roles, shared mathematical dependence, objectives,
 and reusable rewriting techniques. Expressions, equations, and functions can involve the same
@@ -22,7 +24,7 @@ Turtle from the branch; no package release is needed for this review.
 
 | Aspect | Examples | Meaning |
 |---|---|---|
-| Formal object | AlgebraicExpression, Equation, Inequality, NumericFunction | The object whose properties, relations, or treatment are relevant. |
+| Formal object | AlgebraicExpression, Equation, Inequality, NumericFunction | Knowledge of the object's defining meaning, properties, or interpretation. |
 | Structural role | Variable, Coefficient, Term, FunctionArgument, GroupingSymbol | The role being interpreted or used as mathematical knowledge. |
 | Mathematical dependence | AffineDependence, QuadraticDependence, ExponentialDependence | The mathematical relationship in designated variables or quantities. |
 | Objective | AlgebraicEquivalence, EquationSolving, FunctionZeros, FunctionExtrema | The mathematical result or relationship sought or explained. |
@@ -36,6 +38,32 @@ number systems and the number of designated variables. No fixed annotation templ
 Mathematical dependence and rewriting are deliberately distinct. Recognizing a quadratic
 relationship does not require rewriting it. Conversely, rewriting a quadratic pattern inside
 a larger expression does not classify the whole expression as quadratic in its original variable.
+
+## Formal concepts and involvement wording
+
+FormalMathematics Areas describe knowledge of mathematical forms and roles. Their definitions
+must read naturally after `Involves`, while making clear what the learner interprets or applies.
+The role of a coefficient is a concept; a visible coefficient alone is not evidence that this
+concept is involved. The same test applies to object kinds, variables, grouping, and notation.
+This follows [ONT-D2](../descriptors.md#ont-d2--choose-the-dimension-by-meaning),
+[ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries), and
+[ONT-D5](../descriptors.md#ont-d5--distinguish-learning-about-notation-from-using-notation).
+
+Definitions therefore identify the meaning, role, or convention being learned instead of merely
+describing a symbol present in an exercise. They do not prescribe one cognitive performance:
+recognizing, explaining, and applying that concept can involve different Abilities. A definition
+also need not repeat a generic "understanding" prefix to establish that its Area denotes knowledge.
+
+| Content evidence | Formal concept claim |
+|---|---|
+| Explain what the 3 represents in `3x`, including its implied counterpart in `x`. | Coefficient. |
+| Calculate `3x + 2` at a supplied value of `x`, without examining the role of 3. | Coefficient is not justified merely by its presence. |
+| Explain why `3x + 2` denotes a value while `3x + 2 = 11` asserts equality. | AlgebraicExpression and Equation. |
+| Solve an equation using a supplied procedure. | EquationSolving may be evidenced without a separate claim about the formal concept of Equation. |
+
+Scopes continue to state contextual conditions. SingleVariable can describe a task's variable
+count; Variable concerns the meaning and role of a variable. Keeping these claims distinct avoids
+both turning formal Areas into syntax filters and duplicating them as Scopes.
 
 ## Authored structure
 
@@ -65,15 +93,19 @@ Algebra
       S QuadraticDependence
     S RationalDependence
   P AlgebraicEquivalence
+    S AssociativeLaw
+    S CommutativeLaw
+    S DistributiveLaw
     S ExponentialRewriting
       S CombiningExponentialFactors
       S CommonBaseRewriting
+    S ExponentLaws
     S LinearRewriting
       S CollectingLinearTerms
       S DistributingLinearCombinations
     S PolynomialDivision
     S QuadraticRewriting
-      S ApplyingBinomialIdentities
+      S BinomialIdentities
       S CompletingSquare
   P AlgebraicFunctions
     P FunctionComposition
@@ -87,10 +119,9 @@ Algebra
     P FunctionType
       S NumericFunction
         S AbsoluteValueFunction
+        S ArithmeticSequence
+        S GeometricSequence
         S LogarithmicFunction
-        S NumericSequence
-          S ArithmeticSequence
-          S GeometricSequence
         S PowerFunction
         S TrigonometricFunction
           S Cosine
@@ -99,11 +130,9 @@ Algebra
       S OneToOneFunction
       S PiecewiseFunction
       S Sequence
-        S NumericSequence [also above]
+        S ArithmeticSequence [also above]
+        S GeometricSequence [also above]
         S RecursiveSequence
-  P AlgebraicLaws
-    P BinomialIdentities
-    P ExponentLaws
   P AlgebraicModeling
   P AlgebraicSubstitution
 ```
@@ -216,22 +245,32 @@ claims where that association matters: a linear equation beside a quadratic func
 be interpreted as a quadratic equation merely because their labels share one record.
 These conventions add no object-binding schema, automatic normalizer, or matching rule.
 
-## Rewriting families and independent laws
+## Equivalence, laws, and rewriting techniques
 
-AlgebraicEquivalence is now the shared family for equivalent algebraic forms and their rewriting
-on a stated domain. LinearRewriting, QuadraticRewriting, and ExponentialRewriting specialize it. Specific
-techniques specialize their applicable family; the laws they use remain independently defined.
-AlgebraicLaws contains BinomialIdentities and ExponentLaws; ExponentLaws is also part of
-ArithmeticLaws. DistributiveLaw retains its existing placement and serves both linear techniques.
+AlgebraicEquivalence is the shared family for equivalent algebraic forms and their rewriting
+on a stated domain. LinearRewriting, QuadraticRewriting, and ExponentialRewriting specialize it.
+BinomialIdentities specializes QuadraticRewriting, whose meaning includes equivalent quadratic
+forms as well as transformations between them. The same three binomial identities can be
+recognized, explained, or applied; those performances do not require a separate application Area.
+
+AssociativeLaw, CommutativeLaw, DistributiveLaw, and ExponentLaws specialize AlgebraicEquivalence
+and remain constituents of ArithmeticLaws. Their mathematical meaning is shared across numerical
+and symbolic work. Distributivity also covers products beyond independent-scalar linear patterns;
+exponent laws also cover fixed exponents and variable bases, as in `(x^2)^3 = x^6`. Neither law
+is restricted to the narrower corresponding rewriting family. OrderOfOperations remains a
+notation convention, and RulesOfSigns concerns determining signs; their existing placements remain.
 
 The word "rewriting" distinguishes these procedures from linear maps and from
 FunctionTransformation, which produces a translated, reflected, or scaled function.
 Rewriting a function's rule preserves its values; transforming the function can change them.
 
-CompletingSquare and ApplyingBinomialIdentities are sibling techniques. Direct
-application recognizes an available pattern, such as `u^2 + 2uv + v^2 = (u + v)^2`.
-CompletingSquare constructs a suitable square and compensates for the change, as in
-`x^2 + 6x + 5 = (x + 3)^2 - 4`. Both use binomial identities; neither procedure is the identity itself.
+CompletingSquare remains a distinct technique alongside BinomialIdentities. Applying a binomial
+identity directly matches a pattern such as `u^2 + 2uv + v^2 = (u + v)^2`. CompletingSquare
+constructs a suitable square and compensates for the change, as in
+`x^2 + 6x + 5 = (x + 3)^2 - 4`; it retains its integration of BinomialIdentities.
+CollectingLinearTerms, DistributingLinearCombinations, CommonBaseRewriting, and
+CombiningExponentialFactors also remain distinct techniques because their steps or applicability
+add meaning beyond generic application of a law.
 
 Quadratic patterns may occur in composite quantities: `(x^3 + 2)^2` can be expanded using the
 square-of-a-sum identity. It is quadratic in the selected quantity `x^3`, not in `x`.
@@ -260,18 +299,28 @@ and it does not establish a universal teaching sequence (ONT-R3, ONT-R4).
 
 ## Worked compositions
 
-The following combinations illustrate mathematical claims, not mandatory complete annotations.
-Choose the most specific justified technique and add only evidenced roles, Scopes, and Abilities.
+The following combinations illustrate supported knowledge and procedures, not mandatory complete
+annotations. Formal object and dependence claims require evidence that their meaning is being
+interpreted or applied; the mere presence of an equation, function rule, or quadratic-looking
+expression does not supply that evidence. Add only justified Scopes and Abilities, and use
+specialization to derive broader claims rather than requiring their repeated serialization.
 
 | Content | Composable claims |
 |---|---|
-| Rewrite `3x + 2x + 4` as `5x + 4`. | AlgebraicExpression; AffineDependence in `x`; AlgebraicEquivalence; CollectingLinearTerms. |
-| Solve `3x + 2x = 15` by collecting terms and dividing by five. | Equation; AffineDependence; EquationSolving; CollectingLinearTerms; SingleVariable. |
-| Rewrite `x^2 + 6x + 5` as `(x + 3)^2 - 4`. | AlgebraicExpression; QuadraticDependence; AlgebraicEquivalence; CompletingSquare; SingleVariable. |
-| Solve `x^2 + 6x + 5 = 0` by completing the square. | Equation; QuadraticDependence; EquationSolving; CompletingSquare; SingleVariable. |
-| Find the minimum of `f(x) = x^2 + 6x + 5` over the reals by completing the square. | NumericFunction; QuadraticDependence; FunctionExtrema; CompletingSquare; SingleVariable. |
-| Rewrite `4^x` as `2^(2x)`. | AlgebraicExpression; ExponentialDependence; AlgebraicEquivalence; CommonBaseRewriting. |
-| Solve `4^x = 8` by expressing both sides with base two. | Equation; ExponentialDependence; EquationSolving; CommonBaseRewriting; SingleVariable. |
+| Explain why `3x + 2` denotes a value and `3x + 2 = 11` asserts equality. | AlgebraicExpression; Equation. |
+| Explain why `x^2 + 6x + 5` has quadratic dependence on `x`. | QuadraticDependence. |
+| Rewrite `3x + 2x + 4` as `5x + 4` by combining like terms. | CollectingLinearTerms. |
+| Solve `3x + 2x = 15` by collecting terms and dividing by five. | EquationSolving; CollectingLinearTerms; SingleVariable. |
+| Rewrite `x^2 + 6x + 5` as `(x + 3)^2 - 4` by completing the square. | CompletingSquare; SingleVariable. |
+| Solve `x^2 + 6x + 5 = 0` by completing the square. | EquationSolving; CompletingSquare; SingleVariable. |
+| Find the minimum of `f(x) = x^2 + 6x + 5` over the reals by completing the square. | FunctionExtrema; CompletingSquare; SingleVariable. |
+| Rewrite `4^x` as `2^(2x)` by changing to base two. | CommonBaseRewriting. |
+| Solve `4^x = 8` by expressing both sides with base two. | EquationSolving; CommonBaseRewriting; SingleVariable. |
+
+These examples do not exclude additional supported claims. A worked solution explaining the
+function's quadratic dependence can establish that knowledge as well as CompletingSquare.
+Conversely, a rewriting pattern in a selected subexpression does not automatically classify the
+entire expression's dependence on its original variables.
 
 EquationSolving describes determining admissible assignments. FormulaRearrangement preserves
 its narrower objective of isolating a chosen quantity in a relation among quantities. A worked
@@ -296,8 +345,9 @@ reasoning, candidate checks, or an explanation that there are no solutions.
 
 ## Migration and effects of simplification
 
-The latest manual refinement keeps the compositional approach while reducing organizational
-layers. The following current changes need explicit annotation review:
+The manual refinement and subsequent redundancy review keep the compositional approach while
+reducing organizational layers and application wrappers. The following changes need explicit
+annotation review:
 
 | Previous descriptor or placement | Current treatment |
 |---|---|
@@ -309,10 +359,17 @@ layers. The following current changes need explicit annotation review:
 | BinaryRelation | Removed; arbitrary relations that are not functions have no equivalent function label. |
 | FunctionRange / FunctionMonotonicity / FunctionExtrema / FunctionZeros | Moved under FunctionBehavior in Analysis; their own meanings remain independent of the method used. |
 | AverageRateOfChange | Moved under FunctionSlope alongside the new InstantaneousRateOfChange. FunctionSlope is organizational because both children use partOf. |
+| ApplyingBinomialIdentities | Removed in favor of BinomialIdentities under QuadraticRewriting; retain an evidenced Ability to distinguish recognizing, explaining, and applying the identities. |
+| AlgebraicLaws | Removed after its laws moved into the AlgebraicEquivalence specialization family. The former organizer is not an annotation alias for that broader concept. |
+| AssociativeLaw / CommutativeLaw / DistributiveLaw / ExponentLaws | Now specialize AlgebraicEquivalence while retaining their constituent placement under ArithmeticLaws. Their existing arithmetic uses and incoming progression relations remain. |
+| NumericSequence | Removed; review Sequence and NumericFunction together for the same studied sequence. ArithmeticSequence and GeometricSequence now specialize both directly. |
 
 The earlier removal of repeated object families still has these adoption consequences:
 
-All mappings are review guidance, not aliases or unconditional automatic replacements.
+All mappings are review guidance, not aliases or unconditional automatic replacements. Object
+and role claims require exercised concept knowledge. In particular, Sequence plus NumericFunction
+can refer to different objects in one compound task; their co-occurrence alone cannot bind them
+to one numerical sequence. Review the subject of the original NumericSequence claim.
 
 | Removed family | Replacement claims to review |
 |---|---|
@@ -335,8 +392,10 @@ that extra restriction automatically. A system-wide family claim requires every 
 qualify; the same unbound labels can otherwise describe knowledge about one member of a mixed
 system. Preserve those distinctions through contextual review rather than automatic aliases.
 
-NumericalExpression remains explicit because absence of a Variable annotation does not prove
-absence of variables. PiecewiseExpression remains a whole-expression distinction rather than
+NumericalExpression describes knowledge of variable-free expression forms and their meaning.
+The absence of variables is its defining boundary, not sufficient evidence for applying the
+Area; omission of a Variable annotation cannot establish that absence either.
+PiecewiseExpression remains a whole-expression distinction rather than
 an inventory of branch-role labels. AlgebraicExpression retains the adopted broad meaning,
 including function applications, and excludes explicit analysis constructions.
 
@@ -347,9 +406,20 @@ counting convention; local Operand roles do not redefine that Scope.
 
 Remaining function families, including PiecewiseFunction, OneToOneFunction, Sequence,
 PowerFunction, LogarithmicFunction, AbsoluteValueFunction, and TrigonometricFunction, are
-retained as the next migration group for review. This draft does not mechanically factor every
-function distinction into a new family.
+retained for discussion. Shared power, logarithmic, or absolute-value dependence might extend
+the compositional approach, but there is no approved replacement for these function concepts.
 Existing sine, cosine, and tangent meanings still include circular functions and triangle uses.
+
+Operations and function types also need an explicit comparison before consolidation.
+Exponentiation concerns raising a number to a power; PowerFunction concerns dependence on a
+variable input with a fixed exponent. Logarithm concerns recovering an exponent, whereas a
+LogarithmicFunction describes a function's rule and domain. AbsoluteNumberMagnitude belongs to
+NumberSense and currently concerns rational numbers; AbsoluteValueFunction has a real domain
+and permits translated and scaled rules. These differences preclude direct identifier aliases.
+
+The specific precision findings concerning OperandCardinality, IntegerNotation, and SignNotation
+are reserved for the final review. This consolidation does not resolve those definitions or
+change their boundaries.
 
 ## Adoption and the boundary with analysis
 
@@ -371,7 +441,8 @@ manual structure; the placement or stated boundary needs an explicit decision ra
 quietly treating instantaneous rate as a non-calculus concept. AverageRateOfChange remains a
 finite difference quotient and does not require a limiting argument.
 This is a meaning and placement decision under [ONT-W2](../change-review.md#ont-w2--review-definitions-relations-and-effects-together),
-not a mechanical graph error. The fixed-input limit follows the usual
+not a mechanical graph error. The user has retained this question for separate review; this
+consolidation leaves it unchanged. The fixed-input limit follows the usual
 [definition of the derivative](https://openstax.org/books/calculus-volume-1/pages/3-1-defining-the-derivative).
 
 Differentiation, antiderivatives, definite integrals, and their rules would compose with the
@@ -385,7 +456,7 @@ does not update the content repository's pinned package, target specifications, 
 
 ## Verification
 
-The 2026-10-05 review tightened six definitions: AlgebraicEquivalence, AlgebraicFunctions,
+The earlier 2026-10-05 review in `35d3482` tightened six definitions: AlgebraicEquivalence, AlgebraicFunctions,
 FunctionBehavior, FunctionSlope, FunctionType, and InstantaneousRateOfChange. In particular,
 equivalence now covers equality as well as rewriting, behavior includes range and zeros, and
 instantaneous rate fixes the input point and requires an existing finite limit.
@@ -393,15 +464,24 @@ Five missing example fields were filled, including AlgebraicConstraints. The exa
 specialization meanings were reviewed against [ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries)
 and [ONT-S2](../structure.md#ont-s2--specializes-preserves-the-broader-meaning).
 
-Completed checks:
+The current revision first updated definitions and examples for 42 formal descriptors in
+`6d67042`, preserving their graph assertions. It then consolidated laws within equivalence,
+broadened QuadraticRewriting to include equivalent forms, and removed AlgebraicLaws,
+ApplyingBinomialIdentities, and NumericSequence with the migration guidance above.
+
+Completed checks for this revision:
 
 - The supplied ontology validator passes for all four authored Turtle files.
-- All 117 descriptors under Algebra, FormalMathematics, and FunctionBehavior have definitions
-  and examples. This review changes only definitions and comments in the source; every
-  identifier, graph assertion, and manual removal from `0f277c5` is preserved.
-- All three displayed trees match the current structural assertions.
-- The supplied documentation validator passes for all 31 tracked Markdown documents and their
-  repository links.
+- The graph difference from `35d3482` matches exactly the approved law and sequence changes;
+  no other identifiers or graph assertions changed.
+- The 117 descriptors under Algebra, FormalMathematics, and FunctionBehavior all have
+  definitions and examples. The affected definitions, examples, and specialization meanings
+  were reviewed against ONT-D4 and ONT-S2.
+- All three displayed trees match the current structural assertions, and the supplied
+  documentation validator passes for all 31 tracked Markdown documents and their repository links.
+- PowerFunction, LogarithmicFunction, AbsoluteValueFunction, InstantaneousRateOfChange,
+  IntegerNotation, and SignNotation remain unchanged. The Scope, Ability, and schema sources
+  are unchanged as well.
 
 The authoritative [Docker gate](../../DOCS.md#43-compiling-via-docker) was attempted again on
 2026-10-05 but could not connect to the Docker Desktop Linux engine because its named pipe was
