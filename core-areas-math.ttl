@@ -147,7 +147,7 @@
 :AverageRateOfChange a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The quotient of the change in a real-valued function's output by the nonzero change between two distinct real inputs in its stated domain.";
     rdfs:comment "The average rate of change of f(x) = x^2 from x = 1 to x = 3 is (9 - 1)/(3 - 1) = 4; a distance increase of 60 kilometers in 2 hours gives 30 kilometers per hour.";
-    edu:partOf :FunctionInterpretation.
+    edu:partOf :FunctionSlope.
 :BaseOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The foundational application of mathematical rules and procedures to perform primary calculations through the core actions of addition, subtraction, multiplication, and division.";
     edu:partOf :ArithmeticOperations.
@@ -566,8 +566,6 @@
     rdfs:isDefinedBy "Maximum and minimum values of a real-valued function and the inputs where they occur, distinguishing comparison with the whole stated domain from comparison within a specified neighborhood.";
     rdfs:comment "The minimum value 0 attained by f(x) = (x - 2)^2 at x = 2; the maximum value 4 attained by g(x) = 4 - x^2 at x = 0.";
     edu:partOf :FunctionBehavior.
-:FunctionInterpretation a owl:NamedIndividual, edu:Area;
-    edu:partOf :FunctionsAndRelations.
 :FunctionInversion a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Constructing or interpreting the function that reverses a one-to-one function's input-output correspondence, exchanging its domain and range. A function that is not one-to-one must first be restricted to a suitable domain before this inverse is a function.";
     rdfs:comment "Inverting f(x) = 2x + 3 to obtain g(y) = (y - 3)/2; inverting x^2 on nonnegative real inputs to obtain the principal square-root function.";
@@ -587,6 +585,9 @@
 :FunctionsAndRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of associations between quantities or objects, functional dependence, and the representations, properties, and constructions of those relationships.";
     edu:partOf :Algebra.
+:FunctionSlope a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining or interpreting the rate of change of a function's output relative to its input, representing the constant ratio of change for linear relationships or the average and instantaneous rates of change for non-linear functions.";
+    edu:partOf :FunctionsAndRelations.
 :FunctionSymbol a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A symbol or written name identifying the function applied to the arguments of a function-application expression.";
     rdfs:comment "f in f(x + 1); sin in sin(x); max in max(a, b).";
@@ -664,6 +665,9 @@
     rdfs:comment "x < 5, y ≥ 3, or a ≠ b.";
     edu:expands :NumericComparison;
     edu:specializes :MathematicalStatement.
+:InstantaneousRateOfChange a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The limit of the quotient of the change in a real-valued function's output by the change between two real inputs as the difference between those inputs approaches zero.";
+    edu:partOf :FunctionSlope.
 :IntegerArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding and operating on numbers with no fractional part, including positive integers, negative integers, and zero.";
     rdfs:comment "Adding signed integers or exchanging units between integer place values. Integer value is independent of whether a representation includes a decimal separator.";
