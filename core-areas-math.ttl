@@ -926,10 +926,6 @@
     rdfs:isDefinedBy "A symbol or notational convention identifying an operation or function applied to operand expressions and determining how those operands form a compound expression.";
     rdfs:comment "The plus sign in x + 3; the minus sign in -x; juxtaposition in 3x; sin in sin(x).";
     edu:partOf :ExpressionStructure.
-:OperatorArity a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The number of operand positions taken by an operator in a specified application and notation.";
-    rdfs:comment "One operand in -x; two operands in a - b; three arguments in max(a, b, c).";
-    edu:partOf :ExpressionStructure.
 :OrderedCoordinatePair a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A pair of numerical components whose first and second positions associate each value with a designated coordinate axis or contextual quantity.";
     rdfs:comment "Explaining why the pair (3, 6) differs from (6, 3), or forming a pair from corresponding terms in two patterns. The component order determines the pair's meaning independently of whether a point is plotted.";
