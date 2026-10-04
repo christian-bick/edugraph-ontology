@@ -20,7 +20,7 @@ ExpressionStructure is a sibling constituent of FormalMathematics.
 
 ## Shape of the draft
 
-The draft adds 66 Areas, revises Algebra's definition to cover the adopted function/relationship
+The draft adds 68 Areas, revises Algebra's definition to cover the adopted function/relationship
 scope, and adds function-specialization links to the existing Sine, Cosine, and Tangent Areas.
 Their definitions now cover circular functions; acute-triangle ratios remain concrete examples.
 No Scope or Ability identifiers are changed.
@@ -103,33 +103,39 @@ The focused FormalMathematics branch below omits its unrelated existing constitu
 ```text
 FormalMathematics
   P ExpressionStructure
+    P Variable
+      S GeneralizedVariable
+      S Parameter
+      S UnknownVariable
+      S VaryingVariable
   P MathematicalExpression
+    S AlgebraicExpression
+      S PolynomialExpression
+        S AffineExpression
+        S QuadraticExpression
+      S RationalExpression
     S GroupedExpression
     S NumericalExpression
-    S PolynomialExpression
-      S AffineExpression
-      S QuadraticExpression
-    S RationalExpression
+    S PiecewiseExpression
     S VariableExpression
-      S Variable
-        S GeneralizedVariable
-        S Parameter
-        S UnknownVariable
-        S VaryingVariable
 ```
 <!-- END AUTHORED EXPRESSION TREE -->
 
 VariablesAndExpressions has been removed. Its expression forms already specialized
-MathematicalExpression; their redundant constituent edges are removed. Variable now specializes
-VariableExpression because a value-denoting variable is an atomic expression. Unknown,
-generalized, varying, and parameter roles retain their specializations beneath Variable.
-MathematicalExpression explicitly includes a single value-denoting symbol, and VariableExpression
-uses the Variable concept directly rather than a separate quantity-only wording.
+MathematicalExpression; their redundant constituent edges are removed. The manual refinement
+places Variable as a constituent of ExpressionStructure. Unknown, generalized, varying, and
+parameter roles retain their specializations beneath Variable. PolynomialExpression and
+RationalExpression specialize the new AlgebraicExpression; PiecewiseExpression specializes
+MathematicalExpression directly.
 
 ExpressionStructure is the exception: knowledge of terms, factors, coefficients, and nesting
 is not itself a value-denoting expression. It is a sibling constituent under FormalMathematics.
 Adding it as a constituent of MathematicalExpression would mix child roles and make that
 existing expression-family label ineligible (ONT-S5, ONT-E7).
+
+The expression definitions distinguish outer assertions from embedded conditions, specify
+algebraic operations, require unambiguous piecewise values, and preserve denominator exclusions.
+All 34 Areas in the complete FormalMathematics subtree now have illustrative comments.
 
 The main organizers use only constituent children. Observable object families use only
 specializing children. Methods and features sit beside those object families, preserving
@@ -140,8 +146,10 @@ every path's composition-before-specialization order (ONT-S4, ONT-S5).
 | Decision | Meaning in this draft | Contrasting evidence |
 |---|---|---|
 | Variable roles | Unknown, generalized, varying, and parameter roles specialize Variable; they need not be mutually exclusive. | A fixed parameter in one function can be an unknown when fitting that function. A unit abbreviation does not establish a variable. |
-| Shared expression family | Variable and its roles inherit the VariableExpression and MathematicalExpression meanings; polynomial and rational expression families keep their own branches. | A numerically specified constant polynomial need not contain a variable. ExpressionStructure describes organization, not a value-denoting expression. |
+| Shared expression family | Variable and its roles describe structural components; their labels do not inherit expression labels. Polynomial and rational expressions specialize AlgebraicExpression. | A numerically specified constant polynomial need not contain a variable. ExpressionStructure describes organization, not a value-denoting expression. |
 | VariableExpression | A variable-bearing expression, including later exponential and trigonometric expressions. | A numerical calculation has no variable; an equation is a statement rather than an expression. |
+| AlgebraicExpression | Finite arithmetic combinations and fixed rational powers in designated variables, with independent coefficients. | `sqrt(x + 1)` is included on its domain; `2^x` and `sin(x)` are not algebraic in x. |
+| PiecewiseExpression | Conditional branches give one defined value at each admissible assignment; applicable branches agree on overlaps. | Embedded `x < 0` conditions are allowed. Branches giving different values at the same admitted input do not define an unambiguous expression. |
 | Polynomial forms | Constants and zero are included; degree is relative to designated variables. | `p(x) = a` is constant in x while containing a parameter. A quadratic template with zero leading coefficient is no longer quadratic. |
 | Rational forms | A written quotient and its original denominator exclusions remain part of the meaning. | Canceling x - 1 does not restore the excluded input in `(x^2 - 1)/(x - 1)`. Polynomial-to-rational specialization is not asserted. |
 | Equivalence and solutions | ExpressionEquivalence concerns values over a shared domain; RelationEquivalence concerns solution sets. | One successful substitution establishes satisfaction, not a complete solution set or universal identity. |
@@ -192,11 +200,13 @@ broadening and new ancestry can affect annotations and specialization-based matc
 belong in consumer adoption review. Existing triangle uses remain within the meanings.
 
 The regrouping preserves MathematicalExpression's label eligibility and removes the draft-only
-VariablesAndExpressions identifier. Variable and its role descendants now satisfy the broader
-VariableExpression and MathematicalExpression claims through specialization; future consumers
-should not redundantly assert those ancestors alongside a more specific variable label.
-A target requiring a compound expression must establish its operations or structure explicitly;
-a single variable now satisfies the general variable-expression claim through inheritance.
+VariablesAndExpressions identifier. In the manual refinement, Variable becomes a constituent
+of ExpressionStructure, making ExpressionStructure organizational and ineligible for direct
+labels (ONT-E7). Variable and its roles remain eligible but no longer satisfy VariableExpression
+or MathematicalExpression targets through specialization. A single value-denoting variable
+still meets those expression definitions when the content independently supports that claim.
+Polynomial and rational expression labels now also support AlgebraicExpression through
+specialization. These changes require reconciliation of any provisional draft labels.
 
 The Grade 6 content plan needs a later reconciliation of its provisional algebra labels and
 dispositions. Grade 5 numerical-expression targets remain numerical; formula substitution and
