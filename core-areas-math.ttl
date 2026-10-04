@@ -67,13 +67,14 @@
     rdfs:comment "Representing an unknown quantity with a variable, or solving an equation that relates several quantities.".
 :AlgebraicConstraints a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of equations, inequalities, and simultaneous constraints through the assignments that satisfy them and transformations that preserve their solutions.";
+    rdfs:comment "Solving 2x + 3 = 11; finding the real values satisfying x + 2 < 5; finding x and y that satisfy both x + y = 7 and x - y = 1.";
     edu:partOf :Algebra.
 :AlgebraicDependence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numerical dependence governed by algebraic expressions in designated variables, retaining original domains. Expressions and input-output rules are classified by their value expressions; constraints and systems are classified by the simplified left-minus-right expression of each studied relation.";
     rdfs:comment "The dependence on x in x^2 + 3; the residual x^2 - 4 of x^2 = 4; the defining rule 2^t of f(t) = 2^t.";
     edu:partOf :Algebra.
 :AlgebraicEquivalence a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Rewriting algebraic expressions into equivalent forms while preserving their values and applicable domain restrictions.";
+    rdfs:isDefinedBy "Equality of the values of algebraic expressions throughout a stated common domain, including rewriting that preserves this equality and the original domain restrictions.";
     rdfs:comment "2(x + 3) = 2x + 6; (x^2 - 1)/(x - 1) = x + 1 with x != 1 retained.";
     edu:partOf :Algebra.
 :AlgebraicExpression a owl:NamedIndividual, edu:Area;
@@ -81,7 +82,8 @@
     rdfs:comment "5; 5 + 5; 3x + 2; 2^x; sin(x); sin(1); { -x if x < 0; x if x >= 0 }.";
     edu:specializes :MathematicalExpression.
 :AlgebraicFunctions a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of associations between quantities or objects, functional dependence, and the representations, properties, and constructions of those relationships.";
+    rdfs:isDefinedBy "The study of functions through their types, domains, representations, constructions, and rates of change.";
+    rdfs:comment "Interpreting f(3) = 7 for f(x) = 2x + 1; composing f(x) = x^2 with g(x) = x + 1 to obtain f(g(x)) = (x + 1)^2.";
     edu:partOf :Algebra.
 :AlgebraicLaws a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identities and laws used to justify symbolic transformations in algebra.";
@@ -552,7 +554,8 @@
     rdfs:comment "x + 1 in f(x + 1); a and b in max(a, b); g(x) as the argument of f in f(g(x)).";
     edu:specializes :Operand.
 :FunctionBehavior a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of monotonicity, extrema, concavity, and the asymptotic trends of functions across their domains.";
+    rdfs:isDefinedBy "The properties of functions across their domains, including attained values, zeros, monotonicity, extrema, concavity, and limiting behavior.";
+    rdfs:comment "The minimum value 0 and range [0, infinity) of f(x) = x^2 over the real numbers; the decrease of g(x) = 1/x toward 0 as positive x increases without bound.";
     edu:partOf :Analysis.
 :FunctionComposition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Constructing or interpreting a function by using the output of one function as the input to another in a specified order. Its domain contains exactly those inputs admitted by the inner function whose outputs are admitted by the outer function, unless a narrower domain is explicitly prescribed.";
@@ -583,7 +586,8 @@
     rdfs:comment "The range [0, infinity) for f(x) = x^2 on the real numbers; the range {2, 4, 6} for f(n) = 2n on {1, 2, 3}.";
     edu:partOf :FunctionBehavior.
 :FunctionSlope a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Determining or interpreting the rate of change of a function's output relative to its input, representing the constant ratio of change for linear relationships or the average and instantaneous rates of change for non-linear functions.";
+    rdfs:isDefinedBy "Rates of change of a real-valued function with respect to its real input, measured between distinct inputs or at a point where a finite limiting rate exists.";
+    rdfs:comment "The constant slope 3 of f(x) = 3x + 2; the average rate 4 of g(x) = x^2 from x = 1 to x = 3; its instantaneous rate 2 at x = 1.";
     edu:partOf :AlgebraicFunctions.
 :FunctionSymbol a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A symbol or written name identifying the function applied to the arguments of a function-application expression.";
@@ -594,7 +598,7 @@
     rdfs:comment "Relating g(x) = 2f(x - 3) + 1 to f; reflecting the graph of f across the vertical axis by defining g(x) = f(-x).";
     edu:partOf :AlgebraicFunctions.
 :FunctionType a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A binary relation assigning exactly one output to every element of its stated input domain, independently of how the assignment is represented.";
+    rdfs:isDefinedBy "Functions distinguished by their input and output domains, defining rules, or mapping properties, each assigning exactly one output to every admissible input.";
     rdfs:comment "A mapping from each student to their birth month; a table assigning 2 to input 0, 5 to input 1, and 8 to input 2.";
     edu:partOf :AlgebraicFunctions.
 :FunctionZeros a owl:NamedIndividual, edu:Area;
@@ -667,7 +671,8 @@
     edu:expands :NumericComparison;
     edu:specializes :MathematicalStatement.
 :InstantaneousRateOfChange a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The limit of the quotient of the change in a real-valued function's output by the change between two real inputs as the difference between those inputs approaches zero.";
+    rdfs:isDefinedBy "The finite limit of [f(a + h) - f(a)]/h for a real-valued function at a fixed real input a as h approaches zero, when that limit exists.";
+    rdfs:comment "The rate 6 of f(x) = x^2 at x = 3; the rate 0 of g(x) = 5 at every real input.";
     edu:partOf :FunctionSlope.
 :IntegerArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding and operating on numbers with no fractional part, including positive integers, negative integers, and zero.";
