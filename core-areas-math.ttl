@@ -91,6 +91,10 @@
     rdfs:isDefinedBy "Constructing a symbolic model of a situation by selecting relevant quantities and identifying the relationships and admissible values the model must represent.";
     rdfs:comment "Choosing distance d and time t to model a journey at a fixed speed of 5 units per hour by d = 5t for t >= 0.";
     edu:partOf :Algebra.
+:AlgebraicSubstitution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The consistent replacement of designated symbol occurrences by a specified admissible value or expression, respecting variable binding and domain restrictions.";
+    rdfs:comment "Replacing x by 4 in 3x + 2; replacing x by t + 1 in x^2.";
+    edu:partOf :Algebra.
 :Analysis a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of limits, continuity, and the behavior of functions and infinite processes.";
     rdfs:comment "Investigating convergence of a sequence, differentiating a function, or examining an infinite series.".
@@ -1380,10 +1384,6 @@
     rdfs:comment "Identifying the red cars within a box of toys without rearranging the collection.";
     edu:expands :ObjectSorting;
     edu:partOf :CollectionSense.
-:Substitution a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The consistent replacement of designated symbol occurrences by a specified admissible value or expression, respecting variable binding and domain restrictions.";
-    rdfs:comment "Replacing x by 4 in 3x + 2; replacing x by t + 1 in x^2.";
-    edu:partOf :Algebra.
 :Subtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two numbers.";
     edu:expands :Difference;
