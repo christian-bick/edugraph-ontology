@@ -72,6 +72,10 @@
     rdfs:isDefinedBy "Numerical dependence governed by algebraic expressions in designated variables, retaining original domains. Expressions and input-output rules are classified by their value expressions; constraints and systems are classified by the simplified left-minus-right expression of each studied relation.";
     rdfs:comment "The dependence on x in x^2 + 3; the residual x^2 - 4 of x^2 = 4; the defining rule 2^t of f(t) = 2^t.";
     edu:partOf :Algebra.
+:AlgebraicEquivalence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Rewriting algebraic expressions into equivalent forms while preserving their values and applicable domain restrictions.";
+    rdfs:comment "2(x + 3) = 2x + 6; (x^2 - 1)/(x - 1) = x + 1 with x != 1 retained.";
+    edu:partOf :Algebra.
 :AlgebraicExpression a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A mathematical expression formed from constants or variables, alone or combined through arithmetic operations, function applications, or conditional branches. Explicit limits, derivatives, integrals, and infinite sums or products are excluded.";
     rdfs:comment "5; 5 + 5; 3x + 2; 2^x; sin(x); sin(1); { -x if x < 0; x if x >= 0 }.";
@@ -84,10 +88,6 @@
     rdfs:isDefinedBy "Constructing a symbolic model of a situation by selecting relevant quantities and identifying the relationships and admissible values the model must represent.";
     rdfs:comment "Choosing distance d and time t to model a journey at a fixed speed of 5 units per hour by d = 5t for t >= 0.";
     edu:partOf :Algebra.
-:AlgebraicRewriting a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Rewriting algebraic expressions into equivalent forms while preserving their values and applicable domain restrictions.";
-    rdfs:comment "2(x + 3) = 2x + 6; (x^2 - 1)/(x - 1) = x + 1 with x != 1 retained.";
-    edu:partOf :ExpressionReasoning.
 :Analysis a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of limits, continuity, and the behavior of functions and infinite processes.";
     rdfs:comment "Investigating convergence of a sequence, differentiating a function, or examining an infinite series.".
@@ -446,7 +446,7 @@
 :ExponentialRewriting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Equivalent rewriting of algebraic expressions with designated quantities in exponent positions, preserving their values and applicable base, exponent, and domain restrictions.";
     rdfs:comment "4^x = 2^(2x); 2^(x + 1) = 2*2^x; 3^x*3^(2x) = 3^(3x).";
-    edu:specializes :AlgebraicRewriting.
+    edu:specializes :AlgebraicEquivalence.
 :Exponentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a number to a specified power.";
     rdfs:comment "3 to the fourth power is 3 × 3 × 3 × 3 = 81. Repeated multiplication directly describes positive integer exponents; other exponents require the corresponding extended definitions.";
@@ -456,21 +456,10 @@
     rdfs:isDefinedBy "The identities relating products, quotients, and powers of powers to operations on exponents, with base and exponent restrictions that make each identity valid.";
     rdfs:comment "b^u*b^v = b^(u + v), b^u/b^v = b^(u - v), and (b^u)^v = b^(uv) for b > 0 and real u, v; (x^2)^3 = x^6 for real x.";
     edu:partOf :AlgebraicLaws, :ArithmeticLaws.
-:ExpressionEquivalence a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The equality of the defined values of two expressions for every assignment in a stated common domain.";
-    rdfs:comment "2(x + 3) and 2x + 6 for every real x; (x^2 - 1)/(x - 1) and x + 1 for x != 1.";
-    edu:partOf :ExpressionReasoning.
-:ExpressionFactorization a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Rewriting a mathematical expression as a product of factors while preserving its value throughout the stated domain.";
-    rdfs:comment "Rewriting x^2 - 1 as (x - 1)(x + 1).";
-    edu:partOf :ExpressionReasoning.
 :ExpressionIndex a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An expression identifying a member or position within an indexed collection.";
     rdfs:comment "n in the sequence term a_n; i and j in the matrix entry A_(i,j).";
     edu:partOf :ExpressionStructure.
-:ExpressionReasoning a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of substitution, equivalence, and transformations of mathematical expressions within their permitted domains.";
-    edu:partOf :Algebra.
 :ExpressionStructure a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The roles of symbols and subexpressions, and the conventions that organize them into mathematical expressions.";
     rdfs:comment "Identifying 3 as the coefficient of x in 3x + 2; treating x + 2 as one factor in 5(x + 2); distinguishing sin from its argument x in sin(x).";
@@ -737,7 +726,7 @@
 :LinearRewriting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Equivalent rewriting of affine combinations of designated variables or subexpressions, using coefficients independent of those quantities. Constant terms are included.";
     rdfs:comment "2(x + 3) + 4x = 6x + 6; 3*sin(x) + 2*sin(x) = 5*sin(x), treating sin(x) as the designated quantity.";
-    edu:specializes :AlgebraicRewriting.
+    edu:specializes :AlgebraicEquivalence.
 :LinearShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating drawings or models of figures bounded by straight line segments.";
     rdfs:comment "Drawing a triangle from specified vertices.";
@@ -1075,11 +1064,7 @@
 :PolynomialDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Decomposing a polynomial in one variable into a nonzero divisor times a quotient plus a remainder over a stated coefficient field. The remainder is zero or has degree less than the divisor.";
     rdfs:comment "Dividing x^2 + 1 by x - 1 to obtain quotient x + 1 and remainder 2.";
-    edu:specializes :AlgebraicRewriting.
-:PolynomialFactorization a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Rewriting a polynomial expression as a product of polynomial factors over a stated coefficient domain.";
-    rdfs:comment "x^2 - 5x + 6 = (x - 2)(x - 3) over the rational numbers.";
-    edu:specializes :AlgebraicRewriting, :ExpressionFactorization.
+    edu:specializes :AlgebraicEquivalence.
 :PositionalRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships describing how geometric lines, planes, or segments interact, intersect, or positionally relate to one another in space.";
     edu:partOf :GeometricRelations.
@@ -1149,7 +1134,7 @@
 :QuadraticRewriting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Equivalent rewriting of expressions using degree-two polynomial patterns in designated variables or subexpressions.";
     rdfs:comment "x^2 + 6x + 5 = (x + 3)^2 - 4; (x^3 + 2)^2 = x^6 + 4x^3 + 4, using a quadratic pattern in x^3.";
-    edu:specializes :AlgebraicRewriting.
+    edu:specializes :AlgebraicEquivalence.
 :Quadrilateral a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with four edges and four vertices.";
     edu:specializes :Polygon.
@@ -1393,7 +1378,7 @@
 :Substitution a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The consistent replacement of designated symbol occurrences by a specified admissible value or expression, respecting variable binding and domain restrictions.";
     rdfs:comment "Replacing x by 4 in 3x + 2; replacing x by t + 1 in x^2.";
-    edu:partOf :ExpressionReasoning.
+    edu:partOf :Algebra.
 :Subtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two numbers.";
     edu:expands :Difference;
