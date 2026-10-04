@@ -371,7 +371,7 @@
 :ExpressionStructure a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The roles and organization of operations, terms, factors, coefficients, and nested subexpressions in a mathematical expression.";
     rdfs:comment "Identifying 3 as the coefficient of x in 3x + 2; treating x + 2 as one factor in 5(x + 2).";
-    edu:partOf :VariablesAndExpressions.
+    edu:partOf :FormalMathematics.
 :Factorization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of decomposing an integer into a product of other integers that, when multiplied together, result in the original number.";
     edu:partOf :NumberTheory.
@@ -666,7 +666,7 @@
     edu:expands :FactorsAndMultiples;
     edu:partOf :FractionStrategies.
 :MathematicalExpression a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A well-formed, finite combination of symbols and operations that represents a value but does not contain a relational operator.";
+    rdfs:isDefinedBy "A well-formed finite symbolic form denoting a value without a relational operator, including a single value-denoting symbol.";
     edu:partOf :FormalMathematics.
 :MathematicalStatement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A declarative mathematical sentence that asserts a relation between expressions and can be evaluated as true or false.";
@@ -945,7 +945,6 @@
 :PolynomialExpression a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An expression constructed from designated variables and coefficients independent of those variables using finitely many additions, subtractions, multiplications, and nonnegative integer powers. Expanded, grouped, and factored forms, constants, and the zero polynomial are included.";
     rdfs:comment "3x^2 - 2x + 5; xy + y^2; 5; 0.";
-    edu:partOf :VariablesAndExpressions;
     edu:specializes :MathematicalExpression.
 :PolynomialFactorization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Rewriting a polynomial expression as a product of polynomial factors over a stated coefficient domain.";
@@ -1066,7 +1065,6 @@
 :RationalExpression a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quotient of two polynomial expressions, considered only at assignments where the denominator is nonzero. A denominator that vanishes identically is excluded.";
     rdfs:comment "(x^2 - 1)/(x - 1) for x != 1; 3/(x + 2) for x != -2.";
-    edu:partOf :VariablesAndExpressions;
     edu:specializes :MathematicalExpression.
 :RationalFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A numerical function whose defining rule is a quotient of polynomials in one variable with a nonzero denominator polynomial, on a stated domain where that denominator does not vanish. Removing a factor from a quotient does not itself remove its original domain exclusions.";
@@ -1396,15 +1394,11 @@
 :Variable a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A symbol standing for an unknown or unspecified value, or a quantity permitted to vary, within an identified mathematical context.";
     rdfs:comment "The unknown x in x + 3 = 8; the varying time t in d = 5t.";
-    edu:partOf :VariablesAndExpressions.
+    edu:specializes :VariableExpression.
 :VariableExpression a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A mathematical expression containing at least one symbol for an unknown, unspecified, or varying quantity.";
+    rdfs:isDefinedBy "A mathematical expression containing at least one variable.";
     rdfs:comment "3x + 2; a + b; 2^x; sin(x).";
-    edu:partOf :VariablesAndExpressions;
     edu:specializes :MathematicalExpression.
-:VariablesAndExpressions a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of symbols for quantities and the forms and internal structure of mathematical expressions.";
-    edu:partOf :Algebra.
 :VaryingVariable a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A variable whose value is allowed to change across instances of a mathematical relationship.";
     rdfs:comment "Time t and distance d in a table of values satisfying d = 5t.";
