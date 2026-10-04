@@ -80,6 +80,9 @@
     rdfs:isDefinedBy "A mathematical expression formed from constants or variables, alone or combined through arithmetic operations, function applications, or conditional branches. Explicit limits, derivatives, integrals, and infinite sums or products are excluded.";
     rdfs:comment "5; 5 + 5; 3x + 2; 2^x; sin(x); sin(1); { -x if x < 0; x if x >= 0 }.";
     edu:specializes :MathematicalExpression.
+:AlgebraicFunctions a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of associations between quantities or objects, functional dependence, and the representations, properties, and constructions of those relationships.";
+    edu:partOf :Algebra.
 :AlgebraicLaws a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identities and laws used to justify symbolic transformations in algebra.";
     rdfs:comment "(a + b)^2 = a^2 + 2ab + b^2; b^(u + v) = b^u*b^v for b > 0 and real u, v.";
@@ -155,10 +158,6 @@
     rdfs:isDefinedBy "An operator used with exactly two ordered operand positions in a particular expression.";
     rdfs:comment "The minus sign in a - b; the division sign in a / b; the power operation in x^3.";
     edu:specializes :Operator.
-:BinaryRelation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A set of ordered pairs drawn from two stated sets, indicating which first elements are related to which second elements.";
-    rdfs:comment "The pairs (1, a), (1, b), and (2, b); or the real coordinate pairs satisfying x^2 + y^2 = 1.";
-    edu:partOf :FunctionsAndRelations.
 :BinomialIdentities a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identities for the square of a sum, square of a difference, and product of a sum and difference of real or complex quantities.";
     rdfs:comment "(a + b)^2 = a^2 + 2ab + b^2; (a - b)^2 = a^2 - 2ab + b^2; (a + b)(a - b) = a^2 - b^2.";
@@ -554,11 +553,11 @@
 :FunctionComposition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Constructing or interpreting a function by using the output of one function as the input to another in a specified order. Its domain contains exactly those inputs admitted by the inner function whose outputs are admitted by the outer function, unless a narrower domain is explicitly prescribed.";
     rdfs:comment "For f(x) = x^2 and g(x) = x + 1, f(g(x)) = (x + 1)^2 and g(f(x)) = x^2 + 1.";
-    edu:partOf :FunctionsAndRelations.
+    edu:partOf :AlgebraicFunctions.
 :FunctionDomain a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The set of inputs admitted by a function, including restrictions imposed by its defining rule and by the situation it models.";
     rdfs:comment "The real domain x >= 0 for f(x) = sqrt(x); the nonnegative integer domain for the cost of buying whole items.";
-    edu:partOf :FunctionsAndRelations.
+    edu:partOf :AlgebraicFunctions.
 :FunctionExtrema a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Maximum and minimum values of a real-valued function and the inputs where they occur, distinguishing comparison with the whole stated domain from comparison within a specified neighborhood.";
     rdfs:comment "The minimum value 0 attained by f(x) = (x - 2)^2 at x = 2; the maximum value 4 attained by g(x) = 4 - x^2 at x = 0.";
@@ -566,7 +565,7 @@
 :FunctionInversion a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Constructing or interpreting the function that reverses a one-to-one function's input-output correspondence, exchanging its domain and range. A function that is not one-to-one must first be restricted to a suitable domain before this inverse is a function.";
     rdfs:comment "Inverting f(x) = 2x + 3 to obtain g(y) = (y - 3)/2; inverting x^2 on nonnegative real inputs to obtain the principal square-root function.";
-    edu:partOf :FunctionsAndRelations.
+    edu:partOf :AlgebraicFunctions.
 :FunctionMonotonicity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The way output order follows or reverses input order for a real-valued function over a stated ordered domain or portion of it, distinguishing strict and non-strict increase, decrease, and constancy.";
     rdfs:comment "f(x) = x^2 decreases on (-infinity, 0] and increases on [0, infinity); g(x) = 3 is constant on the real numbers.";
@@ -574,17 +573,14 @@
 :FunctionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The symbolic conventions for naming a function, marking its argument, and denoting its output, including the distinction between a function's name and a value of that function.";
     rdfs:comment "Interpreting f(3) as the output of f at input 3; writing f(x) = 2x + 1 and then f(3) = 7.";
-    edu:partOf :FunctionsAndRelations.
+    edu:partOf :AlgebraicFunctions.
 :FunctionRange a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The set of outputs actually attained by a function as its input runs through its stated domain, distinguished from an output set that may also contain unattained values.";
     rdfs:comment "The range [0, infinity) for f(x) = x^2 on the real numbers; the range {2, 4, 6} for f(n) = 2n on {1, 2, 3}.";
     edu:partOf :FunctionBehavior.
-:FunctionsAndRelations a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of associations between quantities or objects, functional dependence, and the representations, properties, and constructions of those relationships.";
-    edu:partOf :Algebra.
 :FunctionSlope a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining or interpreting the rate of change of a function's output relative to its input, representing the constant ratio of change for linear relationships or the average and instantaneous rates of change for non-linear functions.";
-    edu:partOf :FunctionsAndRelations.
+    edu:partOf :AlgebraicFunctions.
 :FunctionSymbol a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A symbol or written name identifying the function applied to the arguments of a function-application expression.";
     rdfs:comment "f in f(x + 1); sin in sin(x); max in max(a, b).";
@@ -592,11 +588,11 @@
 :FunctionTransformation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Producing or interpreting a new real-valued function of a real input by translating, reflecting, or scaling the input or output of a given such function, with the transformed domain specified.";
     rdfs:comment "Relating g(x) = 2f(x - 3) + 1 to f; reflecting the graph of f across the vertical axis by defining g(x) = f(-x).";
-    edu:partOf :FunctionsAndRelations.
+    edu:partOf :AlgebraicFunctions.
 :FunctionType a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A binary relation assigning exactly one output to every element of its stated input domain, independently of how the assignment is represented.";
     rdfs:comment "A mapping from each student to their birth month; a table assigning 2 to input 0, 5 to input 1, and 8 to input 2.";
-    edu:partOf :FunctionsAndRelations.
+    edu:partOf :AlgebraicFunctions.
 :FunctionZeros a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The admissible inputs at which a numerical function has output zero.";
     rdfs:comment "The zeros -2 and 2 of f(x) = x^2 - 4 over the real numbers.";
