@@ -20,7 +20,7 @@ ExpressionStructure is a sibling constituent of FormalMathematics.
 
 ## Shape of the draft
 
-The draft adds 68 Areas, revises Algebra's definition to cover the adopted function/relationship
+The draft adds 69 Areas, revises Algebra's definition to cover the adopted function/relationship
 scope, and adds function-specialization links to the existing Sine, Cosine, and Tangent Areas.
 Their definitions now cover circular functions; acute-triangle ratios remain concrete examples.
 No Scope or Ability identifiers are changed.
@@ -110,32 +110,47 @@ FormalMathematics
       S VaryingVariable
   P MathematicalExpression
     S AlgebraicExpression
+      S FunctionApplicationExpression
+      S NumericalExpression
       S PolynomialExpression
         S AffineExpression
         S QuadraticExpression
       S RationalExpression
+      S VariableExpression
     S GroupedExpression
-    S NumericalExpression
     S PiecewiseExpression
-    S VariableExpression
 ```
 <!-- END AUTHORED EXPRESSION TREE -->
 
 VariablesAndExpressions has been removed. Its expression forms already specialized
 MathematicalExpression; their redundant constituent edges are removed. The manual refinement
 places Variable as a constituent of ExpressionStructure. Unknown, generalized, varying, and
-parameter roles retain their specializations beneath Variable. PolynomialExpression and
-RationalExpression specialize the new AlgebraicExpression; PiecewiseExpression specializes
-MathematicalExpression directly.
+parameter roles retain their specializations beneath Variable. NumericalExpression,
+VariableExpression, FunctionApplicationExpression, PolynomialExpression, and RationalExpression
+specialize AlgebraicExpression. GroupedExpression and PiecewiseExpression retain their general
+placement directly under MathematicalExpression; their construction can also contain analysis
+expressions. Their algebraic instances can support both classifications.
 
 ExpressionStructure is the exception: knowledge of terms, factors, coefficients, and nesting
 is not itself a value-denoting expression. It is a sibling constituent under FormalMathematics.
 Adding it as a constituent of MathematicalExpression would mix child roles and make that
 existing expression-family label ineligible (ONT-S5, ONT-E7).
 
-The expression definitions distinguish outer assertions from embedded conditions, specify
-algebraic operations, require unambiguous piecewise values, and preserve denominator exclusions.
-All 34 Areas in the complete FormalMathematics subtree now have illustrative comments.
+AlgebraicExpression uses the adopted broad curricular meaning, including numerical calculations,
+variable powers, trigonometric and other function applications, and conditional branches.
+It does not retain the earlier restriction to arithmetic operations and fixed rational powers.
+Explicit limits, derivatives, integrals, and infinite sums or products remain outside this
+family. MathematicalExpression remains the general parent available to those later forms.
+The expression definitions also distinguish outer assertions from embedded conditions, require
+unambiguous piecewise values, and preserve denominator exclusions. All 35 Areas in the complete
+FormalMathematics subtree have illustrative comments.
+
+The specialization families overlap: `sin(1)` is both NumericalExpression and
+FunctionApplicationExpression; `sin(x)` is both VariableExpression and
+FunctionApplicationExpression. Each supports AlgebraicExpression through inheritance.
+FunctionApplicationExpression describes an expression applying a function; Function describes
+the mapping itself, and FunctionNotation concerns the conventions for writing it. Neither
+function application nor numerical calculation alone establishes a variable-reasoning claim.
 
 The main organizers use only constituent children. Observable object families use only
 specializing children. Methods and features sit beside those object families, preserving
@@ -146,9 +161,11 @@ every path's composition-before-specialization order (ONT-S4, ONT-S5).
 | Decision | Meaning in this draft | Contrasting evidence |
 |---|---|---|
 | Variable roles | Unknown, generalized, varying, and parameter roles specialize Variable; they need not be mutually exclusive. | A fixed parameter in one function can be an unknown when fitting that function. A unit abbreviation does not establish a variable. |
-| Shared expression family | Variable and its roles describe structural components; their labels do not inherit expression labels. Polynomial and rational expressions specialize AlgebraicExpression. | A numerically specified constant polynomial need not contain a variable. ExpressionStructure describes organization, not a value-denoting expression. |
-| VariableExpression | A variable-bearing expression, including later exponential and trigonometric expressions. | A numerical calculation has no variable; an equation is a statement rather than an expression. |
-| AlgebraicExpression | Finite arithmetic combinations and fixed rational powers in designated variables, with independent coefficients. | `sqrt(x + 1)` is included on its domain; `2^x` and `sin(x)` are not algebraic in x. |
+| Shared expression family | Variable and its roles describe structural components; their labels do not inherit expression labels. Numerical, variable, function-application, polynomial, and rational expressions specialize AlgebraicExpression. | A numerically specified constant polynomial need not contain a variable. ExpressionStructure describes organization, not a value-denoting expression. |
+| VariableExpression | An algebraic expression containing a variable, including exponential and trigonometric expressions. | A numerical calculation has no variable; an equation is a statement rather than an expression. |
+| NumericalExpression | An algebraic expression containing numerical values and operations or function applications, without variables or relational operators. | `5`, `5 + 5`, and `sin(1)` qualify; `sin(x)` has a variable. |
+| AlgebraicExpression | The broad family of expressions used in algebra, including constants, arithmetic, function applications, and conditional branches, with explicit analysis constructions excluded. | `2^x` and `sin(x)` qualify; an explicit derivative or integral does not. |
+| FunctionApplicationExpression | An algebraic expression written as a function applied to arguments. | `sin(x)`, `sin(1)`, and `f(x + 1)` qualify; a bare function name denotes the function rather than its application. |
 | PiecewiseExpression | Conditional branches give one defined value at each admissible assignment; applicable branches agree on overlaps. | Embedded `x < 0` conditions are allowed. Branches giving different values at the same admitted input do not define an unambiguous expression. |
 | Polynomial forms | Constants and zero are included; degree is relative to designated variables. | `p(x) = a` is constant in x while containing a parameter. A quadratic template with zero leading coefficient is no longer quadratic. |
 | Rational forms | A written quotient and its original denominator exclusions remain part of the meaning. | Canceling x - 1 does not restore the excluded input in `(x^2 - 1)/(x - 1)`. Polynomial-to-rational specialization is not asserted. |
@@ -205,8 +222,14 @@ of ExpressionStructure, making ExpressionStructure organizational and ineligible
 labels (ONT-E7). Variable and its roles remain eligible but no longer satisfy VariableExpression
 or MathematicalExpression targets through specialization. A single value-denoting variable
 still meets those expression definitions when the content independently supports that claim.
-Polynomial and rational expression labels now also support AlgebraicExpression through
-specialization. These changes require reconciliation of any provisional draft labels.
+Numerical, variable, function-application, polynomial, and rational expression labels support
+AlgebraicExpression through specialization. NumericalExpression and VariableExpression now
+inherit the explicit analysis boundary; neither is a universal classification of every future
+analysis expression by variable presence. AlgebraicExpression no longer marks the narrow
+algebraic-versus-transcendental distinction and cannot alone separate numerical calculation
+from reasoning with variables. Use the evidenced NumericalExpression, VariableExpression,
+variable roles, or reasoning concepts for that distinction. These changes require
+reconciliation of any provisional draft labels.
 
 The Grade 6 content plan needs a later reconciliation of its provisional algebra labels and
 dispositions. Grade 5 numerical-expression targets remain numerical; formula substitution and

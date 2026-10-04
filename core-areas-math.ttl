@@ -73,8 +73,8 @@
     rdfs:isDefinedBy "The study of equations, inequalities, and simultaneous constraints through the assignments that satisfy them and transformations that preserve their solutions.";
     edu:partOf :Algebra.
 :AlgebraicExpression a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "An expression formed from designated variables and coefficients independent of them using finitely many additions, subtractions, multiplications, divisions, and fixed rational powers, wherever defined.";
-    rdfs:comment "5; 3x^2 - 2x + 1; (x + 1)/(x - 2) for x != 2; sqrt(x + 1) for x >= -1.";
+    rdfs:isDefinedBy "A mathematical expression formed from constants or variables, alone or combined through arithmetic operations, function applications, or conditional branches. Explicit limits, derivatives, integrals, and infinite sums or products are excluded.";
+    rdfs:comment "5; 5 + 5; 3x + 2; 2^x; sin(x); sin(1); { -x if x < 0; x if x >= 0 }.";
     edu:specializes :MathematicalExpression.
 :AlgebraicModeling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Constructing a symbolic model of a situation by selecting relevant quantities and identifying the relationships and admissible values the model must represent.";
@@ -453,6 +453,10 @@
     rdfs:isDefinedBy "A binary relation assigning exactly one output to every element of its stated input domain, independently of how the assignment is represented.";
     rdfs:comment "A mapping from each student to their birth month; a table assigning 2 to input 0, 5 to input 1, and 8 to input 2.";
     edu:specializes :BinaryRelation.
+:FunctionApplicationExpression a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "An algebraic expression written as the application of a function to one or more arguments.";
+    rdfs:comment "sin(x); sin(1); sqrt(x) for x >= 0; f(x + 1); max(a, b).";
+    edu:specializes :AlgebraicExpression.
 :FunctionComposition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Constructing or interpreting a function by using the output of one function as the input to another in a specified order. Its domain contains exactly those inputs admitted by the inner function whose outputs are admitted by the outer function, unless a narrower domain is explicitly prescribed.";
     rdfs:comment "For f(x) = x^2 and g(x) = x + 1, f(g(x)) = (x + 1)^2 and g(f(x)) = x^2 + 1.";
@@ -773,10 +777,10 @@
     rdfs:comment "Describing all values from 2 through 5 inclusive, or values greater than 2 and less than 5.";
     edu:specializes :Numeration.
 :NumericalExpression a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A mathematical expression built exclusively from numerical values and operations, containing no variables or relational operators.";
-    rdfs:comment "Writing 2 × (8 + 7) to record a calculation, or interpreting its structure without evaluating it.";
+    rdfs:isDefinedBy "An algebraic expression built exclusively from numerical values, operations, and function applications, containing no variables or relational operators.";
+    rdfs:comment "5; 5 + 5; sin(1); 2 × (8 + 7).";
     edu:expands :ArithmeticOperations;
-    edu:specializes :MathematicalExpression.
+    edu:specializes :AlgebraicExpression.
 :NumericApproximation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Estimating or replacing a numerical value with a nearby value suited to a stated purpose or precision.";
     rdfs:comment "Using a rounded measurement when estimating a total.";
@@ -957,7 +961,7 @@
     edu:partOf :AlgebraicConstraints;
     edu:specializes :Equation.
 :PolynomialExpression a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "An expression constructed from designated variables and coefficients independent of those variables using finitely many additions, subtractions, multiplications, and nonnegative integer powers. Expanded, grouped, and factored forms, constants, and the zero polynomial are included.";
+    rdfs:isDefinedBy "An algebraic expression constructed from designated variables and coefficients independent of those variables using finitely many additions, subtractions, multiplications, and nonnegative integer powers. Expanded, grouped, and factored forms, constants, and the zero polynomial are included.";
     rdfs:comment "3x^2 - 2x + 5; xy + y^2; 5; 0.";
     edu:specializes :AlgebraicExpression.
 :PolynomialFactorization a owl:NamedIndividual, edu:Area;
@@ -1412,9 +1416,9 @@
     rdfs:comment "The unknown x in x + 3 = 8; the varying time t in d = 5t.";
     edu:partOf :ExpressionStructure.
 :VariableExpression a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A mathematical expression containing at least one variable.";
+    rdfs:isDefinedBy "An algebraic expression containing at least one variable.";
     rdfs:comment "3x + 2; a + b; 2^x; sin(x).";
-    edu:specializes :MathematicalExpression.
+    edu:specializes :AlgebraicExpression.
 :VaryingVariable a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A variable whose value is allowed to change across instances of a mathematical relationship.";
     rdfs:comment "Time t and distance d in a table of values satisfying d = 5t.";
