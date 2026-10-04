@@ -553,6 +553,7 @@
     rdfs:comment "x + 1 in f(x + 1); a and b in max(a, b); g(x) as the argument of f in f(g(x)).";
     edu:specializes :Operand.
 :FunctionBehavior a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of monotonicity, extrema, concavity, and the asymptotic trends of functions across their domains.";
     edu:partOf :Analysis.
 :FunctionComposition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Constructing or interpreting a function by using the output of one function as the input to another in a specified order. Its domain contains exactly those inputs admitted by the inner function whose outputs are admitted by the outer function, unless a narrower domain is explicitly prescribed.";
