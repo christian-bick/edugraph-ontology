@@ -130,8 +130,9 @@ editor can use the same rules. Python provides descriptor and relation queries o
 
 ### 6.1 TypeScript API Usage
 
-Definition lookups in both clients return `rdfs:isDefinedBy` only. Examples and supporting
-explanation are authored in `rdfs:comment`. The
+Definition lookups in both clients return `rdfs:isDefinedBy` only. Descriptor examples are
+authored in `rdfs:comment` under [ONT-D4](docs/descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries).
+Existing source comments still need an [example-only audit](docs/plan/ontology-consolidation.md#6-audit-existing-descriptor-comments-for-example-only-content). The
 [shared snapshot APIs](#67-shared-snapshot-apis-and-package-verification) retain those assertions:
 use `context.authoredAssertions(iri)` in TypeScript or `context.authored_assertions(iri)` in
 Python and select the literal assertions whose predicate is
@@ -360,7 +361,7 @@ Involves Integer Numbers: Numbers with no fractional part, whether negative, zer
 | --- | --- | --- |
 | `label` | `label` | Use the authored `rdfs:label`, otherwise split the IRI local name at CamelCase, acronym, digit, underscore, and hyphen boundaries. An explicit label overrides both. |
 | `includeComment` | `include_comment` | `true` / `True`; omit the comment and its introduction when false. |
-| `commentPrefix` | `comment_prefix` | `"For example:"`; set `""` to append explanatory prose directly, or supply another introduction. |
+| `commentPrefix` | `comment_prefix` | `"For example:"`; set `""` to omit the marker, or supply another introduction. Descriptor comments follow [ONT-D4](docs/descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries). |
 
 Missing or whitespace-only comments produce no introduction. Presentation whitespace is
 collapsed, and a full stop is added to a definition or comment without terminal sentence

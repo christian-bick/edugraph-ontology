@@ -46,13 +46,14 @@ For combined text, use `involvement_statement` from `edugraph` or `edugraph.gene
 from edugraph import Scope, involvement_statement
 
 text = involvement_statement(Scope.IntegerNumbers)
-# Involves Integer Numbers: Numbers with no fractional part, whether negative, zero, or positive. For example: -3, 0, 1, 10, and 1345. The value 2 remains an integer when written as 2.0.
 short_text = involvement_statement(Scope.IntegerNumbers, include_comment=False)
 ```
 
 Supplied contexts expose `context.involvement_statement(iri, **options)`. Keyword options are
 `label`, `include_comment` (default `True`), and `comment_prefix` (default `"For example:"`;
-use `""` for explanatory prose). Missing comments produce no introduction. Labels use
+customize or omit it to suit the presentation). Missing comments produce no introduction.
+Descriptor comments should contain only examples under
+[ONT-D4](../../docs/descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries). Labels use
 `rdfs:label` or a humanized IRI local name unless overridden. The first nonempty normalized
 literal of each annotation is selected lexically; no language negotiation is performed.
 Whitespace and terminal punctuation are normalized without changing formulas or case.

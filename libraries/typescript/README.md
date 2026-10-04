@@ -43,13 +43,13 @@ For combined text, use `involvementStatement` from the root or `edugraph-ts/gene
 import { Scope, involvementStatement } from "edugraph-ts";
 
 const text = involvementStatement(Scope.IntegerNumbers);
-// Involves Integer Numbers: Numbers with no fractional part, whether negative, zero, or positive. For example: -3, 0, 1, 10, and 1345. The value 2 remains an integer when written as 2.0.
 const shortText = involvementStatement(Scope.IntegerNumbers, { includeComment: false });
 ```
 
 Supplied contexts expose `context.involvementStatement(iri, options?)`. Options are `label`,
-`includeComment` (default `true`), and `commentPrefix` (default `"For example:"`; use `""`
-for explanatory prose). Missing comments produce no introduction. Labels use `rdfs:label`
+`includeComment` (default `true`), and `commentPrefix` (default `"For example:"`; customize
+or omit it to suit the presentation). Missing comments produce no introduction. Descriptor
+comments should contain only examples under [ONT-D4](../../docs/descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries). Labels use `rdfs:label`
 or a humanized IRI local name unless overridden. The first nonempty normalized literal of
 each annotation is selected lexically; no language negotiation is performed. Whitespace and
 terminal punctuation are normalized without changing formulas or case. Unknown descriptors,

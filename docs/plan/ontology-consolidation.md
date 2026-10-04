@@ -92,3 +92,14 @@ consumers remains application-owned. A dedicated comment accessor can be conside
 and [client access guidance](../../DOCS.md#61-typescript-api-usage).
 
 Rules: ONT-D4, ONT-E5, ONT-W2, ONT-W3.
+
+### 6. Audit existing descriptor comments for example-only content
+
+Some authored descriptor comments still mix examples with explanatory prose, such as
+[`IntegerNumbers`](../../core-scopes-math.ttl). Review these comments against the revised
+[ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries).
+Move any essential defining boundary into the definition, retain only illustrative examples
+in the comment, and remove nonessential explanation. Review affected annotations and model
+inputs before changing released descriptor text; do not mechanically delete substantive caveats.
+
+Rules: ONT-D4, ONT-W2, ONT-W3.

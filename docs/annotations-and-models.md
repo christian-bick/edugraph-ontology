@@ -23,15 +23,17 @@ A consumer can construct `Involves {label}: {definition}` and append the optiona
 The surrounding statement supplies the relation; the
 definition describes its object without repeating that relation or the descriptor's name.
 
-Comments contain example content directly, without a "For example:" prefix, and may also
-contain supporting explanation. Consumers own presentation markers and can add an example
-marker when rendering examples; they must not assume every comment is an example list.
+Under ONT-D4, descriptor comments contain only example content, directly and without a
+"For example:" prefix. Consumers own presentation markers and can add an example marker when
+rendering a conforming comment. Existing source comments still need an
+[audit](plan/ontology-consolidation.md#6-audit-existing-descriptor-comments-for-example-only-content),
+so consumers should check the ontology version they use.
 Omit the comment portion when absent. An illustrative example describes the concept, not
 necessarily the particular content being annotated, and must not be treated as evidence
 visible in that content.
 
 Both libraries provide an involvement statement helper with the example introduction as its
-default. Callers can omit comments or change that introduction for explanatory prose. See
+default. Callers can omit comments or customize that introduction for their presentation. See
 [the API contract](../DOCS.md#68-combined-descriptor-statements) for formatting and text selection.
 
 This text convention supports all three descriptor dimensions. It does not make organizational
