@@ -78,8 +78,8 @@
     rdfs:comment "2(x + 3) = 2x + 6; (x^2 - 1)/(x - 1) = x + 1 with x != 1 retained.";
     edu:partOf :Algebra.
 :AlgebraicExpression a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A mathematical expression formed from constants or variables, alone or combined through arithmetic operations, function applications, or conditional branches. Explicit limits, derivatives, integrals, and infinite sums or products are excluded.";
-    rdfs:comment "5; 5 + 5; 3x + 2; 2^x; sin(x); sin(1); { -x if x < 0; x if x >= 0 }.";
+    rdfs:isDefinedBy "The form and meaning of mathematical expressions built from constants or variables, alone or combined through arithmetic operations, function applications, or conditional branches. Explicit limits, derivatives, integrals, and infinite sums or products are excluded.";
+    rdfs:comment "Interpreting 5, 5 + 5, 3x + 2, 2^x, sin(x), and sin(1) as value-denoting forms; constructing { -x if x < 0; x if x >= 0 }.";
     edu:specializes :MathematicalExpression.
 :AlgebraicFunctions a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of functions through their types, domains, representations, constructions, and rates of change.";
@@ -161,20 +161,20 @@
     rdfs:isDefinedBy "The foundational application of mathematical rules and procedures to perform primary calculations through the core actions of addition, subtraction, multiplication, and division.";
     edu:partOf :ArithmeticOperations.
 :BinaryOperator a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "An operator used with exactly two ordered operand positions in a particular expression.";
-    rdfs:comment "The minus sign in a - b; the division sign in a / b; the power operation in x^3.";
+    rdfs:isDefinedBy "The role of an operator with exactly two ordered operand positions in a particular expression.";
+    rdfs:comment "Distinguishing the two input positions in a - b; identifying x and 3 as the ordered inputs of the power operation in x^3.";
     edu:specializes :Operator.
 :BinomialIdentities a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identities for the square of a sum, square of a difference, and product of a sum and difference of real or complex quantities.";
     rdfs:comment "(a + b)^2 = a^2 + 2ab + b^2; (a - b)^2 = a^2 - 2ab + b^2; (a + b)(a - b) = a^2 - b^2.";
     edu:partOf :AlgebraicLaws.
 :BoundVariable a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A variable occurrence governed by a binding construct within the expression under consideration.";
-    rdfs:comment "The summation index i in sum_(i=1)^4 i*x; the product index k in product_(k=1)^3 (x + k).";
+    rdfs:isDefinedBy "The role of a variable occurrence governed by a binding construct within the expression under consideration.";
+    rdfs:comment "Identifying i as the bound summation index in sum_(i=1)^4 i*x; replacing the bound index k by j throughout product_(k=1)^3 (x + k).";
     edu:specializes :Variable.
 :BranchCondition a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A condition specifying the inputs or assignments for which a particular branch of a piecewise expression applies.";
-    rdfs:comment "x < 0 attached to the branch value -x; x >= 0 attached to the branch value x.";
+    rdfs:isDefinedBy "The role of a condition specifying the inputs or assignments for which a particular branch of a piecewise expression applies.";
+    rdfs:comment "Using x < 0 to select the branch value -x and x >= 0 to select x in a piecewise expression for absolute value.";
     edu:partOf :ExpressionStructure.
 :Calculus a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides tools for analyzing rates of change and accumulation. It deals with instantaneous rates of change that affect the slopes of curves, as well as with accumulation that affect areas under curves.".
@@ -209,8 +209,8 @@
     edu:expands :Circle, :Pi, :RadiusDiameterRelation;
     edu:specializes :PerimeterCalculation.
 :Coefficient a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A factor multiplying a designated variable part of a term and independent of the variables in that part. Its value may be written explicitly or implied by the notation.";
-    rdfs:comment "3 in 3x; a in ax when x is the designated variable; the implied 1 in x and -1 in -x.";
+    rdfs:isDefinedBy "The role of a factor multiplying a designated variable part of a term and independent of the variables in that part. Its value may be written explicitly or implied by the notation.";
+    rdfs:comment "Identifying 3 as the coefficient of x in 3x; treating a as the coefficient in ax when x is the designated variable; making the implied coefficients 1 in x and -1 in -x explicit.";
     edu:specializes :Factor.
 :CollectingLinearTerms a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Combining additive terms proportional to the same designated variable or subexpression by adding their independent coefficients.";
@@ -251,8 +251,8 @@
 :ComputationalMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
 :ConditionalBranch a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A value expression paired with an explicit or default condition specifying when it supplies the value of a piecewise expression.";
-    rdfs:comment "The branches -x if x < 0 and x otherwise in an expression for absolute value.";
+    rdfs:isDefinedBy "The role of a value expression paired with an explicit or default condition specifying when it supplies the value of a piecewise expression.";
+    rdfs:comment "Pairing -x with x < 0 and x with the default condition otherwise to construct a piecewise expression for absolute value.";
     edu:partOf :ExpressionStructure.
 :Cone a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A three-dimensional geometric shape that tapers smoothly from a flat base to a point called the apex or vertex.";
@@ -264,12 +264,12 @@
     edu:partOf :ShapeEquivalenceRelations;
     edu:translates :ShapeRotationConservation.
 :Constant a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A literal or designated name for a fixed value, independent of the variable assignments under consideration.";
-    rdfs:comment "7 and pi in 7x + pi; a in ax when a is stipulated to be fixed.";
+    rdfs:isDefinedBy "The role of a literal or designated name for a fixed value, independent of the variable assignments under consideration.";
+    rdfs:comment "Distinguishing the fixed values 7 and pi from the varying x in 7x + pi; treating a as fixed while x varies in ax.";
     edu:partOf :ExpressionStructure.
 :ConstantTerm a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "An additive term independent of the designated variables, including a term expressed using fixed parameters.";
-    rdfs:comment "5 in 3x + 5; b + 1 in x + (b + 1) when x varies and b is fixed.";
+    rdfs:isDefinedBy "The role of an additive term independent of the designated variables, including a term expressed using fixed parameters.";
+    rdfs:comment "Separating the constant term 5 from 3x in 3x + 5; identifying b + 1 as the constant term in x + (b + 1) when x varies and b is fixed.";
     edu:specializes :Term.
 :ConstraintSystem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A collection of two or more mathematical constraints imposed simultaneously on a shared assignment to designated variables.";
@@ -341,8 +341,8 @@
     edu:inverts :Increment;
     edu:partOf :FoundationalOperations.
 :Denominator a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The divisor expression written below a fraction bar or after a slash representing that bar.";
-    rdfs:comment "x - 2 in (x + 1)/(x - 2); 4 in 3/4.";
+    rdfs:isDefinedBy "The role of the divisor expression written below a fraction bar or after a slash representing that bar.";
+    rdfs:comment "Identifying x - 2 as the complete denominator in (x + 1)/(x - 2); interpreting 4 as the divisor represented below the bar in 3/4.";
     edu:specializes :Divisor.
 :Difference a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining how two quantities or mathematical objects differ, including the amount separating two numerical values.";
@@ -378,8 +378,8 @@
     edu:expands :Addition, :Multiplication;
     edu:partOf :ArithmeticLaws.
 :Dividend a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The input being divided in a division expression.";
-    rdfs:comment "x + 1 in (x + 1)/3; 12 in 12 divided by 4.";
+    rdfs:isDefinedBy "The role of the input being divided in a division expression.";
+    rdfs:comment "Identifying x + 1 as the whole input being divided in (x + 1)/3; distinguishing the dividend 12 from the divisor 4 in 12 divided by 4.";
     edu:specializes :Operand.
 :DivisibilityRules a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Shorthand methods of determining whether a given integer is divisible by a fixed divisor without performing the division.";
@@ -413,15 +413,15 @@
     edu:expands :DivisionPartialQuotients, :IntegerRegrouping;
     edu:partOf :IntegerStrategies.
 :Divisor a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The input by which another input is divided in a division expression.";
-    rdfs:comment "3 in (x + 1)/3; y in x/y.";
+    rdfs:isDefinedBy "The role of the input by which another input is divided in a division expression.";
+    rdfs:comment "Identifying 3 as the divisor of x + 1 in (x + 1)/3; distinguishing the divisor y from the dividend x in x/y.";
     edu:specializes :Operand.
 :EmergentFeatureRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizing a recurring, alternating, invariant, or otherwise systematic property of generated pattern elements that follows from, but is not itself, the generative rule.";
     edu:specializes :PatternRecognition.
 :Equation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A mathematical statement asserting that two expressions have equal value.";
-    rdfs:comment "3 + 4 = 7; 2x + 3 = 11.";
+    rdfs:isDefinedBy "The form and meaning of mathematical statements asserting that two expressions have equal value.";
+    rdfs:comment "Interpreting the equality in 3 + 4 = 7; expressing 'twice x plus three equals eleven' as 2x + 3 = 11.";
     edu:expands :NumericIdentity;
     edu:specializes :MathematicalStatement.
 :EquationSolving a owl:NamedIndividual, edu:Area;
@@ -441,8 +441,8 @@
     edu:expands :SetComparison, :Subitizing;
     edu:specializes :DivisionOfCollections.
 :Exponent a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The input written in the exponent position of a power expression.";
-    rdfs:comment "3 in x^3; x + 1 in 2^(x + 1).";
+    rdfs:isDefinedBy "The role of the input written in the exponent position of a power expression.";
+    rdfs:comment "Distinguishing the exponent 3 from the base x in x^3; treating x + 1 as the complete exponent in 2^(x + 1).";
     edu:specializes :Operand.
 :ExponentialDependence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dependence whose governing expression has the form a*b^u + c in one designated variable u, with fixed real a != 0, b > 0, b != 1, and c, on a stated real domain.";
@@ -462,16 +462,16 @@
     rdfs:comment "b^u*b^v = b^(u + v), b^u/b^v = b^(u - v), and (b^u)^v = b^(uv) for b > 0 and real u, v; (x^2)^3 = x^6 for real x.";
     edu:partOf :AlgebraicLaws, :ArithmeticLaws.
 :ExpressionIndex a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "An expression identifying a member or position within an indexed collection.";
-    rdfs:comment "n in the sequence term a_n; i and j in the matrix entry A_(i,j).";
+    rdfs:isDefinedBy "The role of an expression identifying a member or position within an indexed collection.";
+    rdfs:comment "Interpreting n in a_n as the position of a sequence term; interpreting i and j in A_(i,j) as the row and column positions of a matrix entry.";
     edu:partOf :ExpressionStructure.
 :ExpressionStructure a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The roles of symbols and subexpressions, and the conventions that organize them into mathematical expressions.";
     rdfs:comment "Identifying 3 as the coefficient of x in 3x + 2; treating x + 2 as one factor in 5(x + 2); distinguishing sin from its argument x in sin(x).";
     edu:partOf :FormalMathematics.
 :Factor a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A multiplicative component of a product, whether written explicitly or implied by the notation.";
-    rdfs:comment "3 and x + 2 in 3(x + 2); the implied factor -1 in -x.";
+    rdfs:isDefinedBy "The multiplicative role of a component of a product, whether written explicitly or implied by the notation.";
+    rdfs:comment "Treating x + 2 as one factor alongside 3 in 3(x + 2); making the implied factor -1 explicit in -x.";
     edu:partOf :ExpressionStructure.
 :Factorization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of decomposing an integer into a product of other integers that, when multiplied together, result in the original number.";
@@ -481,7 +481,7 @@
     edu:expands :Division, :Multiplication;
     edu:partOf :Factorization.
 :FormalMathematics a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The branch of mathematics dealing with the rigorous, symbolic representation of mathematical concepts, expressions, and propositions, serving as the standardized language to communicate and manipulate mathematical ideas.";
+    rdfs:isDefinedBy "The syntax and meaning of symbolic representations of mathematical concepts, expressions, and statements.";
     rdfs:comment "Writing 'three more than x equals seven' as x + 3 = 7.".
 :FormulaRearrangement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Transforming an equation among quantities to isolate a chosen quantity while preserving its solutions and applicable domain restrictions.";
@@ -546,12 +546,12 @@
     rdfs:isDefinedBy "Recognizable methods for coordinating fraction magnitude, equivalence, and arithmetic relationships to obtain or explain a result.";
     edu:partOf :FractionArithmetic.
 :FreeVariable a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A variable occurrence not governed by a binding construct within the expression under consideration.";
-    rdfs:comment "x in sum_(i=1)^4 i*x; x in x + 3.";
+    rdfs:isDefinedBy "The role of a variable occurrence not governed by a binding construct within the expression under consideration.";
+    rdfs:comment "Distinguishing the free variable x from the bound index i in sum_(i=1)^4 i*x; identifying x as free in x + 3.";
     edu:specializes :Variable.
 :FunctionArgument a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A value or expression supplied explicitly to an input position in a function application.";
-    rdfs:comment "x + 1 in f(x + 1); a and b in max(a, b); g(x) as the argument of f in f(g(x)).";
+    rdfs:isDefinedBy "The role of a value or expression supplied explicitly to an input position in a function application.";
+    rdfs:comment "Treating x + 1 as the complete argument in f(x + 1); distinguishing the arguments a and b in max(a, b); treating g(x) as the argument of f in f(g(x)).";
     edu:specializes :Operand.
 :FunctionBehavior a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The properties of functions across their domains, including attained values, zeros, monotonicity, extrema, concavity, and limiting behavior.";
@@ -590,8 +590,8 @@
     rdfs:comment "The constant slope 3 of f(x) = 3x + 2; the average rate 4 of g(x) = x^2 from x = 1 to x = 3; its instantaneous rate 2 at x = 1.";
     edu:partOf :AlgebraicFunctions.
 :FunctionSymbol a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A symbol or written name identifying the function applied to the arguments of a function-application expression.";
-    rdfs:comment "f in f(x + 1); sin in sin(x); max in max(a, b).";
+    rdfs:isDefinedBy "The role of a symbol or written name identifying the function applied to the arguments of a function-application expression.";
+    rdfs:comment "Distinguishing f from its argument x + 1 in f(x + 1); identifying sin and max as the function names in sin(x) and max(a, b).";
     edu:specializes :Operator.
 :FunctionTransformation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Producing or interpreting a new real-valued function of a real input by translating, reflecting, or scaling the input or output of a given such function, with the transformed domain specified.";
@@ -606,8 +606,8 @@
     rdfs:comment "The zeros -2 and 2 of f(x) = x^2 - 4 over the real numbers.";
     edu:partOf :FunctionBehavior.
 :GeneralizedVariable a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A variable representing an arbitrary member of a stated domain in a claim intended to hold for every member of that domain.";
-    rdfs:comment "The real number x in the identity x + x = 2x.";
+    rdfs:isDefinedBy "The role of a variable representing an arbitrary member of a stated domain in a claim intended to hold for every member of that domain.";
+    rdfs:comment "Using x to stand for any real number in the identity x + x = 2x.";
     edu:specializes :Variable.
 :GenerativeRuleRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizing a generative rule that accounts for how the presented elements of a pattern are produced.";
@@ -643,8 +643,8 @@
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
 :GroupingSymbol a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A symbol or matched set of symbols delimiting a subexpression that is treated as a unit in surrounding syntax.";
-    rdfs:comment "The parentheses enclosing x + 2 in 3(x + 2); the brackets enclosing a + b in [a + b]^2.";
+    rdfs:isDefinedBy "The role of a symbol or matched set of symbols delimiting a subexpression that is treated as a unit in surrounding syntax.";
+    rdfs:comment "Using parentheses to make x + 2 one factor in 3(x + 2); using brackets to make a + b the base in [a + b]^2.";
     edu:partOf :ExpressionStructure.
 :GroupRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The foundational cognitive ability to perceive multiple distinct items as a single, unified collection. This focuses on recognizing the boundary that separates a group from its environment, rather than analyzing the individual items within it.";
@@ -666,8 +666,8 @@
     edu:expands :NumericOrder;
     edu:partOf :FoundationalOperations.
 :Inequality a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A mathematical statement asserting an order relation or non-equality between two expressions.";
-    rdfs:comment "x < 5, y ≥ 3, or a ≠ b.";
+    rdfs:isDefinedBy "The form and meaning of mathematical statements asserting an order relation or non-equality between two expressions.";
+    rdfs:comment "Expressing 'x is less than five' as x < 5; distinguishing y >= 3 from y > 3; interpreting a != b as non-equality.";
     edu:expands :NumericComparison;
     edu:specializes :MathematicalStatement.
 :InstantaneousRateOfChange a owl:NamedIndividual, edu:Area;
@@ -780,12 +780,12 @@
     edu:expands :FactorsAndMultiples;
     edu:partOf :FractionStrategies.
 :MathematicalExpression a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A well-formed finite symbolic form denoting a value without asserting a relation at its outermost level, including a single value-denoting symbol.";
-    rdfs:comment "5; x; 3x + 2; sin(x).";
+    rdfs:isDefinedBy "The syntax and meaning of well-formed finite symbolic forms denoting a value without asserting a relation at their outermost level, including single value-denoting symbols.";
+    rdfs:comment "Distinguishing the value-denoting form 3x + 2 from the assertion 3x + 2 = 11; interpreting 5, x, and sin(x) as expressions.";
     edu:partOf :FormalMathematics.
 :MathematicalStatement a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A declarative mathematical sentence that asserts a relation between expressions and can be evaluated as true or false.";
-    rdfs:comment "3 < 5; 2 + 2 = 5.";
+    rdfs:isDefinedBy "The form and meaning of declarative mathematical sentences that assert relations between expressions and can be evaluated as true or false.";
+    rdfs:comment "Interpreting 3 < 5 as a true assertion and 2 + 2 = 5 as a false assertion.";
     edu:partOf :FormalMathematics.
 :Measurement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Comparing or quantifying a measurable attribute, either qualitatively or by assigning a value relative to a unit.";
@@ -814,8 +814,8 @@
     rdfs:isDefinedBy "The process of finding the exact center point of a line segment on the coordinate plane by averaging the coordinates of its endpoints.";
     edu:partOf :GeometricCalculations.
 :Minuend a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The input from which another input is subtracted in a subtraction expression.";
-    rdfs:comment "x + 2 in (x + 2) - y; a in a - b.";
+    rdfs:isDefinedBy "The role of the input from which another input is subtracted in a subtraction expression.";
+    rdfs:comment "Treating x + 2 as the complete minuend in (x + 2) - y; distinguishing the minuend a from the subtrahend b in a - b.";
     edu:specializes :Operand.
 :Modulo a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the remainder after dividing one number by another.";
@@ -884,12 +884,12 @@
     rdfs:comment "Describing all values from 2 through 5 inclusive, or values greater than 2 and less than 5.";
     edu:specializes :Numeration.
 :Numerator a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The dividend expression written above a fraction bar or before a slash representing that bar.";
-    rdfs:comment "x + 1 in (x + 1)/(x - 2); 3 in 3/4.";
+    rdfs:isDefinedBy "The role of the dividend expression written above a fraction bar or before a slash representing that bar.";
+    rdfs:comment "Identifying x + 1 as the complete numerator in (x + 1)/(x - 2); interpreting 3 as the dividend represented above the bar in 3/4.";
     edu:specializes :Dividend.
 :NumericalExpression a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "An algebraic expression built exclusively from numerical values, operations, and function applications, containing no variables or relational operators.";
-    rdfs:comment "5; 5 + 5; sin(1); 2 × (8 + 7).";
+    rdfs:isDefinedBy "The form and meaning of algebraic expressions built exclusively from numerical values, operations, and function applications, containing no variables or relational operators.";
+    rdfs:comment "Recognizing 5, 5 + 5, sin(1), and 2 × (8 + 7) as numerical expressions; distinguishing sin(1) from sin(x).";
     edu:expands :ArithmeticOperations;
     edu:specializes :AlgebraicExpression.
 :NumericApproximation a owl:NamedIndividual, edu:Area;
@@ -954,12 +954,12 @@
     rdfs:comment "f(x) = 2x + 1 on the real numbers; g(x) = x^2 restricted to nonnegative real inputs.";
     edu:specializes :FunctionType.
 :Operand a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A value or subexpression occupying an explicit input position of an operation or function application, according to its written structure and grouping.";
-    rdfs:comment "3 and x in 3x; x + 2 and 5 in (x + 2)/5.";
+    rdfs:isDefinedBy "The explicit input role of a value or subexpression in an operation or function application, as determined by written structure and grouping.";
+    rdfs:comment "Identifying 3 and x as the multiplication inputs in 3x; treating x + 2 and 5 as the two inputs of the division in (x + 2)/5.";
     edu:partOf :ExpressionStructure.
 :Operator a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A symbol or notational convention identifying an operation or function applied to operand expressions and determining how those operands form a compound expression.";
-    rdfs:comment "The plus sign in x + 3; the minus sign in -x; juxtaposition in 3x; sin in sin(x).";
+    rdfs:isDefinedBy "The role of a symbol or notational convention identifying an operation or function applied to operand expressions and determining how those operands form a compound expression.";
+    rdfs:comment "Distinguishing the addition sign in x + 3 from the negation sign in -x; interpreting juxtaposition in 3x as multiplication and sin in sin(x) as function application.";
     edu:partOf :ExpressionStructure.
 :OrderedCoordinatePair a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A pair of numerical components whose first and second positions associate each value with a designated coordinate axis or contextual quantity.";
@@ -984,8 +984,8 @@
     edu:expands :ParallelismRelation;
     edu:specializes :Quadrilateral.
 :Parameter a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A variable held fixed within one member of a family of expressions, relations, or functions, whose value may differ between members of that family.";
-    rdfs:comment "The fixed slope m and intercept b in one member of the family y = mx + b.";
+    rdfs:isDefinedBy "The role of a variable held fixed within one member of a family of expressions, relations, or functions, whose value may differ between members of that family.";
+    rdfs:comment "Holding m and b fixed while x varies in one member of the family y = mx + b; changing m to select another member of that family.";
     edu:specializes :Variable.
 :PartitionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The physical, visual or symbolized act of splitting a single bounded collection into two or more distinct non-overlapping subcollections, establishing boundaries between them.";
@@ -1040,8 +1040,8 @@
     rdfs:isDefinedBy "The mathematical constant representing the ratio of a circle's circumference to its diameter.";
     edu:partOf :CircleRelations.
 :PiecewiseExpression a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A mathematical expression specified by finitely many branches with stated conditions. At each admissible assignment, at least one branch applies and all applicable branches give the same defined value.";
-    rdfs:comment "{ -x if x < 0; x if x >= 0 }; { 0 if x <= 0; x^2 if x >= 0 }.";
+    rdfs:isDefinedBy "The form and meaning of mathematical expressions specified by finitely many branches with stated conditions. At each admissible assignment, at least one branch applies and all applicable branches give the same defined value.";
+    rdfs:comment "Selecting the applicable branch in { -x if x < 0; x if x >= 0 }; checking that both branches of { 0 if x <= 0; x^2 if x >= 0 } give zero at x = 0.";
     edu:specializes :MathematicalExpression.
 :PiecewiseFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A function specified by separate rules on stated parts of its input domain, with one unambiguous output at every allowed input. Rules assigned to overlapping parts must agree on their overlap.";
@@ -1083,8 +1083,8 @@
     rdfs:isDefinedBy "The study of relationships describing how geometric lines, planes, or segments interact, intersect, or positionally relate to one another in space.";
     edu:partOf :GeometricRelations.
 :PowerBase a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The input written in the base position of a power expression.";
-    rdfs:comment "2 in 2^x; x + 1 in (x + 1)^3.";
+    rdfs:isDefinedBy "The role of the input written in the base position of a power expression.";
+    rdfs:comment "Distinguishing the base 2 from the exponent x in 2^x; treating x + 1 as the complete base in (x + 1)^3.";
     edu:specializes :Operand.
 :PowerFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A real-valued function with defining rule f(x) = a x^p for a fixed nonzero real coefficient a and fixed real exponent p, on a stated real domain where the power is defined under the specified convention.";
@@ -1160,8 +1160,8 @@
     rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection and the required cardinality of each equal subcollection are given. Every source object is assigned to exactly one subcollection, and the quotient is the number of resulting subcollections.";
     edu:specializes :DivisionOfCollections.
 :Radicand a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The input expression enclosed by a radical sign.";
-    rdfs:comment "x + 1 in sqrt(x + 1); 8 in the cube root of 8.";
+    rdfs:isDefinedBy "The role of the input expression enclosed by a radical sign.";
+    rdfs:comment "Treating x + 1 as the complete radicand in sqrt(x + 1); distinguishing the radicand 8 from the root index 3 in the cube root of 8.";
     edu:specializes :Operand.
 :RadiusDiameterRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The proportional relationship stating that the diameter of a circle is exactly twice the length of its radius.";
@@ -1191,8 +1191,8 @@
     rdfs:comment "(x^2 - 1)/(x - 1), with x != 1; the residual 1/x - 2 of 1/x = 2, with x != 0; f(x) = 1/(x + 1).";
     edu:specializes :AlgebraicDependence.
 :RatioNotation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Applying the system of symbols and conventions used to represent ratios.";
-    rdfs:comment "Writing 2:3 for two red counters to three blue counters.";
+    rdfs:isDefinedBy "The symbols and conventions used to represent ratios, and the meaning of the ordered quantities they compare.";
+    rdfs:comment "Writing 2:3 for two red counters to three blue counters; interpreting 3:2 as the ratio of blue counters to red counters in the same collection.";
     edu:specializes :NumberNotation.
 :RayConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A straight, one-dimensional figure that starts at a fixed point and extends infinitely in one direction.";
@@ -1242,8 +1242,8 @@
     edu:inverts :Exponentiation;
     edu:partOf :PowerOperations.
 :RootIndex a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The index specifying which root is requested by radical notation, including the implicit index two in square-root notation.";
-    rdfs:comment "The index 3 in the cube root of x; the implicit 2 in sqrt(x).";
+    rdfs:isDefinedBy "The role of the index specifying which root is requested by radical notation, including the implicit index two in square-root notation.";
+    rdfs:comment "Distinguishing the index 3 from the radicand x in the cube root of x; making the implicit index 2 explicit in sqrt(x).";
     edu:partOf :ExpressionStructure.
 :Rotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that turns a geometric figure around a fixed point, known as the center of rotation, by a specific angle.";
@@ -1377,8 +1377,8 @@
     rdfs:isDefinedBy "An angle that measures exactly 180 degrees, forming a straight line.";
     edu:specializes :AngleConcept.
 :Subexpression a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A value-denoting expression occurring explicitly as a structurally complete component of a larger expression.";
-    rdfs:comment "x + 2 in 5(x + 2); y^2 in x + y^2.";
+    rdfs:isDefinedBy "The role of a value-denoting expression occurring explicitly as a structurally complete component of a larger expression.";
+    rdfs:comment "Treating x + 2 as a complete subexpression in 5(x + 2); locating y^2 as a nested expression in x + y^2.";
     edu:partOf :ExpressionStructure.
 :Subitizing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The ability to instantly recognize the number of objects in a small group without counting.";
@@ -1420,8 +1420,8 @@
     edu:expands :Addition, :Subtraction;
     edu:partOf :IntegerStrategies.
 :Subtrahend a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The input subtracted from another input in a subtraction expression.";
-    rdfs:comment "y in (x + 2) - y; b in a - b.";
+    rdfs:isDefinedBy "The role of the input subtracted from another input in a subtraction expression.";
+    rdfs:comment "Identifying y as the subtrahend in (x + 2) - y; distinguishing the subtrahend b from the minuend a in a - b.";
     edu:specializes :Operand.
 :Sum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Combining mathematical quantities to determine their total.";
@@ -1463,8 +1463,8 @@
     rdfs:isDefinedBy "The geometric rule stating that a tangent line to a circle is perpendicular to the radius at the exact point of tangency.";
     edu:partOf :CircleRelations.
 :Term a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A signed additive component of an expression at the grouping level under consideration.";
-    rdfs:comment "3x, -2y, and 5 in 3x - 2y + 5; 2 and x inside the grouped factor in 3(2 + x).";
+    rdfs:isDefinedBy "The additive role of a signed component of an expression at the grouping level under consideration.";
+    rdfs:comment "Separating 3x, -2y, and 5 as the terms of 3x - 2y + 5; distinguishing the inner terms 2 and x from the whole grouped factor in 3(2 + x).";
     edu:partOf :ExpressionStructure.
 :ThreeDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Solid geometric figures with length, width, and depth.";
@@ -1496,8 +1496,8 @@
     edu:expands :PlaneConcept;
     edu:partOf :GeometricObjects.
 :UnaryOperator a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "An operator used with exactly one operand in a particular expression.";
-    rdfs:comment "The minus sign in -x; the factorial sign in n!; sin in sin(x).";
+    rdfs:isDefinedBy "The role of an operator used with exactly one operand in a particular expression.";
+    rdfs:comment "Interpreting the minus sign in -x as acting on the single input x; identifying one input in n! and sin(x).";
     edu:specializes :Operator.
 :UnevenDivisibility a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the divisor is two, precluding the source collection from being partitioned into exactly two subcollections of equal cardinality. The result identifies the source cardinality as an odd integer, consisting of a quotient that represents the shared cardinality of the subcollections and a remainder of one.";
@@ -1526,16 +1526,16 @@
     edu:expands :MeasuringObjects, :NumericComparison;
     edu:partOf :MeasuringWithUnits.
 :UnknownVariable a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A variable representing a particular value to be determined from stated conditions.";
-    rdfs:comment "The number x to be found in 3x + 2 = 17.";
+    rdfs:isDefinedBy "The role of a variable representing a particular value to be determined from stated conditions.";
+    rdfs:comment "Using x for the number to be determined from 3x + 2 = 17.";
     edu:specializes :Variable.
 :Variable a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A symbol standing for an unknown or unspecified value, or a quantity permitted to vary, within an identified mathematical context.";
-    rdfs:comment "The unknown x in x + 3 = 8; the varying time t in d = 5t.";
+    rdfs:isDefinedBy "The role of a symbol standing for an unknown or unspecified value, or a quantity permitted to vary, within an identified mathematical context.";
+    rdfs:comment "Using x for an unknown number in x + 3 = 8; using t for varying time in d = 5t.";
     edu:partOf :ExpressionStructure.
 :VaryingVariable a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A variable whose value is allowed to change across instances of a mathematical relationship.";
-    rdfs:comment "Time t and distance d in a table of values satisfying d = 5t.";
+    rdfs:isDefinedBy "The role of a variable whose value is allowed to change across instances of a mathematical relationship.";
+    rdfs:comment "Varying time t and the corresponding distance d in a table of values satisfying d = 5t.";
     edu:specializes :Variable.
 :VectorConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quantity with both magnitude and direction.";
