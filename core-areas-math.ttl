@@ -544,10 +544,6 @@
     rdfs:isDefinedBy "A variable occurrence not governed by a binding construct within the expression under consideration.";
     rdfs:comment "x in sum_(i=1)^4 i*x; x in x + 3.";
     edu:specializes :Variable.
-:Function a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A binary relation assigning exactly one output to every element of its stated input domain, independently of how the assignment is represented.";
-    rdfs:comment "A mapping from each student to their birth month; a table assigning 2 to input 0, 5 to input 1, and 8 to input 2.";
-    edu:specializes :BinaryRelation.
 :FunctionArgument a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A value or expression supplied explicitly to an input position in a function application.";
     rdfs:comment "x + 1 in f(x + 1); a and b in max(a, b); g(x) as the argument of f in f(g(x)).";
@@ -596,6 +592,10 @@
 :FunctionTransformation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Producing or interpreting a new real-valued function of a real input by translating, reflecting, or scaling the input or output of a given such function, with the transformed domain specified.";
     rdfs:comment "Relating g(x) = 2f(x - 3) + 1 to f; reflecting the graph of f across the vertical axis by defining g(x) = f(-x).";
+    edu:partOf :FunctionsAndRelations.
+:FunctionType a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A binary relation assigning exactly one output to every element of its stated input domain, independently of how the assignment is represented.";
+    rdfs:comment "A mapping from each student to their birth month; a table assigning 2 to input 0, 5 to input 1, and 8 to input 2.";
     edu:partOf :FunctionsAndRelations.
 :FunctionZeros a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The admissible inputs at which a numerical function has output zero.";
@@ -903,7 +903,7 @@
 :NumericFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A function whose inputs and outputs are numerical values in stated number systems.";
     rdfs:comment "f(x) = x^2 on the real numbers; a function assigning a numerical temperature to each measured time.";
-    edu:specializes :Function.
+    edu:specializes :FunctionType.
 :NumericIdentity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding that a number retains its value across different representations.";
     rdfs:comment "Recognizing the same quantity in a numeral, a number name, and a collection of objects.";
@@ -947,7 +947,7 @@
 :OneToOneFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A function assigning different outputs to every pair of distinct inputs in its stated domain.";
     rdfs:comment "f(x) = 2x + 1 on the real numbers; g(x) = x^2 restricted to nonnegative real inputs.";
-    edu:specializes :Function.
+    edu:specializes :FunctionType.
 :Operand a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A value or subexpression occupying an explicit input position of an operation or function application, according to its written structure and grouping.";
     rdfs:comment "3 and x in 3x; x + 2 and 5 in (x + 2)/5.";
@@ -1041,7 +1041,7 @@
 :PiecewiseFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A function specified by separate rules on stated parts of its input domain, with one unambiguous output at every allowed input. Rules assigned to overlapping parts must agree on their overlap.";
     rdfs:comment "f(x) = -x for x < 0 and f(x) = x for x >= 0; a delivery charge of 5 for orders below 50 and 0 for orders of at least 50.";
-    edu:specializes :Function.
+    edu:specializes :FunctionType.
 :PlaceValue a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The numerical value that a digit has by virtue of its position in a number.";
     edu:expands :ZeroConcept;
@@ -1258,7 +1258,7 @@
 :Sequence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A function assigning one term to each index in a consecutive integer domain with a stated first index. The domain may be finite or extend indefinitely toward increasing indices.";
     rdfs:comment "The three-term sequence red, blue, red indexed by 1, 2, 3; the sequence a_n = n^2 for n = 1, 2, 3, and onward.";
-    edu:specializes :Function.
+    edu:specializes :FunctionType.
 :SetComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Comparing the quantities of two bounded collections intuitively or visually without formal counting.";
     rdfs:comment "Judging which of two visibly matched groups has extra objects.";
