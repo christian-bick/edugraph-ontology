@@ -509,10 +509,6 @@
     rdfs:isDefinedBy "A binary relation assigning exactly one output to every element of its stated input domain, independently of how the assignment is represented.";
     rdfs:comment "A mapping from each student to their birth month; a table assigning 2 to input 0, 5 to input 1, and 8 to input 2.";
     edu:specializes :BinaryRelation.
-:FunctionApplicationExpression a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "An algebraic expression written as the application of a function to one or more arguments.";
-    rdfs:comment "sin(x); sin(1); sqrt(x) for x >= 0; f(x + 1); max(a, b).";
-    edu:specializes :AlgebraicExpression.
 :FunctionArgument a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A value or expression supplied explicitly to an input position in a function application.";
     rdfs:comment "x + 1 in f(x + 1); a and b in max(a, b); g(x) as the argument of f in f(g(x)).";
