@@ -1,22 +1,24 @@
 # Algebra family — compositional editor draft
 
-Draft branch: `codex/algebra-family-draft`. Revised 2026-10-05 after the redundancy review.
+Draft branch: `codex/algebra-family-draft`. Revised 2026-10-05 after the function and constraint review.
 The authored sources are [Areas](../../core-areas-math.ttl) and [Scopes](../../core-scopes-math.ttl).
 This document builds on the manual refinement through `0f277c5` and the definition/example
-review in `35d3482`, the formal concept definitions in `6d67042`, and the approved consolidation
-of laws and numerical sequences.
+review in `35d3482`, the formal concept definitions in `6d67042`, the law and sequence consolidation
+in `3f75e4a`, and the FunctionProperties rename in `e4e7299`. It also records the current function
+definitions, general factorization, and constraint-family decisions.
 
 This draft separates formal objects and roles, shared mathematical dependence, objectives,
 and reusable rewriting techniques. Expressions, equations, and functions can involve the same
 algebraic knowledge without acquiring parallel polynomial, quadratic, or rational family trees.
-AlgebraicFunctions organizes function types and constructions under Algebra. FunctionBehavior
-organizes range, monotonicity, extrema, and zeros under Analysis; the slope boundary is discussed below.
+AlgebraicFunctions organizes function types and constructions under Algebra. FunctionProperties
+organizes range, monotonicity, extrema, and zeros under Analysis; the accepted slope overlap is
+discussed below.
 
 ## Review in the editor
 
 In the [ontology editor](https://edugraph-editor.web.app), select `codex/algebra-family-draft`,
 the Area dimension, and Structure view. Review Algebra with descendants, then FormalMathematics
-and Analysis / FunctionBehavior.
+and Analysis / FunctionProperties.
 Use the visual diff against Main to inspect the complete proposal. The editor reads authored
 Turtle from the branch; no package release is needed for this review.
 
@@ -93,6 +95,7 @@ Algebra
       S QuadraticDependence
     S RationalDependence
   P AlgebraicEquivalence
+    S AlgebraicFactorization
     S AssociativeLaw
     S CommutativeLaw
     S DistributiveLaw
@@ -117,7 +120,7 @@ Algebra
       P InstantaneousRateOfChange
     P FunctionTransformation
     P FunctionType
-      S NumericFunction
+      P NumericFunction
         S AbsoluteValueFunction
         S ArithmeticSequence
         S GeometricSequence
@@ -127,9 +130,9 @@ Algebra
           S Cosine
           S Sine
           S Tangent
-      S OneToOneFunction
-      S PiecewiseFunction
-      S Sequence
+      P OneToOneFunction
+      P PiecewiseFunction
+      P Sequence
         S ArithmeticSequence [also above]
         S GeometricSequence [also above]
         S RecursiveSequence
@@ -193,7 +196,7 @@ The focused analysis branch records the function properties moved by the manual 
 <!-- BEGIN AUTHORED ANALYSIS TREE -->
 ```text
 Analysis
-  P FunctionBehavior
+  P FunctionProperties
     P FunctionExtrema
     P FunctionMonotonicity
     P FunctionRange
@@ -286,12 +289,14 @@ Static ExponentialDependence uses one designated variable: `2^(x^2)` is not expo
 `x` under its definition, even though its exponent can participate in exponential rewriting.
 
 PolynomialDivision specializes AlgebraicEquivalence through its
-dividend-equals-divisor-times-quotient-plus-remainder decomposition. ExpressionFactorization and
-PolynomialFactorization have been removed. Factoring a matching binomial identity or extracting
-a common factor from a linear combination can still use the corresponding specific technique.
-General product-form rewriting has no exact replacement: AlgebraicEquivalence does not itself
-require a product, and PolynomialDependence does not require polynomial factors over a specified
-coefficient domain. Review those learning claims separately before migrating factorization labels.
+dividend-equals-divisor-times-quotient-plus-remainder decomposition. AlgebraicFactorization now
+supplies the general product-form objective within a stated class of factors and coefficient
+domain, preserving values and original domain restrictions. It can compose with a dependence
+claim or an evidenced binomial or distributive technique without a separate quadratic
+factorization family. PolynomialDependence describes the original expression's dependence;
+it does not require that every requested factor be polynomial. Retain those factor and
+coefficient conditions when reviewing former ExpressionFactorization or PolynomialFactorization
+annotations. The integer Factorization family remains separate and unchanged.
 
 An `integrates` edge records the law used in constructing or applying the technique. It does
 not make every task involving the technique an independently evidenced law-understanding task,
@@ -310,6 +315,7 @@ specialization to derive broader claims rather than requiring their repeated ser
 | Explain why `3x + 2` denotes a value and `3x + 2 = 11` asserts equality. | AlgebraicExpression; Equation. |
 | Explain why `x^2 + 6x + 5` has quadratic dependence on `x`. | QuadraticDependence. |
 | Rewrite `3x + 2x + 4` as `5x + 4` by combining like terms. | CollectingLinearTerms. |
+| Express `x^2 + 5x + 6` as a product of integer polynomial factors. | AlgebraicFactorization; the requested factor class remains explicit in the task. |
 | Solve `3x + 2x = 15` by collecting terms and dividing by five. | EquationSolving; CollectingLinearTerms; SingleVariable. |
 | Rewrite `x^2 + 6x + 5` as `(x + 3)^2 - 4` by completing the square. | CompletingSquare; SingleVariable. |
 | Solve `x^2 + 6x + 5 = 0` by completing the square. | EquationSolving; CompletingSquare; SingleVariable. |
@@ -326,6 +332,41 @@ EquationSolving describes determining admissible assignments. FormulaRearrangeme
 its narrower objective of isolating a chosen quantity in a relation among quantities. A worked
 solution may combine both, but a formula rearrangement is not a replacement for solution-set
 reasoning, candidate checks, or an explanation that there are no solutions.
+
+## Constraint-family redundancy review
+
+AlgebraicEquivalence concerns equal expression values at every admissible assignment;
+AlgebraicConstraints concerns assignments that satisfy equations, inequalities, or systems.
+Thus `2(x + 1)` and `2x + 2` are equivalent expressions. The constraints `x = 1` and `2x = 2`
+instead have the same solution set `{1}`, even though the expressions `x` and `2x` are not
+equal throughout the real domain. RelationEquivalence now explicitly includes transformations
+preserving exactly the same solutions over the same variables and admissible domain.
+
+The source retains every existing constraint member. The following recommendations distinguish
+genuine simplification candidates from different knowledge claims under
+[ONT-D1](../descriptors.md#ont-d1--define-reusable-concepts) and
+[ONT-D2](../descriptors.md#ont-d2--choose-the-dimension-by-meaning).
+
+| Member | Current decision and boundary |
+|---|---|
+| AlgebraicConstraints | Retain as the organizer for satisfaction, solution sets, and their methods. |
+| ConstraintSystem / SystemOfEquations | Retain simultaneity and the all-equation specialization. A future move into FormalMathematics is a placement option because these describe formal objects; no move is applied here. |
+| EquationSolving | Recommend considering removal in favor of SolutionSet plus the evidenced Ability and named method. Its present definition adds determining the set, not an independent solving technique; deletion is pending a decision. |
+| SolutionSet | Retain the complete collection of satisfying assignments, including empty and infinite sets. |
+| RelationSatisfaction | Retain truth under one assignment: checking that 3 satisfies `x^2 = 9` does not determine the complete set `{-3, 3}`. |
+| RelationEquivalence | Retain equality of complete solution sets and transformations preserving them; it is not expression-value equivalence. |
+| FormulaRearrangement | Retain the particular objective of isolating a selected quantity, such as `A = bh` rewritten as `h = A/b` on `b != 0`. |
+| QuadraticFormula | Retain a formula characterizing solutions conditional on `ax^2 + bx + c = 0`. Unlike a binomial identity, it is not a value equality true for arbitrary x. |
+| SystemElimination | Retain the specific reversible replacement of one equation while another is kept. Adding equations and discarding both originals can lose constraints. |
+| SystemSubstitution | Retain isolation, replacement, reduction, and recovery of original assignments. AlgebraicSubstitution alone describes replacement, not this complete method. |
+
+For the EquationSolving proposal, ProcedureExecution can describe carrying out a method,
+ProcedureIdentification recognizing a suitable known one, and Interpretation or ConceptualThinking
+explaining the solution-set concept, when the content supports those claims. ProcedureApplication
+is organizational and cannot be a direct replacement label under
+[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
+A generic ConstraintSolving node with the same objective would simply recreate the wrapper.
+An Equation label should not be added solely to encode incidental task type.
 
 ## Boundaries to review
 
@@ -353,12 +394,13 @@ annotation review:
 |---|---|
 | ExpressionReasoning / AlgebraicRewriting / ExpressionEquivalence | AlgebraicEquivalence directly under Algebra, with the rewriting families as specializations. The removed organizational field is not an alias for a direct claim. |
 | Substitution | AlgebraicSubstitution directly under Algebra; the binding and admissible-value conditions remain. |
-| ExpressionFactorization / PolynomialFactorization | Removed without an exact generic replacement; use an evidenced retained technique where available and retain the product-form requirement in the task description. |
+| ExpressionFactorization / PolynomialFactorization | Review the new AlgebraicFactorization claim, retaining the specified factor class, coefficient domain, and domain restrictions. No automatic polynomial-factor inference follows from PolynomialDependence. |
 | FunctionsAndRelations | AlgebraicFunctions organizes function types and constructions. |
-| Function | FunctionType retains the unique-output correspondence meaning, independently of representation; its specializing families remain. |
+| Function / earlier FunctionType | FunctionType now organizes constituent aspects of functions and is ineligible for direct labeling. Review each existing direct annotation against the eligible concepts; generic nonnumeric correspondence remains an open coverage question. |
 | BinaryRelation | Removed; arbitrary relations that are not functions have no equivalent function label. |
-| FunctionRange / FunctionMonotonicity / FunctionExtrema / FunctionZeros | Moved under FunctionBehavior in Analysis; their own meanings remain independent of the method used. |
-| AverageRateOfChange | Moved under FunctionSlope alongside the new InstantaneousRateOfChange. FunctionSlope is organizational because both children use partOf. |
+| FunctionRange / FunctionMonotonicity / FunctionExtrema / FunctionZeros | Moved under FunctionProperties in Analysis; their own meanings remain independent of the method used. |
+| FunctionBehavior | Renamed FunctionProperties by the manual refinement in e4e7299. |
+| AverageRateOfChange / InstantaneousRateOfChange | Remain constituents of FunctionSlope. The user accepted this shared placement; FunctionSlope is organizational because both children use partOf. |
 | ApplyingBinomialIdentities | Removed in favor of BinomialIdentities under QuadraticRewriting; retain an evidenced Ability to distinguish recognizing, explaining, and applying the identities. |
 | AlgebraicLaws | Removed after its laws moved into the AlgebraicEquivalence specialization family. The former organizer is not an annotation alias for that broader concept. |
 | AssociativeLaw / CommutativeLaw / DistributiveLaw / ExponentLaws | Now specialize AlgebraicEquivalence while retaining their constituent placement under ArithmeticLaws. Their existing arithmetic uses and incoming progression relations remain. |
@@ -404,22 +446,43 @@ FunctionSymbol and FunctionArgument describe distinct formal roles without recre
 removed whole-expression wrapper. OperandCardinality keeps its existing whole-expression
 counting convention; local Operand roles do not redefine that Scope.
 
-Remaining function families, including PiecewiseFunction, OneToOneFunction, Sequence,
-PowerFunction, LogarithmicFunction, AbsoluteValueFunction, and TrigonometricFunction, are
-retained for discussion. Shared power, logarithmic, or absolute-value dependence might extend
-the compositional approach, but there is no approved replacement for these function concepts.
-Existing sine, cosine, and tangent meanings still include circular functions and triangle uses.
+## Function concepts and notation decisions
 
-Operations and function types also need an explicit comparison before consolidation.
-Exponentiation concerns raising a number to a power; PowerFunction concerns dependence on a
-variable input with a fixed exponent. Logarithm concerns recovering an exponent, whereas a
-LogarithmicFunction describes a function's rule and domain. AbsoluteNumberMagnitude belongs to
-NumberSense and currently concerns rational numbers; AbsoluteValueFunction has a real domain
-and permits translated and scaled rules. These differences preclude direct identifier aliases.
+FunctionType now organizes the defining correspondences and properties that distinguish
+functions. NumericFunction, OneToOneFunction, PiecewiseFunction, and Sequence are its
+constituents through partOf. Their definitions identify numerical correspondence, injectivity,
+piecewise definition, and indexed organization as knowledge; narrower numerical and sequence
+families retain their specialization relations. FunctionType therefore has constituent children
+and is ineligible for direct labeling. General nonnumeric correspondence that is neither
+one-to-one, piecewise, nor a sequence still lacks an eligible generic concept; that coverage
+question remains open rather than being assigned an arbitrary child.
 
-The specific precision findings concerning OperandCardinality, IntegerNotation, and SignNotation
-are reserved for the final review. This consolidation does not resolve those definitions or
-change their boundaries.
+The retained power, logarithmic, absolute-value, and trigonometric families now describe their
+input-output relationships and defining properties. Their distinction from operations is
+intentional: Exponentiation concerns raising a number to a power, while PowerFunction concerns
+dependence on an input with a fixed exponent. Logarithm concerns recovering an exponent, while
+LogarithmicFunction concerns the corresponding functional relationship and domain. Sine,
+Cosine, and Tangent retain their circular-function meanings and triangle examples.
+
+AbsoluteValueFunction explicitly defines real absolute value by `|u| = u` for `u >= 0` and
+`|u| = -u` for `u < 0`, within its translated and scaled family. Its new expands relation to
+AbsoluteNumberMagnitude records the extension from magnitude knowledge. AbsoluteNumberMagnitude
+remains the rational-number concept under NumberSense; the progression edge does not turn it
+into a function type or automatically add a separate annotation to every function task.
+
+IntegerNotation now specifies digits and an optional sign without a decimal separator or
+fraction bar. Its examples distinguish `2`, `2.0`, and `4/2` as representations without disputing
+that they can denote the same integer value. SignNotation separates sign from magnitude and
+explicitly handles signed zero: either sign leaves zero unchanged. These precision questions
+are resolved in the source.
+
+OperandCardinality remains a question only. One option is to generalize its parent definition
+to operand counts at a stated operation or expression level, while retaining the existing
+whole-expression conventions of TwoOperands, ThreeOperands, and FourOperands. This would broaden
+the parent's direct meaning and require reviewing existing parent annotations and making the
+counting level explicit. It would not automatically change any child count: `8 * (2 + 10)`
+currently has three counted operand occurrences. No Scope definition or count changes are
+implemented here.
 
 ## Adoption and the boundary with analysis
 
@@ -429,20 +492,19 @@ most specific level supported by content. Variable and the other structural role
 inherit MathematicalExpression merely because they occur inside an expression.
 
 The shared family approach makes polynomial or exponential knowledge available when analysis
-concepts are composed with it. The manual refinement moves FunctionBehavior to Analysis, but
+concepts are composed with it. The manual refinement places FunctionProperties in Analysis, but
 its constituents still admit algebraic methods: finding a minimum by completing the square does
 not imply differentiation. Their organizational placement does not add an Analysis annotation
 or change their mathematical definitions.
 
-InstantaneousRateOfChange introduces an explicit limit concept under FunctionSlope, which is
-currently under AlgebraicFunctions. This conflicts with the earlier strict cut in the Algebra
-definition, which assigns limits and differentiation to analysis. The review preserves the
-manual structure; the placement or stated boundary needs an explicit decision rather than
-quietly treating instantaneous rate as a non-calculus concept. AverageRateOfChange remains a
-finite difference quotient and does not require a limiting argument.
-This is a meaning and placement decision under [ONT-W2](../change-review.md#ont-w2--review-definitions-relations-and-effects-together),
-not a mechanical graph error. The user has retained this question for separate review; this
-consolidation leaves it unchanged. The fixed-input limit follows the usual
+The user has accepted keeping InstantaneousRateOfChange's definition and placement under
+FunctionSlope in AlgebraicFunctions. This is an intentional overlap connecting geometric slope,
+average secant rates, and instantaneous rates, rather than a strictly disjoint algebra/analysis
+partition. The current instantaneous-rate definition still uses a finite fixed-input limit and
+therefore includes calculus; AverageRateOfChange remains a finite difference quotient.
+The earlier Algebra definition retains its broad allocation of limits and differentiation to
+analysis, while this specific bridge remains shared in the authored organization. The accepted
+placement does not remove the limit from the concept. Its fixed-input limit follows the usual
 [definition of the derivative](https://openstax.org/books/calculus-volume-1/pages/3-1-defining-the-derivative).
 
 Differentiation, antiderivatives, definite integrals, and their rules would compose with the
@@ -464,24 +526,34 @@ Five missing example fields were filled, including AlgebraicConstraints. The exa
 specialization meanings were reviewed against [ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries)
 and [ONT-S2](../structure.md#ont-s2--specializes-preserves-the-broader-meaning).
 
-The current revision first updated definitions and examples for 42 formal descriptors in
+The earlier revision first updated definitions and examples for 42 formal descriptors in
 `6d67042`, preserving their graph assertions. It then consolidated laws within equivalence,
 broadened QuadraticRewriting to include equivalent forms, and removed AlgebraicLaws,
 ApplyingBinomialIdentities, and NumericSequence with the migration guidance above.
 
-Completed checks for this revision:
+At `3f75e4a`, the source validator, exact graph-change audit, three-tree comparison, and
+documentation validation passed. That historical audit found definitions and examples for
+all 117 descriptors then under Algebra, FormalMathematics, and FunctionBehavior; it does not
+establish the current descriptor count or validate the later changes.
 
-- The supplied ontology validator passes for all four authored Turtle files.
-- The graph difference from `35d3482` matches exactly the approved law and sequence changes;
-  no other identifiers or graph assertions changed.
-- The 117 descriptors under Algebra, FormalMathematics, and FunctionBehavior all have
-  definitions and examples. The affected definitions, examples, and specialization meanings
-  were reviewed against ONT-D4 and ONT-S2.
-- All three displayed trees match the current structural assertions, and the supplied
-  documentation validator passes for all 31 tracked Markdown documents and their repository links.
-- PowerFunction, LogarithmicFunction, AbsoluteValueFunction, InstantaneousRateOfChange,
-  IntegerNotation, and SignNotation remain unchanged. The Scope, Ability, and schema sources
-  are unchanged as well.
+The current revision updates the function definitions and constituent placement, adds
+AlgebraicFactorization and the absolute-value progression edge, clarifies constraint and
+relation-equivalence definitions, and resolves IntegerNotation and SignNotation.
+
+Completed checks against `e4e7299`:
+
+- The supplied source validator passes for all four authored Turtle files.
+- The graph audit finds exactly the four FunctionType edges changed from specializes to partOf,
+  the AbsoluteValueFunction expansion, and the AlgebraicFactorization specialization. No other
+  existing structural or progression assertions changed.
+- All 15 FunctionType-family definitions, their examples, and lower specialization boundaries
+  were reviewed. The formula, domain, and sequence conditions remain intact; the intended
+  FunctionType eligibility change is recorded above.
+- All three displayed trees match the source, and documentation validation passes for all
+  31 tracked Markdown files and their repository links.
+- The Scope, Ability, and schema sources remain unchanged. InstantaneousRateOfChange,
+  AbsoluteNumberMagnitude, and EquationSolving retain their previous definitions and relations.
+  The EquationSolving and operand-counting proposals above are not implemented decisions.
 
 The authoritative [Docker gate](../../DOCS.md#43-compiling-via-docker) was attempted again on
 2026-10-05 but could not connect to the Docker Desktop Linux engine because its named pipe was

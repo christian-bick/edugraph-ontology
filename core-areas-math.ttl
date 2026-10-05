@@ -14,8 +14,9 @@
     edu:partOf :NumberSense;
     edu:translates :DistanceCalculation.
 :AbsoluteValueFunction a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A real-valued function with defining rule f(x) = a|bx + c| + d for fixed real coefficients with a and b nonzero, on a stated real input domain.";
-    rdfs:comment "f(x) = |x|; g(x) = -2|x - 3| + 4.";
+    rdfs:isDefinedBy "The real input-output relationship defined by f(x) = a|bx + c| + d for fixed real coefficients with a and b nonzero, on a stated real domain. For a real argument u, |u| equals u when u >= 0 and -u when u < 0.";
+    rdfs:comment "Interpreting f(-3) = f(3) = 3 for f(x) = |x|; relating g(x) = -2|x - 3| + 4 to the basic absolute-value relationship.";
+    edu:expands :AbsoluteNumberMagnitude;
     edu:specializes :NumericFunction.
 :AcuteAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle greater than zero degrees and less than 90 degrees.";
@@ -66,7 +67,7 @@
     rdfs:isDefinedBy "The study of symbolic quantities, expressions, constraints, and functions and relations through their structure, representations, and transformations. Limits, continuity, differentiation, integration, and convergence belong to analysis.";
     rdfs:comment "Representing an unknown quantity with a variable, or solving an equation that relates several quantities.".
 :AlgebraicConstraints a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of equations, inequalities, and simultaneous constraints through the assignments that satisfy them and transformations that preserve their solutions.";
+    rdfs:isDefinedBy "The solution conditions of equations, inequalities, and simultaneous systems, including satisfaction, solution sets, and methods for finding or preserving those sets.";
     rdfs:comment "Solving 2x + 3 = 11; finding the real values satisfying x + 2 < 5; finding x and y that satisfy both x + y = 7 and x - y = 1.";
     edu:partOf :Algebra.
 :AlgebraicDependence a owl:NamedIndividual, edu:Area;
@@ -81,6 +82,10 @@
     rdfs:isDefinedBy "The form and meaning of mathematical expressions built from constants or variables, alone or combined through arithmetic operations, function applications, or conditional branches. Explicit limits, derivatives, integrals, and infinite sums or products are excluded.";
     rdfs:comment "Interpreting 5, 5 + 5, 3x + 2, 2^x, sin(x), and sin(1) as value-denoting forms; constructing { -x if x < 0; x if x >= 0 }.";
     edu:specializes :MathematicalExpression.
+:AlgebraicFactorization a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Expressing an algebraic expression as a product within a stated class of factors and coefficient domain, preserving its values and original domain restrictions.";
+    rdfs:comment "Factoring x^2 + 5x + 6 as (x + 2)(x + 3) over integer polynomial factors; factoring ab + ac as a(b + c).";
+    edu:specializes :AlgebraicEquivalence.
 :AlgebraicFunctions a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of functions through their types, domains, representations, constructions, and rates of change.";
     rdfs:comment "Interpreting f(3) = 7 for f(x) = 2x + 1; composing f(x) = x^2 with g(x) = x + 1 to obtain f(g(x)) = (x + 1)^2.";
@@ -134,8 +139,8 @@
     rdfs:comment "Addition, subtraction, multiplication, division, exponentiation, or root extraction.";
     edu:partOf :Arithmetic.
 :ArithmeticSequence a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A numerical sequence in which every pair of consecutive terms has the same fixed additive difference, including the zero difference.";
-    rdfs:comment "2, 5, 8, 11, and onward with difference 3; 4, 4, 4, and onward with difference 0.";
+    rdfs:isDefinedBy "The constant-difference relationship between consecutive terms of a numerical sequence, including zero difference.";
+    rdfs:comment "Expressing 2, 5, 8, 11, and onward as a_n = 2 + 3(n - 1) for n >= 1; identifying zero difference in 4, 4, 4, and onward.";
     edu:specializes :NumericFunction, :Sequence.
 :ArithmeticSpaces a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of number systems, their properties, and the representations used to express and operate on their values.";
@@ -279,7 +284,7 @@
     edu:expands :PointPlotting;
     edu:partOf :GeometricVisualization.
 :Cosine a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The real-valued function assigning to an angle measure the horizontal coordinate of the corresponding point on the unit circle, using a specified angular unit.";
+    rdfs:isDefinedBy "The relationship between an angle measure and the horizontal coordinate of its corresponding point on the unit circle, using a specified angular unit.";
     rdfs:comment "cos(0) = 1 and cos(pi) = -1 for radian measures; an adjacent side of length 4 and hypotenuse of length 5 give cosine 4/5 for the included acute angle.";
     edu:partOf :TrigonometricRelations;
     edu:specializes :TrigonometricFunction.
@@ -596,8 +601,8 @@
     rdfs:comment "Relating g(x) = 2f(x - 3) + 1 to f; reflecting the graph of f across the vertical axis by defining g(x) = f(-x).";
     edu:partOf :AlgebraicFunctions.
 :FunctionType a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Functions distinguished by their input and output domains, defining rules, or mapping properties, each assigning exactly one output to every admissible input.";
-    rdfs:comment "A mapping from each student to their birth month; a table assigning 2 to input 0, 5 to input 1, and 8 to input 2.";
+    rdfs:isDefinedBy "The defining correspondences and properties that distinguish functions by their input and output domains, rules, or mapping behavior. Each admissible input is assigned exactly one output.";
+    rdfs:comment "Distinguishing numerical correspondence in f(x) = x^2, distinct outputs for distinct inputs in g(x) = 2x + 1, and indexed terms in a_n = n^2.";
     edu:partOf :AlgebraicFunctions.
 :FunctionZeros a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The admissible inputs at which a numerical function has output zero.";
@@ -628,7 +633,7 @@
     rdfs:comment "Congruence, similarity, parallelism, and perpendicularity.";
     edu:partOf :Geometry.
 :GeometricSequence a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A numerical sequence in which each term with a predecessor equals that predecessor multiplied by one fixed numerical factor, allowing zero or negative factors and zero terms.";
+    rdfs:isDefinedBy "The constant-factor relationship between consecutive terms of a numerical sequence, where each term with a predecessor equals that predecessor multiplied by one fixed number. Zero or negative factors and zero terms are included.";
     rdfs:comment "3, 6, 12, 24, and onward with factor 2; 1, -2, 4, -8, and onward with factor -2; 5, 0, 0, and onward with factor 0.";
     edu:specializes :NumericFunction, :Sequence.
 :GeometricTransformations a owl:NamedIndividual, edu:Area;
@@ -678,8 +683,8 @@
     edu:expands :NumerationWithIntegers;
     edu:partOf :ArithmeticSpaces.
 :IntegerNotation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The symbols and conventions used to represent integer values.";
-    rdfs:comment "Writing -3, 0, and 12, or interpreting a sign as part of an integer representation.";
+    rdfs:isDefinedBy "The conventions for representing integer values with digits and an optional sign, without a decimal separator or fraction bar.";
+    rdfs:comment "Writing -3, 0, and 12; distinguishing the integer notation 2 from the decimal notation 2.0 and the fraction notation 4/2.";
     edu:expands :DigitNotation;
     edu:specializes :NumberNotation.
 :IntegerRegrouping a owl:NamedIndividual, edu:Area;
@@ -761,8 +766,8 @@
     edu:inverts :Exponentiation;
     edu:partOf :PowerOperations.
 :LogarithmicFunction a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A real-valued function with defining rule f(x) = a log_b(cx + d) + k for fixed real coefficients a, c, d, and k and a fixed base b, where a and c are nonzero, b is positive, and b is unequal to one. Its stated domain is contained in cx + d > 0.";
-    rdfs:comment "f(x) = log_2(x) for positive x; g(x) = -ln(3 - x) for x less than 3.";
+    rdfs:isDefinedBy "The real input-output relationship defined by f(x) = a log_b(cx + d) + k, with fixed real coefficients, nonzero a and c, and a fixed positive base b unequal to one. Its stated domain is contained in cx + d > 0.";
+    rdfs:comment "Interpreting log_2(x) as the exponent producing x from base 2; identifying x < 3 as the real input domain of -ln(3 - x).";
     edu:specializes :NumericFunction.
 :Logic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of valid reasoning and the conditions under which conclusions follow from premises.";
@@ -904,9 +909,9 @@
     edu:expands :NumericOrder;
     edu:partOf :NumericComparison.
 :NumericFunction a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A function whose inputs and outputs are numerical values in stated number systems.";
-    rdfs:comment "f(x) = x^2 on the real numbers; a function assigning a numerical temperature to each measured time.";
-    edu:specializes :FunctionType.
+    rdfs:isDefinedBy "The correspondence between numerical inputs and outputs in stated number systems, assigning exactly one output to each admissible input.";
+    rdfs:comment "Interpreting a time-temperature rule as a correspondence between numerical quantities; relating each real input x to the output x^2.";
+    edu:partOf :FunctionType.
 :NumericIdentity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding that a number retains its value across different representations.";
     rdfs:comment "Recognizing the same quantity in a numeral, a number name, and a collection of objects.";
@@ -944,9 +949,9 @@
     edu:expands :LineConcept;
     edu:partOf :GeometricObjects.
 :OneToOneFunction a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A function assigning different outputs to every pair of distinct inputs in its stated domain.";
-    rdfs:comment "f(x) = 2x + 1 on the real numbers; g(x) = x^2 restricted to nonnegative real inputs.";
-    edu:specializes :FunctionType.
+    rdfs:isDefinedBy "The mapping property that distinct inputs of a function have distinct outputs within its stated domain.";
+    rdfs:comment "Checking that f(x) = 2x + 1 never assigns one output to two real inputs; contrasting x^2 over all real inputs with x^2 restricted to nonnegative inputs.";
+    edu:partOf :FunctionType.
 :Operand a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The explicit input role of a value or subexpression in an operation or function application, as determined by written structure and grouping.";
     rdfs:comment "Identifying 3 and x as the multiplication inputs in 3x; treating x + 2 and 5 as the two inputs of the division in (x + 2)/5.";
@@ -1038,9 +1043,9 @@
     rdfs:comment "Selecting the applicable branch in { -x if x < 0; x if x >= 0 }; checking that both branches of { 0 if x <= 0; x^2 if x >= 0 } give zero at x = 0.";
     edu:specializes :MathematicalExpression.
 :PiecewiseFunction a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A function specified by separate rules on stated parts of its input domain, with one unambiguous output at every allowed input. Rules assigned to overlapping parts must agree on their overlap.";
-    rdfs:comment "f(x) = -x for x < 0 and f(x) = x for x >= 0; a delivery charge of 5 for orders below 50 and 0 for orders of at least 50.";
-    edu:specializes :FunctionType.
+    rdfs:isDefinedBy "The definition of a function by separate rules on stated parts of its input domain, with one unambiguous output at every admissible input. Rules assigned to overlapping parts must agree there.";
+    rdfs:comment "Constructing f(x) = -x for x < 0 and f(x) = x for x >= 0; expressing a delivery charge of 5 for orders below 50 and 0 for orders of at least 50.";
+    edu:partOf :FunctionType.
 :PlaceValue a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The numerical value that a digit has by virtue of its position in a number.";
     edu:expands :ZeroConcept;
@@ -1081,8 +1086,8 @@
     rdfs:comment "Distinguishing the base 2 from the exponent x in 2^x; treating x + 1 as the complete base in (x + 1)^3.";
     edu:specializes :Operand.
 :PowerFunction a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A real-valued function with defining rule f(x) = a x^p for a fixed nonzero real coefficient a and fixed real exponent p, on a stated real domain where the power is defined under the specified convention.";
-    rdfs:comment "f(x) = x^3; g(x) = x^(1/2) for x greater than or equal to zero; h(x) = x^(-1) for nonzero real x.";
+    rdfs:isDefinedBy "The real input-output relationship defined by f(x) = a x^p, with fixed real a != 0 and p, on a stated real domain where the power is defined under the specified convention.";
+    rdfs:comment "Interpreting cubing and square-root rules as powers with exponents 3 and 1/2; determining why f(x) = x^(-1) excludes zero.";
     edu:specializes :NumericFunction.
 :PowerOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The specialized application of mathematical rules and procedures to perform higher-order calculations through the actions of exponentiation, root extraction, and logarithmic derivation.";
@@ -1201,8 +1206,8 @@
     edu:expands :Rectangle;
     edu:specializes :Prism.
 :RecursiveSequence a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A sequence defined by specified initial terms and a rule that determines each subsequent term from earlier terms and, where needed, its index.";
-    rdfs:comment "a_1 = 2 and a_(n+1) = a_n + 3 for positive integer n; a_1 = 1, a_2 = 1, and a_(n+2) = a_(n+1) + a_n.";
+    rdfs:isDefinedBy "The definition of a sequence through specified initial terms and a rule determining each subsequent term from earlier terms and, where needed, its index.";
+    rdfs:comment "Generating 2, 5, 8, and onward from a_1 = 2 and a_(n+1) = a_n + 3; generating 1, 1, 2, 3, and onward from two initial ones by summing the two preceding terms.";
     edu:specializes :Sequence.
 :Reflection a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that flips a geometric figure across a line, creating a mirror image.";
@@ -1212,8 +1217,8 @@
     rdfs:isDefinedBy "An angle that measures more than 180 degrees but less than 360 degrees.";
     edu:specializes :AngleConcept.
 :RelationEquivalence a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Equality of the solution sets of two mathematical constraints or simultaneous systems over the same specified variables and admissible domain.";
-    rdfs:comment "x + 1 = 4 and 2x + 2 = 8 both have the solution x = 3; -2x < 6 and x > -3 have the same real solutions.";
+    rdfs:isDefinedBy "Equality of the solution sets of equations, inequalities, or simultaneous constraints over the same variables and admissible domain, including transformations that preserve exactly those solutions.";
+    rdfs:comment "Establishing that x = 1 and 2x = 2 both have the real solution set {1}; converting -2x < 6 to x > -3 without changing the real solutions.";
     edu:partOf :AlgebraicConstraints.
 :RelationSatisfaction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The truth of a mathematical equation, inequality, or constraint under a particular admissible assignment to its variables.";
@@ -1255,9 +1260,9 @@
     edu:inverts :EquilateralTriangle;
     edu:specializes :Triangle.
 :Sequence a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A function assigning one term to each index in a consecutive integer domain with a stated first index. The domain may be finite or extend indefinitely toward increasing indices.";
-    rdfs:comment "The three-term sequence red, blue, red indexed by 1, 2, 3; the sequence a_n = n^2 for n = 1, 2, 3, and onward.";
-    edu:specializes :FunctionType.
+    rdfs:isDefinedBy "The indexed organization of terms, assigning one term to each position in a consecutive integer domain with a stated first index. The domain may be finite or extend indefinitely toward increasing indices.";
+    rdfs:comment "Associating red, blue, red with indices 1, 2, 3; interpreting a_n = n^2 as the assignment of a term to each positive integer index.";
+    edu:partOf :FunctionType.
 :SetComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Comparing the quantities of two bounded collections intuitively or visually without formal counting.";
     rdfs:comment "Judging which of two visibly matched groups has extra objects.";
@@ -1323,8 +1328,8 @@
     rdfs:isDefinedBy "Understanding how a shape can be slid in a specific direction while maintaining its original size, orientation, and form.";
     edu:specializes :ShapeConservation.
 :SignNotation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The identification and application of positive (+) and negative (-) symbols to indicate a number's direction and magnitude relative to zero.";
-    rdfs:comment "Writing -4 for four units below zero and +4 for four units above zero.";
+    rdfs:isDefinedBy "The conventions for indicating positive and negative numerical values with leading plus and minus signs, independently of magnitude. Either sign leaves zero unchanged.";
+    rdfs:comment "Interpreting the minus signs in -4 and -9 as negative despite their different magnitudes; distinguishing +4 from -4; interpreting -0 as zero.";
     edu:expands :AbsoluteNumberMagnitude, :ZeroConcept;
     edu:specializes :NumberNotation.
 :SimilarityRelation a owl:NamedIndividual, edu:Area;
@@ -1333,7 +1338,7 @@
     edu:partOf :ShapeEquivalenceRelations;
     edu:translates :ShapeRotationConservation.
 :Sine a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The real-valued function assigning to an angle measure the vertical coordinate of the corresponding point on the unit circle, using a specified angular unit.";
+    rdfs:isDefinedBy "The relationship between an angle measure and the vertical coordinate of its corresponding point on the unit circle, using a specified angular unit.";
     rdfs:comment "sin(pi/2) = 1 and sin(3pi/2) = -1 for radian measures; an opposite side of length 3 and hypotenuse of length 5 give sine 3/5 for the acute angle.";
     edu:partOf :TrigonometricRelations;
     edu:specializes :TrigonometricFunction.
@@ -1449,7 +1454,7 @@
     rdfs:comment "Substituting y = 2x + 1 into x + y = 7 to obtain 3x + 1 = 7, then finding x = 2 and y = 5.";
     edu:partOf :AlgebraicConstraints.
 :Tangent a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The real-valued function assigning to an angle measure its sine divided by its cosine, using a specified angular unit and excluding angles with zero cosine.";
+    rdfs:isDefinedBy "The relationship between an angle measure and the quotient of its sine by its cosine, using a specified angular unit and excluding angles with zero cosine.";
     rdfs:comment "tan(pi/4) = 1 and tan(3pi/4) = -1 for radian measures; opposite and adjacent sides of lengths 3 and 4 give tangent 3/4 for the acute angle.";
     edu:partOf :TrigonometricRelations;
     edu:specializes :TrigonometricFunction.
@@ -1477,7 +1482,7 @@
     rdfs:isDefinedBy "The study of three-sided polygons, their properties, and related measurements.";
     edu:specializes :Polygon.
 :TrigonometricFunction a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A real-valued function of an angle measure defined by a circular sine, cosine, tangent, or their reciprocal functions, using a specified angular unit and a stated domain excluding undefined values.";
+    rdfs:isDefinedBy "The real input-output relationships defined by circular sine, cosine, tangent, or their reciprocal functions for angle measures, using a specified angular unit and a stated domain excluding undefined values.";
     rdfs:comment "f(t) = sin(t) for real angle measures t in radians; g(t) = tan(t) for radian measures t in (-pi/2, pi/2).";
     edu:specializes :NumericFunction.
 :TrigonometricRelations a owl:NamedIndividual, edu:Area;
