@@ -144,8 +144,8 @@
 :AssociativeLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that the way in which numbers are grouped by parentheses does not change their sum or product.";
     rdfs:comment "(2 + 3) + 4 = 2 + (3 + 4); (a*b)*c = a*(b*c) for real a, b, c.";
-    edu:specializes :AlgebraicEquivalence;
-    edu:partOf :ArithmeticLaws.
+    edu:partOf :ArithmeticLaws;
+    edu:specializes :AlgebraicEquivalence.
 :AverageRateOfChange a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The quotient of the change in a real-valued function's output by the nonzero change between two distinct real inputs in its stated domain.";
     rdfs:comment "The average rate of change of f(x) = x^2 from x = 1 to x = 3 is (9 - 1)/(3 - 1) = 4; a distance increase of 60 kilometers in 2 hours gives 30 kilometers per hour.";
@@ -228,8 +228,8 @@
     rdfs:isDefinedBy "The mathematical principle stating that the order in which numbers are added or multiplied does not change their sum or product.";
     rdfs:comment "3 + 5 = 5 + 3; a*b = b*a for real a, b.";
     edu:expands :Addition, :Multiplication;
-    edu:specializes :AlgebraicEquivalence;
-    edu:partOf :ArithmeticLaws.
+    edu:partOf :ArithmeticLaws;
+    edu:specializes :AlgebraicEquivalence.
 :ComplementaryAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles whose sum is exactly 90 degrees.";
     edu:partOf :AngleRelations.
@@ -372,8 +372,8 @@
     rdfs:isDefinedBy "The mathematical principle stating that multiplying a sum by a number gives the same result as multiplying each addend by the number and then adding the products together.";
     rdfs:comment "3*(4 + 2) = 3*4 + 3*2; a*(b + c) = a*b + a*c for real a, b, c.";
     edu:expands :Addition, :Multiplication;
-    edu:specializes :AlgebraicEquivalence;
-    edu:partOf :ArithmeticLaws.
+    edu:partOf :ArithmeticLaws;
+    edu:specializes :AlgebraicEquivalence.
 :Dividend a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of the input being divided in a division expression.";
     rdfs:comment "Identifying x + 1 as the whole input being divided in (x + 1)/3; distinguishing the dividend 12 from the divisor 4 in 12 divided by 4.";
@@ -457,8 +457,8 @@
 :ExponentLaws a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identities relating products, quotients, and powers of powers to operations on exponents, with base and exponent restrictions that make each identity valid.";
     rdfs:comment "b^u*b^v = b^(u + v), b^u/b^v = b^(u - v), and (b^u)^v = b^(uv) for b > 0 and real u, v; (x^2)^3 = x^6 for real x.";
-    edu:specializes :AlgebraicEquivalence;
-    edu:partOf :ArithmeticLaws.
+    edu:partOf :ArithmeticLaws;
+    edu:specializes :AlgebraicEquivalence.
 :ExpressionIndex a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of an expression identifying a member or position within an indexed collection.";
     rdfs:comment "Interpreting n in a_n as the position of a sequence term; interpreting i and j in A_(i,j) as the row and column positions of a matrix entry.";
@@ -551,10 +551,6 @@
     rdfs:isDefinedBy "The role of a value or expression supplied explicitly to an input position in a function application.";
     rdfs:comment "Treating x + 1 as the complete argument in f(x + 1); distinguishing the arguments a and b in max(a, b); treating g(x) as the argument of f in f(g(x)).";
     edu:specializes :Operand.
-:FunctionBehavior a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The properties of functions across their domains, including attained values, zeros, monotonicity, extrema, concavity, and limiting behavior.";
-    rdfs:comment "The minimum value 0 and range [0, infinity) of f(x) = x^2 over the real numbers; the decrease of g(x) = 1/x toward 0 as positive x increases without bound.";
-    edu:partOf :Analysis.
 :FunctionComposition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Constructing or interpreting a function by using the output of one function as the input to another in a specified order. Its domain contains exactly those inputs admitted by the inner function whose outputs are admitted by the outer function, unless a narrower domain is explicitly prescribed.";
     rdfs:comment "For f(x) = x^2 and g(x) = x + 1, f(g(x)) = (x + 1)^2 and g(f(x)) = x^2 + 1.";
@@ -566,7 +562,7 @@
 :FunctionExtrema a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Maximum and minimum values of a real-valued function and the inputs where they occur, distinguishing comparison with the whole stated domain from comparison within a specified neighborhood.";
     rdfs:comment "The minimum value 0 attained by f(x) = (x - 2)^2 at x = 2; the maximum value 4 attained by g(x) = 4 - x^2 at x = 0.";
-    edu:partOf :FunctionBehavior.
+    edu:partOf :FunctionProperties.
 :FunctionInversion a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Constructing or interpreting the function that reverses a one-to-one function's input-output correspondence, exchanging its domain and range. A function that is not one-to-one must first be restricted to a suitable domain before this inverse is a function.";
     rdfs:comment "Inverting f(x) = 2x + 3 to obtain g(y) = (y - 3)/2; inverting x^2 on nonnegative real inputs to obtain the principal square-root function.";
@@ -574,15 +570,19 @@
 :FunctionMonotonicity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The way output order follows or reverses input order for a real-valued function over a stated ordered domain or portion of it, distinguishing strict and non-strict increase, decrease, and constancy.";
     rdfs:comment "f(x) = x^2 decreases on (-infinity, 0] and increases on [0, infinity); g(x) = 3 is constant on the real numbers.";
-    edu:partOf :FunctionBehavior.
+    edu:partOf :FunctionProperties.
 :FunctionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The symbolic conventions for naming a function, marking its argument, and denoting its output, including the distinction between a function's name and a value of that function.";
     rdfs:comment "Interpreting f(3) as the output of f at input 3; writing f(x) = 2x + 1 and then f(3) = 7.";
     edu:partOf :AlgebraicFunctions.
+:FunctionProperties a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The properties of functions across their domains, including attained values, zeros, monotonicity, extrema, concavity, and limiting behavior.";
+    rdfs:comment "The minimum value 0 and range [0, infinity) of f(x) = x^2 over the real numbers; the decrease of g(x) = 1/x toward 0 as positive x increases without bound.";
+    edu:partOf :Analysis.
 :FunctionRange a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The set of outputs actually attained by a function as its input runs through its stated domain, distinguished from an output set that may also contain unattained values.";
     rdfs:comment "The range [0, infinity) for f(x) = x^2 on the real numbers; the range {2, 4, 6} for f(n) = 2n on {1, 2, 3}.";
-    edu:partOf :FunctionBehavior.
+    edu:partOf :FunctionProperties.
 :FunctionSlope a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Rates of change of a real-valued function with respect to its real input, measured between distinct inputs or at a point where a finite limiting rate exists.";
     rdfs:comment "The constant slope 3 of f(x) = 3x + 2; the average rate 4 of g(x) = x^2 from x = 1 to x = 3; its instantaneous rate 2 at x = 1.";
@@ -602,7 +602,7 @@
 :FunctionZeros a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The admissible inputs at which a numerical function has output zero.";
     rdfs:comment "The zeros -2 and 2 of f(x) = x^2 - 4 over the real numbers.";
-    edu:partOf :FunctionBehavior.
+    edu:partOf :FunctionProperties.
 :GeneralizedVariable a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a variable representing an arbitrary member of a stated domain in a claim intended to hold for every member of that domain.";
     rdfs:comment "Using x to stand for any real number in the identity x + x = 2x.";
