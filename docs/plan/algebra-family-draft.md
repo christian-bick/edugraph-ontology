@@ -5,8 +5,9 @@ The authored sources are [Areas](../../core-areas-math.ttl) and [Scopes](../../c
 This document builds on the manual refinement through `0f277c5` and the definition/example
 review in `35d3482`, the formal concept definitions in `6d67042`, the law and sequence consolidation
 in `3f75e4a`, the function and factorization review in `0c85673`, and the manual refinement
-through `b60b42c`. The current follow-up broadens equivalence, restores QuadraticFormula within
-that family, and separates proposed system techniques from proposed solving objectives.
+through `b60b42c` and the broadened equivalence family in `0f2d099`. The current follow-up
+authors SystemRewriting for equivalent-system techniques and ConstraintSolving for solving
+objectives, with their narrower specializations.
 
 This draft separates formal objects and roles, shared mathematical dependence, objectives,
 and reusable rewriting techniques. Expressions, equations, and functions can involve the same
@@ -78,14 +79,15 @@ current source assertions; progression relations are discussed separately.
 ```text
 Algebra
   P AlgebraicConstraints
+    P ConstraintSolving
+      S EquationSolving
+      S InequalitySolving
+      S SystemSolving
     P ConstraintSystem
       S SystemOfEquations
       S SystemOfInequalities
-    P EquationSolving
     P RelationSatisfaction
     P SolutionSet
-    P SystemElimination
-    P SystemSubstitution
   P AlgebraicDependence
     S ExponentialDependence
     S PolynomialDependence
@@ -110,6 +112,9 @@ Algebra
     S QuadraticRewriting
       S BinomialIdentities
       S CompletingSquare
+    S SystemRewriting
+      S SystemElimination
+      S SystemSubstitution
   P AlgebraicFunctions
     P FunctionComposition
     P FunctionDomain
@@ -365,66 +370,47 @@ Ability describes how the learner performs that work; it does not replace the ma
 
 | Member | Current authored decision and boundary |
 |---|---|
-| AlgebraicConstraints | Organizes satisfaction, solution sets, solving goals, and the currently placed system methods. |
+| AlgebraicConstraints | Organizes satisfaction, solution sets, constraint systems, and the ConstraintSolving objective family. |
 | ConstraintSystem / SystemOfEquations / SystemOfInequalities | Retain simultaneous constraints and the all-equation or all-inequality specializations. Mixed systems remain expressible through ConstraintSystem. |
-| EquationSolving | Retain determining the complete admissible solution set, including all-domain and empty solution sets. |
+| ConstraintSolving | Determines complete admissible assignments satisfying one constraint or a simultaneous system. |
+| EquationSolving / InequalitySolving / SystemSolving | Specialize ConstraintSolving for one equation, one inequality, or all members of a simultaneous system, respectively. |
 | SolutionSet | Retain the complete collection of satisfying assignments; the concept does not itself require finding that collection. |
 | RelationSatisfaction | Retain truth under one assignment: checking that 3 satisfies x^2 = 9 does not determine the complete real set {-3, 3}. |
 | AlgebraicEquivalence | Covers expression-value equality or equality of constraint solution sets on a shared admissible domain. |
 | QuadraticFormula | Restored directly under AlgebraicEquivalence as a complete solution characterization for a quadratic equation with nonzero leading coefficient. |
-| SystemElimination | Still a constituent of AlgebraicConstraints; retains one equation while replacing another by its sum with a scalar multiple. |
-| SystemSubstitution | Still a constituent of AlgebraicConstraints; preserves its isolation, replacement, reduction, and recovery meaning. |
+| SystemRewriting | Specializes AlgebraicEquivalence for equivalent systems over the same variables and admissible domain. |
+| SystemElimination | Specializes SystemRewriting; retains one equation while replacing another by its sum with a scalar multiple. |
+| SystemSubstitution | Specializes SystemRewriting; retains the defining equation or an equivalent reconstruction condition and the complete solution set over the original variables and domain. |
 
-### Proposed technique family: SystemRewriting
+### Authored technique and objective families
 
-This proposal is not authored. A common specialization under AlgebraicEquivalence could be
-defined as: "Rewriting a simultaneous system into equivalent constraints over the same
-designated variables and admissible domain, preserving its complete solution set."
+SystemRewriting specializes AlgebraicEquivalence. SystemElimination and SystemSubstitution
+now specialize SystemRewriting instead of being direct constituents of AlgebraicConstraints.
+Each method preserves the complete solution set over the same designated variables and
+admissible domain.
 
-```text
-PROPOSED ONLY
-AlgebraicEquivalence
-  S SystemRewriting
-    S SystemElimination
-    S SystemSubstitution
-```
+SystemElimination retains one equation while replacing another; adding two equations and
+discarding both originals does not establish an equivalent system. SystemSubstitution retains
+the defining equation or an equivalent reconstruction condition. For example,
+{y = 2x + 1, x + y = 7} becomes {y = 2x + 1, 3x + 1 = 7}. The retained condition preserves
+the original pairs (x, y); 3x + 1 = 7 alone does not have the same solution set over x and y.
 
-SystemElimination already states the required equivalence boundary: retain one equation while
-replacing another. Adding two equations and discarding both originals would not establish
-an equivalent system. SystemSubstitution needs an explicit whole-system interpretation before
-it specializes this proposal. For example, {y = 2x + 1, x + y = 7} can become
-{y = 2x + 1, 3x + 1 = 7}. Retaining the defining equation or an equivalent reconstruction
-constraint preserves the original pairs (x, y). The reduced equation 3x + 1 = 7 alone does
-not have the same solution set over x and y.
+ConstraintSolving is a constituent of AlgebraicConstraints. EquationSolving, InequalitySolving,
+and SystemSolving specialize it: the first two concern one equation or inequality, while the
+third requires assignments satisfying every member of a simultaneous system, including mixed
+equation-and-inequality systems. All concern complete admissible solution sets.
 
-The proposed move would require reviewing the methods' current partOf placement and the
-SystemSubstitution definition together. No new family or method edge is applied by this sketch.
+Rewriting an equivalent system can be an intermediate technique without completing its
+solution. Conversely, solutions can be determined graphically or by another justified method
+without demonstrating SystemRewriting. The goal and technique therefore compose without one
+specializing the other.
 
-### Proposed objective family: ConstraintSolving
-
-This proposal is also not authored. ConstraintSolving could describe determining the complete
-set of admissible assignments satisfying a mathematical constraint or simultaneous system.
-EquationSolving, a proposed InequalitySolving, and a proposed SystemSolving could specialize
-that shared goal. The parent could remain eligible because its children would specialize it.
-
-```text
-PROPOSED ONLY
-AlgebraicConstraints
-  P ConstraintSolving
-    S EquationSolving
-    S InequalitySolving
-    S SystemSolving
-```
-
-EquationSolving and InequalitySolving would concern a single equation or inequality;
-SystemSolving would require assignments satisfying every member of the simultaneous system,
-including mixed equation-and-inequality systems. Rewriting an equivalent system can be an
-intermediate technique without completing its solution. Conversely, a task can determine
-solutions graphically or by another justified method without demonstrating SystemRewriting.
-The goal and the technique therefore compose without one specializing the other.
-
-These two proposals require a separate adoption decision. Their names, definitions, and edges
-must not be used as authored vocabulary or migrated into target specifications yet.
+Both new family parents remain eligible for direct labels because their narrower members use
+specializes, not partOf. The three moved descriptors also remain eligible. Existing
+EquationSolving claims now inherit ConstraintSolving; SystemElimination and SystemSubstitution
+claims inherit SystemRewriting and AlgebraicEquivalence. Review existing annotations against
+the complete-solution and original-system boundaries before adoption; these changes do not
+migrate target specifications.
 
 ## Boundaries to review
 
@@ -467,6 +453,9 @@ annotation review:
 | FormulaRearrangement | Removed; retain the requested isolation goal in the task and select evidenced solving and rewriting claims. No exact identifier alias is asserted. |
 | QuadraticFormula | Restored as a direct specialization of AlgebraicEquivalence through complete quadratic solution characterization. |
 | SystemOfInequalities | Added as a specialization of ConstraintSystem, parallel to SystemOfEquations. |
+| EquationSolving | Replaces its direct partOf AlgebraicConstraints edge with specializes ConstraintSolving; preserves the single-equation objective and gains the broader solving claim. |
+| SystemElimination / SystemSubstitution | Replace their direct partOf AlgebraicConstraints edges with specializes SystemRewriting, inheriting AlgebraicEquivalence. Review retained whole-system constraints and original variables/domain, especially for substitution. |
+| ConstraintSolving / SystemRewriting | New eligible family concepts with specialization children; adding them does not make the existing moved descriptors ineligible. |
 
 The earlier removal of repeated object families still has these adoption consequences:
 
@@ -594,21 +583,23 @@ from specializes to partOf, added AlgebraicFactorization and the AbsoluteValueFu
 progression edge, and clarified notation. Its source, graph, tree, and documentation checks
 passed; its function-family review preserved the formula, domain, and sequence boundaries.
 
-The latest manual refinement through b60b42c renamed FunctionType to FunctionTypes, added
+The manual refinement through b60b42c renamed FunctionType to FunctionTypes, added
 SystemOfInequalities, and removed FormulaRearrangement, QuadraticFormula, and RelationEquivalence.
-This follow-up broadens AlgebraicEquivalence to include constraint solution-set equality and
-restores QuadraticFormula as its direct specialization. FormulaRearrangement and
-RelationEquivalence remain absent; EquationSolving remains authored.
+Revision 0f2d099 broadened AlgebraicEquivalence to include constraint solution-set equality and
+restored QuadraticFormula as its direct specialization. Its source, graph, tree, and
+documentation checks passed. FormulaRearrangement and RelationEquivalence remain absent.
 
-The three authored tree blocks in this document have been regenerated from the current Turtle.
-The four-file source validator passes. An exact RDF comparison against b60b42c finds only the
-AlgebraicEquivalence definition/example update and the five restored QuadraticFormula assertions,
-including its specializes relation to AlgebraicEquivalence. Other authored source files are
-unchanged. Documentation validation passes for all 31 tracked Markdown files; all three authored
-trees match the source, and the proposed new families are confirmed absent from the Turtle.
-SystemRewriting, ConstraintSolving, and the proposed specialization edges remain documentation
-proposals only. No Scope, Ability, schema, target-specification,
-or pinned-package change is made by the documentation update.
+This follow-up authors ConstraintSolving, InequalitySolving, SystemSolving, and SystemRewriting;
+reparents EquationSolving, SystemElimination, and SystemSubstitution through specializes; and
+clarifies the complete original-system boundary for substitution. The four-file source
+validator passes. Exact RDF comparison against 0f2d099 confirms precisely those four new
+descriptors and three changed descriptors, with three old partOf edges removed and seven
+expected structural edges added. All seven concepts remain eligible. Other Scope, Ability,
+and schema sources are unchanged.
+
+All three authored tree blocks match the current Turtle, and documentation validation
+passes for all 31 tracked Markdown files and repository links. No target-specification
+or pinned-package change is made by this update.
 
 The authoritative [Docker gate](../../DOCS.md#43-compiling-via-docker) was attempted again on
 2026-10-05 but could not connect to the Docker Desktop Linux engine because its named pipe was

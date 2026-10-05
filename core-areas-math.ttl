@@ -271,6 +271,10 @@
     rdfs:isDefinedBy "The role of an additive term independent of the designated variables, including a term expressed using fixed parameters.";
     rdfs:comment "Separating the constant term 5 from 3x in 3x + 5; identifying b + 1 as the constant term in x + (b + 1) when x varies and b is fixed.";
     edu:specializes :Term.
+:ConstraintSolving a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining the complete set of admissible assignments to designated unknowns that satisfy a mathematical constraint or simultaneous system, within a stated domain.";
+    rdfs:comment "Finding {-3, 3} as the real solutions of x^2 = 9; finding all real x > 2 satisfying x - 2 > 0; finding the pair (4, 3) satisfying x + y = 7 and x - y = 1.";
+    edu:partOf :AlgebraicConstraints.
 :ConstraintSystem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A collection of two or more mathematical constraints imposed simultaneously on a shared assignment to designated variables.";
     rdfs:comment "x + y = 8 together with x > y; x >= 0 together with y >= 0 and 2x + y <= 10.";
@@ -427,9 +431,9 @@
     edu:expands :NumericIdentity;
     edu:specializes :MathematicalStatement.
 :EquationSolving a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Determining the complete set of admissible values of designated unknowns that satisfies an equation, including identifying identities or the absence of solutions.";
+    rdfs:isDefinedBy "Determining the complete solution set of a single equation in designated unknowns over a stated domain, including identifying identities or the absence of solutions.";
     rdfs:comment "Solving x^2 = 9 over the reals to obtain x = -3 or x = 3; identifying no real solution of x + 1 = x + 2.";
-    edu:partOf :AlgebraicConstraints.
+    edu:specializes :ConstraintSolving.
 :EquilateralTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle in which all three sides are of equal length and all three angles are 60 degrees.";
     edu:expands :SymmetryRelation;
@@ -669,6 +673,10 @@
     rdfs:comment "Expressing 'x is less than five' as x < 5; distinguishing y >= 3 from y > 3; interpreting a != b as non-equality.";
     edu:expands :NumericComparison;
     edu:specializes :MathematicalStatement.
+:InequalitySolving a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining the complete solution set of a single inequality in designated unknowns over a stated domain, including strict, non-strict, and non-equality constraints.";
+    rdfs:comment "Solving -2x < 6 to obtain x > -3 over the reals; finding all real numbers except -1 and 1 as the solutions of x^2 != 1.";
+    edu:specializes :ConstraintSolving.
 :InstantaneousRateOfChange a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The finite limit of [f(a + h) - f(a)]/h for a real-valued function at a fixed real input a as h approaches zero, when that limit exists.";
     rdfs:comment "The rate 6 of f(x) = x^2 at x = 3; the rate 0 of g(x) = 5 at every real input.";
@@ -1436,7 +1444,7 @@
 :SystemElimination a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Transforming a simultaneous equation system by retaining one equation and replacing another by its sum with a scalar multiple of the retained equation, eliminating a variable or term without changing the system's solutions.";
     rdfs:comment "Adding x + y = 7 to x - y = 1 to obtain 2x = 8 while retaining x + y = 7.";
-    edu:partOf :AlgebraicConstraints.
+    edu:specializes :SystemRewriting.
 :SystemOfEquations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A collection of two or more equations imposed simultaneously on a shared assignment to designated variables.";
     rdfs:comment "x + y = 7 together with x - y = 1; x^2 + y^2 = 25 together with y = x + 1.";
@@ -1445,10 +1453,18 @@
     rdfs:isDefinedBy "A collection of two or more inequalities imposed simultaneously on a shared assignment to designated variables.";
     rdfs:comment "y > x together with x + y < 5.";
     edu:specializes :ConstraintSystem.
+:SystemRewriting a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Rewriting a simultaneous system into equivalent constraints over the same designated variables and admissible domain, preserving its complete solution set.";
+    rdfs:comment "Rewriting {x + y = 7, x - y = 1} as {x + y = 7, 2x = 8}; rewriting {x >= 0, -2y < 6} as {x >= 0, y > -3} over the reals.";
+    edu:specializes :AlgebraicEquivalence.
+:SystemSolving a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining the complete joint solution set of two or more mathematical constraints imposed simultaneously on the same assignment to designated unknowns within a stated domain.";
+    rdfs:comment "Finding (x, y) = (4, 3) from x + y = 7 and x - y = 1; finding all real pairs (x, 3 - x) with 0 <= x <= 3 from x + y = 3, x >= 0, and y >= 0.";
+    edu:specializes :ConstraintSolving.
 :SystemSubstitution a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Reducing a simultaneous equation system by expressing a variable in terms of other variables, substituting that expression into the remaining equations, and recovering assignments that satisfy the original system and its domain restrictions.";
-    rdfs:comment "Substituting y = 2x + 1 into x + y = 7 to obtain 3x + 1 = 7, then finding x = 2 and y = 5.";
-    edu:partOf :AlgebraicConstraints.
+    rdfs:isDefinedBy "Rewriting a simultaneous equation system by substituting an expression for a variable into other equations while retaining its defining equation or an equivalent reconstruction condition. The rewritten system preserves the complete solution set over the original variables and admissible domain.";
+    rdfs:comment "Rewriting {y = 2x + 1, x + y = 7} as {y = 2x + 1, 3x + 1 = 7}, then recovering x = 2 and y = 5.";
+    edu:specializes :SystemRewriting.
 :Tangent a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between an angle measure and the quotient of its sine by its cosine, using a specified angular unit and excluding angles with zero cosine.";
     rdfs:comment "tan(pi/4) = 1 and tan(3pi/4) = -1 for radian measures; opposite and adjacent sides of lengths 3 and 4 give tangent 3/4 for the acute angle.";
