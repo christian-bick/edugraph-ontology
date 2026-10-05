@@ -601,7 +601,7 @@
     rdfs:comment "Relating g(x) = 2f(x - 3) + 1 to f; reflecting the graph of f across the vertical axis by defining g(x) = f(-x).";
     edu:partOf :AlgebraicFunctions.
 :FunctionTypes a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The defining correspondences and properties that distinguish functions by their input and output domains, rules, or mapping behavior. Each admissible input is assigned exactly one output.";
+    rdfs:isDefinedBy "Identifying and classifying functions according to their algebraic structure and characteristic behaviors to distinguish their unique growth patterns and graphical features.";
     rdfs:comment "Distinguishing numerical correspondence in f(x) = x^2, distinct outputs for distinct inputs in g(x) = 2x + 1, and indexed terms in a_n = n^2.";
     edu:partOf :AlgebraicFunctions.
 :FunctionZeros a owl:NamedIndividual, edu:Area;
