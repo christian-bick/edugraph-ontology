@@ -600,7 +600,7 @@
     rdfs:isDefinedBy "Producing or interpreting a new real-valued function of a real input by translating, reflecting, or scaling the input or output of a given such function, with the transformed domain specified.";
     rdfs:comment "Relating g(x) = 2f(x - 3) + 1 to f; reflecting the graph of f across the vertical axis by defining g(x) = f(-x).";
     edu:partOf :AlgebraicFunctions.
-:FunctionType a owl:NamedIndividual, edu:Area;
+:FunctionTypes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The defining correspondences and properties that distinguish functions by their input and output domains, rules, or mapping behavior. Each admissible input is assigned exactly one output.";
     rdfs:comment "Distinguishing numerical correspondence in f(x) = x^2, distinct outputs for distinct inputs in g(x) = 2x + 1, and indexed terms in a_n = n^2.";
     edu:partOf :AlgebraicFunctions.
@@ -911,7 +911,7 @@
 :NumericFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The correspondence between numerical inputs and outputs in stated number systems, assigning exactly one output to each admissible input.";
     rdfs:comment "Interpreting a time-temperature rule as a correspondence between numerical quantities; relating each real input x to the output x^2.";
-    edu:partOf :FunctionType.
+    edu:partOf :FunctionTypes.
 :NumericIdentity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding that a number retains its value across different representations.";
     rdfs:comment "Recognizing the same quantity in a numeral, a number name, and a collection of objects.";
@@ -951,7 +951,7 @@
 :OneToOneFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mapping property that distinct inputs of a function have distinct outputs within its stated domain.";
     rdfs:comment "Checking that f(x) = 2x + 1 never assigns one output to two real inputs; contrasting x^2 over all real inputs with x^2 restricted to nonnegative inputs.";
-    edu:partOf :FunctionType.
+    edu:partOf :FunctionTypes.
 :Operand a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The explicit input role of a value or subexpression in an operation or function application, as determined by written structure and grouping.";
     rdfs:comment "Identifying 3 and x as the multiplication inputs in 3x; treating x + 2 and 5 as the two inputs of the division in (x + 2)/5.";
@@ -1045,7 +1045,7 @@
 :PiecewiseFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The definition of a function by separate rules on stated parts of its input domain, with one unambiguous output at every admissible input. Rules assigned to overlapping parts must agree there.";
     rdfs:comment "Constructing f(x) = -x for x < 0 and f(x) = x for x >= 0; expressing a delivery charge of 5 for orders below 50 and 0 for orders of at least 50.";
-    edu:partOf :FunctionType.
+    edu:partOf :FunctionTypes.
 :PlaceValue a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The numerical value that a digit has by virtue of its position in a number.";
     edu:expands :ZeroConcept;
@@ -1262,7 +1262,7 @@
 :Sequence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The indexed organization of terms, assigning one term to each position in a consecutive integer domain with a stated first index. The domain may be finite or extend indefinitely toward increasing indices.";
     rdfs:comment "Associating red, blue, red with indices 1, 2, 3; interpreting a_n = n^2 as the assignment of a term to each positive integer index.";
-    edu:partOf :FunctionType.
+    edu:partOf :FunctionTypes.
 :SetComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Comparing the quantities of two bounded collections intuitively or visually without formal counting.";
     rdfs:comment "Judging which of two visibly matched groups has extra objects.";
