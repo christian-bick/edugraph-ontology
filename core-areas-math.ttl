@@ -1449,6 +1449,10 @@
     rdfs:isDefinedBy "A collection of two or more equations imposed simultaneously on a shared assignment to designated variables.";
     rdfs:comment "x + y = 7 together with x - y = 1; x^2 + y^2 = 25 together with y = x + 1.";
     edu:specializes :ConstraintSystem.
+:SystemOfInequalities a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A collection of two or more inequalities imposed simultaneously on a shared assignment to designated variables.";
+    rdfs:comment "y > x together with x + y < 5.";
+    edu:specializes :ConstraintSystem.
 :SystemSubstitution a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a simultaneous equation system by expressing a variable in terms of other variables, substituting that expression into the remaining equations, and recovering assignments that satisfy the original system and its domain restrictions.";
     rdfs:comment "Substituting y = 2x + 1 into x + y = 7 to obtain 3x + 1 = 7, then finding x = 2 and y = 5.";
