@@ -75,8 +75,8 @@
     rdfs:comment "The dependence on x in x^2 + 3; the residual x^2 - 4 of x^2 = 4; the defining rule 2^t of f(t) = 2^t.";
     edu:partOf :Algebra.
 :AlgebraicEquivalence a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Equality of the values of algebraic expressions throughout a stated common domain, including rewriting that preserves this equality and the original domain restrictions.";
-    rdfs:comment "2(x + 3) = 2x + 6; (x^2 - 1)/(x - 1) = x + 1 with x != 1 retained.";
+    rdfs:isDefinedBy "Equality of expression values or constraint solution sets over the same designated variables and admissible domain, including transformations that preserve that equality and original domain restrictions.";
+    rdfs:comment "2(x + 3) = 2x + 6; (x^2 - 1)/(x - 1) = x + 1 with x != 1 retained; x = 1 and 2x = 2 have the same real solutions; -2x < 6 and x > -3 have the same real solutions.";
     edu:partOf :Algebra.
 :AlgebraicExpression a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The form and meaning of mathematical expressions built from constants or variables, alone or combined through arithmetic operations, function applications, or conditional branches. Explicit limits, derivatives, integrals, and infinite sums or products are excluded.";
@@ -1136,6 +1136,10 @@
     rdfs:isDefinedBy "Polynomial dependence whose governing expressions each have total degree exactly two in the designated variables after collecting like terms.";
     rdfs:comment "xy + y^2 in x and y; the residual x^2 - 1 of x^3 + x^2 = x^3 + 1; f(x) = (x - 2)^2 + 3.";
     edu:specializes :PolynomialDependence.
+:QuadraticFormula a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The formula x = (-b +/- sqrt(b^2 - 4ac))/(2a) characterizing all real or complex solutions of ax^2 + bx + c = 0 with a nonzero.";
+    rdfs:comment "Obtaining x = (5 +/- sqrt(25 - 24))/2, hence x = 2 or x = 3, from x^2 - 5x + 6 = 0.";
+    edu:specializes :AlgebraicEquivalence.
 :QuadraticRewriting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Equivalent forms of expressions based on degree-two polynomial patterns in designated variables or subexpressions, and value-preserving rewriting between those forms.";
     rdfs:comment "x^2 + 6x + 5 = (x + 3)^2 - 4; (x^3 + 2)^2 = x^6 + 4x^3 + 4, using a quadratic pattern in x^3.";

@@ -4,8 +4,9 @@ Draft branch: `codex/algebra-family-draft`. Revised 2026-10-05 after the functio
 The authored sources are [Areas](../../core-areas-math.ttl) and [Scopes](../../core-scopes-math.ttl).
 This document builds on the manual refinement through `0f277c5` and the definition/example
 review in `35d3482`, the formal concept definitions in `6d67042`, the law and sequence consolidation
-in `3f75e4a`, and the FunctionProperties rename in `e4e7299`. It also records the current function
-definitions, general factorization, and constraint-family decisions.
+in `3f75e4a`, the function and factorization review in `0c85673`, and the manual refinement
+through `b60b42c`. The current follow-up broadens equivalence, restores QuadraticFormula within
+that family, and separates proposed system techniques from proposed solving objectives.
 
 This draft separates formal objects and roles, shared mathematical dependence, objectives,
 and reusable rewriting techniques. Expressions, equations, and functions can involve the same
@@ -79,10 +80,8 @@ Algebra
   P AlgebraicConstraints
     P ConstraintSystem
       S SystemOfEquations
+      S SystemOfInequalities
     P EquationSolving
-    P FormulaRearrangement
-    P QuadraticFormula
-    P RelationEquivalence
     P RelationSatisfaction
     P SolutionSet
     P SystemElimination
@@ -107,6 +106,7 @@ Algebra
       S CollectingLinearTerms
       S DistributingLinearCombinations
     S PolynomialDivision
+    S QuadraticFormula
     S QuadraticRewriting
       S BinomialIdentities
       S CompletingSquare
@@ -119,7 +119,7 @@ Algebra
       P AverageRateOfChange
       P InstantaneousRateOfChange
     P FunctionTransformation
-    P FunctionType
+    P FunctionTypes
       P NumericFunction
         S AbsoluteValueFunction
         S ArithmeticSequence
@@ -250,8 +250,11 @@ These conventions add no object-binding schema, automatic normalizer, or matchin
 
 ## Equivalence, laws, and rewriting techniques
 
-AlgebraicEquivalence is the shared family for equivalent algebraic forms and their rewriting
-on a stated domain. LinearRewriting, QuadraticRewriting, and ExponentialRewriting specialize it.
+AlgebraicEquivalence is the shared family for equal expression values or equal constraint
+solution sets over the same designated variables and admissible domain, including transformations
+preserving that equality and original domain restrictions. LinearRewriting, QuadraticRewriting,
+and ExponentialRewriting use expression-value equivalence; QuadraticFormula now specializes the
+same family directly through its complete solution characterization.
 BinomialIdentities specializes QuadraticRewriting, whose meaning includes equivalent quadratic
 forms as well as transformations between them. The same three binomial identities can be
 recognized, explained, or applied; those performances do not require a separate application Area.
@@ -328,45 +331,100 @@ function's quadratic dependence can establish that knowledge as well as Completi
 Conversely, a rewriting pattern in a selected subexpression does not automatically classify the
 entire expression's dependence on its original variables.
 
-EquationSolving describes determining admissible assignments. FormulaRearrangement preserves
-its narrower objective of isolating a chosen quantity in a relation among quantities. A worked
-solution may combine both, but a formula rearrangement is not a replacement for solution-set
-reasoning, candidate checks, or an explanation that there are no solutions.
+EquationSolving remains the objective of determining all admissible assignments. It composes
+with a specific technique such as CompletingSquare or the restored QuadraticFormula. The formal
+Equation concept, the SolutionSet concept, and the demonstrated Ability are separate claims;
+none is an automatic replacement for the solving objective.
 
-## Constraint-family redundancy review
+## Constraint objectives and equivalent systems
 
-AlgebraicEquivalence concerns equal expression values at every admissible assignment;
-AlgebraicConstraints concerns assignments that satisfy equations, inequalities, or systems.
-Thus `2(x + 1)` and `2x + 2` are equivalent expressions. The constraints `x = 1` and `2x = 2`
-instead have the same solution set `{1}`, even though the expressions `x` and `2x` are not
-equal throughout the real domain. RelationEquivalence now explicitly includes transformations
-preserving exactly the same solutions over the same variables and admissible domain.
+AlgebraicEquivalence now covers two forms of mathematical equivalence over the same designated
+variables and admissible domain: equality of expression values, and equality of constraint
+solution sets. These remain different tests within one family. The expressions 2(x + 1) and
+2x + 2 have equal values for every real x. The constraints x = 1 and 2x = 2 instead have the
+same real solution set {1}; this does not assert that x and 2x have equal values everywhere.
+Original domain restrictions remain part of either claim.
 
-The source retains every existing constraint member. The following recommendations distinguish
-genuine simplification candidates from different knowledge claims under
-[ONT-D1](../descriptors.md#ont-d1--define-reusable-concepts) and
-[ONT-D2](../descriptors.md#ont-d2--choose-the-dimension-by-meaning).
+RelationEquivalence and FormulaRearrangement remain removed after the manual refinement.
+The shared equivalence family now supplies solution-preserving constraint transformations
+without a separate RelationEquivalence identifier. Isolating a chosen quantity can be described
+through the requested goal, relevant rewriting knowledge, and retained EquationSolving where
+the task determines admissible unknown values; the removed FormulaRearrangement identifier is
+not restored or treated as an automatic alias.
 
-| Member | Current decision and boundary |
+QuadraticFormula is restored directly as a specialization of AlgebraicEquivalence. It
+characterizes the complete real or complex solutions of ax^2 + bx + c = 0 when a != 0, rather
+than claiming that x equals a formula for every unrestricted value of x. Its direct placement
+uses constraint equivalence; it is not an expression-value identity under QuadraticRewriting.
+
+The user retains solving as a meaningful mathematical goal. The earlier recommendation to
+remove EquationSolving in favor of SolutionSet plus an Ability is superseded. SolutionSet
+describes the collection of satisfying assignments, RelationSatisfaction concerns truth under
+an assignment, and EquationSolving concerns determining all admissible assignments. An
+Ability describes how the learner performs that work; it does not replace the mathematical goal.
+
+| Member | Current authored decision and boundary |
 |---|---|
-| AlgebraicConstraints | Retain as the organizer for satisfaction, solution sets, and their methods. |
-| ConstraintSystem / SystemOfEquations | Retain simultaneity and the all-equation specialization. A future move into FormalMathematics is a placement option because these describe formal objects; no move is applied here. |
-| EquationSolving | Recommend considering removal in favor of SolutionSet plus the evidenced Ability and named method. Its present definition adds determining the set, not an independent solving technique; deletion is pending a decision. |
-| SolutionSet | Retain the complete collection of satisfying assignments, including empty and infinite sets. |
-| RelationSatisfaction | Retain truth under one assignment: checking that 3 satisfies `x^2 = 9` does not determine the complete set `{-3, 3}`. |
-| RelationEquivalence | Retain equality of complete solution sets and transformations preserving them; it is not expression-value equivalence. |
-| FormulaRearrangement | Retain the particular objective of isolating a selected quantity, such as `A = bh` rewritten as `h = A/b` on `b != 0`. |
-| QuadraticFormula | Retain a formula characterizing solutions conditional on `ax^2 + bx + c = 0`. Unlike a binomial identity, it is not a value equality true for arbitrary x. |
-| SystemElimination | Retain the specific reversible replacement of one equation while another is kept. Adding equations and discarding both originals can lose constraints. |
-| SystemSubstitution | Retain isolation, replacement, reduction, and recovery of original assignments. AlgebraicSubstitution alone describes replacement, not this complete method. |
+| AlgebraicConstraints | Organizes satisfaction, solution sets, solving goals, and the currently placed system methods. |
+| ConstraintSystem / SystemOfEquations / SystemOfInequalities | Retain simultaneous constraints and the all-equation or all-inequality specializations. Mixed systems remain expressible through ConstraintSystem. |
+| EquationSolving | Retain determining the complete admissible solution set, including all-domain and empty solution sets. |
+| SolutionSet | Retain the complete collection of satisfying assignments; the concept does not itself require finding that collection. |
+| RelationSatisfaction | Retain truth under one assignment: checking that 3 satisfies x^2 = 9 does not determine the complete real set {-3, 3}. |
+| AlgebraicEquivalence | Covers expression-value equality or equality of constraint solution sets on a shared admissible domain. |
+| QuadraticFormula | Restored directly under AlgebraicEquivalence as a complete solution characterization for a quadratic equation with nonzero leading coefficient. |
+| SystemElimination | Still a constituent of AlgebraicConstraints; retains one equation while replacing another by its sum with a scalar multiple. |
+| SystemSubstitution | Still a constituent of AlgebraicConstraints; preserves its isolation, replacement, reduction, and recovery meaning. |
 
-For the EquationSolving proposal, ProcedureExecution can describe carrying out a method,
-ProcedureIdentification recognizing a suitable known one, and Interpretation or ConceptualThinking
-explaining the solution-set concept, when the content supports those claims. ProcedureApplication
-is organizational and cannot be a direct replacement label under
-[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
-A generic ConstraintSolving node with the same objective would simply recreate the wrapper.
-An Equation label should not be added solely to encode incidental task type.
+### Proposed technique family: SystemRewriting
+
+This proposal is not authored. A common specialization under AlgebraicEquivalence could be
+defined as: "Rewriting a simultaneous system into equivalent constraints over the same
+designated variables and admissible domain, preserving its complete solution set."
+
+```text
+PROPOSED ONLY
+AlgebraicEquivalence
+  S SystemRewriting
+    S SystemElimination
+    S SystemSubstitution
+```
+
+SystemElimination already states the required equivalence boundary: retain one equation while
+replacing another. Adding two equations and discarding both originals would not establish
+an equivalent system. SystemSubstitution needs an explicit whole-system interpretation before
+it specializes this proposal. For example, {y = 2x + 1, x + y = 7} can become
+{y = 2x + 1, 3x + 1 = 7}. Retaining the defining equation or an equivalent reconstruction
+constraint preserves the original pairs (x, y). The reduced equation 3x + 1 = 7 alone does
+not have the same solution set over x and y.
+
+The proposed move would require reviewing the methods' current partOf placement and the
+SystemSubstitution definition together. No new family or method edge is applied by this sketch.
+
+### Proposed objective family: ConstraintSolving
+
+This proposal is also not authored. ConstraintSolving could describe determining the complete
+set of admissible assignments satisfying a mathematical constraint or simultaneous system.
+EquationSolving, a proposed InequalitySolving, and a proposed SystemSolving could specialize
+that shared goal. The parent could remain eligible because its children would specialize it.
+
+```text
+PROPOSED ONLY
+AlgebraicConstraints
+  P ConstraintSolving
+    S EquationSolving
+    S InequalitySolving
+    S SystemSolving
+```
+
+EquationSolving and InequalitySolving would concern a single equation or inequality;
+SystemSolving would require assignments satisfying every member of the simultaneous system,
+including mixed equation-and-inequality systems. Rewriting an equivalent system can be an
+intermediate technique without completing its solution. Conversely, a task can determine
+solutions graphically or by another justified method without demonstrating SystemRewriting.
+The goal and the technique therefore compose without one specializing the other.
+
+These two proposals require a separate adoption decision. Their names, definitions, and edges
+must not be used as authored vocabulary or migrated into target specifications yet.
 
 ## Boundaries to review
 
@@ -396,7 +454,7 @@ annotation review:
 | Substitution | AlgebraicSubstitution directly under Algebra; the binding and admissible-value conditions remain. |
 | ExpressionFactorization / PolynomialFactorization | Review the new AlgebraicFactorization claim, retaining the specified factor class, coefficient domain, and domain restrictions. No automatic polynomial-factor inference follows from PolynomialDependence. |
 | FunctionsAndRelations | AlgebraicFunctions organizes function types and constructions. |
-| Function / earlier FunctionType | FunctionType now organizes constituent aspects of functions and is ineligible for direct labeling. Review each existing direct annotation against the eligible concepts; generic nonnumeric correspondence remains an open coverage question. |
+| Function / FunctionType | FunctionTypes is the current organizational identifier and remains ineligible for direct labeling. Review former direct claims against eligible constituents; generic nonnumeric correspondence remains an open coverage question. |
 | BinaryRelation | Removed; arbitrary relations that are not functions have no equivalent function label. |
 | FunctionRange / FunctionMonotonicity / FunctionExtrema / FunctionZeros | Moved under FunctionProperties in Analysis; their own meanings remain independent of the method used. |
 | FunctionBehavior | Renamed FunctionProperties by the manual refinement in e4e7299. |
@@ -405,6 +463,10 @@ annotation review:
 | AlgebraicLaws | Removed after its laws moved into the AlgebraicEquivalence specialization family. The former organizer is not an annotation alias for that broader concept. |
 | AssociativeLaw / CommutativeLaw / DistributiveLaw / ExponentLaws | Now specialize AlgebraicEquivalence while retaining their constituent placement under ArithmeticLaws. Their existing arithmetic uses and incoming progression relations remain. |
 | NumericSequence | Removed; review Sequence and NumericFunction together for the same studied sequence. ArithmeticSequence and GeometricSequence now specialize both directly. |
+| RelationEquivalence | Removed; review solution-set equivalence against the broadened AlgebraicEquivalence definition, retaining variables and domain. |
+| FormulaRearrangement | Removed; retain the requested isolation goal in the task and select evidenced solving and rewriting claims. No exact identifier alias is asserted. |
+| QuadraticFormula | Restored as a direct specialization of AlgebraicEquivalence through complete quadratic solution characterization. |
+| SystemOfInequalities | Added as a specialization of ConstraintSystem, parallel to SystemOfEquations. |
 
 The earlier removal of repeated object families still has these adoption consequences:
 
@@ -448,14 +510,17 @@ counting convention; local Operand roles do not redefine that Scope.
 
 ## Function concepts and notation decisions
 
-FunctionType now organizes the defining correspondences and properties that distinguish
-functions. NumericFunction, OneToOneFunction, PiecewiseFunction, and Sequence are its
-constituents through partOf. Their definitions identify numerical correspondence, injectivity,
+FunctionTypes is the current identifier for the function-type organizer, renamed from
+FunctionType in the manual refinement. NumericFunction, OneToOneFunction, PiecewiseFunction,
+and Sequence are its constituents through partOf. Their definitions identify numerical correspondence, injectivity,
 piecewise definition, and indexed organization as knowledge; narrower numerical and sequence
-families retain their specialization relations. FunctionType therefore has constituent children
+families retain their specialization relations. FunctionTypes therefore has constituent children
 and is ineligible for direct labeling. General nonnumeric correspondence that is neither
 one-to-one, piecewise, nor a sequence still lacks an eligible generic concept; that coverage
-question remains open rather than being assigned an arbitrary child.
+question remains open rather than being assigned an arbitrary child. Its manually revised
+definition emphasizes algebraic structure, growth patterns, and graphical features; a wording
+review remains useful because its Sequence child also admits nonnumeric terms. That definition
+is preserved in this follow-up.
 
 The retained power, logarithmic, absolute-value, and trigonometric families now describe their
 input-output relationships and defining properties. Their distinction from operations is
@@ -518,42 +583,32 @@ does not update the content repository's pinned package, target specifications, 
 
 ## Verification
 
-The earlier 2026-10-05 review in `35d3482` tightened six definitions: AlgebraicEquivalence, AlgebraicFunctions,
-FunctionBehavior, FunctionSlope, FunctionType, and InstantaneousRateOfChange. In particular,
-equivalence now covers equality as well as rewriting, behavior includes range and zeros, and
-instantaneous rate fixes the input point and requires an existing finite limit.
-Five missing example fields were filled, including AlgebraicConstraints. The examples and
-specialization meanings were reviewed against [ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries)
-and [ONT-S2](../structure.md#ont-s2--specializes-preserves-the-broader-meaning).
+Earlier completed checks are historical evidence. The review in 35d3482 tightened six
+definitions and filled five missing example fields. Revision 6d67042 updated definitions and
+examples for 42 formal descriptors without changing their graph assertions. The later
+3f75e4a law and sequence consolidation passed source, graph, tree, and documentation checks.
+Those checks do not establish the validity or descriptor count of subsequent revisions.
 
-The earlier revision first updated definitions and examples for 42 formal descriptors in
-`6d67042`, preserving their graph assertions. It then consolidated laws within equivalence,
-broadened QuadraticRewriting to include equivalent forms, and removed AlgebraicLaws,
-ApplyingBinomialIdentities, and NumericSequence with the migration guidance above.
+The function and factorization revision in 0c85673 changed four FunctionType child edges
+from specializes to partOf, added AlgebraicFactorization and the AbsoluteValueFunction
+progression edge, and clarified notation. Its source, graph, tree, and documentation checks
+passed; its function-family review preserved the formula, domain, and sequence boundaries.
 
-At `3f75e4a`, the source validator, exact graph-change audit, three-tree comparison, and
-documentation validation passed. That historical audit found definitions and examples for
-all 117 descriptors then under Algebra, FormalMathematics, and FunctionBehavior; it does not
-establish the current descriptor count or validate the later changes.
+The latest manual refinement through b60b42c renamed FunctionType to FunctionTypes, added
+SystemOfInequalities, and removed FormulaRearrangement, QuadraticFormula, and RelationEquivalence.
+This follow-up broadens AlgebraicEquivalence to include constraint solution-set equality and
+restores QuadraticFormula as its direct specialization. FormulaRearrangement and
+RelationEquivalence remain absent; EquationSolving remains authored.
 
-The current revision updates the function definitions and constituent placement, adds
-AlgebraicFactorization and the absolute-value progression edge, clarifies constraint and
-relation-equivalence definitions, and resolves IntegerNotation and SignNotation.
-
-Completed checks against `e4e7299`:
-
-- The supplied source validator passes for all four authored Turtle files.
-- The graph audit finds exactly the four FunctionType edges changed from specializes to partOf,
-  the AbsoluteValueFunction expansion, and the AlgebraicFactorization specialization. No other
-  existing structural or progression assertions changed.
-- All 15 FunctionType-family definitions, their examples, and lower specialization boundaries
-  were reviewed. The formula, domain, and sequence conditions remain intact; the intended
-  FunctionType eligibility change is recorded above.
-- All three displayed trees match the source, and documentation validation passes for all
-  31 tracked Markdown files and their repository links.
-- The Scope, Ability, and schema sources remain unchanged. InstantaneousRateOfChange,
-  AbsoluteNumberMagnitude, and EquationSolving retain their previous definitions and relations.
-  The EquationSolving and operand-counting proposals above are not implemented decisions.
+The three authored tree blocks in this document have been regenerated from the current Turtle.
+The four-file source validator passes. An exact RDF comparison against b60b42c finds only the
+AlgebraicEquivalence definition/example update and the five restored QuadraticFormula assertions,
+including its specializes relation to AlgebraicEquivalence. Other authored source files are
+unchanged. Documentation validation passes for all 31 tracked Markdown files; all three authored
+trees match the source, and the proposed new families are confirmed absent from the Turtle.
+SystemRewriting, ConstraintSolving, and the proposed specialization edges remain documentation
+proposals only. No Scope, Ability, schema, target-specification,
+or pinned-package change is made by the documentation update.
 
 The authoritative [Docker gate](../../DOCS.md#43-compiling-via-docker) was attempted again on
 2026-10-05 but could not connect to the Docker Desktop Linux engine because its named pipe was
