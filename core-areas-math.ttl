@@ -79,8 +79,8 @@
     rdfs:comment "2(x + 3) = 2x + 6; (x^2 - 1)/(x - 1) = x + 1 with x != 1 retained; x = 1 and 2x = 2 have the same real solutions; -2x < 6 and x > -3 have the same real solutions.";
     edu:partOf :Algebra.
 :AlgebraicExpression a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The form and meaning of mathematical expressions built from constants or variables, alone or combined through arithmetic operations, function applications, or conditional branches. Explicit limits, derivatives, integrals, and infinite sums or products are excluded.";
-    rdfs:comment "Interpreting 5, 5 + 5, 3x + 2, 2^x, sin(x), and sin(1) as value-denoting forms; constructing { -x if x < 0; x if x >= 0 }.";
+    rdfs:isDefinedBy "The form and meaning of mathematical expressions containing variables, symbolic parameters, function applications beyond arithmetic operations, or conditional branches. Explicit limits, derivatives, integrals, and infinite sums or products are excluded.";
+    rdfs:comment "Interpreting x, 3x + 2, 2^x, sin(x), and sin(1) as algebraic expressions; interpreting a + 2 with a fixed symbolic parameter; constructing { -x if x < 0; x if x >= 0 }.";
     edu:specializes :MathematicalExpression.
 :AlgebraicFactorization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Expressing an algebraic expression as a product within a stated class of factors and coefficient domain, preserving its values and original domain restrictions.";
@@ -129,8 +129,13 @@
     rdfs:comment "Addition, subtraction, multiplication, and division.".
 :ArithmeticEvaluation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The structured formulation and evaluation of numerical statements through the combination of values and operations.";
-    edu:integrates :NumericalExpression;
+    edu:integrates :ArithmeticExpression;
     edu:partOf :Arithmetic.
+:ArithmeticExpression a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The form and meaning of mathematical expressions composed solely of numbers and arithmetic operations, with grouping as needed.";
+    rdfs:comment "Interpreting 5, 5 + 5, 2 × (8 + 7), 2^3, sqrt(4), log_2(8), and pi + 2 as arithmetic expressions.";
+    edu:expands :ArithmeticOperations;
+    edu:specializes :MathematicalExpression.
 :ArithmeticLaws a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fundamental axiomatic rules that govern the manipulation and equivalence of mathematical expressions and statements.";
     edu:partOf :Arithmetic.
@@ -894,11 +899,6 @@
     rdfs:isDefinedBy "The role of the dividend expression written above a fraction bar or before a slash representing that bar.";
     rdfs:comment "Identifying x + 1 as the complete numerator in (x + 1)/(x - 2); interpreting 3 as the dividend represented above the bar in 3/4.";
     edu:specializes :Dividend.
-:NumericalExpression a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The form and meaning of algebraic expressions built exclusively from numerical values, operations, and function applications, containing no variables or relational operators.";
-    rdfs:comment "Recognizing 5, 5 + 5, sin(1), and 2 × (8 + 7) as numerical expressions; distinguishing sin(1) from sin(x).";
-    edu:expands :ArithmeticOperations;
-    edu:specializes :AlgebraicExpression.
 :NumericApproximation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Estimating or replacing a numerical value with a nearby value suited to a stated purpose or precision.";
     rdfs:comment "Using a rounded measurement when estimating a total.";

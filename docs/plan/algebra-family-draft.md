@@ -1,13 +1,15 @@
 # Algebra family — compositional editor draft
 
-Draft branch: `codex/algebra-family-draft`. Revised 2026-10-05 after the function and constraint review.
+Draft branch: `codex/algebra-family-draft`. Revised 2026-10-06 after the expression review.
 The authored sources are [Areas](../../core-areas-math.ttl) and [Scopes](../../core-scopes-math.ttl).
 This document builds on the manual refinement through `0f277c5` and the definition/example
 review in `35d3482`, the formal concept definitions in `6d67042`, the law and sequence consolidation
 in `3f75e4a`, the function and factorization review in `0c85673`, and the manual refinement
-through `b60b42c` and the broadened equivalence family in `0f2d099`. The current follow-up
-authors SystemRewriting for equivalent-system techniques and ConstraintSolving for solving
-objectives, with their narrower specializations.
+through `b60b42c` and the broadened equivalence family in `0f2d099`. The preceding follow-up
+authored SystemRewriting for equivalent-system techniques and ConstraintSolving for solving
+objectives, with their narrower specializations. The expression refinement replaces
+NumericalExpression with ArithmeticExpression as a sibling of AlgebraicExpression; the
+dependence family remains unchanged.
 
 This draft separates formal objects and roles, shared mathematical dependence, objectives,
 and reusable rewriting techniques. Expressions, equations, and functions can involve the same
@@ -28,7 +30,7 @@ Turtle from the branch; no package release is needed for this review.
 
 | Aspect | Examples | Meaning |
 |---|---|---|
-| Formal object | AlgebraicExpression, Equation, Inequality, NumericFunction | Knowledge of the object's defining meaning, properties, or interpretation. |
+| Formal object | ArithmeticExpression, AlgebraicExpression, Equation, Inequality, NumericFunction | Knowledge of the object's defining meaning, properties, or interpretation. |
 | Structural role | Variable, Coefficient, Term, FunctionArgument, GroupingSymbol | The role being interpreted or used as mathematical knowledge. |
 | Mathematical dependence | AffineDependence, QuadraticDependence, ExponentialDependence | The mathematical relationship in designated variables or quantities. |
 | Objective | AlgebraicEquivalence, EquationSolving, FunctionZeros, FunctionExtrema | The mathematical result or relationship sought or explained. |
@@ -188,7 +190,7 @@ FormalMathematics
       S VaryingVariable
   P MathematicalExpression
     S AlgebraicExpression
-      S NumericalExpression
+    S ArithmeticExpression
     S PiecewiseExpression
   P MathematicalStatement
     S Equation
@@ -423,7 +425,9 @@ migrate target specifications.
 | `2x + 1 = 2x + 1` and `2x + 1 = 2x + 3` | Constant and zero residuals are included in AffineDependence; solutions may be all admissible values or none. |
 | `(x^2 - 1)/(x - 1)` | Cancellation leaves the original restriction `x != 1`. |
 | `2^x` and `x^2` | Variable exponent with fixed suitable base and fixed exponent with variable base express different dependence. |
-| `sin(1)` and `sin(x)` | Both are AlgebraicExpression in the adopted broad sense; only the first is NumericalExpression. |
+| `5`, `5 + 5`, `2^3`, `sqrt(4)`, `log_2(8)`, and `pi + 2` | ArithmeticExpression: numbers, including fixed numerical constants, with arithmetic operations and optional grouping. |
+| `sin(1)` and `sin(x)` | Both are AlgebraicExpression because sine application is beyond the arithmetic-operation family, regardless of whether its argument is numerical. |
+| `x - x` and `0` | The displayed forms are algebraic and arithmetic respectively. A merely possible equivalent rewrite does not establish a second expression claim. |
 | `{ -x if x < 0; x if x >= 0 }` | PiecewiseExpression concerns the complete conditional form, including agreement and coverage of its admissible inputs. |
 | `3 - x` | The signed term is `-x`; the explicit subtraction input is `x`. |
 | `-x` | Its coefficient `-1` is implicit, while the unary-minus operand is explicitly `x`. |
@@ -436,6 +440,7 @@ annotation review:
 
 | Previous descriptor or placement | Current treatment |
 |---|---|
+| NumericalExpression | Replaced by ArithmeticExpression, directly specializing MathematicalExpression alongside AlgebraicExpression. Review old claims against the arithmetic-only boundary; numerical arguments alone no longer admit arbitrary function applications. NumericalExpression references in pinned consumer tables remain pre-adoption records. |
 | ExpressionReasoning / AlgebraicRewriting / ExpressionEquivalence | AlgebraicEquivalence directly under Algebra, with the rewriting families as specializations. The removed organizational field is not an alias for a direct claim. |
 | Substitution | AlgebraicSubstitution directly under Algebra; the binding and admissible-value conditions remain. |
 | ExpressionFactorization / PolynomialFactorization | Review the new AlgebraicFactorization claim, retaining the specified factor class, coefficient domain, and domain restrictions. No automatic polynomial-factor inference follows from PolynomialDependence. |
@@ -467,7 +472,7 @@ to one numerical sequence. Review the subject of the original NumericSequence cl
 | Removed family | Replacement claims to review |
 |---|---|
 | VariableExpression | AlgebraicExpression and the relevant Variable role, when role knowledge is supported. Mere variable presence does not force a separate role claim. |
-| GroupedExpression | MathematicalExpression or AlgebraicExpression with GroupingSymbol and OrderOfOperations only when those concepts are evidenced. |
+| GroupedExpression | MathematicalExpression, ArithmeticExpression, or AlgebraicExpression with GroupingSymbol and OrderOfOperations only when those concepts are evidenced. |
 | PolynomialExpression / AffineExpression / QuadraticExpression | AlgebraicExpression with PolynomialDependence / AffineDependence / QuadraticDependence in the designated variables. |
 | RationalExpression | AlgebraicExpression with RationalDependence and preserved denominator restrictions. |
 | PolynomialEquation / LinearEquation / QuadraticEquation / RationalEquation | Equation with the applicable dependence of its residual; review the previous one-variable restriction on quadratic equations. |
@@ -485,12 +490,25 @@ that extra restriction automatically. A system-wide family claim requires every 
 qualify; the same unbound labels can otherwise describe knowledge about one member of a mixed
 system. Preserve those distinctions through contextual review rather than automatic aliases.
 
-NumericalExpression describes knowledge of variable-free expression forms and their meaning.
-The absence of variables is its defining boundary, not sufficient evidence for applying the
-Area; omission of a Variable annotation cannot establish that absence either.
-PiecewiseExpression remains a whole-expression distinction rather than
-an inventory of branch-role labels. AlgebraicExpression retains the adopted broad meaning,
-including function applications, and excludes explicit analysis constructions.
+ArithmeticExpression describes the form and meaning of expressions containing only numbers
+and arithmetic operations, with grouping as needed. The arithmetic-operation family includes
+powers, roots, and logarithms; a fixed numerical constant such as pi is a number. AlgebraicExpression
+instead requires variables, symbolic parameters, function applications beyond arithmetic
+operations, or conditional branches, while retaining the exclusions of explicit limits,
+derivatives, integrals, and infinite sums or products. Both directly specialize
+MathematicalExpression and remain eligible for direct labels.
+
+The distinction applies to the expression presented or required by the competency, rather than
+to forms that could theoretically be produced. It does not turn either Area into an incidental
+syntax label: its form or meaning must be exercised. A task that visibly substitutes values
+and evaluates can evidence both expression kinds at different steps. No contradicts relation
+is added between the Areas. PiecewiseExpression remains a separate whole-expression distinction
+rather than an inventory of branch-role labels; conditional forms can also be algebraic.
+
+ArithmeticEvaluation, ArithmeticOperations, and ArithmeticLaws already use the appropriate
+arithmetic terminology. NumericFunction, NumericComparison, NumericEquality, and numeric Scopes
+retain their names because they concern numerical values, not arithmetic-only expression forms.
+AlgebraicDependence and all its members retain their definitions, placement, and identifiers.
 
 The user's removals of FunctionApplicationExpression and OperatorArity remain in effect.
 FunctionSymbol and FunctionArgument describe distinct formal roles without recreating the
@@ -567,8 +585,9 @@ No new progression relation is inferred from the manual regrouping.
 
 Any adoption must review removed identifiers, changes in specialization ancestry, and narrowed
 or broadened meanings. The Grade 6 plan needs reconciliation of provisional labels; Grade 5
-numerical tasks remain numerical, with formula substitution reviewed selectively. This branch
-does not update the content repository's pinned package, target specifications, or coverage baseline.
+arithmetic-expression tasks retain their meaning under the new identifier, with formula substitution
+reviewed selectively. This branch does not update the content repository's pinned package,
+target specifications, or coverage baseline.
 
 ## Verification
 
@@ -589,20 +608,27 @@ Revision 0f2d099 broadened AlgebraicEquivalence to include constraint solution-s
 restored QuadraticFormula as its direct specialization. Its source, graph, tree, and
 documentation checks passed. FormulaRearrangement and RelationEquivalence remain absent.
 
-This follow-up authors ConstraintSolving, InequalitySolving, SystemSolving, and SystemRewriting;
-reparents EquationSolving, SystemElimination, and SystemSubstitution through specializes; and
-clarifies the complete original-system boundary for substitution. The four-file source
-validator passes. Exact RDF comparison against 0f2d099 confirms precisely those four new
+The previous follow-up authored ConstraintSolving, InequalitySolving, SystemSolving, and SystemRewriting;
+reparented EquationSolving, SystemElimination, and SystemSubstitution through specializes; and
+clarified the complete original-system boundary for substitution. The four-file source
+validator passed. Exact RDF comparison against 0f2d099 confirmed precisely those four new
 descriptors and three changed descriptors, with three old partOf edges removed and seven
-expected structural edges added. All seven concepts remain eligible. Other Scope, Ability,
-and schema sources are unchanged.
+expected structural edges added. All seven concepts remained eligible. Other Scope, Ability,
+and schema sources were unchanged.
 
-All three authored tree blocks match the current Turtle, and documentation validation
-passes for all 31 tracked Markdown files and repository links. No target-specification
-or pinned-package change is made by this update.
+For that follow-up, all three authored tree blocks matched the Turtle, and documentation
+validation passed for all 31 tracked Markdown files and repository links.
+
+The 2026-10-06 expression refinement updates the focused expression tree, definitions guidance,
+examples, and migration notes. Source validation and independent graph review pass; the seven
+dependence-family definitions and their assertions are unchanged. All 31 tracked Markdown files
+pass documentation validation, and all three tree blocks match the source staged for this change.
+The staged RDF delta contains only the expression rename, its new parent and definitions, and the
+ArithmeticEvaluation reference update; pre-existing local edits remain unstaged. No
+target-specification or pinned-package change is made by this update.
 
 The authoritative [Docker gate](../../DOCS.md#43-compiling-via-docker) was attempted again on
-2026-10-05 but could not connect to the Docker Desktop Linux engine because its named pipe was
+2026-10-06 but could not connect to the Docker Desktop Linux engine because its named pipe was
 unavailable. Generated-client tests and package builds remain unverified until that gate runs.
 
 Authoring references: [descriptors](../descriptors.md), [structure](../structure.md),
