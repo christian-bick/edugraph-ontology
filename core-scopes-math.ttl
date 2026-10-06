@@ -1220,6 +1220,10 @@
     rdfs:isDefinedBy "Solutions requiring one logical or procedural step, consisting of one operation or transformation.";
     rdfs:comment "Obtaining the requested result by applying one stated operation directly to the supplied values.";
     edu:specializes :StepComplexity.
+:SingleVariable a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Exactly one variable designated as an input or unknown in the studied expression, constraint, or function, with other independent symbolic quantities treated as fixed parameters. A designated input still counts when the output is constant.";
+    rdfs:comment "x in a*x^2 + b*x + c with fixed a, b, c; t as the input in f(t) = 5; x in x^2 = 9.";
+    edu:specializes :VariableCardinality.
 :SixthFractions a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Fractions characterized by a denominator of six.";
     edu:expands :ThirdFractions;
@@ -1482,6 +1486,10 @@
     edu:specializes :FractionNumbers.
 :ValueNumberType a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The specific numeric form or number system required for a designated value or role within a mathematical operation.";
+    edu:partOf :ExpressionComplexity.
+:VariableCardinality a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "The number of variables designated as inputs or unknowns in a studied expression, constraint, or function, including inputs with constant output and excluding fixed parameters.";
+    rdfs:comment "One designated variable x in a*x^2 + b*x + c with fixed a, b, c; two designated variables x and y in x^2 + y^2 = 1.";
     edu:partOf :ExpressionComplexity.
 :VectorObjects a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Graphic objects represented by geometrically defined paths and shapes.";

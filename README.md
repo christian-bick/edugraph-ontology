@@ -49,6 +49,10 @@ It is therefore divided into two layers:
 
 ### Core Ontology
 
+The [Algebra family draft](docs/plan/algebra-family-draft.md) records the proposed hierarchy,
+including formal expression roles, shared dependence and rewriting families, function types
+and behavior, its boundary with analysis, and the effects on existing labels.
+
 #### Foundations
 
 The core ontology describes learning content by combining reusable claims across three dimensions.
