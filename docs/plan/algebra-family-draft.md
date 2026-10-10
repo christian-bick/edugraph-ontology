@@ -1,6 +1,11 @@
 # Algebra family — compositional editor draft
 
-Draft branch: `codex/algebra-family-draft`. Revised 2026-10-06 after the expression review.
+The [CCSS and school-analysis refinement record](#next-stage-ccss-and-school-analysis-proposal)
+records the follow-up decisions implemented on 2026-10-10 against published preview
+`0.30.0-pre.10.10a40360f726`. Accepted algebra, representation, and function-property changes
+are authored in Turtle; NumberTheory and the explicitly deferred extensions remain future work.
+
+Draft branch: `codex/algebra-refinements`. Revised 2026-10-10 after the CCSS coverage review.
 The authored sources are [Areas](../../core-areas-math.ttl) and [Scopes](../../core-scopes-math.ttl).
 This document builds on the manual refinement through `0f277c5` and the definition/example
 review in `35d3482`, the formal concept definitions in `6d67042`, the law and sequence consolidation
@@ -15,12 +20,12 @@ This draft separates formal objects and roles, shared mathematical dependence, o
 and reusable rewriting techniques. Expressions, equations, and functions can involve the same
 algebraic knowledge without acquiring parallel polynomial, quadratic, or rational family trees.
 AlgebraicFunctions organizes function types and constructions under Algebra. FunctionProperties
-organizes range, monotonicity, extrema, and zeros under Analysis; the accepted slope overlap is
-discussed below.
+organizes eight subdivisions under Analysis, from values and symmetry through regularity and
+critical points; the accepted slope overlap is discussed below.
 
 ## Review in the editor
 
-In the [ontology editor](https://edugraph-editor.web.app), select `codex/algebra-family-draft`,
+In the [ontology editor](https://edugraph-editor.web.app), select `codex/algebra-refinements`,
 the Area dimension, and Structure view. Review Algebra with descendants, then FormalMathematics
 and Analysis / FunctionProperties.
 Use the visual diff against Main to inspect the complete proposal. The editor reads authored
@@ -35,7 +40,7 @@ Turtle from the branch; no package release is needed for this review.
 | Mathematical dependence | AffineDependence, QuadraticDependence, ExponentialDependence | The mathematical relationship in designated variables or quantities. |
 | Objective | AlgebraicEquivalence, EquationSolving, FunctionZeros, FunctionExtrema | The mathematical result or relationship sought or explained. |
 | Technique | CollectingLinearTerms, CompletingSquare, CommonBaseRewriting | The reusable mathematical procedure required or demonstrated. |
-| Law or identity | DistributiveLaw, BinomialIdentities, ExponentLaws | The mathematical knowledge used by a technique. |
+| Law or identity | DistributiveLaw, BinomialSquareIdentities, DifferenceOfSquaresIdentity, ExponentLaws | The mathematical knowledge used by a technique. |
 
 These are distinctions among composable Areas, not additional schema dimensions. Ability
 continues to describe cognitive performance. Scopes express contextual conditions such as
@@ -88,6 +93,7 @@ Algebra
     P ConstraintSystem
       S SystemOfEquations
       S SystemOfInequalities
+    P ConstraintTransformationLogic
     P RelationSatisfaction
     P SolutionSet
   P AlgebraicDependence
@@ -99,25 +105,28 @@ Algebra
     S RationalDependence
   P AlgebraicEquivalence
     S AlgebraicFactorization
-    S AssociativeLaw
-    S CommutativeLaw
-    S DistributiveLaw
+    S BinomialTheorem
+      S BinomialSquareIdentities
     S ExponentialRewriting
       S CombiningExponentialFactors
       S CommonBaseRewriting
-    S ExponentLaws
+    S FiniteGeometricSum
     S LinearRewriting
       S CollectingLinearTerms
       S DistributingLinearCombinations
     S PolynomialDivision
     S QuadraticFormula
     S QuadraticRewriting
-      S BinomialIdentities
       S CompletingSquare
+      S DifferenceOfSquaresIdentity
     S SystemRewriting
       S SystemElimination
       S SystemSubstitution
+    S TrigonometricIdentities
+      S ComplementaryAngleIdentities
+      S PythagoreanTrigonometricIdentity
   P AlgebraicFunctions
+    P FunctionArithmetic
     P FunctionComposition
     P FunctionDomain
     P FunctionInversion
@@ -145,6 +154,9 @@ Algebra
         S RecursiveSequence
   P AlgebraicModeling
   P AlgebraicSubstitution
+  P AlgebraicTheorems
+    P PolynomialFactorTheorem
+    P PolynomialRemainderTheorem
 ```
 <!-- END AUTHORED ALGEBRA TREE -->
 
@@ -176,15 +188,16 @@ FormalMathematics
       S BinaryOperator
       S FunctionSymbol
       S UnaryOperator
-    P OrderOfOperations
     P RootIndex
     P Subexpression
     P Term
       S ConstantTerm
     P Variable
       S BoundVariable
+      S DependentVariable
       S FreeVariable
       S GeneralizedVariable
+      S IndependentVariable
       S Parameter
       S UnknownVariable
       S VaryingVariable
@@ -198,16 +211,38 @@ FormalMathematics
 ```
 <!-- END AUTHORED EXPRESSION TREE -->
 
-The focused analysis branch records the function properties moved by the manual refinement.
+The focused analysis branch records the eight function-property subdivisions, including the
+school-analysis properties authored in the 2026-10-10 refinement.
 
 <!-- BEGIN AUTHORED ANALYSIS TREE -->
 ```text
 Analysis
   P FunctionProperties
-    P FunctionExtrema
-    P FunctionMonotonicity
-    P FunctionRange
-    P FunctionZeros
+    P FunctionCriticalPoints
+      S FunctionStationaryPoints
+    P FunctionLimitingBehavior
+      S FunctionEndBehavior
+      S FunctionLocalLimitBehavior
+    P FunctionOrderProperties
+      P FunctionExtrema
+      P FunctionMonotonicity
+    P FunctionRegularity
+      P FunctionContinuity
+      P FunctionDifferentiability
+    P FunctionRepetitionProperties
+      P FunctionPeriodicity
+      P OscillationParameters
+    P FunctionShapeProperties
+      P FunctionConcavity
+      P FunctionInflection
+    P FunctionSymmetry
+      S EvenFunctionSymmetry
+      S OddFunctionSymmetry
+    P FunctionValueProperties
+      P FunctionBounds
+      P FunctionRange
+      P FunctionSign
+      P FunctionZeros
 ```
 <!-- END AUTHORED ANALYSIS TREE -->
 
@@ -262,25 +297,28 @@ solution sets over the same designated variables and admissible domain, includin
 preserving that equality and original domain restrictions. LinearRewriting, QuadraticRewriting,
 and ExponentialRewriting use expression-value equivalence; QuadraticFormula now specializes the
 same family directly through its complete solution characterization.
-BinomialIdentities specializes QuadraticRewriting, whose meaning includes equivalent quadratic
-forms as well as transformations between them. The same three binomial identities can be
-recognized, explained, or applied; those performances do not require a separate application Area.
+BinomialSquareIdentities specializes BinomialTheorem, which directly specializes
+AlgebraicEquivalence. DifferenceOfSquaresIdentity specializes QuadraticRewriting, whose meaning
+includes equivalent quadratic forms as well as transformations between them. Recognizing,
+explaining, and applying identities do not require separate application Areas.
 
-AssociativeLaw, CommutativeLaw, DistributiveLaw, and ExponentLaws specialize AlgebraicEquivalence
-and remain constituents of ArithmeticLaws. Their mathematical meaning is shared across numerical
+AssociativeLaw, CommutativeLaw, DistributiveLaw, and ExponentLaws remain constituents of
+ArithmeticLaws; the current source does not give them AlgebraicEquivalence specialization edges.
+The earlier local draft's additional edges are not part of this refinement. Their mathematical meaning is shared across numerical
 and symbolic work. Distributivity also covers products beyond independent-scalar linear patterns;
 exponent laws also cover fixed exponents and variable bases, as in `(x^2)^3 = x^6`. Neither law
 is restricted to the narrower corresponding rewriting family. OrderOfOperations remains a
-notation convention, and RulesOfSigns concerns determining signs; their existing placements remain.
+notation convention under ArithmeticLaws, and RulesOfSigns concerns determining signs;
+their existing placements remain.
 
 The word "rewriting" distinguishes these procedures from linear maps and from
 FunctionTransformation, which produces a translated, reflected, or scaled function.
 Rewriting a function's rule preserves its values; transforming the function can change them.
 
-CompletingSquare remains a distinct technique alongside BinomialIdentities. Applying a binomial
+CompletingSquare remains a distinct technique alongside BinomialSquareIdentities. Applying a binomial
 identity directly matches a pattern such as `u^2 + 2uv + v^2 = (u + v)^2`. CompletingSquare
 constructs a suitable square and compensates for the change, as in
-`x^2 + 6x + 5 = (x + 3)^2 - 4`; it retains its integration of BinomialIdentities.
+`x^2 + 6x + 5 = (x + 3)^2 - 4`; it integrates BinomialSquareIdentities.
 CollectingLinearTerms, DistributingLinearCombinations, CommonBaseRewriting, and
 CombiningExponentialFactors also remain distinct techniques because their steps or applicability
 add meaning beyond generic application of a law.
@@ -447,12 +485,12 @@ annotation review:
 | FunctionsAndRelations | AlgebraicFunctions organizes function types and constructions. |
 | Function / FunctionType | FunctionTypes is the current organizational identifier and remains ineligible for direct labeling. Review former direct claims against eligible constituents; generic nonnumeric correspondence remains an open coverage question. |
 | BinaryRelation | Removed; arbitrary relations that are not functions have no equivalent function label. |
-| FunctionRange / FunctionMonotonicity / FunctionExtrema / FunctionZeros | Moved under FunctionProperties in Analysis; their own meanings remain independent of the method used. |
+| FunctionRange / FunctionMonotonicity / FunctionExtrema / FunctionZeros | Remain under FunctionProperties in Analysis, now grouped by FunctionValueProperties and FunctionOrderProperties; their definitions, examples, and labeling eligibility are unchanged. |
 | FunctionBehavior | Renamed FunctionProperties by the manual refinement in e4e7299. |
 | AverageRateOfChange / InstantaneousRateOfChange | Remain constituents of FunctionSlope. The user accepted this shared placement; FunctionSlope is organizational because both children use partOf. |
-| ApplyingBinomialIdentities | Removed in favor of BinomialIdentities under QuadraticRewriting; retain an evidenced Ability to distinguish recognizing, explaining, and applying the identities. |
-| AlgebraicLaws | Removed after its laws moved into the AlgebraicEquivalence specialization family. The former organizer is not an annotation alias for that broader concept. |
-| AssociativeLaw / CommutativeLaw / DistributiveLaw / ExponentLaws | Now specialize AlgebraicEquivalence while retaining their constituent placement under ArithmeticLaws. Their existing arithmetic uses and incoming progression relations remain. |
+| ApplyingBinomialIdentities / BinomialIdentities | The application wrapper was removed in the earlier draft; the published bundle is now retired in favor of an evidence-specific choice of BinomialSquareIdentities, DifferenceOfSquaresIdentity, or both. Retain an evidenced Ability to distinguish recognizing, explaining, and applying. |
+| AlgebraicLaws | Absent from the current source. The former organizer is not an annotation alias for AlgebraicEquivalence; review each law's authored placement independently. |
+| AssociativeLaw / CommutativeLaw / DistributiveLaw / ExponentLaws | Remain constituents of ArithmeticLaws without AlgebraicEquivalence specialization edges. Earlier local-draft claims of those extra edges are superseded by the current source; their existing arithmetic uses and incoming progression relations remain. |
 | NumericSequence | Removed; review Sequence and NumericFunction together for the same studied sequence. ArithmeticSequence and GeometricSequence now specialize both directly. |
 | RelationEquivalence | Removed; review solution-set equivalence against the broadened AlgebraicEquivalence definition, retaining variables and domain. |
 | FormulaRearrangement | Removed; retain the requested isolation goal in the task and select evidenced solving and rewriting claims. No exact identifier alias is asserted. |
@@ -548,13 +586,11 @@ that they can denote the same integer value. SignNotation separates sign from ma
 explicitly handles signed zero: either sign leaves zero unchanged. These precision questions
 are resolved in the source.
 
-OperandCardinality remains a question only. One option is to generalize its parent definition
-to operand counts at a stated operation or expression level, while retaining the existing
-whole-expression conventions of TwoOperands, ThreeOperands, and FourOperands. This would broaden
-the parent's direct meaning and require reviewing existing parent annotations and making the
-counting level explicit. It would not automatically change any child count: `8 * (2 + 10)`
-currently has three counted operand occurrences. No Scope definition or count changes are
-implemented here.
+OperandCardinality already counts explicit operand occurrences across all nested operations in
+the expression. The former question about generalizing its terminal-operand wording is therefore
+historical; `8 * (2 + 10)` still has three counted occurrences, without counting the composite
+`2 + 10` again. This branch leaves that definition, its children, and their counting convention
+unchanged.
 
 ## Adoption and the boundary with analysis
 
@@ -590,6 +626,20 @@ reviewed selectively. This branch does not update the content repository's pinne
 target specifications, or coverage baseline.
 
 ## Verification
+
+For the 2026-10-10 refinement, the three authored tree blocks were regenerated from the final
+Turtle assertions. The source assessment and focused semantic-boundary review pass. Comparison
+with the baseline confirms that FunctionRange, FunctionZeros, FunctionMonotonicity, and
+FunctionExtrema retain their definitions and examples; only their direct organizational parents
+change. All seven source-assessment checks and documentation validation pass with no findings;
+the snapshot contains 929 descriptors and 4,976 assertions. Focused checks confirm the intended
+binomial and trigonometric specialization boundaries, new-organizer eligibility, and constant-output
+variable roles. Independent review found no actionable semantic issues; `git diff --check` passes.
+
+The authoritative `docker build . --output dist` was attempted on 2026-10-10 but could not connect
+to the Docker Desktop Linux engine. Starting Docker Desktop failed because its startup service
+could not access `sailor-ingest.sock`. Generated-client tests and package builds for this branch
+remain unverified until the Docker gate runs; the checks above do not replace that gate.
 
 Earlier completed checks are historical evidence. The review in 35d3482 tightened six
 definitions and filled five missing example fields. Revision 6d67042 updated definitions and
@@ -634,3 +684,400 @@ unavailable. Generated-client tests and package builds remain unverified until t
 Authoring references: [descriptors](../descriptors.md), [structure](../structure.md),
 [relations](../relations.md), [content evidence](../content-evidence.md),
 [change review](../change-review.md), [annotations and models](../annotations-and-models.md).
+
+## Next-stage CCSS and school-analysis proposal
+
+Status: implemented 2026-10-10 on `codex/algebra-refinements` after the two annotated reviews. The baseline is
+published preview `0.30.0-pre.10.10a40360f726`, source commit `10a40360f72686aabbf5865ee5157649ad75b06c`.
+The accepted representation, theorem, equivalence, function-property, variable-role,
+function-arithmetic, and transformation-logic descriptors below are now source assertions.
+NumberTheory and the explicitly deferred stages remain plans. Earlier provisional coverage
+questions must be checked against this baseline rather than treated as an inventory of missing concepts.
+
+The implemented decisions use ScientificExponentNotation, keep the finite geometric sum and general
+binomial theorem exclusively in AlgebraicEquivalence, split the old binomial-identity bundle,
+and adopt the eight function-property subdivisions below. The trigonometric dual placement and
+ConstraintTransformationLogic direction are accepted. AlgebraicTheorems replaces the rejected
+AlgebraicResults name in this branch.
+
+### 2026-10-10 migration and adoption
+
+This source change requires an ontology-version adoption review; it does not silently update
+annotations, generated datasets, or a consumer's pinned package.
+
+| Change | Review required |
+| --- | --- |
+| BinomialIdentities retired | Choose BinomialSquareIdentities for square-of-sum/difference knowledge and DifferenceOfSquaresIdentity for the conjugate-product identity. Select both only when both are evidenced; this is not an unconditional rename or two-label expansion. |
+| BinomialSquareIdentities specializes BinomialTheorem | Square identities now inherit the general binomial expansion and AlgebraicEquivalence, without inheriting QuadraticRewriting. An independent quadratic-rewriting claim needs its own evidence. |
+| DifferenceOfSquaresIdentity specializes QuadraticRewriting | The product identity preserves the quadratic-equivalence path; it does not inherit BinomialTheorem. |
+| CompletingSquare integrates BinomialSquareIdentities | Only its integration target changes from the retired bundle; the technique remains a specialization of QuadraticRewriting. |
+| FunctionRange and FunctionZeros reparented | Their direct organizational parent becomes FunctionValueProperties. Definitions, examples, and direct-label eligibility are preserved. |
+| FunctionMonotonicity and FunctionExtrema reparented | Their direct organizational parent becomes FunctionOrderProperties. Definitions, examples, and direct-label eligibility are preserved. |
+| FunctionProperties subdivided | FunctionValueProperties, FunctionOrderProperties, FunctionRepetitionProperties, FunctionRegularity, and FunctionShapeProperties are new organizational nodes with constituent children, not direct labels. FunctionSymmetry, FunctionLimitingBehavior, and FunctionCriticalPoints are eligible concepts with specializing children. |
+| School-analysis property concepts added | Local limits, continuity, differentiability, concavity, inflection, critical points, and stationary points are authored now. Their presence does not assert calculus content in existing annotations or provide separate methods of differentiation or integration. |
+| TrigonometricRelations broadened | Its meaning now includes circular as well as triangle trigonometry. TrigonometricIdentities has the accepted constituent placement there and specialization in AlgebraicEquivalence. Existing triangle knowledge remains within scope. |
+| Representation and transformation-context Scopes added | Apply them only when their conventions or transformations are evident. A Scope does not itself establish knowledge of the notation, a solving procedure, or the logical validity of a transformation. |
+
+Existing domain, slope, function-type, dependence, and solving families retain their placements.
+New knowledge labels must be independently supported by observable content under
+[ONT-E1](../content-evidence.md#ont-e1--ground-annotations-in-accessible-evidence);
+new organizers remain ineligible under
+[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
+
+### When a composition deserves its own concept
+
+The user's proposed test sharpens [ONT-D1](../descriptors.md#ont-d1--define-reusable-concepts):
+a combination can warrant an Area when it introduces a new concept to understand, changes the
+character of the underlying task, and supports identifiable later knowledge. A relatively unique,
+reusable construction is a stronger candidate than one cell in a multiplication of object types
+and operations. An imaginable future use alone is insufficient; demonstrate the new meaning
+with an example and a contrasting case. Potential progression links are evidence for this
+decision, not automatic `expands` or `integrates` assertions.
+
+### Representation Scopes
+
+These two cases are authored as Scopes; a parallel Area is not necessary at this stage.
+
+| Scope | Meaning | Placement and composition |
+| --- | --- | --- |
+| `ScientificExponentNotation` | Numerical values represented as a coefficient times an integer power of ten, with `1 <= abs(a) < 10` for nonzero coefficients, including equivalent E notation. Zero may be represented by coefficient zero with a stated exponent convention. | `specializes Numerals`. Compose with existing arithmetic, comparison, approximation, identity, or notation knowledge. |
+| `GraphicalSolutionRepresentation` | Solution sets represented by points, curves, or regions on a number line or in a coordinate system. | `partOf RepresentationalScope`. Compose with `SolutionSet`, `RelationSatisfaction`, constraints, and the relevant interpretation or construction Ability. |
+
+Examples: `3.2 * 10^5`, `1.25E6`; the ray for `x > 2`; the region satisfying `x + y <= 1`.
+NumberNotation is eligible in the published baseline, so `NumberNotation + ScientificExponentNotation`
+can describe studying the convention itself. Its existing notation children use specialization.
+The Scope alone does not assert that notation conventions are the knowledge being learned.
+Likewise the graphical Scope does not by itself claim graph-based solving or numerical accuracy.
+
+Scientific notation addresses [8.EE.A.3-4](https://www.thecorestandards.org/Math/Content/8/EE/).
+The graph interpretation is supported by existing solution-set meaning; review representative
+[A-REI.D.10-12](https://www.thecorestandards.org/Math/Content/HSA/REI/) tasks before adding another Area.
+
+### Number theory and number-system knowledge
+
+Accepted direction: place complex-number foundations and rational/irrational number-system
+properties in NumberTheory. Its current definition is limited to integers and must be broadened
+deliberately. Proposed organizer definition: "The mathematical properties and relationships of
+numbers and number systems, including their arithmetic structure and representations."
+
+Review its boundary with existing ArithmeticSpaces, whose definition already mentions number
+systems. Reuse or refine that organization rather than creating a synonymous second organizer.
+Keep computation and strategies distinguishable from knowledge of number-system structure.
+
+The next number-theory pass should address:
+
+- Complex-number structure: `i^2 = -1`, the real and imaginary parts of `a + bi`, and the
+  extension of real arithmetic. Pair this knowledge with a `ComplexNumbers` Scope for contexts
+  requiring that number system; existing arithmetic operations remain reusable.
+- Rational/irrational characterization, including eventually repeating decimal expansions.
+- Operation and result-type properties: closure within a number system and the results of
+  mixed rational/irrational operations. "Closure" alone does not name all the latter cases.
+
+These are independently learned properties, not claims created merely by displaying a number
+from a particular system. Relevant standards are
+[N-CN.A.1-2 and C.7](https://www.thecorestandards.org/Math/Content/HSN/CN/),
+[N-RN.B.3](https://www.thecorestandards.org/Math/Content/HSN/RN/), and
+[8.NS.A.1](https://www.thecorestandards.org/Math/Content/8/NS/).
+Advanced complex-number topics remain deferred below.
+
+### Algebraic theorems and equivalence: primary placement
+
+The authored organizer is `AlgebraicTheorems`. The user's original name is a
+better fit than AlgebraicResults: the initial members are the remainder and factor theorems,
+while the finite geometric sum and binomial expansion belong exclusively to equivalence.
+Definition: "General relationships among algebraic expressions, their values, roots,
+and factors."
+
+The remainder theorem connects evaluation with division; the factor theorem connects a zero
+with divisibility. Their placement in the new family is accepted, with no additional equivalence
+parent. The finite geometric sum and BinomialTheorem directly express equal-valued
+forms and specialize AlgebraicEquivalence only. Conventional use of the word "theorem" does
+not require a second organizational parent. Existing QuadraticFormula also keeps its single
+direct structural parent, AlgebraicEquivalence.
+
+```text
+Algebra
+  P AlgebraicTheorems
+    P PolynomialRemainderTheorem
+    P PolynomialFactorTheorem
+  P AlgebraicEquivalence                    [existing]
+    S FiniteGeometricSum
+    S BinomialTheorem
+      S BinomialSquareIdentities
+    S QuadraticFormula                      [existing edge]
+    S QuadraticRewriting                    [existing]
+      S DifferenceOfSquaresIdentity
+      S CompletingSquare                    [existing edge]
+```
+
+This is a focused view of the authored Algebra tree. The theorem-family edges are `partOf`;
+equivalence-family edges are `specializes`. No theorem collection is inserted underneath the
+specialized equivalence family. This replaces the earlier proposal to give identities and
+formulas additional membership in a general results collection. The separately accepted
+geometry/algebra dual placement for TrigonometricIdentities remains intentional.
+
+| Descriptor | Definition | Example |
+| --- | --- | --- |
+| `PolynomialRemainderTheorem` | The equality between the remainder when a polynomial `p(x)` is divided by `x-a` and the value `p(a)`, over a stated coefficient field containing `a`. | Dividing `x^2 + 1` by `x-2` leaves remainder `5 = p(2)`. |
+| `PolynomialFactorTheorem` | The equivalence between `p(a)=0` and divisibility of a polynomial `p(x)` by `x-a`, over a stated coefficient field containing `a`. | `p(2)=0` for `p(x)=x^2-4`, so `x-2` is a factor. |
+| `FiniteGeometricSum` | The identity equating the sum of `n` geometric terms beginning with `a`, of common ratio `r`, to `a(1-r^n)/(1-r)` for positive integer `n` and `r != 1`. For `r=1`, the sum is `na`. | `3 + 6 + 12 + 24 = 3(1-2^4)/(1-2) = 45`. |
+| `BinomialTheorem` | The identity expanding `(a+b)^n` as the sum of `binom(n,k) a^(n-k) b^k` over `k=0,...,n`, for real or complex `a,b` and nonnegative integer `n`, with zero powers interpreted as constant polynomial terms. | `(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3`. |
+| `BinomialSquareIdentities` | The square-of-sum and square-of-difference identities `(a+b)^2 = a^2 + 2ab + b^2` and `(a-b)^2 = a^2 - 2ab + b^2` for real or complex quantities. | `(x+3)^2 = x^2 + 6x + 9`; `(x-3)^2 = x^2 - 6x + 9`. |
+| `DifferenceOfSquaresIdentity` | The identity `(a+b)(a-b) = a^2-b^2` for real or complex quantities, used in either direction. | `x^2-9 = (x+3)(x-3)`. |
+
+The factor theorem is a consequence of the remainder theorem, not a narrower theorem that
+preserves the latter's whole meaning. Keep them siblings. The finite sum is algebraic;
+infinite series and convergence are separate later knowledge.
+
+The source splits the published BinomialIdentities bundle into the power-of-binomial
+identities and the difference-of-squares product. In preview `.10` the bundle is one eligible
+descriptor without children, not three separately authored identities. The split uses
+new names rather than silently narrowing that published identifier:
+
+- BinomialIdentities is retired in this branch. Review old annotations and choose
+  BinomialSquareIdentities, DifferenceOfSquaresIdentity, or both only when both are evidenced.
+- The `BinomialSquareIdentities specializes BinomialTheorem` edge captures the
+  degree-two cases of the general power identity. It does not add a second QuadraticRewriting
+  parent; quadratic rewriting can still be independently expressed where needed.
+- The `DifferenceOfSquaresIdentity specializes QuadraticRewriting` edge preserves
+  its identity as a quadratic product/factorization relationship.
+- The `CompletingSquare integrates BinomialSquareIdentities` edge replaces its
+  integration of the old bundle. CompletingSquare still specializes QuadraticRewriting.
+
+This is a semantic and ancestry migration, not a spelling-only rename. Consumers must not
+mechanically replace every old BinomialIdentities claim with both new claims. Earlier
+verification records describe the published bundle at their stated historical baselines.
+
+References: [polynomial results](https://openstax.org/books/precalculus-2e/pages/3-6-zeros-of-polynomial-functions),
+[binomial expansion](https://openstax.org/books/algebra-and-trigonometry-2e/pages/13-6-binomial-theorem),
+[CCSS finite geometric sums](https://www.thecorestandards.org/Math/Content/HSA/SSE/).
+
+### Advanced school-level function properties
+
+The implemented family covers real functions of one real variable through advanced school
+analysis, with existing discrete-domain concepts retained where applicable. The subject is the
+property being understood; deriving it by algebra, reading a graph, or using calculus does not
+create three versions of the property. This is a curriculum-oriented set, not a claim to exhaust
+all mathematical properties of functions.
+
+The four existing members are preserved within the user's eight subdivisions. Five new `partOf`
+organizers group value, order, repetition, regularity, and shape properties. FunctionSymmetry,
+FunctionLimitingBehavior, and FunctionCriticalPoints provide the other three branches
+as independently meaningful concepts with specializing children. No specialization is followed
+by composition.
+
+```text
+Analysis
+  P FunctionProperties
+    P FunctionValueProperties               [Values]
+      P FunctionRange                       [existing]
+      P FunctionZeros                       [existing]
+      P FunctionSign
+      P FunctionBounds
+    P FunctionOrderProperties               [Order and extrema]
+      P FunctionMonotonicity                [existing]
+      P FunctionExtrema                     [existing]
+    P FunctionSymmetry                      [Symmetry]
+      S EvenFunctionSymmetry
+      S OddFunctionSymmetry
+    P FunctionRepetitionProperties          [Repetition]
+      P FunctionPeriodicity
+      P OscillationParameters
+    P FunctionLimitingBehavior              [Limiting behavior]
+      S FunctionLocalLimitBehavior          [school analysis]
+      S FunctionEndBehavior
+    P FunctionRegularity                    [Regularity]
+      P FunctionContinuity                  [school analysis]
+      P FunctionDifferentiability           [school calculus]
+    P FunctionShapeProperties               [Shape]
+      P FunctionConcavity
+      P FunctionInflection
+    P FunctionCriticalPoints                [Distinguished points; calculus stage]
+      S FunctionStationaryPoints
+
+Reserved for later discussion: FunctionAsymptotes, FunctionIntegrability.
+```
+
+FunctionDomain stays under AlgebraicFunctions. FunctionSlope already contains AverageRateOfChange
+and InstantaneousRateOfChange; neither needs duplication. OneToOneFunction and FunctionInversion
+cover injectivity and inverse-function knowledge. Intercepts can use FunctionZeros or evaluation
+at input zero with coordinate concepts. Phase/horizontal shift uses FunctionTransformation.
+
+| Descriptor | Definition |
+| --- | --- |
+| `FunctionProperties` | The attained values, qualitative features, and local and global behavior of functions on stated domains. |
+| `FunctionValueProperties` | The attained outputs, zeros, signs, and output bounds of functions on stated domains. |
+| `FunctionOrderProperties` | The ordering of function outputs across inputs and the local or global extremal values attained. |
+| `FunctionRepetitionProperties` | Repeated input-output patterns and the quantitative features of bounded periodic oscillations. |
+| `FunctionRegularity` | Continuity and differentiability of functions at points or across stated intervals. |
+| `FunctionShapeProperties` | The concavity of function graphs and changes between upward and downward bending. |
+| `FunctionSign` | The positive, negative, or zero outputs of a real-valued function across a stated set of inputs, including where each sign occurs. |
+| `FunctionBounds` | Numbers bounding a real-valued function's outputs from below or above on a stated set of inputs, distinguishing sharp bounds from attained extrema. |
+| `FunctionSymmetry` | Reflection or half-turn symmetries of a real function's graph, expressed through corresponding input-output relationships on a domain preserved by the symmetry. |
+| `EvenFunctionSymmetry` | Symmetry of a real function under negation of its input, with a domain closed under negation and `f(-x)=f(x)` throughout that domain. |
+| `OddFunctionSymmetry` | Symmetry of a real function under simultaneous negation of input and output, with a domain closed under negation and `f(-x)=-f(x)` throughout that domain. |
+| `FunctionPeriodicity` | Repetition of a function's values under a fixed positive input shift on a domain closed under that shift. The fundamental period is the least such shift when it exists, and its reciprocal gives frequency in cycles per input unit. |
+| `OscillationParameters` | The central level and extent of a bounded repeating oscillation with attained cycle extrema, described by the midline halfway between those extrema and the amplitude equal to half their difference. |
+| `FunctionLimitingBehavior` | The behavior of a real-valued function as its input approaches a specified location or extends without bound through its domain, distinguishing finite limits, unbounded behavior, and failure to approach a limit. |
+| `FunctionLocalLimitBehavior` | Limiting behavior as a real input approaches a specified finite location through the function's domain, including one-sided approaches and locations where the function is undefined. |
+| `FunctionEndBehavior` | Limiting behavior as a real input tends toward positive or negative infinity through the function's domain. |
+| `FunctionContinuity` | Agreement between a real-valued function's limiting value and its value at a domain point, including continuity on stated intervals and one-sided continuity at included endpoints. |
+| `FunctionDifferentiability` | Existence of a finite derivative of a real-valued function at a specified interior input or throughout a stated interval, with any endpoint derivative convention stated separately. |
+| `FunctionConcavity` | Upward or downward bending of a real function on an interval, determined by whether its graph lies on or below, or on or above, its chords, distinguishing strict and non-strict convexity or concavity. |
+| `FunctionInflection` | A change between upward and downward concavity at a point where a real function is continuous. |
+| `FunctionCriticalPoints` | Interior domain points of a real-valued function where its derivative is zero or does not exist, considered as candidates rather than guarantees for local extrema. |
+| `FunctionStationaryPoints` | Interior domain points where a real-valued function has a finite derivative equal to zero, whether or not an extremum or inflection occurs. |
+
+The source retains the existing definitions of FunctionRange, FunctionZeros, FunctionMonotonicity, and
+FunctionExtrema. Sign and symmetry were compositionally expressible in the earlier coverage
+audit; their explicit inclusion here follows the user's broader property-family request.
+Sign knowledge supports sign charts and later derivative interpretation; symmetry supports
+domain restrictions, graph construction, and later integral simplification.
+
+Boundary examples for review:
+
+- `f(x)=x` on `(0,1)` has sharp bounds 0 and 1 but no attained extrema.
+- `x^2` is even on the reals; its restriction to `[0,infinity)` lacks the required negation-invariant domain.
+- `(x-2)^2` has reflection symmetry about `x=2` without being even.
+- The zero function on the reals is both even and odd, and periodic without a least positive period.
+- The periodicity definition admits forward-closed domains such as `[0,infinity)`; it does
+  not require two-sided equality between the domain and its translation.
+- `2 sin(3x)+1` has amplitude 2, midline 1, period `2pi/3`, and frequency `3/(2pi)`.
+  Angular frequency 3 is a different quantity; midline need not mean a time-average in a general oscillation.
+- `tan(x)` is periodic but has no finite cycle extrema; periodicity must not imply amplitude knowledge.
+- `x^3` at zero is stationary and has an inflection, but is not a turning extremum.
+- `abs(x)` has a turning minimum at zero without being differentiable or stationary there.
+- `x^4` has second derivative zero at the origin without an inflection.
+- `f(x)=x` on `[0,1]` has endpoint extrema that are not interior critical points.
+- `sin(x)` as `x` tends to infinity and `sin(1/x)` as `x` tends to zero distinguish bounded
+  oscillation without a limit in the end and local cases.
+
+Turning points initially compose extrema and reversal of monotonicity. If an explicit descriptor
+is useful, it may specialize FunctionExtrema, with continuity and a reversal of monotonic direction
+specified. It must not specialize FunctionStationaryPoints. A hole must be discussed relative to
+a stated interval or proposed extension: a function may be continuous everywhere on its actual
+domain while its graph has an excluded input.
+
+Core and precalculus work covers values, signs, bounds, monotonicity, extrema, symmetry,
+periodicity, oscillation parameters, and qualitative end behavior. Limits, continuity,
+differentiability, critical points, and derivative-based concavity analysis belong to the later
+school-analysis curriculum. These property concepts are all authored now; their curriculum stage
+is not an implementation deferral. Derivative tests, differentiation rules, optimization procedures,
+and integration methods remain separate future method/result families.
+
+FunctionAsymptotes is a reserved topic only, including the deferred rational-function cases.
+FunctionIntegrability is a later property review: the existence of a specified definite integral
+must remain distinct from having a familiar elementary antiderivative or performing integration.
+No claim of CCSS necessity follows from these later slots.
+
+The five new organizers have constituent children and are ineligible as direct content labels.
+Existing FunctionRange, FunctionZeros, FunctionMonotonicity, and FunctionExtrema change only their
+organizational parents in this implementation; their definitions and labeling eligibility are retained.
+FunctionSymmetry, FunctionLimitingBehavior, and FunctionCriticalPoints remain eligible concepts
+with specialization families. "Distinguished points" names the critical/stationary-point branch
+in the review table, not a competing organizer for every zero, extremum, and inflection point.
+"Shape" is specifically the concavity/inflection subdivision. These choices supersede the earlier
+recommendation to keep the whole property tree flat.
+
+References: [CCSS function features](https://www.thecorestandards.org/Math/Content/HSF/IF/),
+[periodic models](https://www.thecorestandards.org/Math/Content/HSF/TF/),
+[school calculus scope](https://apcentral.collegeboard.org/courses/ap-calculus-ab),
+[extrema](https://openstax.org/books/calculus-volume-1/pages/4-3-maxima-and-minima), and
+[concavity and derivative tests](https://openstax.org/books/calculus-volume-1/pages/4-5-derivatives-and-the-shape-of-a-graph).
+
+### Trigonometric identity placement
+
+The user accepts shared placement. The alternatives considered were:
+
+1. Algebra-first: TrigonometricIdentities specializes AlgebraicEquivalence; geometry tasks
+   compose it with existing triangle/circle concepts.
+2. Geometry-first: the identities belong within a broadened TrigonometricRelations family,
+   with no equivalence inheritance. This emphasizes their geometric derivation but makes
+   algebraic identity navigation less direct.
+3. Shared placement: TrigonometricIdentities is `partOf TrigonometricRelations` and
+   `specializes AlgebraicEquivalence`; its particular identities specialize it.
+
+Implemented in the draft: option 3. These are single concepts with two justified structural paths.
+TrigonometricRelations now includes circular as well as triangle trigonometry.
+TrigonometricIdentities has specializing children rather than constituent children, preserving
+the structural path rule. PythagoreanTrigonometricIdentity and ComplementaryAngleIdentities
+are authored initially.
+Additional identities and triangle laws remain deferred. Their primary placement will follow
+the mathematical knowledge involved; no general second theorem-family membership is proposed.
+
+| Authored descriptor | Mathematical content |
+| --- | --- |
+| TrigonometricIdentities | Equalities between trigonometric expressions valid throughout their common stated domain, retaining original restrictions when rewritten. |
+| PythagoreanTrigonometricIdentity | `sin(theta)^2 + cos(theta)^2 = 1` for every real angle. |
+| ComplementaryAngleIdentities | `sin(pi/2 - theta) = cos(theta)` and `cos(pi/2 - theta) = sin(theta)` in radians, with the equivalent 90-degree forms. |
+
+### New variable roles and function arithmetic
+
+These pass the concept-promotion test without multiplying dependence families.
+
+| Area | Definition | Placement |
+| --- | --- | --- |
+| `IndependentVariable` | The input role of a variable whose admissible values are supplied to a stated mathematical relationship. | `specializes Variable` |
+| `DependentVariable` | The output role of a variable specified by a rule from designated inputs, including a constant output rule. | `specializes Variable` |
+| `FunctionArithmetic` | Constructing or interpreting a numerical function by applying arithmetic operations pointwise to the outputs of given functions at a common input. Its domain retains the participating functions' input restrictions and excludes inputs where the resulting operation is undefined. | `partOf AlgebraicFunctions` |
+
+The variable roles describe an orientation chosen in a relationship, not an immutable property
+of a symbol. In `y=f(x+1)`, `x` can be the independent variable while `x+1` is the FunctionArgument.
+Specializing Variable rather than VaryingVariable accommodates constant output rules.
+
+With `f(x)=x^2` and `g(x)=x+1`, their pointwise product is `x^2(x+1)` while their composition
+`f(g(x))` is `(x+1)^2`. Their quotient excludes `x=-1`; cancellation would not restore an input
+excluded by its construction. This creates a new function with meaningful domain rules.
+Later calculus can build on that construction without generating separate Areas for every
+combination of function type and operation.
+
+Reference: [function arithmetic and composition](https://openstax.org/books/precalculus-2e/pages/1-4-composition-of-functions).
+
+### Implication and equivalence of constraint transformations
+
+The source models the logical distinction as knowledge and the kinds of supplied
+transformation as contextual Scopes. Area `ConstraintTransformationLogic` is
+`partOf AlgebraicConstraints`: "The logical relationship between an original constraint and
+its transformed form over the same variables and admissible domain, distinguishing two-way
+equivalence from one-way implication and the conditions needed for reversal."
+
+This adds the distinction from one-way consequence rather than redefining AlgebraicEquivalence.
+A future general Logic family could support it, but adding the first constituent to the
+currently eligible Logic descriptor requires its own usage review.
+
+The authored transformation-context Scopes cover squaring both sides, multiplying or dividing
+by a variable expression, and clearing denominators. They describe the actual operation and its
+conditions; do not assign one logical status to an operation name in all contexts.
+
+ConstraintTransformationScope is their eligible general parent. Its specializing children are
+SquaringBothSides, MultiplyingByVariableExpression, DividingByVariableExpression, and
+ClearingDenominators. This is a separate Scope family; it does not specialize the knowledge
+Area or assert that a displayed transformation is reversible.
+
+Let `S` be the original solution set and `T` the transformed one, in the same domain:
+
+- Equivalence: `S = T`.
+- Original implies transformed: `S` is contained in `T`; the transformed condition may add candidates.
+- Transformed implies original: `T` is contained in `S`; the transformed condition may lose solutions.
+
+For real inputs, `x=2` implies `x^2=4`, while the reverse needs a nonnegative-input condition.
+Conversely, reducing `x(x-1)=0` to `x-1=0` by division loses zero unless its exclusion was already
+part of the domain. Checking candidates composes with RelationSatisfaction; a blanket
+"extraneous-solutions method" Area is unnecessary. Specific reusable techniques such as
+CompletingSquare remain Areas where they contribute additional mathematical knowledge.
+
+### Deferred stages preserved from the review
+
+| Stage | Preserved topics | Boundary |
+| --- | --- | --- |
+| NumberTheory foundations | Complex-number structure, rational/irrational characterization, closure and mixed-system result types. | Broaden NumberTheory deliberately and reconcile its boundary with ArithmeticSpaces in a separate pass. |
+| Advanced complex numbers | Conjugates, modulus and argument, rectangular/polar forms, complex-plane representations and operations, Fundamental Theorem of Algebra. | After the NumberTheory foundations. Final placement of the algebra theorem is still open. |
+| Linear algebra | Vector operations, matrix quantities and arithmetic, zero/identity matrices, determinants, inverses, matrix systems, linear transformations. | A dedicated LinearAlgebra field; the existing VectorConcept is reusable and VectorObjects means graphics. |
+| Further function/trigonometric work | Rational-function asymptotes, angle addition/subtraction identities, sine-area relationship, Laws of Sines and Cosines. | Preserve for a later discussion; current family sketches do not decide their full trees. |
+| Calculus methods | Limit and derivative methods, derivative tests and applications, integration/accumulation, and later convergence. | Independent of completing CCSS; the authored school-analysis properties above do not substitute for method families. |
+
+The accepted representation, equivalence, theorem, function-property, and transformation-logic
+decisions are implemented. Next, run a distinct NumberTheory pass, then return to the explicitly
+deferred extensions. General BinomialTheorem is authored in this branch even though its CCSS
+standard is marked `(+)`. Existing content annotations and consumer package pins require their
+own adoption review; this ontology branch does not update them.
