@@ -54,8 +54,9 @@ hierarchy, including formal expression roles, shared dependence and rewriting fa
 function types and properties, the parallel trigonometric families, and effects on existing labels.
 Its [extension roadmap](docs/plan/algebra-family-draft.md#recommended-next-ontology-extensions)
 distinguishes remaining core CCSS needs, advanced CCSS extensions, and later calculus work.
-The [NumberTheory basics draft](docs/plan/number-theory-basics-draft.md) develops the next
-proposed family and its boundary with existing arithmetic knowledge.
+The [NumberTheory design and implementation record](docs/plan/number-theory-basics-draft.md)
+documents the school and introductory-university families, their boundary with arithmetic,
+and the shared closure concept in AlgebraicStructures.
 
 #### Foundations
 

@@ -4,7 +4,9 @@ The algebra and school-analysis refinements are merged into `origin/main` at
 `d0d029d` ([PR #68](https://github.com/christian-bick/edugraph-ontology/pull/68)), verified on 2026-10-10.
 This record distinguishes the [implemented decisions](#ccss-and-school-analysis-refinement-record)
 from the [recommended next extensions](#recommended-next-ontology-extensions).
-NumberTheory foundations and the explicitly deferred extensions remain future work.
+NumberTheory foundations are implemented separately on `codex/number-theory-foundations`;
+see its [implementation record](number-theory-basics-draft.md#implementation-and-adoption--2026-10-10).
+The explicitly deferred extensions remain future work.
 
 Implementation branch: `codex/algebra-refinements` (merged). Revised 2026-10-10 after the merge.
 The authored sources are [Areas](../../core-areas-math.ttl) and [Scopes](../../core-scopes-math.ttl).
@@ -708,8 +710,9 @@ The pre-refinement baseline was
 published preview `0.30.0-pre.10.10a40360f726`, source commit `10a40360f72686aabbf5865ee5157649ad75b06c`.
 The accepted representation, theorem, equivalence, function-property, variable-role,
 function-arithmetic, and transformation-logic descriptors below are now source assertions.
-NumberTheory and the explicitly deferred stages remain plans. Earlier provisional coverage
-questions must be checked against the merged source rather than treated as an inventory of missing concepts.
+NumberTheory now has a separate implementation on `codex/number-theory-foundations`, pending
+review and merge; the other deferred stages remain plans. Earlier provisional coverage questions
+must be checked against the relevant source rather than treated as an inventory of missing concepts.
 
 The implemented decisions use ScientificExponentNotation, keep the finite geometric sum and general
 binomial theorem exclusively in AlgebraicEquivalence, split the old binomial-identity bundle,
@@ -1110,15 +1113,15 @@ CompletingSquare remain Areas where they contribute additional mathematical know
 
 | Stage | Preserved topics | Boundary |
 | --- | --- | --- |
-| NumberTheory foundations | Complex-number structure, rational/irrational characterization, closure and mixed-system result types. | Broaden NumberTheory deliberately and reconcile its boundary with ArithmeticSpaces in a separate pass. |
+| NumberTheory foundations | Complex-number structure, rational/irrational characterization, closure and mixed-system result types. | Implemented on `codex/number-theory-foundations`, pending review and merge; see the design record and adoption map below. |
 | Advanced complex numbers | Conjugates, modulus and argument, rectangular/polar forms, complex-plane representations and operations, Fundamental Theorem of Algebra. | After the NumberTheory foundations. Final placement of the algebra theorem is still open. |
 | Linear algebra | Vector operations, matrix quantities and arithmetic, zero/identity matrices, determinants, inverses, matrix systems, linear transformations. | A dedicated LinearAlgebra field; the existing VectorConcept is reusable and VectorObjects means graphics. |
 | Further function/trigonometric work | Rational-function asymptotes, angle addition/subtraction identities, sine-area relationship, Laws of Sines and Cosines. | Preserve for a later discussion; current family sketches do not decide their full trees. |
 | Calculus methods | Limit and derivative methods, derivative tests and applications, integration/accumulation, and later convergence. | Independent of completing CCSS; the authored school-analysis properties above do not substitute for method families. |
 
 The accepted representation, equivalence, theorem, function-property, and transformation-logic
-decisions are implemented. Next, run a distinct NumberTheory pass, then return to the explicitly
-deferred extensions. General BinomialTheorem is authored in the merged ontology even though its CCSS
+decisions are implemented. The distinct NumberTheory pass is now ready for branch review;
+the other deferred extensions follow separately. General BinomialTheorem is authored in the merged ontology even though its CCSS
 standard is marked `(+)`; FiniteGeometricSum addresses core
 [A-SSE.B.4](https://www.thecorestandards.org/Math/Content/HSA/SSE/).
 Existing content annotations and consumer package pins require their
@@ -1127,6 +1130,7 @@ own adoption review; the ontology merge does not update them.
 ## Recommended next ontology extensions
 
 These priorities concern the algebra, number-system, and function work discussed in this record.
+Step 1 now has a branch implementation; subsequent steps remain the review priorities.
 They are not a completeness claim for all CCSS geometry, statistics, or other fields. Proposed
 family names below are planning candidates, not additional authored descriptors. The sequence
 separates core CCSS gaps from standards marked `(+)` and later calculus; a `(+)` item may still
@@ -1134,27 +1138,28 @@ be worth implementing early when it contributes useful shared knowledge, as Bino
 
 ### 1. NumberTheory foundations — next implementation proposal
 
-The [NumberTheory basics draft](number-theory-basics-draft.md) develops this step into a
-reviewable family, with proposed definitions, examples, placement alternatives, and an
-adoption map. It is a proposal; these additions are not yet authored in Turtle.
+Status: implemented on `codex/number-theory-foundations`, pending review and merge.
+The heading is retained as a stable link from the earlier plans. The
+[NumberTheory design record](number-theory-basics-draft.md) contains definitions, examples,
+placement alternatives, and an [adoption map](number-theory-basics-draft.md#implementation-and-adoption--2026-10-10).
 Its [second draft](number-theory-basics-draft.md#draft-2--a-university-informed-subject-structure)
 starts from introductory university subject organization, then maps the school requirements
-into that broader structure. It preserves an alternative boundary between NumberTheory and
-NumberSystems and proposes a shared algebraic home for closure.
+into that broader structure. The implementation selects the broad educational NumberTheory
+boundary and the shared AlgebraicStructures home for closure; the alternative boundary is
+preserved for comparison.
 
-Start by resolving the boundary with ArithmeticSpaces. NumberTheory is currently defined only
-for integers, while ArithmeticSpaces already describes number systems and organizes integer
-and rational arithmetic. The accepted direction is to broaden NumberTheory for number-system
-knowledge. Distinguish structural properties from carrying out arithmetic, and review existing
-children and annotations before moving or narrowing either organizer.
+NumberTheory is broadened for number-system knowledge. ArithmeticSpaces retains its existing
+integer and rational arithmetic subtree, with its definition clarified toward computation and
+representation. The implementation distinguishes structural knowledge from carrying out
+arithmetic and makes the Factorization and DivisibilityRules labeling changes explicit.
 
-The first proposal should cover three independently learned subjects:
+The school-facing additions cover three independently learned subjects:
 
 | Subject | Knowledge to add or clarify | Reuse and boundary |
 | --- | --- | --- |
-| Rational and irrational structure | Fraction characterization, the relationship with eventually repeating decimal expansions, and why non-rational real numbers are irrational. | Reuse the existing RationalNumbers, IrrationalNumbers, and RealNumbers Scopes and notation concepts. A displayed irrational number does not establish knowledge of the characterization. |
-| Operation and result-type properties | Closure within number systems and the result types of mixed rational/irrational operations. | Consider a shared closure concept, but do not reduce every mixed-system result to closure. For example, a nonzero rational times an irrational is irrational, while zero times an irrational is zero. |
-| Complex-number foundations | The imaginary unit, the real and imaginary components of `a + bi`, and the extension of real arithmetic using `i^2 = -1`. | Propose a ComplexNumbers Scope; reuse existing operations, arithmetic laws, and quadratic-solving knowledge. Avoid a new Area for every operation/number-system combination. |
+| Rational and irrational structure | RationalNumberCharacterization and NumberSystemRelations. | Reuse existing number-system Scopes and notation concepts. A displayed irrational number does not establish knowledge of the characterization. |
+| Operation and result-type properties | Shared OperationClosure and NumberOperationResultTypes. | Keep closure distinct from mixed-system rules: a nonzero rational times an irrational is irrational, while zero times an irrational is zero. |
+| Complex-number foundations | ComplexNumberStructure and the ComplexNumbers Scope. | Reuse operations, arithmetic laws, and quadratic-solving knowledge without adding an Area for every operation/number-system combination. |
 
 This addresses core [8.NS.A.1](https://www.thecorestandards.org/Math/Content/8/NS/),
 [N-RN.B.3](https://www.thecorestandards.org/Math/Content/HSN/RN/), and
@@ -1162,10 +1167,10 @@ This addresses core [8.NS.A.1](https://www.thecorestandards.org/Math/Content/8/N
 Complex-number foundations and quadratics with complex solutions are core requirements;
 only the additional complex-number stages below are marked `(+)`.
 
-The deliverable should be a reviewable family sketch with concise definitions, boundary examples,
-proposed Area/Scope distinctions, and an adoption map for any affected existing descriptors.
-Representative examples should distinguish knowing why `0.333... = 1/3`, predicting the
-rationality of an operation's result, calculating `(1 + i)(1 - i) = 2`, and solving `x^2 + 1 = 0`.
+The authored tree also includes GCD/LCM and the explicitly defined university bridge concepts.
+Representative examples distinguish knowing why `0.333... = 1/3`, predicting an operation's
+result type, calculating `(1 + i)(1 - i) = 2`, and solving `x^2 + 1 = 0`. Consumer adoption and
+the separate decimal/fraction Scope boundary review remain outstanding.
 
 ### 2. Close the remaining core algebra/function coverage questions
 
@@ -1174,9 +1179,10 @@ knowledge and distinguish a missing concept from a supported composition. One co
 deserves explicit review: [A-APR.A.1](https://www.thecorestandards.org/Math/Content/HSA/APR/)
 requires knowledge that polynomials are closed under addition, subtraction, and multiplication.
 PolynomialDependence identifies the form; equivalent rewriting identifies equal values.
-Neither specifically identifies the system's closure property. Evaluate whether the closure
-knowledge from the NumberTheory pass can be shared with algebra or whether a distinct algebraic
-concept is warranted. Polynomial closure is core; rational-expression closure in A-APR.D.7 is `(+)`.
+Neither specifically identifies the system's closure property. The NumberTheory branch now
+adds shared OperationClosure under AlgebraicStructures; verify its composition with polynomial
+knowledge against representative tasks. Polynomial closure is core; rational-expression closure
+in A-APR.D.7 is `(+)`.
 
 Use composition checks for these cases before adding more Areas:
 

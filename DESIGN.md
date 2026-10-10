@@ -361,6 +361,22 @@ without duplicating the concepts. The distinction between organization and inher
 [the structural rules](docs/structure.md), while direct labeling continues to depend on
 [eligibility and evidence](docs/content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
 
+NumberTheory uses a deliberately broad educational boundary: traditional integer subjects
+sit alongside rationality and number-system foundations, including complex-number structure.
+Its branches distinguish divisibility, prime factorization, modular arithmetic, Diophantine
+problems, arithmetic functions, and rational approximation. ArithmeticSpaces retains
+representation and computation methods. Generic OperationClosure belongs to AlgebraicStructures
+within Algebra, so number systems and polynomials can share it without duplicating the concept.
+The [NumberTheory design record](docs/plan/number-theory-basics-draft.md) compares university
+curricula, explains the alternative field boundary, and records the implemented choices.
+
+Knowledge of a structure remains distinct from a related calculation. Modulo calculates a
+remainder; EuclideanDivision concerns the unique quotient-remainder representation;
+IntegerCongruence concerns equality modulo an integer. PrimeFactorization is a narrower
+integer Factorization method, while FundamentalTheoremOfArithmetic supplies the existence
+and uniqueness result. These distinctions connect school content to later mathematics without
+making the later theory an automatic claim about elementary exercises.
+
 
 ---
 

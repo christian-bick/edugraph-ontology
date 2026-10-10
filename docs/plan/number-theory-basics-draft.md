@@ -1,14 +1,17 @@
-# NumberTheory basics — family proposal
+# NumberTheory — design proposals and implementation record
 
-Status: review draft, 2026-10-10. Based on ontology `origin/main` at `d0d029d`
-after the Algebra refinements. The descriptors and edits proposed here are not yet
-authored in Turtle. No content labels, generated packages, or consumer versions change
-with this document.
+Status: the second draft's option 2A and concrete family tree are implemented on
+`codex/number-theory-foundations`, 2026-10-10, based on ontology `origin/main` at
+`d0d029d` after the Algebra refinements. See the
+[implementation and adoption record](#implementation-and-adoption--2026-10-10) for the
+authored changes and remaining work. This branch has not been merged or adopted by consumers.
 
 The original school-gap proposal is preserved below. A separately researched
 [second draft](#draft-2--a-university-informed-subject-structure) follows it, comparing
 a broader subject structure with introductory university curricula and locating the
-school requirements within that structure. Neither proposal is an approved implementation.
+school requirements within that structure. These two proposal sections retain their
+pre-implementation wording and baseline observations for comparison; the implementation
+record states which choices were adopted.
 
 This develops [step 1 of the Algebra extension roadmap](algebra-family-draft.md#1-numbertheory-foundations--next-implementation-proposal).
 The immediate target is school-level knowledge of number systems, rationality, and
@@ -261,8 +264,8 @@ still includes exponent-extension justification and the other algebra/function c
 
 ## Draft 2 — a university-informed subject structure
 
-Status: independent alternative, researched 2026-10-10 against the same `d0d029d`
-ontology baseline. This draft starts from the mathematical subjects that recur in
+Status: researched 2026-10-10 against the same `d0d029d` ontology baseline; subsequently
+selected for implementation using option 2A. This proposal starts from the mathematical subjects that recur in
 introductory university study, then identifies the school-level concepts within them.
 It does not make the university material a prerequisite for a school competency.
 
@@ -579,3 +582,85 @@ The recommended next review is therefore the **subject structure plus its small 
 implementation subset**, not approval to populate the full university tree at once.
 The decisive choices are 2A versus 2B for the field boundary, moving shared closure into
 AlgebraicStructures, and repairing the two existing method/organizer mismatches.
+
+## Implementation and adoption — 2026-10-10
+
+The user selected the second draft for implementation on a new ontology branch.
+`codex/number-theory-foundations` implements **option 2A** and **every explicitly defined
+concept in its target tree**, including the university bridge concepts. The staged
+sequence above remains the design history; the later topic directions without descriptor
+definitions remain future work.
+
+### Authored coverage
+
+The source adds 35 Areas and one Scope, retaining all existing identifiers:
+
+- Seven NumberTheory organizers: IntegerDivisibility, PrimesAndFactorization,
+  ModularArithmetic, DiophantineProblems, ArithmeticFunctions, RationalityAndApproximation,
+  and NumberSystems.
+- AlgebraicStructures under Algebra, with OperationClosure as shared knowledge for
+  numerical and polynomial contexts.
+- All 27 new eligible Areas defined in the second draft and its carried-over school
+  foundations, from IntegerParity and GreatestCommonDivisor to ContinuedFractions and
+  ComplexNumberStructure.
+- ComplexNumbers as a specialization of NumericSpace alongside RealNumbers. A real
+  result can occur in an explicitly complex context; real-number tasks do not acquire
+  complex context through ancestry.
+
+The broad NumberTheory definition makes the educational field boundary explicit.
+ArithmeticSpaces is clarified toward numerical representation and computation, with its
+existing subtree retained. Every added descriptor and the changed Area definitions have
+concrete examples. Small wording refinements make input domains, nonzero conditions,
+solvability equivalences, and continued-fraction conventions explicit.
+
+### Changes to existing labels and relations
+
+| Descriptor | Source change | Consequence for adoption |
+| --- | --- | --- |
+| FactorsAndMultiples | Constituent of IntegerDivisibility. | Meaning, eligibility, and existing progression links are retained. |
+| PrimeNumbers and CompositeNumbers | Constituents of PrimesAndFactorization. | Existing classification labels remain valid; navigation changes. |
+| Factorization | Constituent of PrimesAndFactorization; former constituent children relocated; PrimeFactorization specializes it. | Becomes eligible while retaining integer product-decomposition meaning. PrimeFactorization supports the broader claim; listing factor pairs alone does not automatically do so. |
+| DivisibilityRules | Constituent of IntegerDivisibility; OddAndEvenNumbers specializes it. | Becomes eligible. Existing OddAndEvenNumbers labels now support the general divisibility-test claim. |
+| OddAndEvenNumbers | Its numeral-based test explicitly excludes performing division, matching its new parent. | IntegerParity is separate knowledge of even/odd structure and behavior; there is no blanket replacement. |
+| NumberTheory and ArithmeticSpaces | Definitions clarified at the field level. | Both remain organizational and ineligible for direct content labeling. |
+| SetTheory | Unchanged. | Remains eligible; the first draft's proposed eligibility change was not adopted. |
+
+Existing progression and logical-constraint edges are preserved. No new progression
+edges are inferred from the university teaching order. The new constituent and
+specialization edges express the reviewed subject organization and narrower methods.
+
+The content repository still uses its existing ontology package. Its factor/multiple
+generator deliberately excludes Factorization from factor-pair and classification tasks;
+making the descriptor eligible is not a reason to remove that safeguard. Dataset
+regeneration, label migration, and package updates require a separate adoption pass.
+
+### Verification
+
+The implementation has 965 descriptors and 5,159 authored assertions. The source assessment
+and documentation checks pass, along with 131 targeted checks of the approved tree, eligibility,
+metadata, unchanged identifiers, and retained progression and constraint assertions.
+An independent definition review tightened the OddAndEvenNumbers boundary before validation.
+
+`docker build . --output dist` passed on 2026-10-10: RDF generation, TypeScript generation and
+tests, ontology and documentation gates, packed TypeScript consumers, Python lint and typing,
+all 49 Python tests, and wheel/source-distribution consumer checks. These validate the ontology
+and generated libraries; they do not substitute for the separate content adoption pass.
+
+### Remaining decisions
+
+- DecimalNumbers and FractionNumbers keep their current definitions and ancestry in
+  this implementation. The scope-boundary alternatives, finite-decimal consequences,
+  and fraction-role implications identified above remain a separate explicit review.
+- GreatestCommonDivisor is the implemented canonical name; greatest common factor is
+  its school synonym. The grade-06 plan's proposed GreatestCommonFactor name must be
+  reconciled when that plan adopts this ontology. Its input-only bounds also remain
+  separate Scope work; no limit on the LCM result is implied.
+- Negative-input remainder conventions for the existing Modulo concept remain open.
+  EuclideanDivision states its own positive-divisor and nonnegative-remainder convention.
+- Modular power theorems, quadratic residues/reciprocity, further approximation theory,
+  advanced numerical extensions, and the other topics in the reserved university table
+  are not authored by this change. The previously deferred complex, linear-algebra, and
+  calculus stages remain separate.
+- This implementation addresses the identified concept gaps; it does not certify every
+  CCSS target. Rational-exponent justification and the residual algebra/function audit
+  still need representative competency checks.
