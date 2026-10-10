@@ -1118,7 +1118,7 @@ CompletingSquare remain Areas where they contribute additional mathematical know
 | Stage | Preserved topics | Boundary |
 | --- | --- | --- |
 | NumberTheory foundations | Complex-number structure, rational/irrational characterization, closure and mixed-system result types. | Merged at `1b9ecc3`; see the design record and adoption map below. |
-| Advanced complex numbers | Conjugates, modulus and argument, rectangular/polar forms, complex-plane representations and operations, Fundamental Theorem of Algebra. | After the NumberTheory foundations. Final placement of the algebra theorem is still open. |
+| Advanced complex numbers | Conjugates, modulus and argument, rectangular/polar forms, complex-plane representations and operations, Fundamental Theorem of Algebra. | Stage 3A implemented for review on `codex/advanced-complex-numbers`; FTA is a constituent of AlgebraicTheorems. University-entry stage 3B and optional Scopes remain deferred. |
 | Linear algebra | Vector operations, matrix quantities and arithmetic, zero/identity matrices, determinants, inverses, matrix systems, linear transformations. | A dedicated LinearAlgebra field; the existing VectorConcept is reusable and VectorObjects means graphics. |
 | Further function/trigonometric work | Rational-function asymptotes, angle addition/subtraction identities, sine-area relationship, Laws of Sines and Cosines. | Preserve for a later discussion; current family sketches do not decide their full trees. |
 | Calculus methods | Limit and derivative methods, derivative tests and applications, integration/accumulation, and later convergence. | Independent of completing CCSS; the authored school-analysis properties above do not substitute for method families. |
@@ -1134,8 +1134,9 @@ own adoption review; the ontology merge does not update them.
 ## Recommended next ontology extensions
 
 These priorities concern the algebra, number-system, and function work discussed in this record.
-Step 1 is merged and step 2 has a completed source audit with its two additions in preview;
-subsequent steps remain the review priorities.
+Steps 1 and 2 are merged, with step 2's two additions at `702714b`. Step 3A is implemented
+for review on `codex/advanced-complex-numbers`; its stage 3B continuation and subsequent steps
+remain the review priorities.
 They are not a completeness claim for all CCSS geometry, statistics, or other fields. Proposed
 family names below are planning candidates, not additional authored descriptors. The sequence
 separates core CCSS gaps from standards marked `(+)` and later calculus; a `(+)` item may still
@@ -1179,8 +1180,8 @@ the separate decimal/fraction Scope boundary review remain outstanding.
 
 ### 2. Close the remaining core algebra/function coverage questions
 
-Status: source audit completed on 2026-10-11 against `1b9ecc3`; two targeted additions are
-implemented on `codex/unit-dimensionality-pythagorean`, pending preview review. The
+Status: source audit completed on 2026-10-11 against `1b9ecc3`; the two targeted additions
+were merged into `main` at `702714b`. The
 [audit document](core-ccss-coverage-audit.md) inventories **114 core terminal standards** across
 the selected middle-school prerequisites, Number and Quantity, Algebra, Functions, and three
 right-triangle crosslinks. It records existing eligible concepts, representative tasks, and
@@ -1224,11 +1225,25 @@ object-by-method multiplication is required to close these core questions.
 
 ### 3. Advanced complex numbers and polynomial structure — CCSS (+)
 
-After the foundations, add conjugation, modulus/argument, rectangular and polar forms,
-complex-plane representation and geometric arithmetic, and the Fundamental Theorem of Algebra.
-Review the latter's placement in the existing AlgebraicTheorems family instead of duplicating
-it across number systems and algebra. Reuse the merged identities and factorization concepts
-for complex polynomial examples where their definitions already apply.
+Status: stage 3A is implemented for review on `codex/advanced-complex-numbers`, based on
+`main` at `702714b`; see the
+[implementation and adoption record](advanced-complex-numbers-draft.md#implementation-and-adoption--2026-10-11).
+It adds seven Areas distributed across the
+existing number-system, geometry, notation, and theorem families: ComplexConjugation,
+ComplexModulus, ComplexArgument, ComplexPlane, ComplexPolarNotation, ComplexArithmeticGeometry,
+and FundamentalTheoremOfAlgebra. Existing rectangular-number structure, arithmetic, identities,
+factorization, and solving concepts are reused without redefining or reparenting them.
+
+The implementation has six partOf edges, one specializes edge, and two progression edges.
+No existing descriptors or authored relations are modified or retired. The focused source
+comparison and full Docker gate passed, including both generated clients and all 49 Python
+tests; the implementation document records the scope and validation details.
+
+The design record compares a cohesive ComplexNumberSystem organizer and a smaller representation
+bundle with the distributed approach. It preserves De Moivre's identity, complete root sets,
+roots of unity, conjugate-root pairing, and exponential form as a university-entry continuation,
+and records optional representation Scopes separately from knowledge Areas. Both that stage 3B
+continuation and the optional Scopes remain deferred.
 
 The relevant [N-CN.A.3, B.4-6, and C.8-9](https://www.thecorestandards.org/Math/Content/HSN/CN/)
 are marked `(+)`. This stage can also review the rational-expression system and its closure
