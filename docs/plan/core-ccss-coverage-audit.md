@@ -157,7 +157,7 @@ related to the geometric theorem without being an alias or replacement.
 Drafted, revised, and implemented for preview on 2026-10-11 from the `1b9ecc3` source baseline.
 The accepted implementation retains the complete function family and adds UnitDimensionality
 under MeasuringWithUnits and PythagoreanTheorem under GeometricRelations. The Turtle below
-records those authored additions and the clarification of MeasuringWithUnits. FunctionNotation
+records those authored additions and the unchanged MeasuringWithUnits organizer. FunctionNotation
 and Measurement retain their existing placement. The inventory later in this document
 continues to report the historical baseline, rather than silently substituting the new terms.
 
@@ -224,12 +224,11 @@ and consistent formula use in [N-Q.A.1](https://www.thecorestandards.org/Math/Co
 ```
 
 The name UnitDimensionality and its placement under MeasuringWithUnits are implemented.
-The organizer's definition and example now explicitly include unit composition and compatibility:
+The organizer retains its original definition without an example comment:
 
 ```turtle
 :MeasuringWithUnits a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Standard units for expressing quantities, their systems, relative sizes and conversions, and their composition and compatibility in quantity relations.";
-    rdfs:comment "Expressing one meter as one hundred centimeters; relating meters per second to distance and duration.";
+    rdfs:isDefinedBy "The study of standard units used to quantify physical properties, including their relative sizes, systems, and conversions.";
     edu:partOf :Measurement.
 ```
 
@@ -307,16 +306,17 @@ automatic theorem relation to pure integer-triple knowledge or every distance ca
 ### Implementation, adoption, and preview — 2026-10-11
 
 Implemented on `codex/unit-dimensionality-pythagorean`, pending preview review. The authored
-source now has **967 descriptors and 5,171 assertions**, compared with the historical audit
+source now has **967 descriptors and 5,170 assertions**, compared with the historical audit
 baseline of 965 descriptors and 5,159 assertions. The change adds two eligible Areas and
-retires none. The only existing descriptor changed is MeasuringWithUnits, whose definition
-and example explicitly accommodate its new constituent.
+retires none. MeasuringWithUnits has been restored to its original definition and its added
+example removed at review. No annotations or authored edges on existing descriptors differ
+from the baseline; the source delta consists only of the two new descriptors.
 
 | Change | Authored effect | Adoption boundary |
 | --- | --- | --- |
 | UnitDimensionality | New constituent of MeasuringWithUnits, defining dimensional composition and compatibility. | Add only where the content uses or explains those rules; ordinary unit conversion alone is insufficient. |
 | PythagoreanTheorem | New constituent of GeometricRelations, expanding RightTriangle through the metric characterization and converse. | Use for theorem-specific application or justification, not every right-triangle task. |
-| MeasuringWithUnits | Definition and example clarified; identifier, relations, and organizer role retained. | Existing exclusions from direct labels remain appropriate. |
+| MeasuringWithUnits | Original definition restored and added example removed; identifier, relations, and organizer role retained. | Existing exclusions from direct labels remain appropriate. |
 | Function coverage | NumericFunction with FunctionSymbol and FunctionArgument accepted for the reviewed numerical and formal roles. | No function descriptor, notation placement, or type relationship changes. |
 
 All existing descriptors retain their eligibility, structural ancestry, and specialization
@@ -341,14 +341,18 @@ MeasuringWithUnits and PythagoreanTheorem within GeometricRelations, including i
 relation to RightTriangle. Regenerated clients and downstream package adoption are separate
 from accepting the source preview; this change does not update content dependencies or datasets.
 
-Focused source and delta assessment passes all seven ontology checks and confirms the counts,
-the exact two additions, unchanged existing ancestry and eligibility, and unchanged historical
-mapping rows. The full `docker build . --output dist` gate passed on 2026-10-11, including
+Before the MeasuringWithUnits restoration, focused source and delta assessment passed all
+seven ontology checks and confirmed the exact two additions, unchanged existing ancestry
+and eligibility, and unchanged historical mapping rows. The full
+`docker build . --output dist` gate passed on 2026-10-11 for that revision, including
 RDF generation, TypeScript build/client tests, ontology and documentation validation, package
 consumer checks, Python lint and typing, all 49 Python tests, and wheel/sdist verification.
-Focused checks of the generated TypeScript exports confirm both new identifiers and their
-relations; the exported Turtle matches the authored source. The final verification-record
-edits also pass documentation validation. These checks do not establish annotation quality,
+Focused checks of that revision's generated TypeScript exports confirmed both new identifiers
+and their relations; the exported Turtle matched its authored source. Its final
+verification-record edits also passed documentation validation. The subsequent MeasuringWithUnits
+restoration passed the same full Docker gate, all 49 Python tests, and focused generated-client
+and source-delta checks. It has no changes to existing descriptors relative to the original
+baseline. These checks do not establish annotation quality,
 learner mastery, or dataset coverage.
 
 ## Remaining evidence and adoption work

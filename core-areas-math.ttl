@@ -1019,8 +1019,7 @@
     rdfs:isDefinedBy "Determining or comparing the mass or heaviness of manifested objects directly, through an intermediary, or by using tools and units.";
     edu:specializes :MeasuringObjects.
 :MeasuringWithUnits a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Standard units for expressing quantities, their systems, relative sizes and conversions, and their composition and compatibility in quantity relations.";
-    rdfs:comment "Expressing one meter as one hundred centimeters; relating meters per second to distance and duration.";
+    rdfs:isDefinedBy "The study of standard units used to quantify physical properties, including their relative sizes, systems, and conversions.";
     edu:partOf :Measurement.
 :MidpointCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of finding the exact center point of a line segment on the coordinate plane by averaging the coordinates of its endpoints.";

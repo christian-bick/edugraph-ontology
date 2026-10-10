@@ -1198,8 +1198,8 @@ The review's three targeted follow-ups are resolved for the requested preview sc
   numerical correspondence and formal expression roles in F-IF.A.1. The graph facet uses
   existing concepts as evidenced. FunctionTypes and all function descriptors remain unchanged.
 - UnitDimensionality is authored under MeasuringWithUnits for unit composition and dimensional
-  consistency, beyond the already supported conversions in 6.RP.A.3.d and N-Q.A.1. The
-  organizer's definition and example are clarified to include this knowledge.
+  consistency, beyond the already supported conversions in 6.RP.A.3.d and N-Q.A.1.
+  MeasuringWithUnits retains its original definition without an example comment.
 - PythagoreanTheorem is authored under GeometricRelations, expanding RightTriangle with the
   squared-side characterization and its converse. RightTriangle and measurement concepts
   already provide broad application coverage; the theorem adds a useful reusable distinction,
@@ -1213,9 +1213,11 @@ and a possible FunctionDefinition extension for arbitrary-set correspondence are
 deferred, not requirements of the accepted numerical scope or changes in this preview.
 
 The audit's 114 mappings preserve the historical baseline; the preview separately records
-967 descriptors and 5,171 assertions with no existing ancestry or eligibility changes.
-Focused source checks and the full Docker gate pass, including both generated clients and
-all 49 Python tests. Further evidence work concerns mixed-system
+967 descriptors and 5,170 assertions with no existing descriptor annotations, authored edges,
+ancestry, or eligibility changed. The initial implementation passed focused source checks and
+the full Docker gate, including both generated clients and all 49 Python tests. The same
+validation also passed after restoring MeasuringWithUnits and removing its added example.
+Further evidence work concerns mixed-system
 property attribution, complete versus sampled solutions, justified error bounds, and the
 separately recorded decimal/fraction Scope boundaries. No additional calculus family or
 object-by-method multiplication is required to close these core questions.
