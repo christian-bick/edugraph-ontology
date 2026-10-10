@@ -13,6 +13,7 @@ Start here when changing a descriptor, relation, or competency description.
 | Review proof, evidence, or error-guarantee context | [Justification Scopes](justification.md) and [content evidence](content-evidence.md) |
 | Find pending consolidation decisions | [Consolidation record](plan/ontology-consolidation.md) |
 | Review the merged Algebra and school-analysis design, annotation migration, and next extension priorities | [Algebra and analysis design record](plan/algebra-family-draft.md), including [migration and adoption](plan/algebra-family-draft.md#2026-10-10-migration-and-adoption) and the [extension roadmap](plan/algebra-family-draft.md#recommended-next-ontology-extensions) |
+| Review the proposed NumberTheory foundations, shared closure knowledge, and number-system Scope boundaries | [NumberTheory basics draft](plan/number-theory-basics-draft.md) |
 | Implement or review automated rule coverage | [Algorithmic check inventory](plan/automated-rule-checks.md) |
 | Plan shared library capabilities for the editor, dataset labelling, and content classification | [Shared library capabilities and requirements](plan/shared-typescript-library.md) |
 | Implement the shared library requirements | [Coverage and implementation sequence](plan/shared-typescript-library-implementation.md) |

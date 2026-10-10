@@ -1134,6 +1134,10 @@ be worth implementing early when it contributes useful shared knowledge, as Bino
 
 ### 1. NumberTheory foundations — next implementation proposal
 
+The [NumberTheory basics draft](number-theory-basics-draft.md) develops this step into a
+reviewable family, with proposed definitions, examples, placement alternatives, and an
+adoption map. It is a proposal; these additions are not yet authored in Turtle.
+
 Start by resolving the boundary with ArithmeticSpaces. NumberTheory is currently defined only
 for integers, while ArithmeticSpaces already describes number systems and organizes integer
 and rational arithmetic. The accepted direction is to broaden NumberTheory for number-system
