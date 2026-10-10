@@ -155,6 +155,10 @@
 :ComplexityScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Structural conditions of a task that affect how many components, stages, or coordinated relationships must be processed.";
     rdfs:comment "The number of operands, the depth of a composition, or the coordination of reference frames.".
+:ComplexNumbers a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "A numerical context using the complex number system, admitting values a + bi with real a and b and i^2 = -1.";
+    rdfs:comment "Solving x^2 + 1 = 0 over the complex numbers; calculating (1 + i)(1 - i) = 2.";
+    edu:specializes :NumericSpace.
 :CompositionDepth a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The number of successive composition levels used to construct a result, where an additional level occurs when the result of one composition is used as an input to another.";
     rdfs:comment "Shapes assembled from component shapes, arithmetic expressions built from subexpressions, functions composed with other functions, and transformations built from earlier transformations.";

@@ -94,6 +94,10 @@
     rdfs:isDefinedBy "Constructing a symbolic model of a situation by selecting relevant quantities and identifying the relationships and admissible values the model must represent.";
     rdfs:comment "Choosing distance d and time t to model a journey at a fixed speed of 5 units per hour by d = 5t for t >= 0.";
     edu:partOf :Algebra.
+:AlgebraicStructures a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Sets equipped with operations and the properties and axioms governing those operations.";
+    rdfs:comment "Closure of integers under addition; the identity element in a group; multiplication in a polynomial ring.";
+    edu:partOf :Algebra.
 :AlgebraicSubstitution a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The consistent replacement of designated symbol occurrences by a specified admissible value or expression, respecting variable binding and domain restrictions.";
     rdfs:comment "Replacing x by 4 in 3x + 2; replacing x by t + 1 in x^2.";
@@ -140,6 +144,10 @@
     rdfs:comment "Interpreting 5, 5 + 5, 2 × (8 + 7), 2^3, sqrt(4), log_2(8), and pi + 2 as arithmetic expressions.";
     edu:expands :ArithmeticOperations;
     edu:specializes :MathematicalExpression.
+:ArithmeticFunctions a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Functions on positive integers that encode divisibility and prime structure, including their multiplicative relationships.";
+    rdfs:comment "Counting the positive divisors of 12; determining how many integers from 1 through 12 are coprime to 12.";
+    edu:partOf :NumberTheory.
 :ArithmeticLaws a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fundamental axiomatic rules that govern the manipulation and equivalence of mathematical expressions and statements.";
     edu:partOf :Arithmetic.
@@ -152,8 +160,8 @@
     rdfs:comment "Expressing 2, 5, 8, 11, and onward as a_n = 2 + 3(n - 1) for n >= 1; identifying zero difference in 4, 4, 4, and onward.";
     edu:specializes :NumericFunction, :Sequence.
 :ArithmeticSpaces a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of number systems, their properties, and the representations used to express and operate on their values.";
-    rdfs:comment "Integers, rational numbers written as fractions, and numbers written in decimal notation.";
+    rdfs:isDefinedBy "Methods and relationships used to represent numerical values and carry out arithmetic within number systems.";
+    rdfs:comment "Regrouping integers; adding fractions; aligning decimal place values.";
     edu:partOf :Arithmetic.
 :AssociativeLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that the way in which numbers are grouped by parentheses does not change their sum or product.";
@@ -166,6 +174,10 @@
 :BaseOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The foundational application of mathematical rules and procedures to perform primary calculations through the core actions of addition, subtraction, multiplication, and division.";
     edu:partOf :ArithmeticOperations.
+:BezoutIdentity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The representation of the greatest common divisor of two integers, not both zero, as an integer linear combination of them.";
+    rdfs:comment "gcd(30, 18) = 6 = 2 * 18 - 30.";
+    edu:partOf :IntegerDivisibility.
 :BinaryOperator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of an operator with exactly two ordered operand positions in a particular expression.";
     rdfs:comment "Distinguishing the two input positions in a - b; identifying x and 3 as the ordered inputs of the power operation in x^3.";
@@ -192,6 +204,10 @@
     rdfs:isDefinedBy "A two-dimensional plane defined by a horizontal axis and a vertical axis intersecting at a right angle.";
     edu:expands :PlaneConcept;
     edu:partOf :GeometricVisualization.
+:ChineseRemainderTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The existence of a unique residue class modulo the product satisfying any prescribed integer residues for a finite nonempty collection of pairwise coprime positive integer moduli.";
+    rdfs:comment "Residues 2 modulo 3 and 3 modulo 5 determine residue 8 modulo 15.";
+    edu:partOf :ModularArithmetic.
 :ChordCenterRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship stating that a perpendicular line drawn from the center of a circle to a chord bisects the chord into two equal parts.";
     edu:expands :LineSegment, :PerpendicularityRelation;
@@ -258,11 +274,16 @@
     rdfs:comment "x^2 + 6x + 5 = (x + 3)^2 - 4; 2x^2 + 8x + 3 = 2(x + 2)^2 - 5.";
     edu:integrates :BinomialSquareIdentities;
     edu:specializes :QuadraticRewriting.
+:ComplexNumberStructure a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The extension of real numbers by an imaginary unit satisfying i^2 = -1, with each complex number uniquely expressed as a + bi for real a and b.";
+    rdfs:comment "Identifying 3 and -2 as the real and imaginary parts of 3 - 2i; expressing 5 as 5 + 0i.";
+    edu:partOf :NumberSystems.
 :CompositeNumbers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study and classification of whole numbers greater than 1 that have more than two positive factors; equivalently, numbers divisible by a positive whole number other than 1 and themselves.";
+    rdfs:comment "4, 6, 8, and 9 are composite numbers.";
     edu:contradicts :PrimeNumbers;
     edu:expands :FactorsAndMultiples;
-    edu:partOf :Factorization.
+    edu:partOf :PrimesAndFactorization.
 :ComputationalMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
 :ConditionalBranch a owl:NamedIndividual, edu:Area;
@@ -298,6 +319,10 @@
     rdfs:isDefinedBy "The logical relationship between an original constraint and its transformed form over the same variables and admissible domain, distinguishing two-way equivalence from one-way implication and the conditions needed for reversal.";
     rdfs:comment "Over the reals, x = 2 implies x^2 = 4 but not conversely; with x >= 0 the two conditions are equivalent; dividing x(x - 1) = 0 by x loses the solution 0.";
     edu:partOf :AlgebraicConstraints.
+:ContinuedFractions a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Representations of real numbers as finite or infinite simple continued fractions with an integer initial term and positive integer subsequent terms, together with the rational convergents obtained by finite truncation.";
+    rdfs:comment "13/8 = [1; 1, 1, 1, 2]; the convergents 1, 3/2, and 7/5 of sqrt(2) = [1; 2, 2, 2, ...].";
+    edu:partOf :RationalityAndApproximation.
 :CoordinateAxes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The horizontal (x-axis) and vertical (y-axis) number lines that intersect at right angles to form the Cartesian plane.";
     edu:partOf :CartesianPlane;
@@ -306,6 +331,10 @@
     rdfs:isDefinedBy "The calculation of the straight-line distance between two points on the Cartesian plane using their coordinates.";
     edu:expands :PointPlotting;
     edu:partOf :GeometricVisualization.
+:Coprimality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship among a finite nonempty collection of integers, not all zero, whose greatest common divisor is one.";
+    rdfs:comment "8 and 15 are coprime; 6, 10, and 15 have greatest common divisor 1 although no pair is coprime.";
+    edu:partOf :IntegerDivisibility.
 :Cosine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between an angle measure and the horizontal coordinate of its corresponding point on the unit circle, using a specified angular unit.";
     rdfs:comment "cos(0) = 1 and cos(pi) = -1 for radian measures; an adjacent side of length 4 and hypotenuse of length 5 give cosine 4/5 for the included acute angle.";
@@ -390,6 +419,10 @@
     rdfs:isDefinedBy "A transformation that produces an image that is the same shape as the original, but is a different size, altering the scale of the geometric object.";
     edu:expands :ShapeResizingConservation;
     edu:specializes :GeometricTransformations.
+:DiophantineProblems a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The existence, structure, and determination of integer or rational solutions to polynomial equations with integer coefficients.";
+    rdfs:comment "Integer solutions of 6x + 10y = 8; positive integer solutions of a^2 + b^2 = c^2.";
+    edu:partOf :NumberTheory.
 :DirectProportionalDependence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dependence in which a designated output quantity equals a fixed multiple k of one input quantity, with no constant offset, including k = 0.";
     rdfs:comment "y = 3x with input x and output y; the output expression 3x; f(t) = 4t; f(t) = 0.";
@@ -414,7 +447,8 @@
     edu:specializes :Operand.
 :DivisibilityRules a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Shorthand methods of determining whether a given integer is divisible by a fixed divisor without performing the division.";
-    edu:partOf :Factorization.
+    rdfs:comment "Using the digit sum 1 + 2 + 3 = 6 to establish that 123 is divisible by 3.";
+    edu:partOf :IntegerDivisibility.
 :Division a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the value that, when multiplied by a nonzero divisor, gives the dividend.";
     rdfs:comment "12 divided by 3 equals 4 because 3 × 4 = 12.";
@@ -447,6 +481,14 @@
     rdfs:isDefinedBy "The role of the input by which another input is divided in a division expression.";
     rdfs:comment "Identifying 3 as the divisor of x + 1 in (x + 1)/3; distinguishing the divisor y from the dividend x in x/y.";
     edu:specializes :Operand.
+:DivisorCount a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The number of positive divisors of a positive integer and its relationship to the exponents in a prime factorization.";
+    rdfs:comment "12 = 2^2 * 3 has (2 + 1)(1 + 1) = 6 positive divisors.";
+    edu:partOf :ArithmeticFunctions.
+:DivisorSum a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The sum of the positive divisors of a positive integer and its relationship to prime factorization.";
+    rdfs:comment "The positive divisors of 12 have sum 1 + 2 + 3 + 4 + 6 + 12 = 28.";
+    edu:partOf :ArithmeticFunctions.
 :EmergentFeatureRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizing a recurring, alternating, invariant, or otherwise systematic property of generated pattern elements that follows from, but is not itself, the generative rule.";
     edu:specializes :PatternRecognition.
@@ -467,6 +509,18 @@
     rdfs:isDefinedBy "Intuitively guessing relative quantities and sizes without counting.";
     edu:expands :NumericComparison;
     edu:specializes :NumericApproximation.
+:EuclideanAlgorithm a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining the greatest common divisor of two integers, not both zero, by successive Euclidean divisions of their absolute values, preserving the common divisors at each reduction.";
+    rdfs:comment "Reducing (48, 18) to (18, 12), then (12, 6), and obtaining greatest common divisor 6.";
+    edu:partOf :IntegerDivisibility.
+:EuclideanDivision a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The unique representation of an integer a as bq + r for a positive integer b, with integers q and r satisfying 0 <= r < b.";
+    rdfs:comment "-7 = 3(-3) + 2; 17 = 5 * 3 + 2.";
+    edu:partOf :IntegerDivisibility.
+:EulersTotient a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The number of integers from 1 through a positive integer n that are coprime to n, and its dependence on the prime factors of n.";
+    rdfs:comment "phi(12) = 4, counting 1, 5, 7, and 11; phi(1) = 1.";
+    edu:partOf :ArithmeticFunctions.
 :EvenDivisibility a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the divisor is two, permitting the source collection to be partitioned into exactly two subcollections of equal cardinality. The result identifies the source cardinality as an even integer, consisting of a quotient that represents the shared cardinality of the subcollections and a remainder of zero.";
     edu:expands :SetComparison, :Subitizing;
@@ -509,12 +563,14 @@
     rdfs:comment "Treating x + 2 as one factor alongside 3 in 3(x + 2); making the implied factor -1 explicit in -x.";
     edu:partOf :ExpressionStructure.
 :Factorization a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The process of decomposing an integer into a product of other integers that, when multiplied together, result in the original number.";
-    edu:partOf :NumberTheory.
+    rdfs:isDefinedBy "Decomposing an integer into a product of integer factors.";
+    rdfs:comment "36 = 4 * 9; 36 = 2 * 2 * 3 * 3.";
+    edu:partOf :PrimesAndFactorization.
 :FactorsAndMultiples a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of integers that can be multiplied together to get another integer, and the products of an integer and another integer.";
+    rdfs:comment "3 and 4 are factors of 12; 12, 24, and 36 are multiples of 12.";
     edu:expands :Division, :Multiplication;
-    edu:partOf :Factorization.
+    edu:partOf :IntegerDivisibility.
 :FiniteGeometricSum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identity equating the sum of n geometric terms beginning with a, of common ratio r, to a(1 - r^n)/(1 - r) for positive integer n and r != 1. For r = 1, the sum is na.";
     rdfs:comment "3 + 6 + 12 + 24 = 3(1 - 2^4)/(1 - 2) = 45.";
@@ -716,6 +772,10 @@
     rdfs:isDefinedBy "The admissible inputs at which a numerical function has output zero.";
     rdfs:comment "The zeros -2 and 2 of f(x) = x^2 - 4 over the real numbers.";
     edu:partOf :FunctionValueProperties.
+:FundamentalTheoremOfArithmetic a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The existence of a prime factorization for every integer greater than one and its uniqueness up to the order of the factors.";
+    rdfs:comment "Explaining why any complete prime factorization of 60 contains two factors 2, one factor 3, and one factor 5.";
+    edu:partOf :PrimesAndFactorization.
 :GeneralizedVariable a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a variable representing an arbitrary member of a stated domain in a claim intended to hold for every member of that domain.";
     rdfs:comment "Using x to stand for any real number in the identity x + x = 2x.";
@@ -753,6 +813,10 @@
     edu:partOf :Geometry.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
+:GreatestCommonDivisor a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The greatest positive integer dividing every member of a finite nonempty collection of integers that are not all zero, also called their greatest common factor.";
+    rdfs:comment "gcd(36, 8) = 4; gcd(0, -8) = 8.";
+    edu:partOf :IntegerDivisibility.
 :GroupingSymbol a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a symbol or matched set of symbols delimiting a subexpression that is treated as a unit in surrounding syntax.";
     rdfs:comment "Using parentheses to make x + 2 one factor in 3(x + 2); using brackets to make a + b the base in [a + b]^2.";
@@ -789,6 +853,10 @@
     rdfs:isDefinedBy "Determining the complete solution set of a single inequality in designated unknowns over a stated domain, including strict, non-strict, and non-equality constraints.";
     rdfs:comment "Solving -2x < 6 to obtain x > -3 over the reals; finding all real numbers except -1 and 1 as the solutions of x^2 != 1.";
     edu:specializes :ConstraintSolving.
+:InfinitudeOfPrimes a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The fact that no finite collection contains every prime number.";
+    rdfs:comment "Constructing 2 * 3 * 5 * 7 * 11 * 13 + 1 = 30031 = 59 * 509 to find prime divisors absent from the list 2, 3, 5, 7, 11, 13.";
+    edu:partOf :PrimesAndFactorization.
 :InstantaneousRateOfChange a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The finite limit of [f(a + h) - f(a)]/h for a real-valued function at a fixed real input a as h approaches zero, when that limit exists.";
     rdfs:comment "The rate 6 of f(x) = x^2 at x = 3; the rate 0 of g(x) = 5 at every real input.";
@@ -798,11 +866,23 @@
     rdfs:comment "Adding signed integers or exchanging units between integer place values. Integer value is independent of whether a representation includes a decimal separator.";
     edu:expands :NumerationWithIntegers;
     edu:partOf :ArithmeticSpaces.
+:IntegerCongruence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relation that two integers differ by a multiple of a specified positive integer modulus.";
+    rdfs:comment "17 and 5 are congruent modulo 12; -1 and 4 are congruent modulo 5.";
+    edu:partOf :ModularArithmetic.
+:IntegerDivisibility a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Divisibility relations among integers, their common divisors and multiples, and methods for establishing these relationships.";
+    rdfs:comment "12 is divisible by 3; 4 is the greatest common divisor of 8 and 12; 24 is their least common multiple.";
+    edu:partOf :NumberTheory.
 :IntegerNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for representing integer values with digits and an optional sign, without a decimal separator or fraction bar.";
     rdfs:comment "Writing -3, 0, and 12; distinguishing the integer notation 2 from the decimal notation 2.0 and the fraction notation 4/2.";
     edu:expands :DigitNotation;
     edu:specializes :NumberNotation.
+:IntegerParity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The even or odd character of integers, represented by the forms 2k and 2k + 1 for integer k, and its behavior under integer operations.";
+    rdfs:comment "Explaining why adding 3 reverses parity; showing that the product of two odd integers is odd.";
+    edu:partOf :IntegerDivisibility.
 :IntegerRegrouping a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Exchanging an integer quantity between place-value units while preserving its value.";
     rdfs:comment "Exchanging one ten for ten ones during subtraction, or ten ones for one ten during addition. These operations are commonly called borrowing and carrying.";
@@ -847,11 +927,23 @@
     rdfs:isDefinedBy "A quadrilateral with two distinct pairs of equal-length sides that are adjacent to each other.";
     edu:expands :SymmetryRelation;
     edu:specializes :Quadrilateral.
+:LeastCommonMultiple a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The least positive integer divisible by every member of a finite nonempty collection of nonzero integers, extended to zero when any member is zero.";
+    rdfs:comment "lcm(8, 12) = 24; lcm(-6, 8) = 24; lcm(0, 8) = 0.";
+    edu:partOf :IntegerDivisibility.
 :LengthCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the linear extent or measurement of a geometric object.";
     edu:expands :DistanceCalculation;
     edu:integrates :TrigonometricRelations;
     edu:partOf :GeometricCalculations.
+:LinearCongruenceSolvability a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The existence of an integer solution x to ax congruent to b modulo m exactly when gcd(a, m) divides b, for integers a and b and a positive integer m.";
+    rdfs:comment "6x congruent to 9 modulo 15 is solvable, but 6x congruent to 4 modulo 15 is not.";
+    edu:partOf :ModularArithmetic.
+:LinearDiophantineSolvability a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The existence of integer solutions to ax + by = c exactly when gcd(a, b) divides c, for integers a, b, and c with a and b not both zero.";
+    rdfs:comment "6x + 10y = 8 has integer solutions; 6x + 10y = 7 has none.";
+    edu:partOf :DiophantineProblems.
 :LinearDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating drawings or models of straight lines.";
     rdfs:comment "Drawing a straight line through two given points.";
@@ -936,6 +1028,14 @@
     rdfs:isDefinedBy "The role of the input from which another input is subtracted in a subtraction expression.";
     rdfs:comment "Treating x + 2 as the complete minuend in (x + 2) - y; distinguishing the minuend a from the subtrahend b in a - b.";
     edu:specializes :Operand.
+:ModularArithmetic a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Congruence classes of integers and the arithmetic, equations, and power relationships defined modulo a positive integer.";
+    rdfs:comment "Adding residue classes modulo 5; finding a multiplicative inverse modulo 7; solving 6x congruent to 9 modulo 15.";
+    edu:partOf :NumberTheory.
+:ModularInverse a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The multiplicative inverse of an integer residue class modulo an integer greater than one, existing exactly when a representative of the given class is coprime to the modulus.";
+    rdfs:comment "The inverse of 3 modulo 7 is 5; 2 has no inverse modulo 6.";
+    edu:partOf :ModularArithmetic.
 :Modulo a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the remainder after dividing one number by another.";
     edu:expands :Division;
@@ -964,6 +1064,10 @@
     rdfs:isDefinedBy "The conventional base-ten multiplication algorithm that obtains and combines place-aligned partial products in its standard written form.";
     edu:expands :IntegerRegrouping, :MultiplicationPartialProducts;
     edu:partOf :IntegerStrategies.
+:MultiplicativeArithmeticFunction a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A number-valued function on the positive integers with f(1) = 1 and f(mn) = f(m)f(n) for coprime positive integers m and n.";
+    rdfs:comment "Multiplying the divisor counts of 4 and 3 to obtain the divisor count of 12: 3 * 2 = 6.";
+    edu:partOf :ArithmeticFunctions.
 :NumberNameNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The words and conventions used to express numerical values in written language.";
     rdfs:comment "Writing 437 as four hundred thirty-seven.";
@@ -973,13 +1077,25 @@
     rdfs:isDefinedBy "The systems of symbols and conventions used to express numerical values.";
     rdfs:comment "Positional numerals, fraction notation, decimal notation, or number names.";
     edu:partOf :FormalMathematics.
+:NumberOperationResultTypes a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The necessary or possible number-system membership of an operation's result, given the operand types and stated restrictions.";
+    rdfs:comment "A rational plus an irrational number is irrational; a nonzero rational times an irrational number is irrational; sqrt(2) * sqrt(2) = 2 is rational.";
+    edu:partOf :NumberSystems.
 :NumberSense a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Intuitive understanding of numbers, their magnitudes, and their relationships.";
     rdfs:comment "Locating a value relative to zero or estimating which of two quantities is larger.";
     edu:partOf :IntuitiveMathematics.
+:NumberSystemRelations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The membership and inclusion relationships among number systems, including their overlaps and exclusions.";
+    rdfs:comment "Explaining why every integer is rational, or why a real number cannot be both rational and irrational.";
+    edu:partOf :NumberSystems.
+:NumberSystems a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The membership relationships, extensions, and operation-dependent properties of systems of numbers.";
+    rdfs:comment "The inclusion of integers in the rational numbers; real and imaginary parts of complex numbers; irrational results of mixed rational and irrational operations.";
+    edu:partOf :NumberTheory.
 :NumberTheory a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of integers and their arithmetic properties and relationships.";
-    rdfs:comment "Investigating prime numbers, divisibility, or integer factorization.".
+    rdfs:isDefinedBy "The properties and relationships of integers and number systems, including divisibility, prime structure, congruences, integer equations, rationality, and numerical extensions.";
+    rdfs:comment "Prime factorization; integer congruences; characterizing rational decimals; extending real numbers with an imaginary unit.".
 :Numeration a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Counting, ordering, and grouping numbers and relating them to numerical representations.";
     rdfs:comment "Continuing a counting sequence or organizing quantities by place value.";
@@ -1050,10 +1166,10 @@
     edu:integrates :ObtuseAngle;
     edu:specializes :Triangle.
 :OddAndEvenNumbers a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Determining whether an integer is divisible by two from its numerical representation.";
+    rdfs:isDefinedBy "Testing an integer's divisibility by two directly from its numerical representation without performing division.";
     rdfs:comment "Using the last digit of 348 to identify it as even.";
     edu:expands :EvenDivisibility, :PlaceValue;
-    edu:partOf :DivisibilityRules.
+    edu:specializes :DivisibilityRules.
 :OddFunctionSymmetry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Symmetry of a real function under simultaneous negation of input and output, with a domain closed under negation and f(-x) = -f(x) throughout that domain.";
     rdfs:comment "f(x) = x^3 is odd on the real numbers; the zero function on the real numbers is both odd and even.";
@@ -1071,6 +1187,10 @@
     rdfs:isDefinedBy "The explicit input role of a value or subexpression in an operation or function application, as determined by written structure and grouping.";
     rdfs:comment "Identifying 3 and x as the multiplication inputs in 3x; treating x + 2 and 5 as the two inputs of the division in (x + 2)/5.";
     edu:partOf :ExpressionStructure.
+:OperationClosure a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The property that every permitted application of a stated operation to elements of a set has its result in that set, with operand and domain restrictions specified.";
+    rdfs:comment "Integers are closed under subtraction; rationals are closed under division by nonzero divisors; real-coefficient polynomials are closed under multiplication.";
+    edu:partOf :AlgebraicStructures.
 :Operator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a symbol or notational convention identifying an operation or function applied to operand expressions and determining how those operands form a compound expression.";
     rdfs:comment "Distinguishing the addition sign in x + 3 from the negation sign in -x; interpreting juxtaposition in 3x as multiplication and sin in sin(x) as function application.";
@@ -1219,10 +1339,19 @@
 :PowerOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The specialized application of mathematical rules and procedures to perform higher-order calculations through the actions of exponentiation, root extraction, and logarithmic derivation.";
     edu:partOf :ArithmeticOperations.
+:PrimeFactorization a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Decomposing an integer greater than one into a product of prime integers.";
+    rdfs:comment "60 = 2^2 * 3 * 5.";
+    edu:specializes :Factorization.
 :PrimeNumbers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of whole numbers greater than 1 that cannot be exactly divided by any whole number other than itself and 1.";
+    rdfs:comment "2, 3, 5, and 7 are prime numbers.";
     edu:expands :FactorsAndMultiples;
-    edu:partOf :Factorization.
+    edu:partOf :PrimesAndFactorization.
+:PrimesAndFactorization a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Prime and composite integer structure, integer product decompositions, and the existence and uniqueness properties of prime factors.";
+    rdfs:comment "Distinguishing prime 7 from composite 9; expressing 60 as 2^2 * 3 * 5; establishing uniqueness of prime factorization.";
+    edu:partOf :NumberTheory.
 :Prism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has two congruent and parallel bases and lateral faces that are parallelograms.";
     edu:expands :Parallelogram;
@@ -1263,6 +1392,10 @@
     rdfs:isDefinedBy "The identity sin(theta)^2 + cos(theta)^2 = 1 for every real angle theta, relating sine and cosine through the unit circle.";
     rdfs:comment "sin(pi/6)^2 + cos(pi/6)^2 = (1/2)^2 + (sqrt(3)/2)^2 = 1.";
     edu:specializes :TrigonometricIdentities.
+:PythagoreanTriples a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Positive integer solutions of a^2 + b^2 = c^2, with primitive triples having no common divisor greater than one. Up to exchanging the legs, primitive triples have the form (m^2 - n^2, 2mn, m^2 + n^2) for coprime positive integers m > n of opposite parity.";
+    rdfs:comment "(3, 4, 5) is primitive; (6, 8, 10) is not; m = 3 and n = 2 generate (5, 12, 13).";
+    edu:partOf :DiophantineProblems.
 :Quadrants a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The four regions formed by the perpendicular coordinate axes in a Cartesian plane.";
     rdfs:comment "A point with positive x and negative y lies in quadrant IV. The conventional numbering starts at the upper right and proceeds counterclockwise.";
@@ -1320,6 +1453,14 @@
     rdfs:isDefinedBy "Dependence represented by a quotient of polynomials in designated variables with a denominator polynomial that is not identically zero. Original denominator exclusions remain in force after cancellation.";
     rdfs:comment "(x^2 - 1)/(x - 1), with x != 1; the residual 1/x - 2 of 1/x = 2, with x != 0; f(x) = 1/(x + 1).";
     edu:specializes :AlgebraicDependence.
+:RationalityAndApproximation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Exact rational representations, rationality criteria, and the structure and accuracy of approximation by rational numbers.";
+    rdfs:comment "Characterizing an eventually repeating decimal as rational; finding the convergent 7/5 of the continued fraction for sqrt(2).";
+    edu:partOf :NumberTheory.
+:RationalNumberCharacterization a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The characterization of rational real numbers as quotients of integers with nonzero denominators and as values with terminating or eventually repeating decimal expansions. Irrational real numbers satisfy neither characterization.";
+    rdfs:comment "Explaining why 0.125 = 1/8 and the exact repeating decimal 0.333... = 1/3 are rational.";
+    edu:partOf :RationalityAndApproximation.
 :RatioNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The symbols and conventions used to represent ratios, and the meaning of the ordered quantities they compare.";
     rdfs:comment "Writing 2:3 for two red counters to three blue counters; interpreting 3:2 as the ratio of blue counters to red counters in the same collection.";
@@ -1351,6 +1492,10 @@
     rdfs:isDefinedBy "The truth of a mathematical equation, inequality, or constraint under a particular admissible assignment to its variables.";
     rdfs:comment "x = 4 satisfies 3x + 2 = 14; x = 5 does not satisfy x < 3; (x, y) = (2, 1) satisfies x + y = 3.";
     edu:partOf :AlgebraicConstraints.
+:ResidueClassArithmetic a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Addition and multiplication of integer congruence classes modulo a positive integer, with results independent of the chosen representatives.";
+    rdfs:comment "Modulo 5, replacing 7 by 2 leaves the class of its product with 3 unchanged: 21 and 6 both have residue 1.";
+    edu:partOf :ModularArithmetic.
 :Rhombus a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A parallelogram with four equal-length sides.";
     edu:specializes :Parallelogram.
