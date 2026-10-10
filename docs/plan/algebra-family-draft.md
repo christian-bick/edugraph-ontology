@@ -632,7 +632,7 @@ Turtle assertions. The source assessment and focused semantic-boundary review pa
 with the baseline confirms that FunctionRange, FunctionZeros, FunctionMonotonicity, and
 FunctionExtrema retain their definitions and examples; only their direct organizational parents
 change. All seven source-assessment checks and documentation validation pass with no findings;
-the snapshot contains 929 descriptors and 4,976 assertions. Focused checks confirm the intended
+the snapshot after trigonometric regrouping contains 929 descriptors and 4,974 assertions. Focused checks confirm the intended
 binomial and trigonometric specialization boundaries, new-organizer eligibility, and constant-output
 variable roles. Independent review found no actionable semantic issues; `git diff --check` passes.
 
@@ -643,6 +643,12 @@ and npm package consumer checks. Python lint, formatting, typing, all 49 tests, 
 builds, and packaged-consumer checks also passed. Generated artifacts were exported to `dist/`.
 This resolves the earlier Docker startup blockage; downstream annotation adoption and editor
 UI behavior are outside these build checks.
+
+The subsequent trigonometric regrouping passed the same full Docker gate, including all 49
+Python tests and both packaged-client checks. Independent diff review confirmed exactly three
+removed constituent edges and one added constituent edge, with definitions, examples,
+specialization and progression assertions, and labeling eligibility unchanged. The updated
+documentation also passes validation.
 
 Earlier completed checks are historical evidence. The review in 35d3482 tightened six
 definitions and filled five missing example fields. Revision 6d67042 updated definitions and
@@ -720,6 +726,7 @@ annotations, generated datasets, or a consumer's pinned package.
 | FunctionProperties subdivided | FunctionValueProperties, FunctionOrderProperties, FunctionRepetitionProperties, FunctionRegularity, and FunctionShapeProperties are new organizational nodes with constituent children, not direct labels. FunctionSymmetry, FunctionLimitingBehavior, and FunctionCriticalPoints are eligible concepts with specializing children. |
 | School-analysis property concepts added | Local limits, continuity, differentiability, concavity, inflection, critical points, and stationary points are authored now. Their presence does not assert calculus content in existing annotations or provide separate methods of differentiation or integration. |
 | TrigonometricRelations broadened | Its meaning now includes circular as well as triangle trigonometry. TrigonometricIdentities has the accepted constituent placement there and specialization in AlgebraicEquivalence. Existing triangle knowledge remains within scope. |
+| Trigonometric functions regrouped | TrigonometricFunction now carries the constituent placement in TrigonometricRelations. Sine, Cosine, and Tangent retain their specialization in TrigonometricFunction and lose their direct constituent edges to TrigonometricRelations. Definitions, identifiers, specialization ancestry, and labeling eligibility are unchanged; geometry navigation now passes through the shared function family. |
 | Representation and transformation-context Scopes added | Apply them only when their conventions or transformations are evident. A Scope does not itself establish knowledge of the notation, a solving procedure, or the logical validity of a transformation. |
 
 Existing domain, slope, function-type, dependence, and solving families retain their placements.
@@ -989,7 +996,7 @@ References: [CCSS function features](https://www.thecorestandards.org/Math/Conte
 [extrema](https://openstax.org/books/calculus-volume-1/pages/4-3-maxima-and-minima), and
 [concavity and derivative tests](https://openstax.org/books/calculus-volume-1/pages/4-5-derivatives-and-the-shape-of-a-graph).
 
-### Trigonometric identity placement
+### Trigonometric family placement
 
 The user accepts shared placement. The alternatives considered were:
 
@@ -1008,6 +1015,28 @@ the structural path rule. PythagoreanTrigonometricIdentity and ComplementaryAngl
 are authored initially.
 Additional identities and triangle laws remain deferred. Their primary placement will follow
 the mathematical knowledge involved; no general second theorem-family membership is proposed.
+
+The follow-up regrouping places the existing function family alongside the identity family,
+so individual functions no longer appear as peers of the entire identity collection:
+
+```text
+TrigonometricRelations
+  P TrigonometricFunction
+    S Cosine
+    S Sine
+    S Tangent
+  P TrigonometricIdentities
+    S ComplementaryAngleIdentities
+    S PythagoreanTrigonometricIdentity
+```
+
+TrigonometricFunction retains its specialization in NumericFunction; TrigonometricIdentities
+retains its specialization in AlgebraicEquivalence. Both families have only specializing
+children and remain eligible for direct labels. The removed direct constituent edges from
+Sine, Cosine, and Tangent are replaced by the single constituent edge from TrigonometricFunction.
+This changes structural navigation without changing definitions or specialization inheritance.
+The existing AngleCalculation and LengthCalculation progression links remain unchanged;
+any broader reorganization as a Trigonometry field requires a separate review of those links.
 
 | Authored descriptor | Mathematical content |
 | --- | --- |

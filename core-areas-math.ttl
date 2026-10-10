@@ -309,7 +309,6 @@
 :Cosine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between an angle measure and the horizontal coordinate of its corresponding point on the unit circle, using a specified angular unit.";
     rdfs:comment "cos(0) = 1 and cos(pi) = -1 for radian measures; an adjacent side of length 4 and hypotenuse of length 5 give cosine 4/5 for the included acute angle.";
-    edu:partOf :TrigonometricRelations;
     edu:specializes :TrigonometricFunction.
 :Cube a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six congruent square faces where each pair of opposite faces is parallel.";
@@ -1468,7 +1467,6 @@
 :Sine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between an angle measure and the vertical coordinate of its corresponding point on the unit circle, using a specified angular unit.";
     rdfs:comment "sin(pi/2) = 1 and sin(3pi/2) = -1 for radian measures; an opposite side of length 3 and hypotenuse of length 5 give sine 3/5 for the acute angle.";
-    edu:partOf :TrigonometricRelations;
     edu:specializes :TrigonometricFunction.
 :SlopeConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The measure of the steepness and direction of a line, calculated as the ratio of the vertical change (rise) to the horizontal change (run) between two points.";
@@ -1596,7 +1594,6 @@
 :Tangent a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between an angle measure and the quotient of its sine by its cosine, using a specified angular unit and excluding angles with zero cosine.";
     rdfs:comment "tan(pi/4) = 1 and tan(3pi/4) = -1 for radian measures; opposite and adjacent sides of lengths 3 and 4 give tangent 3/4 for the acute angle.";
-    edu:partOf :TrigonometricRelations;
     edu:specializes :TrigonometricFunction.
 :TangentRadiusRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The geometric rule stating that a tangent line to a circle is perpendicular to the radius at the exact point of tangency.";
@@ -1624,6 +1621,7 @@
 :TrigonometricFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The real input-output relationships defined by circular sine, cosine, tangent, or their reciprocal functions for angle measures, using a specified angular unit and a stated domain excluding undefined values.";
     rdfs:comment "f(t) = sin(t) for real angle measures t in radians; g(t) = tan(t) for radian measures t in (-pi/2, pi/2).";
+    edu:partOf :TrigonometricRelations;
     edu:specializes :NumericFunction.
 :TrigonometricIdentities a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Equalities between trigonometric expressions valid for every angle in their common stated domain, preserving all original restrictions when rewritten.";
