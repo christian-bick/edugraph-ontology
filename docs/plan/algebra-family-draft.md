@@ -1191,19 +1191,21 @@ functions, and periodic-model properties are already authored.
 
 The review recommends three narrowly scoped follow-ups before the advanced stages:
 
-- A general function-correspondence concept above NumericFunction, to match F-IF.A.1's
-  general-set wording while retaining the existing numeric distinction.
-- DimensionalAnalysis for unit composition and dimensional consistency, beyond the already
+- Formal function coverage through existing FunctionSymbol and FunctionArgument, with
+  FunctionNotation moved directly into FormalMathematics. Retain FunctionTypes; separately resolve
+  the general-set correspondence boundary in F-IF.A.1 without broadening NumericFunction.
+- UnitDimensionality for unit composition and dimensional consistency, beyond the already
   supported conversions in 6.RP.A.3.d and N-Q.A.1.
 - An explicit PythagoreanTheorem concept in Geometry. RightTriangle and measurement concepts
   already provide broad application coverage; the theorem adds a useful reusable distinction,
   especially for proofs. Integer triples and the trigonometric identity are not replacements.
 
 The [concrete follow-up proposal](core-ccss-coverage-audit.md#targeted-follow-up-proposal)
-recommends replacing FunctionTypes with an eligible Function specialization parent,
-placing DimensionalAnalysis under MeasuringWithUnits with Measurement promoted to a root field,
-and adding PythagoreanTheorem directly under GeometricRelations. It records exact definitions,
-contrasting examples, placement alternatives, and migration consequences.
+withdraws the FunctionTypes replacement and explores the formal-function avenue, with
+FunctionDefinition retained only as an optional semantic extension. UnitDimensionality under
+MeasuringWithUnits and PythagoreanTheorem directly under GeometricRelations are agreed;
+Measurement's promotion to a root field is a separate structural recommendation. The proposal
+records exact definitions, contrasting examples, alternatives, and migration consequences.
 
 These are recommendations, not authored changes. Further evidence work concerns mixed-system
 property attribution, complete versus sampled solutions, justified error bounds, and the

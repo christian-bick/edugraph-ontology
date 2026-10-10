@@ -17,7 +17,7 @@ Two coverage boundaries and one precision refinement remain:
 
 | Finding | Evidence and boundary | Recommended next step |
 | --- | --- | --- |
-| General function correspondence | NumericFunction explicitly requires numerical inputs and outputs. The general-set definition in F-IF.A.1 is broader; a many-to-one map from people to named categories is neither numerical nor one-to-one. | Add a general function-correspondence concept, with NumericFunction specializing it; review the other function-type relationships together. Numeric classroom cases already work. |
+| General function correspondence | NumericFunction explicitly requires numerical inputs and outputs. The general-set definition in F-IF.A.1 is broader; a many-to-one map from people to named categories is neither numerical nor one-to-one. | Retain FunctionTypes. Review formal placement through the existing FunctionSymbol, FunctionArgument, and FunctionNotation; keep general correspondence distinct from notation and pointwise FunctionArithmetic. Numeric classroom cases already work. |
 | Dimensional analysis | N-Q.A.1 includes coherent use of units in formulas. UnitConversion preserves one quantity while changing units; it does not state how dimensions combine in products/quotients or why incompatible quantities cannot be added. | Model the reusable knowledge of dimensional composition and consistency. This also supports later science and compound-rate work. Keep simple conversions on the existing concepts. |
 | Pythagorean theorem specificity | G-SRT.C.8 applications have broad coverage through RightTriangle and length concepts, but PythagoreanTriples and PythagoreanTrigonometricIdentity do not identify the general geometric theorem and its converse. | Add the theorem in Geometry for this reusable knowledge distinction, especially proof and justification. This refines broadly supported tasks; it is not evidence that every right-triangle task is unrepresentable. |
 
@@ -108,13 +108,13 @@ condition, while OneToOneFunction imposes a stronger condition than an arbitrary
 See [F-IF](https://www.thecorestandards.org/Math/Content/HSF/IF/) and the
 [functions introduction](https://www.thecorestandards.org/Math/Content/HSF/).
 
-Recommended candidate: a general function-correspondence Area defined as the assignment of
-exactly one output to each admissible input in a stated domain. NumericFunction can specialize
-it; OneToOneFunction and Sequence should be reviewed against the same general parent. Retain
-the numerical restriction on NumericFunction. A many-to-one map from pupils to birth-month
-names is a useful positive example; a relation giving one pupil two different outputs is the
-counterexample. This extension improves the general concept without creating separate Areas
-for every input/output category.
+The initial proposal to replace FunctionTypes with a general specialization parent was
+rejected in the subsequent review. Retain the existing type family and explore formal
+function knowledge instead. FunctionSymbol and FunctionArgument already cover expression
+roles. Move FunctionNotation directly into FormalMathematics and clarify
+its examples. This resolves placement, while the general correspondence condition remains
+a separate semantic question; the [revised proposal](#1-retain-functiontypes-and-clarify-formal-function-knowledge)
+distinguishes these requirements and records a possible FunctionDefinition concept.
 
 ### Dimensional analysis
 
@@ -124,9 +124,9 @@ be added. No numerical evaluation or change of unit is required. UnitConversion 
 UnitScaleRelation cover different knowledge, and ordinary numerical operations do not supply
 the dimensional rule. DimensionalAbstraction is a Scope for spatial dimensions, not this concept.
 
-Recommended candidate: DimensionalAnalysis, covering composition of dimensions in products,
-quotients, and powers, and compatibility of dimensions in sums and equalities. Review its
-home in the measurement/unit family. Keep concrete unit contexts as Scopes. Consistent dimensions
+Agreed candidate: UnitDimensionality, covering composition of dimensions in products,
+quotients, and powers, and compatibility of dimensions in sums and equalities, placed under
+MeasuringWithUnits. Keep concrete unit contexts as Scopes. Consistent dimensions
 are necessary but do not establish that a proposed physical formula is correct.
 N-Q.A.2's selection of relevant quantities is already explicit in AlgebraicModeling; N-Q.A.3
 can combine approximation, rounding knowledge, and an evidenced choice of appropriate precision.
@@ -142,8 +142,8 @@ and Triangle knowledge provides broad coverage of applications; the proposed the
 the reusable result itself more precisely.
 Recommended candidate: PythagoreanTheorem, expressing the relation a^2+b^2=c^2 for right
 triangles and the converse for a triangle with positive side lengths and longest side c.
-Place it in Geometry; a theorem/triangle-relations grouping should be reviewed with existing
-geometric families, rather than inserting a constituent under RightTriangle's specialization chain.
+The reviewed placement, directly under GeometricRelations, is agreed. It needs no new
+theorem/triangle-relations organizer or constituent under RightTriangle's specialization chain.
 
 Use a right triangle with legs 1 and sqrt(2), hence hypotenuse sqrt(3), as a boundary example:
 it is not an integer Pythagorean triple. Conversely, merely checking 3^2+4^2=5^2 does not
@@ -153,99 +153,109 @@ related to the geometric theorem without being an alias or replacement.
 
 ## Targeted follow-up proposal
 
-Drafted 2026-10-11 against the same `1b9ecc3` source baseline. The recommendation adds three
-eligible concepts, retires one organizer, and reuses the existing families. The Turtle below
-is proposed source text, not a statement of the current ontology. The inventory later in this
-document continues to report the unmodified baseline.
+Drafted and revised 2026-10-11 against the same `1b9ecc3` source baseline. The review retains
+FunctionTypes, agrees UnitDimensionality under MeasuringWithUnits and PythagoreanTheorem under
+GeometricRelations, and explores the formal function route. The revised minimal proposal
+adds two eligible concepts and relocates FunctionNotation; it retires no descriptor.
+The Turtle below is proposed source text, not a statement of the current ontology. The
+inventory later in this document continues to report the unmodified baseline.
 
-### 1. Replace FunctionTypes with the general Function concept
+### 1. Retain FunctionTypes and clarify formal function knowledge
 
-Use `Function` for the correspondence itself, with the existing four direct types as
-specializations. This addresses the general-set meaning of
-[F-IF.A.1](https://www.thecorestandards.org/Math/Content/HSF/IF/), while retaining the stronger
-numerical meaning of `NumericFunction`.
+The earlier replacement of FunctionTypes is withdrawn. Retain its four constituent types
+and all their relationships. The expression-role avenue already has most of the requested
+coverage:
 
-```text
-AlgebraicFunctions
-  partOf child: Function
-    specializes child: NumericFunction
-    specializes child: OneToOneFunction
-    specializes child: PiecewiseFunction
-    specializes child: Sequence
-```
+| Existing concept | Current meaning and placement | Example |
+| --- | --- | --- |
+| FunctionSymbol | The role identifying the function being applied; specializes Operator under ExpressionStructure. | f in f(x + 1), or sin in sin(x). |
+| FunctionArgument | The role of the supplied input; specializes Operand under ExpressionStructure. | The whole x + 1 in f(x + 1). |
+| AlgebraicExpression | Includes expressions containing nonarithmetic function applications; specializes MathematicalExpression under FormalMathematics. | The complete expression f(x + 1) or sin(1). |
+| FunctionNotation | Conventions for names, arguments, and outputs; currently partOf AlgebraicFunctions. | The difference between f and f(3). |
+| NumericFunction | Numerical input-output correspondence with exactly one output per admitted input; partOf FunctionTypes. | x mapped to x^2 over the reals. |
+| FunctionArithmetic | Pointwise arithmetic combinations of numerical functions; partOf AlgebraicFunctions. | (f + g)(x) = f(x) + g(x). |
 
-Proposed new descriptor:
+There is no missing function-name primitive: that is FunctionSymbol. A further `Function`
+role would duplicate it, while reviving FunctionApplicationExpression would reverse the
+earlier choice to compose an expression kind with its structural roles.
+
+Recommend moving **FunctionNotation from AlgebraicFunctions directly to FormalMathematics**,
+alongside NumberNotation. The declaration conventions extend beyond expression-building roles;
+FunctionSymbol and FunctionArgument retain their existing places inside ExpressionStructure.
+Clarify the declaration notation while retaining its identity and existing meaning:
 
 ```turtle
-:Function a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The correspondence assigning exactly one element of a stated output set to each element of a stated input domain.";
-    rdfs:comment "Mapping each pupil to their birth-month name; assigning red, blue, and red to positions 1, 2, and 3; assigning x^2 to each real input x.";
-    edu:partOf :AlgebraicFunctions.
+:FunctionNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The symbolic conventions for naming functions, declaring their input and output sets, and denoting their values at arguments, distinguishing a function from its values.";
+    rdfs:comment "Interpreting f: A -> B as declaring a domain and target set; distinguishing f from f(3); reading x |-> x^2 and f(x) = x^2 as ways of specifying a rule; interpreting m(Ada) = March as a named input and its assigned output.";
+    edu:partOf :FormalMathematics.
 ```
 
-Retire the complete `FunctionTypes` descriptor. For `NumericFunction`, `OneToOneFunction`,
-`PiecewiseFunction`, and `Sequence`, replace `partOf FunctionTypes` with `specializes Function`.
-Retain their definitions and all other descendant edges. ArithmeticSequence and
-GeometricSequence still specialize both NumericFunction and Sequence; RecursiveSequence
-still specializes Sequence. TrigonometricFunction keeps its numerical specialization and
-its separate constituent placement in TrigonometricRelations.
+This is a single-parent relocation. FunctionNotation remains eligible; FunctionSymbol and
+FunctionArgument retain their specialization parents. No function-type, domain, range,
+arithmetic, composition, or inversion relationship needs to change. [ONT-D1/D5; ONT-S1/S5.]
+The symbolic function declaration belongs to notation knowledge even though its syntax is
+broader than the value-denoting expression alone. This is why the direct FormalMathematics
+placement is preferred over ExpressionStructure. Do not specialize it as MathematicalExpression.
 
-This intentionally revisits the earlier `partOf` decision: FunctionTypes organized a field
-of classification; Function identifies knowledge shared by each narrower kind. A type is
-a function, whereas composition, notation, and inversion are not kinds of function.
-Keep those concepts in their existing families. Function has specialization children only,
-so it remains directly labelable. [ONT-S1/S2/S4/S5; ONT-E7.]
+#### What F-IF.A.1 requires
 
-FunctionDomain, FunctionRange, FunctionComposition, and FunctionNotation already have general
-definitions. Add nonnumeric examples alongside the existing examples:
+[F-IF.A.1](https://www.thecorestandards.org/Math/Content/HSF/IF/) combines three distinguishable
+claims: each input has exactly one output, f(x) denotes that output, and the function graph
+is the locus of y = f(x). The current FunctionArithmetic definition instead addresses
+pointwise combinations, the subject of [F-BF.A.1.b](https://www.thecorestandards.org/Math/Content/HSF/BF/).
+If the intended reference was NumericFunction, that does cover the first claim for numerical
+inputs and outputs. Neither function arithmetic nor the presence of function notation alone
+establishes the general correspondence condition.
 
-| Existing concept | Additional example |
+| Observable question | Knowledge distinguished |
 | --- | --- |
-| FunctionDomain | The stated set of pupils admitted by the birth-month assignment. |
-| FunctionRange | The month names actually assigned to those pupils, which may omit some calendar months. |
-| FunctionComposition | Pupil to birth-month name, followed by month name to calendar quarter. |
-| FunctionNotation | Interpreting m(Ada) = March as a named input and its assigned output. |
+| Identify the function name and complete input in f(x + 1) | Existing FunctionSymbol and FunctionArgument. |
+| Explain why f denotes a function but f(3) denotes one of its values | Existing FunctionNotation, with formal placement clarified. |
+| Decide whether a numerical input-output table defines a function | NumericFunction; notation need not be the subject. |
+| Determine (f + g)(x) from two numerical functions | FunctionArithmetic, with the evidenced arithmetic and domains. |
+| Explain why every pupil may have one birth-month name even when several pupils share a month | General nonnumeric correspondence; not NumericFunction or OneToOneFunction. |
+| Relate graph points to the equation y = f(x) | Compose existing function, equation, solution-set, coordinate, and representation knowledge as evidenced; not FunctionArithmetic by default. |
 
-Keep FunctionRange's attained-output meaning even though the CCSS wording calls the target
-set a range. No new codomain descriptor is needed to close this gap. Tighten FunctionInversion
-without broadening its meaning:
+The relocation and clarification resolve the formal placement and representation issues.
+They do **not** by themselves close the general-set boundary. That remains explicit in this
+audit instead of broadening a notation descriptor to arbitrary correspondence reasoning.
 
-> Constructing or interpreting the inverse on a one-to-one function's attained range,
-> assigning each output its unique original input. A function that is not one-to-one must
-> first be restricted to a suitable domain before this inverse is a function.
+#### Optional formal-semantic extension
 
-For example, x^2 from nonnegative reals into the reals has an inverse on its nonnegative
-range, not on its entire declared output set. FunctionArithmetic and properties requiring
-numerical or real-valued functions retain their existing restrictions.
+If the remaining correspondence distinction needs an explicit formal home, consider
+`FunctionDefinition` as a constituent of `FormalMathematics`:
 
-| Evidence probe | Distinction |
-| --- | --- |
-| Two pupils map to the same month | Function; neither NumericFunction nor OneToOneFunction. |
-| Every pupil receives a different locker number | Function and OneToOneFunction; inputs are not numerical, so not NumericFunction. |
-| One pupil is assigned two different month names, or an admitted pupil has no assigned month | Violates the function condition for that stated domain and output set. |
-| The indexed terms red, blue, red | Sequence, hence Function; no NumericFunction claim. |
+> The form and meaning of a function specification that identifies admissible inputs and
+> assigns exactly one output to each, whether by a rule or an explicit correspondence.
 
-The alternative is to retain FunctionTypes as an organizer with Function as its sole
-constituent. That preserves the organizer identifier but adds an uninformative level.
-Retaining all four old constituent edges alongside specialization would duplicate the same
-navigation family. Prefer retirement; no authored progression or constraint links target
-FunctionTypes. `Function` also existed historically with the same general meaning, so this
-does not repurpose an old identifier for unrelated knowledge.
+Examples would compare a specification mapping each pupil to one birth-month name with
+one assigning a pupil two different months or omitting an admitted pupil. Multiple pupils
+may share an output. This identifies the meaning and validity of the whole specification,
+whereas FunctionSymbol identifies a constituent role and FunctionNotation its written
+conventions. It would not be a specialization of MathematicalExpression or a replacement
+for FunctionTypes. It remains an exploratory option, excluded from the minimal proposal
+and its simulated graph; a bare function-occurrence label is not the intended concept.
 
-### 2. Add DimensionalAnalysis under MeasuringWithUnits
+Keep FunctionRange's attained-output meaning: the target set declared in f: A -> B may
+contain values that are never attained. Existing inversion exchanges domain and attained
+range. No new codomain descriptor or inverse revision is needed for the notation relocation.
+
+### 2. Add UnitDimensionality under MeasuringWithUnits
 
 Use one reusable concept for dimensional composition and consistency. This supplies the
 unit-manipulation distinction in [6.RP.A.3.d](https://www.thecorestandards.org/Math/Content/6/RP/)
 and consistent formula use in [N-Q.A.1](https://www.thecorestandards.org/Math/Content/HSN/Q/).
 
 ```turtle
-:DimensionalAnalysis a owl:NamedIndividual, edu:Area;
+:UnitDimensionality a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The composition of quantity dimensions and units through products, quotients, and powers, and dimensional compatibility in sums and equalities.";
     rdfs:comment "Explaining why (m/s)*s has length dimension, why a speed cannot be added to a duration, and why the ratio of two lengths has dimension one.";
     edu:partOf :MeasuringWithUnits.
 ```
 
-The existing placement needs a small but consequential correction. Measurement already
+The name UnitDimensionality and its placement under MeasuringWithUnits are agreed. A separate
+structural recommendation concerns the existing measurement placement. Measurement already
 contains time and general units, while SpatialSense is explicitly about two- and
 three-dimensional space. Make **Measurement a root organizer**, removing its
 `partOf SpatialSense` edge, and retain all its current children. Broaden the two organizer
@@ -299,7 +309,8 @@ blur those families' subjects. The root Measurement proposal is preferred.
 
 ### 3. Add PythagoreanTheorem directly under GeometricRelations
 
-Use one concept for the theorem and its converse: both directions describe the same
+The direct GeometricRelations placement is agreed. Use one concept for the theorem and its
+converse: both directions describe the same
 geometric equivalence. [8.G.B.6](https://www.thecorestandards.org/Math/Content/8/G/) explicitly
 pairs them; [G-SRT.B.4 and C.8](https://www.thecorestandards.org/Math/Content/HSG/SRT/) require
 a similarity proof and applications respectively.
@@ -338,20 +349,20 @@ automatic theorem relation to pure integer-triple knowledge or every distance ca
 
 ### Migration and implementation boundary
 
-The proposed net inventory change is **three eligible concepts added and one ineligible
-organizer retired**. Existing eligible descriptors keep their meanings and eligibility.
+The revised minimal inventory change is **two eligible concepts added, none retired**.
+Existing eligible descriptors retain their eligibility. FunctionNotation's declaration
+conventions become explicit; its identifier and original name/argument/value meaning remain.
 
-- FunctionTypes removal affects navigation, generated enum references, and historical design
-  trees. It has four incoming constituent edges and no authored progression/constraint links.
-  Existing NumericFunction labels retain their stronger meaning. Do not mechanically replace
-  invalid historical FunctionTypes labels with Function without reviewing their evidence.
+- FunctionTypes and all function-type relationships remain unchanged. FunctionNotation moves
+  from the algebra family directly into FormalMathematics; structural
+  navigation changes, but its direct labels remain valid. FunctionDefinition is a separate
+  option to resolve before claiming complete general-set function coverage.
 - Measurement's move removes SpatialSense and IntuitiveMathematics from its structural
   ancestry and that of its descendants. This changes navigation and any structural indexing;
   it does not remove specialization meaning. Measurement, MeasuringWithUnits, SpatialSense,
   and IntuitiveMathematics all remain ineligible organizers.
-- Regenerate clients and refresh structural consumers when implemented. Search maintained
-  references separately from historical plans. Current content-source searches found no
-  FunctionTypes dependency; tests excluding MeasuringWithUnits remain appropriate.
+- Regenerate clients and refresh structural consumers when implemented. Tests excluding
+  MeasuringWithUnits remain appropriate because it stays an organizer.
 - Revisit the F-IF.A.1, N-Q.A.1, 6.RP.A.3.d, and G-SRT.C.8 audit rows after implementation,
   adding the new descriptors only where their knowledge is evidenced. The extra 8.G and
   G-SRT.B.4 probes do not change this audit's 114-leaf inventory.
@@ -361,14 +372,14 @@ proposal. Source assessment of a simulated graph can check structural consistenc
 establish annotation quality or learner mastery. The full build and adoption review belong
 to the implementation step.
 
-The proposed assertions and adjacent definition/example updates were simulated in memory
-on 2026-10-11: all seven ontology assessment checks pass with no findings. The candidate has
-967 descriptors and 5,170 assertions, compared with 965 and 5,159 in the baseline. All three
-new concepts are eligible; no retained descriptor changes eligibility. Fourteen existing
-function descriptors gain Function as a specialization ancestor. Measurement and its ten
-existing descendants lose the two outer organizational ancestors; the new dimensional leaf
-also resides in the standalone field. Independent semantic review found no actionable issues.
-Documentation validation and the unchanged 114-leaf inventory check also pass.
+The earlier simulation of a FunctionTypes replacement is superseded. The revised minimal
+proposal was simulated in memory on 2026-10-11, including the separate recommended Measurement
+move and excluding optional FunctionDefinition: all seven ontology assessment checks pass.
+It has 967 descriptors and 5,170 assertions, with no retired descriptors or changes to existing
+eligibility or specialization ancestry. FunctionNotation gains FormalMathematics as an
+ancestor; Measurement and its ten existing descendants lose SpatialSense
+and IntuitiveMathematics. These moves require structural-consumer review. The source remains
+unchanged; documentation validation and the 114-leaf inventory check pass separately.
 
 ## Remaining evidence and adoption work
 
