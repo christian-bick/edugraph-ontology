@@ -1,10 +1,10 @@
 # NumberTheory — design proposals and implementation record
 
-Status: the second draft's option 2A and concrete family tree are implemented on
-`codex/number-theory-foundations`, 2026-10-10, based on ontology `origin/main` at
-`d0d029d` after the Algebra refinements. See the
+Status: the second draft's option 2A and concrete family tree were implemented on
+`codex/number-theory-foundations`, 2026-10-10, and merged into `origin/main` at `1b9ecc3`,
+verified on 2026-10-11. The implementation was based on `d0d029d` after the Algebra refinements. See the
 [implementation and adoption record](#implementation-and-adoption--2026-10-10) for the
-authored changes and remaining work. This branch has not been merged or adopted by consumers.
+authored changes and remaining work. Consumer adoption remains separate.
 
 The original school-gap proposal is preserved below. A separately researched
 [second draft](#draft-2--a-university-informed-subject-structure) follows it, comparing
@@ -662,5 +662,6 @@ and generated libraries; they do not substitute for the separate content adoptio
   are not authored by this change. The previously deferred complex, linear-algebra, and
   calculus stages remain separate.
 - This implementation addresses the identified concept gaps; it does not certify every
-  CCSS target. Rational-exponent justification and the residual algebra/function audit
-  still need representative competency checks.
+  CCSS target. The [remaining core audit](core-ccss-coverage-audit.md) now confirms the
+  rational-exponent and other supported compositions and records targeted follow-ups.
+  Actual competency examples and consumer adoption still need their own checks.
