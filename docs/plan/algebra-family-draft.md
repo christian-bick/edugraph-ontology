@@ -1137,6 +1137,10 @@ be worth implementing early when it contributes useful shared knowledge, as Bino
 The [NumberTheory basics draft](number-theory-basics-draft.md) develops this step into a
 reviewable family, with proposed definitions, examples, placement alternatives, and an
 adoption map. It is a proposal; these additions are not yet authored in Turtle.
+Its [second draft](number-theory-basics-draft.md#draft-2--a-university-informed-subject-structure)
+starts from introductory university subject organization, then maps the school requirements
+into that broader structure. It preserves an alternative boundary between NumberTheory and
+NumberSystems and proposes a shared algebraic home for closure.
 
 Start by resolving the boundary with ArithmeticSpaces. NumberTheory is currently defined only
 for integers, while ArithmeticSpaces already describes number systems and organizes integer

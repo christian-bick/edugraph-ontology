@@ -5,6 +5,11 @@ after the Algebra refinements. The descriptors and edits proposed here are not y
 authored in Turtle. No content labels, generated packages, or consumer versions change
 with this document.
 
+The original school-gap proposal is preserved below. A separately researched
+[second draft](#draft-2--a-university-informed-subject-structure) follows it, comparing
+a broader subject structure with introductory university curricula and locating the
+school requirements within that structure. Neither proposal is an approved implementation.
+
 This develops [step 1 of the Algebra extension roadmap](algebra-family-draft.md#1-numbertheory-foundations--next-implementation-proposal).
 The immediate target is school-level knowledge of number systems, rationality, and
 complex-number foundations. Existing integer topics remain in place. Advanced complex
@@ -253,3 +258,324 @@ still includes exponent-extension justification and the other algebra/function c
 - **Linear algebra, further trigonometry, and calculus:** retain their independent stages in
   the [Algebra and analysis roadmap](algebra-family-draft.md#recommended-next-ontology-extensions).
   These are not prerequisites for the number-system basics proposed here.
+
+## Draft 2 — a university-informed subject structure
+
+Status: independent alternative, researched 2026-10-10 against the same `d0d029d`
+ontology baseline. This draft starts from the mathematical subjects that recur in
+introductory university study, then identifies the school-level concepts within them.
+It does not make the university material a prerequisite for a school competency.
+
+### Research basis and limits
+
+The research compares official syllabi, module catalogues, and instructor-published
+course material across eight institutions. It includes genuine first-year foundations,
+introductory number-theory courses taught later in a degree, and teacher-education
+courses. Those levels are distinguished below: an introductory title does not imply
+first-semester content. Historical versions are evidence of organization, not assertions
+about a university's current offering.
+
+| Primary source | Context | Organization relevant to this proposal |
+| --- | --- | --- |
+| [Cambridge Mathematical Tripos, 2026–27](https://www.maths.cam.ac.uk/undergrad/files/schedules.pdf), printed pp. 9 and 26 | First-year Numbers and Sets; separate third-year Number Theory | The first-year course distinguishes number systems, elementary integer theory, and real-number foundations. Later number theory extends modular methods into reciprocity, prime distribution, and approximation. |
+| [MIT 18.781, spring 2012](https://ocw.mit.edu/courses/18-781-theory-of-numbers-spring-2012/pages/syllabus/) | Undergraduate introduction; no formal prerequisites, proof experience helpful | Divisibility, unique factorization, GCD, Euclidean algorithm, congruences, residues, arithmetic functions, Diophantine equations, and continued fractions form a broad elementary course. |
+| [Oxford ASO Number Theory, 2025–26](https://courses.maths.ox.ac.uk/course/view.php?id=6038) | Eight-lecture Part A course, after the first year | A concentrated modular route: residue rings, classical power theorems, primitive roots, quadratic reciprocity, and a cryptographic application. |
+| [Warwick MA257, 2023–24](https://courses.warwick.ac.uk/modules/2023/MA257-10) | Undergraduate Level 2; indicative syllabus | Integer factorization, congruences, and Diophantine problems anchor the course; other rings and computational or geometric applications extend it. |
+| [Trinity College Dublin MAU23101, 2021](https://www.maths.tcd.ie/~mascotn/teaching/2021/MAU23101/index.html) | Introductory course with published chapter material | Divisibility leads to modular arithmetic, power residues, sums of squares, and continued fractions. Gaussian integers support integer problems; binary quadratic forms were optional for available teaching time. |
+| [FAU teacher-education handbook, 31 March 2026](https://www.math-datascience.nat.fau.de/files/2026/04/MHB_strukturiert_mehrfach_4_Mathematik_1.-Staatspruefung-fuer-das-Lehramt-an-Realschulen_Hauptfach_PO-Version-20261.pdf), module 65580, p. 16 | Elementary number theory recommended in semester 4 | Integer theory includes decimal expansions and algebraic/transcendental numbers. The same handbook places completeness and complex foundations in analysis courses, rather than assigning all number-system knowledge to number theory. |
+| [Bonn Zahlentheorie I/II, WS 2003–04](https://www.math.uni-bonn.de/people/wynands/ZahlenthIIWS03-04.html) | Historical teacher-education course for secondary-school mathematical background | A deliberately broad treatment connects divisibility in several rings, equations, arithmetic functions, positional representations, continued fractions, and kinds of numbers. |
+| [UT Austin M 328K](https://math.utexas.edu/academics/undergraduate-courses) | Introduction to number theory within the transition to proof writing; prior coursework required | Divisibility and congruences are central; additional integer-equation topics vary. Proof development is a teaching objective across these subjects, rather than another number-theory object family. |
+| [Oxford Complex Numbers](https://courses.maths.ox.ac.uk/course/view.php?id=6022) and [Analysis I](https://courses.maths.ox.ac.uk/course/view.php?id=6020), 2025–26 | First-year boundary comparison | Complex arithmetic has a separate introductory course. Completeness, sequences, and series belong to analysis; using real or complex numbers alone does not make a task analytic. |
+| [Warwick MA136, 2022–23](https://courses.warwick.ac.uk/modules/2022/MA136-6) | First-year abstract algebra, historical catalogue | Groups, rings, and fields use number systems, modular systems, polynomials, and matrices as examples. General operation structure has a shared algebraic home. |
+
+The recurring center is **divisibility and primes, congruences, and integer equations**.
+Arithmetic functions and rational approximation are recurring extensions, with different
+depth in different courses. Number-system foundations connect these subjects to school
+mathematics, but are not uniformly classified as elementary number theory. This is a
+synthesis of the sources, not a universal university taxonomy.
+
+Three consequences guide the ontology design:
+
+1. Organize by mathematical subject. A theorem, method, and structural concept may belong
+   together; separate top-level bins for all theorems, all algorithms, and all applications
+   would obscure their connections. Ability still distinguishes proving, applying, and
+   executing. A named theorem can contribute knowledge beyond its statement's formal kind.
+2. Do not copy the lecture sequence into ontology relations. The Euclidean algorithm
+   connects GCD, integer equations, and continued fractions; those connections do not
+   require three structural parents or an invented prerequisite chain.
+3. Keep the boundaries with arithmetic, algebra, and analysis explicit. Curricular
+   co-location is evidence for coverage, not proof of a partOf or specializes relation.
+
+### Two coherent choices for the upper boundary
+
+**2A. Broad educational NumberTheory — recommended for continuity with our agreed scope.**
+Keep the number-system foundations and complex basics inside NumberTheory, but give the
+traditional integer subjects their own substantial branches. NumberTheory would mean:
+
+> The properties and relationships of integers and number systems, including divisibility,
+> prime structure, congruences, integer equations, rationality, and numerical extensions.
+
+This retains the earlier decision about complex foundations while making the broader
+educational meaning explicit. The teacher-education sources provide useful precedents;
+they do not establish that this is the standard disciplinary boundary everywhere.
+
+**2B. Conventional disciplinary split — the stronger match to the common university boundary.**
+Use the same integer, modular, Diophantine, arithmetic-function, and rational-approximation
+branches under NumberTheory, but place NumberSystems alongside it as a separate field.
+Its contents would be identical to 2A. NumberTheory could then be defined as:
+
+> The arithmetic properties of integers and related questions about divisibility,
+> congruence, equations, and rational approximation.
+
+This is a genuine alternative, not an extra parent: choose one home for NumberSystems.
+It revisits the earlier ownership decision, so it should not be implemented silently.
+Both choices preserve all school mappings below; the distinction concerns navigation
+and field meaning rather than the existence of the school concepts.
+
+### Proposed subject tree for 2A
+
+`P` and `S` retain their meanings from the first draft. `E` marks an existing descriptor,
+possibly moved; `N` marks a new school-facing candidate; `U` marks a university bridge
+candidate; `O` marks an organizer. The tags are planning metadata, not new ontology
+dimensions or a complete list of concepts required by every course.
+
+This is the **target design**, not a request to author every branch immediately.
+Future-only organizers should wait until their constituent concepts are implemented.
+
+```text
+NumberTheory [E; broaden under option 2A]
+  P IntegerDivisibility [O]
+      P FactorsAndMultiples [E]
+      P IntegerParity [N]
+      P DivisibilityRules [E; becomes eligible]
+          S OddAndEvenNumbers [E; existing numeral-based test]
+      P GreatestCommonDivisor [N; school synonym: greatest common factor]
+      P LeastCommonMultiple [N]
+      P Coprimality [U]
+      P EuclideanDivision [U]
+      P EuclideanAlgorithm [U]
+      P BezoutIdentity [U]
+  P PrimesAndFactorization [O]
+      P PrimeNumbers [E]
+      P CompositeNumbers [E]
+      P Factorization [E; becomes eligible]
+          S PrimeFactorization [U]
+      P FundamentalTheoremOfArithmetic [U]
+      P InfinitudeOfPrimes [U]
+  P ModularArithmetic [O]
+      P IntegerCongruence [U]
+      P ResidueClassArithmetic [U]
+      P ModularInverse [U]
+      P LinearCongruenceSolvability [U]
+      P ChineseRemainderTheorem [U]
+  P DiophantineProblems [O]
+      P LinearDiophantineSolvability [U]
+      P PythagoreanTriples [U]
+  P ArithmeticFunctions [O]
+      P DivisorCount [U]
+      P DivisorSum [U]
+      P EulersTotient [U]
+      P MultiplicativeArithmeticFunction [U]
+  P RationalityAndApproximation [O]
+      P RationalNumberCharacterization [N; retained from draft 1]
+      P ContinuedFractions [U]
+  P NumberSystems [O; separate root under option 2B]
+      P NumberSystemRelations [N; retained from draft 1]
+      P NumberOperationResultTypes [N; retained from draft 1]
+      P ComplexNumberStructure [N; retained from draft 1]
+
+Algebra [E]
+  P AlgebraicStructures [O; shared across mathematical domains]
+      P OperationClosure [N; placement differs from draft 1]
+```
+
+The first draft's RationalNumberCharacterization now has one home in
+RationalityAndApproximation, where integer quotients, recurring remainders, and exact
+decimal patterns connect naturally. NumberSystemRelations concerns membership and
+inclusion; NumberOperationResultTypes concerns consequences of operations. Neither is
+a replacement for the decimal characterization.
+
+The Scopes remain a separate tree: retain the existing numeric contexts and propose
+ComplexNumbers as in draft 1. Do not reproduce every Area branch as a parallel Scope
+branch. Modular context may eventually need its own Scope, but the occurrence of a
+remainder alone is not evidence of modular-structure knowledge.
+
+### Meanings of the branches
+
+These candidate organizer definitions establish the intended boundaries; the leaf
+definitions below identify the knowledge available for actual competencies.
+
+| Organizer | Proposed concise definition |
+| --- | --- |
+| IntegerDivisibility | Divisibility relations among integers, their common divisors and multiples, and methods for establishing these relationships. |
+| PrimesAndFactorization | Prime and composite integer structure, integer product decompositions, and the existence and uniqueness properties of prime factors. |
+| ModularArithmetic | Congruence classes of integers and the arithmetic, equations, and power relationships defined modulo an integer. |
+| DiophantineProblems | The existence, structure, and determination of integer or rational solutions to polynomial equations with integer coefficients. |
+| ArithmeticFunctions | Functions on positive integers that encode divisibility and prime structure, including their multiplicative relationships. |
+| RationalityAndApproximation | Exact rational representations, rationality criteria, and the structure and accuracy of approximation by rational numbers. |
+| NumberSystems | The membership relationships, extensions, and operation-dependent properties of systems of numbers. |
+| AlgebraicStructures | Sets equipped with operations and the properties and axioms governing those operations. |
+
+RationalityAndApproximation does not take over ordinary numerical rounding: use existing
+NumericApproximation when that is the entire knowledge involved. Continued-fraction
+structure and constrained best approximation introduce further mathematics. Similarly,
+an equation whose displayed coefficients happen to be integers does not by itself
+involve DiophantineProblems; integer or rational solvability must be the subject.
+
+### Candidate knowledge and examples
+
+The school concepts carried over from draft 1 retain its proposed definitions and
+boundary examples. The additions below make the broader branches concrete; `U` concepts
+can be deferred without preventing the school implementation.
+
+| Candidate | Concise definition | Example or boundary |
+| --- | --- | --- |
+| IntegerParity | The even or odd character of integers, represented by the forms `2k` and `2k + 1`, and its behavior under integer operations. | Explaining why adding 3 reverses parity, rather than merely reading a last digit. |
+| GreatestCommonDivisor | The greatest positive integer dividing every member of a given finite collection of integers that are not all zero. | `gcd(36, 8) = 4`; `gcd(0, -8) = 8`. The all-zero convention remains outside this definition. |
+| LeastCommonMultiple | The least positive integer divisible by every member of a given finite collection of nonzero integers, extended to zero when any member is zero. | `lcm(8, 12) = 24`; `lcm(0, 8) = 0`. |
+| Coprimality | The relationship between integers whose greatest common divisor is one. | 8 and 15 are coprime although neither is prime. |
+| EuclideanDivision | The unique representation of an integer `a` as `bq + r` for a positive integer `b`, with integers `q` and `r` satisfying `0 <= r < b`. | `-7 = 3(-3) + 2`. This is the quotient-remainder relationship and its uniqueness, not a prescribed written algorithm. |
+| EuclideanAlgorithm | Determining the greatest common divisor by repeated division with remainder, using the invariance of the common divisors at each reduction. | Reducing `(48, 18)` to `(18, 12)`, then `(12, 6)`, and obtaining 6. |
+| BezoutIdentity | The representation of the greatest common divisor of two integers, not both zero, as an integer linear combination of them. | `gcd(30, 18) = 6 = 2(18) - 30`. The existence of such coefficients adds knowledge beyond an arbitrary displayed equality. |
+| PrimeFactorization | Decomposing an integer greater than one into a product of prime integers. | `60 = 2^2 * 3 * 5`; this specializes existing integer Factorization. |
+| FundamentalTheoremOfArithmetic | The existence of a prime factorization for every integer greater than one and its uniqueness up to the order of the factors. | Explaining why any complete prime factorization of 60 has two factors 2, one 3, and one 5. A single factor tree does not establish the theorem. |
+| InfinitudeOfPrimes | The fact that no finite collection contains every prime number. | Reasoning that a prime divisor of one plus a product of listed primes cannot belong to that list. The constructed number need not itself be prime. |
+| IntegerCongruence | The relation that two integers differ by a multiple of a specified positive integer modulus. | `17` and `5` are congruent modulo 12. Geometric CongruenceRelation has a different meaning. |
+| ResidueClassArithmetic | The addition and multiplication of integer congruence classes, independent of the representatives chosen within each class. | Modulo 5, replacing 7 by 2 leaves the class of its product with 3 unchanged. |
+| ModularInverse | A residue class whose product with a specified class is the multiplicative identity modulo an integer greater than one, existing exactly when the representative is coprime to the modulus. | The inverse of 3 modulo 7 is 5; 2 has no inverse modulo 6. |
+| LinearCongruenceSolvability | The condition that `ax` is congruent to `b` modulo a positive integer `m` precisely for some integer `x` when `gcd(a, m)` divides `b`. | `6x` congruent to 9 modulo 15 is solvable, but `6x` congruent to 4 is not. |
+| ChineseRemainderTheorem | The existence of a unique residue class modulo the product satisfying any prescribed residues for pairwise coprime positive moduli. | Residues 2 modulo 3 and 3 modulo 5 determine residue 8 modulo 15. Noncoprime moduli need additional compatibility conditions. |
+| LinearDiophantineSolvability | The condition that `ax + by = c`, for integers `a`, `b`, and `c` with `a` and `b` not both zero, has integer solutions exactly when `gcd(a, b)` divides `c`. | `6x + 10y = 7` has real solutions but no integer solutions. Generic EquationSolving supplies the objective, not this criterion. |
+| PythagoreanTriples | Positive integer solutions of `a^2 + b^2 = c^2`, including the conditions for their primitive parametrization. | `(3, 4, 5)` is primitive; `(6, 8, 10)` is not. Applying the geometric Pythagorean theorem alone does not establish this knowledge. |
+| DivisorCount | The number of positive divisors of a positive integer and its relationship to the exponents in a prime factorization. | `12 = 2^2 * 3` has `(2 + 1)(1 + 1) = 6` positive divisors. |
+| DivisorSum | The sum of the positive divisors of a positive integer and its relationship to prime factorization. | The positive divisors of 12 sum to 28. |
+| EulersTotient | The number of integers from 1 through a positive integer `n` that are coprime to `n`, and its dependence on the prime factors of `n`. | `phi(12) = 4`, from 1, 5, 7, and 11. |
+| MultiplicativeArithmeticFunction | A function on positive integers with value one at 1 whose value on a product of coprime inputs equals the product of their values. | Divisor counts multiply for 4 and 3, but that rule cannot be assumed for 2 and 2. |
+| ContinuedFractions | Representation by nested integer parts and reciprocals, together with the rational convergents obtained by finite truncation. | `13/8 = [1; 1, 1, 1, 2]`; continued fractions also describe irrational values through infinite expansions. |
+
+The two solvability criteria are closely connected, but have different objects and
+general solutions: the linear congruence has one residue-class variable, whereas a linear
+Diophantine equation has a pair of integer unknowns. Their equivalence through an
+auxiliary integer variable is a useful connection to review before implementing both.
+They are not specializations of generic EquationSolving: they supply a solvability
+criterion that can be understood even when no solving task is requested.
+
+DivisorCount, DivisorSum, and EulersTotient describe particular mathematical functions
+and their properties. They do not authorize a new Area for every function merely having
+integer inputs. Their repeated use in factorization, multiplicativity, and modular theory
+provides the additional knowledge and future reuse that justify considering them.
+
+### University extensions accommodated by the structure
+
+These are reserved topic directions, not empty authored descriptors or immediate school
+requirements. Their placement follows the subject branches above; detailed definitions
+would be a subsequent draft.
+
+| Branch | Further introductory-university topics | Beyond this draft |
+| --- | --- | --- |
+| PrimesAndFactorization | Sieve methods, primality tests, elementary factorization algorithms. | Quantitative prime distribution using analysis. |
+| ModularArithmetic | Fermat/Euler/Wilson theorems, multiplicative order, primitive roots, power residues, Legendre symbol, quadratic reciprocity. | General finite-field theory belongs to shared algebra; specific numerical applications can build on it. |
+| DiophantineProblems | Sums of squares, Pell equations, selected binary quadratic forms. | Elliptic curves and general arithmetic geometry. |
+| ArithmeticFunctions | Multiplicativity of the named functions, divisor identities, later inversion formulas. | Average orders and analytic methods. |
+| RationalityAndApproximation | Denominator criteria for terminating base expansions, irrationality proofs, convergents and best-approximation properties. | General Diophantine approximation; analytic convergence arguments retain their analysis knowledge. |
+| NumberSystems | Algebraic/transcendental classification; complex conjugation and geometric forms; later Gaussian integers and other specific numerical extensions. | General constructions of fields and number fields need an algebra review. Rational numbers are algebraic too; algebraic numbers need not be real. |
+
+The first several rows occur in introductory number-theory curricula, but their depth
+varies. The advanced directions are not a promise of full university-course coverage.
+Likewise, the school `(+)` marker is not a university difficulty classification: some
+complex-number topics reserved from our core CCSS work appear in Oxford's first-week
+course. See the primary-source comparison above.
+
+### Revisions to the first draft's boundaries
+
+**Shared closure belongs with operation structure.** This draft proposes
+OperationClosure under a substantive AlgebraicStructures family in Algebra, instead of
+using SetTheory merely as its first available shared home. Its definition and numeric
+versus polynomial examples remain those from draft 1. This placement is our design
+inference from the algebra curricula; it is not a quotation of a syllabus hierarchy.
+Future identity, inverse, group, ring, and field concepts can develop that family.
+They should not be introduced as prerequisites for a school closure claim. SetTheory
+would retain its current labeling eligibility under this option.
+
+**Arithmetic retains computation.** Keep Modulo, DivisionStandardAlgorithm, the fraction
+strategies, and the ArithmeticSpaces subtree in their existing fields. Modulo calculates
+a remainder; EuclideanDivision explains the quotient-remainder structure;
+IntegerCongruence explains equality modulo a modulus. None substitutes for both others.
+The current Modulo definition leaves negative-input conventions unspecified, so review
+that boundary before relying on it in examples with negative integers.
+
+**Analysis begins with additional analytic knowledge.** Comparing irrational values or
+interpreting a complex number does not require an analysis label. Completeness, limits,
+and convergence provide distinct knowledge when the task actually calls for them.
+The number-theoretic subject of a future application does not remove its analytic method.
+Keep the existing analysis boundary; do not move all real-number knowledge into Analysis
+because a university happens to introduce it in that course.
+
+**Formal mathematics retains expression and notation roles.** Fraction and decimal
+notation, variables, numerical constants, and formal equation structure stay reusable.
+Prime factorization of an integer remains distinct from AlgebraicFactorization of an
+expression. The decimal/fraction Scope issues and ComplexNumbers proposal from draft 1
+remain open in both 2A and 2B; the broader organization does not resolve them automatically.
+
+### Finding the school requirements within the structure
+
+This is a targeted coverage map, not a complete CCSS certification. It locates the
+number-theoretic school requirements, identifies reuses, and distinguishes the proposed
+university extensions from knowledge actually required in school tasks.
+
+| School requirement | Place in this structure | Existing knowledge, gap, and limits |
+| --- | --- | --- |
+| [2.OA.C.3](https://www.thecorestandards.org/Math/Content/2/OA/): parity through pairing and equal addends | Preparatory intuitive knowledge connecting to IntegerDivisibility | Reuse EvenDivisibility, UnevenDivisibility, and collection reasoning. Do not label early pairing as formal congruence theory. |
+| [4.OA.B.4](https://www.thecorestandards.org/Math/Content/4/OA/): factor pairs, multiples, primes and composites | IntegerDivisibility; PrimesAndFactorization | Existing FactorsAndMultiples, PrimeNumbers, and CompositeNumbers already address these concepts. The standard does not demand the uniqueness theorem for prime factorization. |
+| [4.OA.C.5](https://www.thecorestandards.org/Math/Content/4/OA/): explain parity patterns | IntegerDivisibility | IntegerParity is a candidate for reasoning about even/odd behavior; existing OddAndEvenNumbers only tests divisibility by two from numerical representation. Validate the new concept against representative pattern explanations. |
+| [4.NBT.B.6](https://www.thecorestandards.org/Math/Content/4/NBT/) and [4.OA.A.3](https://www.thecorestandards.org/Math/Content/4/OA/): remainders | Arithmetic, with a connection to IntegerDivisibility | Reuse Modulo and relevant division knowledge. Computing a remainder does not automatically involve the existence/uniqueness part of EuclideanDivision. |
+| [6.NS.B.4](https://www.thecorestandards.org/Math/Content/6/NS/): GCF/LCM and complete common-factor extraction | IntegerDivisibility | GreatestCommonDivisor and LeastCommonMultiple are genuine general gaps. Compose GCD with DistributiveLaw for `36 + 8 = 4(9 + 2)`. The current fraction-specific concepts are insufficient outside their fraction roles. |
+| [4.NF.A.1–2](https://www.thecorestandards.org/Math/Content/4/NF/) and [5.NF.A.1](https://www.thecorestandards.org/Math/Content/5/NF/): fraction equivalence and denominator methods | Existing rational arithmetic, supported by divisibility | Reuse FractionEquivalence and relevant strategies. A shared denominator need not be least, and every fraction calculation need not separately claim GCD or LCM knowledge. |
+| [7.NS.A.2b,d](https://www.thecorestandards.org/Math/Content/7/NS/) and [8.NS.A.1](https://www.thecorestandards.org/Math/Content/8/NS/): rational quotients and decimal characterization | RationalityAndApproximation | RationalNumberCharacterization supplies the general connection; existing DecimalEquivalence and division methods supply conversion procedures. Full continued-fraction theory is unnecessary. |
+| [8.NS.A.2](https://www.thecorestandards.org/Math/Content/8/NS/): approximate and compare irrational values | Existing numerical reasoning, connected to rationality | Reuse NumericApproximation, eligible comparison concepts, and number-line context. Neither formal completeness nor best-approximation theorems are required merely by the number type. |
+| [N-RN.B.3](https://www.thecorestandards.org/Math/Content/HSN/RN/): closure and mixed rational/irrational results | NumberSystems; shared AlgebraicStructures | Retain OperationClosure and NumberOperationResultTypes as distinguishable knowledge, with operand restrictions stated. |
+| [N-CN.A.1–2, C.7](https://www.thecorestandards.org/Math/Content/HSN/CN/): complex foundations, arithmetic, quadratic solutions | NumberSystems and existing arithmetic/algebra | Retain ComplexNumberStructure and the proposed context Scope; reuse operations, laws, and solving methods. Gaussian-integer theory is not necessary for these standards. |
+| [A-APR.A.1](https://www.thecorestandards.org/Math/Content/HSA/APR/): polynomial closure | Shared AlgebraicStructures with polynomial knowledge | OperationClosure composes with PolynomialDependence and operations over a stated coefficient system. Its shared placement avoids putting polynomials in an integer-only field. |
+
+N-RN.A.1–2 still needs the first draft's review of rational-exponent justification;
+neither adding integer-theory branches nor naming NumberSystems proves it covered.
+The existing core algebra/function audit and separate CCSS `(+)` roadmap remain active.
+
+### Migration and staged implementation
+
+The second draft proposes more reorganization than the first, but largely preserves
+the meanings of currently used leaves. The important changes are explicit:
+
+| Existing item | Proposed treatment | Adoption consequence |
+| --- | --- | --- |
+| FactorsAndMultiples | Move to IntegerDivisibility without changing meaning. | Preserve incoming progression references from arithmetic strategies and fraction methods; a new navigation parent is not new inherited knowledge. |
+| PrimeNumbers and CompositeNumbers | Move to PrimesAndFactorization. | Existing content labels remain meaningful. Their relation to FactorsAndMultiples remains independently useful. |
+| Factorization | Move to PrimesAndFactorization; relocate its current constituent children; allow PrimeFactorization as a specialization. | Becomes eligible under ONT-E7. Existing factor-pair content must not acquire it automatically; some content tests explicitly exclude this label. Review those tests semantically if adoption changes. |
+| DivisibilityRules and OddAndEvenNumbers | Move the method family to IntegerDivisibility; replace the current constituent edge with a specialization for the existing numeral-based test. | DivisibilityRules becomes eligible. This is justified by the two definitions, not merely by a wish to enable the label. Do not later add constituent children beneath that specialized family. |
+| OddAndEvenNumbers name | Retain its existing narrow meaning in this draft. | Its name is broader than its definition. A later rename to a parity-test name is optional and would need explicit migration; IntegerParity must not silently overwrite it. |
+| Grade-06 GCF TODO | Use GreatestCommonDivisor as the canonical identifier and record greatest common factor as its school synonym. | Reconcile the proposed GreatestCommonFactor name in the content plan; do not create two Areas for the same concept. |
+| Numeric Scopes | Preserve the separate draft-1 review. | Grade-06 bounds apply to the source operands, not necessarily the GCD/LCM result. An LCM of inputs at most 12 can exceed 12. |
+| OperationClosure | Use AlgebraicStructures in this alternative. | No SetTheory eligibility change; no additional NumberTheory or polynomial-specific structural parent. |
+
+Recommended implementation sequence after choosing a draft:
+
+1. **School-facing structure and gaps:** establish IntegerDivisibility and
+   PrimesAndFactorization, review the two eligibility changes, and add GCD/LCM. Assess
+   IntegerParity against school pattern tasks. Add the rational/irrational, result-type,
+   closure, and complex foundations from draft 1 in their selected homes. Do not author
+   empty university-only branches just to complete the visual tree.
+2. **First university connections:** add coprimality, Euclidean division/algorithm,
+   Bézout, prime factorization and uniqueness, integer congruence, and basic solvability
+   criteria. Each gets concise definitions, contrasting tasks, and a progression review;
+   course order alone supplies no progression edges.
+3. **Broader introductory course coverage:** develop modular power results and residues,
+   arithmetic functions, continued fractions, and selected Diophantine families. Keep
+   applications such as cryptography compositional unless they add independent knowledge.
+4. **Later specialization:** revisit specific numerical extensions, algebraic structures,
+   and analytic methods with their own evidence. Preserve the previously deferred complex,
+   linear-algebra, and calculus stages rather than treating this tree as their implementation.
+
+The recommended next review is therefore the **subject structure plus its small school
+implementation subset**, not approval to populate the full university tree at once.
+The decisive choices are 2A versus 2B for the field boundary, moving shared closure into
+AlgebraicStructures, and repairing the two existing method/organizer mismatches.
