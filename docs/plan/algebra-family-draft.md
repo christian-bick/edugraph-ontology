@@ -4,11 +4,15 @@ The algebra and school-analysis refinements are merged into `origin/main` at
 `d0d029d` ([PR #68](https://github.com/christian-bick/edugraph-ontology/pull/68)), verified on 2026-10-10.
 This record distinguishes the [implemented decisions](#ccss-and-school-analysis-refinement-record)
 from the [recommended next extensions](#recommended-next-ontology-extensions).
-NumberTheory foundations are implemented separately on `codex/number-theory-foundations`;
+NumberTheory foundations are merged into `origin/main` at `1b9ecc3`, verified on 2026-10-11;
 see its [implementation record](number-theory-basics-draft.md#implementation-and-adoption--2026-10-10).
-The explicitly deferred extensions remain future work.
+The [remaining core coverage audit](core-ccss-coverage-audit.md) records supported compositions
+and the accepted follow-ups. UnitDimensionality and PythagoreanTheorem are implemented on
+`codex/unit-dimensionality-pythagorean` for preview review; formal function coverage uses the
+existing concepts. The explicitly deferred extensions remain future work.
 
-Implementation branch: `codex/algebra-refinements` (merged). Revised 2026-10-10 after the merge.
+Implementation branch: `codex/algebra-refinements` (merged). Updated 2026-10-11 after the
+NumberTheory merge and remaining-core audit.
 The authored sources are [Areas](../../core-areas-math.ttl) and [Scopes](../../core-scopes-math.ttl).
 This document builds on the manual refinement through `0f277c5` and the definition/example
 review in `35d3482`, the formal concept definitions in `6d67042`, the law and sequence consolidation
@@ -710,8 +714,8 @@ The pre-refinement baseline was
 published preview `0.30.0-pre.10.10a40360f726`, source commit `10a40360f72686aabbf5865ee5157649ad75b06c`.
 The accepted representation, theorem, equivalence, function-property, variable-role,
 function-arithmetic, and transformation-logic descriptors below are now source assertions.
-NumberTheory now has a separate implementation on `codex/number-theory-foundations`, pending
-review and merge; the other deferred stages remain plans. Earlier provisional coverage questions
+NumberTheory is now merged at `1b9ecc3`; the other deferred stages remain plans.
+Earlier provisional coverage questions
 must be checked against the relevant source rather than treated as an inventory of missing concepts.
 
 The implemented decisions use ScientificExponentNotation, keep the finite geometric sum and general
@@ -1113,14 +1117,14 @@ CompletingSquare remain Areas where they contribute additional mathematical know
 
 | Stage | Preserved topics | Boundary |
 | --- | --- | --- |
-| NumberTheory foundations | Complex-number structure, rational/irrational characterization, closure and mixed-system result types. | Implemented on `codex/number-theory-foundations`, pending review and merge; see the design record and adoption map below. |
+| NumberTheory foundations | Complex-number structure, rational/irrational characterization, closure and mixed-system result types. | Merged at `1b9ecc3`; see the design record and adoption map below. |
 | Advanced complex numbers | Conjugates, modulus and argument, rectangular/polar forms, complex-plane representations and operations, Fundamental Theorem of Algebra. | After the NumberTheory foundations. Final placement of the algebra theorem is still open. |
 | Linear algebra | Vector operations, matrix quantities and arithmetic, zero/identity matrices, determinants, inverses, matrix systems, linear transformations. | A dedicated LinearAlgebra field; the existing VectorConcept is reusable and VectorObjects means graphics. |
 | Further function/trigonometric work | Rational-function asymptotes, angle addition/subtraction identities, sine-area relationship, Laws of Sines and Cosines. | Preserve for a later discussion; current family sketches do not decide their full trees. |
 | Calculus methods | Limit and derivative methods, derivative tests and applications, integration/accumulation, and later convergence. | Independent of completing CCSS; the authored school-analysis properties above do not substitute for method families. |
 
 The accepted representation, equivalence, theorem, function-property, and transformation-logic
-decisions are implemented. The distinct NumberTheory pass is now ready for branch review;
+decisions are implemented. The distinct NumberTheory pass is also merged;
 the other deferred extensions follow separately. General BinomialTheorem is authored in the merged ontology even though its CCSS
 standard is marked `(+)`; FiniteGeometricSum addresses core
 [A-SSE.B.4](https://www.thecorestandards.org/Math/Content/HSA/SSE/).
@@ -1130,7 +1134,8 @@ own adoption review; the ontology merge does not update them.
 ## Recommended next ontology extensions
 
 These priorities concern the algebra, number-system, and function work discussed in this record.
-Step 1 now has a branch implementation; subsequent steps remain the review priorities.
+Step 1 is merged and step 2 has a completed source audit with its two additions in preview;
+subsequent steps remain the review priorities.
 They are not a completeness claim for all CCSS geometry, statistics, or other fields. Proposed
 family names below are planning candidates, not additional authored descriptors. The sequence
 separates core CCSS gaps from standards marked `(+)` and later calculus; a `(+)` item may still
@@ -1138,7 +1143,7 @@ be worth implementing early when it contributes useful shared knowledge, as Bino
 
 ### 1. NumberTheory foundations — next implementation proposal
 
-Status: implemented on `codex/number-theory-foundations`, pending review and merge.
+Status: implemented on `codex/number-theory-foundations` and merged at `1b9ecc3`.
 The heading is retained as a stable link from the earlier plans. The
 [NumberTheory design record](number-theory-basics-draft.md) contains definitions, examples,
 placement alternatives, and an [adoption map](number-theory-basics-draft.md#implementation-and-adoption--2026-10-10).
@@ -1174,33 +1179,48 @@ the separate decimal/fraction Scope boundary review remain outstanding.
 
 ### 2. Close the remaining core algebra/function coverage questions
 
-Before declaring the remaining core covered, map each outstanding standard to observable
-knowledge and distinguish a missing concept from a supported composition. One concrete issue
-deserves explicit review: [A-APR.A.1](https://www.thecorestandards.org/Math/Content/HSA/APR/)
-requires knowledge that polynomials are closed under addition, subtraction, and multiplication.
-PolynomialDependence identifies the form; equivalent rewriting identifies equal values.
-Neither specifically identifies the system's closure property. The NumberTheory branch now
-adds shared OperationClosure under AlgebraicStructures; verify its composition with polynomial
-knowledge against representative tasks. Polynomial closure is core; rational-expression closure
-in A-APR.D.7 is `(+)`.
+Status: source audit completed on 2026-10-11 against `1b9ecc3`; two targeted additions are
+implemented on `codex/unit-dimensionality-pythagorean`, pending preview review. The
+[audit document](core-ccss-coverage-audit.md) inventories **114 core terminal standards** across
+the selected middle-school prerequisites, Number and Quantity, Algebra, Functions, and three
+right-triangle crosslinks. It records existing eligible concepts, representative tasks, and
+nearby counterexamples. It does not certify dataset implementation or all CCSS fields.
 
-Use composition checks for these cases before adding more Areas:
+The earlier candidates are supported compositionally: OperationClosure supplies polynomial
+closure; ExponentLaws, Root, and ConceptDerivation identify rational-exponent justification;
+existing approximation, solving, transformation-logic, and graphical-solution concepts cover
+the other focused questions. The remainder/factor theorems, finite geometric sum, unit-circle
+functions, and periodic-model properties are already authored.
 
-- [8.NS.A.2](https://www.thecorestandards.org/Math/Content/8/NS/): irrational approximation,
-  comparison, and number-line placement using existing approximation, number, and representation concepts.
-- [N-RN.A.1-2](https://www.thecorestandards.org/Math/Content/HSN/RN/): the extension to rational
-  exponents and radical/power rewriting; examine whether existing exponent knowledge identifies
-  the justification as well as the calculation.
-- [A-REI.A.2 and D.11](https://www.thecorestandards.org/Math/Content/HSA/REI/): rational/radical
-  constraint solving, candidate validation, and graphical intersections. These are core even
-  though rational-function asymptotes are `(+)`.
-- The already authored remainder/factor theorems, finite geometric sum, unit-circle functions,
-  Pythagorean identity, and periodic-model properties: verify representative tasks against the
-  merged definitions rather than carrying their old missing-concept status forward.
+The review's three targeted follow-ups are resolved for the requested preview scope:
 
-The deliverable is a focused standards-to-concepts table with supported compositions, genuine
-gaps, and unresolved evidence marked separately. New descriptors should follow that evidence.
-This is a coverage check, not a request to proliferate object-by-method combinations.
+- NumericFunction, FunctionSymbol, and FunctionArgument provide the accepted composition for
+  numerical correspondence and formal expression roles in F-IF.A.1. The graph facet uses
+  existing concepts as evidenced. FunctionTypes and all function descriptors remain unchanged.
+- UnitDimensionality is authored under MeasuringWithUnits for unit composition and dimensional
+  consistency, beyond the already supported conversions in 6.RP.A.3.d and N-Q.A.1.
+  MeasuringWithUnits retains its original definition without an example comment.
+- PythagoreanTheorem is authored under GeometricRelations, expanding RightTriangle with the
+  squared-side characterization and its converse. RightTriangle and measurement concepts
+  already provide broad application coverage; the theorem adds a useful reusable distinction,
+  especially for proofs. Integer triples and the trigonometric identity are not replacements.
+
+The [follow-up record](core-ccss-coverage-audit.md#targeted-follow-up-proposal) includes exact
+authored definitions, contrasting examples, and
+[implementation and adoption details](core-ccss-coverage-audit.md#implementation-adoption-and-preview--2026-10-11).
+Measurement and FunctionNotation retain their existing placement. Their suggested relocations
+and a possible FunctionDefinition extension for arbitrary-set correspondence are separately
+deferred, not requirements of the accepted numerical scope or changes in this preview.
+
+The audit's 114 mappings preserve the historical baseline; the preview separately records
+967 descriptors and 5,170 assertions with no existing descriptor annotations, authored edges,
+ancestry, or eligibility changed. The initial implementation passed focused source checks and
+the full Docker gate, including both generated clients and all 49 Python tests. The same
+validation also passed after restoring MeasuringWithUnits and removing its added example.
+Further evidence work concerns mixed-system
+property attribution, complete versus sampled solutions, justified error bounds, and the
+separately recorded decimal/fraction Scope boundaries. No additional calculus family or
+object-by-method multiplication is required to close these core questions.
 
 ### 3. Advanced complex numbers and polynomial structure — CCSS (+)
 
