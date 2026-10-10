@@ -636,10 +636,13 @@ the snapshot contains 929 descriptors and 4,976 assertions. Focused checks confi
 binomial and trigonometric specialization boundaries, new-organizer eligibility, and constant-output
 variable roles. Independent review found no actionable semantic issues; `git diff --check` passes.
 
-The authoritative `docker build . --output dist` was attempted on 2026-10-10 but could not connect
-to the Docker Desktop Linux engine. Starting Docker Desktop failed because its startup service
-could not access `sailor-ingest.sock`. Generated-client tests and package builds for this branch
-remain unverified until the Docker gate runs; the checks above do not replace that gate.
+The authoritative `docker build . --output dist` passed on 2026-10-10 for source commit
+`18bd148` after Docker Desktop was restarted. The gate completed RDF generation, TypeScript
+compilation and all eight client test entrypoints, ontology and documentation validation,
+and npm package consumer checks. Python lint, formatting, typing, all 49 tests, wheel/sdist
+builds, and packaged-consumer checks also passed. Generated artifacts were exported to `dist/`.
+This resolves the earlier Docker startup blockage; downstream annotation adoption and editor
+UI behavior are outside these build checks.
 
 Earlier completed checks are historical evidence. The review in 35d3482 tightened six
 definitions and filled five missing example fields. Revision 6d67042 updated definitions and
@@ -679,7 +682,8 @@ target-specification or pinned-package change is made by this update.
 
 The authoritative [Docker gate](../../DOCS.md#43-compiling-via-docker) was attempted again on
 2026-10-06 but could not connect to the Docker Desktop Linux engine because its named pipe was
-unavailable. Generated-client tests and package builds remain unverified until that gate runs.
+unavailable. Generated-client tests and package builds were unverified at that revision;
+the 2026-10-10 gate above verifies the current refinement source.
 
 Authoring references: [descriptors](../descriptors.md), [structure](../structure.md),
 [relations](../relations.md), [content evidence](../content-evidence.md),
