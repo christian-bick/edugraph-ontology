@@ -38,6 +38,8 @@ They do not add inference rules or establish learner mastery.
 
 [4.1 Involves](#41-involves)
 
+[5. Algebra, Formal Mathematics, and Analysis](#5-algebra-formal-mathematics-and-analysis)
+
 **[B. Pedagogic Reasoning](#b-pedagogic-reasoning)**
 
 [1. General Structure](#1-general-structure)
@@ -305,6 +307,59 @@ The two Areas describe the knowledge required; the Scope describes the numeric c
 This composition allows descriptions to be compared through their constituent claims.
 It does not automatically copy every relation of a descriptor onto the competency.
 Progression inference through these links requires a separately justified rule.
+
+## 5. Algebra, Formal Mathematics, and Analysis
+
+The mathematical families apply composition to separate knowledge that can recur across object
+kinds. FormalMathematics describes the form and meaning of expressions and statements, the roles
+of primitives such as variables and coefficients, and notation conventions. Algebra combines
+these with shared dependence, identities, rewriting techniques, and solving objectives. These
+are composable Areas within the existing schema, not additional dimensions. The detailed
+[Algebra design and extension record](docs/plan/algebra-family-draft.md) preserves the authored
+families, annotation migration, examples, and remaining work.
+
+This separation avoids parallel quadratic-expression, quadratic-equation, and quadratic-function
+trees. QuadraticDependence identifies the relationship in designated variables; CompletingSquare
+identifies a reusable transformation; EquationSolving identifies an objective. Completing the
+square can produce an equivalent expression, help solve an equation, or expose a function's
+minimum. Each claim follows the knowledge exercised, rather than being implied by the appearance
+of a quadratic formula. The distinction also allows a quadratic rewriting pattern inside a
+higher-degree expression without classifying the whole expression as quadratic. This implements
+[the reuse principle](docs/descriptors.md#ont-d1--define-reusable-concepts).
+
+Formal concepts are knowledge claims, rather than syntax filters. Interpreting a coefficient's
+role can support Coefficient; its incidental presence does not. ArithmeticExpression and
+AlgebraicExpression are sibling concepts whose distinction follows the expression as presented:
+the former contains only numbers and arithmetic operations, while the latter contains variables,
+symbolic parameters, function applications beyond arithmetic, or conditional branches. Thus
+`5 + 5` is arithmetic, while `x - x` and `sin(1)` are algebraic even though their values are
+numbers. Equivalent forms do not retroactively change the observed form. An exercise can address
+both kinds through different expressions. The governing evidence boundary is
+[ONT-E1](docs/content-evidence.md#ont-e1--ground-annotations-in-accessible-evidence).
+
+AlgebraicEquivalence covers equality of expression values and equality of constraint solution
+sets, with designated variables and original domain restrictions retained. It accommodates
+reusable identities and solution-preserving methods; AlgebraicConstraints covers solution
+conditions and solving objectives. ConstraintTransformationLogic concerns why a step is
+equivalent or only a one-way consequence, while transformation Scopes identify the operation
+being considered. AlgebraicTheorems gives results such as the polynomial remainder and factor
+theorems a home without adding a second parent to every named identity.
+
+Algebra includes functions and relations. Function types describe their mathematical nature,
+while Analysis organizes FunctionProperties, including range, monotonicity, symmetry, limiting
+behavior, regularity, and shape. These properties remain distinct from methods for calculating
+derivatives or integrals; the property families do not constitute a completed calculus ontology.
+InstantaneousRateOfChange deliberately remains under the algebraic FunctionSlope family as a
+bridge between secant rates, tangent slope, and analysis. Its limit-based definition retains its
+calculus meaning, so this boundary is not a claim that the fields are disjoint.
+
+TrigonometricRelations illustrates justified shared placement. Its parallel constituents are
+TrigonometricFunction and TrigonometricIdentities, with sine, cosine, and tangent specializing
+the function family. The function family also specializes NumericFunction; the identity family
+also specializes AlgebraicEquivalence. Each cross-field path conveys a distinct relationship
+without duplicating the concepts. The distinction between organization and inheritance follows
+[the structural rules](docs/structure.md), while direct labeling continues to depend on
+[eligibility and evidence](docs/content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
 
 
 ---

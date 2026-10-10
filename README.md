@@ -49,9 +49,11 @@ It is therefore divided into two layers:
 
 ### Core Ontology
 
-The [Algebra family draft](docs/plan/algebra-family-draft.md) records the proposed hierarchy,
-including formal expression roles, shared dependence and rewriting families, function types
-and behavior, its boundary with analysis, and the effects on existing labels.
+The [Algebra and analysis design record](docs/plan/algebra-family-draft.md) records the merged
+hierarchy, including formal expression roles, shared dependence and rewriting families,
+function types and properties, the parallel trigonometric families, and effects on existing labels.
+Its [extension roadmap](docs/plan/algebra-family-draft.md#recommended-next-ontology-extensions)
+distinguishes remaining core CCSS needs, advanced CCSS extensions, and later calculus work.
 
 #### Foundations
 

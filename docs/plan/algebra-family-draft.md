@@ -1,11 +1,12 @@
-# Algebra family — compositional editor draft
+# Algebra and analysis — design record and extension roadmap
 
-The [CCSS and school-analysis refinement record](#next-stage-ccss-and-school-analysis-proposal)
-records the follow-up decisions implemented on 2026-10-10 against published preview
-`0.30.0-pre.10.10a40360f726`. Accepted algebra, representation, and function-property changes
-are authored in Turtle; NumberTheory and the explicitly deferred extensions remain future work.
+The algebra and school-analysis refinements are merged into `origin/main` at
+`d0d029d` ([PR #68](https://github.com/christian-bick/edugraph-ontology/pull/68)), verified on 2026-10-10.
+This record distinguishes the [implemented decisions](#ccss-and-school-analysis-refinement-record)
+from the [recommended next extensions](#recommended-next-ontology-extensions).
+NumberTheory foundations and the explicitly deferred extensions remain future work.
 
-Draft branch: `codex/algebra-refinements`. Revised 2026-10-10 after the CCSS coverage review.
+Implementation branch: `codex/algebra-refinements` (merged). Revised 2026-10-10 after the merge.
 The authored sources are [Areas](../../core-areas-math.ttl) and [Scopes](../../core-scopes-math.ttl).
 This document builds on the manual refinement through `0f277c5` and the definition/example
 review in `35d3482`, the formal concept definitions in `6d67042`, the law and sequence consolidation
@@ -16,7 +17,7 @@ objectives, with their narrower specializations. The expression refinement repla
 NumericalExpression with ArithmeticExpression as a sibling of AlgebraicExpression; the
 dependence family remains unchanged.
 
-This draft separates formal objects and roles, shared mathematical dependence, objectives,
+The implemented design separates formal objects and roles, shared mathematical dependence, objectives,
 and reusable rewriting techniques. Expressions, equations, and functions can involve the same
 algebraic knowledge without acquiring parallel polynomial, quadratic, or rational family trees.
 AlgebraicFunctions organizes function types and constructions under Algebra. FunctionProperties
@@ -25,11 +26,12 @@ critical points; the accepted slope overlap is discussed below.
 
 ## Review in the editor
 
-In the [ontology editor](https://edugraph-editor.web.app), select `codex/algebra-refinements`,
+In the [ontology editor](https://edugraph-editor.web.app), select Main,
 the Area dimension, and Structure view. Review Algebra with descendants, then FormalMathematics
 and Analysis / FunctionProperties.
-Use the visual diff against Main to inspect the complete proposal. The editor reads authored
-Turtle from the branch; no package release is needed for this review.
+Review TrigonometricRelations under Geometry to see the parallel function and identity families.
+The editor reads authored Turtle from main. Consumer packages and annotations require a separate
+adoption review; a source merge does not establish which ontology version a consumer uses.
 
 ## What is independent
 
@@ -282,7 +284,7 @@ sits under ExpressionComplexity; SingleVariable specializes that shared Scope.
 Rational dependence preserves exclusions from original denominators through cancellation.
 A polynomial-looking simplified rule does not restore a previously excluded input. Function
 classification follows the stated rule and domain, not a fitted formula guessed from a few points.
-The draft does not assert that every polynomial presentation specializes rational dependence.
+The ontology does not assert that every polynomial presentation specializes rational dependence.
 
 Flat descriptor sets still express co-occurring claims. They do not bind a particular family
 to a particular expression, equation, or function in a compound task. Separate competency
@@ -589,7 +591,7 @@ are resolved in the source.
 OperandCardinality already counts explicit operand occurrences across all nested operations in
 the expression. The former question about generalizing its terminal-operand wording is therefore
 historical; `8 * (2 + 10)` still has three counted occurrences, without counting the composite
-`2 + 10` again. This branch leaves that definition, its children, and their counting convention
+`2 + 10` again. The merged refinement leaves that definition, its children, and their counting convention
 unchanged.
 
 ## Adoption and the boundary with analysis
@@ -622,7 +624,7 @@ No new progression relation is inferred from the manual regrouping.
 Any adoption must review removed identifiers, changes in specialization ancestry, and narrowed
 or broadened meanings. The Grade 6 plan needs reconciliation of provisional labels; Grade 5
 arithmetic-expression tasks retain their meaning under the new identifier, with formula substitution
-reviewed selectively. This branch does not update the content repository's pinned package,
+reviewed selectively. The ontology merge does not update the content repository's pinned package,
 target specifications, or coverage baseline.
 
 ## Verification
@@ -649,6 +651,10 @@ Python tests and both packaged-client checks. Independent diff review confirmed 
 removed constituent edges and one added constituent edge, with definitions, examples,
 specialization and progression assertions, and labeling eligibility unchanged. The updated
 documentation also passes validation.
+
+The merged main commit `d0d029d` has no tracked-file differences from the validated refinement
+commit `d523ed0`. The post-merge update changes documentation only; it does not modify Turtle,
+generated clients, or the content repository's dependency version.
 
 Earlier completed checks are historical evidence. The review in 35d3482 tightened six
 definitions and filled five missing example fields. Revision 6d67042 updated definitions and
@@ -695,20 +701,21 @@ Authoring references: [descriptors](../descriptors.md), [structure](../structure
 [relations](../relations.md), [content evidence](../content-evidence.md),
 [change review](../change-review.md), [annotations and models](../annotations-and-models.md).
 
-## Next-stage CCSS and school-analysis proposal
+## CCSS and school-analysis refinement record
 
-Status: implemented 2026-10-10 on `codex/algebra-refinements` after the two annotated reviews. The baseline is
+Status: implemented on `codex/algebra-refinements` and merged into main at `d0d029d` on 2026-10-10.
+The pre-refinement baseline was
 published preview `0.30.0-pre.10.10a40360f726`, source commit `10a40360f72686aabbf5865ee5157649ad75b06c`.
 The accepted representation, theorem, equivalence, function-property, variable-role,
 function-arithmetic, and transformation-logic descriptors below are now source assertions.
 NumberTheory and the explicitly deferred stages remain plans. Earlier provisional coverage
-questions must be checked against this baseline rather than treated as an inventory of missing concepts.
+questions must be checked against the merged source rather than treated as an inventory of missing concepts.
 
 The implemented decisions use ScientificExponentNotation, keep the finite geometric sum and general
 binomial theorem exclusively in AlgebraicEquivalence, split the old binomial-identity bundle,
 and adopt the eight function-property subdivisions below. The trigonometric dual placement and
 ConstraintTransformationLogic direction are accepted. AlgebraicTheorems replaces the rejected
-AlgebraicResults name in this branch.
+AlgebraicResults name in the merged source.
 
 ### 2026-10-10 migration and adoption
 
@@ -845,7 +852,7 @@ identities and the difference-of-squares product. In preview `.10` the bundle is
 descriptor without children, not three separately authored identities. The split uses
 new names rather than silently narrowing that published identifier:
 
-- BinomialIdentities is retired in this branch. Review old annotations and choose
+- BinomialIdentities is retired in the merged ontology. Review old annotations and choose
   BinomialSquareIdentities, DifferenceOfSquaresIdentity, or both only when both are evidenced.
 - The `BinomialSquareIdentities specializes BinomialTheorem` edge captures the
   degree-two cases of the general power identity. It does not add a second QuadraticRewriting
@@ -1008,7 +1015,7 @@ The user accepts shared placement. The alternatives considered were:
 3. Shared placement: TrigonometricIdentities is `partOf TrigonometricRelations` and
    `specializes AlgebraicEquivalence`; its particular identities specialize it.
 
-Implemented in the draft: option 3. These are single concepts with two justified structural paths.
+Implemented in the merged ontology: option 3. These are single concepts with two justified structural paths.
 TrigonometricRelations now includes circular as well as triangle trigonometry.
 TrigonometricIdentities has specializing children rather than constituent children, preserving
 the structural path rule. PythagoreanTrigonometricIdentity and ComplementaryAngleIdentities
@@ -1111,6 +1118,124 @@ CompletingSquare remain Areas where they contribute additional mathematical know
 
 The accepted representation, equivalence, theorem, function-property, and transformation-logic
 decisions are implemented. Next, run a distinct NumberTheory pass, then return to the explicitly
-deferred extensions. General BinomialTheorem is authored in this branch even though its CCSS
-standard is marked `(+)`. Existing content annotations and consumer package pins require their
-own adoption review; this ontology branch does not update them.
+deferred extensions. General BinomialTheorem is authored in the merged ontology even though its CCSS
+standard is marked `(+)`; FiniteGeometricSum addresses core
+[A-SSE.B.4](https://www.thecorestandards.org/Math/Content/HSA/SSE/).
+Existing content annotations and consumer package pins require their
+own adoption review; the ontology merge does not update them.
+
+## Recommended next ontology extensions
+
+These priorities concern the algebra, number-system, and function work discussed in this record.
+They are not a completeness claim for all CCSS geometry, statistics, or other fields. Proposed
+family names below are planning candidates, not additional authored descriptors. The sequence
+separates core CCSS gaps from standards marked `(+)` and later calculus; a `(+)` item may still
+be worth implementing early when it contributes useful shared knowledge, as BinomialTheorem did.
+
+### 1. NumberTheory foundations — next implementation proposal
+
+Start by resolving the boundary with ArithmeticSpaces. NumberTheory is currently defined only
+for integers, while ArithmeticSpaces already describes number systems and organizes integer
+and rational arithmetic. The accepted direction is to broaden NumberTheory for number-system
+knowledge. Distinguish structural properties from carrying out arithmetic, and review existing
+children and annotations before moving or narrowing either organizer.
+
+The first proposal should cover three independently learned subjects:
+
+| Subject | Knowledge to add or clarify | Reuse and boundary |
+| --- | --- | --- |
+| Rational and irrational structure | Fraction characterization, the relationship with eventually repeating decimal expansions, and why non-rational real numbers are irrational. | Reuse the existing RationalNumbers, IrrationalNumbers, and RealNumbers Scopes and notation concepts. A displayed irrational number does not establish knowledge of the characterization. |
+| Operation and result-type properties | Closure within number systems and the result types of mixed rational/irrational operations. | Consider a shared closure concept, but do not reduce every mixed-system result to closure. For example, a nonzero rational times an irrational is irrational, while zero times an irrational is zero. |
+| Complex-number foundations | The imaginary unit, the real and imaginary components of `a + bi`, and the extension of real arithmetic using `i^2 = -1`. | Propose a ComplexNumbers Scope; reuse existing operations, arithmetic laws, and quadratic-solving knowledge. Avoid a new Area for every operation/number-system combination. |
+
+This addresses core [8.NS.A.1](https://www.thecorestandards.org/Math/Content/8/NS/),
+[N-RN.B.3](https://www.thecorestandards.org/Math/Content/HSN/RN/), and
+[N-CN.A.1-2 and C.7](https://www.thecorestandards.org/Math/Content/HSN/CN/).
+Complex-number foundations and quadratics with complex solutions are core requirements;
+only the additional complex-number stages below are marked `(+)`.
+
+The deliverable should be a reviewable family sketch with concise definitions, boundary examples,
+proposed Area/Scope distinctions, and an adoption map for any affected existing descriptors.
+Representative examples should distinguish knowing why `0.333... = 1/3`, predicting the
+rationality of an operation's result, calculating `(1 + i)(1 - i) = 2`, and solving `x^2 + 1 = 0`.
+
+### 2. Close the remaining core algebra/function coverage questions
+
+Before declaring the remaining core covered, map each outstanding standard to observable
+knowledge and distinguish a missing concept from a supported composition. One concrete issue
+deserves explicit review: [A-APR.A.1](https://www.thecorestandards.org/Math/Content/HSA/APR/)
+requires knowledge that polynomials are closed under addition, subtraction, and multiplication.
+PolynomialDependence identifies the form; equivalent rewriting identifies equal values.
+Neither specifically identifies the system's closure property. Evaluate whether the closure
+knowledge from the NumberTheory pass can be shared with algebra or whether a distinct algebraic
+concept is warranted. Polynomial closure is core; rational-expression closure in A-APR.D.7 is `(+)`.
+
+Use composition checks for these cases before adding more Areas:
+
+- [8.NS.A.2](https://www.thecorestandards.org/Math/Content/8/NS/): irrational approximation,
+  comparison, and number-line placement using existing approximation, number, and representation concepts.
+- [N-RN.A.1-2](https://www.thecorestandards.org/Math/Content/HSN/RN/): the extension to rational
+  exponents and radical/power rewriting; examine whether existing exponent knowledge identifies
+  the justification as well as the calculation.
+- [A-REI.A.2 and D.11](https://www.thecorestandards.org/Math/Content/HSA/REI/): rational/radical
+  constraint solving, candidate validation, and graphical intersections. These are core even
+  though rational-function asymptotes are `(+)`.
+- The already authored remainder/factor theorems, finite geometric sum, unit-circle functions,
+  Pythagorean identity, and periodic-model properties: verify representative tasks against the
+  merged definitions rather than carrying their old missing-concept status forward.
+
+The deliverable is a focused standards-to-concepts table with supported compositions, genuine
+gaps, and unresolved evidence marked separately. New descriptors should follow that evidence.
+This is a coverage check, not a request to proliferate object-by-method combinations.
+
+### 3. Advanced complex numbers and polynomial structure — CCSS (+)
+
+After the foundations, add conjugation, modulus/argument, rectangular and polar forms,
+complex-plane representation and geometric arithmetic, and the Fundamental Theorem of Algebra.
+Review the latter's placement in the existing AlgebraicTheorems family instead of duplicating
+it across number systems and algebra. Reuse the merged identities and factorization concepts
+for complex polynomial examples where their definitions already apply.
+
+The relevant [N-CN.A.3, B.4-6, and C.8-9](https://www.thecorestandards.org/Math/Content/HSN/CN/)
+are marked `(+)`. This stage can also review the rational-expression system and its closure
+from [A-APR.D.7](https://www.thecorestandards.org/Math/Content/HSA/APR/).
+
+### 4. Further function properties and trigonometry — CCSS (+)
+
+Develop the reserved FunctionAsymptotes concept with domain exclusions and one-sided behavior;
+reuse existing limiting behavior, continuity, and rational dependence rather than duplicating
+them. Review holes and asymptotes as distinct observable features.
+
+Extend the existing identity specialization family with angle-addition/subtraction relationships,
+then design the general-triangle sine-area relationship and Laws of Sines and Cosines within
+the geometric organization. Preserve the merged parallel function/identity branches. Any broader
+Trigonometry organizer or triangle-law family needs its own definition and progression-link review.
+
+These priorities correspond to [F-IF.C.7.d](https://www.thecorestandards.org/Math/Content/HSF/IF/),
+[F-TF.C.9](https://www.thecorestandards.org/Math/Content/HSF/TF/), and
+[G-SRT.D.9-11](https://www.thecorestandards.org/Math/Content/HSG/SRT/), all marked `(+)`.
+The core trigonometric foundations in F-TF.A.1-2, B.5, C.8, and G-SRT.C.7 are already represented;
+their competency mappings still need the evidence review in step 2.
+
+### 5. Linear algebra — a distinct CCSS (+) field
+
+Sketch a LinearAlgebra field covering vectors, matrices, their operations, determinants,
+inverses, matrix systems, and linear transformations. Reuse VectorConcept and existing constraint
+and function concepts where appropriate; distinguish matrix multiplication and inverse structure
+from ordinary numerical arithmetic. All [N-VM standards](https://www.thecorestandards.org/Math/Content/HSN/VM/)
+and matrix-system standards [A-REI.C.8-9](https://www.thecorestandards.org/Math/Content/HSA/REI/)
+are marked `(+)`. This work can proceed independently of the advanced trigonometry stage.
+
+### 6. Calculus methods — after the CCSS extensions
+
+Build reusable limit methods, differentiation and its rules, derivative applications,
+antiderivatives, definite integration/accumulation, and the relationships established by the
+Fundamental Theorem of Calculus. Treat integrability and convergence as separate later concepts.
+The already authored local limits, continuity, differentiability, concavity, and critical points
+describe properties; they do not supply all methods or theorems for establishing and using them.
+Compose methods with existing function types and dependence instead of introducing a method
+family for every function type. This is a later calculus curriculum, not a missing CCSS requirement.
+
+Package adoption is a parallel maintenance task: confirm the release that contains the merge,
+then review retired identifiers and changed ancestry before updating consumer pins, annotations,
+and captured Grade 5/6 target plans. It does not replace the ontology extensions above.
