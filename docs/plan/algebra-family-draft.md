@@ -1199,6 +1199,12 @@ The review recommends three narrowly scoped follow-ups before the advanced stage
   already provide broad application coverage; the theorem adds a useful reusable distinction,
   especially for proofs. Integer triples and the trigonometric identity are not replacements.
 
+The [concrete follow-up proposal](core-ccss-coverage-audit.md#targeted-follow-up-proposal)
+recommends replacing FunctionTypes with an eligible Function specialization parent,
+placing DimensionalAnalysis under MeasuringWithUnits with Measurement promoted to a root field,
+and adding PythagoreanTheorem directly under GeometricRelations. It records exact definitions,
+contrasting examples, placement alternatives, and migration consequences.
+
 These are recommendations, not authored changes. Further evidence work concerns mixed-system
 property attribution, complete versus sampled solutions, justified error bounds, and the
 separately recorded decimal/fraction Scope boundaries. No additional calculus family or

@@ -23,7 +23,8 @@ Two coverage boundaries and one precision refinement remain:
 
 The first is a breadth decision exposed by the standard's exact wording, the second a
 specific knowledge gap, and the third a useful theorem-specific refinement of broad coverage.
-Proposed names and placements below are recommendations,
+The [targeted follow-up proposal](#targeted-follow-up-proposal) supplies concrete definitions,
+placements, alternatives, and adoption consequences for all three. These are recommendations,
 not authored descriptors. No new calculus family is needed for these core requirements.
 
 ## Scope, evidence, and counting
@@ -149,6 +150,225 @@ it is not an integer Pythagorean triple. Conversely, merely checking 3^2+4^2=5^2
 prove the general theorem. CoordinateDistance and LengthCalculation describe objectives;
 they do not identify every theorem used to achieve them. The trigonometric identity can be
 related to the geometric theorem without being an alias or replacement.
+
+## Targeted follow-up proposal
+
+Drafted 2026-10-11 against the same `1b9ecc3` source baseline. The recommendation adds three
+eligible concepts, retires one organizer, and reuses the existing families. The Turtle below
+is proposed source text, not a statement of the current ontology. The inventory later in this
+document continues to report the unmodified baseline.
+
+### 1. Replace FunctionTypes with the general Function concept
+
+Use `Function` for the correspondence itself, with the existing four direct types as
+specializations. This addresses the general-set meaning of
+[F-IF.A.1](https://www.thecorestandards.org/Math/Content/HSF/IF/), while retaining the stronger
+numerical meaning of `NumericFunction`.
+
+```text
+AlgebraicFunctions
+  partOf child: Function
+    specializes child: NumericFunction
+    specializes child: OneToOneFunction
+    specializes child: PiecewiseFunction
+    specializes child: Sequence
+```
+
+Proposed new descriptor:
+
+```turtle
+:Function a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The correspondence assigning exactly one element of a stated output set to each element of a stated input domain.";
+    rdfs:comment "Mapping each pupil to their birth-month name; assigning red, blue, and red to positions 1, 2, and 3; assigning x^2 to each real input x.";
+    edu:partOf :AlgebraicFunctions.
+```
+
+Retire the complete `FunctionTypes` descriptor. For `NumericFunction`, `OneToOneFunction`,
+`PiecewiseFunction`, and `Sequence`, replace `partOf FunctionTypes` with `specializes Function`.
+Retain their definitions and all other descendant edges. ArithmeticSequence and
+GeometricSequence still specialize both NumericFunction and Sequence; RecursiveSequence
+still specializes Sequence. TrigonometricFunction keeps its numerical specialization and
+its separate constituent placement in TrigonometricRelations.
+
+This intentionally revisits the earlier `partOf` decision: FunctionTypes organized a field
+of classification; Function identifies knowledge shared by each narrower kind. A type is
+a function, whereas composition, notation, and inversion are not kinds of function.
+Keep those concepts in their existing families. Function has specialization children only,
+so it remains directly labelable. [ONT-S1/S2/S4/S5; ONT-E7.]
+
+FunctionDomain, FunctionRange, FunctionComposition, and FunctionNotation already have general
+definitions. Add nonnumeric examples alongside the existing examples:
+
+| Existing concept | Additional example |
+| --- | --- |
+| FunctionDomain | The stated set of pupils admitted by the birth-month assignment. |
+| FunctionRange | The month names actually assigned to those pupils, which may omit some calendar months. |
+| FunctionComposition | Pupil to birth-month name, followed by month name to calendar quarter. |
+| FunctionNotation | Interpreting m(Ada) = March as a named input and its assigned output. |
+
+Keep FunctionRange's attained-output meaning even though the CCSS wording calls the target
+set a range. No new codomain descriptor is needed to close this gap. Tighten FunctionInversion
+without broadening its meaning:
+
+> Constructing or interpreting the inverse on a one-to-one function's attained range,
+> assigning each output its unique original input. A function that is not one-to-one must
+> first be restricted to a suitable domain before this inverse is a function.
+
+For example, x^2 from nonnegative reals into the reals has an inverse on its nonnegative
+range, not on its entire declared output set. FunctionArithmetic and properties requiring
+numerical or real-valued functions retain their existing restrictions.
+
+| Evidence probe | Distinction |
+| --- | --- |
+| Two pupils map to the same month | Function; neither NumericFunction nor OneToOneFunction. |
+| Every pupil receives a different locker number | Function and OneToOneFunction; inputs are not numerical, so not NumericFunction. |
+| One pupil is assigned two different month names, or an admitted pupil has no assigned month | Violates the function condition for that stated domain and output set. |
+| The indexed terms red, blue, red | Sequence, hence Function; no NumericFunction claim. |
+
+The alternative is to retain FunctionTypes as an organizer with Function as its sole
+constituent. That preserves the organizer identifier but adds an uninformative level.
+Retaining all four old constituent edges alongside specialization would duplicate the same
+navigation family. Prefer retirement; no authored progression or constraint links target
+FunctionTypes. `Function` also existed historically with the same general meaning, so this
+does not repurpose an old identifier for unrelated knowledge.
+
+### 2. Add DimensionalAnalysis under MeasuringWithUnits
+
+Use one reusable concept for dimensional composition and consistency. This supplies the
+unit-manipulation distinction in [6.RP.A.3.d](https://www.thecorestandards.org/Math/Content/6/RP/)
+and consistent formula use in [N-Q.A.1](https://www.thecorestandards.org/Math/Content/HSN/Q/).
+
+```turtle
+:DimensionalAnalysis a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The composition of quantity dimensions and units through products, quotients, and powers, and dimensional compatibility in sums and equalities.";
+    rdfs:comment "Explaining why (m/s)*s has length dimension, why a speed cannot be added to a duration, and why the ratio of two lengths has dimension one.";
+    edu:partOf :MeasuringWithUnits.
+```
+
+The existing placement needs a small but consequential correction. Measurement already
+contains time and general units, while SpatialSense is explicitly about two- and
+three-dimensional space. Make **Measurement a root organizer**, removing its
+`partOf SpatialSense` edge, and retain all its current children. Broaden the two organizer
+definitions as follows:
+
+```turtle
+:Measurement a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The comparison, quantification, and mathematical treatment of measurable quantities, including their units and relationships.";
+    rdfs:comment "Comparing two lengths directly, measuring a duration, converting a weight, or checking the dimensions of a speed formula.".
+
+:MeasuringWithUnits a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Standard units for expressing quantities, their systems, relative sizes and conversions, and their composition and compatibility in quantity relations.";
+    rdfs:comment "Expressing one meter as one hundred centimeters; relating meters per second to distance and duration.";
+    edu:partOf :Measurement.
+```
+
+This reuses an existing field instead of creating a parallel quantity family. The issue is
+the spatial boundary, not a prohibition on formal knowledge beneath IntuitiveMathematics:
+that field already allows increasingly formal representations. Moving Measurement directly
+under IntuitiveMathematics would remove the spatial mismatch but keep a foundational,
+experience-led framing for dimensional reasoning extending into science. A root Measurement
+field provides the clearer long-term home.
+
+Keep UnitConversion and its neighbors independent. Converting 3 m to cm does not establish
+knowledge of dimensional composition. Conversely, rejecting d = v + t because the dimensions
+are incompatible does not require changing units or evaluating numbers. Explaining why
+(m/s)*s produces a length or deriving the dimension of k in E = k*v^2 does establish the new
+knowledge. Add the actual Ability and algebraic methods evidenced by each task.
+
+Boundaries follow the distinctions in [NIST SP 330, section 2](https://www.nist.gov/pml/special-publication-330/sp-330-section-2)
+and [SP 811, chapter 7](https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values):
+
+- Matching dimensions are necessary for sums and equalities of quantities, but do not
+  establish meaningful combination or formula correctness. Energy and torque share dimensions;
+  dimensional checking cannot determine a dimensionless numerical coefficient.
+- A quantity's dimension is independent of its unit. Dimension-one quantities retain their
+  contextual meaning; a ratio of lengths does not become an arbitrary unnamed quantity.
+- Quantity equations differ from numerical-value equations tied to specified units. Offset
+  temperature readings need their conversion convention: a 10 degree Celsius interval is
+  10 kelvin, while a 10 degree Celsius temperature corresponds to 283.15 kelvin.
+
+These are adoption boundaries, not additional leaves. Separate QuantityDimension,
+UnitAlgebra, and DimensionalConsistency concepts would overdivide the present need.
+Keep concrete units as Scopes; do not reuse the spatial DimensionalAbstraction Scope.
+No new progression edge is needed.
+
+If the hierarchy correction is deferred, adding the leaf under the current MeasuringWithUnits
+is structurally valid but leaves the spatial-placement mismatch. Broadening SpatialSense to
+arbitrary quantities or moving dimensional reasoning into symbolic FormalMathematics would
+blur those families' subjects. The root Measurement proposal is preferred.
+
+### 3. Add PythagoreanTheorem directly under GeometricRelations
+
+Use one concept for the theorem and its converse: both directions describe the same
+geometric equivalence. [8.G.B.6](https://www.thecorestandards.org/Math/Content/8/G/) explicitly
+pairs them; [G-SRT.B.4 and C.8](https://www.thecorestandards.org/Math/Content/HSG/SRT/) require
+a similarity proof and applications respectively.
+
+```turtle
+:PythagoreanTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equivalence, for a Euclidean triangle with positive real side lengths a, b, and longest side c, between the angle opposite c being a right angle and a^2 + b^2 = c^2.";
+    rdfs:comment "A right triangle with legs 1 and sqrt(2) has hypotenuse sqrt(3); a triangle with side lengths 5, 12, and 13 is right-angled because 5^2 + 12^2 = 13^2.";
+    edu:expands :RightTriangle;
+    edu:partOf :GeometricRelations.
+```
+
+GeometricRelations already organizes spatial and quantitative relationships. A new
+TriangleRelations organizer can wait for a coordinated treatment of triangle laws; a
+one-child organizer is unnecessary here. ShapeEquivalenceRelations compares figures,
+whereas this theorem relates sides and an angle within a triangle. A constituent beneath
+RightTriangle or Triangle would violate the existing specialization-path rule (ONT-S4).
+It also needs no second structural parent in AlgebraicEquivalence: the geometric result
+and any algebraic rewriting used with it remain composable knowledge.
+
+The `expands RightTriangle` edge records the added metric characterization. Retain the
+existing definitions and placements of PythagoreanTriples, PythagoreanTrigonometricIdentity,
+and CoordinateDistance. Integer solutions, the trigonometric identity, and distance
+calculation are independent concepts; none is an alias of this theorem. Potential
+`integrates PythagoreanTheorem` links from the identity and coordinate-distance concepts
+can be reviewed separately if their geometric construction is recorded. Do not add an
+automatic theorem relation to pure integer-triple knowledge or every distance calculation.
+
+| Evidence probe | Distinction |
+| --- | --- |
+| Find the hypotenuse from legs 1 and sqrt(2) using the squared-length relation | Theorem knowledge extends beyond integer triples. |
+| Infer a right angle from side lengths 5, 12, 13 | Converse direction of the same concept. |
+| Prove the relation by similar triangles formed by an altitude to the hypotenuse | Compose theorem, SimilarityRelation, relevant algebra, DeductiveReasoning, and DirectProof as evidenced. |
+| Check 3^2 + 4^2 = 5^2 | Verifies an instance; does not prove the general theorem. |
+| Identify a right triangle from an angle marking | RightTriangle alone; the theorem is not evidenced. |
+
+### Migration and implementation boundary
+
+The proposed net inventory change is **three eligible concepts added and one ineligible
+organizer retired**. Existing eligible descriptors keep their meanings and eligibility.
+
+- FunctionTypes removal affects navigation, generated enum references, and historical design
+  trees. It has four incoming constituent edges and no authored progression/constraint links.
+  Existing NumericFunction labels retain their stronger meaning. Do not mechanically replace
+  invalid historical FunctionTypes labels with Function without reviewing their evidence.
+- Measurement's move removes SpatialSense and IntuitiveMathematics from its structural
+  ancestry and that of its descendants. This changes navigation and any structural indexing;
+  it does not remove specialization meaning. Measurement, MeasuringWithUnits, SpatialSense,
+  and IntuitiveMathematics all remain ineligible organizers.
+- Regenerate clients and refresh structural consumers when implemented. Search maintained
+  references separately from historical plans. Current content-source searches found no
+  FunctionTypes dependency; tests excluding MeasuringWithUnits remain appropriate.
+- Revisit the F-IF.A.1, N-Q.A.1, 6.RP.A.3.d, and G-SRT.C.8 audit rows after implementation,
+  adding the new descriptors only where their knowledge is evidenced. The extra 8.G and
+  G-SRT.B.4 probes do not change this audit's 114-leaf inventory.
+
+No authored Turtle, generated package, content dependency, or dataset is changed by this
+proposal. Source assessment of a simulated graph can check structural consistency; it cannot
+establish annotation quality or learner mastery. The full build and adoption review belong
+to the implementation step.
+
+The proposed assertions and adjacent definition/example updates were simulated in memory
+on 2026-10-11: all seven ontology assessment checks pass with no findings. The candidate has
+967 descriptors and 5,170 assertions, compared with 965 and 5,159 in the baseline. All three
+new concepts are eligible; no retained descriptor changes eligibility. Fourteen existing
+function descriptors gain Function as a specialization ancestor. Measurement and its ten
+existing descendants lose the two outer organizational ancestors; the new dimensional leaf
+also resides in the standalone field. Independent semantic review found no actionable issues.
+Documentation validation and the unchanged 114-leaf inventory check also pass.
 
 ## Remaining evidence and adoption work
 
