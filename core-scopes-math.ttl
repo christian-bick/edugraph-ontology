@@ -134,6 +134,10 @@
 :CircularArrangement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The radial positioning and curvilinear organization of objects.";
     edu:specializes :ObjectArrangement.
+:ClearingDenominators a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Constraint transformations that multiply both sides by a common denominator to eliminate fractions, considered with original denominator restrictions and any inequality sign conditions.";
+    rdfs:comment "Multiplying 1/x + 1/2 = 1 by 2x on the domain x != 0 to obtain 2 + x = 2x.";
+    edu:specializes :ConstraintTransformationScope.
 :Coins a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Currency represented by physical or depicted coins with stated monetary values.";
     rdfs:comment "Combining coins to represent a given amount.";
@@ -159,6 +163,9 @@
     rdfs:isDefinedBy "Results of explicit calculations or enumerations used to support or examine a claim.";
     rdfs:comment "Calculated values used to examine an algebraic conjecture. Calculations can process observed or simulated data; a computed result alone establishes neither exhaustive coverage nor a general proof.";
     edu:specializes :EvidenceBasis.
+:ConstraintTransformationScope a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Operations supplied or required in proposed or performed transformations of equations, inequalities, or systems. Preservation of solution sets depends on the stated domain and side conditions.";
+    rdfs:comment "Squaring both sides of x = 2 over the reals; dividing x(x - 1) = 0 by x.".
 :ConstructedCaseEvidence a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Explicitly specified mathematical instances or configurations used to illustrate or examine a claim.";
     rdfs:comment "Two equal-area configurations used to compare different partitions of a whole. A construction may illustrate a claim, establish existence, or refute a general claim depending on its demonstrated role.";
@@ -289,6 +296,10 @@
 :DividendDigitCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The exact digit count of the dividend.";
     edu:partOf :OperandDigitCount.
+:DividingByVariableExpression a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Constraint transformations that divide both sides of an equation or inequality by the same expression containing a variable, with its zeros considered relative to the original domain.";
+    rdfs:comment "The proposed step from x(x - 1) = 0 to x - 1 = 0 by division by x over the reals.";
+    edu:specializes :ConstraintTransformationScope.
 :DivisorDigitCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The exact digit count of the divisor.";
     edu:partOf :OperandDigitCount.
@@ -434,6 +445,10 @@
 :GramScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in grams.";
     edu:specializes :MetricWeightScale.
+:GraphicalSolutionRepresentation a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Solution sets represented by points, curves, or regions on a number line or in a coordinate system.";
+    rdfs:comment "An open endpoint at 2 and a ray to the right for x > 2; the shaded half-plane x + y <= 1 with its boundary included.";
+    edu:partOf :RepresentationalScope.
 :Greater a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The comparison of two entities where one has a larger quantity, size, or value than the other.";
     edu:specializes :OrderAbstraction.
@@ -714,6 +729,10 @@
     rdfs:isDefinedBy "Integer values divisible by 5 without a remainder.";
     rdfs:comment "5, -15, and 25, when divisibility by 5 is relevant to the task.";
     edu:specializes :NumericDivisibility.
+:MultiplyingByVariableExpression a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Constraint transformations that multiply both sides of an equation or inequality by the same expression containing a variable, considered under stated domain and side conditions.";
+    rdfs:comment "The step from x = 1 to x(x - 2) = x - 2 by multiplication by x - 2.";
+    edu:specializes :ConstraintTransformationScope.
 :MultiStep a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Solutions requiring two or more successive logical or procedural steps.";
     rdfs:comment "Using one calculated result as the input to a further operation.";
@@ -1157,6 +1176,10 @@
 :ScatteredArrangement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The irregular positioning and non-uniform organization of objects.";
     edu:specializes :ObjectArrangement.
+:ScientificExponentNotation a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Numerical values represented as a * 10^n or equivalent E notation, with integer n and 1 <= abs(a) < 10 for nonzero a. Zero uses coefficient zero with a stated exponent convention.";
+    rdfs:comment "3.2 * 10^5; 1.25E6; 0 * 10^0 with the exponent fixed at zero.";
+    edu:specializes :Numerals.
 :SecondIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of seconds.";
     edu:specializes :TimeIntervals.
@@ -1284,6 +1307,10 @@
     edu:integrates :YardScale;
     edu:specializes :ImperialAreaScale;
     edu:translates :SquareFootScale.
+:SquaringBothSides a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Constraint transformations that replace both side expressions of an equation or inequality with their squares, considered under stated domain and side conditions.";
+    rdfs:comment "The step from x = 2 to x^2 = 4 over the reals; the same step with the restriction x >= 0.";
+    edu:specializes :ConstraintTransformationScope.
 :Stackable a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The physical property of objects that allows for stable vertical arrangement or sequential layering.";
     edu:specializes :ShapeProperties.
