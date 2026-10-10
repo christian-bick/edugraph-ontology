@@ -6,8 +6,10 @@ This record distinguishes the [implemented decisions](#ccss-and-school-analysis-
 from the [recommended next extensions](#recommended-next-ontology-extensions).
 NumberTheory foundations are merged into `origin/main` at `1b9ecc3`, verified on 2026-10-11;
 see its [implementation record](number-theory-basics-draft.md#implementation-and-adoption--2026-10-10).
-The [remaining core coverage audit](core-ccss-coverage-audit.md) now records supported
-compositions and the three targeted follow-ups. The explicitly deferred extensions remain future work.
+The [remaining core coverage audit](core-ccss-coverage-audit.md) records supported compositions
+and the accepted follow-ups. UnitDimensionality and PythagoreanTheorem are implemented on
+`codex/unit-dimensionality-pythagorean` for preview review; formal function coverage uses the
+existing concepts. The explicitly deferred extensions remain future work.
 
 Implementation branch: `codex/algebra-refinements` (merged). Updated 2026-10-11 after the
 NumberTheory merge and remaining-core audit.
@@ -1132,7 +1134,7 @@ own adoption review; the ontology merge does not update them.
 ## Recommended next ontology extensions
 
 These priorities concern the algebra, number-system, and function work discussed in this record.
-Step 1 is merged and step 2 has a completed source audit with targeted follow-ups;
+Step 1 is merged and step 2 has a completed source audit with its two additions in preview;
 subsequent steps remain the review priorities.
 They are not a completeness claim for all CCSS geometry, statistics, or other fields. Proposed
 family names below are planning candidates, not additional authored descriptors. The sequence
@@ -1177,7 +1179,8 @@ the separate decimal/fraction Scope boundary review remain outstanding.
 
 ### 2. Close the remaining core algebra/function coverage questions
 
-Status: source audit completed on 2026-10-11 against `1b9ecc3`. The
+Status: source audit completed on 2026-10-11 against `1b9ecc3`; two targeted additions are
+implemented on `codex/unit-dimensionality-pythagorean`, pending preview review. The
 [audit document](core-ccss-coverage-audit.md) inventories **114 core terminal standards** across
 the selected middle-school prerequisites, Number and Quantity, Algebra, Functions, and three
 right-triangle crosslinks. It records existing eligible concepts, representative tasks, and
@@ -1189,25 +1192,30 @@ existing approximation, solving, transformation-logic, and graphical-solution co
 the other focused questions. The remainder/factor theorems, finite geometric sum, unit-circle
 functions, and periodic-model properties are already authored.
 
-The review recommends three narrowly scoped follow-ups before the advanced stages:
+The review's three targeted follow-ups are resolved for the requested preview scope:
 
-- Formal function coverage through existing FunctionSymbol and FunctionArgument, with
-  FunctionNotation moved directly into FormalMathematics. Retain FunctionTypes; separately resolve
-  the general-set correspondence boundary in F-IF.A.1 without broadening NumericFunction.
-- UnitDimensionality for unit composition and dimensional consistency, beyond the already
-  supported conversions in 6.RP.A.3.d and N-Q.A.1.
-- An explicit PythagoreanTheorem concept in Geometry. RightTriangle and measurement concepts
+- NumericFunction, FunctionSymbol, and FunctionArgument provide the accepted composition for
+  numerical correspondence and formal expression roles in F-IF.A.1. The graph facet uses
+  existing concepts as evidenced. FunctionTypes and all function descriptors remain unchanged.
+- UnitDimensionality is authored under MeasuringWithUnits for unit composition and dimensional
+  consistency, beyond the already supported conversions in 6.RP.A.3.d and N-Q.A.1. The
+  organizer's definition and example are clarified to include this knowledge.
+- PythagoreanTheorem is authored under GeometricRelations, expanding RightTriangle with the
+  squared-side characterization and its converse. RightTriangle and measurement concepts
   already provide broad application coverage; the theorem adds a useful reusable distinction,
   especially for proofs. Integer triples and the trigonometric identity are not replacements.
 
-The [concrete follow-up proposal](core-ccss-coverage-audit.md#targeted-follow-up-proposal)
-withdraws the FunctionTypes replacement and explores the formal-function avenue, with
-FunctionDefinition retained only as an optional semantic extension. UnitDimensionality under
-MeasuringWithUnits and PythagoreanTheorem directly under GeometricRelations are agreed;
-Measurement's promotion to a root field is a separate structural recommendation. The proposal
-records exact definitions, contrasting examples, alternatives, and migration consequences.
+The [follow-up record](core-ccss-coverage-audit.md#targeted-follow-up-proposal) includes exact
+authored definitions, contrasting examples, and
+[implementation and adoption details](core-ccss-coverage-audit.md#implementation-adoption-and-preview--2026-10-11).
+Measurement and FunctionNotation retain their existing placement. Their suggested relocations
+and a possible FunctionDefinition extension for arbitrary-set correspondence are separately
+deferred, not requirements of the accepted numerical scope or changes in this preview.
 
-These are recommendations, not authored changes. Further evidence work concerns mixed-system
+The audit's 114 mappings preserve the historical baseline; the preview separately records
+967 descriptors and 5,171 assertions with no existing ancestry or eligibility changes.
+Focused source checks and the full Docker gate pass, including both generated clients and
+all 49 Python tests. Further evidence work concerns mixed-system
 property attribution, complete versus sampled solutions, justified error bounds, and the
 separately recorded decimal/fraction Scope boundaries. No additional calculus family or
 object-by-method multiplication is required to close these core questions.

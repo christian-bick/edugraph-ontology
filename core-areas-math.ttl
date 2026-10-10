@@ -1019,7 +1019,8 @@
     rdfs:isDefinedBy "Determining or comparing the mass or heaviness of manifested objects directly, through an intermediary, or by using tools and units.";
     edu:specializes :MeasuringObjects.
 :MeasuringWithUnits a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of standard units used to quantify physical properties, including their relative sizes, systems, and conversions.";
+    rdfs:isDefinedBy "Standard units for expressing quantities, their systems, relative sizes and conversions, and their composition and compatibility in quantity relations.";
+    rdfs:comment "Expressing one meter as one hundred centimeters; relating meters per second to distance and duration.";
     edu:partOf :Measurement.
 :MidpointCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of finding the exact center point of a line segment on the coordinate plane by averaging the coordinates of its endpoints.";
@@ -1388,6 +1389,11 @@
     rdfs:isDefinedBy "A polyhedron formed by connecting a polygonal base and a point, called the apex.";
     edu:expands :Rectangle, :Triangle;
     edu:specializes :Polyhedron.
+:PythagoreanTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equivalence, for a Euclidean triangle with positive real side lengths a, b, and longest side c, between the angle opposite c being a right angle and a^2 + b^2 = c^2.";
+    rdfs:comment "A right triangle with legs 1 and sqrt(2) has hypotenuse sqrt(3); a triangle with side lengths 5, 12, and 13 is right-angled because 5^2 + 12^2 = 13^2.";
+    edu:expands :RightTriangle;
+    edu:partOf :GeometricRelations.
 :PythagoreanTrigonometricIdentity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identity sin(theta)^2 + cos(theta)^2 = 1 for every real angle theta, relating sine and cosine through the unit circle.";
     rdfs:comment "sin(pi/6)^2 + cos(pi/6)^2 = (1/2)^2 + (sqrt(3)/2)^2 = 1.";
@@ -1799,6 +1805,10 @@
     rdfs:isDefinedBy "Expressing the same measured quantity in a different unit by applying the relationship between the units.";
     rdfs:comment "Converting meters to centimeters or hours to minutes. Conversion factors may be exact; approximation is not an intrinsic requirement.";
     edu:expands :ProportionInteraction, :UnitFactorScaling, :UnitMagnitudeScaling;
+    edu:partOf :MeasuringWithUnits.
+:UnitDimensionality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The composition of quantity dimensions and units through products, quotients, and powers, and dimensional compatibility in sums and equalities.";
+    rdfs:comment "Explaining why (m/s)*s has length dimension, why a speed cannot be added to a duration, and why the ratio of two lengths has dimension one.";
     edu:partOf :MeasuringWithUnits.
 :UnitFactorScaling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of converting measurements within a system using specific, non-base-10 numerical conversion factors.";

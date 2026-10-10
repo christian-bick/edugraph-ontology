@@ -3,8 +3,10 @@
 Reviewed 2026-10-11 against ontology `main` at `1b9ecc3`, after the NumberTheory merge.
 This completes the evidence review in [roadmap step 2](algebra-family-draft.md#2-close-the-remaining-core-algebrafunction-coverage-questions).
 It assesses what the ontology can describe, not whether target specifications, generators,
-released packages, or datasets already supply that content. No ontology assertions are changed
-by this audit.
+released packages, or datasets already supply that content. The 114-row inventory preserves
+that source baseline. The [implementation record](#implementation-adoption-and-preview--2026-10-11)
+separately records the two follow-up concepts now authored on `codex/unit-dimensionality-pythagorean`
+for preview review.
 
 ## Findings and recommended next work
 
@@ -13,19 +15,20 @@ particular, polynomial closure, rational-exponent justification, rational/radica
 graphical solution sets, the remainder/factor theorems, finite geometric sums, and periodic
 models no longer justify additional object-by-method families.
 
-Two coverage boundaries and one precision refinement remain:
+The review identified three follow-ups, now resolved for the requested preview scope:
 
 | Finding | Evidence and boundary | Recommended next step |
 | --- | --- | --- |
-| General function correspondence | NumericFunction explicitly requires numerical inputs and outputs. The general-set definition in F-IF.A.1 is broader; a many-to-one map from people to named categories is neither numerical nor one-to-one. | Retain FunctionTypes. Review formal placement through the existing FunctionSymbol, FunctionArgument, and FunctionNotation; keep general correspondence distinct from notation and pointwise FunctionArithmetic. Numeric classroom cases already work. |
-| Dimensional analysis | N-Q.A.1 includes coherent use of units in formulas. UnitConversion preserves one quantity while changing units; it does not state how dimensions combine in products/quotients or why incompatible quantities cannot be added. | Model the reusable knowledge of dimensional composition and consistency. This also supports later science and compound-rate work. Keep simple conversions on the existing concepts. |
-| Pythagorean theorem specificity | G-SRT.C.8 applications have broad coverage through RightTriangle and length concepts, but PythagoreanTriples and PythagoreanTrigonometricIdentity do not identify the general geometric theorem and its converse. | Add the theorem in Geometry for this reusable knowledge distinction, especially proof and justification. This refines broadly supported tasks; it is not evidence that every right-triangle task is unrepresentable. |
+| Formal function knowledge | NumericFunction describes numerical input-output correspondence; FunctionSymbol and FunctionArgument identify the function and input roles in an expression. | Accepted composition for the reviewed part of F-IF.A.1. Retain FunctionTypes and the existing formal concepts without source changes. |
+| Dimensional analysis | N-Q.A.1 includes coherent use of units in formulas. UnitConversion preserves one quantity while changing units; it does not state how dimensions combine in products/quotients or why incompatible quantities cannot be added. | UnitDimensionality is authored under MeasuringWithUnits for preview. Keep simple conversions on the existing concepts. |
+| Pythagorean theorem specificity | G-SRT.C.8 applications have broad coverage through RightTriangle and length concepts, but PythagoreanTriples and PythagoreanTrigonometricIdentity do not identify the general geometric theorem and its converse. | PythagoreanTheorem is authored under GeometricRelations for preview. This refines broadly supported tasks, especially proof and justification. |
 
-The first is a breadth decision exposed by the standard's exact wording, the second a
-specific knowledge gap, and the third a useful theorem-specific refinement of broad coverage.
+The first is covered compositionally in the accepted numerical scope, the second supplies
+specific reusable knowledge, and the third refines broad coverage with a theorem-specific concept.
 The [targeted follow-up proposal](#targeted-follow-up-proposal) supplies concrete definitions,
-placements, alternatives, and adoption consequences for all three. These are recommendations,
-not authored descriptors. No new calculus family is needed for these core requirements.
+placements, alternatives, and adoption consequences for all three. Its status distinguishes
+the implemented preview from deferred suggestions. No new calculus family is needed for
+these core requirements.
 
 ## Scope, evidence, and counting
 
@@ -96,25 +99,23 @@ residual have degree two. Keep the object of each dependence claim explicit in t
 competency description. A flat collection of labels does not independently bind each property
 to one displayed relation.
 
-## Decisions still needed
+## Reviewed coverage decisions
 
 ### General functions
 
-F-IF.A.1 describes assignments between sets, and the official functions introduction includes
-a mapping from a state to its capital city. NumericFunction remains appropriate for numerical
-school examples; its definition should not be silently stretched to all sets.
-FunctionDomain, FunctionNotation, and SetTheory do not by themselves state the exactly-one-output
-condition, while OneToOneFunction imposes a stronger condition than an arbitrary function.
+The accepted composition is NumericFunction, FunctionSymbol, and FunctionArgument for the
+numerical correspondence and formal expression roles reviewed in F-IF.A.1. This needs no new
+function descriptor or relocation. FunctionNotation remains available when its conventions
+are themselves the subject of knowledge. NumericFunction keeps its numerical boundary;
+the acceptance does not redefine it as arbitrary-set correspondence.
 See [F-IF](https://www.thecorestandards.org/Math/Content/HSF/IF/) and the
 [functions introduction](https://www.thecorestandards.org/Math/Content/HSF/).
 
 The initial proposal to replace FunctionTypes with a general specialization parent was
-rejected in the subsequent review. Retain the existing type family and explore formal
-function knowledge instead. FunctionSymbol and FunctionArgument already cover expression
-roles. Move FunctionNotation directly into FormalMathematics and clarify
-its examples. This resolves placement, while the general correspondence condition remains
-a separate semantic question; the [revised proposal](#1-retain-functiontypes-and-clarify-formal-function-knowledge)
-distinguishes these requirements and records a possible FunctionDefinition concept.
+rejected. Retain the existing type family. The earlier suggestions to relocate FunctionNotation
+or add FunctionDefinition are not part of this implementation and are not blockers for the
+accepted coverage. The [follow-up record](#1-retain-functiontypes-and-clarify-formal-function-knowledge)
+distinguishes the existing concepts and the separate graph facet of the standard.
 
 ### Dimensional analysis
 
@@ -124,7 +125,7 @@ be added. No numerical evaluation or change of unit is required. UnitConversion 
 UnitScaleRelation cover different knowledge, and ordinary numerical operations do not supply
 the dimensional rule. DimensionalAbstraction is a Scope for spatial dimensions, not this concept.
 
-Agreed candidate: UnitDimensionality, covering composition of dimensions in products,
+Implemented for preview: UnitDimensionality, covering composition of dimensions in products,
 quotients, and powers, and compatibility of dimensions in sums and equalities, placed under
 MeasuringWithUnits. Keep concrete unit contexts as Scopes. Consistent dimensions
 are necessary but do not establish that a proposed physical formula is correct.
@@ -138,9 +139,9 @@ A displayed number of decimal places alone does not establish measurement accura
 theorem. Its proof/converse and applications also occur in
 [8.G.B.6-8](https://www.thecorestandards.org/Math/Content/8/G/), outside the main inventory below.
 G-SRT.B.4 also explicitly requires its proof using triangle similarity. Existing RightTriangle
-and Triangle knowledge provides broad coverage of applications; the proposed theorem identifies
+and Triangle knowledge provides broad coverage of applications; the added theorem identifies
 the reusable result itself more precisely.
-Recommended candidate: PythagoreanTheorem, expressing the relation a^2+b^2=c^2 for right
+Implemented for preview: PythagoreanTheorem, expressing the relation a^2+b^2=c^2 for right
 triangles and the converse for a triangle with positive side lengths and longest side c.
 The reviewed placement, directly under GeometricRelations, is agreed. It needs no new
 theorem/triangle-relations organizer or constituent under RightTriangle's specialization chain.
@@ -153,18 +154,18 @@ related to the geometric theorem without being an alias or replacement.
 
 ## Targeted follow-up proposal
 
-Drafted and revised 2026-10-11 against the same `1b9ecc3` source baseline. The review retains
-FunctionTypes, agrees UnitDimensionality under MeasuringWithUnits and PythagoreanTheorem under
-GeometricRelations, and explores the formal function route. The revised minimal proposal
-adds two eligible concepts and relocates FunctionNotation; it retires no descriptor.
-The Turtle below is proposed source text, not a statement of the current ontology. The
-inventory later in this document continues to report the unmodified baseline.
+Drafted, revised, and implemented for preview on 2026-10-11 from the `1b9ecc3` source baseline.
+The accepted implementation retains the complete function family and adds UnitDimensionality
+under MeasuringWithUnits and PythagoreanTheorem under GeometricRelations. The Turtle below
+records those authored additions and the clarification of MeasuringWithUnits. FunctionNotation
+and Measurement retain their existing placement. The inventory later in this document
+continues to report the historical baseline, rather than silently substituting the new terms.
 
 ### 1. Retain FunctionTypes and clarify formal function knowledge
 
 The earlier replacement of FunctionTypes is withdrawn. Retain its four constituent types
-and all their relationships. The expression-role avenue already has most of the requested
-coverage:
+and all their relationships. NumericFunction, FunctionSymbol, and FunctionArgument are accepted
+as the composition covering the reviewed numerical correspondence and expression roles:
 
 | Existing concept | Current meaning and placement | Example |
 | --- | --- | --- |
@@ -179,24 +180,10 @@ There is no missing function-name primitive: that is FunctionSymbol. A further `
 role would duplicate it, while reviving FunctionApplicationExpression would reverse the
 earlier choice to compose an expression kind with its structural roles.
 
-Recommend moving **FunctionNotation from AlgebraicFunctions directly to FormalMathematics**,
-alongside NumberNotation. The declaration conventions extend beyond expression-building roles;
-FunctionSymbol and FunctionArgument retain their existing places inside ExpressionStructure.
-Clarify the declaration notation while retaining its identity and existing meaning:
-
-```turtle
-:FunctionNotation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The symbolic conventions for naming functions, declaring their input and output sets, and denoting their values at arguments, distinguishing a function from its values.";
-    rdfs:comment "Interpreting f: A -> B as declaring a domain and target set; distinguishing f from f(3); reading x |-> x^2 and f(x) = x^2 as ways of specifying a rule; interpreting m(Ada) = March as a named input and its assigned output.";
-    edu:partOf :FormalMathematics.
-```
-
-This is a single-parent relocation. FunctionNotation remains eligible; FunctionSymbol and
-FunctionArgument retain their specialization parents. No function-type, domain, range,
-arithmetic, composition, or inversion relationship needs to change. [ONT-D1/D5; ONT-S1/S5.]
-The symbolic function declaration belongs to notation knowledge even though its syntax is
-broader than the value-denoting expression alone. This is why the direct FormalMathematics
-placement is preferred over ExpressionStructure. Do not specialize it as MathematicalExpression.
+No function source changes are required for the accepted composition. FunctionNotation keeps
+its current definition and placement in AlgebraicFunctions; FunctionSymbol and FunctionArgument
+keep their specialization parents. The earlier relocation suggestion remains a separate,
+deferred organizational question, rather than a requirement of this preview.
 
 #### What F-IF.A.1 requires
 
@@ -204,42 +191,24 @@ placement is preferred over ExpressionStructure. Do not specialize it as Mathema
 claims: each input has exactly one output, f(x) denotes that output, and the function graph
 is the locus of y = f(x). The current FunctionArithmetic definition instead addresses
 pointwise combinations, the subject of [F-BF.A.1.b](https://www.thecorestandards.org/Math/Content/HSF/BF/).
-If the intended reference was NumericFunction, that does cover the first claim for numerical
-inputs and outputs. Neither function arithmetic nor the presence of function notation alone
-establishes the general correspondence condition.
+NumericFunction covers the first claim for numerical inputs and outputs. The accepted
+composition adds the formal roles where they are interpreted or explained; incidental symbol
+occurrence does not establish those knowledge claims. The graph facet uses the existing
+function, equation, solution-set, coordinate, and representation concepts as evidenced.
 
 | Observable question | Knowledge distinguished |
 | --- | --- |
 | Identify the function name and complete input in f(x + 1) | Existing FunctionSymbol and FunctionArgument. |
-| Explain why f denotes a function but f(3) denotes one of its values | Existing FunctionNotation, with formal placement clarified. |
+| Explain why f denotes a function but f(3) denotes one of its values | Existing FunctionNotation. |
 | Decide whether a numerical input-output table defines a function | NumericFunction; notation need not be the subject. |
 | Determine (f + g)(x) from two numerical functions | FunctionArithmetic, with the evidenced arithmetic and domains. |
-| Explain why every pupil may have one birth-month name even when several pupils share a month | General nonnumeric correspondence; not NumericFunction or OneToOneFunction. |
 | Relate graph points to the equation y = f(x) | Compose existing function, equation, solution-set, coordinate, and representation knowledge as evidenced; not FunctionArithmetic by default. |
 
-The relocation and clarification resolve the formal placement and representation issues.
-They do **not** by themselves close the general-set boundary. That remains explicit in this
-audit instead of broadening a notation descriptor to arbitrary correspondence reasoning.
-
-#### Optional formal-semantic extension
-
-If the remaining correspondence distinction needs an explicit formal home, consider
-`FunctionDefinition` as a constituent of `FormalMathematics`:
-
-> The form and meaning of a function specification that identifies admissible inputs and
-> assigns exactly one output to each, whether by a rule or an explicit correspondence.
-
-Examples would compare a specification mapping each pupil to one birth-month name with
-one assigning a pupil two different months or omitting an admitted pupil. Multiple pupils
-may share an output. This identifies the meaning and validity of the whole specification,
-whereas FunctionSymbol identifies a constituent role and FunctionNotation its written
-conventions. It would not be a specialization of MathematicalExpression or a replacement
-for FunctionTypes. It remains an exploratory option, excluded from the minimal proposal
-and its simulated graph; a bare function-occurrence label is not the intended concept.
-
-Keep FunctionRange's attained-output meaning: the target set declared in f: A -> B may
-contain values that are never attained. Existing inversion exchanges domain and attained
-range. No new codomain descriptor or inverse revision is needed for the notation relocation.
+The earlier arbitrary-set example, assigning each pupil a birth-month name, remains outside
+NumericFunction's definition. A future curriculum focused on such correspondence may motivate
+the previously discussed FunctionDefinition concept, but that extension is deferred and is
+not a remaining action for this accepted numerical scope. FunctionRange continues to mean
+attained outputs, and inversion continues to exchange domain and attained range.
 
 ### 2. Add UnitDimensionality under MeasuringWithUnits
 
@@ -254,30 +223,20 @@ and consistent formula use in [N-Q.A.1](https://www.thecorestandards.org/Math/Co
     edu:partOf :MeasuringWithUnits.
 ```
 
-The name UnitDimensionality and its placement under MeasuringWithUnits are agreed. A separate
-structural recommendation concerns the existing measurement placement. Measurement already
-contains time and general units, while SpatialSense is explicitly about two- and
-three-dimensional space. Make **Measurement a root organizer**, removing its
-`partOf SpatialSense` edge, and retain all its current children. Broaden the two organizer
-definitions as follows:
+The name UnitDimensionality and its placement under MeasuringWithUnits are implemented.
+The organizer's definition and example now explicitly include unit composition and compatibility:
 
 ```turtle
-:Measurement a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The comparison, quantification, and mathematical treatment of measurable quantities, including their units and relationships.";
-    rdfs:comment "Comparing two lengths directly, measuring a duration, converting a weight, or checking the dimensions of a speed formula.".
-
 :MeasuringWithUnits a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Standard units for expressing quantities, their systems, relative sizes and conversions, and their composition and compatibility in quantity relations.";
     rdfs:comment "Expressing one meter as one hundred centimeters; relating meters per second to distance and duration.";
     edu:partOf :Measurement.
 ```
 
-This reuses an existing field instead of creating a parallel quantity family. The issue is
-the spatial boundary, not a prohibition on formal knowledge beneath IntuitiveMathematics:
-that field already allows increasingly formal representations. Moving Measurement directly
-under IntuitiveMathematics would remove the spatial mismatch but keep a foundational,
-experience-led framing for dimensional reasoning extending into science. A root Measurement
-field provides the clearer long-term home.
+Measurement keeps its definition and placement under SpatialSense. Promoting it to a root
+field remains a separate deferred suggestion: it already contains time and general units,
+while SpatialSense is explicitly about two- and three-dimensional space. This preview adds
+the requested knowledge within the existing unit family without changing old structural paths.
 
 Keep UnitConversion and its neighbors independent. Converting 3 m to cm does not establish
 knowledge of dimensional composition. Conversely, rejecting d = v + t because the dimensions
@@ -302,10 +261,8 @@ UnitAlgebra, and DimensionalConsistency concepts would overdivide the present ne
 Keep concrete units as Scopes; do not reuse the spatial DimensionalAbstraction Scope.
 No new progression edge is needed.
 
-If the hierarchy correction is deferred, adding the leaf under the current MeasuringWithUnits
-is structurally valid but leaves the spatial-placement mismatch. Broadening SpatialSense to
-arbitrary quantities or moving dimensional reasoning into symbolic FormalMathematics would
-blur those families' subjects. The root Measurement proposal is preferred.
+The retained hierarchy is structurally valid; the broader organizational question above
+does not change the new descriptor's dimensional meaning or its evidence boundary.
 
 ### 3. Add PythagoreanTheorem directly under GeometricRelations
 
@@ -347,39 +304,52 @@ automatic theorem relation to pure integer-triple knowledge or every distance ca
 | Check 3^2 + 4^2 = 5^2 | Verifies an instance; does not prove the general theorem. |
 | Identify a right triangle from an angle marking | RightTriangle alone; the theorem is not evidenced. |
 
-### Migration and implementation boundary
+### Implementation, adoption, and preview — 2026-10-11
 
-The revised minimal inventory change is **two eligible concepts added, none retired**.
-Existing eligible descriptors retain their eligibility. FunctionNotation's declaration
-conventions become explicit; its identifier and original name/argument/value meaning remain.
+Implemented on `codex/unit-dimensionality-pythagorean`, pending preview review. The authored
+source now has **967 descriptors and 5,171 assertions**, compared with the historical audit
+baseline of 965 descriptors and 5,159 assertions. The change adds two eligible Areas and
+retires none. The only existing descriptor changed is MeasuringWithUnits, whose definition
+and example explicitly accommodate its new constituent.
 
-- FunctionTypes and all function-type relationships remain unchanged. FunctionNotation moves
-  from the algebra family directly into FormalMathematics; structural
-  navigation changes, but its direct labels remain valid. FunctionDefinition is a separate
-  option to resolve before claiming complete general-set function coverage.
-- Measurement's move removes SpatialSense and IntuitiveMathematics from its structural
-  ancestry and that of its descendants. This changes navigation and any structural indexing;
-  it does not remove specialization meaning. Measurement, MeasuringWithUnits, SpatialSense,
-  and IntuitiveMathematics all remain ineligible organizers.
-- Regenerate clients and refresh structural consumers when implemented. Tests excluding
-  MeasuringWithUnits remain appropriate because it stays an organizer.
-- Revisit the F-IF.A.1, N-Q.A.1, 6.RP.A.3.d, and G-SRT.C.8 audit rows after implementation,
-  adding the new descriptors only where their knowledge is evidenced. The extra 8.G and
-  G-SRT.B.4 probes do not change this audit's 114-leaf inventory.
+| Change | Authored effect | Adoption boundary |
+| --- | --- | --- |
+| UnitDimensionality | New constituent of MeasuringWithUnits, defining dimensional composition and compatibility. | Add only where the content uses or explains those rules; ordinary unit conversion alone is insufficient. |
+| PythagoreanTheorem | New constituent of GeometricRelations, expanding RightTriangle through the metric characterization and converse. | Use for theorem-specific application or justification, not every right-triangle task. |
+| MeasuringWithUnits | Definition and example clarified; identifier, relations, and organizer role retained. | Existing exclusions from direct labels remain appropriate. |
+| Function coverage | NumericFunction with FunctionSymbol and FunctionArgument accepted for the reviewed numerical and formal roles. | No function descriptor, notation placement, or type relationship changes. |
 
-No authored Turtle, generated package, content dependency, or dataset is changed by this
-proposal. Source assessment of a simulated graph can check structural consistency; it cannot
-establish annotation quality or learner mastery. The full build and adoption review belong
-to the implementation step.
+All existing descriptors retain their eligibility, structural ancestry, and specialization
+ancestry. Measurement remains under SpatialSense; FunctionNotation remains in AlgebraicFunctions.
+The prior graph simulations included relocations that are excluded from this implementation;
+their structural-consumer effects do not apply to the preview.
 
-The earlier simulation of a FunctionTypes replacement is superseded. The revised minimal
-proposal was simulated in memory on 2026-10-11, including the separate recommended Measurement
-move and excluding optional FunctionDefinition: all seven ontology assessment checks pass.
-It has 967 descriptors and 5,170 assertions, with no retired descriptors or changes to existing
-eligibility or specialization ancestry. FunctionNotation gains FormalMathematics as an
-ancestor; Measurement and its ten existing descendants lose SpatialSense
-and IntuitiveMathematics. These moves require structural-consumer review. The source remains
-unchanged; documentation validation and the 114-leaf inventory check pass separately.
+The historical tables below intentionally retain their **114 core leaves and 183 distinct
+mapping descriptors**. Apply the following additions during consumer adoption, rather than
+silently rewriting that baseline:
+
+- N-Q.A.1 and 6.RP.A.3.d may use UnitDimensionality when dimensional composition or consistency
+  is actually evidenced. Existing conversion-only tasks retain their existing concepts.
+- G-SRT.C.8 may use PythagoreanTheorem when the theorem supplies the right-triangle relation.
+  Proof and converse probes in 8.G.B.6-8 and G-SRT.B.4 can also use it, without changing this
+  selected inventory's count.
+- F-IF.A.1 uses the accepted existing composition for numerical correspondence and expression
+  roles; its graph facet continues to compose the existing graph and solution-set concepts.
+
+Select this branch in the ontology editor for preview. Review UnitDimensionality within
+MeasuringWithUnits and PythagoreanTheorem within GeometricRelations, including its progression
+relation to RightTriangle. Regenerated clients and downstream package adoption are separate
+from accepting the source preview; this change does not update content dependencies or datasets.
+
+Focused source and delta assessment passes all seven ontology checks and confirms the counts,
+the exact two additions, unchanged existing ancestry and eligibility, and unchanged historical
+mapping rows. The full `docker build . --output dist` gate passed on 2026-10-11, including
+RDF generation, TypeScript build/client tests, ontology and documentation validation, package
+consumer checks, Python lint and typing, all 49 Python tests, and wheel/sdist verification.
+Focused checks of the generated TypeScript exports confirm both new identifiers and their
+relations; the exported Turtle matches the authored source. The final verification-record
+edits also pass documentation validation. These checks do not establish annotation quality,
+learner mastery, or dataset coverage.
 
 ## Remaining evidence and adoption work
 
@@ -399,9 +369,10 @@ unchanged; documentation validation and the 114-leaf inventory check pass separa
 
 ## Standards-to-concepts inventory
 
-The domain tables below provide explicit terminal IDs and eligible vocabulary. Boundary
-rows are marked in their evidence column; detailed reasoning is above. All other rows have
-a supported composition, subject to actual task evidence.
+The domain tables below preserve explicit terminal IDs and eligible vocabulary from the
+`1b9ecc3` audit baseline. Boundary rows retain the findings recorded at that time; accepted
+decisions and preview additions are recorded above. All other rows have a supported
+composition, subject to actual task evidence.
 
 
 ### Inventory totals
@@ -647,13 +618,14 @@ F-TF.A.3-4, B.6-7, C.9. General-triangle G-SRT.D.9-11 is also (+).
 | G-SRT.C.7 | `ComplementaryAngleIdentities` + `Sine` / `Cosine` + `ComplementaryAngles` where their geometric relation is studied | **C:** already authored and eligible. |
 | G-SRT.C.8 | `Sine` / `Cosine` / `Tangent` + `RightTriangle` + `LengthCalculation` / `AngleCalculation` + `EquationSolving` as evidenced | **P:** broadly supported through triangle properties and measurement; add explicit theorem knowledge for precision. See the Pythagorean decision above. |
 
-## Verification boundary
+## Historical audit verification boundary
 
 The audit inventories 114 distinct core leaves with no missing, duplicate, or extra IDs in
 the selected inventory, checked against the local standards tree with (+) exclusions verified
 from the official pages. All 183 identifiers used in mapping columns exist and are eligible
 for direct labeling. Ontology assessment and documentation validation pass with no findings.
-The ontology Turtle and generated clients are unchanged; this
-documentation-only review does not require rebuilding the previously validated libraries.
+Those checks describe the documentation-only baseline audit, before the two additions.
+The [implementation record](#implementation-adoption-and-preview--2026-10-11) reports the
+preview source changes and their separate verification status.
 Semantic coverage judgments and contrasting examples remain review evidence, not automated
 proofs that the standards are implemented in learning content.
