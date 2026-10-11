@@ -7,12 +7,15 @@ from the [recommended next extensions](#recommended-next-ontology-extensions).
 NumberTheory foundations are merged into `origin/main` at `1b9ecc3`, verified on 2026-10-11;
 see its [implementation record](number-theory-basics-draft.md#implementation-and-adoption--2026-10-10).
 The [remaining core coverage audit](core-ccss-coverage-audit.md) records supported compositions
-and the accepted follow-ups. UnitDimensionality and PythagoreanTheorem are implemented on
-`codex/unit-dimensionality-pythagorean` for preview review; formal function coverage uses the
-existing concepts. The explicitly deferred extensions remain future work.
+and the accepted follow-ups. UnitDimensionality and PythagoreanTheorem are merged at `702714b`;
+formal function coverage uses the existing concepts. Further functions and trigonometry are
+merged at `f0dffbf` through [PR #72](https://github.com/christian-bick/edugraph-ontology/pull/72).
+The [LinearAlgebra design record](linear-algebra-draft.md) documents stage 5A implemented for
+review on `codex/linear-algebra`, with a separate root field alongside Algebra and Analysis.
+It is not yet merged; the explicitly deferred extensions remain future work.
 
 Implementation branch: `codex/algebra-refinements` (merged). Updated 2026-10-11 after the
-NumberTheory merge and remaining-core audit.
+NumberTheory and advanced extensions, including the stage 4 merge and stage 5A review branch.
 The authored sources are [Areas](../../core-areas-math.ttl) and [Scopes](../../core-scopes-math.ttl).
 This document builds on the manual refinement through `0f277c5` and the definition/example
 review in `35d3482`, the formal concept definitions in `6d67042`, the law and sequence consolidation
@@ -1119,8 +1122,8 @@ CompletingSquare remain Areas where they contribute additional mathematical know
 | --- | --- | --- |
 | NumberTheory foundations | Complex-number structure, rational/irrational characterization, closure and mixed-system result types. | Merged at `1b9ecc3`; see the design record and adoption map below. |
 | Advanced complex numbers | Conjugates, modulus and argument, rectangular/polar forms, complex-plane representations and operations, Fundamental Theorem of Algebra. | Stage 3A merged at `cf74a23`; FTA is a constituent of AlgebraicTheorems. University-entry stage 3B and optional Scopes remain deferred. |
-| Linear algebra | Vector operations, matrix quantities and arithmetic, zero/identity matrices, determinants, inverses, matrix systems, linear transformations. | A dedicated LinearAlgebra field; the existing VectorConcept is reusable and VectorObjects means graphics. |
-| Further function/trigonometric work | Rational-function asymptotes, continuous repair, angle addition/subtraction identities, sine-area relationship, Laws of Sines and Cosines. | Stage 4 implemented for review on `codex/functions-trigonometry`; see the [implementation record](further-functions-trigonometry-draft.md#implementation-and-adoption--2026-10-11). Subtypes and other optional refinements remain deferred. |
+| Linear algebra | Vector operations, matrix quantities and arithmetic, zero/identity matrices, determinants, inverses, matrix systems, linear transformations. | Stage 5A is implemented for review on `codex/linear-algebra`, not yet merged; see the [implementation and adoption record](linear-algebra-draft.md#implementation-and-adoption--2026-10-11). LinearAlgebra is a separate root; stages 5B–5C remain deferred. VectorConcept retains its geometric home with an explicit zero-vector boundary, and VectorObjects means graphics. |
+| Further function/trigonometric work | Rational-function asymptotes, continuous repair, angle addition/subtraction identities, sine-area relationship, Laws of Sines and Cosines. | Stage 4 merged at `f0dffbf` through [PR #72](https://github.com/christian-bick/edugraph-ontology/pull/72); see the [implementation record](further-functions-trigonometry-draft.md#implementation-and-adoption--2026-10-11). Subtypes and other optional refinements remain deferred. |
 | Calculus methods | Limit and derivative methods, derivative tests and applications, integration/accumulation, and later convergence. | Independent of completing CCSS; the authored school-analysis properties above do not substitute for method families. |
 
 The accepted representation, equivalence, theorem, function-property, and transformation-logic
@@ -1135,8 +1138,9 @@ own adoption review; the ontology merge does not update them.
 
 These priorities concern the algebra, number-system, and function work discussed in this record.
 Steps 1 and 2 are merged, with step 2's two additions at `702714b`. Step 3A is merged at
-`cf74a23`. Step 4 is implemented for review on `codex/functions-trigonometry`; stage 3B,
-step 4's optional refinements, and the other later stages remain deferred.
+`cf74a23`. Step 4 is merged at `f0dffbf`; step 5A is implemented for review on
+`codex/linear-algebra` and is not yet merged; see the [LinearAlgebra design record](linear-algebra-draft.md).
+Stage 3B, step 4's optional refinements, stages 5B–5C, and the other later stages remain deferred.
 They are not a completeness claim for all CCSS geometry, statistics, or other fields. Proposed
 family names in the unimplemented stages below are planning candidates, not additional authored descriptors. The sequence
 separates core CCSS gaps from standards marked `(+)` and later calculus; a `(+)` item may still
@@ -1251,8 +1255,10 @@ from [A-APR.D.7](https://www.thecorestandards.org/Math/Content/HSA/APR/).
 
 ### 4. Further function properties and trigonometry — CCSS (+)
 
-Status: implemented for review on `codex/functions-trigonometry`, based on `main` at `cf74a23`;
-see the [implementation and adoption record](further-functions-trigonometry-draft.md#implementation-and-adoption--2026-10-11).
+Status: merged into `main` at `f0dffbf` through
+[PR #72](https://github.com/christian-bick/edugraph-ontology/pull/72). The implementation branch
+was `codex/functions-trigonometry`, based on `main` at `cf74a23`; see the
+[implementation and adoption record](further-functions-trigonometry-draft.md#implementation-and-adoption--2026-10-11).
 The design audits all 11 advanced Functions leaves and three
 general-triangle leaves, including inverse-function refinements beyond the original roadmap list.
 Existing composition, inversion, domain, symmetry, and periodicity concepts supply nine mappings.
@@ -1274,12 +1280,32 @@ for F-TF.A.1-2, B.5, C.8, and G-SRT.C.7. Competency and dataset adoption remain 
 
 ### 5. Linear algebra — a distinct CCSS (+) field
 
-Sketch a LinearAlgebra field covering vectors, matrices, their operations, determinants,
+Status: stage 5A implemented for review on `codex/linear-algebra`, based on `main` at
+`f0dffbf`; not yet merged. The [design and implementation record](linear-algebra-draft.md)
+places LinearAlgebra at the root, as a sibling of Algebra and Analysis.
+
+The implementation adds 28 Areas: seven organizers and 21 eligible concepts, including formal
+vector and matrix notation. VectorArithmetic and MatrixArithmetic organize techniques:
+EntrywiseCombination supplies corresponding-entry sums and differences, RowColumnProduct
+supplies ordered matrix products, and MatrixConformability supplies shape conditions.
+ScalarMatrixMultiplication expands ScalarVectorMultiplication. Existing numerical operation
+definitions remain unchanged. The only existing-definition change explicitly includes the
+zero vector in VectorConcept; its geometric home and relations remain unchanged.
+
+The source has 25 new partOf edges, three specializes edges, and ten progression links.
+Its 150 new-Area assertions produce 1,009 descriptors and 5,393 assertions. Source comparison,
+graph assessment, and the full Docker/client gate passed; results are recorded in the
+[implementation and adoption record](linear-algebra-draft.md#implementation-and-adoption--2026-10-11).
+Consumer packages and dataset targets remain separate adoption work.
+
+The field covers vectors, matrices, their operations, determinants,
 inverses, matrix systems, and linear transformations. Reuse VectorConcept and existing constraint
 and function concepts where appropriate; distinguish matrix multiplication and inverse structure
 from ordinary numerical arithmetic. All [N-VM standards](https://www.thecorestandards.org/Math/Content/HSN/VM/)
 and matrix-system standards [A-REI.C.8-9](https://www.thecorestandards.org/Math/Content/HSA/REI/)
-are marked `(+)`. This work can proceed independently of the advanced trigonometry stage.
+are marked `(+)`. The stage preserves all 17 terminal mappings. Introductory-university
+stages 5B–5C remain deferred, including abstract vector spaces, row reduction, inner-product
+geometry, and spectral theory. Matrix powers and division are outside the agreed extension.
 
 ### 6. Calculus methods — after the CCSS extensions
 

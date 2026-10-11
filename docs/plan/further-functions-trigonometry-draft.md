@@ -1,11 +1,15 @@
 # Further functions and trigonometry — design and implementation record
 
-Status: implemented for review on `codex/functions-trigonometry`, 2026-10-11.
-Baseline: `main` at `cf74a23`, after the advanced
+Status: merged into `main` at `f0dffbf` through
+[PR #72](https://github.com/christian-bick/edugraph-ontology/pull/72).
+Implementation branch: `codex/functions-trigonometry` (merged); implemented and verified 2026-10-11.
+Implementation baseline: `main` at `cf74a23`, after the advanced
 complex-number extension was merged through [PR #71](https://github.com/christian-bick/edugraph-ontology/pull/71).
 The proposal and alternatives below preserve the design rationale; the
 [implementation and adoption record](#implementation-and-adoption--2026-10-11) identifies the
 accepted seven-Area scope. Subtype additions and the other optional refinements remain deferred.
+The next extension is [Linear algebra](linear-algebra-draft.md), a separate root field alongside
+Algebra and Analysis, implemented for review on `codex/linear-algebra` and not yet merged.
 This develops
 [roadmap step 4](algebra-family-draft.md#4-further-function-properties-and-trigonometry--ccss).
 
@@ -294,8 +298,10 @@ deferred.
 
 ## Implementation and adoption — 2026-10-11
 
-Roadmap step 4 is implemented for review on `codex/functions-trigonometry`, based on `main`
-at `cf74a23`. It uses the approved definitions and examples above, including the requirement
+Roadmap step 4 was implemented on `codex/functions-trigonometry`, based on `main`
+at `cf74a23`, and merged at `f0dffbf` through
+[PR #72](https://github.com/christian-bick/edugraph-ontology/pull/72).
+It uses the approved definitions and examples above, including the requirement
 that the input in FunctionRemovableDiscontinuity is approached by other domain inputs.
 
 | New Area | Structural relation | Parent | Labeling role |
@@ -341,3 +347,9 @@ Implementation verification passed on 2026-10-11:
 
 These checks validate the authored extension and generated clients; downstream dataset
 adoption and competency evidence review remain separate work.
+
+Review the merged source on Main in the ontology editor: FunctionAsymptotes and
+FunctionRemovableDiscontinuity appear within Analysis, and the angle identities and triangle
+relations appear within Geometry / GeometricRelations / TrigonometricRelations. The next
+[LinearAlgebra extension](linear-algebra-draft.md) is implemented separately for review on
+`codex/linear-algebra`; its root field and descendants were not part of this functions-and-trigonometry merge.
