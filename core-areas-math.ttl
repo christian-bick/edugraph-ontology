@@ -674,6 +674,10 @@
     rdfs:isDefinedBy "Constructing or interpreting a numerical function by applying arithmetic operations pointwise to the outputs of given functions at a common input. Its domain retains the participating functions' input restrictions and excludes inputs where the resulting operation is undefined.";
     rdfs:comment "For f(x) = x^2 and g(x) = x + 1, (fg)(x) = x^2(x + 1); for h(x) = x^2 - 1, (h/g)(x) = x - 1 with x != -1 retained.";
     edu:partOf :AlgebraicFunctions.
+:FunctionAsymptotes a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Straight lines describing a real function's limiting graph: vertical x = a where a one-sided limit is positive or negative infinity, or y = mx + b where f(x) - (mx + b) tends to zero as x tends to positive or negative infinity, with approaches through the stated domain.";
+    rdfs:comment "f(x) = 2 + 1/(x - 3) has asymptotes x = 3 and y = 2; g(x) = x + 1/x has oblique asymptote y = x.";
+    edu:specializes :FunctionLimitingBehavior.
 :FunctionBounds a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Numbers bounding a real-valued function's outputs from below or above on a stated set of inputs, distinguishing sharp bounds from attained extrema.";
     rdfs:comment "f(x) = x on (0, 1) has sharp lower bound 0 and sharp upper bound 1, neither attained; f(x) = x^2 on the real numbers has attained lower bound 0 and no upper bound.";
@@ -754,6 +758,10 @@
     rdfs:isDefinedBy "Continuity and differentiability of functions at points or across stated intervals.";
     rdfs:comment "The continuity of f(x) = |x| on the real numbers and its failure to be differentiable at x = 0.";
     edu:partOf :FunctionProperties.
+:FunctionRemovableDiscontinuity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A missing or mismatched value at a finite input approached by other inputs in a real function's domain, where a finite limit exists and assigning that limit makes the function continuous there.";
+    rdfs:comment "(x^2 - 4)/(x - 2), with x != 2, becomes continuous at 2 by assigning value 4; f(x) = x for x != 0 with f(0) = 1 becomes continuous at 0 by changing f(0) to 0.";
+    edu:partOf :FunctionRegularity.
 :FunctionRepetitionProperties a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Repeated input-output patterns and the quantitative features of bounded periodic oscillations.";
     rdfs:comment "The period 2pi/3, amplitude 2, and midline 1 of f(x) = 2 sin(3x) + 1.";
@@ -957,6 +965,15 @@
     rdfs:isDefinedBy "A quadrilateral with two distinct pairs of equal-length sides that are adjacent to each other.";
     edu:expands :SymmetryRelation;
     edu:specializes :Quadrilateral.
+:LawOfCosines a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship c^2 = a^2 + b^2 - 2ab cos(C) between two side lengths a and b, their included angle C, and the opposite side c in a nondegenerate Euclidean triangle.";
+    rdfs:comment "Sides 3 and 4 enclosing 60 degrees give opposite side sqrt(13); enclosing 90 degrees gives opposite side 5.";
+    edu:expands :PythagoreanTheorem;
+    edu:partOf :TriangleTrigonometricRelations.
+:LawOfSines a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equality a/sin(A) = b/sin(B) = c/sin(C) for positive side lengths a, b, c and their opposite interior angles A, B, C in a nondegenerate Euclidean triangle.";
+    rdfs:comment "A = 30 degrees, a = 3, and B = 60 degrees give b = 3sqrt(3).";
+    edu:partOf :TriangleTrigonometricRelations.
 :LeastCommonMultiple a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The least positive integer divisible by every member of a finite nonempty collection of nonzero integers, extended to zero when any member is zero.";
     rdfs:comment "lcm(8, 12) = 24; lcm(-6, 8) = 24; lcm(0, 8) = 0.";
@@ -1798,6 +1815,18 @@
 :Triangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of three-sided polygons, their properties, and related measurements.";
     edu:specializes :Polygon.
+:TriangleSineAreaFormula a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship K = ab sin(C)/2 between the area K of a nondegenerate Euclidean triangle, two side lengths a and b, and their included angle C.";
+    rdfs:comment "Sides 4 and 6 enclosing 30 degrees give area 6; enclosing 150 degrees also gives area 6.";
+    edu:partOf :TriangleTrigonometricRelations.
+:TriangleTrigonometricRelations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The trigonometric relationships linking side lengths, opposite or included angles, and area of nondegenerate Euclidean triangles.";
+    rdfs:comment "A triangle with sides 3 and 4 enclosing 60 degrees has opposite side sqrt(13) and area 3sqrt(3).";
+    edu:partOf :TrigonometricRelations.
+:TrigonometricAngleAdditionIdentities a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identities expressing sine, cosine, and tangent at a sum or difference of two real angles through values at the individual angles, using one angular unit and retaining every definedness restriction.";
+    rdfs:comment "sin(75 degrees) = sin(45 degrees)cos(30 degrees) + cos(45 degrees)sin(30 degrees) = (sqrt(6) + sqrt(2))/4.";
+    edu:specializes :TrigonometricIdentities.
 :TrigonometricFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The real input-output relationships defined by circular sine, cosine, tangent, or their reciprocal functions for angle measures, using a specified angular unit and a stated domain excluding undefined values.";
     rdfs:comment "f(t) = sin(t) for real angle measures t in radians; g(t) = tan(t) for radian measures t in (-pi/2, pi/2).";

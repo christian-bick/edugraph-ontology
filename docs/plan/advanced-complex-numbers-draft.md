@@ -1,6 +1,7 @@
 # Advanced complex numbers — design and implementation record
 
-Status: stage 3A implemented for review on `codex/advanced-complex-numbers`, 2026-10-11.
+Status: stage 3A merged into `main` at `cf74a23` through
+[PR #71](https://github.com/christian-bick/edugraph-ontology/pull/71), 2026-10-11.
 Baseline: ontology `main` at `702714b`, after UnitDimensionality and PythagoreanTheorem were
 merged. The proposal and alternatives below preserve the design rationale; the
 [implementation and adoption record](#implementation-and-adoption--2026-10-11) identifies the
@@ -275,8 +276,9 @@ and its build/release validation are recorded separately below.
 
 ## Implementation and adoption — 2026-10-11
 
-Stage 3A is implemented for review on `codex/advanced-complex-numbers`, based on `main` at
-`702714b`. It adds seven Areas with the definitions and examples recorded above:
+Stage 3A was implemented on `codex/advanced-complex-numbers`, based on `main` at
+`702714b`, and merged at `cf74a23` through PR #71. It adds seven Areas with the definitions
+and examples recorded above:
 
 | New Area | Structural relation | Parent |
 | --- | --- | --- |
