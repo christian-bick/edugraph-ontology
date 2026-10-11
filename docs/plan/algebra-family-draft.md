@@ -10,12 +10,14 @@ The [remaining core coverage audit](core-ccss-coverage-audit.md) records support
 and the accepted follow-ups. UnitDimensionality and PythagoreanTheorem are merged at `702714b`;
 formal function coverage uses the existing concepts. Further functions and trigonometry are
 merged at `f0dffbf` through [PR #72](https://github.com/christian-bick/edugraph-ontology/pull/72).
-The [LinearAlgebra design record](linear-algebra-draft.md) documents stage 5A implemented for
-review on `codex/linear-algebra`, with a separate root field alongside Algebra and Analysis.
-It is not yet merged; the explicitly deferred extensions remain future work.
+The [LinearAlgebra design record](linear-algebra-draft.md) documents stage 5A merged at
+`69f60f9` through [PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73), with a
+separate root field alongside Algebra and Analysis. The [Calculus family draft](calculus-family-draft.md)
+develops roadmap step 6 using the existing Calculus root; it is a proposal, and the explicitly
+deferred extensions remain future work.
 
 Implementation branch: `codex/algebra-refinements` (merged). Updated 2026-10-11 after the
-NumberTheory and advanced extensions, including the stage 4 merge and stage 5A review branch.
+NumberTheory and advanced extensions, including the stage 4 and stage 5A merges and the Calculus proposal.
 The authored sources are [Areas](../../core-areas-math.ttl) and [Scopes](../../core-scopes-math.ttl).
 This document builds on the manual refinement through `0f277c5` and the definition/example
 review in `35d3482`, the formal concept definitions in `6d67042`, the law and sequence consolidation
@@ -717,7 +719,8 @@ The pre-refinement baseline was
 published preview `0.30.0-pre.10.10a40360f726`, source commit `10a40360f72686aabbf5865ee5157649ad75b06c`.
 The accepted representation, theorem, equivalence, function-property, variable-role,
 function-arithmetic, and transformation-logic descriptors below are now source assertions.
-NumberTheory is now merged at `1b9ecc3`; the other deferred stages remain plans.
+NumberTheory is now merged at `1b9ecc3`; the later merge statuses and outstanding proposals
+are recorded in the [extension roadmap](#recommended-next-ontology-extensions).
 Earlier provisional coverage questions
 must be checked against the relevant source rather than treated as an inventory of missing concepts.
 
@@ -1122,13 +1125,14 @@ CompletingSquare remain Areas where they contribute additional mathematical know
 | --- | --- | --- |
 | NumberTheory foundations | Complex-number structure, rational/irrational characterization, closure and mixed-system result types. | Merged at `1b9ecc3`; see the design record and adoption map below. |
 | Advanced complex numbers | Conjugates, modulus and argument, rectangular/polar forms, complex-plane representations and operations, Fundamental Theorem of Algebra. | Stage 3A merged at `cf74a23`; FTA is a constituent of AlgebraicTheorems. University-entry stage 3B and optional Scopes remain deferred. |
-| Linear algebra | Vector operations, matrix quantities and arithmetic, zero/identity matrices, determinants, inverses, matrix systems, linear transformations. | Stage 5A is implemented for review on `codex/linear-algebra`, not yet merged; see the [implementation and adoption record](linear-algebra-draft.md#implementation-and-adoption--2026-10-11). LinearAlgebra is a separate root; stages 5B–5C remain deferred. VectorConcept retains its geometric home with an explicit zero-vector boundary, and VectorObjects means graphics. |
+| Linear algebra | Vector operations, matrix quantities and arithmetic, zero/identity matrices, determinants, inverses, matrix systems, linear transformations. | Stage 5A merged at `69f60f9` through [PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73); see the [implementation and adoption record](linear-algebra-draft.md#implementation-and-adoption--2026-10-11). LinearAlgebra is a separate root; stages 5B–5C remain deferred. VectorConcept retains its geometric home with an explicit zero-vector boundary, and VectorObjects means graphics. |
 | Further function/trigonometric work | Rational-function asymptotes, continuous repair, angle addition/subtraction identities, sine-area relationship, Laws of Sines and Cosines. | Stage 4 merged at `f0dffbf` through [PR #72](https://github.com/christian-bick/edugraph-ontology/pull/72); see the [implementation record](further-functions-trigonometry-draft.md#implementation-and-adoption--2026-10-11). Subtypes and other optional refinements remain deferred. |
-| Calculus methods | Limit and derivative methods, derivative tests and applications, integration/accumulation, and later convergence. | Independent of completing CCSS; the authored school-analysis properties above do not substitute for method families. |
+| Calculus methods | Limit and derivative methods, derivative tests and applications, integration/accumulation, elementary differential equations, approximation, series, and curve calculus. | The [Calculus family draft](calculus-family-draft.md) proposes school foundations through university entry under the existing Calculus root. Existing Analysis properties remain in place. This is independent of completing CCSS; implementation and direct-Calculus-label migration are still pending. |
 
 The accepted representation, equivalence, theorem, function-property, and transformation-logic
-decisions are implemented. The distinct NumberTheory pass is also merged;
-the other deferred extensions follow separately. General BinomialTheorem is authored in the merged ontology even though its CCSS
+decisions are implemented. NumberTheory and the school-level advanced complex-number,
+function/trigonometric, and linear-algebra extensions are merged; their broader continuations
+and the Calculus proposal remain separate work. General BinomialTheorem is authored in the merged ontology even though its CCSS
 standard is marked `(+)`; FiniteGeometricSum addresses core
 [A-SSE.B.4](https://www.thecorestandards.org/Math/Content/HSA/SSE/).
 Existing content annotations and consumer package pins require their
@@ -1138,9 +1142,11 @@ own adoption review; the ontology merge does not update them.
 
 These priorities concern the algebra, number-system, and function work discussed in this record.
 Steps 1 and 2 are merged, with step 2's two additions at `702714b`. Step 3A is merged at
-`cf74a23`. Step 4 is merged at `f0dffbf`; step 5A is implemented for review on
-`codex/linear-algebra` and is not yet merged; see the [LinearAlgebra design record](linear-algebra-draft.md).
-Stage 3B, step 4's optional refinements, stages 5B–5C, and the other later stages remain deferred.
+`cf74a23`. Step 4 is merged at `f0dffbf`; step 5A is merged at `69f60f9` through
+[PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73); see the
+[LinearAlgebra design record](linear-algebra-draft.md). Step 6 has a
+[Calculus family draft](calculus-family-draft.md), with no source implementation yet.
+Stage 3B, step 4's optional refinements, and stages 5B–5C remain deferred.
 They are not a completeness claim for all CCSS geometry, statistics, or other fields. Proposed
 family names in the unimplemented stages below are planning candidates, not additional authored descriptors. The sequence
 separates core CCSS gaps from standards marked `(+)` and later calculus; a `(+)` item may still
@@ -1280,8 +1286,9 @@ for F-TF.A.1-2, B.5, C.8, and G-SRT.C.7. Competency and dataset adoption remain 
 
 ### 5. Linear algebra — a distinct CCSS (+) field
 
-Status: stage 5A implemented for review on `codex/linear-algebra`, based on `main` at
-`f0dffbf`; not yet merged. The [design and implementation record](linear-algebra-draft.md)
+Status: stage 5A merged into `main` at `69f60f9` through
+[PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73). The implementation branch
+was `codex/linear-algebra`, based on `main` at `f0dffbf`. The [design and implementation record](linear-algebra-draft.md)
 places LinearAlgebra at the root, as a sibling of Algebra and Analysis.
 
 The implementation adds 28 Areas: seven organizers and 21 eligible concepts, including formal
@@ -1309,13 +1316,30 @@ geometry, and spectral theory. Matrix powers and division are outside the agreed
 
 ### 6. Calculus methods — after the CCSS extensions
 
-Build reusable limit methods, differentiation and its rules, derivative applications,
-antiderivatives, definite integration/accumulation, and the relationships established by the
-Fundamental Theorem of Calculus. Treat integrability and convergence as separate later concepts.
+Status: [proposal drafted](calculus-family-draft.md) against `main` at `69f60f9`, with no
+Turtle changes. Reuse the existing **Calculus root** as an independent field alongside Algebra,
+Analysis, and LinearAlgebra. The draft organizes reusable knowledge into seven proposed branches:
+LimitMethods, DifferentialCalculus, IntegralCalculus, DifferentialEquations,
+CalculusApproximation, SeriesCalculus, and CurveCalculus.
+
+Stage A covers school foundations, including limits, differentiation and its rules, derivative
+applications, antiderivatives, definite accumulation, and the Fundamental Theorem of Calculus.
+Stage B extends this to advanced-school and first-year methods, elementary differential equations,
+approximation, series, and parametrized curves; stage E records enrichment. Rigorous Analysis and
+multivariable calculus remain later work. These are curriculum staging choices rather than
+additional ontology hierarchy levels, and calculus is not a missing CCSS requirement.
+
 The already authored local limits, continuity, differentiability, concavity, and critical points
-describe properties; they do not supply all methods or theorems for establishing and using them.
-Compose methods with existing function types and dependence instead of introducing a method
-family for every function type. This is a later calculus curriculum, not a missing CCSS requirement.
+remain properties within Analysis; they do not supply all methods or theorems for establishing
+and using them. Compose methods with existing function types, dependence, and properties instead
+of introducing a method family for every function type. The draft supplies definitions, examples,
+research sources, and the boundary between a property's meaning and the calculus used to establish it.
+
+Adding the first partOf children will make Calculus an organizer under
+[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
+Implementation must therefore review existing direct Calculus labels and replace them with
+evidence-supported descendants or existing concepts; retaining the identifier does not remove
+this adoption requirement. Existing Analysis labels are not moved or retired by this proposal.
 
 Package adoption is a parallel maintenance task: confirm the release that contains the merge,
 then review retired identifiers and changed ancestry before updating consumer pins, annotations,

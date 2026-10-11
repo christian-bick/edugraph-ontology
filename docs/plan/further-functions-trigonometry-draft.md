@@ -8,8 +8,11 @@ complex-number extension was merged through [PR #71](https://github.com/christia
 The proposal and alternatives below preserve the design rationale; the
 [implementation and adoption record](#implementation-and-adoption--2026-10-11) identifies the
 accepted seven-Area scope. Subtype additions and the other optional refinements remain deferred.
-The next extension is [Linear algebra](linear-algebra-draft.md), a separate root field alongside
-Algebra and Analysis, implemented for review on `codex/linear-algebra` and not yet merged.
+The subsequent [Linear algebra extension](linear-algebra-draft.md), a separate root field
+alongside Algebra and Analysis, is merged at `69f60f9` through
+[PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73).
+The [Calculus family draft](calculus-family-draft.md) develops the next extension while retaining
+the existing Analysis properties.
 This develops
 [roadmap step 4](algebra-family-draft.md#4-further-function-properties-and-trigonometry--ccss).
 
@@ -322,8 +325,9 @@ specialization ancestry remain unchanged.
 
 No new Scope or subtype family is included. More granular asymptotes and angle identities,
 named inverse or reciprocal functions, further identities, circumradius relationships, and
-nonremovable-discontinuity classifications remain optional later refinements. Calculus methods,
-linear algebra, and the complex-number stage 3B continuation remain separate work.
+nonremovable-discontinuity classifications remain optional later refinements. Calculus methods
+are proposed in the [Calculus family draft](calculus-family-draft.md); the complex-number stage
+3B and linear-algebra stages 5B–5C continuations remain separately deferred.
 
 Consumers need no identifier migration. After adopting an ontology release containing the
 additions, apply the six eligible concepts only where the content supports their mathematical
@@ -350,6 +354,7 @@ adoption and competency evidence review remain separate work.
 
 Review the merged source on Main in the ontology editor: FunctionAsymptotes and
 FunctionRemovableDiscontinuity appear within Analysis, and the angle identities and triangle
-relations appear within Geometry / GeometricRelations / TrigonometricRelations. The next
-[LinearAlgebra extension](linear-algebra-draft.md) is implemented separately for review on
-`codex/linear-algebra`; its root field and descendants were not part of this functions-and-trigonometry merge.
+relations appear within Geometry / GeometricRelations / TrigonometricRelations. The subsequent
+[LinearAlgebra extension](linear-algebra-draft.md) merged separately at `69f60f9` through
+[PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73); its root field and descendants
+were not part of this functions-and-trigonometry merge.

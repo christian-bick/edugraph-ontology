@@ -1,9 +1,14 @@
 # Linear Algebra — design and implementation record
 
-Status: stage 5A implemented for review on `codex/linear-algebra`, 2026-10-11; not yet merged.
+Status: stage 5A merged into `main` at `69f60f9` through
+[PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73), 2026-10-11.
+Implementation branch: `codex/linear-algebra` (merged).
 Implementation baseline: ontology `main` at `f0dffbf`, after the functions and trigonometry extension merged
 through [PR #72](https://github.com/christian-bick/edugraph-ontology/pull/72).
 This develops [roadmap step 5](algebra-family-draft.md#5-linear-algebra--a-distinct-ccss--field).
+The next extension is the [Calculus family draft](calculus-family-draft.md), reusing the existing
+Calculus root for school foundations through university entry. Linear-algebra stages 5B–5C
+remain separately deferred.
 
 ## Recommendation and field boundary
 
@@ -419,9 +424,10 @@ and does not establish dataset coverage.
 
 ## Implementation and adoption — 2026-10-11
 
-Stage 5A is authored in [core-areas-math.ttl](../../core-areas-math.ttl) on
-`codex/linear-algebra`, based on `main` at `f0dffbf`, and is ready for branch review rather than
-merged into `main`. The implementation preserves the researched structure, the 17 CCSS leaf
+Stage 5A is authored in [core-areas-math.ttl](../../core-areas-math.ttl) and merged into `main`
+at `69f60f9` through [PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73).
+The implementation branch was `codex/linear-algebra`, based on `main` at `f0dffbf`.
+The implementation preserves the researched structure, the 17 CCSS leaf
 mappings, and the accepted technique-based arithmetic design recorded above.
 Stages 5B–5C and their candidate names remain document-only future work.
 
@@ -441,7 +447,7 @@ relation is changed.
 | Shared entrywise technique | EntrywiseCombination serves coordinate-vector and matrix addition/subtraction despite its single MatrixArithmetic home. Existing numerical operation Areas retain their definitions and identify evidenced scalar steps. |
 | VectorConcept | The replacement definition explicitly includes the zero vector while retaining geometric displacement meaning, its existing example, and all relations. Review definition-dependent classification or representations when adopting the release; existing nonzero geometric-vector uses retain their meaning. |
 | Existing structure and labels | Comparison with `f0dffbf` confirms unchanged existing ancestry, specialization inheritance, and direct-label eligibility. MatrixStructure remains eligible with specializing ZeroMatrix and IdentityMatrix children. |
-| Consumer packages and datasets | No package pin, competency target, or dataset annotation is updated by this ontology branch. Adopt a release containing the merge separately and apply the new eligible concepts only where supported. |
+| Consumer packages and datasets | No package pin, competency target, or dataset annotation is updated by this ontology merge. Adopt a release containing the merge separately and apply the new eligible concepts only where supported. |
 
 ### Implementation verification
 
