@@ -425,6 +425,11 @@
     rdfs:isDefinedBy "The output role of a variable specified by a rule from designated inputs, including a constant output rule.";
     rdfs:comment "The role of y in y = 2x + 1 when x is the chosen input; the role of y in the constant rule y = 5 for real x.";
     edu:specializes :Variable.
+:DeterminantScaling a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The multiplication of Euclidean n-dimensional volume by abs(det(A)) under a real square matrix transformation in fixed oriented orthonormal coordinates, with a negative determinant reversing orientation and a zero determinant collapsing volume.";
+    rdfs:comment "diag(2, -3) multiplies plane area by 6 and reverses orientation; diag(1, 0) collapses plane area to zero.";
+    edu:integrates :MatrixDeterminant;
+    edu:partOf :LinearMaps.
 :Difference a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining how two quantities or mathematical objects differ, including the amount separating two numerical values.";
     rdfs:comment "Finding how many more objects one collection contains than another.";
@@ -518,6 +523,11 @@
 :EmergentFeatureRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizing a recurring, alternating, invariant, or otherwise systematic property of generated pattern elements that follows from, but is not itself, the generative rule.";
     edu:specializes :PatternRecognition.
+:EntrywiseCombination a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Addition or subtraction of coordinate vectors or matrices over a common field by applying the corresponding scalar operation at each matching entry. Operands have the same shape, and coordinate-vector interpretations use a common ordered basis.";
+    rdfs:comment "(3, 1) - (1, 4) = (2, -3); [[1, 2], [3, 4]] + [[5, 6], [7, 8]] = [[6, 8], [10, 12]].";
+    edu:integrates :Addition, :Subtraction;
+    edu:partOf :MatrixArithmetic.
 :Equation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The form and meaning of mathematical statements asserting that two expressions have equal value.";
     rdfs:comment "Interpreting the equality in 3 + 4 = 7; expressing 'twice x plus three equals eleven' as 2x + 3 = 11.";
@@ -846,6 +856,10 @@
     rdfs:isDefinedBy "Mappings that change a geometric figure's position, orientation, or scale according to a specified rule.";
     rdfs:comment "A rotation, reflection, translation, or dilation.";
     edu:partOf :Geometry.
+:GeometricVectorCombination a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The head-to-tail and parallelogram constructions of sums of real geometric vectors, with differences formed by adding the reversed second vector. For vectors u and v with a common tail, u - v runs from the tip of v to the tip of u.";
+    rdfs:comment "(1, 0) + (0, 1) = (1, 1) has magnitude sqrt(2), not 2; for u = (3, 1) and v = (1, 4), the difference runs from (1, 4) to (3, 1).";
+    edu:partOf :VectorArithmetic.
 :GeometricVisualization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of geometry using a coordinate system to define the position of points, lines, and shapes.";
     edu:partOf :Geometry.
@@ -869,6 +883,10 @@
 :Hexagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with six edges and six vertices.";
     edu:specializes :Polygon.
+:IdentityMatrix a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A square matrix with ones on the main diagonal and zeros elsewhere, acting as a multiplicative identity when its size matches the relevant side of a matrix product.";
+    rdfs:comment "[[1, 0], [0, 1]] leaves every two-component column vector unchanged.";
+    edu:specializes :MatrixStructure.
 :ImperfectDivisibility a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection is not an integer multiple of the divisor, preventing every source object from being assigned to the equal subcollections. The result consists of a quotient, representing the number or shared cardinality of the subcollections, and a remainder, representing the subset of source objects that cannot be distributed while maintaining equal cardinality.";
     edu:contradicts :PerfectDivisibility;
@@ -983,6 +1001,9 @@
     edu:expands :DistanceCalculation;
     edu:integrates :TrigonometricRelations;
     edu:partOf :GeometricCalculations.
+:LinearAlgebra a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of vectors, vector spaces, linear maps, matrices, and linear systems through their algebraic and geometric relationships.";
+    rdfs:comment "Expressing a system as Ax = b; relating a plane transformation to its matrix.".
 :LinearCongruenceSolvability a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The existence of an integer solution x to ax congruent to b modulo m exactly when gcd(a, m) divides b, for integers a and b and a positive integer m.";
     rdfs:comment "6x congruent to 9 modulo 15 is solvable, but 6x congruent to 4 modulo 15 is not.";
@@ -995,6 +1016,14 @@
     rdfs:isDefinedBy "Creating drawings or models of straight lines.";
     rdfs:comment "Drawing a straight line through two given points.";
     edu:partOf :SpatialModelling.
+:LinearMap a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A map between vector spaces over the same field that preserves vector addition and scalar multiplication.";
+    rdfs:comment "T(x, y) = (x + y, y) is linear; S(x, y) = (x + 1, y) is not.";
+    edu:partOf :LinearMaps.
+:LinearMaps a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Maps preserving vector addition and scalar multiplication, their representations, and their structural and geometric properties.";
+    rdfs:comment "Representing a shear by a matrix; identifying the kernel of a projection.";
+    edu:partOf :LinearAlgebra.
 :LinearRewriting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Equivalent rewriting of affine combinations of designated variables or subexpressions, using coefficients independent of those quantities. Constant terms are included.";
     rdfs:comment "2(x + 3) + 4x = 6x + 6; 3*sin(x) + 2*sin(x) = 5*sin(x), treating sin(x) as the designated quantity.";
@@ -1016,6 +1045,10 @@
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
     edu:expands :LinearDrawing;
     edu:partOf :OneDimensionalObjects.
+:LinearSystems a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The matrix representations, transformations, and solution structure of finite systems of linear equations over stated scalar fields.";
+    rdfs:comment "Expressing two simultaneous equations as Ax = b; distinguishing a consistent singular system from an inconsistent one.";
+    edu:partOf :LinearAlgebra.
 :Logarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.";
     edu:inverts :Exponentiation;
@@ -1045,6 +1078,49 @@
     rdfs:isDefinedBy "The form and meaning of declarative mathematical sentences that assert relations between expressions and can be evaluated as true or false.";
     rdfs:comment "Interpreting 3 < 5 as a true assertion and 2 + 2 = 5 as a false assertion.";
     edu:partOf :FormalMathematics.
+:MatrixAlgebra a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The structure and algebraic relationships of matrices, including their operations, identities, determinants, and inverses.";
+    rdfs:comment "Comparing AB with BA; interpreting the inverse of a square matrix.";
+    edu:partOf :LinearAlgebra.
+:MatrixArithmetic a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The techniques, admissibility conditions, and identities for additive combinations, scalar actions, and ordered products of matrices.";
+    rdfs:comment "Adding corresponding entries; determining whether AB is defined; forming an output entry from a row and a column.";
+    edu:partOf :MatrixAlgebra.
+:MatrixConformability a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The shape conditions for matrix operations over a common field: addition and subtraction require equal row and column counts, while an m-by-n matrix followed by an n-by-p matrix has a defined product of shape m-by-p.";
+    rdfs:comment "A 2-by-3 matrix can multiply a 3-by-1 matrix to give a 2-by-1 matrix; two 2-by-3 matrices can be added but cannot be multiplied in that order.";
+    edu:partOf :MatrixArithmetic.
+:MatrixDeterminant a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The scalar computed from a square matrix by a signed sum of products selecting one entry from each row and column, with signs determined by permutation parity. It is nonzero exactly when the matrix is invertible over the stated field.";
+    rdfs:comment "det([[a, b], [c, d]]) = ad - bc; det([[2, 0], [0, -3]]) = -6.";
+    edu:partOf :MatrixAlgebra.
+:MatrixInverse a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The two-sided multiplicative inverse of a square matrix over a stated field, satisfying AA^-1 = A^-1 A = I, including its existence and order-sensitive use in reversing matrix multiplication.";
+    rdfs:comment "[[2, 0], [0, 3]] has inverse [[1/2, 0], [0, 1/3]]; [[1, 2], [2, 4]] has no inverse.";
+    edu:partOf :MatrixAlgebra.
+:MatrixNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conventions for displaying matrix entries in rows and columns and writing entry indices, matrix sizes, determinants, and inverse symbols.";
+    rdfs:comment "Reading A_(2,1) as the row-2, column-1 entry, det(A) as its determinant, and A^-1 as a matrix inverse.";
+    edu:partOf :FormalMathematics.
+:MatrixOperationIdentities a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Value-preserving equalities for conformable matrix addition, scalar multiplication, and ordered matrix products, including associativity, distributivity, additive commutativity, and neutral-element rules.";
+    rdfs:comment "A(B + C) = AB + AC; (AB)C = A(BC); I_m A = A = A I_n for an m-by-n matrix A.";
+    edu:partOf :MatrixArithmetic;
+    edu:specializes :AlgebraicEquivalence.
+:MatrixRepresentationOfLinearMap a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The representation of a linear map between finite-dimensional vector spaces by a matrix relative to chosen ordered input and output bases, whose columns are the output coordinates of the input basis images.";
+    rdfs:comment "In standard bases, T(x, y) = (x + y, y) has matrix [[1, 1], [0, 1]].";
+    edu:partOf :LinearMaps;
+    edu:translates :LinearMap.
+:MatrixStructure a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Rectangular arrays of scalars over a stated field, with fixed row and column counts and equality determined entry by entry at matching positions.";
+    rdfs:comment "[[2, 3, 5], [7, 11, 13]] has two rows and three columns; its entry in row 2, column 1 is 7.";
+    edu:partOf :MatrixAlgebra.
+:MatrixSystemRepresentation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The correspondence between a finite system of linear equations and Ax = b, matching each row to an equation and each column to one consistently ordered unknown.";
+    rdfs:comment "x + y = 7 and x - y = 1 correspond to [[1, 1], [1, -1]][x, y]^T = [7, 1]^T.";
+    edu:integrates :RowColumnProduct;
+    edu:partOf :LinearSystems.
 :Measurement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Comparing or quantifying a measurable attribute, either qualitatively or by assigning a value relative to a unit.";
     rdfs:comment "Comparing two lengths directly, reading a weight, or measuring a duration.";
@@ -1575,10 +1651,26 @@
 :Rounding a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical procedure of adjusting a number to a simpler or shorter value that is close to its original value.";
     edu:specializes :NumericApproximation.
+:RowColumnProduct a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The ordered product of an m-by-n matrix A and an n-by-p matrix B over a common field, whose output entry (i, j) is the sum of A_(i,k) B_(k,j) for k from 1 to n. Reversing factors can change the result or make the product undefined.";
+    rdfs:comment "For A = [[1, 1], [0, 1]] and B = [[1, 0], [1, 1]], AB = [[2, 1], [1, 1]] while BA = [[1, 1], [1, 2]].";
+    edu:integrates :Addition, :Multiplication;
+    edu:partOf :MatrixArithmetic.
 :RulesOfSigns a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fundamental rules that govern the manipulation and evaluation of signed numbers within arithmetic expressions, ensuring the consistent and accurate determination of positive and negative results.";
     edu:expands :SignNotation;
     edu:partOf :ArithmeticLaws.
+:ScalarMatrixMultiplication a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The action of a scalar on a matrix over the same field by multiplying every entry by that scalar, extending componentwise vector scaling to all rows or columns while preserving the matrix's shape.";
+    rdfs:comment "2[[1, 3], [2, 4]] = [[2, 6], [4, 8]]; 0[[1, 3], [2, 4]] = [[0, 0], [0, 0]].";
+    edu:expands :ScalarVectorMultiplication;
+    edu:integrates :Multiplication;
+    edu:partOf :MatrixArithmetic.
+:ScalarVectorMultiplication a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The action of a scalar on a coordinate vector over the same field by multiplying every component by that scalar. For real geometric vectors, magnitude scales by the scalar's absolute value; positive and negative scalars respectively preserve and reverse direction when the vector is nonzero.";
+    rdfs:comment "-2(3, 4) = (-6, -8), with magnitude 10; 0(3, 4) = (0, 0), with no direction.";
+    edu:integrates :Multiplication;
+    edu:partOf :VectorArithmetic.
 :ScaleneTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle in which all three sides have different lengths.";
     edu:inverts :EquilateralTriangle;
@@ -1893,11 +1985,35 @@
     rdfs:isDefinedBy "The role of a variable whose value is allowed to change across instances of a mathematical relationship.";
     rdfs:comment "Varying time t and the corresponding distance d in a table of values satisfying d = 5t.";
     edu:specializes :Variable.
+:VectorAlgebra a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The components, geometric properties, and operations of coordinate vectors over stated scalar fields.";
+    rdfs:comment "Adding displacement vectors; multiplying a coordinate vector by a scalar.";
+    edu:partOf :LinearAlgebra.
+:VectorArithmetic a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The techniques and relationships for combining and scaling coordinate vectors, including their geometric interpretations.";
+    rdfs:comment "Constructing a displacement sum head to tail; relating a negative scalar factor to direction reversal.";
+    edu:partOf :VectorAlgebra.
+:VectorComponents a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The ordered scalars expressing a finite-dimensional vector relative to a specified ordered basis, including coordinate differences between endpoints of a geometric displacement.";
+    rdfs:comment "From P = (1, 4) to Q = (5, 1), the displacement components are (4, -3); 3e1 - 2e2 has components (3, -2) in basis (e1, e2).";
+    edu:partOf :VectorAlgebra.
 :VectorConcept a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A quantity with both magnitude and direction.";
+    rdfs:isDefinedBy "Directed quantities represented by geometric displacements, with magnitude and direction for nonzero vectors and a zero vector of magnitude zero with no direction.";
     rdfs:comment "A displacement represented by a directed line segment.";
     edu:expands :LineConcept;
     edu:partOf :GeometricConcepts.
+:VectorDirection a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The direction of a nonzero real Euclidean vector, described by a unit vector or appropriate angles relative to a specified coordinate system.";
+    rdfs:comment "The direction of (3, 4) is represented by (3/5, 4/5); (0, 0) has no direction.";
+    edu:partOf :VectorAlgebra.
+:VectorMagnitude a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The Euclidean length of a real coordinate vector in orthonormal coordinates, given by the square root of the sum of its squared components.";
+    rdfs:comment "The magnitude of (3, 4) is 5; the magnitude of (0, 0) is 0.";
+    edu:partOf :VectorAlgebra.
+:VectorNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conventions for vector symbols, ordered component lists, directed-segment symbols, and magnitude symbols.";
+    rdfs:comment "Interpreting an arrow over PQ as displacement from P to Q and double bars around v as its magnitude.";
+    edu:partOf :FormalMathematics.
 :VerticalAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The pairs of opposite angles made by two intersecting lines.";
     edu:partOf :AngleRelations.
@@ -1909,3 +2025,7 @@
     rdfs:isDefinedBy "Understanding zero as an integer expressing absence of quantity, the additive identity, and the origin between negative and positive values.";
     rdfs:comment "Recognizing that adding zero leaves a value unchanged, or using a zero digit as a placeholder in 305.";
     edu:partOf :IntegerArithmetic.
+:ZeroMatrix a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A matrix whose entries are all zero, acting as the additive identity among matrices of the same shape and as an absorbing factor in defined matrix products.";
+    rdfs:comment "[[0, 0, 0], [0, 0, 0]] is the additive identity for 2-by-3 matrices; A0 = 0 for a conformable zero matrix.";
+    edu:specializes :MatrixStructure.
