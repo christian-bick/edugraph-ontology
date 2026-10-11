@@ -274,10 +274,36 @@
     rdfs:comment "x^2 + 6x + 5 = (x + 3)^2 - 4; 2x^2 + 8x + 3 = 2(x + 2)^2 - 5.";
     edu:integrates :BinomialSquareIdentities;
     edu:specializes :QuadraticRewriting.
+:ComplexArgument a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The directed angle from the positive real axis to a nonzero complex number, determined modulo a full turn. A principal argument selects one value using a stated interval convention.";
+    rdfs:comment "The arguments of -i are -pi/2 + 2k*pi for integer k; its principal argument in (-pi, pi] is -pi/2.";
+    edu:partOf :NumberSystems.
+:ComplexArithmeticGeometry a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The geometric interpretation of complex arithmetic as translations for addition and subtraction, rotation and scaling about zero for multiplication and division by nonzero numbers, and reflection in the real axis for conjugation. Multiplication by zero sends every point to zero.";
+    rdfs:comment "Multiplication by 2i doubles distances from zero and rotates by a quarter-turn; conjugation reflects 2 + i to 2 - i.";
+    edu:partOf :GeometricVisualization.
+:ComplexConjugation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The operation replacing a complex number a + bi by a - bi, for real a and b, and its relationships with complex arithmetic.";
+    rdfs:comment "The conjugate of 4 - 3i is 4 + 3i; (4 - 3i)(4 + 3i) = 25.";
+    edu:partOf :NumberSystems.
+:ComplexModulus a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nonnegative real magnitude of a complex number a + bi, given by sqrt(a^2 + b^2) and equal to its distance from zero in the complex plane.";
+    rdfs:comment "The modulus of 5 - 12i is 13; the modulus of zero is zero.";
+    edu:expands :AbsoluteNumberMagnitude;
+    edu:partOf :NumberSystems.
 :ComplexNumberStructure a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The extension of real numbers by an imaginary unit satisfying i^2 = -1, with each complex number uniquely expressed as a + bi for real a and b.";
     rdfs:comment "Identifying 3 and -2 as the real and imaginary parts of 3 - 2i; expressing 5 as 5 + 0i.";
     edu:partOf :NumberSystems.
+:ComplexPlane a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The correspondence between a complex number a + bi and the point (a, b) in a plane with perpendicular real and imaginary axes.";
+    rdfs:comment "-2 + 5i corresponds to (-2, 5); 3 corresponds to (3, 0).";
+    edu:partOf :GeometricVisualization;
+    edu:translates :ComplexNumberStructure.
+:ComplexPolarNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conventions for representing a complex number as r(cos(theta) + i sin(theta)), where r is its modulus and theta is an argument when r is positive. When r is zero, every angle represents zero without defining its argument.";
+    rdfs:comment "1 - i = sqrt(2)(cos(-pi/4) + i sin(-pi/4)) = sqrt(2)(cos(7pi/4) + i sin(7pi/4)).";
+    edu:specializes :NumberNotation.
 :CompositeNumbers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study and classification of whole numbers greater than 1 that have more than two positive factors; equivalently, numbers divisible by a positive whole number other than 1 and themselves.";
     rdfs:comment "4, 6, 8, and 9 are composite numbers.";
@@ -772,6 +798,10 @@
     rdfs:isDefinedBy "The admissible inputs at which a numerical function has output zero.";
     rdfs:comment "The zeros -2 and 2 of f(x) = x^2 - 4 over the real numbers.";
     edu:partOf :FunctionValueProperties.
+:FundamentalTheoremOfAlgebra a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The guarantee that every nonconstant polynomial in one variable with complex coefficients has a complex root and factors completely into linear factors, with the number of roots counted with multiplicity equal to its degree.";
+    rdfs:comment "(z - 2)^2(z + i) has three roots counting multiplicity and two distinct roots; z^4 + 1 has four complex roots counting multiplicity.";
+    edu:partOf :AlgebraicTheorems.
 :FundamentalTheoremOfArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The existence of a prime factorization for every integer greater than one and its uniqueness up to the order of the factors.";
     rdfs:comment "Explaining why any complete prime factorization of 60 contains two factors 2, one factor 3, and one factor 5.";
