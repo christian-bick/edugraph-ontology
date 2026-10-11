@@ -1118,9 +1118,9 @@ CompletingSquare remain Areas where they contribute additional mathematical know
 | Stage | Preserved topics | Boundary |
 | --- | --- | --- |
 | NumberTheory foundations | Complex-number structure, rational/irrational characterization, closure and mixed-system result types. | Merged at `1b9ecc3`; see the design record and adoption map below. |
-| Advanced complex numbers | Conjugates, modulus and argument, rectangular/polar forms, complex-plane representations and operations, Fundamental Theorem of Algebra. | Stage 3A implemented for review on `codex/advanced-complex-numbers`; FTA is a constituent of AlgebraicTheorems. University-entry stage 3B and optional Scopes remain deferred. |
+| Advanced complex numbers | Conjugates, modulus and argument, rectangular/polar forms, complex-plane representations and operations, Fundamental Theorem of Algebra. | Stage 3A merged at `cf74a23`; FTA is a constituent of AlgebraicTheorems. University-entry stage 3B and optional Scopes remain deferred. |
 | Linear algebra | Vector operations, matrix quantities and arithmetic, zero/identity matrices, determinants, inverses, matrix systems, linear transformations. | A dedicated LinearAlgebra field; the existing VectorConcept is reusable and VectorObjects means graphics. |
-| Further function/trigonometric work | Rational-function asymptotes, angle addition/subtraction identities, sine-area relationship, Laws of Sines and Cosines. | Preserve for a later discussion; current family sketches do not decide their full trees. |
+| Further function/trigonometric work | Rational-function asymptotes, continuous repair, angle addition/subtraction identities, sine-area relationship, Laws of Sines and Cosines. | Stage 4 implemented for review on `codex/functions-trigonometry`; see the [implementation record](further-functions-trigonometry-draft.md#implementation-and-adoption--2026-10-11). Subtypes and other optional refinements remain deferred. |
 | Calculus methods | Limit and derivative methods, derivative tests and applications, integration/accumulation, and later convergence. | Independent of completing CCSS; the authored school-analysis properties above do not substitute for method families. |
 
 The accepted representation, equivalence, theorem, function-property, and transformation-logic
@@ -1134,11 +1134,11 @@ own adoption review; the ontology merge does not update them.
 ## Recommended next ontology extensions
 
 These priorities concern the algebra, number-system, and function work discussed in this record.
-Steps 1 and 2 are merged, with step 2's two additions at `702714b`. Step 3A is implemented
-for review on `codex/advanced-complex-numbers`; its stage 3B continuation and subsequent steps
-remain the review priorities.
+Steps 1 and 2 are merged, with step 2's two additions at `702714b`. Step 3A is merged at
+`cf74a23`. Step 4 is implemented for review on `codex/functions-trigonometry`; stage 3B,
+step 4's optional refinements, and the other later stages remain deferred.
 They are not a completeness claim for all CCSS geometry, statistics, or other fields. Proposed
-family names below are planning candidates, not additional authored descriptors. The sequence
+family names in the unimplemented stages below are planning candidates, not additional authored descriptors. The sequence
 separates core CCSS gaps from standards marked `(+)` and later calculus; a `(+)` item may still
 be worth implementing early when it contributes useful shared knowledge, as BinomialTheorem did.
 
@@ -1225,8 +1225,8 @@ object-by-method multiplication is required to close these core questions.
 
 ### 3. Advanced complex numbers and polynomial structure — CCSS (+)
 
-Status: stage 3A is implemented for review on `codex/advanced-complex-numbers`, based on
-`main` at `702714b`; see the
+Status: stage 3A was merged into `main` at `cf74a23` through
+[PR #71](https://github.com/christian-bick/edugraph-ontology/pull/71); see the
 [implementation and adoption record](advanced-complex-numbers-draft.md#implementation-and-adoption--2026-10-11).
 It adds seven Areas distributed across the
 existing number-system, geometry, notation, and theorem families: ComplexConjugation,
@@ -1251,20 +1251,26 @@ from [A-APR.D.7](https://www.thecorestandards.org/Math/Content/HSA/APR/).
 
 ### 4. Further function properties and trigonometry — CCSS (+)
 
-Develop the reserved FunctionAsymptotes concept with domain exclusions and one-sided behavior;
-reuse existing limiting behavior, continuity, and rational dependence rather than duplicating
-them. Review holes and asymptotes as distinct observable features.
+Status: implemented for review on `codex/functions-trigonometry`, based on `main` at `cf74a23`;
+see the [implementation and adoption record](further-functions-trigonometry-draft.md#implementation-and-adoption--2026-10-11).
+The design audits all 11 advanced Functions leaves and three
+general-triangle leaves, including inverse-function refinements beyond the original roadmap list.
+Existing composition, inversion, domain, symmetry, and periodicity concepts supply nine mappings.
 
-Extend the existing identity specialization family with angle-addition/subtraction relationships,
-then design the general-triangle sine-area relationship and Laws of Sines and Cosines within
-the geometric organization. Preserve the merged parallel function/identity branches. Any broader
-Trigonometry organizer or triangle-law family needs its own definition and progression-link review.
+The implementation adds FunctionAsymptotes, TrigonometricAngleAdditionIdentities, LawOfSines,
+LawOfCosines, and TriangleSineAreaFormula for the identified knowledge gaps. It also includes
+FunctionRemovableDiscontinuity for continuous repair/extension and a TriangleTrigonometricRelations
+organizer alongside the existing function and identity branches: seven new Areas in total,
+six eligible for labeling. It adds five partOf edges, two specializes edges, and the progression
+LawOfCosines expands PythagoreanTheorem. A five-Area minimum remains a design alternative;
+finer subtypes and the other optional refinements remain deferred. Existing definitions,
+authored edges, and eligibility remain unchanged, with no descriptor retired. Source comparison,
+ontology assessments, and the full Docker/client gate passed, including 49 Python tests; the
+implementation document records the verification and adoption boundary.
 
-These priorities correspond to [F-IF.C.7.d](https://www.thecorestandards.org/Math/Content/HSF/IF/),
-[F-TF.C.9](https://www.thecorestandards.org/Math/Content/HSF/TF/), and
-[G-SRT.D.9-11](https://www.thecorestandards.org/Math/Content/HSG/SRT/), all marked `(+)`.
-The core trigonometric foundations in F-TF.A.1-2, B.5, C.8, and G-SRT.C.7 are already represented;
-their competency mappings still need the evidence review in step 2.
+The complete mapping covers F-IF.C.7.d; F-BF.A.1.c, B.4.b-d, B.5;
+F-TF.A.3-4, B.6-7, C.9; and G-SRT.D.9-11, all `(+)`. The prior core audit remains the record
+for F-TF.A.1-2, B.5, C.8, and G-SRT.C.7. Competency and dataset adoption remain separate work.
 
 ### 5. Linear algebra — a distinct CCSS (+) field
 
