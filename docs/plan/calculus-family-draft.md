@@ -1,6 +1,7 @@
 # Calculus — school foundations to university entry
 
-Status: implemented for review on `codex/calculus-foundations`, 2026-10-20; not merged.
+Status: implemented for review on `codex/calculus-foundations`, 2026-10-20;
+[draft PR #74](https://github.com/christian-bick/edugraph-ontology/pull/74), not merged.
 Implementation baseline: `main` at `c313e4a`, whose ontology sources match the
 [Linear Algebra merge, PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73), at `69f60f9`.
 The full A + B + E design below is authored in [core-areas-math.ttl](../../core-areas-math.ttl).
@@ -61,6 +62,7 @@ without pretending every school calculus course includes those topics.
 | [OpenStax: integration by parts](https://openstax.org/books/calculus-volume-2/pages/3-1-integration-by-parts) and [trigonometric substitution](https://openstax.org/books/calculus-volume-2/pages/3-3-trigonometric-substitution) | Repeated and cyclic reductions, and substitution with a trigonometric change of variable. | Place these narrower methods below the rule they preserve. |
 | [OpenStax: maxima and minima](https://openstax.org/books/calculus-volume-1/pages/4-3-maxima-and-minima) and [derivatives and graph shape](https://openstax.org/books/calculus-volume-1/pages/4-5-derivatives-and-the-shape-of-a-graph) | Local tests, interval sign arguments, and global endpoint comparisons have different conclusions. | Keep local extremum tests, sign analysis, and closed-interval optimization distinct. |
 | [OpenStax: differential-equation foundations](https://openstax.org/books/calculus-volume-2/pages/4-1-basics-of-differential-equations), [parametric curve calculus](https://openstax.org/books/calculus-volume-2/pages/7-2-calculus-of-parametric-curves), and [polar area and arc length](https://openstax.org/books/calculus-volume-2/pages/7-4-area-and-arc-length-in-polar-coordinates) | Solution conditions, parameter differentiation, area and traced length have distinct meanings. | Separate solution concepts from methods; preserve parameter orientation and traversal multiplicity in curve applications. |
+| [OpenStax: precise limits](https://openstax.org/books/calculus-volume-1/pages/2-5-the-precise-definition-of-a-limit), [limits at infinity](https://openstax.org/books/calculus-volume-1/pages/4-6-limits-at-infinity-and-asymptotes), [sequences](https://openstax.org/books/calculus-volume-2/pages/5-1-sequences), and [UC Davis: limits of functions, Definition 6.1 and Theorem 6.6](https://www.math.ucdavis.edu/~hunter/intro_analysis_pdf/ch6.pdf) | Quantified function/sequence criteria, directional unbounded limits and the sequential characterization of function limits. | Group these complementary foundations in Analysis; require an accumulation point or a domain unbounded in the approached direction, and retain universal quantification over nearby inputs, late indices or approaching sequences. |
 
 The proposed hierarchy, names, stages, and definitions below are our synthesis. Sources guide
 coverage; their teaching sequence is not converted into ontology progression edges.
@@ -201,7 +203,12 @@ Analysis                                      existing independent root
 │   │   ├── S AbsoluteSeriesConvergence
 │   │   └── S ConditionalSeriesConvergence
 │   └── P PowerSeriesStructure
-└── P EpsilonDeltaLimitCriterion
+└── P LimitFoundations
+    ├── P EpsilonDeltaLimitCriterion
+    ├── P EpsilonNSequenceLimitCriterion
+    ├── P InfiniteLimitCriterion
+    ├── P LimitAtInfinityCriterion
+    └── P SequentialLimitCriterion
 
 FormalMathematics                             existing root
 ├── P LimitNotation
@@ -273,6 +280,7 @@ Formulas below use real variables and the stated domains. Trigonometric calculus
 | CurveCalculus | B | P: Calculus | Differential and integral relationships for curves described by one real parameter. | Finding velocity along a plane curve or area enclosed by a polar curve. |
 | FunctionTheorems | A | P: Analysis | Theorems relating real-function continuity, differentiability, values, and extrema under stated hypotheses. | Guaranteeing a zero by intermediate values; relating a derivative to a secant slope. |
 | SequenceAndSeriesProperties | B | P: Analysis | Limit behavior and convergence classifications of numerical sequences and series. | Distinguishing a convergent sequence of terms from convergence of their sum. |
+| LimitFoundations | E | P: Analysis | The precise definitions and equivalent characterizations of limits for real functions and sequences, covering finite limits and approach to signed infinity. | The epsilon-delta condition for lim_(x->2) 3x = 6; the epsilon-N condition for 1/n -> 0. |
 
 ### Limits and foundational properties
 
@@ -287,12 +295,36 @@ Formulas below use real variables and the stated domains. Trigonometric calculus
 | MeanValueTheorem | A | P: FunctionTheorems | The guarantee of an interior point c with f'(c) = (f(b)-f(a))/(b-a) for a real function continuous on [a,b] and differentiable on (a,b), with a < b. | For f(x) = x^2 on [1,3], c = 2 gives the secant slope 4. |
 | RollesTheorem | A | S: MeanValueTheorem | The mean-value guarantee of an interior zero derivative when a real function is continuous on [a,b], differentiable on (a,b), a < b, and f(a) = f(b). | f(x) = x^2 - 1 has equal endpoint values on [-1,1] and f'(0) = 0. |
 | RiemannIntegrability | A | P: FunctionRegularity | Existence of a proper Riemann integral for a bounded real function on a closed bounded interval, equivalently the ability to make the difference between its upper and lower partition sums arbitrarily small. | A bounded step function with one jump is Riemann integrable on [0,1]. |
-| EpsilonDeltaLimitCriterion | E | P: Analysis | The finite-limit condition at a finite accumulation point of the domain that every positive output tolerance admits a positive input tolerance making all sufficiently close, distinct domain inputs have outputs within the requested tolerance of the limit. | For f(x) = 3x at a, delta = epsilon/3 ensures abs(f(x)-3a) < epsilon whenever 0 < abs(x-a) < delta. |
+| EpsilonDeltaLimitCriterion | E | P: LimitFoundations | The finite-limit condition at a finite accumulation point of the domain that every positive output tolerance admits a positive input tolerance making all sufficiently close, distinct domain inputs have outputs within the requested tolerance of the limit. | For f(x) = 3x at a, delta = epsilon/3 ensures abs(f(x)-3a) < epsilon whenever 0 < abs(x-a) < delta. |
+| EpsilonNSequenceLimitCriterion | E | P: LimitFoundations | The quantified criterion for a real sequence to approach a finite value L: for each epsilon > 0, one index N depending on epsilon makes abs(a_n-L) < epsilon hold for every n >= N. | For a_n = 1/n, choosing an integer N > 1/epsilon ensures abs(a_n) < epsilon for every n >= N. |
+| InfiniteLimitCriterion | E | P: LimitFoundations | The condition that, for every M > 0, all domain inputs sufficiently close to but distinct from a finite point a give f(x) > M for a positive infinite limit or f(x) < -M for a negative infinite limit. The point must be an accumulation point of the domain, restricted to the indicated side for a one-sided limit. | For M > 0, choosing delta = 1/M gives 1/x > M whenever 0 < x < delta, establishing lim_(x->0+) 1/x = +infinity. |
+| LimitAtInfinityCriterion | E | P: LimitFoundations | The quantified conditions for a real function to approach a finite value or signed infinity as its input tends to positive or negative infinity through a domain unbounded in that direction. Each positive tolerance around a finite limit, or magnitude bound in the specified infinite output direction, must hold for all domain inputs beyond some input threshold. | For epsilon > 0, x > 1/epsilon gives abs(2 + 1/x - 2) < epsilon; for M > 0, x < -cuberoot(M) gives x^3 < -M, establishing lim_(x->-infinity) x^3 = -infinity. |
+| SequentialLimitCriterion | E | P: LimitFoundations | The equivalence, for a real function at a finite accumulation point a of its domain, between having finite limit L and having f(x_n) approach L for every domain sequence with x_n != a and x_n approaching a. | For f(x) = abs(x)/x, the sequences x_n = 1/n and y_n = -1/n approach 0 while f(x_n) = 1 and f(y_n) = -1, ruling out a limit at 0. |
 
 LimitLaws is reusable knowledge, while algebraic cancellation and continuity-based substitution
 compose with existing rewriting and property concepts. Do not add a separate LimitByFactoring
 for every algebraic technique. One-sided limits, limits at infinity and infinite behavior already
 have property coverage; infinity is not a real output value.
+
+### LimitFoundations refinement — 2026-10-20
+
+The review adds LimitFoundations as a constituent of Analysis, moves EpsilonDeltaLimitCriterion
+into it without changing its definition or example, and adds the four sibling criteria above.
+All five criteria are `partOf` children: they are complementary definitions and characterizations,
+not narrower forms of the epsilon-delta criterion. All additions use enrichment stage E.
+
+FunctionLocalLimitBehavior and SequenceConvergence retain the property meanings. Criterion
+knowledge identifies the quantifier order, the dependence of a witness on the requested tolerance,
+and the guarantee for every relevant input or index; this is not established by merely observing
+a convergent graph or sequence. The sequential criterion requires every admissible approaching
+sequence: checking a few examples cannot establish it, though incompatible image limits disprove it.
+Applying a criterion in a proof composes with an appropriate Ability without creating another method.
+
+InfiniteLimitCriterion covers infinite outputs at finite inputs, including one-sided approaches.
+LimitAtInfinityCriterion covers inputs escaping to either signed infinity, with finite or infinite
+outputs. This avoids a full input-direction by output-type hierarchy. Accumulation and unbounded-domain
+conditions prevent vacuous limit claims at isolated points or in directions the domain cannot reach.
+No existing function-property family moves, and LimitMethods retains its Calculus home.
 
 ### Differentiation and its applications
 
@@ -638,7 +670,8 @@ Consumer-package adoption and actual curriculum/task validation remain separate 
 
 ### Design-stage verification
 
-Simulated against `main` at `c313e4a` on 2026-10-20. Candidate names are unique and do not
+The initial 130-Area design, before the [LimitFoundations refinement](#limitfoundations-refinement--2026-10-20), was simulated
+against `main` at `c313e4a` on 2026-10-20. Candidate names are unique and do not
 collide with existing descriptors; all candidates have a definition, example, stage and placement.
 Each adoption slice includes its structural and progression dependencies and passes graph
 validation with zero findings:
@@ -662,10 +695,10 @@ The adoption and content probes above remain necessary.
 
 ## Implementation and adoption — 2026-10-20
 
-All **130 Areas** across A, B and E are authored on `codex/calculus-foundations` for review,
-based on `main` at `c313e4a`. The branch is not merged. The implementation includes **16 new
-organizers and 114 new eligible Areas**, with **95 partOf**, **37 specializes** and **23
-progression** assertions. The full ontology contains **1,139 descriptors and 6,069 assertions**.
+All **135 Areas** across A, B and E are authored on `codex/calculus-foundations` for review,
+based on `main` at `c313e4a`. The branch is not merged. The implementation includes **17 new
+organizers and 118 new eligible Areas**, with **100 partOf**, **37 specializes** and **23
+progression** assertions. The full ontology contains **1,144 descriptors and 6,094 assertions**.
 
 The seven Calculus branches and their supporting concepts use the placements and examples
 above. Existing Analysis properties retain their homes. No descriptor is renamed or retired,
@@ -677,6 +710,7 @@ and no schema, Ability or Scope source is changed.
 | Algebra | Its boundary wording now recognizes Analysis properties and the separate Calculus methods root; its structural relations are unchanged. |
 | Analysis | Its example now illustrates continuity, convergence and series representation; its definition and existing ancestry are unchanged. |
 | FunctionRegularity | Its definition includes specified forms of integrability and its new constituent is RiemannIntegrability; it was already an organizer. |
+| LimitFoundations | Organizes five complementary limit criteria within Analysis. EpsilonDeltaLimitCriterion moves here from its direct Analysis placement in the first PR revision, retaining its definition, example and label eligibility; four sibling criteria are new. |
 | New formal, geometric and algebraic support | Includes calculus/summation notation, DifferentialEquation, parameter/polar representation, and PartialFractionDecomposition, with the placements documented above. |
 | Existing labels and consumers | The inspected authored `edugraph-content` files contain no direct Calculus or FunctionRegularity uses, and no Area.Algebra or Area.Analysis uses requiring updates. External annotations, model vocabularies and consumer package pins still require review when adopting a release containing this branch. |
 
@@ -695,14 +729,14 @@ moves to its editor-defined alphabetical position without any change to its asse
 
 Independent source verification passed:
 
-- All 130 definitions and examples, 132 structural edges and 23 progression edges match the
+- All 135 definitions and examples, 137 structural edges and 23 progression edges match the
   design tables exactly, with no additional candidate relations.
 - Parsing and serializing through the editor reproduces the source byte for byte.
-- The authored graph has zero validation findings, with 1,139 descriptors and 6,069 assertions.
-- Comparison with `c313e4a` confirms 675 new-entity assertions, four existing annotation
+- The authored graph has zero validation findings, with 1,144 descriptors and 6,094 assertions.
+- Comparison with `c313e4a` confirms 700 new-entity assertions, four existing annotation
   replacements and the added Calculus example. Only Calculus changes existing label eligibility;
   all existing structural ancestry and the other three Turtle sources remain unchanged.
-- Documentation validation passed for all 38 Markdown files.
+- Documentation validation passed for all authored Markdown files.
 
 After Docker became available, the full build exposed TypeScript's union-complexity limit in
 the larger generated snapshot. The branch includes a narrow generator fix: each emitted record
