@@ -53,12 +53,16 @@ The [Algebra and analysis design record](docs/plan/algebra-family-draft.md) reco
 hierarchy, including formal expression roles, shared dependence and rewriting families,
 function types and properties, the parallel trigonometric families, and effects on existing labels.
 Its [extension roadmap](docs/plan/algebra-family-draft.md#recommended-next-ontology-extensions)
-distinguishes remaining core CCSS needs, advanced CCSS extensions, and later calculus work.
+distinguishes core CCSS coverage, advanced CCSS extensions, and calculus work.
 The [remaining core coverage audit](docs/plan/core-ccss-coverage-audit.md) maps 114 terminal
 standards to eligible concepts and distinguishes supported compositions from targeted follow-ups.
 The [NumberTheory design and implementation record](docs/plan/number-theory-basics-draft.md)
 documents the school and introductory-university families, their boundary with arithmetic,
 and the shared closure concept in AlgebraicStructures.
+The [Calculus implementation and adoption record](docs/plan/calculus-family-draft.md#implementation-and-adoption--2026-10-20)
+documents the school-foundation and university-entry extension on `codex/calculus-foundations`,
+pending branch review. Calculus is a separate root for methods, applications, approximation,
+series, and differential equations; function properties retain their Analysis home.
 
 #### Foundations
 
