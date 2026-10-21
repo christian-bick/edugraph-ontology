@@ -374,7 +374,7 @@ NumberTheory [E; broaden under option 2A]
   P DiophantineProblems [O]
       P LinearDiophantineSolvability [U]
       P PythagoreanTriples [U]
-  P ArithmeticFunctions [O]
+  P NumberTheoreticFunctions [O]
       P DivisorCount [U]
       P DivisorSum [U]
       P EulersTotient [U]
@@ -414,7 +414,7 @@ definitions below identify the knowledge available for actual competencies.
 | PrimesAndFactorization | Prime and composite integer structure, integer product decompositions, and the existence and uniqueness properties of prime factors. |
 | ModularArithmetic | Congruence classes of integers and the arithmetic, equations, and power relationships defined modulo an integer. |
 | DiophantineProblems | The existence, structure, and determination of integer or rational solutions to polynomial equations with integer coefficients. |
-| ArithmeticFunctions | Functions on positive integers that encode divisibility and prime structure, including their multiplicative relationships. |
+| NumberTheoreticFunctions | The study of numerical functions on positive integers through divisibility, coprimality, prime factorization, and relationships among their values. |
 | RationalityAndApproximation | Exact rational representations, rationality criteria, and the structure and accuracy of approximation by rational numbers. |
 | NumberSystems | The membership relationships, extensions, and operation-dependent properties of systems of numbers. |
 | AlgebraicStructures | Sets equipped with operations and the properties and axioms governing those operations. |
@@ -479,7 +479,7 @@ would be a subsequent draft.
 | PrimesAndFactorization | Sieve methods, primality tests, elementary factorization algorithms. | Quantitative prime distribution using analysis. |
 | ModularArithmetic | Fermat/Euler/Wilson theorems, multiplicative order, primitive roots, power residues, Legendre symbol, quadratic reciprocity. | General finite-field theory belongs to shared algebra; specific numerical applications can build on it. |
 | DiophantineProblems | Sums of squares, Pell equations, selected binary quadratic forms. | Elliptic curves and general arithmetic geometry. |
-| ArithmeticFunctions | Multiplicativity of the named functions, divisor identities, later inversion formulas. | Average orders and analytic methods. |
+| NumberTheoreticFunctions | Multiplicativity of the named functions, divisor identities, later inversion formulas. | Average orders and analytic methods. |
 | RationalityAndApproximation | Denominator criteria for terminating base expansions, irrationality proofs, convergents and best-approximation properties. | General Diophantine approximation; analytic convergence arguments retain their analysis knowledge. |
 | NumberSystems | Algebraic/transcendental classification; complex conjugation and geometric forms; later Gaussian integers and other specific numerical extensions. | General constructions of fields and number fields need an algebra review. Rational numbers are algebraic too; algebraic numbers need not be real. |
 
@@ -596,7 +596,7 @@ definitions remain future work.
 The source adds 35 Areas and one Scope, retaining all existing identifiers:
 
 - Seven NumberTheory organizers: IntegerDivisibility, PrimesAndFactorization,
-  ModularArithmetic, DiophantineProblems, ArithmeticFunctions, RationalityAndApproximation,
+  ModularArithmetic, DiophantineProblems, NumberTheoreticFunctions, RationalityAndApproximation,
   and NumberSystems.
 - AlgebraicStructures under Algebra, with OperationClosure as shared knowledge for
   numerical and polynomial contexts.
@@ -665,3 +665,16 @@ and generated libraries; they do not substitute for the separate content adoptio
   CCSS target. The [remaining core audit](core-ccss-coverage-audit.md) now confirms the
   rational-exponent and other supported compositions and records targeted follow-ups.
   Actual competency examples and consumer adoption still need their own checks.
+
+## Family naming refinement — 2026-10-21
+
+`ArithmeticFunctions` is renamed to `NumberTheoreticFunctions` in the current
+[extension draft](probability-statistics-combinatorics-draft.md). The tree and definition
+table above use the new name. Its definition emphasizes the study of functions through
+divisibility, coprimality and prime factorization, distinguishing this NumberTheory
+organizer from the general input-output correspondence described by NumericFunction.
+
+The example, NumberTheory parent and four constituent concepts are preserved: DivisorCount,
+DivisorSum, EulersTotient and MultiplicativeArithmeticFunction. The family remains ineligible
+for direct labeling, while those concepts retain their eligibility. No specialization under
+NumericFunction is added.

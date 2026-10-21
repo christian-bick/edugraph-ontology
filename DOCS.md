@@ -120,6 +120,16 @@ The release job uploads the following files as assets to the Github Release:
 - **TypeScript Package**: `edugraph-ts.tgz` (a tarball containing the compiled JS/TS client libraries).
 - **Python Package**: A wheel and source distribution containing the generated Python client library.
 
+### 5.3 Adopting the Probability, Statistics, and Combinatorics Extension
+
+The [extension's adoption record](docs/plan/probability-statistics-combinatorics-draft.md#adoption-effects)
+lists new descriptors and the two existing descriptors whose labeling eligibility changes:
+`Statistics` and `SetTheory` become organizational nodes. It also records the retired
+`GraphicalSolutionRepresentation` identifier and its broader replacement,
+`GraphicalAlgebraicRepresentation`, now specializing `AlgebraicRepresentation`. Consumers should
+review direct labels and references to the renamed client key before upgrading. The record identifies affected
+`edugraph-content` sources; this ontology branch does not upgrade consumer packages or datasets.
+
 ---
 
 ## 6. Client Libraries API & Relations Usage

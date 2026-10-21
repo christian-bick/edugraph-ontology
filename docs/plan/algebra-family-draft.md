@@ -14,11 +14,14 @@ The [LinearAlgebra design record](linear-algebra-draft.md) documents stage 5A me
 `69f60f9` through [PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73), with a
 separate root field alongside Algebra and Analysis. The [Calculus design and implementation record](calculus-family-draft.md)
 develops roadmap step 6 using the existing Calculus root. Its school-foundation and university-entry
-extension is implemented on `codex/calculus-foundations` for branch review; it is not yet merged.
+extension is merged into `main` at `5f52168` through
+[PR #74](https://github.com/christian-bick/edugraph-ontology/pull/74).
 The explicitly deferred extensions remain future work.
+The next expansion develops Probability, Statistics, and Combinatorics in the
+[new design record](probability-statistics-combinatorics-draft.md).
 
-Original implementation branch: `codex/algebra-refinements` (merged). Updated 2026-10-20 for
-the Calculus branch implementation, following the NumberTheory and advanced extensions,
+Original implementation branch: `codex/algebra-refinements` (merged). Updated 2026-10-21 for
+the Calculus merge and the next statistics/probability expansion, following the NumberTheory and advanced extensions,
 including the stage 4 and stage 5A merges.
 The authored sources are [Areas](../../core-areas-math.ttl) and [Scopes](../../core-scopes-math.ttl).
 This document builds on the manual refinement through `0f277c5` and the definition/example
@@ -774,13 +777,21 @@ These two cases are authored as Scopes; a parallel Area is not necessary at this
 | Scope | Meaning | Placement and composition |
 | --- | --- | --- |
 | `ScientificExponentNotation` | Numerical values represented as a coefficient times an integer power of ten, with `1 <= abs(a) < 10` for nonzero coefficients, including equivalent E notation. Zero may be represented by coefficient zero with a stated exponent convention. | `specializes Numerals`. Compose with existing arithmetic, comparison, approximation, identity, or notation knowledge. |
-| `GraphicalSolutionRepresentation` | Solution sets represented by points, curves, or regions on a number line or in a coordinate system. | `partOf RepresentationalScope`. Compose with `SolutionSet`, `RelationSatisfaction`, constraints, and the relevant interpretation or construction Ability. |
+| `GraphicalAlgebraicRepresentation` | Algebraic relationships, functions, or solution sets represented by plotted points, curves, or regions on a number line or in a coordinate system. | `specializes AlgebraicRepresentation`. Compose with evidenced function, relation, solution-set or solving knowledge and the relevant Ability. |
 
 Examples: `3.2 * 10^5`, `1.25E6`; the ray for `x > 2`; the region satisfying `x + y <= 1`.
 NumberNotation is eligible in the published baseline, so `NumberNotation + ScientificExponentNotation`
 can describe studying the convention itself. Its existing notation children use specialization.
 The Scope alone does not assert that notation conventions are the knowledge being learned.
-Likewise the graphical Scope does not by itself claim graph-based solving or numerical accuracy.
+Likewise the graphical Scope does not by itself claim graph-based solving, solution-set interpretation,
+or numerical accuracy.
+
+The 2026-10-21 representation refinement on `codex/probability-statistics-combinatorics` renames
+GraphicalSolutionRepresentation to the broader GraphicalAlgebraicRepresentation. Its new parent,
+AlgebraicRepresentation, is partOf RepresentationalScope; symbolic, verbal, tabular, equality-balance,
+tile and graphical forms specialize it. The [implementation and adoption record](probability-statistics-combinatorics-draft.md#adoption-effects)
+documents the retired identifier, replacement meaning and consumer migration. No solution-set or
+solving claim follows from a generic function graph.
 
 Scientific notation addresses [8.EE.A.3-4](https://www.thecorestandards.org/Math/Content/8/EE/).
 The graph interpretation is supported by existing solution-set meaning; review representative
@@ -996,11 +1007,11 @@ periodicity, oscillation parameters, and qualitative end behavior. Limits, conti
 differentiability, critical points, and derivative-based concavity analysis belong to the later
 school-analysis curriculum. These property concepts are all authored now; their curriculum stage
 is not an implementation deferral. Derivative tests, differentiation rules, optimization procedures,
-and integration methods are separate method/result families, now implemented on the
-[Calculus review branch](calculus-family-draft.md#implementation-and-adoption--2026-10-20).
+and integration methods are separate method/result families, now included in the
+[merged Calculus extension](calculus-family-draft.md#implementation-and-adoption--2026-10-20).
 
 FunctionAsymptotes was subsequently implemented in the further-functions extension below.
-The Calculus branch adds RiemannIntegrability to FunctionRegularity: the existence of the
+The Calculus extension adds RiemannIntegrability to FunctionRegularity: the existence of the
 specified definite integral remains distinct from having a familiar elementary antiderivative
 or performing integration. Broader integrability concepts remain later work.
 No claim of CCSS necessity follows from these later slots.
@@ -1131,12 +1142,12 @@ CompletingSquare remain Areas where they contribute additional mathematical know
 | Advanced complex numbers | Conjugates, modulus and argument, rectangular/polar forms, complex-plane representations and operations, Fundamental Theorem of Algebra. | Stage 3A merged at `cf74a23`; FTA is a constituent of AlgebraicTheorems. University-entry stage 3B and optional Scopes remain deferred. |
 | Linear algebra | Vector operations, matrix quantities and arithmetic, zero/identity matrices, determinants, inverses, matrix systems, linear transformations. | Stage 5A merged at `69f60f9` through [PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73); see the [implementation and adoption record](linear-algebra-draft.md#implementation-and-adoption--2026-10-11). LinearAlgebra is a separate root; stages 5B–5C remain deferred. VectorConcept retains its geometric home with an explicit zero-vector boundary, and VectorObjects means graphics. |
 | Further function/trigonometric work | Rational-function asymptotes, continuous repair, angle addition/subtraction identities, sine-area relationship, Laws of Sines and Cosines. | Stage 4 merged at `f0dffbf` through [PR #72](https://github.com/christian-bick/edugraph-ontology/pull/72); see the [implementation record](further-functions-trigonometry-draft.md#implementation-and-adoption--2026-10-11). Subtypes and other optional refinements remain deferred. |
-| Calculus methods | Limit and derivative methods, derivative tests and applications, integration/accumulation, elementary differential equations, approximation, series, and curve calculus. | Implemented on `codex/calculus-foundations` for branch review, covering stages A, B, and E under the existing Calculus root; see [implementation and adoption](calculus-family-draft.md#implementation-and-adoption--2026-10-20). Existing Analysis properties remain in place. This is independent of completing CCSS; consumer adoption and direct-Calculus-label review remain separate work. |
+| Calculus methods | Limit and derivative methods, derivative tests and applications, integration/accumulation, elementary differential equations, approximation, series, and curve calculus. | Merged at `5f52168` through [PR #74](https://github.com/christian-bick/edugraph-ontology/pull/74), covering stages A, B, and E under the existing Calculus root; see [implementation and adoption](calculus-family-draft.md#implementation-and-adoption--2026-10-20). Existing Analysis properties remain in place. This is independent of completing CCSS; consumer adoption and direct-Calculus-label review remain separate work. |
 
 The accepted representation, equivalence, theorem, function-property, and transformation-logic
 decisions are implemented. NumberTheory and the school-level advanced complex-number,
 function/trigonometric, and linear-algebra extensions are merged. Calculus stages A, B, and E
-are implemented for branch review; broader continuations remain separate work.
+are also merged; broader continuations remain separate work.
 General BinomialTheorem is authored in the merged ontology even though its CCSS
 standard is marked `(+)`; FiniteGeometricSum addresses core
 [A-SSE.B.4](https://www.thecorestandards.org/Math/Content/HSA/SSE/).
@@ -1149,9 +1160,11 @@ These priorities concern the algebra, number-system, and function work discussed
 Steps 1 and 2 are merged, with step 2's two additions at `702714b`. Step 3A is merged at
 `cf74a23`. Step 4 is merged at `f0dffbf`; step 5A is merged at `69f60f9` through
 [PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73); see the
-[LinearAlgebra design record](linear-algebra-draft.md). Step 6 is implemented on
-`codex/calculus-foundations` for branch review; see the
+[LinearAlgebra design record](linear-algebra-draft.md). Step 6 is merged at `5f52168`
+through PR #74; see the
 [Calculus implementation record](calculus-family-draft.md#implementation-and-adoption--2026-10-20).
+The [Probability, Statistics, and Combinatorics extension](probability-statistics-combinatorics-draft.md)
+continues the broader school-mathematics coverage work.
 Stage 3B, step 4's optional refinements, and stages 5B–5C remain deferred.
 They are not a completeness claim for all CCSS geometry, statistics, or other fields. Proposed
 family names in the unimplemented stages below are planning candidates, not additional authored descriptors. The sequence
@@ -1322,8 +1335,8 @@ geometry, and spectral theory. Matrix powers and division are outside the agreed
 
 ### 6. Calculus methods — after the CCSS extensions
 
-Status: implemented on `codex/calculus-foundations` on 2026-10-20 against `main` at `c313e4a`,
-pending branch review and merge. The [implementation and adoption record](calculus-family-draft.md#implementation-and-adoption--2026-10-20)
+Status: implemented on `codex/calculus-foundations` against `main` at `c313e4a` and merged
+through PR #74 at `5f52168` on 2026-10-21. The [implementation and adoption record](calculus-family-draft.md#implementation-and-adoption--2026-10-20)
 records the source delta and verification. The extension reuses the existing **Calculus root**
 as an independent field alongside Algebra, Analysis, and LinearAlgebra. It organizes reusable
 knowledge into seven branches:
@@ -1336,14 +1349,15 @@ DerivativeApplications with constituent groups and narrower specializations, add
 to the original 105-Area proposal. The subsequent limit review consolidates definitional criteria
 into the existing properties and retains SequentialLimitCriterion within FunctionTheorems.
 The implementation includes all 130 Areas: 16 organizers and 114 eligible concepts, with
-95 partOf, 37 specializes, and 23 progression assertions.
+95 partOf, 36 specializes, and 23 progression assertions. The final manual refinement at
+`c22f2ee` removed the draft NumericalIntegration specialization of NumericApproximation.
 All five expanded subtrees have definitions, examples, and curriculum stage assignments.
 
 Stage A covers school foundations, including limits, differentiation and its rules, derivative
 applications, antiderivatives, definite accumulation, and the Fundamental Theorem of Calculus.
 Stage B extends this to advanced-school and first-year methods, elementary differential equations,
 approximation, series, and parametrized curves; stage E records enrichment. All three stages are
-included in the branch implementation. Further real analysis and multivariable calculus remain later
+included in the merged implementation. Further real analysis and multivariable calculus remain later
 work. These are curriculum staging choices rather than
 additional ontology hierarchy levels, and calculus is not a missing CCSS requirement.
 

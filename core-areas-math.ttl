@@ -60,6 +60,10 @@
     rdfs:isDefinedBy "Adding by decomposing addends into place-value parts, combining corresponding parts, and recomposing the sum.";
     edu:expands :Addition, :PlaceValue;
     edu:partOf :IntegerStrategies.
+:AdditionProbabilityRule a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The rule P(A union B)=P(A)+P(B)-P(A intersection B), with the intersection correction zero for disjoint events.";
+    rdfs:comment "For a fair die, rolling even or greater than four has probability 3/6+2/6-1/6=4/6.";
+    edu:partOf :ProbabilityRules.
 :AdditionStandardAlgorithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventional base-ten addition algorithm that operates by aligned place values and records any required regrouping across places.";
     edu:expands :AdditionPlaceValuePartitioning, :IntegerRegrouping;
@@ -173,13 +177,13 @@
     rdfs:comment "Interpreting 5, 5 + 5, 2 × (8 + 7), 2^3, sqrt(4), log_2(8), and pi + 2 as arithmetic expressions.";
     edu:expands :ArithmeticOperations;
     edu:specializes :MathematicalExpression.
-:ArithmeticFunctions a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Functions on positive integers that encode divisibility and prime structure, including their multiplicative relationships.";
-    rdfs:comment "Counting the positive divisors of 12; determining how many integers from 1 through 12 are coprime to 12.";
-    edu:partOf :NumberTheory.
 :ArithmeticLaws a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fundamental axiomatic rules that govern the manipulation and equivalence of mathematical expressions and statements.";
     edu:partOf :Arithmetic.
+:ArithmeticMean a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The sum of the values in a nonempty finite numerical data collection divided by the number of observations.";
+    rdfs:comment "The mean of 2, 4, and 9 is 5.";
+    edu:partOf :DescriptiveStatistics.
 :ArithmeticOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Mathematical operations that combine or transform numerical values according to defined rules.";
     rdfs:comment "Addition, subtraction, multiplication, division, exponentiation, or root extraction.";
@@ -192,6 +196,11 @@
     rdfs:isDefinedBy "Methods and relationships used to represent numerical values and carry out arithmetic within number systems.";
     rdfs:comment "Regrouping integers; adding fractions; aligning decimal place values.";
     edu:partOf :Arithmetic.
+:AssociationAndCausation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The distinction between an observed relationship and evidence that changing one factor produces a change in another, accounting for study design and possible confounding.";
+    rdfs:comment "An association between ice-cream sales and swimming incidents does not establish that buying ice cream causes the incidents.";
+    edu:integrates :Confounding;
+    edu:partOf :BivariateStatistics.
 :AssociativeLaw a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical principle stating that the way in which numbers are grouped by parentheses does not change their sum or product.";
     rdfs:comment "(2 + 3) + 4 = 2 + (3 + 4); (2*3)*4 = 2*(3*4).";
@@ -207,22 +216,60 @@
 :BaseOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The foundational application of mathematical rules and procedures to perform primary calculations through the core actions of addition, subtraction, multiplication, and division.";
     edu:partOf :ArithmeticOperations.
+:BayesTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The reversal of conditioning through P(A given B)=P(B given A)P(A)/P(B), when both conditioning events have positive probability.";
+    rdfs:comment "With P(A)=0.2, P(B given A)=0.8 and P(B)=0.4, P(A given B)=0.4.";
+    edu:integrates :ConditionalProbability;
+    edu:partOf :ProbabilityRules.
+:BernoulliDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nature of a two-valued probability law assigning probability p to 1 and 1-p to 0, with 0 <= p <= 1.";
+    rdfs:comment "A success indicator with p=0.3.";
+    edu:specializes :DiscreteProbabilityDistribution.
 :BezoutIdentity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of the greatest common divisor of two integers, not both zero, as an integer linear combination of them.";
     rdfs:comment "gcd(30, 18) = 6 = 2 * 18 - 30.";
     edu:partOf :IntegerDivisibility.
+:BijectionCounting a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining the size of a finite set by establishing a one-to-one correspondence with another finite set whose size can be determined.";
+    rdfs:comment "Matching each subset of {a, b, c} with its three-bit membership string gives 2^3 = 8 subsets.";
+    edu:integrates :FiniteSetCardinality;
+    edu:partOf :CountingPrinciples.
 :BinaryOperator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of an operator with exactly two ordered operand positions in a particular expression.";
     rdfs:comment "Distinguishing the two input positions in a - b; identifying x and 3 as the ordered inputs of the power operation in x^3.";
     edu:specializes :Operator.
+:BinomialCoefficient a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The number binom(n,k) of k-element subsets of an n-element set, equal to n!/(k!(n-k)!) for integers 0 <= k <= n.";
+    rdfs:comment "binom(5,2) = 10 counts two-person committees from five people and length-five binary strings containing exactly two 1s.";
+    edu:integrates :Factorial;
+    edu:partOf :CombinatorialEnumeration.
+:BinomialCoefficientSymmetry a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identity binom(n,k) = binom(n,n-k) for integers 0 <= k <= n, relating the counts of selected and omitted elements.";
+    rdfs:comment "binom(7,2) = binom(7,5) = 21.";
+    edu:integrates :BinomialCoefficient;
+    edu:specializes :AlgebraicEquivalence.
+:BinomialDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nature of the count of successes in n independent Bernoulli trials with one fixed success probability p, including its parameters and probabilities.";
+    rdfs:comment "The number of heads in ten independent fair coin tosses.";
+    edu:integrates :BinomialCoefficient, :RepeatedIndependentTrials;
+    edu:specializes :DiscreteProbabilityDistribution.
 :BinomialSquareIdentities a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The square-of-sum and square-of-difference identities (a + b)^2 = a^2 + 2ab + b^2 and (a - b)^2 = a^2 - 2ab + b^2 for real or complex quantities.";
     rdfs:comment "(x + 3)^2 = x^2 + 6x + 9; (x - 3)^2 = x^2 - 6x + 9.";
     edu:specializes :BinomialTheorem.
+:BinomialTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A hypothesis test about a success probability using the binomial count model for independent Bernoulli trials with a common probability.";
+    rdfs:comment "Testing H0: p <= 0.5 against p > 0.5 using the upper tail of 100 independent trials.";
+    edu:integrates :BinomialDistribution;
+    edu:specializes :HypothesisTest.
 :BinomialTheorem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identity expanding (a + b)^n as the sum of binom(n, k) a^(n-k) b^k over k = 0, ..., n, for real or complex a, b and nonnegative integer n, with zero powers interpreted as constant polynomial terms.";
     rdfs:comment "(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3.";
     edu:specializes :AlgebraicEquivalence.
+:BivariateStatistics a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Descriptions and models of relationships between two observed variables, including the limits of interpretation.";
+    rdfs:comment "Relating height to arm span or comparing travel modes between year groups.";
+    edu:partOf :Statistics.
 :BoundVariable a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a variable occurrence governed by a binding construct within the expression under consideration.";
     rdfs:comment "Identifying i as the bound summation index in sum_(i=1)^4 i*x; replacing the bound index k by j throughout product_(k=1)^3 (x + k).";
@@ -242,14 +289,41 @@
     rdfs:isDefinedBy "A two-dimensional plane defined by a horizontal axis and a vertical axis intersecting at a right angle.";
     edu:expands :PlaneConcept;
     edu:partOf :GeometricVisualization.
+:CartesianProduct a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The set of ordered tuples formed by taking one element from each of a specified finite list of sets, with positions retaining the order of those sets.";
+    rdfs:comment "{a, b} x {0, 1} = {(a,0), (a,1), (b,0), (b,1)}.";
+    edu:partOf :SetTheory.
+:Census a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Data collection intended to include every unit in a specified finite population.";
+    rdfs:comment "Recording the travel mode of every pupil enrolled in a class.";
+    edu:partOf :StudyDesign.
+:CentralLimitTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The convergence in distribution of sqrt(n)(sample mean-mu)/sigma to the standard normal law for independent identically distributed variables with finite positive variance sigma squared.";
+    rdfs:comment "Standardized averages of many independent uniform draws have approximately a standard normal distribution.";
+    edu:integrates :NormalDistribution;
+    edu:partOf :ProbabilityLimitTheorems.
 :ChainRule a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identity (f composed with g)'(x) = f'(g(x))g'(x) where g is differentiable at x and f is differentiable at g(x).";
     rdfs:comment "(sin(x^2))' = 2x cos(x^2).";
     edu:partOf :DifferentiationRules.
+:ChebyshevInequality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The bound P(abs(X-mu) >= t) <= Var(X)/t squared for a random variable of finite variance and t > 0.";
+    rdfs:comment "For variance four, a deviation of at least six from the mean has probability at most 1/9.";
+    edu:integrates :RandomVariableVariance;
+    edu:partOf :ProbabilityLimitTheorems.
 :ChineseRemainderTheorem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The existence of a unique residue class modulo the product satisfying any prescribed integer residues for a finite nonempty collection of pairwise coprime positive integer moduli.";
     rdfs:comment "Residues 2 modulo 3 and 3 modulo 5 determine residue 8 modulo 15.";
     edu:partOf :ModularArithmetic.
+:ChiSquaredDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nature of the gamma probability law with shape nu/2 and scale two for nu > 0 degrees of freedom, represented for integer nu by a sum of nu independent squared standard normal variables.";
+    rdfs:comment "The sum of four independent squared standard normal variables has mean four and a chi-squared distribution with four degrees of freedom.";
+    edu:specializes :ContinuousProbabilityDistribution.
+:ChiSquaredIndependenceTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A hypothesis test of independence between categorical variables using observed and independence-expected cell counts, with a chi-squared approximation valid under the sampling and expected-count conditions.";
+    rdfs:comment "Comparing observed travel-mode counts by year group with counts expected from row and column totals.";
+    edu:integrates :ChiSquaredDistribution, :ContingencyAssociation;
+    edu:specializes :HypothesisTest.
 :ChordCenterRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship stating that a perpendicular line drawn from the center of a circle to a chord bisects the chord into two equal parts.";
     edu:expands :LineSegment, :PerpendicularityRelation;
@@ -263,6 +337,11 @@
     rdfs:comment "Relating a radius to a diameter, a chord to the center, or a tangent to the radius at its point of contact.";
     edu:expands :Circle;
     edu:partOf :GeometricRelations.
+:CircularPermutationCounting a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Counting circular arrangements of n distinct objects, identifying arrangements exactly when a rotation matches them, giving (n-1)! for positive integer n.";
+    rdfs:comment "Five different people around an unnumbered round table have 4! = 24 seating orders when clockwise and anticlockwise orders are distinguished.";
+    edu:integrates :DivisionCountingPrinciple, :PermutationCounting;
+    edu:partOf :CombinatorialEnumeration.
 :CircularShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating drawings or models of complete circles and figures formed from portions of circles.";
     rdfs:comment "Drawing a circle with a compass, or constructing a semicircular outline.";
@@ -276,6 +355,11 @@
     rdfs:comment "Calculating a circle's circumference from its radius using 2πr.";
     edu:expands :Circle, :Pi, :RadiusDiameterRelation;
     edu:specializes :PerimeterCalculation.
+:ClassicalProbability a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The probability of an event as its number of favorable outcomes divided by the size of a finite sample space of equally likely outcomes.";
+    rdfs:comment "Three even faces among six equally likely die faces give probability 1/2.";
+    edu:integrates :FiniteSetCardinality;
+    edu:partOf :ProbabilityRules.
 :ClosedIntervalExtremumMethod a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding absolute extrema of a continuous real function on a closed bounded interval by comparing endpoint values with values at all interior critical points.";
     rdfs:comment "For f(x) = x(2-x) on [0,3], compare f(0)=0, f(1)=1 and f(3)=-3.";
@@ -293,6 +377,13 @@
     rdfs:isDefinedBy "Intuitive understanding of how objects form collections and how collections relate through grouping and quantity.";
     rdfs:comment "Recognizing a group as a whole, identifying a subgroup, or comparing two collections visually.";
     edu:partOf :IntuitiveMathematics.
+:CombinatorialEnumeration a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Counting rules and numerical quantities for finite selections and arrangements under specified order and repetition conditions.";
+    rdfs:comment "Counting three-position codes, five-person committees, or arrangements of repeated letters.";
+    edu:partOf :Combinatorics.
+:Combinatorics a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The counting and structural relationships of finite selections, arrangements, and configurations.";
+    rdfs:comment "Counting committees, arranging letters, or proving that two people share a birth month.".
 :CombiningExponentialFactors a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Combining or separating products and quotients of exponential factors with the same positive base by adding or subtracting their exponents.";
     rdfs:comment "2^x*2^(x + 1) = 2^(2x + 1); 3^(x + 2)/3^x = 3^2; 5^(x + 1) = 5^x*5.";
@@ -319,6 +410,15 @@
 :ComplementaryAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles whose sum is exactly 90 degrees.";
     edu:partOf :AngleRelations.
+:ComplementCounting a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Counting a subset by subtracting the number of excluded configurations from a known finite total.";
+    rdfs:comment "Among 2^4 binary strings of length four, 2^4 - 1 = 15 contain at least one 1.";
+    edu:integrates :FiniteSetCardinality, :SetComplement;
+    edu:partOf :CountingPrinciples.
+:ComplementProbability a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equality between an event complement probability and one minus the event probability.";
+    rdfs:comment "If rain has probability 0.3, no rain has probability 0.7.";
+    edu:partOf :ProbabilityRules.
 :CompletingSquare a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Rewriting a quadratic polynomial in one designated variable as a nonzero coefficient multiplied by a squared affine expression plus a constant, preserving its value for every admissible assignment.";
     rdfs:comment "x^2 + 6x + 5 = (x + 3)^2 - 4; 2x^2 + 8x + 3 = 2(x + 2)^2 - 5.";
@@ -366,6 +466,18 @@
     rdfs:isDefinedBy "The role of a value expression paired with an explicit or default condition specifying when it supplies the value of a piecewise expression.";
     rdfs:comment "Pairing -x with x < 0 and x with the default condition otherwise to construct a piecewise expression for absolute value.";
     edu:partOf :ExpressionStructure.
+:ConditionalDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The probability distribution of a random quantity after conditioning on specified information, using probability ratios for positive-probability events or conditional densities where defined.";
+    rdfs:comment "The distribution of the first die given that the sum of two dice is seven.";
+    edu:partOf :RandomVariableTheory.
+:ConditionalProbability a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The probability of an event after restricting to a conditioning event of positive probability, given by P(A given B)=P(A intersection B)/P(B).";
+    rdfs:comment "Among die outcomes greater than three, the probability of an even result is 2/3.";
+    edu:partOf :ProbabilityRules.
+:ConditionalRelativeFrequency a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A relative frequency calculated within the observed subgroup satisfying a stated condition.";
+    rdfs:comment "Among 20 pupils living within two kilometres, 12 walk, giving 12/20 = 0.6.";
+    edu:specializes :RelativeFrequency.
 :ConditionalSeriesConvergence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Convergence of a real or complex series whose series of absolute term values diverges.";
     rdfs:comment "The alternating harmonic series converges conditionally.";
@@ -374,6 +486,14 @@
     rdfs:isDefinedBy "A three-dimensional geometric shape that tapers smoothly from a flat base to a point called the apex or vertex.";
     edu:expands :Circle, :Triangle;
     edu:partOf :ThreeDimensionalObjects.
+:ConfidenceInterval a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "An interval computed from sample data by a procedure with a stated exact or approximate repeated-sampling coverage for a population parameter under specified assumptions.";
+    rdfs:comment "A procedure whose intervals contain the fixed population proportion in 95% of repeated samples yields an interval [0.42, 0.50].";
+    edu:partOf :StatisticalEstimation.
+:Confounding a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Mixing of an explanatory factor's relationship with an outcome with the influence of another related factor.";
+    rdfs:comment "Age differs between two self-selected exercise groups and also affects their blood pressure.";
+    edu:partOf :StudyDesign.
 :CongruenceRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric figures that have the exact same size and shape.";
     edu:expands :ShapeConservation;
@@ -403,10 +523,23 @@
     rdfs:isDefinedBy "The logical relationship between an original constraint and its transformed form over the same variables and admissible domain, distinguishing two-way equivalence from one-way implication and the conditions needed for reversal.";
     rdfs:comment "Over the reals, x = 2 implies x^2 = 4 but not conversely; with x >= 0 the two conditions are equivalent; dividing x(x - 1) = 0 by x loses the solution 0.";
     edu:partOf :AlgebraicConstraints.
+:ContingencyAssociation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A relationship between categorical variables evidenced by differences in their conditional relative frequencies.";
+    rdfs:comment "The observed cycling proportion is 0.6 in one year group and 0.2 in another.";
+    edu:integrates :ConditionalRelativeFrequency, :FrequencyDistribution;
+    edu:partOf :BivariateStatistics.
 :ContinuedFractions a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Representations of real numbers as finite or infinite simple continued fractions with an integer initial term and positive integer subsequent terms, together with the rational convergents obtained by finite truncation.";
     rdfs:comment "13/8 = [1; 1, 1, 1, 2]; the convergents 1, 3/2, and 7/5 of sqrt(2) = [1; 2, 2, 2, ...].";
     edu:partOf :RationalityAndApproximation.
+:ContinuousProbabilityDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A real-valued probability distribution with a continuous cumulative distribution function and zero probability at each individual value.";
+    rdfs:comment "A uniform distribution on [0,1] assigns probability 0.2 to [0.3,0.5] and zero to {0.4}.";
+    edu:specializes :ProbabilityDistribution.
+:ContinuousUniformDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nature of a distribution with constant density 1/(b-a) on a finite interval [a,b], where a < b, and zero density outside.";
+    rdfs:comment "A uniform waiting time on [0,10] falls between two and five with probability 0.3.";
+    edu:specializes :ContinuousProbabilityDistribution.
 :CoordinateAxes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The horizontal (x-axis) and vertical (y-axis) number lines that intersect at right angles to form the Cartesian plane.";
     edu:partOf :CartesianPlane;
@@ -423,6 +556,14 @@
     rdfs:isDefinedBy "The relationship between an angle measure and the horizontal coordinate of its corresponding point on the unit circle, using a specified angular unit.";
     rdfs:comment "cos(0) = 1 and cos(pi) = -1 for radian measures; an adjacent side of length 4 and hypotenuse of length 5 give cosine 4/5 for the included acute angle.";
     edu:specializes :TrigonometricFunction.
+:CountingPrinciples a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "General relationships and methods for counting finite configurations and deriving existence from cardinality bounds.";
+    rdfs:comment "Adding disjoint cases, correcting repeated counts, or comparing objects with available places.";
+    edu:partOf :Combinatorics.
+:Covariance a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The expected product of two centered random variables with finite second moments, measuring their joint linear variation.";
+    rdfs:comment "For Y=2X with Var(X)=3, Cov(X,Y)=6; X uniform on [-1,1] has Cov(X,X squared)=0 despite dependence.";
+    edu:partOf :RandomVariableMoments.
 :CrossSectionIntegration a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Expressing a solid's volume as the integral of its cross-sectional area with respect to position along a stated axis.";
     rdfs:comment "Cross sections of area x^2 for 0 <= x <= 2 give volume integral_0^2 x^2 dx = 8/3.";
@@ -431,6 +572,10 @@
     rdfs:isDefinedBy "A solid geometric figure that has six congruent square faces where each pair of opposite faces is parallel.";
     edu:expands :Square;
     edu:specializes :RectangularPrism.
+:CumulativeDistributionFunction a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The function F(x)=P(X <= x), recording cumulative probability through a real threshold.";
+    rdfs:comment "For a fair die, F(3.5)=1/2.";
+    edu:partOf :RandomVariableTheory.
 :CurveCalculus a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Differential and integral relationships for curves described by one real parameter.";
     rdfs:comment "Finding velocity along a plane curve or area enclosed by a polar curve.";
@@ -451,6 +596,19 @@
     rdfs:isDefinedBy "Computing a solid of revolution's volume by integrating cylindrical-shell contributions of circumference times height times thickness, with radii and bounds determined by the axis.";
     rdfs:comment "Rotating 0 <= y <= x, 0 <= x <= 1, about the y-axis gives integral_0^1 2pi x*x dx = 2pi/3.";
     edu:partOf :IntegralApplications.
+:DataRange a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The difference between the greatest and least values in a nonempty finite numerical data collection.";
+    rdfs:comment "The range of 2, 4, and 9 is 7.";
+    edu:specializes :DispersionMeasure.
+:DataStandardDeviation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nonnegative square root of the variance of a finite numerical data collection, expressed in the data's units.";
+    rdfs:comment "The data 1 and 3 have variance 1 and standard deviation 1.";
+    edu:integrates :DataVariance;
+    edu:specializes :DispersionMeasure.
+:DataVariance a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The arithmetic mean of squared deviations of a nonempty finite numerical data collection from its arithmetic mean, with divisor equal to its number of observations.";
+    rdfs:comment "The data 1 and 3 have mean 2 and variance ((1-2)^2 + (3-2)^2)/2 = 1.";
+    edu:specializes :DispersionMeasure.
 :DecimalArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding and operating on rational numbers expressed in base-ten positional notation with decimal places.";
     rdfs:comment "Adding aligned decimal values, rounding a decimal, or interpreting equivalent decimal representations.";
@@ -541,6 +699,10 @@
     rdfs:isDefinedBy "Using first- or second-derivative signs on intervals to establish monotonicity, concavity, or changes of concavity.";
     rdfs:comment "For x^3, the nonnegative first derivative establishes nondecrease; the second derivative changes from negative to positive at 0.";
     edu:partOf :DerivativeApplications.
+:DescriptiveStatistics a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Summaries of observed data through frequencies, location, dispersion, shape, and unusual values.";
+    rdfs:comment "Describing journey times by their median, interquartile range, and skewness.";
+    edu:partOf :Statistics.
 :DeterminantScaling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The multiplication of Euclidean n-dimensional volume by abs(det(A)) under a real square matrix transformation in fixed oriented orthonormal coordinates, with a negative determinant reversing orientation and a zero determinant collapsing volume.";
     rdfs:comment "diag(2, -3) multiplies plane area by 6 and reverses orientation; diag(1, 0) collapses plane area to zero.";
@@ -607,10 +769,22 @@
     rdfs:isDefinedBy "Dependence in which a designated output quantity equals a fixed multiple k of one input quantity, with no constant offset, including k = 0.";
     rdfs:comment "y = 3x with input x and output y; the output expression 3x; f(t) = 4t; f(t) = 0.";
     edu:specializes :AffineDependence.
+:DiscreteProbabilityDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A probability distribution concentrated on a finite or countably infinite set of values, whose point probabilities sum to one.";
+    rdfs:comment "The number of successes in ten trials; the number of trials until the first success.";
+    edu:specializes :ProbabilityDistribution.
+:DiscreteUniformDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nature of a probability law assigning the same probability to every value in a specified nonempty finite set.";
+    rdfs:comment "Choosing each of eight names with probability 1/8.";
+    edu:specializes :DiscreteProbabilityDistribution.
 :DiskWasherIntegration a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Computing a solid of revolution's volume from circular or annular cross sections, integrating pi times the difference of squared outer and inner radii.";
     rdfs:comment "Rotating the region 0 <= y <= x, 0 <= x <= 1, about the x-axis gives volume integral_0^1 pi x^2 dx = pi/3.";
     edu:specializes :CrossSectionIntegration.
+:DispersionMeasure a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A numerical summary of how widely the observed values in a data collection are spread.";
+    rdfs:comment "Comparing two classes whose journey times have equal means but different spreads.";
+    edu:partOf :DescriptiveStatistics.
 :DistanceCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of distance between two points.";
     edu:expands :Difference;
@@ -641,6 +815,11 @@
     edu:inverts :Multiplication;
     edu:partOf :BaseOperations;
     edu:translates :DivisionOfCollections.
+:DivisionCountingPrinciple a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Counting distinct configurations by dividing a known count by a positive integer multiplicity shared by every configuration.";
+    rdfs:comment "The 20 ordered pairs of different people from a group of five represent each two-person committee twice, giving 20/2 = 10 committees.";
+    edu:integrates :FiniteSetCardinality;
+    edu:partOf :CountingPrinciples.
 :DivisionDividendPartitioning a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing by decomposing the dividend into convenient divisible parts and combining their quotients.";
     edu:expands :DistributiveLaw, :Division, :FactorsAndMultiples;
@@ -668,11 +847,16 @@
 :DivisorCount a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The number of positive divisors of a positive integer and its relationship to the exponents in a prime factorization.";
     rdfs:comment "12 = 2^2 * 3 has (2 + 1)(1 + 1) = 6 positive divisors.";
-    edu:partOf :ArithmeticFunctions.
+    edu:partOf :NumberTheoreticFunctions.
 :DivisorSum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The sum of the positive divisors of a positive integer and its relationship to prime factorization.";
     rdfs:comment "The positive divisors of 12 have sum 1 + 2 + 3 + 4 + 6 + 12 = 28.";
-    edu:partOf :ArithmeticFunctions.
+    edu:partOf :NumberTheoreticFunctions.
+:DoubleCounting a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Establishing a cardinality relationship by counting the same finite collection in two different ways.";
+    rdfs:comment "Counting each handshake at its two participants gives 5 * 4 = 2h, so h = 10 when five people all shake hands once.";
+    edu:integrates :FiniteSetCardinality;
+    edu:partOf :CountingPrinciples.
 :ElementaryDerivativeIdentities a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identities giving derivatives of elementary real functions on their differentiability domains, with trigonometric arguments measured in radians.";
     rdfs:comment "(x^3)' = 3x^2; (ln(x))' = 1/x for x > 0; (sin(x))' = cos(x).";
@@ -680,6 +864,10 @@
 :EmergentFeatureRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizing a recurring, alternating, invariant, or otherwise systematic property of generated pattern elements that follows from, but is not itself, the generative rule.";
     edu:specializes :PatternRecognition.
+:EmpiricalDistributionShape a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The overall arrangement of observed frequencies across values, including symmetry, skewness, peaks, gaps, and clusters.";
+    rdfs:comment "Journey times concentrated near 15 minutes with a long tail toward longer journeys.";
+    edu:partOf :DescriptiveStatistics.
 :EntrywiseCombination a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Addition or subtraction of coordinate vectors or matrices over a common field by applying the corresponding scalar operation at each matching entry. Operands have the same shape, and coordinate-vector interpretations use a common ordered basis.";
     rdfs:comment "(3, 1) - (1, 4) = (2, -3); [[1, 2], [3, 4]] + [[5, 6], [7, 8]] = [[6, 8], [10, 12]].";
@@ -706,6 +894,11 @@
     rdfs:isDefinedBy "Intuitively guessing relative quantities and sizes without counting.";
     edu:expands :NumericComparison;
     edu:specializes :NumericApproximation.
+:EstimatorBias a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The difference between an estimator's expected value under a specified sampling model and the parameter being estimated.";
+    rdfs:comment "Using the sample's maximum to estimate the upper endpoint of a continuous uniform population produces downward bias.";
+    edu:integrates :ExpectedValue, :ParameterEstimation;
+    edu:partOf :StatisticalEstimation.
 :EuclideanAlgorithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining the greatest common divisor of two integers, not both zero, by successive Euclidean divisions of their absolute values, preserving the common divisors at each reduction.";
     rdfs:comment "Reducing (48, 18) to (18, 12), then (12, 6), and obtaining greatest common divisor 6.";
@@ -722,7 +915,7 @@
 :EulersTotient a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The number of integers from 1 through a positive integer n that are coprime to n, and its dependence on the prime factors of n.";
     rdfs:comment "phi(12) = 4, counting 1, 5, 7, and 11; phi(1) = 1.";
-    edu:partOf :ArithmeticFunctions.
+    edu:partOf :NumberTheoreticFunctions.
 :EvenDivisibility a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the divisor is two, permitting the source collection to be partitioned into exactly two subcollections of equal cardinality. The result identifies the source cardinality as an even integer, consisting of a quotient that represents the shared cardinality of the subcollections and a remainder of zero.";
     edu:expands :SetComparison, :Subitizing;
@@ -735,6 +928,24 @@
     rdfs:isDefinedBy "Symmetry of a real function under negation of its input, with a domain closed under negation and f(-x) = f(x) throughout that domain.";
     rdfs:comment "f(x) = x^2 is even on the real numbers; its restriction to [0, infinity) lacks a domain closed under negation.";
     edu:specializes :FunctionSymmetry.
+:EventIndependence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The condition that probabilities of intersections equal products of probabilities for every finite subcollection of the specified events. Pairwise independence alone need not establish independence of a larger collection.";
+    rdfs:comment "The first and second results of independent coin tosses; two disjoint events of positive probability that are not independent.";
+    edu:partOf :ProbabilityFoundations.
+:ExhaustiveEnumeration a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Systematic listing of every admissible finite configuration exactly once, with a check that none is omitted.";
+    rdfs:comment "Listing 00, 01, 10, and 11 as all length-two binary strings.";
+    edu:integrates :FiniteSetCardinality;
+    edu:partOf :CountingPrinciples.
+:ExpectationLinearity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identity equating the expectation of a finite linear combination of integrable random variables to the same combination of their expectations, without requiring independence.";
+    rdfs:comment "E(2X+3Y)=2E(X)+3E(Y), including when X and Y are dependent.";
+    edu:integrates :ExpectedValue;
+    edu:partOf :RandomVariableMoments.
+:ExpectedValue a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The probability-weighted mean of a random variable, formed by a sum or integral when its absolute expectation is finite.";
+    rdfs:comment "A fair six-sided die has expected value 3.5, although no roll equals 3.5.";
+    edu:partOf :RandomVariableMoments.
 :Exponent a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of the input written in the exponent position of a power expression.";
     rdfs:comment "Distinguishing the exponent 3 from the base x in x^3; treating x + 1 as the complete exponent in 2^(x + 1).";
@@ -751,6 +962,10 @@
     rdfs:isDefinedBy "The relationship between a constant proportional rate y'=ky and exponential growth or decay, including the zero equilibrium.";
     rdfs:comment "y'=-0.2y with y(0)=50 gives y(t)=50e^(-0.2t).";
     edu:specializes :AutonomousDifferentialEquationModel.
+:ExponentialDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nature of a nonnegative waiting-time law with density lambda exp(-lambda x) for x >= 0 and rate lambda > 0, including its memoryless property.";
+    rdfs:comment "With rate two per minute, the probability of waiting longer than one minute is exp(-2).";
+    edu:specializes :ContinuousProbabilityDistribution.
 :ExponentialRewriting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Equivalent rewriting of algebraic expressions with designated quantities in exponent positions, preserving their values and applicable base, exponent, and domain restrictions.";
     rdfs:comment "4^x = 2^(2x); 2^(x + 1) = 2*2^x; 3^x*3^(2x) = 3^(3x).";
@@ -780,6 +995,10 @@
     rdfs:isDefinedBy "The multiplicative role of a component of a product, whether written explicitly or implied by the notation.";
     rdfs:comment "Treating x + 2 as one factor alongside 3 in 3(x + 2); making the implied factor -1 explicit in -x.";
     edu:partOf :ExpressionStructure.
+:Factorial a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The product of the integers from 1 through a nonnegative integer n, with the empty product 0! equal to 1.";
+    rdfs:comment "5! = 5 * 4 * 3 * 2 * 1 = 120; 0! = 1.";
+    edu:partOf :ArithmeticOperations.
 :Factorization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Decomposing an integer into a product of integer factors.";
     rdfs:comment "36 = 4 * 9; 36 = 2 * 2 * 3 * 3.";
@@ -793,6 +1012,14 @@
     rdfs:isDefinedBy "The identity equating the sum of n geometric terms beginning with a, of common ratio r, to a(1 - r^n)/(1 - r) for positive integer n and r != 1. For r = 1, the sum is na.";
     rdfs:comment "3 + 6 + 12 + 24 = 3(1 - 2^4)/(1 - 2) = 45.";
     edu:specializes :AlgebraicEquivalence.
+:FiniteMarkovChain a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A process on a finite state set whose next-state distribution, given its history, depends only on the present state.";
+    rdfs:comment "A two-state weather model whose tomorrow probabilities depend on today but not earlier weather.";
+    edu:partOf :StochasticProcesses.
+:FiniteSetCardinality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The number of distinct elements in a finite set, independent of their order or repeated listing.";
+    rdfs:comment "The set {a, a, b} has cardinality 2; the empty set has cardinality 0.";
+    edu:partOf :SetTheory.
 :FirstDerivativeExtremumTest a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Classifying a candidate local extremum of a continuous function by first-derivative signs on the two neighboring intervals.";
     rdfs:comment "The derivative of x^2 changes from negative to positive at 0, giving a local minimum.";
@@ -875,6 +1102,10 @@
     rdfs:isDefinedBy "The role of a variable occurrence not governed by a binding construct within the expression under consideration.";
     rdfs:comment "Distinguishing the free variable x from the bound index i in sum_(i=1)^4 i*x; identifying x as free in x + 3.";
     edu:specializes :Variable.
+:FrequencyDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The counts of observations assigned to distinct values, categories, or defined intervals, including joint and marginal counts for several variables.";
+    rdfs:comment "Travel-mode counts of 12 walkers, 8 cyclists, and 10 bus passengers; row and column totals in a two-way table.";
+    edu:partOf :DescriptiveStatistics.
 :FunctionArgument a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a value or expression supplied explicitly to an input position in a function application.";
     rdfs:comment "Treating x + 1 as the complete argument in f(x + 1); distinguishing the arguments a and b in max(a, b); treating g(x) as the argument of f in f(g(x)).";
@@ -1049,6 +1280,10 @@
     rdfs:isDefinedBy "The fundamental objects, quantities, and structures used to describe geometric space.";
     rdfs:comment "Points, lines, planes, angles, and vectors.";
     edu:partOf :Geometry.
+:GeometricDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nature of the number of independent Bernoulli trials up to and including the first success with fixed probability 0 < p <= 1. The support begins at one.";
+    rdfs:comment "For p=1/2, the probability that the first success is on trial three is 1/8.";
+    edu:specializes :DiscreteProbabilityDistribution.
 :GeometricObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of specific geometric shapes and figures in one, two, and three dimensions.";
     edu:partOf :Geometry.
@@ -1100,6 +1335,19 @@
     rdfs:isDefinedBy "A derivative function obtained by repeated differentiation, of order at least two, on the inputs where the successive derivatives exist.";
     rdfs:comment "For f(x) = x^3, f''(x) = 6x and f'''(x) = 6.";
     edu:specializes :DerivativeFunction.
+:HypergeometricDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nature of a success count in a uniformly chosen fixed-size sample without replacement from a finite population containing a fixed number of successes.";
+    rdfs:comment "The number of red balls in three draws without replacement from five red and seven blue balls.";
+    edu:integrates :BinomialCoefficient;
+    edu:specializes :DiscreteProbabilityDistribution.
+:HypothesisTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A data-based assessment of a null claim against a specified alternative using a reference model and a decision rule with stated exact or approximate control of false-rejection probability.";
+    rdfs:comment "Rejecting a fair-coin model when a specified number of heads in 100 tosses falls in a preselected rejection region.";
+    edu:partOf :HypothesisTesting.
+:HypothesisTesting a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Statistical procedures and decision principles for assessing claims against observed data under explicit sampling assumptions.";
+    rdfs:comment "Testing a claimed coin probability and distinguishing false rejection from failure to detect a change.";
+    edu:partOf :Statistics.
 :IdentityMatrix a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A square matrix with ones on the main diagonal and zeros elsewhere, acting as a multiplicative identity when its size matches the relevant side of a matrix product.";
     rdfs:comment "[[1, 0], [0, 1]] leaves every two-component column vector unchanged.";
@@ -1118,6 +1366,12 @@
     rdfs:isDefinedBy "Integration over an unbounded interval or past an unbounded integrand by taking limits of proper integrals. Each side of every interior singularity and each unbounded end must converge separately for a finite ordinary improper integral.";
     rdfs:comment "integral_1^infinity x^(-2) dx = 1, whereas integral_1^infinity 1/x dx diverges.";
     edu:partOf :IntegralCalculus.
+:InclusionExclusionPrinciple a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The size of a union of finitely many finite sets as the alternating sum of individual-set and intersection sizes, correcting repeated counts.";
+    rdfs:comment "If 8 students study French, 6 study German, and 3 study both, 8 + 6 - 3 = 11 study at least one.";
+    edu:expands :SumCountingPrinciple;
+    edu:integrates :SetIntersection;
+    edu:partOf :CountingPrinciples.
 :Increment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a quantity by a certain amount.";
     edu:expands :NumericOrder;
@@ -1221,6 +1475,11 @@
     rdfs:isDefinedBy "The guarantee that a real function continuous on a closed interval takes every value between its endpoint values.";
     rdfs:comment "Continuity and opposite signs of x^3 + x - 1 at 0 and 1 guarantee a zero between them.";
     edu:partOf :FunctionTheorems.
+:InterquartileRange a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The difference between the upper and lower quartiles of numerical data, using the same quartile convention.";
+    rdfs:comment "Lower and upper quartiles of 8 and 15 give an interquartile range of 7.";
+    edu:integrates :Quartile;
+    edu:specializes :DispersionMeasure.
 :IntersectionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identifying the objects that belong to each of two overlapping collections.";
     rdfs:comment "Identifying the objects in the overlap of two physical hoops or two represented groups.";
@@ -1256,6 +1515,10 @@
     rdfs:isDefinedBy "Repeatedly applying the exact same operation, evaluation or rule an exact number of times.";
     edu:expands :Numeration;
     edu:partOf :FoundationalOperations.
+:JointDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The probability law of a tuple of random variables, recording their combined values and dependence.";
+    rdfs:comment "A table of the joint probabilities for two dice, with row and column totals giving their individual laws.";
+    edu:partOf :RandomVariableTheory.
 :Kite a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quadrilateral with two distinct pairs of equal-length sides that are adjacent to each other.";
     edu:expands :SymmetryRelation;
@@ -1265,6 +1528,10 @@
     rdfs:comment "Sides 3 and 4 enclosing 60 degrees give opposite side sqrt(13); enclosing 90 degrees gives opposite side 5.";
     edu:expands :PythagoreanTheorem;
     edu:partOf :TriangleTrigonometricRelations.
+:LawOfLargeNumbers a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The convergence in probability of sample averages to the common mean for independent identically distributed random variables with finite absolute expectation.";
+    rdfs:comment "The proportion of heads in independent fair tosses approaches 1/2 in probability as the number of tosses grows.";
+    edu:partOf :ProbabilityLimitTheorems.
 :LawOfSines a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The equality a/sin(A) = b/sin(B) = c/sin(C) for positive side lengths a, b, c and their opposite interior angles A, B, C in a nondegenerate Euclidean triangle.";
     rdfs:comment "A = 30 degrees, a = 3, and B = 60 degrees give b = 3sqrt(3).";
@@ -1273,6 +1540,11 @@
     rdfs:isDefinedBy "The least positive integer divisible by every member of a finite nonempty collection of nonzero integers, extended to zero when any member is zero.";
     rdfs:comment "lcm(8, 12) = 24; lcm(-6, 8) = 24; lcm(0, 8) = 0.";
     edu:partOf :IntegerDivisibility.
+:LeastSquaresFit a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Fitting a specified model to observed data by minimizing the sum of squared differences between observed and predicted responses.";
+    rdfs:comment "Choosing a fitted line that minimizes the sum of squared vertical residuals.";
+    edu:integrates :RegressionResidual;
+    edu:partOf :BivariateStatistics.
 :LengthCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the linear extent or measurement of a geometric object.";
     edu:expands :DistanceCalculation;
@@ -1380,6 +1652,26 @@
     rdfs:comment "2/5 and 3/7 can be written as 6/15 and 6/14 using the lowest common numerator 6.";
     edu:expands :FactorsAndMultiples;
     edu:partOf :FractionStrategies.
+:MarginOfError a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The distance from a point estimate to an endpoint of a specified uncertainty interval, linked to its confidence procedure and assumptions.";
+    rdfs:comment "An estimate 0.46 with interval [0.42, 0.50] has a margin of error of 0.04 on each side.";
+    edu:integrates :ConfidenceInterval;
+    edu:partOf :StatisticalEstimation.
+:MarkovInequality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The bound P(X >= a) <= E(X)/a for nonnegative X with finite expectation and a > 0.";
+    rdfs:comment "A nonnegative waiting time with mean two minutes exceeds or equals ten minutes with probability at most 0.2.";
+    edu:integrates :ExpectedValue;
+    edu:partOf :ProbabilityLimitTheorems.
+:MarkovStateDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The probability vector over states of a finite Markov chain and its propagation by pi_(n+1)=pi_n P for a time-homogeneous row transition matrix.";
+    rdfs:comment "Starting at pi_0=[1,0] with P=[[0.8,0.2],[0.3,0.7]] gives pi_1=[0.8,0.2].";
+    edu:integrates :MarkovTransitionMatrix, :RowColumnProduct;
+    edu:partOf :StochasticProcesses.
+:MarkovTransitionMatrix a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The row-stochastic matrix P of a time-homogeneous finite Markov chain, with entry P(i,j) giving the probability of state j next given state i now.";
+    rdfs:comment "P=[[0.8,0.2],[0.3,0.7]] gives a 0.2 chance of moving from the first state to the second.";
+    edu:integrates :ConditionalProbability, :MatrixStructure;
+    edu:partOf :StochasticProcesses.
 :MathematicalExpression a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The syntax and meaning of well-formed finite symbolic forms denoting a value without asserting a relation at their outermost level, including single value-denoting symbols.";
     rdfs:comment "Distinguishing the value-denoting form 3x + 2 from the assertion 3x + 2 = 11; interpreting 5, x, and sin(x) as expressions.";
@@ -1431,6 +1723,15 @@
     rdfs:comment "x + y = 7 and x - y = 1 correspond to [[1, 1], [1, -1]][x, y]^T = [7, 1]^T.";
     edu:integrates :RowColumnProduct;
     edu:partOf :LinearSystems.
+:MeanAbsoluteDeviation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The arithmetic mean of the absolute deviations of a nonempty finite collection of numerical observations from their arithmetic mean.";
+    rdfs:comment "The data 1, 3, and 5 have mean absolute deviation (2 + 0 + 2)/3 = 4/3.";
+    edu:specializes :DispersionMeasure.
+:MeanTTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A hypothesis test of a population mean or difference of means using a standardized mean statistic and a Student t reference distribution under the required model conditions or a justified approximation.";
+    rdfs:comment "Testing a normal population mean with (sampleMean - mu0)/(sampleSD/sqrt(n)) and n-1 degrees of freedom.";
+    edu:integrates :StudentTDistribution;
+    edu:specializes :HypothesisTest.
 :MeanValueTheorem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The guarantee of an interior point c with f'(c) = (f(b)-f(a))/(b-a) for a real function continuous on [a,b] and differentiable on (a,b), with a < b.";
     rdfs:comment "For f(x) = x^2 on [1,3], c = 2 gives the secant slope 4.";
@@ -1439,6 +1740,10 @@
     rdfs:isDefinedBy "Comparing or quantifying a measurable attribute, either qualitatively or by assigning a value relative to a unit.";
     rdfs:comment "Comparing two lengths directly, reading a weight, or measuring a duration.";
     edu:partOf :SpatialSense.
+:MeasurementScale a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The distinctions and comparisons supported by nominal, ordinal, interval, and ratio scales of statistical variables.";
+    rdfs:comment "Travel mode is nominal, a satisfaction ranking is ordinal, Celsius temperature has an interval scale, and duration has a ratio scale.";
+    edu:partOf :StatisticalData.
 :MeasuringLength a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining or comparing the linear extent or one-dimensional distance of manifested objects directly, through an intermediary, or by using tools and units.";
     edu:specializes :MeasuringObjects.
@@ -1458,6 +1763,10 @@
 :MeasuringWithUnits a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of standard units used to quantify physical properties, including their relative sizes, systems, and conversions.";
     edu:partOf :Measurement.
+:Median a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The middle location of ordered numerical data, using the central value for an odd count and the arithmetic mean of the two central values for an even count.";
+    rdfs:comment "The median of 2, 4, and 9 is 4; the median of 2, 4, 8, and 10 is 6.";
+    edu:specializes :Quantile.
 :MidpointCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of finding the exact center point of a line segment on the coordinate plane by averaging the coordinates of its endpoints.";
     edu:partOf :GeometricCalculations.
@@ -1465,6 +1774,10 @@
     rdfs:isDefinedBy "The role of the input from which another input is subtracted in a subtraction expression.";
     rdfs:comment "Treating x + 2 as the complete minuend in (x + 2) - y; distinguishing the minuend a from the subtrahend b in a - b.";
     edu:specializes :Operand.
+:Mode a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A value or category occurring with maximal frequency in observed data, allowing ties.";
+    rdfs:comment "The modes of 1, 1, 2, 2, and 3 are 1 and 2.";
+    edu:partOf :DescriptiveStatistics.
 :ModularArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Congruence classes of integers and the arithmetic, equations, and power relationships defined modulo a positive integer.";
     rdfs:comment "Adding residue classes modulo 5; finding a multiplicative inverse modulo 7; solving 6x congruent to 9 modulo 15.";
@@ -1478,6 +1791,16 @@
     edu:expands :Division;
     edu:partOf :BaseOperations;
     edu:translates :ImperfectDivisibility.
+:MonteCarloEstimation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Approximating a quantity by a sample average or frequency generated from a probability model, with sampling variation in the approximation.";
+    rdfs:comment "Estimating pi from the fraction of uniform points in a unit square lying inside a quarter-circle.";
+    edu:integrates :LawOfLargeNumbers, :SamplingSimulation;
+    edu:partOf :ProbabilityMethods.
+:MultinomialCoefficient a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The number n!/(n_1!...n_r!) of partitions of an n-element set into labeled groups of prescribed nonnegative sizes n_1 through n_r summing to n, equivalently counting arrangements with those fixed multiplicities.";
+    rdfs:comment "The letters of LETTER have 6!/(2!2!) = 180 distinct linear arrangements.";
+    edu:expands :BinomialCoefficient;
+    edu:partOf :CombinatorialEnumeration.
 :Multiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Combining numerical factors to determine their product, corresponding to equal groups for nonnegative whole-number factors.";
     rdfs:comment "Three groups of four have a total of twelve, expressed as 3 × 4 = 12. Fractional factors also describe proportional scaling.";
@@ -1497,6 +1820,11 @@
     rdfs:isDefinedBy "Multiplying by decomposing one or both factors and combining the products of the resulting parts.";
     edu:expands :DistributiveLaw, :Multiplication, :PlaceValue;
     edu:partOf :IntegerStrategies.
+:MultiplicationProbabilityRule a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The factorization of an intersection probability into a positive-probability conditioning event and a conditional probability, iterated along successive events when each conditioning probability is defined.";
+    rdfs:comment "Drawing two red balls without replacement from three red and two blue balls has probability (3/5)(2/4).";
+    edu:integrates :ConditionalProbability;
+    edu:partOf :ProbabilityRules.
 :MultiplicationStandardAlgorithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventional base-ten multiplication algorithm that obtains and combines place-aligned partial products in its standard written form.";
     edu:expands :IntegerRegrouping, :MultiplicationPartialProducts;
@@ -1504,12 +1832,21 @@
 :MultiplicativeArithmeticFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A number-valued function on the positive integers with f(1) = 1 and f(mn) = f(m)f(n) for coprime positive integers m and n.";
     rdfs:comment "Multiplying the divisor counts of 4 and 3 to obtain the divisor count of 12: 3 * 2 = 6.";
-    edu:partOf :ArithmeticFunctions.
+    edu:partOf :NumberTheoreticFunctions.
 :NewtonMethod a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Approximating a root through x_(n+1)=x_n-f(x_n)/f'(x_n) where the derivative is nonzero, using tangent-line roots as successive estimates. Convergence depends on the function and starting value.";
     rdfs:comment "For x^2-2 from x_0=1, the first two updates are 1.5 and 17/12.";
     edu:integrates :LinearApproximation;
     edu:partOf :CalculusApproximation.
+:NormalApproximation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Approximating a probability law by a normal distribution under justified parameter or sample-size conditions, including continuity correction for integer-valued events.";
+    rdfs:comment "Approximating P(X <= 45) for X binomial with n=100 and p=0.5 by a normal probability through 45.5.";
+    edu:integrates :NormalDistribution;
+    edu:partOf :ProbabilityMethods.
+:NormalDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nature of a real probability law with density exp(-(x-mu)^2/(2 sigma^2))/(sigma sqrt(2pi)), determined by its mean mu and positive standard deviation sigma.";
+    rdfs:comment "A normal model with mean 100 and standard deviation 15; its standardized variable has mean zero and standard deviation one.";
+    edu:specializes :ContinuousProbabilityDistribution.
 :NthTermDivergenceTest a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The necessary condition that terms of a convergent series tend to zero. A nonzero or nonexistent term limit proves divergence, while a zero term limit is inconclusive.";
     rdfs:comment "The terms n/(n+1) tend to 1, so their series diverges.";
@@ -1538,6 +1875,10 @@
 :NumberSystems a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The membership relationships, extensions, and operation-dependent properties of systems of numbers.";
     rdfs:comment "The inclusion of integers in the rational numbers; real and imaginary parts of complex numbers; irrational results of mixed rational and irrational operations.";
+    edu:partOf :NumberTheory.
+:NumberTheoreticFunctions a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of numerical functions on positive integers through divisibility, coprimality, prime factorization, and relationships among their values.";
+    rdfs:comment "Counting the positive divisors of 12; determining how many integers from 1 through 12 are coprime to 12.";
     edu:partOf :NumberTheory.
 :NumberTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The properties and relationships of integers and number systems, including divisibility, prime structure, congruences, integer equations, rationality, and numerical extensions.";
@@ -1612,6 +1953,10 @@
     rdfs:comment "Sorting objects by color, shape, or size. Sorting forms groups; identifying a subgroup need not rearrange the collection.";
     edu:expands :GroupRecognition;
     edu:partOf :CollectionSense.
+:ObservationalStudy a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Data collection without assigning the exposures or treatments whose relationships are being investigated.";
+    rdfs:comment "Recording existing exercise habits and blood pressure without assigning exercise routines.";
+    edu:partOf :StudyDesign.
 :ObtuseAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures more than 90 degrees but less than 180 degrees.";
     edu:specializes :AngleConcept.
@@ -1658,6 +2003,20 @@
     rdfs:comment "Explaining why the pair (3, 6) differs from (6, 3), or forming a pair from corresponding terms in two patterns. The component order determines the pair's meaning independently of whether a point is plotted.";
     edu:expands :CoordinateAxes;
     edu:partOf :GeometricVisualization.
+:OrderedSelectionCounting a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Counting finite selections in which positions distinguish outcomes, subject to stated restrictions on repetition and available choices.";
+    rdfs:comment "Treating AB and BA as different two-position codes and deciding whether AA is admissible.";
+    edu:partOf :CombinatorialEnumeration.
+:OrderedSelectionWithoutRepetition a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Counting length-k lists of distinct elements from an n-element set, giving n!/(n-k)! for integers 0 <= k <= n.";
+    rdfs:comment "Assigning first, second, and third places among seven competitors gives 7 * 6 * 5 = 210 outcomes.";
+    edu:integrates :ProductCountingPrinciple;
+    edu:specializes :OrderedSelectionCounting.
+:OrderedSelectionWithRepetition a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Counting length-k lists from n available distinct values when every value is available at every position, giving n^k for positive integer n and nonnegative integer k.";
+    rdfs:comment "There are 10^3 = 1000 three-digit codes when leading zeros and repeated digits are allowed.";
+    edu:integrates :ProductCountingPrinciple;
+    edu:specializes :OrderedSelectionCounting.
 :OrderOfOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions determining how operators bind to subexpressions in written mathematical notation, including precedence and the prescribed grouping of operators at equal precedence.";
     rdfs:comment "Interpreting a + b × c as a + (b × c); interpreting a - b - c as (a - b) - c.";
@@ -1683,6 +2042,10 @@
     rdfs:isDefinedBy "The role of a variable held fixed within one member of a family of expressions, relations, or functions, whose value may differ between members of that family.";
     rdfs:comment "Holding m and b fixed while x varies in one member of the family y = mx + b; changing m to select another member of that family.";
     edu:specializes :Variable.
+:ParameterEstimation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Using a statistic or specified data-based procedure to estimate an unknown population or model parameter.";
+    rdfs:comment "Estimating the town's cycling proportion by 18/60 from a random sample.";
+    edu:partOf :StatisticalEstimation.
 :ParametricAreaIntegration a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Expressing geometric area through a piecewise continuously differentiable parameterization by integrating nonnegative slice lengths against a monotone coordinate, subdividing intervals and choosing orientation to preserve boundary order and count the region once.";
     rdfs:comment "For x=t^2,y=t,0<=t<=1, the area under the curve is integral_0^1 t(2t) dt=2/3.";
@@ -1712,6 +2075,11 @@
 :PartitiveDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection and the required number of equal subcollections are given. Every source object is assigned to exactly one subcollection, and the quotient is the shared cardinality of each resulting subcollection.";
     edu:specializes :DivisionOfCollections.
+:PascalIdentity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The recurrence binom(n+1,k) = binom(n,k-1) + binom(n,k) for integers n >= 1 and 1 <= k <= n, together with the boundary values binom(n,0) = binom(n,n) = 1.";
+    rdfs:comment "binom(6,2) = binom(5,1) + binom(5,2) = 5 + 10 = 15.";
+    edu:integrates :BinomialCoefficient;
+    edu:specializes :AlgebraicEquivalence.
 :PatternCorrespondence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identifying a systematic relationship between aligned elements of two patterns.";
     edu:expands :PatternRecognition;
@@ -1726,6 +2094,10 @@
 :PatternRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizing that a sequence or configuration exhibits a systematic regularity.";
     edu:partOf :PatternMatching.
+:PearsonCorrelation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The normalized sum of paired centered cross-products measuring linear association between two numerical variables, each with positive empirical variance.";
+    rdfs:comment "Paired data (1,2), (2,4), and (3,6) have correlation 1; a curved pattern can have correlation near zero.";
+    edu:partOf :BivariateStatistics.
 :Pentagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with five edges and five vertices.";
     edu:specializes :Polygon.
@@ -1749,6 +2121,11 @@
     rdfs:comment "Adding the side lengths of a polygon.";
     edu:expands :LengthCalculation;
     edu:partOf :GeometricCalculations.
+:PermutationCounting a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Counting linear arrangements of every member of an n-element set exactly once, giving n! for nonnegative integer n.";
+    rdfs:comment "Four different books have 4! = 24 orders on a shelf.";
+    edu:integrates :Factorial;
+    edu:specializes :OrderedSelectionWithoutRepetition.
 :PerpendicularityRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between two geometric objects that intersect at a right angle (90 degrees).";
     edu:expands :IntersectionRelation;
@@ -1764,6 +2141,11 @@
     rdfs:isDefinedBy "The definition of a function by separate rules on stated parts of its input domain, with one unambiguous output at every admissible input. Rules assigned to overlapping parts must agree there.";
     rdfs:comment "Constructing f(x) = -x for x < 0 and f(x) = x for x >= 0; expressing a delivery charge of 5 for orders below 50 and 0 for orders of at least 50.";
     edu:partOf :FunctionTypes.
+:PigeonholePrinciple a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The guarantee that assigning more than k*m objects to m places puts at least k+1 objects in some place, for positive integer m and nonnegative integer k.";
+    rdfs:comment "Among 25 people, at least three share a birth month because 25 > 2 * 12.";
+    edu:integrates :FiniteSetCardinality;
+    edu:partOf :CountingPrinciples.
 :PlaceValue a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The numerical value that a digit has by virtue of its position in a number.";
     edu:expands :ZeroConcept;
@@ -1780,6 +2162,10 @@
     rdfs:isDefinedBy "The process of locating and marking a point on a coordinate plane using a pair of numerical coordinates.";
     edu:expands :NumericOrder, :OrderedCoordinatePair, :PointConcept;
     edu:partOf :GeometricVisualization.
+:PoissonDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nature of a count distribution with parameter lambda > 0 and probabilities exp(-lambda) lambda^k/k! for nonnegative integers k, with mean and variance lambda.";
+    rdfs:comment "A model assigning mean three arrivals per interval to an arrival count.";
+    edu:specializes :DiscreteProbabilityDistribution.
 :PolarAreaIntegration a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Expressing area swept by a polar curve as one half the integral of squared radius with respect to angle, with intervals and multiplicity chosen to describe the intended region.";
     rdfs:comment "For r=2 on 0<=theta<=pi/2, the sector area is integral_0^(pi/2) 2 dtheta=pi.";
@@ -1812,6 +2198,10 @@
     rdfs:isDefinedBy "The equality between the remainder when a polynomial p(x) is divided by x - a and the value p(a), over a stated coefficient field containing a.";
     rdfs:comment "Dividing p(x) = x^2 + 1 by x - 2 leaves remainder 5 = p(2).";
     edu:partOf :AlgebraicTheorems.
+:PopulationParameter a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A numerical characteristic of a specified population or probability model, distinguished from a statistic calculated from observed sample data.";
+    rdfs:comment "The proportion of all town residents who commute by bicycle.";
+    edu:partOf :StatisticalData.
 :PositionalRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships describing how geometric lines, planes, or segments interact, intersect, or positionally relate to one another in space.";
     edu:partOf :GeometricRelations.
@@ -1855,6 +2245,59 @@
     rdfs:isDefinedBy "A solid geometric figure that has two congruent and parallel bases and lateral faces that are parallelograms.";
     edu:expands :Parallelogram;
     edu:specializes :Polyhedron.
+:Probability a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The mathematical study of random outcomes, their likelihoods, and the behavior of random quantities and processes.";
+    rdfs:comment "Modeling repeated coin tosses; comparing the chances of different outcomes.".
+:ProbabilityAxioms a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Nonnegativity, total probability one, and countable additivity for disjoint events as the consistency conditions of a probability model.";
+    rdfs:comment "For disjoint die events {1,2} and {3}, adding their probabilities gives the probability of {1,2,3}.";
+    edu:partOf :ProbabilityFoundations.
+:ProbabilityDensityFunction a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A nonnegative integrable function with total integral one that assigns probabilities to intervals by integration; its height is not a point probability.";
+    rdfs:comment "A uniform density of two on [0,1/2] gives P(0 <= X <= 1/4)=1/2.";
+    edu:integrates :DefiniteIntegral;
+    edu:partOf :RandomVariableTheory.
+:ProbabilityDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The assignment of probabilities to possible values or sets of values of random quantities.";
+    rdfs:comment "A fair die assigns probability 1/6 to each value from one through six.";
+    edu:partOf :RandomVariableTheory.
+:ProbabilityEvent a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A collection of outcomes in a sample space to which the probability model assigns a probability.";
+    rdfs:comment "The event {2,4,6} for an even result on a six-sided die.";
+    edu:partOf :ProbabilityFoundations.
+:ProbabilityFoundations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The experiments, outcome sets, events, random variables, models, and consistency conditions used to describe uncertainty.";
+    rdfs:comment "Distinguishing an individual die outcome from the event of rolling an even number.";
+    edu:partOf :Probability.
+:ProbabilityLimitTheorems a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Bounds and convergence results describing fluctuations, repeated random trials, and distributional approximation.";
+    rdfs:comment "Bounding the chance of a large deviation; explaining stabilization of sample averages.";
+    edu:partOf :Probability.
+:ProbabilityMassFunction a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The function assigning each possible value of a discrete random variable its probability, with nonnegative values summing to one.";
+    rdfs:comment "For the number of heads in two fair tosses, p(0)=1/4, p(1)=1/2, and p(2)=1/4.";
+    edu:partOf :RandomVariableTheory.
+:ProbabilityMethods a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Methods for generating, approximating, and comparing outcomes within specified probability models.";
+    rdfs:comment "Simulating repeated trials; approximating a binomial tail with a normal model.";
+    edu:partOf :Probability.
+:ProbabilityModel a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A mathematical description assigning probabilities to events of a specified random experiment, with assumptions that can be compared with observations.";
+    rdfs:comment "Assigning probability 1/6 to each face of a fair die; questioning that model after strongly uneven observed frequencies.";
+    edu:partOf :ProbabilityFoundations.
+:ProbabilityNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conventions for denoting event probabilities, conditioning, probability distributions, and expectations of random quantities.";
+    rdfs:comment "Reading P(A given B) as conditioning on B, X~B(10,0.5) as a distribution assertion, and E(X) as an expectation.";
+    edu:partOf :FormalMathematics.
+:ProbabilityRules a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Rules for deriving event probabilities from a probability model and relationships among events.";
+    rdfs:comment "Computing a union probability; updating a probability after observing evidence.";
+    edu:partOf :Probability.
+:ProductCountingPrinciple a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The product of the choice counts at successive stages when each stage has the same number of admissible choices for every earlier admissible choice sequence.";
+    rdfs:comment "Choosing a chair and then a different vice-chair from five people gives 5 * 4 = 20 assignments.";
+    edu:integrates :FiniteSetCardinality;
+    edu:partOf :CountingPrinciples.
 :ProductRule a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identity (fg)' = f'g + fg' at inputs where both real functions are differentiable.";
     rdfs:comment "(x^2 sin(x))' = 2x sin(x) + x^2 cos(x).";
@@ -1887,6 +2330,10 @@
     rdfs:isDefinedBy "Understanding and reasoning about relative quantities through ratios and proportional relationships.";
     rdfs:comment "Recognizing that doubling every ingredient preserves a mixture's proportions.";
     edu:partOf :IntuitiveMathematics.
+:PValue a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The probability, under a specified null model, of a test-statistic result at least as incompatible with that model as the observed result, using the test's stated ordering of outcomes.";
+    rdfs:comment "An upper-tail coin test reports p=0.03 for obtaining at least as many heads as observed under the null probability.";
+    edu:partOf :HypothesisTesting.
 :Pyramid a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polyhedron formed by connecting a polygonal base and a point, called the apex.";
     edu:expands :Rectangle, :Triangle;
@@ -1927,10 +2374,18 @@
 :Quadrilateral a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with four edges and four vertices.";
     edu:specializes :Polygon.
+:Quantile a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A value marking a specified cumulative fraction of a nonempty ordered data collection under a stated convention, with ties and interpolation accounted for.";
+    rdfs:comment "For the values 1 through 9, the nearest-rank convention gives 9 as the 90th percentile.";
+    edu:partOf :DescriptiveStatistics.
 :QuarterCircle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A two-dimensional geometric figure bounded by a quarter-circle arc and two perpendicular radii, representing one fourth of a circle.";
     rdfs:comment "One of four congruent regions formed by two perpendicular diameters.";
     edu:partOf :CircularShapes.
+:Quartile a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A quantile at one quarter, one half, or three quarters of the cumulative distribution of ordered data, with a stated finite-data convention.";
+    rdfs:comment "For the values 1 through 8, taking medians of the two halves gives lower quartile 2.5 and upper quartile 6.5.";
+    edu:specializes :Quantile.
 :QuotativeDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection and the required cardinality of each equal subcollection are given. Every source object is assigned to exactly one subcollection, and the quotient is the number of resulting subcollections.";
     edu:specializes :DivisionOfCollections.
@@ -1945,6 +2400,43 @@
 :RadiusDiameterRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The proportional relationship stating that the diameter of a circle is exactly twice the length of its radius.";
     edu:partOf :CircleRelations.
+:RandomExperiment a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A specified procedure with an uncertain outcome among identifiable possibilities.";
+    rdfs:comment "Rolling a die once; recording the waiting time until the next bus.";
+    edu:partOf :ProbabilityFoundations.
+:RandomizationTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A hypothesis test that compares an observed statistic with its distribution under treatment reassignments or label permutations justified by the null hypothesis and study design.";
+    rdfs:comment "Reassigning two treatment labels according to the original randomized design to assess an observed difference in mean outcomes.";
+    edu:specializes :HypothesisTest.
+:RandomizedExperiment a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A study that assigns treatments using a random mechanism to support comparison of their effects under the study conditions.";
+    rdfs:comment "Randomly assigning volunteers to one of two exercise routines and comparing their outcomes.";
+    edu:partOf :StudyDesign.
+:RandomVariable a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A numerical quantity assigning one value to each outcome of a random experiment, with probabilities induced by its event model.";
+    rdfs:comment "Assigning to each sequence of three coin tosses its number of heads.";
+    edu:partOf :ProbabilityFoundations.
+:RandomVariableIndependence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The factorization of joint probabilities into marginal probabilities for every choice of measurable value sets and every finite subcollection of the specified random variables.";
+    rdfs:comment "The outcomes of independently rolled dice; the dependent quantities X and X squared when X is uniform on [-1,1].";
+    edu:partOf :RandomVariableTheory.
+:RandomVariableMoments a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Numerical summaries and identities describing the location, spread, and joint variation of probability laws.";
+    rdfs:comment "Comparing the mean and variance of two payout distributions.";
+    edu:partOf :RandomVariableTheory.
+:RandomVariableStandardDeviation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nonnegative square root of finite variance, expressing probabilistic spread in the same units as the random variable.";
+    rdfs:comment "A random variable with variance 9 square centimeters has standard deviation 3 centimeters.";
+    edu:integrates :RandomVariableVariance;
+    edu:partOf :RandomVariableMoments.
+:RandomVariableTheory a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The probability distributions, dependence, and numerical summaries of random variables.";
+    rdfs:comment "The number of heads in ten tosses and its distribution.";
+    edu:partOf :Probability.
+:RandomVariableVariance a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The expected squared deviation of a random variable from its mean when its second moment is finite.";
+    rdfs:comment "A Bernoulli variable with p=0.5 has variance 0.25.";
+    edu:partOf :RandomVariableMoments.
 :RatioAntecedentInterpretation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Interpreting the first quantity in an ordered ratio and its relationship to the second quantity.";
     rdfs:comment "Explaining what the 2 represents in a ratio of two red objects to three blue objects.";
@@ -2012,6 +2504,14 @@
 :ReflexAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures more than 180 degrees but less than 360 degrees.";
     edu:specializes :AngleConcept.
+:RegressionModel a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A statistical relationship using explanatory values to model a numerical response while accounting for variation around fitted predictions.";
+    rdfs:comment "Fitting a quadratic relationship between speed and stopping distance to measured pairs.";
+    edu:partOf :BivariateStatistics.
+:RegressionResidual a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The difference between an observed response and the response predicted by a fitted model at the same explanatory value.";
+    rdfs:comment "An observed stopping distance of 24 m and a predicted distance of 21 m give a residual of 3 m.";
+    edu:partOf :BivariateStatistics.
 :RelatedRates a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Relating the instantaneous rates of quantities constrained by an equation by differentiating that relationship with respect to their shared parameter.";
     rdfs:comment "Differentiating V = 4pi r^3/3 with respect to time gives dV/dt = 4pi r^2 dr/dt.";
@@ -2020,6 +2520,14 @@
     rdfs:isDefinedBy "The truth of a mathematical equation, inequality, or constraint under a particular admissible assignment to its variables.";
     rdfs:comment "x = 4 satisfies 3x + 2 = 14; x = 5 does not satisfy x < 3; (x, y) = (2, 1) satisfies x + y = 3.";
     edu:partOf :AlgebraicConstraints.
+:RelativeFrequency a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The fraction of a specified collection of observations belonging to a value, category, interval, or joint category.";
+    rdfs:comment "12 of 30 pupils walk to school, giving a relative frequency of 0.4.";
+    edu:partOf :DescriptiveStatistics.
+:RepeatedIndependentTrials a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Repeated random experiments for which events determined by distinct trials are mutually independent, without requiring identical trial distributions.";
+    rdfs:comment "Independent coin tosses with a fixed success probability; independent trials using differently biased coins.";
+    edu:partOf :ProbabilityFoundations.
 :RepeatedIntegrationByParts a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reapplying integration by parts to successive residual integrals to simplify them or obtain a solvable relation among them.";
     rdfs:comment "integral x^2 e^x dx = e^x(x^2-2x+2)+C after two applications.";
@@ -2084,6 +2592,31 @@
     rdfs:isDefinedBy "The fundamental rules that govern the manipulation and evaluation of signed numbers within arithmetic expressions, ensuring the consistent and accurate determination of positive and negative results.";
     edu:expands :SignNotation;
     edu:partOf :ArithmeticLaws.
+:SampleSpace a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The set of all outcomes distinguished by a specified random experiment.";
+    rdfs:comment "For two coin tosses, the outcomes HH, HT, TH, and TT.";
+    edu:partOf :ProbabilityFoundations.
+:SampleStatistic a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A numerical summary calculated from observed sample data without using unknown population parameters.";
+    rdfs:comment "The proportion 18/60 of sampled residents who commute by bicycle.";
+    edu:partOf :StatisticalData.
+:SamplingBias a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Systematic distortion of population conclusions caused by the selection or participation process, distinct from random sampling variation.";
+    rdfs:comment "An online-only transport survey underrepresents residents without internet access.";
+    edu:partOf :StudyDesign.
+:SamplingDesign a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A specified procedure for selecting observational units from a population, including how inclusion is determined and what inference it supports.";
+    rdfs:comment "Selecting households from an address register before interviewing residents.";
+    edu:partOf :StudyDesign.
+:SamplingDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The probability distribution of a statistic across repeated samples generated by a specified sampling design and population model.";
+    rdfs:comment "The distribution of sample proportions across repeated simple random samples of 100 residents.";
+    edu:integrates :ProbabilityDistribution, :SampleStatistic;
+    edu:partOf :StatisticalEstimation.
+:SamplingSimulation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Generating random outcomes according to a specified probability model to examine its behavior over repeated simulated samples.";
+    rdfs:comment "Simulating 10000 sets of ten fair tosses to estimate the probability of at least eight heads.";
+    edu:partOf :ProbabilityMethods.
 :ScalarMatrixMultiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The action of a scalar on a matrix over the same field by multiplying every entry by that scalar, extending componentwise vector scaling to all rows or columns while preserving the matrix's shape.";
     rdfs:comment "2[[1, 3], [2, 4]] = [[2, 6], [4, 8]]; 0[[1, 3], [2, 4]] = [[0, 0], [0, 0]].";
@@ -2149,8 +2682,41 @@
     rdfs:comment "Judging which of two visibly matched groups has extra objects.";
     edu:expands :GroupRecognition, :NumericOrder;
     edu:partOf :CollectionSense.
+:SetComplement a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The difference between a specified universe and one of its subsets, containing exactly the universe's elements outside that subset.";
+    rdfs:comment "Within U = {1, 2, 3, 4, 5, 6}, the complement of {2, 4, 6} is {1, 3, 5}.";
+    edu:specializes :SetDifference.
+:SetDifference a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The set of elements belonging to a first set and not to a second set.";
+    rdfs:comment "{1, 2, 3} minus {2, 4} = {1, 3}.";
+    edu:partOf :SetTheory.
+:SetDisjointness a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The absence of shared elements between two sets, extended to a family by requiring every distinct pair to have empty intersection.";
+    rdfs:comment "{1, 3, 5} and {2, 4, 6} are disjoint; {1, 2} and {2, 3} are not.";
+    edu:partOf :SetTheory.
+:SetInclusion a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship in which every element of one set is also an element of another, including equality and proper inclusion.";
+    rdfs:comment "{1, 3} is a proper subset of {1, 3, 5}; the empty set is a subset of every set.";
+    edu:partOf :SetTheory.
+:SetIntersection a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The set of elements belonging to every one of the given sets.";
+    rdfs:comment "{1, 2} intersection {2, 3} = {2}.";
+    edu:partOf :SetTheory.
+:SetMembership a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship between an object and a set containing that object as an element.";
+    rdfs:comment "For A = {1, 3, 5}, 3 belongs to A and 2 does not.";
+    edu:partOf :SetTheory.
+:SetNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conventions for expressing sets, their elements, membership, inclusion, and set operations using lists, set-builder descriptions, and symbols.";
+    rdfs:comment "Interpreting 3 ∈ {1, 3, 5}, reading {x ∈ Z : x > 0}, and distinguishing element membership a ∈ A from subset inclusion A ⊆ B.";
+    edu:partOf :FormalMathematics.
 :SetTheory a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The branch of mathematics that studies sets, which are collections of objects. It provides a fundamental language and tools for defining and working with mathematical objects.".
+    rdfs:isDefinedBy "The mathematical study of sets, their elements, operations, and relationships.";
+    rdfs:comment "Describing an event as a subset of possible outcomes; forming a Cartesian product of two sets.".
+:SetUnion a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The set of elements belonging to at least one of the given sets.";
+    rdfs:comment "{1, 2} union {2, 3} = {1, 2, 3}.";
+    edu:partOf :SetTheory.
 :ShapeClassification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Classifying geometric shapes by their defining attributes.";
     rdfs:comment "Classifying a figure by its number of sides and the relationships among its angles.";
@@ -2208,6 +2774,10 @@
 :ShapeTranslationConservation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding how a shape can be slid in a specific direction while maintaining its original size, orientation, and form.";
     edu:specializes :ShapeConservation.
+:SignificanceLevel a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A prespecified upper bound on the probability of rejecting a true null hypothesis under the test's null model and assumptions.";
+    rdfs:comment "Selecting a rejection region whose probability under H0 is at most 0.05.";
+    edu:partOf :HypothesisTesting.
 :SignNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for indicating positive and negative numerical values with leading plus and minus signs, independently of magnitude. Either sign leaves zero unchanged.";
     rdfs:comment "Interpreting the minus signs in -4 and -9 as negative despite their different magnitudes; distinguishing +4 from -4; interpreting -0 as zero.";
@@ -2218,6 +2788,10 @@
     edu:expands :ShapeResizingConservation;
     edu:partOf :ShapeEquivalenceRelations;
     edu:translates :ShapeRotationConservation.
+:SimpleRandomSampling a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Selection of a fixed-size sample without replacement so that every subset of that size has the same probability of selection.";
+    rdfs:comment "Selecting 20 distinct pupil identifiers uniformly from a register of 200.";
+    edu:specializes :SamplingDesign.
 :SimpsonRule a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Approximating a definite integral by integrating quadratic interpolants across successive pairs of equal-width subintervals, with an even subinterval count in the composite rule.";
     rdfs:comment "Samples of x^2 at 0, 1/2 and 1 give the exact integral 1/3.";
@@ -2262,11 +2836,83 @@
     rdfs:isDefinedBy "The guarantee that a function bounded between two functions with the same finite limit has that limit, when the bounds hold sufficiently near the approached point or end of the domain.";
     rdfs:comment "From -x^2 <= x^2 sin(1/x) <= x^2, infer a limit of zero at x = 0.";
     edu:partOf :LimitMethods.
+:StandardError a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The standard deviation of a statistic's sampling distribution, or an estimate of that standard deviation under a specified sampling model.";
+    rdfs:comment "For independent observations with standard deviation 12, the mean of 36 observations has standard error 2.";
+    edu:integrates :RandomVariableStandardDeviation, :SamplingDistribution;
+    edu:partOf :StatisticalEstimation.
+:StarsAndBars a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Counting nonnegative integer solutions of x_1 + ... + x_r = n by placing r-1 separators among n identical units, giving binom(n+r-1,r-1) for n >= 0 and r >= 1.";
+    rdfs:comment "Allocating five identical tokens among three named boxes, allowing empty boxes, gives binom(7,2) = 21 allocations.";
+    edu:integrates :BinomialCoefficient;
+    edu:partOf :CombinatorialEnumeration.
+:StationaryDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A probability row vector pi satisfying pi P=pi for a finite Markov transition matrix, remaining unchanged under a step without itself guaranteeing convergence from other initial states.";
+    rdfs:comment "For P=[[0.8,0.2],[0.3,0.7]], pi=[0.6,0.4] is stationary.";
+    edu:integrates :MarkovTransitionMatrix;
+    edu:partOf :StochasticProcesses.
+:StatisticalData a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The units, variables, populations, samples, and variation that give statistical data their meaning.";
+    rdfs:comment "Identifying the pupils, recorded heights, and sampled classes in a school height survey.";
+    edu:partOf :Statistics.
+:StatisticalEstimation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Inference of population or model characteristics from observed data together with the uncertainty and assumptions of those estimates.";
+    rdfs:comment "Estimating a population proportion from a random survey and reporting an interval.";
+    edu:partOf :Statistics.
+:StatisticalExtrapolation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Prediction from a fitted statistical model beyond the range or conditions represented by the observed data, with the model's applicability requiring justification.";
+    rdfs:comment "Using a model fitted to journeys of 1 to 10 km to predict the cost of a 50 km journey.";
+    edu:partOf :BivariateStatistics.
+:StatisticalHypotheses a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Null and alternative claims about a population or data-generating model that specify the statistical comparison being made.";
+    rdfs:comment "H0: p <= 0.5 versus H1: p > 0.5 for a coin's probability of heads.";
+    edu:partOf :HypothesisTesting.
+:StatisticalOutlier a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "An observation unusually separated from the data's overall pattern under a specified contextual or numerical criterion.";
+    rdfs:comment "For 10, 10, 11, 11, 12, 12, and 60, the value 60 lies beyond the upper 1.5-interquartile-range fence when Q1=10 and Q3=12.";
+    edu:partOf :DescriptiveStatistics.
+:StatisticalPopulation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The complete collection of units or possible observations to which a statistical investigation refers.";
+    rdfs:comment "All pupils enrolled in a school on the survey date.";
+    edu:partOf :StatisticalData.
+:StatisticalQuestion a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A question answered through data that anticipates variation among the relevant observations.";
+    rdfs:comment "Asking how daily journey times vary among pupils in a school.";
+    edu:partOf :StudyDesign.
+:StatisticalSample a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A collection of selected units or observations used to describe the collected data or inform conclusions about a population, allowing repeated selections when the sampling design permits them.";
+    rdfs:comment "The 80 pupils whose heights were recorded from a school of 900 pupils.";
+    edu:partOf :StatisticalData.
+:StatisticalVariability a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Differences among observations and the changes in statistical summaries across repeated samples or measurements.";
+    rdfs:comment "Pupils have different journey times; two random samples produce different mean times.";
+    edu:partOf :StatisticalData.
+:StatisticalVariable a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A characteristic recorded for each observational unit, with values that can differ between units.";
+    rdfs:comment "Recording each pupil's travel mode and journey time.";
+    edu:partOf :StatisticalData.
 :Statistics a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The branch of mathematics that provides a framework for collecting, organizing, analyzing, and interpreting data. It provides tools for quantifying and modeling randomness, variability, and uncertainty in data.".
+    rdfs:isDefinedBy "Collection, description, and analysis of data, including inference about populations or data-generating processes and the uncertainty of those conclusions.";
+    rdfs:comment "Summarizing recorded journey times; estimating a population proportion from a random sample; assessing a randomized treatment comparison.".
+:StochasticProcesses a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Random quantities indexed by time or steps and the dependence governing their evolution.";
+    rdfs:comment "A sequence of weather states; a random walk indexed by successive moves.";
+    edu:partOf :Probability.
 :StraightAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures exactly 180 degrees, forming a straight line.";
     edu:specializes :AngleConcept.
+:StratifiedSampling a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Random selection of samples within defined, nonoverlapping population groups, with group sizes or selection probabilities accounted for when combining results.";
+    rdfs:comment "Sampling pupils separately from each year group and weighting the estimates by year-group size.";
+    edu:specializes :SamplingDesign.
+:StudentTDistribution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nature of the law of Z/sqrt(U/nu), where Z is standard normal, U is independent chi-squared with nu > 0 degrees of freedom, and nu controls tail weight.";
+    rdfs:comment "A normal-population mean statistic using estimated standard deviation has a t distribution with n-1 degrees of freedom.";
+    edu:specializes :ContinuousProbabilityDistribution.
+:StudyDesign a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The organization of data collection and comparison that determines which statistical conclusions the resulting evidence can support.";
+    rdfs:comment "Choosing between a random household survey and a randomized comparison of two treatments.";
+    edu:partOf :Statistics.
 :Subexpression a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a value-denoting expression occurring explicitly as a structurally complete component of a larger expression.";
     rdfs:comment "Treating x + 2 as a complete subexpression in 5(x + 2); locating y^2 as a nested expression in x + y^2.";
@@ -2325,6 +2971,11 @@
     edu:expands :Increment, :UnionOfCollections;
     edu:integrates :Iteration;
     edu:partOf :FoundationalOperations.
+:SumCountingPrinciple a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equality between the size of a finite union of pairwise disjoint sets and the sum of their sizes.";
+    rdfs:comment "Choosing one item from four distinct soups or three distinct salads gives 4 + 3 = 7 choices.";
+    edu:integrates :FiniteSetCardinality, :SetDisjointness;
+    edu:partOf :CountingPrinciples.
 :SummationNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for indexed sums, including the summand, bound index and index limits, with an infinite endpoint interpreted through finite partial sums.";
     rdfs:comment "sum_(k=1)^3 k=6; sum_(n=1)^infinity 2^(-n)=1.";
@@ -2400,11 +3051,28 @@
     rdfs:isDefinedBy "The additive role of a signed component of an expression at the grouping level under consideration.";
     rdfs:comment "Separating 3x, -2y, and 5 as the terms of 3x - 2y + 5; distinguishing the inner terms 2 and x from the whole grouped factor in 3(2 + x).";
     edu:partOf :ExpressionStructure.
+:TestingError a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "An erroneous hypothesis-test decision, consisting of rejecting a true null hypothesis or failing to reject it when a specified alternative is true.";
+    rdfs:comment "Rejecting a genuinely fair coin model; failing to reject fairness when a specified biased-coin alternative is true.";
+    edu:partOf :HypothesisTesting.
+:TestPower a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The probability that a test rejects its null hypothesis for a specified alternative, equal to one minus the corresponding Type II error probability.";
+    rdfs:comment "A test has power 0.8 against p=0.6 when it rejects fairness in 80% of repeated samples generated with p=0.6.";
+    edu:partOf :HypothesisTesting.
+:TestStatistic a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A sample summary chosen to measure departure from a null claim, with a reference distribution under that claim.";
+    rdfs:comment "The number of heads in 100 tosses; the standardized difference between a sample mean and a hypothesized mean.";
+    edu:partOf :HypothesisTesting.
 :ThreeDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Solid geometric figures with length, width, and depth.";
     rdfs:comment "Spheres, cubes, and cylinders.";
     edu:expands :SpaceConcept;
     edu:partOf :GeometricObjects.
+:TotalProbabilityTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The expression of an event probability as the sum of conditional probabilities weighted by the probabilities of a finite or countable partition into positive-probability events.";
+    rdfs:comment "With 60% of parts from a machine having defect rate 0.02 and 40% from one having rate 0.05, the overall defect probability is 0.032.";
+    edu:integrates :ConditionalProbability;
+    edu:partOf :ProbabilityRules.
 :Translation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that slides a geometric figure in a specific direction and by a specific distance without altering its shape, size, or orientation.";
     edu:expands :ShapeTranslationConservation;
@@ -2460,10 +3128,22 @@
     rdfs:comment "Polygons, circles, and semicircular regions.";
     edu:expands :PlaneConcept;
     edu:partOf :GeometricObjects.
+:TypeOneError a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Rejection of a null hypothesis when that hypothesis is true.";
+    rdfs:comment "Declaring evidence against a fair-coin model when the coin is fair.";
+    edu:specializes :TestingError.
+:TypeTwoError a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Failure to reject a null hypothesis when a specified alternative is true.";
+    rdfs:comment "Failing to detect a coin whose probability of heads is 0.6 in a test against fairness.";
+    edu:specializes :TestingError.
 :UnaryOperator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of an operator used with exactly one operand in a particular expression.";
     rdfs:comment "Interpreting the minus sign in -x as acting on the single input x; identifying one input in n! and sin(x).";
     edu:specializes :Operator.
+:UnbiasedVarianceEstimation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Estimation of a population variance by the sum of squared deviations from the sample mean divided by n-1 for n independent identically distributed observations with finite variance and n > 1.";
+    rdfs:comment "For sample values 1 and 3, the variance estimate is ((1-2)^2 + (3-2)^2)/(2-1) = 2.";
+    edu:specializes :ParameterEstimation.
 :UnevenDivisibility a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the divisor is two, precluding the source collection from being partitioned into exactly two subcollections of equal cardinality. The result identifies the source cardinality as an odd integer, consisting of a quotient that represents the shared cardinality of the subcollections and a remainder of one.";
     edu:contradicts :EvenDivisibility;
@@ -2502,6 +3182,11 @@
     rdfs:isDefinedBy "The role of a symbol standing for an unknown or unspecified value, or a quantity permitted to vary, within an identified mathematical context.";
     rdfs:comment "Using x for an unknown number in x + 3 = 8; using t for varying time in d = 5t.";
     edu:partOf :ExpressionStructure.
+:VarianceOfSum a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The variance identity Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y) for finite second moments, reducing to a sum of variances when covariance is zero.";
+    rdfs:comment "Independent variables of variances two and five have sum variance seven; Var(X+X)=4Var(X).";
+    edu:integrates :Covariance, :RandomVariableVariance;
+    edu:partOf :RandomVariableMoments.
 :VaryingVariable a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a variable whose value is allowed to change across instances of a mathematical relationship.";
     rdfs:comment "Varying time t and the corresponding distance d in a table of values satisfying d = 5t.";
@@ -2565,6 +3250,10 @@
     rdfs:isDefinedBy "The calculation of the amount of space that a substance or object occupies.";
     edu:expands :AreaCalculation, :SpaceConcept;
     edu:partOf :GeometricCalculations.
+:WeightedArithmeticMean a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "An average formed by dividing the sum of values multiplied by specified nonnegative weights by the positive total weight.";
+    rdfs:comment "Scores 70 and 90 with weights 1 and 3 have weighted mean 85.";
+    edu:partOf :DescriptiveStatistics.
 :ZeroConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding zero as an integer expressing absence of quantity, the additive identity, and the origin between negative and positive values.";
     rdfs:comment "Recognizing that adding zero leaves a value unchanged, or using a zero digit as a placeholder in 305.";
