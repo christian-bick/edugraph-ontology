@@ -5,8 +5,9 @@ Status: stage 3A merged into `main` at `cf74a23` through
 Baseline: ontology `main` at `702714b`, after UnitDimensionality and PythagoreanTheorem were
 merged. The proposal and alternatives below preserve the design rationale; the
 [implementation and adoption record](#implementation-and-adoption--2026-10-11) identifies the
-accepted scope. [Stage 3B](#stage-3b-implementation--2026-10-21) is implemented for review on
-`codex/complex-number-extensions`, based on `209091b`; optional Scopes remain deferred. This develops
+accepted scope. [Stage 3B](#stage-3b-implementation--2026-10-21) is merged at `5733989` through
+[PR #77](https://github.com/christian-bick/edugraph-ontology/pull/77), based on `209091b`;
+optional Scopes remain deferred. This develops
 [extension roadmap step 3](algebra-family-draft.md#3-advanced-complex-numbers-and-polynomial-structure--ccss).
 
 ## Recommendation
@@ -217,7 +218,7 @@ parents merely to place it in a complete complex-number tree.
 ## Stage 3B — preserved university-entry continuation
 
 The [remaining-school-foundations record](remaining-school-foundations-draft.md#2-advanced-complex-numbers)
-now supplies the definitions and placements implemented on `codex/complex-number-extensions`.
+now supplies the definitions and placements merged through PR #77 from `codex/complex-number-extensions`.
 The table below preserves the earlier options and rationale; the
 [stage 3B implementation record](#stage-3b-implementation--2026-10-21) identifies the accepted decisions.
 
@@ -328,8 +329,9 @@ release and downstream adoption remain separate from this review branch.
 
 ## Stage 3B implementation — 2026-10-21
 
-Implemented for review on `codex/complex-number-extensions`, from `main` at `209091b`
-after spatial geometry PR #76. The accepted definitions, examples and placements are in the
+Merged at `5733989` through [PR #77](https://github.com/christian-bick/edugraph-ontology/pull/77)
+from `codex/complex-number-extensions`, based on `main` at `209091b` after spatial geometry
+PR #76. The accepted definitions, examples and placements are in the
 [remaining-school-foundations record](remaining-school-foundations-draft.md#2-advanced-complex-numbers).
 
 This adds seven Areas: ComplexExponentialFunction, ComplexExponentialNotation,
