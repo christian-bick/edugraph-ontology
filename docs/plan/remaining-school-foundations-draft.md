@@ -261,7 +261,7 @@ GraphTheory
     P GraphEdgeWeight
   P GraphMatrixRelations
     P AdjacencyMatrix
-    P AdjacencyMatrixWalkCounting
+    P AdjacencyMatrixPowerTheorem
 ```
 
 | Area | Concise definition | Example |
@@ -279,7 +279,7 @@ GraphTheory
 | GraphConnectivity | The existence of paths joining every pair of vertices in an undirected graph, or in a directed graph either after ignoring directions (weak connectivity) or in both directions (strong connectivity). | A triangle plus an isolated vertex is disconnected; A->B is weakly but not strongly connected. |
 | GraphEdgeWeight | The role of a numerical value assigned to an edge under a stated interpretation. | Edge weights recording travel times; outgoing transition probabilities in a stochastic graph. |
 | AdjacencyMatrix | The square matrix recording edge counts between vertices in a fixed order, with rows as origins and columns as destinations for directed edges and a stated loop convention. | A_12=1 records one edge from vertex 1 to vertex 2. |
-| AdjacencyMatrixWalkCounting | The equality between entry (i,j) of A^k and the number of length-k walks from i to j, for nonnegative integer k and a finite graph's edge-count adjacency matrix A with each loop counted once on the diagonal. | For A=[[0,1],[1,0]], A^2=I counts the two-edge returns, although these are not simple paths. |
+| AdjacencyMatrixPowerTheorem | The equality between entry (i,j) of A^k and the number of length-k walks from i to j, for nonnegative integer k and a finite graph's edge-count adjacency matrix A with each loop counted once on the diagonal. | For A=[[0,1],[1,0]], A^2=I counts the two-edge returns, although these are not simple paths. |
 
 GraphCycle must not specialize the strict GraphPath definition: the repeated endpoint would
 contradict it. It is kept as a constituent to make the traversal distinction explicit.
@@ -290,7 +290,7 @@ instead gives sums of products of edge weights, not ordinary counts.
 
 Walks retain edge identities, so parallel edges give distinct choices. At k=0, A^0=I counts
 one length-zero walk at each vertex. A doubled diagonal convention used to recover undirected
-degrees is outside AdjacencyMatrixWalkCounting's stated convention. GraphCycle allows a loop
+degrees is outside AdjacencyMatrixPowerTheorem's stated convention. GraphCycle allows a loop
 or two distinct parallel edges when the graph conventions admit them; in a simple undirected
 graph its definition requires at least three edges.
 
@@ -298,6 +298,10 @@ Reuse FiniteSetCardinality for graph order and edge count. Reuse MatrixStructure
 RowColumnProduct for matrix knowledge. A graph-based Markov task composes graph concepts
 with the existing FiniteMarkovChain, MarkovTransitionMatrix and probability concepts.
 Matrices need no new generic power operation merely to state the walk-counting relationship.
+
+AdjacencyMatrixPowerTheorem names the reusable equality between matrix powers and walk counts.
+Counting walks from an adjacency matrix by another method does not itself establish this
+theorem. It remains partOf GraphMatrixRelations alongside AdjacencyMatrix.
 
 A node-edge picture is a representation context. If needed, propose GraphRepresentation
 under RepresentationalScope with GraphDiagram specializing it. ProbabilityTree retains its

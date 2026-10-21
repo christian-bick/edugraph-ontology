@@ -72,7 +72,7 @@
     rdfs:isDefinedBy "The square matrix recording edge counts between vertices in a fixed order, with rows as origins and columns as destinations for directed edges and a stated loop convention.";
     rdfs:comment "A_12=1 records one edge from vertex 1 to vertex 2.";
     edu:partOf :GraphMatrixRelations.
-:AdjacencyMatrixWalkCounting a owl:NamedIndividual, edu:Area;
+:AdjacencyMatrixPowerTheorem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The equality between entry (i,j) of A^k and the number of length-k walks from i to j, for nonnegative integer k and a finite graph's edge-count adjacency matrix A with each loop counted once on the diagonal.";
     rdfs:comment "For A=[[0,1],[1,0]], A^2=I counts the two-edge returns, although these are not simple paths.";
     edu:partOf :GraphMatrixRelations.
