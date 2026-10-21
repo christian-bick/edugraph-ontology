@@ -1082,10 +1082,14 @@
     rdfs:isDefinedBy "A stated limit on the probability of exceeding a specified error criterion under identified model or sampling assumptions.";
     rdfs:comment "A procedure with at most a five-percent probability of exceeding a stated error tolerance. A confidence-interval coverage guarantee concerns repeated sampling, not an automatic probability assignment to a fixed parameter after observing data.";
     edu:specializes :ErrorControl.
+:ProbabilityRepresentation a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Random outcomes, events, and their probabilities or distributions expressed through diagrams, tables, graphs, or symbolic forms.";
+    rdfs:comment "A two-draw urn tree with branch probabilities; a table assigning probabilities to die outcomes.";
+    edu:partOf :RepresentationalScope.
 :ProbabilityTree a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Successive random outcomes represented by a branching tree whose branches carry conditional or initial probabilities.";
     rdfs:comment "A two-draw urn tree with updated probabilities on the second draw.";
-    edu:partOf :RepresentationalScope.
+    edu:specializes :ProbabilityRepresentation.
 :ProofByCases a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Arguments establishing a claim separately for cases that collectively cover all possibilities in its stated domain.";
     rdfs:comment "Proving a claim for arbitrary odd integers and for arbitrary even integers. This need not enumerate every individual integer.";

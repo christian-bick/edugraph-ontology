@@ -13,11 +13,11 @@ counting and structure. Probability and Combinatorics are new roots. The existin
 root is retained and developed. Shared set knowledge lives in SetTheory and symbolic conventions
 in FormalMathematics. This follows a subject structure usable beyond an individual syllabus.
 
-The implementation adds **160 Areas and 8 Scopes**, including
-**17 new organizers** and **151 new eligible descriptors**.
-New edges comprise **123 partOf**, **43 specializes**, and
+The implementation adds **160 Areas and 9 Scopes**, including
+**17 new organizers** and **152 new eligible descriptors**.
+New edges comprise **123 partOf**, **44 specializes**, and
 **62 progression** assertions. The resulting graph has
-**1307 descriptors and 6970 assertions**.
+**1308 descriptors and 6975 assertions**.
 
 The tags `core` and `advanced` below are planning annotations, not ontology Scopes or claims
 that every national curriculum requires the same content. The union spans school foundations,
@@ -226,6 +226,11 @@ to BinomialCoefficient. Existing BinomialTheorem is reused.
 - Existing LinePlot covers numerical dot plots; no DotPlot synonym is added. Existing
   DataTable, BarGraph and PictureGraph are reused. Chart Scopes describe representation,
   while FrequencyDistribution and statistical summaries identify learned knowledge.
+- ProbabilityRepresentation is partOf RepresentationalScope, parallel to DataRepresentation,
+  NumberRepresentation and GeometryRepresentation. ProbabilityTree specializes it. The family
+  groups what is represented; the child identifies a particular form. A theoretical probability
+  tree does not require collected data, while an unweighted counting tree alone does not establish
+  ProbabilityTree. The new parent and its specialization remain eligible direct Scopes.
 - Existing proof-method and evidence Scopes are reused. BijectionCounting and DoubleCounting
   supply specifically combinatorial methods; their proof role can be described compositionally.
 - Finite Markov models cover state evolution, transition probabilities and stationary laws.
@@ -414,7 +419,8 @@ knowledge or a mathematical activity, rather than prescribing an Ability; see
 | PieChart | core | S: DataRepresentation | A whole partitioned into circular sectors with angles and areas proportional to category shares. | A half-circle sector representing 50% of respondents. |
 | TimeSeriesPlot | core | S: DataRepresentation | Observations plotted against ordered times, optionally joined to display temporal change. | Daily temperatures plotted against dates. |
 | StemAndLeafPlot | core | S: DataRepresentation | Numerical observations arranged into shared leading-digit stems and trailing-digit leaves under a stated key. | The row 2 &#124; 1 4 8 representing 21, 24, and 28. |
-| ProbabilityTree | core | P: RepresentationalScope | Successive random outcomes represented by a branching tree whose branches carry conditional or initial probabilities. | A two-draw urn tree with updated probabilities on the second draw. |
+| ProbabilityRepresentation | core | P: RepresentationalScope | Random outcomes, events, and their probabilities or distributions expressed through diagrams, tables, graphs, or symbolic forms. | A two-draw urn tree with branch probabilities; a table assigning probabilities to die outcomes. |
+| ProbabilityTree | core | S: ProbabilityRepresentation | Successive random outcomes represented by a branching tree whose branches carry conditional or initial probabilities. | A two-draw urn tree with updated probabilities on the second draw. |
 
 ### Existing annotation updates
 
@@ -516,6 +522,8 @@ children make them organizers under [ONT-E7](../content-evidence.md#ont-e7--labe
 Their identifiers remain, with concise definitions and examples. Existing structural ancestry
 is unchanged. The schema, Ability source and existing Scope meanings remain unchanged.
 The user's merged NumericalIntegration relation refinement is preserved.
+Within this draft, ProbabilityTree gains ProbabilityRepresentation as an inherited Scope;
+its definition and direct-label eligibility are unchanged.
 
 The inspected sibling content repository contains direct Statistics labels in CCSS grades
 1–5 and the statistical-graphs, measurement-data, measurement-extrema and
@@ -537,10 +545,10 @@ Verification passed on 2026-10-21:
 
 - Both Turtle sources round-trip byte for byte through the editor's actual parser and serializer,
   including its alphabetical relation order.
-- Independent source review confirms that all 168 new definitions, examples and relation sets
-  match the design tables. The graph has 1,307 descriptors and 6,970 assertions, with zero
+- Independent source review confirms that all 169 new definitions, examples and relation sets
+  match the design tables. The graph has 1,308 descriptors and 6,975 assertions, with zero
   structural, progression or eligibility findings.
-- Comparison with the merged baseline confirms 900 new-entity assertions, two existing definition
+- Comparison with the merged baseline confirms 905 new-entity assertions, two existing definition
   replacements and two added examples. Only Statistics and SetTheory change existing label
   eligibility; all existing structural ancestry and the NumericalIntegration refinement are preserved.
 - The full Docker gate passes: TypeScript compilation and client tests, ontology validation,
