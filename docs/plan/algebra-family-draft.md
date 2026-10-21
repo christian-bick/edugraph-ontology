@@ -1333,10 +1333,10 @@ CalculusApproximation, SeriesCalculus, and CurveCalculus.
 The [requested family expansion](calculus-family-draft.md#2026-10-20--requested-family-expansion)
 details IntegrationMethods, DifferentiationRules, DifferentialEquations, CurveCalculus and
 DerivativeApplications with constituent groups and narrower specializations, adding 25 Areas
-to the original 105-Area proposal. The subsequent LimitFoundations refinement adds one organizer
-and four criteria under Analysis, placing EpsilonDeltaLimitCriterion within that family.
-The implementation includes all 135 Areas: 17 organizers and 118 eligible concepts, with
-100 partOf, 37 specializes, and 23 progression assertions.
+to the original 105-Area proposal. The subsequent limit review consolidates definitional criteria
+into the existing properties and retains SequentialLimitCriterion within FunctionTheorems.
+The implementation includes all 130 Areas: 16 organizers and 114 eligible concepts, with
+95 partOf, 37 specializes, and 23 progression assertions.
 All five expanded subtrees have definitions, examples, and curriculum stage assignments.
 
 Stage A covers school foundations, including limits, differentiation and its rules, derivative

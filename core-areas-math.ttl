@@ -685,14 +685,6 @@
     rdfs:comment "(3, 1) - (1, 4) = (2, -3); [[1, 2], [3, 4]] + [[5, 6], [7, 8]] = [[6, 8], [10, 12]].";
     edu:integrates :Addition, :Subtraction;
     edu:partOf :MatrixArithmetic.
-:EpsilonDeltaLimitCriterion a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The finite-limit condition at a finite accumulation point of the domain that every positive output tolerance admits a positive input tolerance making all sufficiently close, distinct domain inputs have outputs within the requested tolerance of the limit.";
-    rdfs:comment "For f(x) = 3x at a, delta = epsilon/3 ensures abs(f(x)-3a) < epsilon whenever 0 < abs(x-a) < delta.";
-    edu:partOf :LimitFoundations.
-:EpsilonNSequenceLimitCriterion a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The quantified criterion for a real sequence to approach a finite value L: for each epsilon > 0, one index N depending on epsilon makes abs(a_n-L) < epsilon hold for every n >= N.";
-    rdfs:comment "For a_n = 1/n, choosing an integer N > 1/epsilon ensures abs(a_n) < epsilon for every n >= N.";
-    edu:partOf :LimitFoundations.
 :Equation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The form and meaning of mathematical statements asserting that two expressions have equal value.";
     rdfs:comment "Interpreting the equality in 3 + 4 = 7; expressing 'twice x plus three equals eleven' as 2x + 3 = 11.";
@@ -924,7 +916,7 @@
     rdfs:comment "The real domain x >= 0 for f(x) = sqrt(x); the nonnegative integer domain for the cost of buying whole items.";
     edu:partOf :AlgebraicFunctions.
 :FunctionEndBehavior a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Limiting behavior as a real input tends toward positive or negative infinity through the function's domain.";
+    rdfs:isDefinedBy "Limiting behavior of a real-valued function as its input tends toward positive or negative infinity through a domain unbounded in that direction, distinguishing finite limits, signed infinite limits, and failure to approach a limit.";
     rdfs:comment "x^3 tends to positive infinity as x tends to positive infinity and to negative infinity as x tends to negative infinity; sin(x) has no limit as x tends to positive infinity.";
     edu:specializes :FunctionLimitingBehavior.
 :FunctionExtrema a owl:NamedIndividual, edu:Area;
@@ -944,7 +936,7 @@
     rdfs:comment "f(x) = 1/x tends to 0 as x tends to positive infinity and increases without bound as positive x tends to 0; sin(x) has no limit as x tends to positive infinity.";
     edu:partOf :FunctionProperties.
 :FunctionLocalLimitBehavior a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Limiting behavior as a real input approaches a specified finite location through the function's domain, including one-sided approaches and locations where the function is undefined.";
+    rdfs:isDefinedBy "Limiting behavior of a real-valued function as inputs approach a finite accumulation point of its domain, distinguishing finite limits, signed infinite limits, and failure to approach a limit. The approached point is excluded and need not be in the domain; one-sided approaches require accumulation from that side.";
     rdfs:comment "(x^2 - 1)/(x - 1) tends to 2 as x tends to 1 despite being undefined there; sin(1/x) has no limit as x tends to 0.";
     edu:specializes :FunctionLimitingBehavior.
 :FunctionMonotonicity a owl:NamedIndividual, edu:Area;
@@ -1008,7 +1000,7 @@
     rdfs:comment "The reflection symmetry of f(x) = (x - 2)^2 about x = 2; the half-turn symmetry of g(x) = (x - 1)^3 + 2 about (1, 2).";
     edu:partOf :FunctionProperties.
 :FunctionTheorems a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Theorems relating real-function continuity, differentiability, values, and extrema under stated hypotheses.";
+    rdfs:isDefinedBy "Theorems relating real-function limits, continuity, differentiability, values, and extrema under stated hypotheses.";
     rdfs:comment "Guaranteeing a zero by intermediate values; relating a derivative to a secant slope.";
     edu:partOf :Analysis.
 :FunctionTransformation a owl:NamedIndividual, edu:Area;
@@ -1143,10 +1135,6 @@
     rdfs:isDefinedBy "Determining the complete solution set of a single inequality in designated unknowns over a stated domain, including strict, non-strict, and non-equality constraints.";
     rdfs:comment "Solving -2x < 6 to obtain x > -3 over the reals; finding all real numbers except -1 and 1 as the solutions of x^2 != 1.";
     edu:specializes :ConstraintSolving.
-:InfiniteLimitCriterion a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The condition that, for every M > 0, all domain inputs sufficiently close to but distinct from a finite point a give f(x) > M for a positive infinite limit or f(x) < -M for a negative infinite limit. The point must be an accumulation point of the domain, restricted to the indicated side for a one-sided limit.";
-    rdfs:comment "For M > 0, choosing delta = 1/M gives 1/x > M whenever 0 < x < delta, establishing lim_(x->0+) 1/x = +infinity.";
-    edu:partOf :LimitFoundations.
 :InfinitudeOfPrimes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fact that no finite collection contains every prime number.";
     rdfs:comment "Constructing 2 * 3 * 5 * 7 * 11 * 13 + 1 = 30031 = 59 * 509 to find prime divisors absent from the list 2, 3, 5, 7, 11, 13.";
@@ -1295,14 +1283,6 @@
     rdfs:comment "lim_(x->0) (e^x - 1)/x = lim_(x->0) e^x = 1.";
     edu:integrates :Differentiation;
     edu:partOf :LimitMethods.
-:LimitAtInfinityCriterion a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The quantified conditions for a real function to approach a finite value or signed infinity as its input tends to positive or negative infinity through a domain unbounded in that direction. Each positive tolerance around a finite limit, or magnitude bound in the specified infinite output direction, must hold for all domain inputs beyond some input threshold.";
-    rdfs:comment "For epsilon > 0, x > 1/epsilon gives abs(2 + 1/x - 2) < epsilon; for M > 0, x < -cuberoot(M) gives x^3 < -M, establishing lim_(x->-infinity) x^3 = -infinity.";
-    edu:partOf :LimitFoundations.
-:LimitFoundations a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The precise definitions and equivalent characterizations of limits for real functions and sequences, covering finite limits and approach to signed infinity.";
-    rdfs:comment "The epsilon-delta condition for lim_(x->2) 3x = 6; the epsilon-N condition for 1/n -> 0.";
-    edu:partOf :Analysis.
 :LimitLaws a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Rules transferring finite function limits through sums, products, quotients with nonzero limiting denominator, and composition with a function continuous at the limiting value.";
     rdfs:comment "From f(x) -> 2 and g(x) -> 3, infer f(x)g(x) -> 6.";
@@ -2146,12 +2126,12 @@
     edu:partOf :Analysis.
 :SequenceConvergence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Approach of an infinite numerical sequence to a finite value: every positive tolerance contains all sufficiently late terms around that value.";
-    rdfs:comment "1/n converges to 0, while (-1)^n does not converge.";
+    rdfs:comment "1/n converges to 0, while (-1)^n does not converge. For a_n = 1/n and epsilon > 0, choosing an integer N > 1/epsilon ensures abs(a_n) < epsilon for every n >= N.";
     edu:partOf :SequenceAndSeriesProperties.
 :SequentialLimitCriterion a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The equivalence, for a real function at a finite accumulation point a of its domain, between having finite limit L and having f(x_n) approach L for every domain sequence with x_n != a and x_n approaching a.";
     rdfs:comment "For f(x) = abs(x)/x, the sequences x_n = 1/n and y_n = -1/n approach 0 while f(x_n) = 1 and f(y_n) = -1, ruling out a limit at 0.";
-    edu:partOf :LimitFoundations.
+    edu:partOf :FunctionTheorems.
 :SeriesCalculus a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Summation, convergence methods, and function representations using infinite numerical and power series.";
     rdfs:comment "Summing a geometric series; representing an exponential function by its Taylor series.";
