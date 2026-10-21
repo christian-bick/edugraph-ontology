@@ -21,7 +21,8 @@ The Probability, Statistics, and Combinatorics extension is merged at `9750eff` 
 [PR #75](https://github.com/christian-bick/edugraph-ontology/pull/75); see its
 [design record](probability-statistics-combinatorics-draft.md). The
 [remaining-school-foundations record](remaining-school-foundations-draft.md) documents spatial
-geometry implemented for review and proposes the next complex-number, graph and logic batches.
+geometry merged at `209091b` through PR #76, complex stage 3B implemented for review, and the
+next graph and logic proposals.
 
 Original implementation branch: `codex/algebra-refinements` (merged). Updated 2026-10-21 for
 the Calculus and statistics/probability merges and the remaining school-foundation proposals, following the NumberTheory and advanced extensions,
@@ -1142,8 +1143,8 @@ CompletingSquare remain Areas where they contribute additional mathematical know
 | Stage | Preserved topics | Boundary |
 | --- | --- | --- |
 | NumberTheory foundations | Complex-number structure, rational/irrational characterization, closure and mixed-system result types. | Merged at `1b9ecc3`; see the design record and adoption map below. |
-| Advanced complex numbers | Conjugates, modulus and argument, rectangular/polar forms, complex-plane representations and operations, Fundamental Theorem of Algebra. | Stage 3A merged at `cf74a23`; FTA is a constituent of AlgebraicTheorems. University-entry stage 3B and optional Scopes remain deferred. |
-| Linear algebra | Vector operations, matrix quantities and arithmetic, zero/identity matrices, determinants, inverses, matrix systems, linear transformations. | Stage 5A merged at `69f60f9` through [PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73); see the [implementation and adoption record](linear-algebra-draft.md#implementation-and-adoption--2026-10-11). LinearAlgebra is a separate root; stages 5B–5C remain deferred. VectorConcept retains its geometric home with an explicit zero-vector boundary, and VectorObjects means graphics. |
+| Advanced complex numbers | Conjugates, modulus and argument, rectangular/polar forms, complex-plane representations and operations, Fundamental Theorem of Algebra. | Stage 3A merged at `cf74a23`; FTA is a constituent of AlgebraicTheorems. University-entry stage 3B is implemented for review on `codex/complex-number-extensions`; optional Scopes remain deferred. |
+| Linear algebra | Vector operations, matrix quantities and arithmetic, zero/identity matrices, determinants, inverses, matrix systems, linear transformations. | Stage 5A merged at `69f60f9` through [PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73); see the [implementation and adoption record](linear-algebra-draft.md#implementation-and-adoption--2026-10-11). LinearAlgebra is a separate root. Spatial finite-coordinate foundations from stage 5B merged through PR #76; the broader stages 5B–5C remain deferred. VectorConcept retains its geometric home with an explicit zero-vector boundary, and VectorObjects means graphics. |
 | Further function/trigonometric work | Rational-function asymptotes, continuous repair, angle addition/subtraction identities, sine-area relationship, Laws of Sines and Cosines. | Stage 4 merged at `f0dffbf` through [PR #72](https://github.com/christian-bick/edugraph-ontology/pull/72); see the [implementation record](further-functions-trigonometry-draft.md#implementation-and-adoption--2026-10-11). Subtypes and other optional refinements remain deferred. |
 | Calculus methods | Limit and derivative methods, derivative tests and applications, integration/accumulation, elementary differential equations, approximation, series, and curve calculus. | Merged at `5f52168` through [PR #74](https://github.com/christian-bick/edugraph-ontology/pull/74), covering stages A, B, and E under the existing Calculus root; see [implementation and adoption](calculus-family-draft.md#implementation-and-adoption--2026-10-20). Existing Analysis properties remain in place. This is independent of completing CCSS; consumer adoption and direct-Calculus-label review remain separate work. |
 
@@ -1168,9 +1169,10 @@ through PR #74; see the
 [Calculus implementation record](calculus-family-draft.md#implementation-and-adoption--2026-10-20).
 The [Probability, Statistics, and Combinatorics extension](probability-statistics-combinatorics-draft.md)
 is merged at `9750eff` through PR #75. The
-[remaining-school-foundations record](remaining-school-foundations-draft.md) implements the
-finite-coordinate geometry portion of stage 5B for review on `codex/spatial-geometry`.
-Complex stage 3B, graph theory and logic remain proposals. Step 4's optional refinements and
+[remaining-school-foundations record](remaining-school-foundations-draft.md) records the
+finite-coordinate geometry portion of stage 5B merged at `209091b` through PR #76 and complex
+stage 3B implemented for review on `codex/complex-number-extensions`. Graph theory and logic
+remain proposals. Step 4's optional refinements and
 the broader university continuation of stages 5B–5C remain deferred.
 They are not a completeness claim for all CCSS geometry, statistics, or other fields. Proposed
 family names in the unimplemented stages below are planning candidates, not additional authored descriptors. The sequence
@@ -1277,8 +1279,10 @@ tests; the implementation document records the scope and validation details.
 The design record compares a cohesive ComplexNumberSystem organizer and a smaller representation
 bundle with the distributed approach. It preserves De Moivre's identity, complete root sets,
 roots of unity, conjugate-root pairing, and exponential form as a university-entry continuation,
-and records optional representation Scopes separately from knowledge Areas. Both that stage 3B
-continuation and the optional Scopes remain deferred.
+and records optional representation Scopes separately from knowledge Areas. That stage 3B
+continuation is now implemented for review; see the
+[stage 3B record](advanced-complex-numbers-draft.md#stage-3b-implementation--2026-10-21).
+The optional Scopes remain deferred.
 
 The relevant [N-CN.A.3, B.4-6, and C.8-9](https://www.thecorestandards.org/Math/Content/HSN/CN/)
 are marked `(+)`. This stage can also review the rational-expression system and its closure
@@ -1336,8 +1340,9 @@ and function concepts where appropriate; distinguish matrix multiplication and i
 from ordinary numerical arithmetic. All [N-VM standards](https://www.thecorestandards.org/Math/Content/HSN/VM/)
 and matrix-system standards [A-REI.C.8-9](https://www.thecorestandards.org/Math/Content/HSA/REI/)
 are marked `(+)`. The stage preserves all 17 terminal mappings. Introductory-university
-stages 5B–5C remain deferred, including abstract vector spaces, row reduction, inner-product
-geometry, and spectral theory. Matrix powers and division are outside the agreed extension.
+stages 5B–5C remain deferred beyond the spatial batch merged through PR #76, including abstract
+vector spaces, row reduction, general inner-product geometry, and spectral theory.
+Matrix powers and division are outside the agreed extension.
 
 ### 6. Calculus methods — after the CCSS extensions
 

@@ -5,7 +5,8 @@ Status: stage 3A merged into `main` at `cf74a23` through
 Baseline: ontology `main` at `702714b`, after UnitDimensionality and PythagoreanTheorem were
 merged. The proposal and alternatives below preserve the design rationale; the
 [implementation and adoption record](#implementation-and-adoption--2026-10-11) identifies the
-accepted scope. Stage 3B and optional Scopes remain deferred. This develops
+accepted scope. [Stage 3B](#stage-3b-implementation--2026-10-21) is implemented for review on
+`codex/complex-number-extensions`, based on `209091b`; optional Scopes remain deferred. This develops
 [extension roadmap step 3](algebra-family-draft.md#3-advanced-complex-numbers-and-polynomial-structure--ccss).
 
 ## Recommendation
@@ -215,12 +216,13 @@ parents merely to place it in a complete complex-number tree.
 
 ## Stage 3B — preserved university-entry continuation
 
-The [remaining-school-foundations proposal](remaining-school-foundations-draft.md#2-advanced-complex-numbers)
-now develops this continuation into candidate definitions and placements. It remains unimplemented;
-the table below preserves the earlier options and rationale.
+The [remaining-school-foundations record](remaining-school-foundations-draft.md#2-advanced-complex-numbers)
+now supplies the definitions and placements implemented on `codex/complex-number-extensions`.
+The table below preserves the earlier options and rationale; the
+[stage 3B implementation record](#stage-3b-implementation--2026-10-21) identifies the accepted decisions.
 
-These candidates extend the subject beyond the explicit CCSS requirements. They are not part
-of the seven-Area implementation recommendation. Oxford includes De Moivre, roots of unity,
+These candidates extend the subject beyond the explicit CCSS requirements. They were not part
+of the seven-Area stage 3A recommendation. Oxford includes De Moivre, roots of unity,
 and exponential form in its introductory syllabus; OpenStax also develops powers and full root
 sets from polar representation.
 ([Oxford](https://courses.maths.ox.ac.uk/course/view.php?id=4502),
@@ -264,9 +266,9 @@ Before preview publication, check both the descriptor graph and representative t
 4. Run ontology/documentation validation and the normal build/client checks after implementation.
    Update generated consumers only through the regular release/adoption workflow.
 
-The accepted decisions are the seven-Area granularity and distributed placement, without a
-ComplexNumberSystem organizer or any stage 3B additions. The alternatives above remain available
-for later review; context Scopes and stage 3B are explicit follow-ups.
+The accepted stage 3A decisions were the seven-Area granularity and distributed placement,
+without a ComplexNumberSystem organizer or stage 3B additions at that time. Stage 3B is now
+implemented separately below; the optional context Scopes remain deferred.
 
 ### Proposal verification — 2026-10-11
 
@@ -301,7 +303,8 @@ relation is modified; no descriptor is retired. The additions preserve existing 
 eligibility and ancestry by using current organizers and the existing NumberNotation
 specialization family.
 
-Stage 3B, the optional representation Scopes, and the adjacent A-APR.D.7 audit remain deferred.
+At the stage 3A merge, stage 3B, the optional representation Scopes, and the adjacent A-APR.D.7
+audit remained deferred. The stage 3B continuation is now recorded below.
 No new organizer, operation-by-number-system duplicate, or complex-analysis family is included.
 
 Existing annotations need no identifier migration. Consumers can adopt the new distinctions
@@ -322,3 +325,40 @@ The full `docker build . --output dist` gate passed: source and documentation va
 TypeScript client and packaged-export checks, Python lint/type checks, all 49 Python tests,
 and wheel/sdist consumer verification. Generated artifacts are local build outputs; a package
 release and downstream adoption remain separate from this review branch.
+
+## Stage 3B implementation — 2026-10-21
+
+Implemented for review on `codex/complex-number-extensions`, from `main` at `209091b`
+after spatial geometry PR #76. The accepted definitions, examples and placements are in the
+[remaining-school-foundations record](remaining-school-foundations-draft.md#2-advanced-complex-numbers).
+
+This adds seven Areas: ComplexExponentialFunction, ComplexExponentialNotation,
+EulerTrigonometricIdentities, DeMoivreIdentity, ComplexRootStructure, RootsOfUnity, and
+ComplexConjugateRootTheorem. Two partOf and five specializes edges place them in the existing
+function, notation, equivalence, number-system and theorem families. All seven are eligible;
+no additional organizer or progression assertion is introduced.
+
+The complex exponential's definition includes Euler's correspondence; a second EulerFormula
+descriptor would repeat that knowledge. EulerTrigonometricIdentities instead names the reverse
+identities for sine and cosine. RootsOfUnity is retained for cyclic multiplication structure,
+and complete root sets are distinguished from a principal-root convention. The full root
+formula and radian conventions refine the earlier proposal's boundaries.
+
+Semantic review checked zero and n=1, negative integer powers of a nonzero unit-circle base,
+periodicity, equal conjugate-root multiplicities, and the real-coefficient condition.
+[NIST DLMF §4.2](https://dlmf.nist.gov/4.2) supports the exponential identities and periodicity;
+[TU Delft, Theorem 10.3.3](https://interactivetextbooks.tudelft.nl/linear-algebra/Appendices/ComplexNumbers.html)
+states the conjugate-root multiplicity result. Existing descriptor definitions and relations
+remain unchanged. Complex analysis, optional representation Scopes, and the separate
+rational-expression audit remain later work.
+
+Verification passed against `209091b`: exactly seven new eligible Areas and 35 added
+assertions, giving 1,337 descriptors and 7,123 assertions. No old assertions were removed or
+modified; existing eligibility and ancestry are unchanged. Definitions, examples and placements
+match the design table, both descriptor files round-trip exactly through the editor, and
+the ontology assessment has no findings.
+
+The full `docker build . --output dist --progress plain` passed, including ontology and
+TypeScript/client checks, documentation validation, Python lint and strict typing, all 49
+Python tests, and wheel/sdist consumer verification. A final documentation check covers the
+completed implementation record.

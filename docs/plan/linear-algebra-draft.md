@@ -6,9 +6,10 @@ Implementation branch: `codex/linear-algebra` (merged).
 Implementation baseline: ontology `main` at `f0dffbf`, after the functions and trigonometry extension merged
 through [PR #72](https://github.com/christian-bick/edugraph-ontology/pull/72).
 This develops [roadmap step 5](algebra-family-draft.md#5-linear-algebra--a-distinct-ccss--field).
-The next extension is the [Calculus family draft](calculus-family-draft.md), reusing the existing
-Calculus root for school foundations through university entry. Linear-algebra stages 5B–5C
-remain separately deferred.
+The [Calculus extension](calculus-family-draft.md) is merged through PR #74. The
+[spatial-geometry batch](remaining-school-foundations-draft.md#1-spatial-analytic-geometry),
+merged through PR #76, adds finite-coordinate foundations from stage 5B.
+The broader university continuation of stages 5B–5C remains deferred.
 
 ## Recommendation and field boundary
 
@@ -334,9 +335,10 @@ direct-label eligibility is intended to remain unchanged; the source comparison 
 
 ## Stages 5B and 5C — introductory university continuation
 
-The [spatial-geometry implementation draft](remaining-school-foundations-draft.md#1-spatial-analytic-geometry)
+The [spatial-geometry implementation](remaining-school-foundations-draft.md#1-spatial-analytic-geometry)
 pulls finite-coordinate combinations, span, independence, bases and Euclidean dot-product
-knowledge forward for advanced secondary coverage on `codex/spatial-geometry`.
+knowledge forward for advanced secondary coverage, merged at `209091b` through
+[PR #76](https://github.com/christian-bick/edugraph-ontology/pull/76).
 Abstract structures and the broader continuation below remain deferred; existing concepts
 from the spatial batch should be reused when developing those later families.
 

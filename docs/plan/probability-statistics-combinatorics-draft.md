@@ -632,9 +632,9 @@ Verification passed on 2026-10-21, including the representation and foundational
 
 A passing build is not a curriculum completeness certificate.
 
-The [remaining-school-foundations record](remaining-school-foundations-draft.md) develops
-spatial geometry on a separate review branch, with complex-number, elementary graph and logical
-extensions still proposed. None of these additions was part of the probability merge.
+The [remaining-school-foundations record](remaining-school-foundations-draft.md) records
+spatial geometry merged through PR #76 and the next complex-number review branch, with
+elementary graph and logical extensions still proposed. These are separate from the probability merge.
 
 Deferred beyond those proposals: full graph theory; abstract measure theory;
 general stochastic-process theory; Bayesian inference;

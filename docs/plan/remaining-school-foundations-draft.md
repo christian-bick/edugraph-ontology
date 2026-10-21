@@ -1,8 +1,10 @@
-# Remaining advanced-school foundations — spatial draft and extension proposals
+# Remaining advanced-school foundations — implementation record and extension proposals
 
-Status: spatial batch implemented for review on `codex/spatial-geometry`, 2026-10-21.
-Sections 2–5 remain proposals; their descriptors are not implemented by this branch.
-Baseline: `main` at `9750eff`, after [PR #75](https://github.com/christian-bick/edugraph-ontology/pull/75).
+Status: spatial batch merged at `209091b` through
+[PR #76](https://github.com/christian-bick/edugraph-ontology/pull/76), 2026-10-21.
+Complex-number stage 3B is implemented for review on `codex/complex-number-extensions`.
+Sections 3–5 remain proposals. Original proposal baseline: `9750eff`, after
+[PR #75](https://github.com/christian-bick/edugraph-ontology/pull/75); complex-batch baseline: `209091b`.
 
 ## Scope and sequence
 
@@ -20,8 +22,9 @@ Recommended implementation batches:
 5. Separate targeted passes for conics and the number-theory results identified below, followed
    by a competency-by-competency audit of the selected programmes.
 
-Each batch has its own reviewable ontology change. The spatial batch below is implemented;
-the later families remain proposals. This is not a claim that every listed concept is required
+Each batch has its own reviewable ontology change. The spatial batch is merged, and the
+complex batch is implemented for review; the later families remain proposals.
+This is not a claim that every listed concept is required
 by every national curriculum. Existing
 Arithmetic, Algebra, Analysis, Calculus and LinearAlgebra meanings remain distinct.
 Follow [descriptor reuse](../descriptors.md#ont-d1--define-reusable-concepts) and
@@ -153,7 +156,8 @@ cannot broaden a plane-only Area definition.
 
 ### Spatial implementation — 2026-10-21
 
-The branch implements all 16 Areas above, with 12 partOf and four specializes edges, and
+The spatial batch, merged through PR #76 at `209091b`, implements all 16 Areas above,
+with 12 partOf and four specializes edges, and
 updates the four definitions and examples in the preceding table. All new Areas are intended
 for direct labeling, including the general Basis and AffineParametrization concepts. No new
 organizer, progression assertion, Scope, Ability or schema change is introduced.
@@ -162,7 +166,7 @@ The semantic review checked zero-vector orthogonality, the orthonormal-coordinat
 for the component dot product and distance, independent parametrization directions, nonzero
 normals, and affine projection onto z=1. Existing point plotting progression from
 OrderedCoordinatePair remains a learning relationship, not a restriction to two coordinates.
-The other batches below remain separate review steps.
+The other batches below have separate review steps.
 
 Verification passed against baseline `9750eff`: 1,330 descriptors and 7,088 assertions,
 with all 16 additions eligible and no change to existing relations, structural ancestry or
@@ -178,31 +182,33 @@ implementation record. These checks verify the batch, not complete curriculum co
 
 ## 2. Advanced complex numbers
 
-Develop the previously reserved [stage 3B](advanced-complex-numbers-draft.md#stage-3b--preserved-university-entry-continuation).
-The current source already supplies modulus, argument, conjugation, polar notation, geometric
-arithmetic, polynomial factorization and the Fundamental Theorem of Algebra.
+This batch implements the previously reserved [stage 3B](advanced-complex-numbers-draft.md#stage-3b--preserved-university-entry-continuation).
+The merged baseline already supplies modulus, argument, conjugation, polar notation, geometric
+arithmetic, polynomial factorization and the Fundamental Theorem of Algebra. The following
+seven Areas extend those foundations on `codex/complex-number-extensions`.
 
-| Candidate | Placement | Concise definition | Example |
+| Area | Placement | Concise definition | Example |
 | --- | --- | --- | --- |
-| ComplexExponentialFunction | S: NumericFunction | The numerical function exp(x+iy)=exp(x)(cos(y)+i sin(y)) for real x and y, with nonzero outputs, additive-to-multiplicative behavior and period 2pi*i. | exp(i*pi)=-1; exp(z+2pi*i)=exp(z). |
-| ComplexExponentialNotation | S: NumberNotation | The conventions for expressing complex numbers as r exp(i*theta), with nonnegative modulus r and an argument theta when r is positive. | 1+i=sqrt(2) exp(i*pi/4); r=0 represents zero without assigning an argument. |
-| EulerTrigonometricIdentities | S: TrigonometricIdentities | The identities cos(theta)=(exp(i*theta)+exp(-i*theta))/2 and sin(theta)=(exp(i*theta)-exp(-i*theta))/(2i) for real theta. | Rewriting cos(theta) as the average of the two opposite-angle complex exponentials. |
-| DeMoivreIdentity | S: AlgebraicEquivalence | The identity (cos(theta)+i sin(theta))^m=cos(m*theta)+i sin(m*theta) for real theta and integer m. | (cos(pi/3)+i sin(pi/3))^3=-1. |
-| ComplexRootStructure | P: NumberSystems | The complete n-th-root set of a complex number for positive integer n: n equally spaced roots on a circle for a nonzero number, and only zero for zero. | The cube roots of 8 have modulus 2 and arguments 0, 2pi/3 and 4pi/3. |
+| ComplexExponentialFunction | S: NumericFunction | The nature of the complex exponential exp(x+iy)=exp(x)(cos(y)+i sin(y)) for real x and y using radian angle measures. Its values are nonzero and satisfy exp(z+w)=exp(z)exp(w) and exp(z+2pi*i)=exp(z). | exp(i*pi)=-1; exp(1+2pi*i)=exp(1). |
+| ComplexExponentialNotation | S: NumberNotation | The conventions for expressing a complex number as r exp(i*theta), where r is its nonnegative modulus and theta is a radian argument when r>0, or any real radian angle when r=0. | 1+i=sqrt(2) exp(i*pi/4); r=0 represents zero without assigning an argument. |
+| EulerTrigonometricIdentities | S: TrigonometricIdentities | The identities cos(theta)=(exp(i*theta)+exp(-i*theta))/2 and sin(theta)=(exp(i*theta)-exp(-i*theta))/(2i) for real radian angles theta. | Rewriting cos(theta) as the average of the two opposite-angle complex exponentials. |
+| DeMoivreIdentity | S: AlgebraicEquivalence | The identity (cos(theta)+i sin(theta))^m=cos(m*theta)+i sin(m*theta) for real radian angles theta and integer m. | (cos(pi/3)+i sin(pi/3))^3=-1. |
+| ComplexRootStructure | P: NumberSystems | The complete n-th-root set of a complex number for positive integer n: for nonzero r exp(i*theta), the n distinct values r^(1/n) exp(i*(theta+2k*pi)/n), k=0,...,n-1, with r>0 and theta in radians. Zero has only the root zero. | The cube roots of 8 have modulus 2 and arguments 0, 2pi/3 and 4pi/3. |
 | RootsOfUnity | S: ComplexRootStructure | The n-th roots of 1 and their cyclic multiplication structure, generated by exp(2pi*i/n), for positive integer n. | The fourth roots 1,i,-1,-i are successive powers of i and multiply within the same set. |
-| ComplexConjugateRootTheorem | P: AlgebraicTheorems | Nonreal roots of a nonzero polynomial with real coefficients occur in conjugate pairs with equal multiplicity. | A real-coefficient polynomial with root 2+i also has root 2-i; z-i does not meet the coefficient condition. |
+| ComplexConjugateRootTheorem | P: AlgebraicTheorems | The conjugate pairing, with equal multiplicity, of nonreal roots of a nonzero polynomial with real coefficients. | A real-coefficient polynomial with root 2+i also has root 2-i; z-i does not meet the coefficient condition. |
 
 The general complex exponential is developed here through its formula and algebraic identities;
 differentiation and holomorphic functions are not prerequisites for its stated meaning. The minimal school option
-restricts its initial examples to exp(i*theta). Do not silently extend existing real-only
-ExponentialDependence or ExponentialRewriting definitions to complex arguments.
+restricts its initial examples to exp(i*theta). Existing ExponentialDependence retains its
+explicit real-domain definition; ExponentialRewriting retains its stated domain restrictions.
+Neither replaces the new function's meaning, and neither definition is changed.
 
-The exp(i*theta)=cos(theta)+i sin(theta) correspondence is contained in the proposed function
+The exp(i*theta)=cos(theta)+i sin(theta) correspondence is contained in the function
 definition. Avoid also adding a separate EulerFormula descriptor with exactly that definition.
 EulerTrigonometricIdentities supplies the reusable reverse identities instead. The notation
 Area identifies interpretation of r exp(i*theta), independently of an occurrence-only Scope.
 
-RootsOfUnity is proposed because the cyclic multiplication/regular-polygon relationship is
+RootsOfUnity is included because the cyclic multiplication/regular-polygon relationship is
 reusable knowledge, not solely because a root equation has right-hand side 1. Complete root
 sets differ from a principal-root convention. For a nonzero w=r exp(i*theta), the roots are
 r^(1/n) exp(i*(theta+2k*pi)/n), k=0,...,n-1. Zero has one distinct n-th root, with multiplicity
@@ -214,6 +220,22 @@ supports the power/root-set distinction; the
 [Georgia Tech complex-number appendix](https://textbooks.math.gatech.edu/ila/complex-numbers.html)
 supports conjugate pairing. Complex analysis, branch-sensitive complex logarithms and contour
 integration remain later work.
+
+### Complex implementation — 2026-10-21
+
+The batch adds seven Areas with two partOf and five specializes edges, using the placements
+above. All seven are eligible concepts; no organizer, progression edge or occurrence-only
+Scope is added. Existing descriptors and their relations are preserved.
+
+The definitions make radian conventions explicit and specify the complete root formula,
+including n=1 and zero. The conjugate-root theorem requires real polynomial coefficients
+and preserves multiplicity. EulerTrigonometricIdentities inherits the common-domain
+equality meaning of TrigonometricIdentities, while the complex exponential's nature and its
+notation remain separate knowledge. Holomorphic functions and complex analysis are deferred.
+
+Source comparison and the full Docker build passed; the
+[stage 3B validation record](advanced-complex-numbers-draft.md#stage-3b-implementation--2026-10-21)
+records the exact graph delta and client checks.
 
 ## 3. Elementary graph theory
 
@@ -356,14 +378,15 @@ separate optional extensions; no application family is added merely for a contex
 
 ## Review and implementation checks
 
-The spatial implementation retains both affine-parametrization specializations. Open choices
-for later batches include GraphTheory as a constituent or root and optional notation/representation
-Scopes. They do not block review of the spatial batch and its four definition generalizations.
+The merged spatial implementation retains both affine-parametrization specializations.
+The complex batch retains all seven proposed concepts with refined mathematical boundaries.
+Open choices for later batches include GraphTheory as a constituent or root and optional
+notation/representation Scopes. They do not block review of the implemented batches.
 
 Before implementing each batch, review every endpoint and affected ancestry, use the editor's
 ordering, check definitions against examples and counterexamples, and run the normal source
 and Docker checks. Check links, source references and the implemented-versus-proposed boundary.
-A candidate name in sections 2–5 does not imply a source or dataset change.
+A candidate name in sections 3–5 does not imply a source or dataset change.
 
 The final curriculum audit should classify each leaf as covered directly, covered by a
 defensible composition, a true concept gap, or a representation/constraint gap. Include ordinary

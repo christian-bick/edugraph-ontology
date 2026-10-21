@@ -70,8 +70,8 @@ with shared set foundations and probability and algebra representation Scopes. I
 identify existing `Statistics` labels that need more specific concepts and the rename from
 `GraphicalSolutionRepresentation` to the broader `GraphicalAlgebraicRepresentation`.
 The [remaining school-foundation record](docs/plan/remaining-school-foundations-draft.md)
-documents the spatial geometry implementation draft and the proposed advanced complex-number,
-graph and logic extensions.
+documents spatial geometry merged through [PR #76](https://github.com/christian-bick/edugraph-ontology/pull/76),
+the advanced complex-number implementation draft, and the proposed graph and logic extensions.
 
 #### Foundations
 

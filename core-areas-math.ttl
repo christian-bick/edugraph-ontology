@@ -444,10 +444,22 @@
     rdfs:isDefinedBy "The geometric interpretation of complex arithmetic as translations for addition and subtraction, rotation and scaling about zero for multiplication and division by nonzero numbers, and reflection in the real axis for conjugation. Multiplication by zero sends every point to zero.";
     rdfs:comment "Multiplication by 2i doubles distances from zero and rotates by a quarter-turn; conjugation reflects 2 + i to 2 - i.";
     edu:partOf :GeometricVisualization.
+:ComplexConjugateRootTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conjugate pairing, with equal multiplicity, of nonreal roots of a nonzero polynomial with real coefficients.";
+    rdfs:comment "A real-coefficient polynomial with root 2+i also has root 2-i; z-i does not meet the coefficient condition.";
+    edu:partOf :AlgebraicTheorems.
 :ComplexConjugation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The operation replacing a complex number a + bi by a - bi, for real a and b, and its relationships with complex arithmetic.";
     rdfs:comment "The conjugate of 4 - 3i is 4 + 3i; (4 - 3i)(4 + 3i) = 25.";
     edu:partOf :NumberSystems.
+:ComplexExponentialFunction a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nature of the complex exponential exp(x+iy)=exp(x)(cos(y)+i sin(y)) for real x and y using radian angle measures. Its values are nonzero and satisfy exp(z+w)=exp(z)exp(w) and exp(z+2pi*i)=exp(z).";
+    rdfs:comment "exp(i*pi)=-1; exp(1+2pi*i)=exp(1).";
+    edu:specializes :NumericFunction.
+:ComplexExponentialNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conventions for expressing a complex number as r exp(i*theta), where r is its nonnegative modulus and theta is a radian argument when r>0, or any real radian angle when r=0.";
+    rdfs:comment "1+i=sqrt(2) exp(i*pi/4); r=0 represents zero without assigning an argument.";
+    edu:specializes :NumberNotation.
 :ComplexModulus a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The nonnegative real magnitude of a complex number a + bi, given by sqrt(a^2 + b^2) and equal to its distance from zero in the complex plane.";
     rdfs:comment "The modulus of 5 - 12i is 13; the modulus of zero is zero.";
@@ -466,6 +478,10 @@
     rdfs:isDefinedBy "The conventions for representing a complex number as r(cos(theta) + i sin(theta)), where r is its modulus and theta is an argument when r is positive. When r is zero, every angle represents zero without defining its argument.";
     rdfs:comment "1 - i = sqrt(2)(cos(-pi/4) + i sin(-pi/4)) = sqrt(2)(cos(7pi/4) + i sin(7pi/4)).";
     edu:specializes :NumberNotation.
+:ComplexRootStructure a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The complete n-th-root set of a complex number for positive integer n: for nonzero r exp(i*theta), the n distinct values r^(1/n) exp(i*(theta+2k*pi)/n), k=0,...,n-1, with r>0 and theta in radians. Zero has only the root zero.";
+    rdfs:comment "The cube roots of 8 have modulus 2 and arguments 0, 2pi/3 and 4pi/3.";
+    edu:partOf :NumberSystems.
 :CompositeNumbers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study and classification of whole numbers greater than 1 that have more than two positive factors; equivalently, numbers divisible by a positive whole number other than 1 and themselves.";
     rdfs:comment "4, 6, 8, and 9 are composite numbers.";
@@ -679,6 +695,10 @@
     rdfs:isDefinedBy "Linearity, interval additivity, reversal of bounds, and order comparison for proper definite integrals of integrable real functions.";
     rdfs:comment "integral_0^2 f = integral_0^1 f + integral_1^2 f; integral_b^a f = -integral_a^b f.";
     edu:partOf :IntegralCalculus.
+:DeMoivreIdentity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identity (cos(theta)+i sin(theta))^m=cos(m*theta)+i sin(m*theta) for real radian angles theta and integer m.";
+    rdfs:comment "(cos(pi/3)+i sin(pi/3))^3=-1.";
+    edu:specializes :AlgebraicEquivalence.
 :Denominator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of the divisor expression written below a fraction bar or after a slash representing that bar.";
     rdfs:comment "Identifying x - 2 as the complete denominator in (x + 1)/(x - 2); interpreting 4 as the divisor represented below the bar in 3/4.";
@@ -937,6 +957,10 @@
     rdfs:isDefinedBy "The number of integers from 1 through a positive integer n that are coprime to n, and its dependence on the prime factors of n.";
     rdfs:comment "phi(12) = 4, counting 1, 5, 7, and 11; phi(1) = 1.";
     edu:partOf :NumberTheoreticFunctions.
+:EulerTrigonometricIdentities a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identities cos(theta)=(exp(i*theta)+exp(-i*theta))/2 and sin(theta)=(exp(i*theta)-exp(-i*theta))/(2i) for real radian angles theta.";
+    rdfs:comment "Rewriting cos(theta) as the average of the two opposite-angle complex exponentials.";
+    edu:specializes :TrigonometricIdentities.
 :EvenDivisibility a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the divisor is two, permitting the source collection to be partitioned into exactly two subcollections of equal cardinality. The result identifies the source cardinality as an even integer, consisting of a quotient that represents the shared cardinality of the subcollections and a remainder of zero.";
     edu:expands :SetComparison, :Subitizing;
@@ -2635,6 +2659,10 @@
     rdfs:isDefinedBy "The convergence criterion using a limit L=lim abs(a_n)^(1/n): L below 1 guarantees absolute convergence and L above 1, including infinity, guarantees divergence. L=1 is inconclusive.";
     rdfs:comment "For a_n=(n/(2n+1))^n, the nth root tends to 1/2.";
     edu:partOf :SeriesConvergenceTests.
+:RootsOfUnity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The n-th roots of 1 and their cyclic multiplication structure, generated by exp(2pi*i/n), for positive integer n.";
+    rdfs:comment "The fourth roots 1,i,-1,-i are successive powers of i and multiply within the same set.";
+    edu:specializes :ComplexRootStructure.
 :Rotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that turns a geometric figure around a fixed point, known as the center of rotation, by a specific angle.";
     edu:expands :ShapeRotationConservation;
