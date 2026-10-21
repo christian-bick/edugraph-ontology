@@ -60,9 +60,13 @@ The [NumberTheory design and implementation record](docs/plan/number-theory-basi
 documents the school and introductory-university families, their boundary with arithmetic,
 and the shared closure concept in AlgebraicStructures.
 The [Calculus implementation and adoption record](docs/plan/calculus-family-draft.md#implementation-and-adoption--2026-10-20)
-documents the school-foundation and university-entry extension on `codex/calculus-foundations`,
-pending branch review. Calculus is a separate root for methods, applications, approximation,
+documents the school-foundation and university-entry extension merged through
+[PR #74](https://github.com/christian-bick/edugraph-ontology/pull/74). Calculus is a separate root for methods, applications, approximation,
 series, and differential equations; function properties retain their Analysis home.
+The [Probability, Statistics, and Combinatorics draft](docs/plan/probability-statistics-combinatorics-draft.md)
+extends these subjects from school foundations through introductory university concepts,
+with shared set foundations and representation Scopes. Its adoption notes identify existing
+`Statistics` labels that need more specific concepts when consuming this extension.
 
 #### Foundations
 

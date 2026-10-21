@@ -1,7 +1,7 @@
 # Calculus — school foundations to university entry
 
-Status: implemented for review on `codex/calculus-foundations`, updated 2026-10-21;
-[draft PR #74](https://github.com/christian-bick/edugraph-ontology/pull/74), not merged.
+Status: merged into `main` at `5f52168` through
+[PR #74](https://github.com/christian-bick/edugraph-ontology/pull/74), updated 2026-10-21.
 Implementation baseline: `main` at `c313e4a`, whose ontology sources match the
 [Linear Algebra merge, PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73), at `69f60f9`.
 The full A + B + E design below is authored in [core-areas-math.ttl](../../core-areas-math.ttl).
@@ -44,7 +44,7 @@ ExponentialIntegration, or a complete object-by-method product of new Areas.
 | E | First-course enrichment | Newton iteration, trigonometric substitution, integrating factors, further quadrature and error estimates, and an introduction to quantified limits. |
 
 Stages record coverage slices, not Scopes, prerequisites, or universal grade assignments.
-All three are implemented on the review branch. E makes the university-entry boundary explicit
+All three are included in the merged extension. E makes the university-entry boundary explicit
 without pretending every school calculus course includes those topics.
 
 ## Research basis
@@ -173,7 +173,7 @@ Calculus                                      existing independent root
 │       ├── S ExponentialDifferentialEquationModel
 │       └── S LogisticDifferentialEquationModel
 ├── P CalculusApproximation
-│   └── P NumericalIntegration                 also S NumericApproximation
+│   └── P NumericalIntegration
 │       ├── S RectangleQuadrature
 │       ├── S TrapezoidalRule
 │       └── S SimpsonRule
@@ -223,9 +223,9 @@ GeometricVisualization                       existing organizer
 └── P PolarCoordinateRepresentation
 ```
 
-NumericalIntegration has a subject home plus a genuine numerical-approximation specialization,
-as MatrixOperationIdentities already has a subject home plus an equivalence specialization.
-Its quadrature children specialize it; none is a constituent after that specialization.
+NumericalIntegration belongs to CalculusApproximation, with quadrature children specializing it.
+The final manual refinement at `c22f2ee` removed its earlier specialization of NumericApproximation;
+the merged tree retains its Calculus subject home without that additional parent.
 LinearApproximation and TaylorPolynomialApproximation concern functions and are not automatically
 specializations of NumericApproximation. Evaluating those approximants numerically may involve both.
 
@@ -431,7 +431,7 @@ parts. Partial-fraction integration stays separate from the algebraic decomposit
 | TaylorRemainderBound | B | P: CalculusApproximation | The bound abs(f(x)-T_n(x)) <= M abs(x-a)^(n+1)/(n+1)! when f has continuous derivatives through order n+1 on the interval joining a and x and its next derivative has magnitude at most M there. | Approximating e^0.1 by 1+0.1+0.1^2/2 has error at most e^0.1*0.1^3/6, less than 0.000185. |
 | AlternatingSeriesRemainderBound | B | P: CalculusApproximation | The bound on the error after a partial sum of an alternating series with decreasing nonnegative term magnitudes tending to zero, limiting its magnitude to the first omitted magnitude and its direction to that term's sign. | After 100 terms of the alternating harmonic series, the error is at most 1/101. |
 | NumericalDifferentiation | E | P: CalculusApproximation | Approximating derivative values from finite differences of sampled function values, with step size controlling truncation and numerical error. | For f(x)=x^2, the forward difference at 1 with h=0.01 is 2.01, compared with f'(1)=2. |
-| NumericalIntegration | A | P: CalculusApproximation; S: NumericApproximation | Approximating a finite definite-integral value using a weighted finite combination of sampled integrand values. | Estimating integral_0^1 x^2 dx from equally spaced samples. |
+| NumericalIntegration | A | P: CalculusApproximation | Approximating a finite definite-integral value using a weighted finite combination of sampled integrand values. | Estimating integral_0^1 x^2 dx from equally spaced samples. |
 | RectangleQuadrature | A | S: NumericalIntegration | Approximating a definite integral by partition rectangles using a stated left-endpoint, right-endpoint or midpoint sampling rule. | The two-piece right-endpoint estimate for integral_0^1 x^2 dx is 5/8. |
 | TrapezoidalRule | A | S: NumericalIntegration | Approximating a definite integral by integrating the piecewise linear interpolant through ordered sampled inputs. | One trapezoid estimates integral_0^1 x^2 dx as 1/2. |
 | SimpsonRule | E | S: NumericalIntegration | Approximating a definite integral by integrating quadratic interpolants across successive pairs of equal-width subintervals, with an even subinterval count in the composite rule. | Samples of x^2 at 0, 1/2 and 1 give the exact integral 1/3. |
@@ -705,15 +705,17 @@ The adoption and content probes above remain necessary.
 
 ## Implementation and adoption — 2026-10-20
 
-All **130 Areas** across A, B and E are authored on `codex/calculus-foundations` for review,
-based on `main` at `c313e4a`. The branch is not merged; this record includes the 2026-10-21 consolidation. The implementation includes **16 new
-organizers and 114 new eligible Areas**, with **95 partOf**, **37 specializes** and **23
-progression** assertions. The full ontology contains **1,139 descriptors and 6,069 assertions**.
+All **130 Areas** across A, B and E were implemented on `codex/calculus-foundations`,
+based on `main` at `c313e4a`, and merged through PR #74 at `5f52168`. This record includes the
+2026-10-21 limit consolidation and the final manual relation refinement at `c22f2ee`.
+The implementation includes **16 new organizers and 114 new eligible Areas**, with **95 partOf**,
+**36 specializes** and **23 progression** assertions. The merged Calculus snapshot contains
+**1,139 descriptors and 6,068 assertions**.
 
 The seven Calculus branches and their supporting concepts use the placements and examples
 above. Existing Analysis properties retain their homes. No descriptor from main is renamed or retired,
-and no schema, Ability or Scope source is changed. Five unmerged draft identifiers are removed
-by the consolidation recorded above.
+and no schema, Ability or Scope source is changed. Five identifiers introduced only in intermediate
+PR drafts were removed by the consolidation before merge.
 
 | Change | Adoption effect |
 | --- | --- |
@@ -721,9 +723,10 @@ by the consolidation recorded above.
 | Algebra | Its boundary wording now recognizes Analysis properties and the separate Calculus methods root; its structural relations are unchanged. |
 | Analysis | Its example now illustrates continuity, convergence and series representation; its definition and existing ancestry are unchanged. |
 | FunctionRegularity | Its definition includes specified forms of integrability and its new constituent is RiemannIntegrability; it was already an organizer. |
-| Limit-property consolidation | Removes LimitFoundations and the four definitional criterion identifiers from the unmerged draft. FunctionLocalLimitBehavior and FunctionEndBehavior clarify domain conditions; SequenceConvergence gains a quantified example. SequentialLimitCriterion moves to FunctionTheorems. Draft labels using removed identifiers require evidence-based remapping through the table above; retained properties keep their ancestry and eligibility. |
+| Limit-property consolidation | Removed LimitFoundations and the four definitional criterion identifiers from the intermediate PR draft before merge. FunctionLocalLimitBehavior and FunctionEndBehavior clarify domain conditions; SequenceConvergence gains a quantified example. SequentialLimitCriterion moves to FunctionTheorems. Draft labels using removed identifiers require evidence-based remapping through the table above; retained properties keep their ancestry and eligibility. |
+| NumericalIntegration | The final manual refinement removes its draft specialization of NumericApproximation. Its CalculusApproximation parent and quadrature specializations are retained; no identifier or existing-main ancestry changes. |
 | New formal, geometric and algebraic support | Includes calculus/summation notation, DifferentialEquation, parameter/polar representation, and PartialFractionDecomposition, with the placements documented above. |
-| Existing labels and consumers | The inspected authored `edugraph-content` files contain no direct Calculus or FunctionRegularity uses, and no Area.Algebra or Area.Analysis uses requiring updates. External annotations, model vocabularies and consumer package pins still require review when adopting a release containing this branch. |
+| Existing labels and consumers | The inspected authored `edugraph-content` files contain no direct Calculus or FunctionRegularity uses, and no Area.Algebra or Area.Analysis uses requiring updates. External annotations, model vocabularies and consumer package pins still require review when adopting a release containing the merged extension. |
 
 Twelve retained new definitions were adjusted to self-contained noun-phrase openings under
 [ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries), preserving
@@ -738,20 +741,20 @@ Thus progression predicates precede partOf and specializes where their names sor
 The file uses LF line endings and one final newline. One pre-existing LinearSystems block
 moves to its editor-defined alphabetical position without any change to its assertions.
 
-Independent source verification passed:
+The source verification record, with relation counts adjusted for the final manual refinement:
 
-- All 130 definitions and examples, 132 structural edges and 23 progression edges match the
+- All 130 definitions and examples, 131 structural edges and 23 progression edges match the
   design tables exactly, with no additional candidate relations.
 - Parsing and serializing through the editor reproduces the source byte for byte.
-- The authored graph has zero validation findings, with 1,139 descriptors and 6,069 assertions.
-- Comparison with `c313e4a` confirms 675 new-entity assertions, six existing annotation
+- The merged Calculus graph contains 1,139 descriptors and 6,068 assertions; the reviewed graph had zero validation findings before the final one-edge removal.
+- Comparison with `c313e4a` confirms 674 new-entity assertions, six existing annotation
   replacements and the added Calculus example. Only Calculus changes existing label eligibility;
   all existing structural ancestry and the other three Turtle sources remain unchanged.
 - Documentation validation passed for all authored Markdown files.
 
 After Docker became available, the full build exposed TypeScript's union-complexity limit in
-the larger generated snapshot. The branch includes a narrow generator fix: each emitted record
+the larger generated snapshot. The merged implementation includes a narrow generator fix: each emitted record
 is checked against OntologyStatement and widened before the array is assembled, preserving
-data, order and the public API. The full Docker gate passed: TypeScript compilation, client
+data, order and the public API. The full Docker gate passed for the reviewed consolidation at `3f69c8d`: TypeScript compilation, client
 tests, ontology/documentation validation and npm package checks, followed by Python lint,
 typing, all 49 tests, and wheel/sdist consumer verification.

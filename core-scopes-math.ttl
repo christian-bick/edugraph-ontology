@@ -110,6 +110,10 @@
 :BoxArrangement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The rectangular positioning and two-dimensional organization of objects.";
     edu:specializes :ObjectArrangement.
+:BoxPlot a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Numerical data represented using a box spanning the lower and upper quartiles, a median mark, and whiskers and outlier marks under a stated convention.";
+    rdfs:comment "A box from the first quartile 12 to the third quartile 20, with median 16.";
+    edu:specializes :DataRepresentation.
 :Calendar a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Dates and time intervals represented through an ordered arrangement of days, weeks, months, and years.";
     rdfs:comment "Finding the number of days between two marked calendar dates.";
@@ -475,6 +479,10 @@
     rdfs:isDefinedBy "Hectoliters to measure volumes.";
     edu:specializes :MetricVolumeScale;
     edu:translates :LiterScale.
+:Histogram a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Numerical data grouped into adjacent intervals and represented by bar areas proportional to frequencies or relative frequencies, with height adjusted for unequal widths.";
+    rdfs:comment "Equal-width height intervals with frequency bars; unequal-width intervals displayed using frequency density.";
+    edu:specializes :DataRepresentation.
 :HourIntervals a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time expressed in intervals of hours in a day.";
     edu:specializes :TimeIntervals.
@@ -1048,6 +1056,10 @@
     rdfs:isDefinedBy "Categorical quantities represented by repeated pictures or symbols with a stated numerical value per symbol.";
     rdfs:comment "A row of symbols showing how many votes a category received.";
     edu:specializes :DataRepresentation.
+:PieChart a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "A whole partitioned into circular sectors with angles and areas proportional to category shares.";
+    rdfs:comment "A half-circle sector representing 50% of respondents.";
+    edu:specializes :DataRepresentation.
 :PositiveExponent a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "An exponentiation context in which an exponent is a strictly positive number.";
     rdfs:comment "2^3 or 10^2.";
@@ -1070,6 +1082,10 @@
     rdfs:isDefinedBy "A stated limit on the probability of exceeding a specified error criterion under identified model or sampling assumptions.";
     rdfs:comment "A procedure with at most a five-percent probability of exceeding a stated error tolerance. A confidence-interval coverage guarantee concerns repeated sampling, not an automatic probability assignment to a fixed parameter after observing data.";
     edu:specializes :ErrorControl.
+:ProbabilityTree a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Successive random outcomes represented by a branching tree whose branches carry conditional or initial probabilities.";
+    rdfs:comment "A two-draw urn tree with updated probabilities on the second draw.";
+    edu:partOf :RepresentationalScope.
 :ProofByCases a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Arguments establishing a claim separately for cases that collectively cover all possibilities in its stated domain.";
     rdfs:comment "Proving a claim for arbitrary odd integers and for arbitrary even integers. This need not enumerate every individual integer.";
@@ -1180,6 +1196,10 @@
 :ScatteredArrangement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The irregular positioning and non-uniform organization of objects.";
     edu:specializes :ObjectArrangement.
+:ScatterPlot a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Paired numerical observations represented as points whose coordinates give the two measured values.";
+    rdfs:comment "One point per plant showing height against age.";
+    edu:specializes :DataRepresentation.
 :ScientificExponentNotation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Numerical values represented as a * 10^n or equivalent E notation, with integer n and 1 <= abs(a) < 10 for nonzero a. Zero uses coefficient zero with a stated exponent convention.";
     rdfs:comment "3.2 * 10^5; 1.25E6; 0 * 10^0 with the exponent fixed at zero.";
@@ -1324,6 +1344,10 @@
 :StateProperties a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The identification and differentiation of states of matter.";
     edu:partOf :ObjectAbstraction.
+:StemAndLeafPlot a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Numerical observations arranged into shared leading-digit stems and trailing-digit leaves under a stated key.";
+    rdfs:comment "The row 2 | 1 4 8 representing 21, 24, and 28.";
+    edu:specializes :DataRepresentation.
 :StepComplexity a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The number of successive logical or procedural steps required to reach a solution, where each step represents a discrete operation or transformation within a sequential process.";
     edu:partOf :ComplexityScope.
@@ -1470,6 +1494,10 @@
     rdfs:isDefinedBy "Tools and representations used to determine times of day, dates, or elapsed durations.";
     rdfs:comment "A clock, calendar, or stopwatch.";
     edu:partOf :MeasurementScope.
+:TimeSeriesPlot a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Observations plotted against ordered times, optionally joined to display temporal change.";
+    rdfs:comment "Daily temperatures plotted against dates.";
+    edu:specializes :DataRepresentation.
 :TonneScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in metric tons (tonnes).";
     edu:specializes :MetricWeightScale.
@@ -1502,6 +1530,10 @@
     rdfs:isDefinedBy "A mathematical expression with exactly two explicit operand occurrences, counted across all nested operations.";
     rdfs:comment "7 + 5 and 4 + 4 each present two operands, even when their values are equal.";
     edu:specializes :OperandCardinality.
+:TwoWayTable a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Data arranged by two categorical variables with cell entries recording counts or proportions for their joint categories.";
+    rdfs:comment "Counts of bicycle and bus users separated by year group.";
+    edu:specializes :DataTable.
 :UnequalShares a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Partitioning a whole into parts that do not have equal measure.";
     edu:contradicts :EqualShares;
