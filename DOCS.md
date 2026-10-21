@@ -320,6 +320,10 @@ and supporting documents into `references/`, creates an npm tarball, and tests t
 public exports, declarations, parser-free core import, browser bundles, and document links.
 The release workflow also uses `npm pack` so the tested inclusion rules govern released assets.
 
+Snapshot generation checks each emitted record against `OntologyStatement` and widens its
+inferred type before assembling the array. This avoids TypeScript's union-complexity limit as
+the ontology grows, while preserving record validation, data, order, and the public array type.
+
 Browser checks bundle the actual core and parser exports and execute them in a sandbox providing
 browser globals without Node filesystem/process access. They are focused integration smoke tests,
 not a complete browser or editor test suite. The editor's model projection and serializer remain

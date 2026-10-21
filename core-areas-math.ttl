@@ -13,11 +13,19 @@
     edu:expands :ZeroConcept;
     edu:partOf :NumberSense;
     edu:translates :DistanceCalculation.
+:AbsoluteSeriesConvergence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Convergence of a real or complex series together with convergence of the series of absolute term values.";
+    rdfs:comment "sum_(n=1)^infinity (-1)^n/n^2 converges absolutely.";
+    edu:specializes :SeriesConvergence.
 :AbsoluteValueFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The real input-output relationship defined by f(x) = a|bx + c| + d for fixed real coefficients with a and b nonzero, on a stated real domain. For a real argument u, |u| equals u when u >= 0 and -u when u < 0.";
     rdfs:comment "Interpreting f(-3) = f(3) = 3 for f(x) = |x|; relating g(x) = -2|x - 3| + 4 to the basic absolute-value relationship.";
     edu:expands :AbsoluteNumberMagnitude;
     edu:specializes :NumericFunction.
+:AccumulationFunction a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The function A(x)=integral_a^x f(t) dt formed by holding a starting input fixed and varying an endpoint where the intervening integrals exist.";
+    rdfs:comment "For f(t)=2t and a=1, A(x)=x^2-1.";
+    edu:partOf :IntegralCalculus.
 :AcuteAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle greater than zero degrees and less than 90 degrees.";
     rdfs:comment "Angles measuring 30 degrees or 60 degrees.";
@@ -64,7 +72,7 @@
     rdfs:comment "3x + 2; 2x + 3y - 6 in x and y; the zero residual of x + 1 = x + 1; f(x) = 5.";
     edu:specializes :PolynomialDependence.
 :Algebra a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of symbolic quantities, expressions, constraints, and functions and relations through their structure, representations, and transformations. Limits, continuity, differentiation, integration, and convergence belong to analysis.";
+    rdfs:isDefinedBy "The study of symbolic quantities, expressions, constraints, and functions and relations through their structure, representations, and transformations. Limiting behavior and function regularity are organized in Analysis; differential and integral methods are organized in Calculus.";
     rdfs:comment "Representing an unknown quantity with a variable, or solving an equation that relates several quantities.".
 :AlgebraicConstraints a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The solution conditions of equations, inequalities, and simultaneous systems, including satisfaction, solution sets, and methods for finding or preserving those sets.";
@@ -106,9 +114,17 @@
     rdfs:isDefinedBy "General relationships among algebraic expressions, their values, roots, and factors.";
     rdfs:comment "The equality between p(2) and the remainder on division of p(x) by x - 2; the link between a zero of p and a linear factor of p.";
     edu:partOf :Algebra.
+:AlternatingSeriesRemainderBound a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The bound on the error after a partial sum of an alternating series with decreasing nonnegative term magnitudes tending to zero, limiting its magnitude to the first omitted magnitude and its direction to that term's sign.";
+    rdfs:comment "After 100 terms of the alternating harmonic series, the error is at most 1/101.";
+    edu:partOf :CalculusApproximation.
+:AlternatingSeriesTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Convergence of an alternating series whose nonnegative term magnitudes eventually decrease to zero.";
+    rdfs:comment "1-1/2+1/3-1/4+... converges by this test.";
+    edu:partOf :SeriesConvergenceTests.
 :Analysis a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of limits, continuity, and the behavior of functions and infinite processes.";
-    rdfs:comment "Investigating convergence of a sequence, differentiating a function, or examining an infinite series.".
+    rdfs:comment "Examining continuity at a point, convergence of a sequence, or conditions under which a series represents a function.".
 :AngleCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining the magnitude of an angle from given measurements and geometric relationships.";
     rdfs:comment "Finding a triangle's missing angle from its other two angles.";
@@ -124,14 +140,27 @@
     rdfs:comment "Adjacent angles, complementary angles, or opposite angles formed by intersecting lines.";
     edu:expands :AngleConcept;
     edu:partOf :GeometricRelations.
+:Antidifferentiation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Recovering functions with a prescribed derivative on a connected interval, where any two antiderivatives differ by a constant. Disconnected domains can require independent constants on their components.";
+    rdfs:comment "The antiderivatives of 2x on the real line are x^2 + C.";
+    edu:inverts :Differentiation;
+    edu:partOf :IntegralCalculus.
 :ArchConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A continuous portion of the circumference of a circle or any other curved line.";
     edu:expands :Circle, :RatioInterpretation;
     edu:partOf :GeometricConcepts.
+:ArcLengthIntegration a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The length traced by a piecewise continuously differentiable Euclidean curve, obtained by integrating the magnitude of its velocity over the parameter interval. Retraced portions contribute each time they are traversed.";
+    rdfs:comment "r(t)=(3t,4t), 0 <= t <= 2, has length integral_0^2 5 dt = 10.";
+    edu:partOf :CurveCalculus.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
     edu:expands :LengthCalculation, :PlaneConcept;
     edu:partOf :GeometricCalculations.
+:AreaIntegration a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Expressing geometric area as an integral of nonnegative slice lengths, splitting the domain where boundary order changes.";
+    rdfs:comment "The area between y=x and y=x^2 on [0,1] is integral_0^1 (x-x^2) dx = 1/6.";
+    edu:partOf :IntegralApplications.
 :Arithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of numerical values and the operations and relationships used to calculate with them.";
     rdfs:comment "Addition, subtraction, multiplication, and division.".
@@ -167,6 +196,10 @@
     rdfs:isDefinedBy "The mathematical principle stating that the way in which numbers are grouped by parentheses does not change their sum or product.";
     rdfs:comment "(2 + 3) + 4 = 2 + (3 + 4); (2*3)*4 = 2*(3*4).";
     edu:partOf :ArithmeticLaws.
+:AutonomousDifferentialEquationModel a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A first-order rate model y'=F(y) in which the rate depends on the current state rather than explicitly on the independent variable, with zeros and signs of F identifying constant solutions and directions of change.";
+    rdfs:comment "For y'=y(2-y), states between 0 and 2 increase and states above 2 decrease.";
+    edu:partOf :DifferentialEquations.
 :AverageRateOfChange a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The quotient of the change in a real-valued function's output by the nonzero change between two distinct real inputs in its stated domain.";
     rdfs:comment "The average rate of change of f(x) = x^2 from x = 1 to x = 3 is (9 - 1)/(3 - 1) = 4; a distance increase of 60 kilometers in 2 hours gives 30 kilometers per hour.";
@@ -199,11 +232,20 @@
     rdfs:comment "Using x < 0 to select the branch value -x and x >= 0 to select x in a piecewise expression for absolute value.";
     edu:partOf :ExpressionStructure.
 :Calculus a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The branch of mathematics that provides tools for analyzing rates of change and accumulation. It deals with instantaneous rates of change that affect the slopes of curves, as well as with accumulation that affect areas under curves.".
+    rdfs:isDefinedBy "The concepts and methods of change, accumulation, and approximation developed through limits, derivatives, integrals, and infinite series.";
+    rdfs:comment "Finding a velocity from a position function; recovering net change from a rate; approximating a function by a Taylor polynomial.".
+:CalculusApproximation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Derivative-, integral-, and series-based approximations, their numerical procedures, and their error guarantees.";
+    rdfs:comment "Linearizing a function; estimating an integral by trapezoids.";
+    edu:partOf :Calculus.
 :CartesianPlane a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A two-dimensional plane defined by a horizontal axis and a vertical axis intersecting at a right angle.";
     edu:expands :PlaneConcept;
     edu:partOf :GeometricVisualization.
+:ChainRule a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identity (f composed with g)'(x) = f'(g(x))g'(x) where g is differentiable at x and f is differentiable at g(x).";
+    rdfs:comment "(sin(x^2))' = 2x cos(x^2).";
+    edu:partOf :DifferentiationRules.
 :ChineseRemainderTheorem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The existence of a unique residue class modulo the product satisfying any prescribed integer residues for a finite nonempty collection of pairwise coprime positive integer moduli.";
     rdfs:comment "Residues 2 modulo 3 and 3 modulo 5 determine residue 8 modulo 15.";
@@ -234,6 +276,10 @@
     rdfs:comment "Calculating a circle's circumference from its radius using 2πr.";
     edu:expands :Circle, :Pi, :RadiusDiameterRelation;
     edu:specializes :PerimeterCalculation.
+:ClosedIntervalExtremumMethod a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Finding absolute extrema of a continuous real function on a closed bounded interval by comparing endpoint values with values at all interior critical points.";
+    rdfs:comment "For f(x) = x(2-x) on [0,3], compare f(0)=0, f(1)=1 and f(3)=-3.";
+    edu:partOf :DerivativeApplications.
 :Coefficient a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a factor multiplying a designated variable part of a term and independent of the variables in that part. Its value may be written explicitly or implied by the notation.";
     rdfs:comment "Identifying 3 as the coefficient of x in 3x; treating a as the coefficient in ax when x is the designated variable; making the implied coefficients 1 in x and -1 in -x explicit.";
@@ -262,6 +308,10 @@
     rdfs:comment "3 + 5 = 5 + 3; 4*7 = 7*4.";
     edu:expands :Addition, :Multiplication;
     edu:partOf :ArithmeticLaws.
+:ComparisonSeriesTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Comparing eventually nonnegative terms with a convergent upper bound or a divergent lower bound, or comparing positive terms whose ratio tends to a finite positive constant. In the ratio case both series have the same convergence status.";
+    rdfs:comment "Since 0<1/(n^2+1)<=1/n^2, sum 1/(n^2+1) converges.";
+    edu:partOf :SeriesConvergenceTests.
 :ComplementaryAngleIdentities a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identities sin(pi/2 - theta) = cos(theta) and cos(pi/2 - theta) = sin(theta) for real theta measured in radians, or equivalently with 90 degrees in degree measure.";
     rdfs:comment "sin(30 degrees) = cos(60 degrees) = 1/2; cos(pi/6) = sin(pi/3) = sqrt(3)/2.";
@@ -316,6 +366,10 @@
     rdfs:isDefinedBy "The role of a value expression paired with an explicit or default condition specifying when it supplies the value of a piecewise expression.";
     rdfs:comment "Pairing -x with x < 0 and x with the default condition otherwise to construct a piecewise expression for absolute value.";
     edu:partOf :ExpressionStructure.
+:ConditionalSeriesConvergence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Convergence of a real or complex series whose series of absolute term values diverges.";
+    rdfs:comment "The alternating harmonic series converges conditionally.";
+    edu:specializes :SeriesConvergence.
 :Cone a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A three-dimensional geometric shape that tapers smoothly from a flat base to a point called the apex or vertex.";
     edu:expands :Circle, :Triangle;
@@ -329,6 +383,10 @@
     rdfs:isDefinedBy "The role of a literal or designated name for a fixed value, independent of the variable assignments under consideration.";
     rdfs:comment "Distinguishing the fixed values 7 and pi from the varying x in 7x + pi; treating a as fixed while x varies in ax.";
     edu:partOf :ExpressionStructure.
+:ConstantDerivativeIdentity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identity that the derivative of a constant with respect to the designated variable is zero.";
+    rdfs:comment "d/dx 7 = 0.";
+    edu:specializes :ElementaryDerivativeIdentities.
 :ConstantTerm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of an additive term independent of the designated variables, including a term expressed using fixed parameters.";
     rdfs:comment "Separating the constant term 5 from 3x in 3x + 5; identifying b + 1 as the constant term in x + (b + 1) when x varies and b is fixed.";
@@ -365,14 +423,34 @@
     rdfs:isDefinedBy "The relationship between an angle measure and the horizontal coordinate of its corresponding point on the unit circle, using a specified angular unit.";
     rdfs:comment "cos(0) = 1 and cos(pi) = -1 for radian measures; an adjacent side of length 4 and hypotenuse of length 5 give cosine 4/5 for the included acute angle.";
     edu:specializes :TrigonometricFunction.
+:CrossSectionIntegration a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Expressing a solid's volume as the integral of its cross-sectional area with respect to position along a stated axis.";
+    rdfs:comment "Cross sections of area x^2 for 0 <= x <= 2 give volume integral_0^2 x^2 dx = 8/3.";
+    edu:partOf :IntegralApplications.
 :Cube a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six congruent square faces where each pair of opposite faces is parallel.";
     edu:expands :Square;
     edu:specializes :RectangularPrism.
+:CurveCalculus a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Differential and integral relationships for curves described by one real parameter.";
+    rdfs:comment "Finding velocity along a plane curve or area enclosed by a polar curve.";
+    edu:partOf :Calculus.
+:CurveMotion a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Relating position, velocity, acceleration and speed for motion along a Euclidean curve, and distinguishing displacement from distance by integrating velocity or its magnitude.";
+    rdfs:comment "For r(t)=(cos(t),sin(t)),0<=t<=2pi, speed is 1, distance is 2pi and displacement is (0,0).";
+    edu:partOf :VectorCurveCalculus.
+:CyclicIntegrationByParts a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Repeating integration by parts until the original integral recurs with a coefficient that permits isolating it algebraically.";
+    rdfs:comment "Repeating integration by parts gives integral e^x cos(x) dx = e^x(cos(x)+sin(x))/2+C.";
+    edu:specializes :RepeatedIntegrationByParts.
 :Cylinder a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A three-dimensional solid consisting of two parallel circular bases connected by a curved surface.";
     edu:expands :Circle, :Rectangle;
     edu:partOf :ThreeDimensionalObjects.
+:CylindricalShellIntegration a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Computing a solid of revolution's volume by integrating cylindrical-shell contributions of circumference times height times thickness, with radii and bounds determined by the axis.";
+    rdfs:comment "Rotating 0 <= y <= x, 0 <= x <= 1, about the y-axis gives integral_0^1 2pi x*x dx = 2pi/3.";
+    edu:partOf :IntegralApplications.
 :DecimalArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding and operating on rational numbers expressed in base-ten positional notation with decimal places.";
     rdfs:comment "Adding aligned decimal values, rounding a decimal, or interpreting equivalent decimal representations.";
@@ -417,6 +495,15 @@
     edu:expands :NumericOrder;
     edu:inverts :Increment;
     edu:partOf :FoundationalOperations.
+:DefiniteIntegral a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The signed accumulation of a Riemann-integrable real function over an oriented bounded interval, defined by the common limit of its tagged partition sums as the largest subinterval width tends to zero.";
+    rdfs:comment "integral_(-1)^1 x dx = 0, although the total area between the graph and axis is 1.";
+    edu:expands :RiemannSum;
+    edu:partOf :IntegralCalculus.
+:DefiniteIntegralProperties a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Linearity, interval additivity, reversal of bounds, and order comparison for proper definite integrals of integrable real functions.";
+    rdfs:comment "integral_0^2 f = integral_0^1 f + integral_1^2 f; integral_b^a f = -integral_a^b f.";
+    edu:partOf :IntegralCalculus.
 :Denominator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of the divisor expression written below a fraction bar or after a slash representing that bar.";
     rdfs:comment "Identifying x - 2 as the complete denominator in (x + 1)/(x - 2); interpreting 4 as the divisor represented below the bar in 3/4.";
@@ -425,6 +512,35 @@
     rdfs:isDefinedBy "The output role of a variable specified by a rule from designated inputs, including a constant output rule.";
     rdfs:comment "The role of y in y = 2x + 1 when x is the chosen input; the role of y in the constant rule y = 5 for real x.";
     edu:specializes :Variable.
+:DerivativeApplications a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Relationships that use derivatives to analyze function behavior, constrained extrema, and linked rates.";
+    rdfs:comment "Testing a stationary point; relating the rates of change of a sphere's radius and volume.";
+    edu:partOf :DifferentialCalculus.
+:DerivativeExtremumTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Using local derivative conditions to establish or rule out a local extremum at a candidate point, distinguishing inconclusive tests from absence of an extremum.";
+    rdfs:comment "A derivative sign change from negative to positive establishes a local minimum; a zero second derivative alone leaves the classification open.";
+    edu:partOf :DerivativeApplications.
+:DerivativeFunction a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The function assigning each interior input where a finite derivative exists the instantaneous rate of the original real function there. Its domain can be smaller than the original domain.";
+    rdfs:comment "The derivative of abs(x) is -1 for x < 0 and 1 for x > 0, with 0 absent from its domain.";
+    edu:expands :InstantaneousRateOfChange;
+    edu:partOf :DifferentialCalculus.
+:DerivativeLinearity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identity equating the derivative of a constant linear combination of differentiable functions with the same linear combination of their derivatives.";
+    rdfs:comment "(3f - 2g)' = 3f' - 2g'.";
+    edu:partOf :DifferentiationRules.
+:DerivativeNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conventions for writing derivative values, derivative functions and differentiation operators, including the designated variable and derivative order.";
+    rdfs:comment "Distinguishing f'(a), f', d/dx and d^2y/dx^2; interpreting dy/dx as a derivative rather than an ordinary quotient of two numbers.";
+    edu:partOf :FormalMathematics.
+:DerivativeOptimization a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Reducing a constrained extremum problem to an admissible function domain and using derivative information with boundary checks to identify the required optimum.";
+    rdfs:comment "Among positive rectangles of perimeter 20, maximize A(x)=x(10-x) for 0 < x < 10 to obtain a square of side 5.";
+    edu:partOf :DerivativeApplications.
+:DerivativeSignAnalysis a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Using first- or second-derivative signs on intervals to establish monotonicity, concavity, or changes of concavity.";
+    rdfs:comment "For x^3, the nonnegative first derivative establishes nondecrease; the second derivative changes from negative to positive at 0.";
+    edu:partOf :DerivativeApplications.
 :DeterminantScaling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The multiplication of Euclidean n-dimensional volume by abs(det(A)) under a real square matrix transformation in fixed oriented orthonormal coordinates, with a negative determinant reversing orientation and a zero determinant collapsing volume.";
     rdfs:comment "diag(2, -3) multiplies plane area by 6 and reverses orientation; diag(1, 0) collapses plane area to zero.";
@@ -441,6 +557,39 @@
     rdfs:isDefinedBy "The identity (a + b)(a - b) = a^2 - b^2 for real or complex quantities, used in either direction.";
     rdfs:comment "x^2 - 9 = (x + 3)(x - 3).";
     edu:specializes :QuadraticRewriting.
+:DifferentiabilityContinuityTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The implication from existence of a finite derivative at an interior point to continuity there, without a converse guarantee of differentiability.";
+    rdfs:comment "abs(x) is continuous at 0 but has no derivative there.";
+    edu:partOf :FunctionTheorems.
+:DifferentialCalculus a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Derivatives, the operations and rules that determine them, and their use in studying change.";
+    rdfs:comment "Forming the derivative of x^3 and using its sign to study change.";
+    edu:partOf :Calculus.
+:DifferentialEquation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The form and meaning of an equation relating an unknown function to one or more of its derivatives.";
+    rdfs:comment "Interpreting y'=2y as a constraint on a function, rather than on one numerical y-value.";
+    edu:specializes :Equation.
+:DifferentialEquationMethods a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Analytic techniques for obtaining exact solution families of ordinary differential equations through transformations and integration, retaining domain restrictions and exceptional solutions.";
+    rdfs:comment "Separating y'=xy; multiplying y'+2y=4 by an integrating factor.";
+    edu:partOf :DifferentialEquations.
+:DifferentialEquations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Relationships constraining unknown functions through their derivatives, their solution families, and accompanying conditions.";
+    rdfs:comment "Studying y' = 2y with or without y(0) = 3.";
+    edu:partOf :Calculus.
+:DifferentialEquationSolution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A function having the required derivatives and satisfying a differential equation throughout a specified interval, including families distinguished by constants. The equation alone need not determine a unique solution.";
+    rdfs:comment "Every y(x)=C e^(2x) satisfies y'=2y on the real line.";
+    edu:partOf :DifferentialEquations.
+:Differentiation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining the derivative of a function with respect to a designated variable, retaining the domain on which the derivative exists.";
+    rdfs:comment "Finding d/dx (x^3) = 3x^2.";
+    edu:integrates :DerivativeFunction;
+    edu:partOf :DifferentialCalculus.
+:DifferentiationRules a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Identities relating derivatives to the elementary functions and operations from which a function is formed.";
+    rdfs:comment "Using a product rule or chain rule.";
+    edu:partOf :DifferentialCalculus.
 :DigitNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The use and interpretation of the digit symbols 0 through 9 in numerical representations.";
     rdfs:comment "Identifying the digit symbols in 307 and distinguishing them from the value of the whole numeral.";
@@ -458,6 +607,10 @@
     rdfs:isDefinedBy "Dependence in which a designated output quantity equals a fixed multiple k of one input quantity, with no constant offset, including k = 0.";
     rdfs:comment "y = 3x with input x and output y; the output expression 3x; f(t) = 4t; f(t) = 0.";
     edu:specializes :AffineDependence.
+:DiskWasherIntegration a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Computing a solid of revolution's volume from circular or annular cross sections, integrating pi times the difference of squared outer and inner radii.";
+    rdfs:comment "Rotating the region 0 <= y <= x, 0 <= x <= 1, about the x-axis gives volume integral_0^1 pi x^2 dx = pi/3.";
+    edu:specializes :CrossSectionIntegration.
 :DistanceCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of distance between two points.";
     edu:expands :Difference;
@@ -520,6 +673,10 @@
     rdfs:isDefinedBy "The sum of the positive divisors of a positive integer and its relationship to prime factorization.";
     rdfs:comment "The positive divisors of 12 have sum 1 + 2 + 3 + 4 + 6 + 12 = 28.";
     edu:partOf :ArithmeticFunctions.
+:ElementaryDerivativeIdentities a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Identities giving derivatives of elementary real functions on their differentiability domains, with trigonometric arguments measured in radians.";
+    rdfs:comment "(x^3)' = 3x^2; (ln(x))' = 1/x for x > 0; (sin(x))' = cos(x).";
+    edu:partOf :DifferentiationRules.
 :EmergentFeatureRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizing a recurring, alternating, invariant, or otherwise systematic property of generated pattern elements that follows from, but is not itself, the generative rule.";
     edu:specializes :PatternRecognition.
@@ -541,6 +698,10 @@
     rdfs:isDefinedBy "A triangle in which all three sides are of equal length and all three angles are 60 degrees.";
     edu:expands :SymmetryRelation;
     edu:specializes :Triangle.
+:EquilibriumSolution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A constant function that satisfies a differential equation throughout the stated interval.";
+    rdfs:comment "y=0 and y=1 satisfy y'=y(1-y).";
+    edu:specializes :DifferentialEquationSolution.
 :Estimation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Intuitively guessing relative quantities and sizes without counting.";
     edu:expands :NumericComparison;
@@ -553,6 +714,11 @@
     rdfs:isDefinedBy "The unique representation of an integer a as bq + r for a positive integer b, with integers q and r satisfying 0 <= r < b.";
     rdfs:comment "-7 = 3(-3) + 2; 17 = 5 * 3 + 2.";
     edu:partOf :IntegerDivisibility.
+:EulerMethod a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Approximating a solution of y'=F(x,y) by repeated tangent steps y_(n+1)=y_n+hF(x_n,y_n), with x_(n+1)=x_n+h and a supplied initial value.";
+    rdfs:comment "For y'=y, y(0)=1 and h=0.1, the first two estimates are 1.1 and 1.21.";
+    edu:integrates :SlopeField;
+    edu:partOf :CalculusApproximation.
 :EulersTotient a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The number of integers from 1 through a positive integer n that are coprime to n, and its dependence on the prime factors of n.";
     rdfs:comment "phi(12) = 4, counting 1, 5, 7, and 11; phi(1) = 1.";
@@ -561,6 +727,10 @@
     rdfs:isDefinedBy "A division of collections in which the divisor is two, permitting the source collection to be partitioned into exactly two subcollections of equal cardinality. The result identifies the source cardinality as an even integer, consisting of a quotient that represents the shared cardinality of the subcollections and a remainder of zero.";
     edu:expands :SetComparison, :Subitizing;
     edu:specializes :DivisionOfCollections.
+:EvenFunctionIntegralReduction a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Reduction of a proper definite integral of an even function on [-a,a], with a > 0, to twice its integral over [0,a].";
+    rdfs:comment "integral_(-2)^2 x^2 dx = 2 integral_0^2 x^2 dx = 16/3.";
+    edu:specializes :SymmetryIntegration.
 :EvenFunctionSymmetry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Symmetry of a real function under negation of its input, with a domain closed under negation and f(-x) = f(x) throughout that domain.";
     rdfs:comment "f(x) = x^2 is even on the real numbers; its restriction to [0, infinity) lacks a domain closed under negation.";
@@ -573,6 +743,14 @@
     rdfs:isDefinedBy "Dependence whose governing expression has the form a*b^u + c in one designated variable u, with fixed real a != 0, b > 0, b != 1, and c, on a stated real domain.";
     rdfs:comment "2^x; the residual 3*2^x - 12 of 3*2^x = 12; f(t) = 5*(1/2)^t + 3.";
     edu:specializes :AlgebraicDependence.
+:ExponentialDerivativeIdentity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identity (a^x)' = a^x ln(a) for a fixed positive base, including (e^x)' = e^x.";
+    rdfs:comment "d/dx 2^x = 2^x ln(2).";
+    edu:specializes :ElementaryDerivativeIdentities.
+:ExponentialDifferentialEquationModel a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship between a constant proportional rate y'=ky and exponential growth or decay, including the zero equilibrium.";
+    rdfs:comment "y'=-0.2y with y(0)=50 gives y(t)=50e^(-0.2t).";
+    edu:specializes :AutonomousDifferentialEquationModel.
 :ExponentialRewriting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Equivalent rewriting of algebraic expressions with designated quantities in exponent positions, preserving their values and applicable base, exponent, and domain restrictions.";
     rdfs:comment "4^x = 2^(2x); 2^(x + 1) = 2*2^x; 3^x*3^(2x) = 3^(3x).";
@@ -594,6 +772,10 @@
     rdfs:isDefinedBy "The roles of symbols and subexpressions, and the conventions that organize them into mathematical expressions.";
     rdfs:comment "Identifying 3 as the coefficient of x in 3x + 2; treating x + 2 as one factor in 5(x + 2); distinguishing sin from its argument x in sin(x).";
     edu:partOf :FormalMathematics.
+:ExtremeValueTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The guarantee that a real function continuous on a nonempty closed bounded interval attains both a maximum and a minimum there.";
+    rdfs:comment "x^2 on [-1, 2] attains minimum 0 and maximum 4.";
+    edu:partOf :FunctionTheorems.
 :Factor a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The multiplicative role of a component of a product, whether written explicitly or implied by the notation.";
     rdfs:comment "Treating x + 2 as one factor alongside 3 in 3(x + 2); making the implied factor -1 explicit in -x.";
@@ -611,6 +793,23 @@
     rdfs:isDefinedBy "The identity equating the sum of n geometric terms beginning with a, of common ratio r, to a(1 - r^n)/(1 - r) for positive integer n and r != 1. For r = 1, the sum is na.";
     rdfs:comment "3 + 6 + 12 + 24 = 3(1 - 2^4)/(1 - 2) = 45.";
     edu:specializes :AlgebraicEquivalence.
+:FirstDerivativeExtremumTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Classifying a candidate local extremum of a continuous function by first-derivative signs on the two neighboring intervals.";
+    rdfs:comment "The derivative of x^2 changes from negative to positive at 0, giving a local minimum.";
+    edu:specializes :DerivativeExtremumTest.
+:FirstDerivativeMonotonicityTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Establishing increase or decrease from the sign of a first derivative throughout an interval, with nonnegative or nonpositive signs guaranteeing the respective non-strict property.";
+    rdfs:comment "For e^x, a positive derivative proves strict increase; a zero derivative throughout an interval implies constancy there.";
+    edu:specializes :DerivativeSignAnalysis.
+:FirstOrderLinearIntegratingFactor a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Multiplying y'+p(x)y=q(x) by mu(x)=exp(integral p(x) dx) so its left side becomes (mu y)', when the coefficients are continuous on the interval.";
+    rdfs:comment "Multiplying y'+2y=4 by e^(2x) gives y=2+C e^(-2x).";
+    edu:partOf :DifferentialEquationMethods.
+:FirstPrinciplesDifferentiation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining a derivative by taking the limit of the difference quotient as the input increment approaches zero.";
+    rdfs:comment "((x+h)^2-x^2)/h = 2x+h for h != 0, giving derivative 2x.";
+    edu:integrates :FunctionLocalLimitBehavior;
+    edu:specializes :Differentiation.
 :FormalMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The syntax and meaning of symbolic representations of mathematical concepts, expressions, and statements.";
     rdfs:comment "Writing 'three more than x equals seven' as x + 3 = 7.".
@@ -717,7 +916,7 @@
     rdfs:comment "The real domain x >= 0 for f(x) = sqrt(x); the nonnegative integer domain for the cost of buying whole items.";
     edu:partOf :AlgebraicFunctions.
 :FunctionEndBehavior a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Limiting behavior as a real input tends toward positive or negative infinity through the function's domain.";
+    rdfs:isDefinedBy "Limiting behavior of a real-valued function as its input tends toward positive or negative infinity through a domain unbounded in that direction, distinguishing finite limits, signed infinite limits, and failure to approach a limit.";
     rdfs:comment "x^3 tends to positive infinity as x tends to positive infinity and to negative infinity as x tends to negative infinity; sin(x) has no limit as x tends to positive infinity.";
     edu:specializes :FunctionLimitingBehavior.
 :FunctionExtrema a owl:NamedIndividual, edu:Area;
@@ -737,7 +936,7 @@
     rdfs:comment "f(x) = 1/x tends to 0 as x tends to positive infinity and increases without bound as positive x tends to 0; sin(x) has no limit as x tends to positive infinity.";
     edu:partOf :FunctionProperties.
 :FunctionLocalLimitBehavior a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Limiting behavior as a real input approaches a specified finite location through the function's domain, including one-sided approaches and locations where the function is undefined.";
+    rdfs:isDefinedBy "Limiting behavior of a real-valued function as inputs approach a finite accumulation point of its domain, distinguishing finite limits, signed infinite limits, and failure to approach a limit. The approached point is excluded and need not be in the domain; one-sided approaches require accumulation from that side.";
     rdfs:comment "(x^2 - 1)/(x - 1) tends to 2 as x tends to 1 despite being undefined there; sin(1/x) has no limit as x tends to 0.";
     edu:specializes :FunctionLimitingBehavior.
 :FunctionMonotonicity a owl:NamedIndividual, edu:Area;
@@ -765,7 +964,7 @@
     rdfs:comment "The range [0, infinity) for f(x) = x^2 on the real numbers; the range {2, 4, 6} for f(n) = 2n on {1, 2, 3}.";
     edu:partOf :FunctionValueProperties.
 :FunctionRegularity a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Continuity and differentiability of functions at points or across stated intervals.";
+    rdfs:isDefinedBy "Continuity, differentiability, and specified forms of integrability of functions on stated domains.";
     rdfs:comment "The continuity of f(x) = |x| on the real numbers and its failure to be differentiable at x = 0.";
     edu:partOf :FunctionProperties.
 :FunctionRemovableDiscontinuity a owl:NamedIndividual, edu:Area;
@@ -800,6 +999,10 @@
     rdfs:isDefinedBy "Reflection or half-turn symmetries of a real function's graph, expressed through corresponding input-output relationships on a domain preserved by the symmetry.";
     rdfs:comment "The reflection symmetry of f(x) = (x - 2)^2 about x = 2; the half-turn symmetry of g(x) = (x - 1)^3 + 2 about (1, 2).";
     edu:partOf :FunctionProperties.
+:FunctionTheorems a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Theorems relating real-function limits, continuity, differentiability, values, and extrema under stated hypotheses.";
+    rdfs:comment "Guaranteeing a zero by intermediate values; relating a derivative to a secant slope.";
+    edu:partOf :Analysis.
 :FunctionTransformation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Producing or interpreting a new real-valued function of a real input by translating, reflecting, or scaling the input or output of a given such function, with the transformed domain specified.";
     rdfs:comment "Relating g(x) = 2f(x - 3) + 1 to f; reflecting the graph of f across the vertical axis by defining g(x) = f(-x).";
@@ -824,6 +1027,11 @@
     rdfs:isDefinedBy "The existence of a prime factorization for every integer greater than one and its uniqueness up to the order of the factors.";
     rdfs:comment "Explaining why any complete prime factorization of 60 contains two factors 2, one factor 3, and one factor 5.";
     edu:partOf :PrimesAndFactorization.
+:FundamentalTheoremOfCalculus a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identities connecting continuous real f on [a,b] with the accumulation A(x)=integral_a^x f(t) dt through A'=f at interior inputs and with any antiderivative F through integral_a^b f(x) dx=F(b)-F(a).";
+    rdfs:comment "d/dx integral_0^x cos(t) dt = cos(x); integral_0^1 2x dx = 1.";
+    edu:integrates :Antidifferentiation, :DefiniteIntegral;
+    edu:partOf :IntegralCalculus.
 :GeneralizedVariable a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a variable representing an arbitrary member of a stated domain in a claim intended to hold for every member of that domain.";
     rdfs:comment "Using x to stand for any real number in the identity x + x = 2x.";
@@ -852,6 +1060,11 @@
     rdfs:isDefinedBy "The constant-factor relationship between consecutive terms of a numerical sequence, where each term with a predecessor equals that predecessor multiplied by one fixed number. Zero or negative factors and zero terms are included.";
     rdfs:comment "3, 6, 12, 24, and onward with factor 2; 1, -2, 4, -8, and onward with factor -2; 5, 0, 0, and onward with factor 0.";
     edu:specializes :NumericFunction, :Sequence.
+:GeometricSeriesSummation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The infinite-sum identity a+ar+ar^2+...=a/(1-r) for abs(r)<1, obtained from limits of finite partial sums. For nonzero a the series diverges when abs(r)>=1.";
+    rdfs:comment "1+1/2+1/4+...=2.";
+    edu:expands :FiniteGeometricSum;
+    edu:partOf :SeriesCalculus.
 :GeometricTransformations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Mappings that change a geometric figure's position, orientation, or scale according to a specified rule.";
     rdfs:comment "A rotation, reflection, translation, or dilation.";
@@ -883,6 +1096,10 @@
 :Hexagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with six edges and six vertices.";
     edu:specializes :Polygon.
+:HigherOrderDerivative a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A derivative function obtained by repeated differentiation, of order at least two, on the inputs where the successive derivatives exist.";
+    rdfs:comment "For f(x) = x^3, f''(x) = 6x and f'''(x) = 6.";
+    edu:specializes :DerivativeFunction.
 :IdentityMatrix a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A square matrix with ones on the main diagonal and zeros elsewhere, acting as a multiplicative identity when its size matches the relevant side of a matrix product.";
     rdfs:comment "[[1, 0], [0, 1]] leaves every two-component column vector unchanged.";
@@ -892,6 +1109,15 @@
     edu:contradicts :PerfectDivisibility;
     edu:inverts :PerfectDivisibility;
     edu:specializes :DivisionOfCollections.
+:ImplicitDifferentiation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Differentiating a relation satisfied by a locally differentiable unknown function, using the chain rule and solving for the derivative where the resulting relation permits it.";
+    rdfs:comment "From x^2+y^2 = 1 obtain y' = -x/y where y != 0 on a differentiable branch.";
+    edu:integrates :ChainRule;
+    edu:specializes :Differentiation.
+:ImproperIntegral a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Integration over an unbounded interval or past an unbounded integrand by taking limits of proper integrals. Each side of every interior singularity and each unbounded end must converge separately for a finite ordinary improper integral.";
+    rdfs:comment "integral_1^infinity x^(-2) dx = 1, whereas integral_1^infinity 1/x dx diverges.";
+    edu:partOf :IntegralCalculus.
 :Increment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Raising a quantity by a certain amount.";
     edu:expands :NumericOrder;
@@ -913,6 +1139,10 @@
     rdfs:isDefinedBy "The fact that no finite collection contains every prime number.";
     rdfs:comment "Constructing 2 * 3 * 5 * 7 * 11 * 13 + 1 = 30031 = 59 * 509 to find prime divisors absent from the list 2, 3, 5, 7, 11, 13.";
     edu:partOf :PrimesAndFactorization.
+:InitialValueProblem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A differential equation together with prescribed values of the unknown function, and any required derivatives, at a specified input. Its solutions satisfy both the equation and those conditions on an interval containing that input.";
+    rdfs:comment "y'=2y with y(0)=3 has solution y(x)=3e^(2x).";
+    edu:partOf :DifferentialEquations.
 :InstantaneousRateOfChange a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The finite limit of [f(a + h) - f(a)]/h for a real-valued function at a fixed real input a as h approaches zero, when that limit exists.";
     rdfs:comment "The rate 6 of f(x) = x^2 at x = 3; the rate 0 of g(x) = 5 at every real input.";
@@ -952,6 +1182,45 @@
 :IntegerStrategies a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizable methods for coordinating integer number relationships, place value, and arithmetic operations to obtain or explain a result.";
     edu:partOf :IntegerArithmetic.
+:IntegralApplications a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Relationships that express geometric and average quantities through definite integrals.";
+    rdfs:comment "Finding a region's area or the volume of a solid from its cross sections.";
+    edu:partOf :IntegralCalculus.
+:IntegralAverageValue a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The mean value of an integrable real function over [a,b], a < b, defined as its integral divided by b-a.";
+    rdfs:comment "The average value of x^2 on [0,3] is 3.";
+    edu:partOf :IntegralApplications.
+:IntegralCalculus a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Antiderivatives, definite accumulation, and their connections, methods, and applications.";
+    rdfs:comment "Recovering a function from its derivative; finding signed accumulation over an interval.";
+    edu:partOf :Calculus.
+:IntegralNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conventions for integrands, integration variables, definite-integral bounds, antiderivative families and the differential marking the variable of integration.";
+    rdfs:comment "Interpreting t as bound and x as free in integral_0^x t^2 dt; distinguishing that value from integral x^2 dx=x^3/3+C.";
+    edu:partOf :FormalMathematics.
+:IntegralSeriesTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Equivalence of convergence of sum f(n) and integral_N^infinity f(x) dx when f is eventually continuous, positive and decreasing. Their values need not be equal.";
+    rdfs:comment "Convergence of integral_1^infinity x^(-2) dx establishes convergence of sum_(n=1)^infinity 1/n^2.";
+    edu:integrates :ImproperIntegral;
+    edu:partOf :SeriesConvergenceTests.
+:IntegrationByPartialFractions a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Integrating a rational function by polynomial division when needed and decomposition into simpler fraction terms over the chosen coefficient field, retaining poles and interval restrictions.";
+    rdfs:comment "integral 1/(x(x+1)) dx = ln(abs(x)) - ln(abs(x+1)) + C on intervals avoiding -1 and 0.";
+    edu:integrates :PartialFractionDecomposition;
+    edu:partOf :IntegrationMethods.
+:IntegrationByParts a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Rewriting an integral through the identity integral u v' = uv - integral u'v, reversing the product rule under conditions making the stated derivatives and integrals valid.";
+    rdfs:comment "integral x e^x dx = x e^x - e^x + C.";
+    edu:inverts :ProductRule;
+    edu:partOf :IntegrationMethods.
+:IntegrationMethods a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Techniques for evaluating integrals or finding antiderivatives through justified transformations.";
+    rdfs:comment "Changing variables in an integral; applying integration by parts.";
+    edu:partOf :IntegralCalculus.
+:IntermediateValueTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The guarantee that a real function continuous on a closed interval takes every value between its endpoint values.";
+    rdfs:comment "Continuity and opposite signs of x^3 + x - 1 at 0 and 1 guarantee a zero between them.";
+    edu:partOf :FunctionTheorems.
 :IntersectionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identifying the objects that belong to each of two overlapping collections.";
     rdfs:comment "Identifying the objects in the overlap of two physical hoops or two represented groups.";
@@ -967,6 +1236,14 @@
     edu:specializes :NumerationWithIntervals.
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts.".
+:InverseFunctionDerivativeRule a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identity (f^(-1))'(f(a)) = 1/f'(a) for a locally invertible continuously differentiable real function with nonzero derivative at a.";
+    rdfs:comment "Inverting the exponential derivative gives (ln(x))' = 1/x for x > 0.";
+    edu:partOf :DifferentiationRules.
+:InverseTrigonometricDerivativeIdentities a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Derivative identities for specified real inverse trigonometric branches on the interiors of their differentiability domains.";
+    rdfs:comment "(arcsin(x))' = 1/sqrt(1-x^2) for -1 < x < 1; (arctan(x))' = 1/(1+x^2) for every real x.";
+    edu:specializes :ElementaryDerivativeIdentities.
 :IsoscelesTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle that has at least two sides of equal length.";
     edu:expands :SymmetryRelation;
@@ -1001,9 +1278,30 @@
     edu:expands :DistanceCalculation;
     edu:integrates :TrigonometricRelations;
     edu:partOf :GeometricCalculations.
+:LHopitalRule a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equality of a quotient's limit in a 0/0 or infinity/infinity form with the limit of its derivative quotient when the functions are differentiable on the relevant punctured one-sided interval, the denominator derivative is nonzero there, and the derivative quotient has a finite or infinite limit. Other indeterminate forms must first be validly rewritten, and failure of the derivative quotient to have a limit is inconclusive.";
+    rdfs:comment "lim_(x->0) (e^x - 1)/x = lim_(x->0) e^x = 1.";
+    edu:integrates :Differentiation;
+    edu:partOf :LimitMethods.
+:LimitLaws a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Rules transferring finite function limits through sums, products, quotients with nonzero limiting denominator, and composition with a function continuous at the limiting value.";
+    rdfs:comment "From f(x) -> 2 and g(x) -> 3, infer f(x)g(x) -> 6.";
+    edu:partOf :LimitMethods.
+:LimitMethods a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Rules and comparison principles for establishing limits of real functions.";
+    rdfs:comment "Establishing a quotient limit after cancellation; bounding an oscillating expression between two functions with the same limit.";
+    edu:partOf :Calculus.
+:LimitNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conventions for naming a limiting expression, its approaching variable and target, and its one-sided or infinite approach.";
+    rdfs:comment "Distinguishing lim_(x->0+) 1/x from the value of 1/x at 0.";
+    edu:partOf :FormalMathematics.
 :LinearAlgebra a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of vectors, vector spaces, linear maps, matrices, and linear systems through their algebraic and geometric relationships.";
     rdfs:comment "Expressing a system as Ax = b; relating a plane transformation to its matrix.".
+:LinearApproximation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Approximating a differentiable real function near a by f(a)+f'(a)(x-a), with an error that is small relative to x-a as x approaches a.";
+    rdfs:comment "sqrt(4+h) is approximately 2+h/4 for small h.";
+    edu:partOf :CalculusApproximation.
 :LinearCongruenceSolvability a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The existence of an integer solution x to ax congruent to b modulo m exactly when gcd(a, m) divides b, for integers a and b and a positive integer m.";
     rdfs:comment "6x congruent to 9 modulo 15 is solvable, but 6x congruent to 4 modulo 15 is not.";
@@ -1032,6 +1330,10 @@
     rdfs:isDefinedBy "Creating drawings or models of figures bounded by straight line segments.";
     rdfs:comment "Drawing a triangle from specified vertices.";
     edu:partOf :SpatialModelling.
+:LinearSystems a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The matrix representations, transformations, and solution structure of finite systems of linear equations over stated scalar fields.";
+    rdfs:comment "Expressing two simultaneous equations as Ax = b; distinguishing a consistent singular system from an inconsistent one.";
+    edu:partOf :LinearAlgebra.
 :LineConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A straight, one-dimensional figure that has no thickness and extends infinitely in both directions.";
     edu:expands :PointConcept;
@@ -1045,14 +1347,18 @@
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
     edu:expands :LinearDrawing;
     edu:partOf :OneDimensionalObjects.
-:LinearSystems a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The matrix representations, transformations, and solution structure of finite systems of linear equations over stated scalar fields.";
-    rdfs:comment "Expressing two simultaneous equations as Ax = b; distinguishing a consistent singular system from an inconsistent one.";
-    edu:partOf :LinearAlgebra.
 :Logarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.";
     edu:inverts :Exponentiation;
     edu:partOf :PowerOperations.
+:LogarithmicDerivativeIdentity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identities (log_a(x))' = 1/(x ln(a)) for x > 0, a > 0 and a != 1, and (ln(abs(x)))' = 1/x for x != 0.";
+    rdfs:comment "d/dx log_10(x) = 1/(x ln(10)) for x > 0.";
+    edu:specializes :ElementaryDerivativeIdentities.
+:LogarithmicDifferentiation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining derivatives by differentiating ln(abs(f)) for a nonzero function on an interval of fixed sign, including positive-base variable powers, and then recovering the original derivative.";
+    rdfs:comment "For x > 0, differentiating ln(x^x) = x ln(x) gives (x^x)' = x^x(ln(x)+1).";
+    edu:specializes :Differentiation.
 :LogarithmicFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The real input-output relationship defined by f(x) = a log_b(cx + d) + k, with fixed real coefficients, nonzero a and c, and a fixed positive base b unequal to one. Its stated domain is contained in cx + d > 0.";
     rdfs:comment "Interpreting log_2(x) as the exponent producing x from base 2; identifying x < 3 as the real input domain of -ln(3 - x).";
@@ -1060,6 +1366,10 @@
 :Logic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of valid reasoning and the conditions under which conclusions follow from premises.";
     rdfs:comment "Evaluating an implication or checking the structure of a proof.".
+:LogisticDifferentialEquationModel a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The rate model y'=ky(1-y/K), with positive k and K, relating growth to the current quantity and a carrying capacity. Its nonnegative equilibria are 0 and K.";
+    rdfs:comment "For y'=0.1y(1-y/100), growth is positive below 100 for y>0, zero at 0 and 100, and negative above 100.";
+    edu:specializes :AutonomousDifferentialEquationModel.
 :LowestCommonDenominator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the least common multiple of the positive denominators of two or more fractions.";
     rdfs:comment "The lowest common denominator of 1/4 and 1/6 is 12.";
@@ -1121,6 +1431,10 @@
     rdfs:comment "x + y = 7 and x - y = 1 correspond to [[1, 1], [1, -1]][x, y]^T = [7, 1]^T.";
     edu:integrates :RowColumnProduct;
     edu:partOf :LinearSystems.
+:MeanValueTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The guarantee of an interior point c with f'(c) = (f(b)-f(a))/(b-a) for a real function continuous on [a,b] and differentiable on (a,b), with a < b.";
+    rdfs:comment "For f(x) = x^2 on [1,3], c = 2 gives the secant slope 4.";
+    edu:partOf :FunctionTheorems.
 :Measurement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Comparing or quantifying a measurable attribute, either qualitatively or by assigning a value relative to a unit.";
     rdfs:comment "Comparing two lengths directly, reading a weight, or measuring a duration.";
@@ -1191,6 +1505,15 @@
     rdfs:isDefinedBy "A number-valued function on the positive integers with f(1) = 1 and f(mn) = f(m)f(n) for coprime positive integers m and n.";
     rdfs:comment "Multiplying the divisor counts of 4 and 3 to obtain the divisor count of 12: 3 * 2 = 6.";
     edu:partOf :ArithmeticFunctions.
+:NewtonMethod a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Approximating a root through x_(n+1)=x_n-f(x_n)/f'(x_n) where the derivative is nonzero, using tangent-line roots as successive estimates. Convergence depends on the function and starting value.";
+    rdfs:comment "For x^2-2 from x_0=1, the first two updates are 1.5 and 17/12.";
+    edu:integrates :LinearApproximation;
+    edu:partOf :CalculusApproximation.
+:NthTermDivergenceTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The necessary condition that terms of a convergent series tend to zero. A nonzero or nonexistent term limit proves divergence, while a zero term limit is inconclusive.";
+    rdfs:comment "The terms n/(n+1) tend to 1, so their series diverges.";
+    edu:partOf :SeriesConvergenceTests.
 :NumberNameNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The words and conventions used to express numerical values in written language.";
     rdfs:comment "Writing 437 as four hundred thirty-seven.";
@@ -1245,6 +1568,14 @@
     rdfs:isDefinedBy "The role of the dividend expression written above a fraction bar or before a slash representing that bar.";
     rdfs:comment "Identifying x + 1 as the complete numerator in (x + 1)/(x - 2); interpreting 3 as the dividend represented above the bar in 3/4.";
     edu:specializes :Dividend.
+:NumericalDifferentiation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Approximating derivative values from finite differences of sampled function values, with step size controlling truncation and numerical error.";
+    rdfs:comment "For f(x)=x^2, the forward difference at 1 with h=0.01 is 2.01, compared with f'(1)=2.";
+    edu:partOf :CalculusApproximation.
+:NumericalIntegration a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Approximating a finite definite-integral value using a weighted finite combination of sampled integrand values.";
+    rdfs:comment "Estimating integral_0^1 x^2 dx from equally spaced samples.";
+    edu:partOf :CalculusApproximation.
 :NumericApproximation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Estimating or replacing a numerical value with a nearby value suited to a stated purpose or precision.";
     rdfs:comment "Using a rounded measurement when estimating a total.";
@@ -1293,6 +1624,10 @@
     rdfs:comment "Using the last digit of 348 to identify it as even.";
     edu:expands :EvenDivisibility, :PlaceValue;
     edu:specializes :DivisibilityRules.
+:OddFunctionIntegralCancellation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Cancellation to zero of a proper definite integral of an odd function over [-a,a], with a > 0, by pairing reflected contributions.";
+    rdfs:comment "integral_(-2)^2 x^3 dx = 0.";
+    edu:specializes :SymmetryIntegration.
 :OddFunctionSymmetry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Symmetry of a real function under simultaneous negation of input and output, with a domain closed under negation and f(-x) = -f(x) throughout that domain.";
     rdfs:comment "f(x) = x^3 is odd on the real numbers; the zero function on the real numbers is both odd and even.";
@@ -1348,6 +1683,27 @@
     rdfs:isDefinedBy "The role of a variable held fixed within one member of a family of expressions, relations, or functions, whose value may differ between members of that family.";
     rdfs:comment "Holding m and b fixed while x varies in one member of the family y = mx + b; changing m to select another member of that family.";
     edu:specializes :Variable.
+:ParametricAreaIntegration a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Expressing geometric area through a piecewise continuously differentiable parameterization by integrating nonnegative slice lengths against a monotone coordinate, subdividing intervals and choosing orientation to preserve boundary order and count the region once.";
+    rdfs:comment "For x=t^2,y=t,0<=t<=1, the area under the curve is integral_0^1 t(2t) dt=2/3.";
+    edu:partOf :CurveCalculus;
+    edu:specializes :AreaIntegration.
+:ParametricCurve a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A continuous correspondence from a real parameter interval to geometric points, distinguishing the parameterized traversal from the set of points traced.";
+    rdfs:comment "(cos(t),sin(t)) for 0<=t<=4pi traverses the unit circle twice.";
+    edu:partOf :GeometricConcepts.
+:ParametricDifferentiation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Finding derivatives along a differentiable plane parameterization using dy/dx=(dy/dt)/(dx/dt) where dx/dt is nonzero, with further x-derivatives obtained by applying (1/x'(t))d/dt again.";
+    rdfs:comment "For x=t^2,y=t^3 with t>0, dy/dx=3t/2 and d^2y/dx^2=3/(4t).";
+    edu:partOf :CurveCalculus.
+:ParametricSecondDerivative a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining d^2y/dx^2 along a twice differentiable plane parameterization by applying (1/x'(t))d/dt to y'(t)/x'(t), where x'(t) is nonzero.";
+    rdfs:comment "For x=t^2,y=t^3 with t>0, d^2y/dx^2=3/(4t).";
+    edu:specializes :ParametricDifferentiation.
+:PartialFractionDecomposition a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Rewriting a rational function as a polynomial plus simpler fractions based on its denominator factors over a specified coefficient field, preserving the original excluded inputs.";
+    rdfs:comment "1/(x(x+1))=1/x-1/(x+1), with x!=-1 and x!=0 retained.";
+    edu:specializes :AlgebraicEquivalence.
 :PartitionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The physical, visual or symbolized act of splitting a single bounded collection into two or more distinct non-overlapping subcollections, establishing boundaries between them.";
     edu:expands :GroupRecognition;
@@ -1424,6 +1780,14 @@
     rdfs:isDefinedBy "The process of locating and marking a point on a coordinate plane using a pair of numerical coordinates.";
     edu:expands :NumericOrder, :OrderedCoordinatePair, :PointConcept;
     edu:partOf :GeometricVisualization.
+:PolarAreaIntegration a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Expressing area swept by a polar curve as one half the integral of squared radius with respect to angle, with intervals and multiplicity chosen to describe the intended region.";
+    rdfs:comment "For r=2 on 0<=theta<=pi/2, the sector area is integral_0^(pi/2) 2 dtheta=pi.";
+    edu:partOf :CurveCalculus.
+:PolarCoordinateRepresentation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The correspondence between plane points and radius-angle pairs through x=r cos(theta), y=r sin(theta), including nonunique angle and signed-radius representations.";
+    rdfs:comment "(r,theta)=(2,pi/2) and (-2,-pi/2) both represent (0,2).";
+    edu:partOf :GeometricVisualization.
 :Polygon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of closed, multi-sided geometric figures formed by straight line segments, their properties, and related measurements.";
     edu:expands :LineSegment, :LinearShapeDrawing;
@@ -1455,6 +1819,10 @@
     rdfs:isDefinedBy "The role of the input written in the base position of a power expression.";
     rdfs:comment "Distinguishing the base 2 from the exponent x in 2^x; treating x + 1 as the complete base in (x + 1)^3.";
     edu:specializes :Operand.
+:PowerDerivativeIdentity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identity (x^r)' = r x^(r-1) for fixed real r and x > 0, with extensions to other real inputs where the power and its derivative exist.";
+    rdfs:comment "d/dx sqrt(x) = 1/(2sqrt(x)) for x > 0; d/dx x^3 = 3x^2 for every real x.";
+    edu:specializes :ElementaryDerivativeIdentities.
 :PowerFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The real input-output relationship defined by f(x) = a x^p, with fixed real a != 0 and p, on a stated real domain where the power is defined under the specified convention.";
     rdfs:comment "Interpreting cubing and square-root rules as powers with exponents 3 and 1/2; determining why f(x) = x^(-1) excludes zero.";
@@ -1462,6 +1830,14 @@
 :PowerOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The specialized application of mathematical rules and procedures to perform higher-order calculations through the actions of exponentiation, root extraction, and logarithmic derivation.";
     edu:partOf :ArithmeticOperations.
+:PowerSeriesOperations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Addition and Cauchy multiplication of power series with a common center within their common open interval of convergence, and termwise differentiation or integration within a series' open interval of convergence. Differentiation and integration preserve the radius but can change endpoint convergence.";
+    rdfs:comment "Integrating sum_(n=0)^infinity x^n=1/(1-x) from 0 to x gives sum_(n=1)^infinity x^n/n=-ln(1-x) for abs(x)<1.";
+    edu:partOf :SeriesCalculus.
+:PowerSeriesStructure a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The coefficients, center and convergence radius of sum c_n(x-a)^n, with absolute convergence inside the radius and divergence outside. Finite boundary points require separate tests.";
+    rdfs:comment "sum_(n=1)^infinity x^n/n has radius 1, converges at -1 and diverges at 1.";
+    edu:partOf :SequenceAndSeriesProperties.
 :PrimeFactorization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Decomposing an integer greater than one into a product of prime integers.";
     rdfs:comment "60 = 2^2 * 3 * 5.";
@@ -1479,6 +1855,10 @@
     rdfs:isDefinedBy "A solid geometric figure that has two congruent and parallel bases and lateral faces that are parallelograms.";
     edu:expands :Parallelogram;
     edu:specializes :Polyhedron.
+:ProductRule a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identity (fg)' = f'g + fg' at inputs where both real functions are differentiable.";
+    rdfs:comment "(x^2 sin(x))' = 2x sin(x) + x^2 cos(x).";
+    edu:partOf :DifferentiationRules.
 :ProportionAbstraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Generalizing a proportional relationship beyond a particular representation or situation.";
     rdfs:comment "Recognizing the same scaling relationship in a recipe and a geometric enlargement.";
@@ -1540,6 +1920,10 @@
     rdfs:isDefinedBy "Equivalent forms of expressions based on degree-two polynomial patterns in designated variables or subexpressions, and value-preserving rewriting between those forms.";
     rdfs:comment "x^2 + 6x + 5 = (x + 3)^2 - 4; (x^3 + 2)^2 = x^6 + 4x^3 + 4, using a quadratic pattern in x^3.";
     edu:specializes :AlgebraicEquivalence.
+:QuadratureErrorBounds a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Guaranteed bounds on quadrature error derived from interval width, partition spacing and bounds on the required integrand derivatives.";
+    rdfs:comment "For x^2 on [0,1], the composite trapezoidal error with n equal pieces is at most 1/(6n^2).";
+    edu:partOf :CalculusApproximation.
 :Quadrilateral a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with four edges and four vertices.";
     edu:specializes :Polygon.
@@ -1550,6 +1934,10 @@
 :QuotativeDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection and the required cardinality of each equal subcollection are given. Every source object is assigned to exactly one subcollection, and the quotient is the number of resulting subcollections.";
     edu:specializes :DivisionOfCollections.
+:QuotientRule a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identity (f/g)' = (f'g - fg')/g^2 where f and g are differentiable and g is nonzero.";
+    rdfs:comment "(x/(x+1))' = 1/(x+1)^2 for x != -1.";
+    edu:partOf :DifferentiationRules.
 :Radicand a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of the input expression enclosed by a radical sign.";
     rdfs:comment "Treating x + 1 as the complete radicand in sqrt(x + 1); distinguishing the radicand 8 from the root index 3 in the cube root of 8.";
@@ -1593,6 +1981,10 @@
     rdfs:isDefinedBy "The symbols and conventions used to represent ratios, and the meaning of the ordered quantities they compare.";
     rdfs:comment "Writing 2:3 for two red counters to three blue counters; interpreting 3:2 as the ratio of blue counters to red counters in the same collection.";
     edu:specializes :NumberNotation.
+:RatioSeriesTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The convergence criterion for eventually nonzero terms using L=lim abs(a_(n+1)/a_n): L below 1 guarantees absolute convergence and L above 1, including infinity, guarantees divergence. L=1 is inconclusive.";
+    rdfs:comment "For a_n=2^n/n!, the ratio 2/(n+1) tends to zero, proving absolute convergence.";
+    edu:partOf :SeriesConvergenceTests.
 :RayConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A straight, one-dimensional figure that starts at a fixed point and extends infinitely in one direction.";
     edu:expands :LineConcept;
@@ -1601,6 +1993,10 @@
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements.";
     edu:integrates :RightAngle;
     edu:specializes :Parallelogram.
+:RectangleQuadrature a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Approximating a definite integral by partition rectangles using a stated left-endpoint, right-endpoint or midpoint sampling rule.";
+    rdfs:comment "The two-piece right-endpoint estimate for integral_0^1 x^2 dx is 5/8.";
+    edu:specializes :NumericalIntegration.
 :RectangularPrism a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that has six rectangular faces where each pair of opposite faces is congruent and parallel.";
     edu:expands :Rectangle;
@@ -1616,17 +2012,37 @@
 :ReflexAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures more than 180 degrees but less than 360 degrees.";
     edu:specializes :AngleConcept.
+:RelatedRates a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Relating the instantaneous rates of quantities constrained by an equation by differentiating that relationship with respect to their shared parameter.";
+    rdfs:comment "Differentiating V = 4pi r^3/3 with respect to time gives dV/dt = 4pi r^2 dr/dt.";
+    edu:partOf :DerivativeApplications.
 :RelationSatisfaction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The truth of a mathematical equation, inequality, or constraint under a particular admissible assignment to its variables.";
     rdfs:comment "x = 4 satisfies 3x + 2 = 14; x = 5 does not satisfy x < 3; (x, y) = (2, 1) satisfies x + y = 3.";
     edu:partOf :AlgebraicConstraints.
+:RepeatedIntegrationByParts a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Reapplying integration by parts to successive residual integrals to simplify them or obtain a solvable relation among them.";
+    rdfs:comment "integral x^2 e^x dx = e^x(x^2-2x+2)+C after two applications.";
+    edu:specializes :IntegrationByParts.
 :ResidueClassArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Addition and multiplication of integer congruence classes modulo a positive integer, with results independent of the chosen representatives.";
     rdfs:comment "Modulo 5, replacing 7 by 2 leaves the class of its product with 3 unchanged: 21 and 6 both have residue 1.";
     edu:partOf :ModularArithmetic.
+:RevolutionSurfaceAreaIntegration a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Computing the surface swept by a regular plane curve rotated about an axis in its plane by integrating circumference times arc-length element, with nonnegative radius and repeated coverage accounted for.";
+    rdfs:comment "Rotating y=1, 0 <= x <= 2, about the x-axis gives lateral surface area integral_0^2 2pi dx = 4pi.";
+    edu:partOf :IntegralApplications.
 :Rhombus a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A parallelogram with four equal-length sides.";
     edu:specializes :Parallelogram.
+:RiemannIntegrability a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Existence of a proper Riemann integral for a bounded real function on a closed bounded interval, equivalently the ability to make the difference between its upper and lower partition sums arbitrarily small.";
+    rdfs:comment "A bounded step function with one jump is Riemann integrable on [0,1].";
+    edu:partOf :FunctionRegularity.
+:RiemannSum a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A finite sum of sampled function values multiplied by the widths of their partition subintervals, used to approximate accumulation and define a proper integral through refinement.";
+    rdfs:comment "The right-endpoint sum for f(x)=x on [0,1] with n equal pieces is sum_(k=1)^n (k/n)(1/n).";
+    edu:partOf :IntegralCalculus.
 :RightAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle of exactly 90 degrees, corresponding to a quarter turn.";
     edu:expands :PerpendicularityRelation;
@@ -1635,6 +2051,10 @@
     rdfs:isDefinedBy "A triangle that has one right angle.";
     edu:integrates :RightAngle;
     edu:specializes :Triangle.
+:RollesTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The mean-value guarantee of an interior zero derivative when a real function is continuous on [a,b], differentiable on (a,b), a < b, and f(a) = f(b).";
+    rdfs:comment "f(x) = x^2 - 1 has equal endpoint values on [-1,1] and f'(0) = 0.";
+    edu:specializes :MeanValueTheorem.
 :Root a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding a value whose specified power equals a given number, within the stated number system and root convention.";
     rdfs:comment "The cube root of 64 is 4 because 4 × 4 × 4 = 64.";
@@ -1644,6 +2064,10 @@
     rdfs:isDefinedBy "The role of the index specifying which root is requested by radical notation, including the implicit index two in square-root notation.";
     rdfs:comment "Distinguishing the index 3 from the radicand x in the cube root of x; making the implicit index 2 explicit in sqrt(x).";
     edu:partOf :ExpressionStructure.
+:RootSeriesTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The convergence criterion using a limit L=lim abs(a_n)^(1/n): L below 1 guarantees absolute convergence and L above 1, including infinity, guarantees divergence. L=1 is inconclusive.";
+    rdfs:comment "For a_n=(n/(2n+1))^n, the nth root tends to 1/2.";
+    edu:partOf :SeriesConvergenceTests.
 :Rotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A transformation that turns a geometric figure around a fixed point, known as the center of rotation, by a specific angle.";
     edu:expands :ShapeRotationConservation;
@@ -1675,10 +2099,51 @@
     rdfs:isDefinedBy "A triangle in which all three sides have different lengths.";
     edu:inverts :EquilateralTriangle;
     edu:specializes :Triangle.
+:SecondDerivativeConcavityTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Establishing concavity from the sign of a second derivative throughout an interval, with positive and negative signs giving strict upward and downward concavity respectively.";
+    rdfs:comment "For x^2, f''=2 gives strict upward concavity; for 3x+1, f''=0 gives both non-strict concavity inequalities.";
+    edu:specializes :DerivativeSignAnalysis.
+:SecondDerivativeExtremumTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The local-extremum criterion that a positive second derivative at a stationary point of a twice continuously differentiable real function guarantees a local minimum, and a negative one a local maximum. A zero second derivative is inconclusive.";
+    rdfs:comment "x^4 and x^3 both have first and second derivatives zero at 0, but only x^4 has an extremum there.";
+    edu:specializes :DerivativeExtremumTest.
+:SecondDerivativeInflectionTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Establishing an inflection at a continuous point from opposite strict signs of the second derivative on the two neighboring intervals. A zero or nonexistent second derivative at the point alone is insufficient.";
+    rdfs:comment "For x^3, f''=6x changes sign at 0, establishing an inflection; for x^4, f''=12x^2 does not.";
+    edu:specializes :DerivativeSignAnalysis.
+:SeparationOfVariables a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Rewriting y'=g(x)h(y) as dy/h(y)=g(x) dx and integrating on intervals where h(y) is nonzero. Constant solutions at zeros of h must be considered separately.";
+    rdfs:comment "y'=y^2 has solutions y=-1/(x+C) on intervals avoiding the pole, and the equilibrium y=0.";
+    edu:partOf :DifferentialEquationMethods.
 :Sequence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The indexed organization of terms, assigning one term to each position in a consecutive integer domain with a stated first index. The domain may be finite or extend indefinitely toward increasing indices.";
     rdfs:comment "Associating red, blue, red with indices 1, 2, 3; interpreting a_n = n^2 as the assignment of a term to each positive integer index.";
     edu:partOf :FunctionTypes.
+:SequenceAndSeriesProperties a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Limit behavior and convergence classifications of numerical sequences and series.";
+    rdfs:comment "Distinguishing a convergent sequence of terms from convergence of their sum.";
+    edu:partOf :Analysis.
+:SequenceConvergence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Approach of an infinite numerical sequence to a finite value: every positive tolerance contains all sufficiently late terms around that value.";
+    rdfs:comment "1/n converges to 0, while (-1)^n does not converge. For a_n = 1/n and epsilon > 0, choosing an integer N > 1/epsilon ensures abs(a_n) < epsilon for every n >= N.";
+    edu:partOf :SequenceAndSeriesProperties.
+:SequentialLimitCriterion a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equivalence, for a real function at a finite accumulation point a of its domain, between having finite limit L and having f(x_n) approach L for every domain sequence with x_n != a and x_n approaching a.";
+    rdfs:comment "For f(x) = abs(x)/x, the sequences x_n = 1/n and y_n = -1/n approach 0 while f(x_n) = 1 and f(y_n) = -1, ruling out a limit at 0.";
+    edu:partOf :FunctionTheorems.
+:SeriesCalculus a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Summation, convergence methods, and function representations using infinite numerical and power series.";
+    rdfs:comment "Summing a geometric series; representing an exponential function by its Taylor series.";
+    edu:partOf :Calculus.
+:SeriesConvergence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Convergence of an infinite numerical series when its sequence of finite partial sums approaches a finite limit, which is its sum.";
+    rdfs:comment "sum_(n=1)^infinity 1/2^n converges to 1, while the harmonic series diverges despite terms tending to zero.";
+    edu:integrates :SequenceConvergence;
+    edu:partOf :SequenceAndSeriesProperties.
+:SeriesConvergenceTests a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Conditions that establish convergence or divergence of numerical series.";
+    rdfs:comment "Comparing a positive series with a convergent p-series.";
+    edu:partOf :SeriesCalculus.
 :SetComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Comparing the quantities of two bounded collections intuitively or visually without formal counting.";
     rdfs:comment "Judging which of two visibly matched groups has extra objects.";
@@ -1753,6 +2218,10 @@
     edu:expands :ShapeResizingConservation;
     edu:partOf :ShapeEquivalenceRelations;
     edu:translates :ShapeRotationConservation.
+:SimpsonRule a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Approximating a definite integral by integrating quadratic interpolants across successive pairs of equal-width subintervals, with an even subinterval count in the composite rule.";
+    rdfs:comment "Samples of x^2 at 0, 1/2 and 1 give the exact integral 1/3.";
+    edu:specializes :NumericalIntegration.
 :Sine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between an angle measure and the vertical coordinate of its corresponding point on the unit circle, using a specified angular unit.";
     rdfs:comment "sin(pi/2) = 1 and sin(3pi/2) = -1 for radian measures; an opposite side of length 3 and hypotenuse of length 5 give sine 3/5 for the acute angle.";
@@ -1761,6 +2230,10 @@
     rdfs:isDefinedBy "The measure of the steepness and direction of a line, calculated as the ratio of the vertical change (rise) to the horizontal change (run) between two points.";
     edu:expands :RatioInterpretation;
     edu:partOf :GeometricVisualization.
+:SlopeField a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The field of local tangent directions specified by y'=F(x,y) wherever the right-hand side is defined. Solution curves follow these directions.";
+    rdfs:comment "For y'=x-y, the slope is -1 at (1,2) and zero along y=x.";
+    edu:partOf :DifferentialEquations.
 :SolutionSet a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The complete set of admissible assignments that make a mathematical constraint, or every constraint in a simultaneous system, true. This set may be empty, finite, or infinite.";
     rdfs:comment "The real solutions {-3, 3} of x^2 = 9; all real numbers greater than 2 for x > 2; the empty solution set of x + 1 = x + 2.";
@@ -1785,6 +2258,10 @@
 :Square a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles and four equal sides, their properties, and related measurements.";
     edu:specializes :Rectangle.
+:SqueezeTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The guarantee that a function bounded between two functions with the same finite limit has that limit, when the bounds hold sufficiently near the approached point or end of the domain.";
+    rdfs:comment "From -x^2 <= x^2 sin(1/x) <= x^2, infer a limit of zero at x = 0.";
+    edu:partOf :LimitMethods.
 :Statistics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that provides a framework for collecting, organizing, analyzing, and interpreting data. It provides tools for quantifying and modeling randomness, variability, and uncertainty in data.".
 :StraightAngle a owl:NamedIndividual, edu:Area;
@@ -1803,6 +2280,11 @@
     rdfs:comment "Identifying the red cars within a box of toys without rearranging the collection.";
     edu:expands :ObjectSorting;
     edu:partOf :CollectionSense.
+:SubstitutionIntegration a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Changing variables in an integral using the chain rule in reverse, with the differential factor, transformed bounds and admissible domain preserved.";
+    rdfs:comment "With u=x^2, integral_0^1 2x cos(x^2) dx = integral_0^1 cos(u) du = sin(1).";
+    edu:inverts :ChainRule;
+    edu:partOf :IntegrationMethods.
 :Subtraction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the difference between two numbers.";
     edu:expands :Difference;
@@ -1843,6 +2325,10 @@
     edu:expands :Increment, :UnionOfCollections;
     edu:integrates :Iteration;
     edu:partOf :FoundationalOperations.
+:SummationNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conventions for indexed sums, including the summand, bound index and index limits, with an infinite endpoint interpreted through finite partial sums.";
+    rdfs:comment "sum_(k=1)^3 k=6; sum_(n=1)^infinity 2^(-n)=1.";
+    edu:partOf :FormalMathematics.
 :SupplementaryAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles whose sum is exactly 180 degrees.";
     edu:partOf :AngleRelations.
@@ -1850,6 +2336,10 @@
     rdfs:isDefinedBy "The calculation of the total area of the surface of a three-dimensional object.";
     edu:expands :AreaCalculation, :SpaceConcept;
     edu:partOf :GeometricCalculations.
+:SymmetryIntegration a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Evaluating or reducing proper definite integrals on symmetric intervals through reflection identities of their integrands.";
+    rdfs:comment "integral_(-1)^1 (x^3+x^2) dx = 2 integral_0^1 x^2 dx = 2/3.";
+    edu:partOf :IntegrationMethods.
 :SymmetryRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The invariance of a geometric figure under a transformation that maps it onto itself.";
     rdfs:comment "A reflection across a square's diagonal or a half-turn about its center.";
@@ -1887,6 +2377,25 @@
 :TangentRadiusRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The geometric rule stating that a tangent line to a circle is perpendicular to the radius at the exact point of tangency.";
     edu:partOf :CircleRelations.
+:TaylorPolynomialApproximation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Approximating a sufficiently differentiable function near a by a finite polynomial whose coefficients are f^(k)(a)/k! through a chosen order.";
+    rdfs:comment "Near 0, cos(x) is approximated by 1-x^2/2+x^4/24.";
+    edu:expands :LinearApproximation;
+    edu:partOf :CalculusApproximation.
+:TaylorRemainderBound a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The bound abs(f(x)-T_n(x)) <= M abs(x-a)^(n+1)/(n+1)! when f has continuous derivatives through order n+1 on the interval joining a and x and its next derivative has magnitude at most M there.";
+    rdfs:comment "Approximating e^0.1 by 1+0.1+0.1^2/2 has error at most e^0.1*0.1^3/6, less than 0.000185.";
+    edu:integrates :TaylorPolynomialApproximation;
+    edu:partOf :CalculusApproximation.
+:TaylorSeriesRepresentation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Representation of a function by the power series with coefficients f^(n)(a)/n!, equal to that function where the Taylor remainders tend to zero. Existence of all derivatives alone does not guarantee equality.";
+    rdfs:comment "e^x=sum_(n=0)^infinity x^n/n! for every real x.";
+    edu:expands :TaylorPolynomialApproximation;
+    edu:partOf :SeriesCalculus.
+:TelescopingSeriesSummation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Rewriting finite partial sums so intermediate terms cancel, then finding an infinite sum from the limit of the remaining boundary terms when it exists.";
+    rdfs:comment "sum_(n=1)^N 1/(n(n+1))=1-1/(N+1), giving infinite sum 1.";
+    edu:partOf :SeriesCalculus.
 :Term a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The additive role of a signed component of an expression at the grouping level under consideration.";
     rdfs:comment "Separating 3x, -2y, and 5 as the terms of 3x - 2y + 5; distinguishing the inner terms 2 and x from the whole grouped factor in 3(2 + x).";
@@ -1904,6 +2413,10 @@
     rdfs:isDefinedBy "A quadrilateral with at least one pair of parallel sides.";
     edu:expands :ParallelismRelation;
     edu:specializes :Quadrilateral.
+:TrapezoidalRule a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Approximating a definite integral by integrating the piecewise linear interpolant through ordered sampled inputs.";
+    rdfs:comment "One trapezoid estimates integral_0^1 x^2 dx as 1/2.";
+    edu:specializes :NumericalIntegration.
 :Triangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of three-sided polygons, their properties, and related measurements.";
     edu:specializes :Polygon.
@@ -1919,6 +2432,10 @@
     rdfs:isDefinedBy "The identities expressing sine, cosine, and tangent at a sum or difference of two real angles through values at the individual angles, using one angular unit and retaining every definedness restriction.";
     rdfs:comment "sin(75 degrees) = sin(45 degrees)cos(30 degrees) + cos(45 degrees)sin(30 degrees) = (sqrt(6) + sqrt(2))/4.";
     edu:specializes :TrigonometricIdentities.
+:TrigonometricDerivativeIdentities a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Derivative identities for sine, cosine, tangent and their reciprocal functions on their differentiability domains, with arguments measured in radians.";
+    rdfs:comment "(sin(x))' = cos(x); (cos(x))' = -sin(x); (tan(x))' = sec(x)^2 where cos(x) != 0.";
+    edu:specializes :ElementaryDerivativeIdentities.
 :TrigonometricFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The real input-output relationships defined by circular sine, cosine, tangent, or their reciprocal functions for angle measures, using a specified angular unit and a stated domain excluding undefined values.";
     rdfs:comment "f(t) = sin(t) for real angle measures t in radians; g(t) = tan(t) for radian measures t in (-pi/2, pi/2).";
@@ -1934,6 +2451,10 @@
     rdfs:comment "The ratio sin(theta) = opposite/hypotenuse in a right triangle; the coordinates (cos(theta), sin(theta)) on the unit circle.";
     edu:expands :AngleConcept;
     edu:partOf :GeometricRelations.
+:TrigonometricSubstitution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Changing the integration variable to a trigonometric expression to simplify a radical, with an interval choice that determines signs and the inverse substitution.";
+    rdfs:comment "For -1 < x < 1, x=sin(theta) with -pi/2 < theta < pi/2 gives sqrt(1-x^2)=cos(theta).";
+    edu:specializes :SubstitutionIntegration.
 :TwoDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Plane geometric figures with length and width but no depth.";
     rdfs:comment "Polygons, circles, and semicircular regions.";
@@ -2002,6 +2523,29 @@
     rdfs:comment "A displacement represented by a directed line segment.";
     edu:expands :LineConcept;
     edu:partOf :GeometricConcepts.
+:VectorCurveAntidifferentiation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Constructing vector-valued antiderivative curves by integrating their coordinates, with one arbitrary constant vector on each connected parameter interval.";
+    rdfs:comment "integral (1,2t) dt=(t,t^2)+C for a constant vector C.";
+    edu:inverts :VectorCurveDifferentiation;
+    edu:specializes :VectorCurveIntegration.
+:VectorCurveCalculus a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Differentiation and integration of finite-dimensional vector-valued curves component by component in a fixed basis, with velocity given by the derivative and speed by its Euclidean magnitude in orthonormal coordinates.";
+    rdfs:comment "For r(t)=(cos(t),sin(t)), velocity is (-sin(t),cos(t)) and speed is 1.";
+    edu:partOf :CurveCalculus.
+:VectorCurveDefiniteIntegration a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining the vector of proper coordinate-wise definite integrals over an oriented bounded parameter interval, retaining cancellation within each coordinate.";
+    rdfs:comment "integral_0^(2pi) (-sin(t),cos(t)) dt=(0,0).";
+    edu:expands :DefiniteIntegral;
+    edu:specializes :VectorCurveIntegration.
+:VectorCurveDifferentiation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining a finite-dimensional vector-valued curve's derivative by differentiating its coordinates in a fixed basis with respect to the designated parameter.";
+    rdfs:comment "For r(t)=(cos(t),sin(t)), r'(t)=(-sin(t),cos(t)).";
+    edu:expands :Differentiation;
+    edu:partOf :VectorCurveCalculus.
+:VectorCurveIntegration a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Integrating a finite-dimensional vector-valued curve coordinate by coordinate in a fixed basis, as a family of antiderivative curves or a definite-integral vector, when the required component integrals exist.";
+    rdfs:comment "Integrating (1,2t) gives (t,t^2)+C for a constant vector C, while its integral from 0 to 1 is (1,1).";
+    edu:partOf :VectorCurveCalculus.
 :VectorDirection a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The direction of a nonzero real Euclidean vector, described by a unit vector or appropriate angles relative to a specified coordinate system.";
     rdfs:comment "The direction of (3, 4) is represented by (3/5, 4/5); (0, 0) has no direction.";
