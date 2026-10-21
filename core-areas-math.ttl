@@ -287,8 +287,8 @@
     rdfs:comment "Relating height to arm span or comparing travel modes between year groups.";
     edu:partOf :Statistics.
 :BoundVariable a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The role of a variable occurrence governed by a binding construct within the expression under consideration.";
-    rdfs:comment "Identifying i as the bound summation index in sum_(i=1)^4 i*x; replacing the bound index k by j throughout product_(k=1)^3 (x + k).";
+    rdfs:isDefinedBy "The role of a variable occurrence governed by a binding construct within the mathematical expression or statement under consideration.";
+    rdfs:comment "Identifying i as the bound summation index in sum_(i=1)^4 i*x; replacing the bound index k by j throughout product_(k=1)^3 (x + k); identifying x as bound in \"for every real x, x^2>=y\".";
     edu:specializes :Variable.
 :BranchCondition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a condition specifying the inputs or assignments for which a particular branch of a piecewise expression applies.";
@@ -580,6 +580,10 @@
     rdfs:isDefinedBy "The nature of a distribution with constant density 1/(b-a) on a finite interval [a,b], where a < b, and zero density outside.";
     rdfs:comment "A uniform waiting time on [0,10] falls between two and five with probability 0.3.";
     edu:specializes :ContinuousProbabilityDistribution.
+:ContrapositionEquivalence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The classical equivalence of P implies Q with not Q implies not P.";
+    rdfs:comment "For an integer n, if n^2 is even then n is even, equivalently if n is odd then n^2 is odd.";
+    edu:specializes :LogicalEquivalence.
 :CoordinateAxes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The horizontal (x-axis) and vertical (y-axis) number lines that intersect at right angles to form the Cartesian plane.";
     edu:partOf :CartesianPlane;
@@ -711,6 +715,10 @@
     rdfs:isDefinedBy "The identity (cos(theta)+i sin(theta))^m=cos(m*theta)+i sin(m*theta) for real radian angles theta and integer m.";
     rdfs:comment "(cos(pi/3)+i sin(pi/3))^3=-1.";
     edu:specializes :AlgebraicEquivalence.
+:DeMorganLaws a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equivalences exchanging negated conjunction with a disjunction of negations, and negated disjunction with a conjunction of negations.";
+    rdfs:comment "Not (P and Q) is equivalent to (not P) or (not Q).";
+    edu:specializes :LogicalEquivalence.
 :Denominator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of the divisor expression written below a fraction bar or after a slash representing that bar.";
     rdfs:comment "Identifying x - 2 as the complete denominator in (x + 1)/(x - 2); interpreting 4 as the divisor represented below the bar in 3/4.";
@@ -994,6 +1002,10 @@
     rdfs:comment "Listing 00, 01, 10, and 11 as all length-two binary strings.";
     edu:integrates :FiniteSetCardinality;
     edu:partOf :CountingPrinciples.
+:ExistentialQuantification a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The assertion that a predicate holds for at least one element of a stated domain.";
+    rdfs:comment "There exists a real x with x^2=2.";
+    edu:partOf :Quantification.
 :ExpectationLinearity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identity equating the expectation of a finite linear combination of integrable random variables to the same combination of their expectations, without requiring independence.";
     rdfs:comment "E(2X+3Y)=2E(X)+3E(Y), including when X and Y are dependent.";
@@ -1156,8 +1168,8 @@
     rdfs:isDefinedBy "Recognizable methods for coordinating fraction magnitude, equivalence, and arithmetic relationships to obtain or explain a result.";
     edu:partOf :FractionArithmetic.
 :FreeVariable a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The role of a variable occurrence not governed by a binding construct within the expression under consideration.";
-    rdfs:comment "Distinguishing the free variable x from the bound index i in sum_(i=1)^4 i*x; identifying x as free in x + 3.";
+    rdfs:isDefinedBy "The role of a variable occurrence not governed by a binding construct within the mathematical expression or statement under consideration.";
+    rdfs:comment "Distinguishing the free variable x from the bound index i in sum_(i=1)^4 i*x; identifying x as free in x + 3; identifying y as free in \"for every real x, x^2>=y\".";
     edu:specializes :Variable.
 :FrequencyDistribution a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The counts of observations assigned to distinct values, categories, or defined intervals, including joint and marginal counts for several variables.";
@@ -1750,6 +1762,26 @@
 :Logic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of valid reasoning and the conditions under which conclusions follow from premises.";
     rdfs:comment "Evaluating an implication or checking the structure of a proof.".
+:LogicalConjunction a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A compound statement true precisely when both constituent statements are true.";
+    rdfs:comment "For a real x, x>0 and x<1.";
+    edu:partOf :PropositionalLogic.
+:LogicalDisjunction a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A compound statement true precisely when at least one constituent statement is true, including when both are true.";
+    rdfs:comment "An integer can be divisible by 2 or by 3, including both as with 6.";
+    edu:partOf :PropositionalLogic.
+:LogicalEquivalence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Bidirectional implication between statements under the same stated assumptions, with matching truth values throughout the admissible interpretations.";
+    rdfs:comment "For an integer n, n is even if and only if n^2 is even.";
+    edu:partOf :PropositionalLogic.
+:LogicalImplication a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A truth-functional conditional that is false exactly when its premise is true and its conclusion false, expressing sufficient and necessary conditions in their respective directions.";
+    rdfs:comment "Divisibility by 4 implies evenness; the converse fails for 6.";
+    edu:partOf :PropositionalLogic.
+:LogicalNegation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The reversal of a statement's truth value.";
+    rdfs:comment "The negation of x>3 is x<=3 over the real numbers.";
+    edu:partOf :PropositionalLogic.
 :LogisticDifferentialEquationModel a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The rate model y'=ky(1-y/K), with positive k and K, relating growth to the current quantity and a carrying capacity. Its nonnegative equilibria are 0 and K.";
     rdfs:comment "For y'=0.1y(1-y/100), growth is positive below 100 for y>0, zero at 0 and 100, and negative above 100.";
@@ -2464,6 +2496,10 @@
     rdfs:isDefinedBy "Understanding and reasoning about relative quantities through ratios and proportional relationships.";
     rdfs:comment "Recognizing that doubling every ingredient preserves a mixture's proportions.";
     edu:partOf :IntuitiveMathematics.
+:PropositionalLogic a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Classical, two-valued truth relationships among statements formed using logical connectives and stated assumptions.";
+    rdfs:comment "Distinguishing the implication from divisibility by 4 to evenness from its converse.";
+    edu:partOf :Logic.
 :PValue a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The probability, under a specified null model, of a test-statistic result at least as incompatible with that model as the observed result, using the test's stated ordering of outcomes.";
     rdfs:comment "An upper-tail coin test reports p=0.03 for obtaining at least as many heads as observed under the null probability.";
@@ -2508,6 +2544,18 @@
 :Quadrilateral a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with four edges and four vertices.";
     edu:specializes :Polygon.
+:Quantification a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The domains, binding and ordering of universal and existential claims.";
+    rdfs:comment "Distinguishing a real y larger than every real x from a separate larger y for each x.";
+    edu:partOf :Logic.
+:QuantifiedNegation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The classical equivalences that negate quantified statements by exchanging universal and existential quantifiers and negating the predicate within their scopes, over unchanged domains.";
+    rdfs:comment "Not every integer is even means that some integer is not even.";
+    edu:partOf :Quantification.
+:QuantifierOrder a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The dependence of a quantified statement's meaning on the order and scope of its quantifiers.";
+    rdfs:comment "For every real x there is a real y>x, whereas no real y exceeds every real x.";
+    edu:partOf :Quantification.
 :Quantile a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A value marking a specified cumulative fraction of a nonempty ordered data collection under a stated convention, with ties and interpolation accounted for.";
     rdfs:comment "For the values 1 through 9, the nearest-rank convention gives 9 as the 90th percentile.";
@@ -3316,6 +3364,10 @@
     rdfs:isDefinedBy "The foundational understanding of the inverse relationship between the size of a measurement unit and the numerical value obtained, specifically that measuring the same quantity with a larger unit results in a smaller number.";
     edu:expands :MeasuringObjects, :NumericComparison;
     edu:partOf :MeasuringWithUnits.
+:UniversalQuantification a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The assertion that a predicate holds for every element of a stated domain.";
+    rdfs:comment "Every real x satisfies x^2>=0.";
+    edu:partOf :Quantification.
 :UnknownVariable a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a variable representing a particular value to be determined from stated conditions.";
     rdfs:comment "Using x for the number to be determined from 3x + 2 = 17.";
