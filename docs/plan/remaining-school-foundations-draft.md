@@ -2,9 +2,12 @@
 
 Status: spatial batch merged at `209091b` through
 [PR #76](https://github.com/christian-bick/edugraph-ontology/pull/76), 2026-10-21.
-Complex-number stage 3B is implemented for review on `codex/complex-number-extensions`.
-Sections 3–5 remain proposals. Original proposal baseline: `9750eff`, after
-[PR #75](https://github.com/christian-bick/edugraph-ontology/pull/75); complex-batch baseline: `209091b`.
+Complex-number stage 3B is merged at `5733989` through
+[PR #77](https://github.com/christian-bick/edugraph-ontology/pull/77).
+Graph theory is implemented for review on `codex/graph-theory`, with GraphTheory as a root Area.
+Sections 4–5 remain proposals. Original proposal baseline: `9750eff`, after
+[PR #75](https://github.com/christian-bick/edugraph-ontology/pull/75); complex-batch baseline: `209091b`;
+graph-batch baseline: `5733989`.
 
 ## Scope and sequence
 
@@ -22,8 +25,8 @@ Recommended implementation batches:
 5. Separate targeted passes for conics and the number-theory results identified below, followed
    by a competency-by-competency audit of the selected programmes.
 
-Each batch has its own reviewable ontology change. The spatial batch is merged, and the
-complex batch is implemented for review; the later families remain proposals.
+Each batch has its own reviewable ontology change. The spatial and complex batches are merged,
+and graph theory is implemented for review; the later families remain proposals.
 This is not a claim that every listed concept is required
 by every national curriculum. Existing
 Arithmetic, Algebra, Analysis, Calculus and LinearAlgebra meanings remain distinct.
@@ -185,7 +188,7 @@ implementation record. These checks verify the batch, not complete curriculum co
 This batch implements the previously reserved [stage 3B](advanced-complex-numbers-draft.md#stage-3b--preserved-university-entry-continuation).
 The merged baseline already supplies modulus, argument, conjugation, polar notation, geometric
 arithmetic, polynomial factorization and the Fundamental Theorem of Algebra. The following
-seven Areas extend those foundations on `codex/complex-number-extensions`.
+seven Areas extend those foundations, merged through PR #77 at `5733989`.
 
 | Area | Placement | Concise definition | Example |
 | --- | --- | --- | --- |
@@ -239,45 +242,44 @@ records the exact graph delta and client checks.
 
 ## 3. Elementary graph theory
 
-Propose GraphTheory as a constituent of Combinatorics for the present finite-configuration
-scope. A separate GraphTheory root is a reasonable alternative if graph theory is to be
-presented as a peer field or expanded beyond finite graphs. Neither choice requires a new
-DiscreteMathematics umbrella.
+GraphTheory is a top-level Area, as requested, alongside Combinatorics, Algebra and the other
+mathematical fields. Its definition covers the general field; this first batch develops finite
+graph foundations and their matrix correspondence. No Combinatorics parent or additional
+DiscreteMathematics umbrella is introduced.
 
 ```text
-Combinatorics
-  P GraphTheory
-    P GraphFoundations
-      P GraphStructure
-        S CompleteGraph
-      P GraphAdjacency
-      P VertexDegree
-      P GraphWalk
-        S GraphPath
-      P GraphCycle
-      P GraphConnectivity
-      P GraphEdgeWeight
-    P GraphMatrixRelations
-      P AdjacencyMatrix
-      P AdjacencyMatrixWalkCounting
+GraphTheory
+  P GraphFoundations
+    P GraphStructure
+      S CompleteGraph
+    P GraphAdjacency
+    P VertexDegree
+    P GraphWalk
+      S GraphPath
+    P GraphCycle
+    P GraphConnectivity
+    P GraphEdgeWeight
+  P GraphMatrixRelations
+    P AdjacencyMatrix
+    P AdjacencyMatrixWalkCounting
 ```
 
-| Candidate | Concise definition | Example |
+| Area | Concise definition | Example |
 | --- | --- | --- |
-| GraphTheory | The structures and relationships of finite graphs and their use in describing connections and traversals. | Connectivity in a transport network; walks counted using a matrix. |
+| GraphTheory | The study of graphs through their vertices, edges, structural relationships and traversals. | Connectivity in a transport network; walks counted using a matrix. |
 | GraphFoundations | The vertices, edges, incidence relationships and traversal properties of finite graphs. | Comparing the connections and degrees of vertices in two networks. |
 | GraphMatrixRelations | The correspondence between finite graph connections or traversals and matrices indexed by vertices. | Reading an adjacency matrix and interpreting its square. |
 | GraphStructure | The organization of vertices and connecting edges under stated direction, loop and multiplicity conventions. | A triangle graph on vertices A,B,C; an isolated fourth vertex. |
 | CompleteGraph | A simple undirected graph with an edge between every pair of distinct vertices. | The three-vertex triangle is complete. |
 | GraphAdjacency | The relationship between vertices connected by an edge, respecting direction when present. | An edge A to B makes B reachable from A in one directed step. |
-| VertexDegree | The count of incident edges at a vertex, distinguishing incoming and outgoing counts for directed graphs and counting an undirected loop twice. | Each vertex of a triangle has degree 2. |
-| GraphWalk | A finite sequence of incident vertices and edges, respecting direction and permitting repetition. | A-B-A is a walk of length 2 when A and B are joined. |
+| VertexDegree | The number of edge incidences at a vertex, counting each undirected loop twice and distinguishing incoming and outgoing counts in a directed graph. A directed loop contributes one to each count. | Each vertex of a triangle has degree 2. |
+| GraphWalk | A finite alternating sequence of vertices and incident edges, starting and ending at vertices, respecting direction when present and permitting repetition. Its length is the number of edges; a single vertex is a length-zero walk. | A-B-A is a walk of length 2 when A and B are joined by an undirected edge. |
 | GraphPath | A graph walk with no repeated vertices. | A-B-C is a path when its three vertices are distinct and the consecutive edges exist. |
 | GraphCycle | A positive-length closed graph walk with distinct edges and no repeated vertices except its common first and last vertex, under the stated graph conventions. | A-B-C-A is a cycle in a simple triangle graph; A-B-A on one undirected edge is not. |
-| GraphConnectivity | The existence of connecting paths between vertices, distinguishing undirected connectivity and weak or strong connectivity in directed graphs. | A triangle plus an isolated vertex is disconnected. |
+| GraphConnectivity | The existence of paths joining every pair of vertices in an undirected graph, or in a directed graph either after ignoring directions (weak connectivity) or in both directions (strong connectivity). | A triangle plus an isolated vertex is disconnected; A->B is weakly but not strongly connected. |
 | GraphEdgeWeight | The role of a numerical value assigned to an edge under a stated interpretation. | Edge weights recording travel times; outgoing transition probabilities in a stochastic graph. |
-| AdjacencyMatrix | The matrix recording edge counts between vertices in a fixed order, with rows as origins in a directed graph and a stated loop convention. | A_12=1 records one edge from vertex 1 to vertex 2. |
-| AdjacencyMatrixWalkCounting | The relationship that the i,j entry of A^k counts length-k walks from i to j for an edge-count adjacency matrix A and nonnegative integer k. | For A=[[0,1],[1,0]], A^2=I counts the two-edge returns, although these are not simple paths. |
+| AdjacencyMatrix | The square matrix recording edge counts between vertices in a fixed order, with rows as origins and columns as destinations for directed edges and a stated loop convention. | A_12=1 records one edge from vertex 1 to vertex 2. |
+| AdjacencyMatrixWalkCounting | The equality between entry (i,j) of A^k and the number of length-k walks from i to j, for nonnegative integer k and a finite graph's edge-count adjacency matrix A with each loop counted once on the diagonal. | For A=[[0,1],[1,0]], A^2=I counts the two-edge returns, although these are not simple paths. |
 
 GraphCycle must not specialize the strict GraphPath definition: the repeated endpoint would
 contradict it. It is kept as a constituent to make the traversal distinction explicit.
@@ -285,6 +287,12 @@ The adjacency convention for walk counting records each directed loop once, and 
 undirected loop once on the diagonal; undirected degree still counts a loop twice. Start with
 loop-free examples and specify conventions when extending them. A weighted adjacency matrix
 instead gives sums of products of edge weights, not ordinary counts.
+
+Walks retain edge identities, so parallel edges give distinct choices. At k=0, A^0=I counts
+one length-zero walk at each vertex. A doubled diagonal convention used to recover undirected
+degrees is outside AdjacencyMatrixWalkCounting's stated convention. GraphCycle allows a loop
+or two distinct parallel edges when the graph conventions admit them; in a simple undirected
+graph its definition requires at least three edges.
 
 Reuse FiniteSetCardinality for graph order and edge count. Reuse MatrixStructure and
 RowColumnProduct for matrix knowledge. A graph-based Markov task composes graph concepts
@@ -299,6 +307,38 @@ knowledge automatically. Representation Scopes are optional in this first batch.
 Euler trails, coloring, shortest paths, spanning trees and planarity remain separate follow-ups.
 GraphPath is not introduced as a synonym for every use of the French word chemin; the walk/path
 convention must be explicit when translating curriculum text.
+
+### Graph implementation — 2026-10-21
+
+The branch adds 14 Areas: GraphTheory as a root, two constituent family organizers, and 11
+eligible concepts. There are 11 partOf and two specializes edges. GraphTheory,
+GraphFoundations and GraphMatrixRelations organize knowledge and are not direct labels;
+GraphStructure and GraphWalk remain eligible alongside their specializations.
+
+Existing descriptors, including Combinatorics and the matrix and probability concepts, retain
+their definitions and relations. No representation Scope or progression assertion is added.
+The root placement is the accepted alternative to the earlier Combinatorics proposal.
+
+Semantic review checked the distinction between walks, paths and cycles; directed reachability;
+weak and strong connectivity; and the different loop conventions for degree and walk counting.
+Matrix examples checked A^0=I, directed asymmetry, a self-loop, and two parallel undirected
+edges giving four two-step returns. See
+[Stanley, Chapter 1 and Theorem 1.1](https://math.mit.edu/~rstan/algcomb/algcomb.pdf)
+for edge-count adjacency and walk counting with loops and multiple edges,
+[MIT's digraph lecture](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/mit6_1200j_s24_lec14.pdf)
+for zero-length walks, and the
+[Wisconsin graph reading](https://cs320.cs.wisc.edu/s24/lec/07-recursion-and-graphs/reading2.html)
+for directed connectivity conventions.
+
+Verification passed against `5733989`: exactly 14 new Areas and 69 added assertions, giving
+1,351 descriptors and 7,192 assertions. GraphTheory is the sole new root; no new descriptor
+has Combinatorics ancestry. The three organizers and 11 eligible concepts match the hierarchy
+above, and existing assertions, labeling eligibility and ancestry are unchanged. Source tables
+match the design and round-trip exactly through the editor; ontology assessment has no findings.
+
+The full `docker build . --output dist --progress plain` passed, including TypeScript/client
+and ontology checks, documentation validation, Python lint and strict typing, all 49 Python
+tests, and wheel/sdist consumer verification. A final documentation pass covers this record.
 
 ## 4. Logical foundations
 
@@ -380,13 +420,13 @@ separate optional extensions; no application family is added merely for a contex
 
 The merged spatial implementation retains both affine-parametrization specializations.
 The complex batch retains all seven proposed concepts with refined mathematical boundaries.
-Open choices for later batches include GraphTheory as a constituent or root and optional
-notation/representation Scopes. They do not block review of the implemented batches.
+The graph implementation uses the requested top-level field. Optional notation/representation
+Scopes and the later logical/conic/number-theory batches remain separate review steps.
 
 Before implementing each batch, review every endpoint and affected ancestry, use the editor's
 ordering, check definitions against examples and counterexamples, and run the normal source
 and Docker checks. Check links, source references and the implemented-versus-proposed boundary.
-A candidate name in sections 3–5 does not imply a source or dataset change.
+A candidate name in sections 4–5 does not imply a source or dataset change.
 
 The final curriculum audit should classify each leaf as covered directly, covered by a
 defensible composition, a true concept gap, or a representation/constraint gap. Include ordinary

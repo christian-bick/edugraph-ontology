@@ -68,6 +68,14 @@
     rdfs:isDefinedBy "The conventional base-ten addition algorithm that operates by aligned place values and records any required regrouping across places.";
     edu:expands :AdditionPlaceValuePartitioning, :IntegerRegrouping;
     edu:partOf :IntegerStrategies.
+:AdjacencyMatrix a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The square matrix recording edge counts between vertices in a fixed order, with rows as origins and columns as destinations for directed edges and a stated loop convention.";
+    rdfs:comment "A_12=1 records one edge from vertex 1 to vertex 2.";
+    edu:partOf :GraphMatrixRelations.
+:AdjacencyMatrixWalkCounting a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equality between entry (i,j) of A^k and the number of length-k walks from i to j, for nonnegative integer k and a finite graph's edge-count adjacency matrix A with each loop counted once on the diagonal.";
+    rdfs:comment "For A=[[0,1],[1,0]], A^2=I counts the two-edge returns, although these are not simple paths.";
+    edu:partOf :GraphMatrixRelations.
 :AdjacentAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles that share a common vertex and a common side but do not overlap.";
     edu:partOf :AngleRelations.
@@ -431,6 +439,10 @@
     rdfs:isDefinedBy "The equality between an event complement probability and one minus the event probability.";
     rdfs:comment "If rain has probability 0.3, no rain has probability 0.7.";
     edu:partOf :ProbabilityRules.
+:CompleteGraph a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A simple undirected graph with an edge between every pair of distinct vertices.";
+    rdfs:comment "The three-vertex triangle is complete.";
+    edu:specializes :GraphStructure.
 :CompletingSquare a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Rewriting a quadratic polynomial in one designated variable as a nonzero coefficient multiplied by a squared affine expression plus a constant, preserving its value for every admissible assignment.";
     rdfs:comment "x^2 + 6x + 5 = (x + 3)^2 - 4; 2x^2 + 8x + 3 = 2(x + 2)^2 - 5.";
@@ -1358,6 +1370,45 @@
     edu:partOf :Geometry.
 :Geometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that studies shapes, the sizes, positions, and dimensions of things. It explores properties of points, lines, planes, and solids.".
+:GraphAdjacency a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship between vertices connected by an edge, respecting direction when present.";
+    rdfs:comment "An edge A to B makes B reachable from A in one directed step.";
+    edu:partOf :GraphFoundations.
+:GraphConnectivity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The existence of paths joining every pair of vertices in an undirected graph, or in a directed graph either after ignoring directions (weak connectivity) or in both directions (strong connectivity).";
+    rdfs:comment "A triangle plus an isolated vertex is disconnected; A->B is weakly but not strongly connected.";
+    edu:partOf :GraphFoundations.
+:GraphCycle a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A positive-length closed graph walk with distinct edges and no repeated vertices except its common first and last vertex, under the stated graph conventions.";
+    rdfs:comment "A-B-C-A is a cycle in a simple triangle graph; A-B-A on one undirected edge is not.";
+    edu:partOf :GraphFoundations.
+:GraphEdgeWeight a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The role of a numerical value assigned to an edge under a stated interpretation.";
+    rdfs:comment "Edge weights recording travel times; outgoing transition probabilities in a stochastic graph.";
+    edu:partOf :GraphFoundations.
+:GraphFoundations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The vertices, edges, incidence relationships and traversal properties of finite graphs.";
+    rdfs:comment "Comparing the connections and degrees of vertices in two networks.";
+    edu:partOf :GraphTheory.
+:GraphMatrixRelations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The correspondence between finite graph connections or traversals and matrices indexed by vertices.";
+    rdfs:comment "Reading an adjacency matrix and interpreting its square.";
+    edu:partOf :GraphTheory.
+:GraphPath a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A graph walk with no repeated vertices.";
+    rdfs:comment "A-B-C is a path when its three vertices are distinct and the consecutive edges exist.";
+    edu:specializes :GraphWalk.
+:GraphStructure a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The organization of vertices and connecting edges under stated direction, loop and multiplicity conventions.";
+    rdfs:comment "A triangle graph on vertices A,B,C; an isolated fourth vertex.";
+    edu:partOf :GraphFoundations.
+:GraphTheory a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of graphs through their vertices, edges, structural relationships and traversals.";
+    rdfs:comment "Connectivity in a transport network; walks counted using a matrix.".
+:GraphWalk a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A finite alternating sequence of vertices and incident edges, starting and ending at vertices, respecting direction when present and permitting repetition. Its length is the number of edges; a single vertex is a length-zero walk.";
+    rdfs:comment "A-B-A is a walk of length 2 when A and B are joined by an undirected edge.";
+    edu:partOf :GraphFoundations.
 :GreatestCommonDivisor a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The greatest positive integer dividing every member of a finite nonempty collection of integers that are not all zero, also called their greatest common factor.";
     rdfs:comment "gcd(36, 8) = 4; gcd(0, -8) = 8.";
@@ -3338,6 +3389,10 @@
     rdfs:isDefinedBy "The relationship between real Euclidean vectors whose dot product is zero, including the zero vector.";
     rdfs:comment "(1,2,0) is orthogonal to (2,-1,3); the zero vector is orthogonal to every vector.";
     edu:partOf :VectorAlgebra.
+:VertexDegree a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The number of edge incidences at a vertex, counting each undirected loop twice and distinguishing incoming and outgoing counts in a directed graph. A directed loop contributes one to each count.";
+    rdfs:comment "Each vertex of a triangle has degree 2.";
+    edu:partOf :GraphFoundations.
 :VerticalAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The pairs of opposite angles made by two intersecting lines.";
     edu:partOf :AngleRelations.
