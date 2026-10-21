@@ -59,9 +59,12 @@ standards to eligible concepts and distinguishes supported compositions from tar
 The [2026-10-21 school curriculum audit](docs/plan/coverage-audit-2026-10-21.md) supersedes that
 limited coverage check with all CCSS K–12 content standards, the selected advanced Bavarian
 and French courses, and a requirement-level record of the remaining gaps and source limits.
-The [Euclidean geometry draft](docs/plan/euclidean-geometry-draft.md) implements its first follow-up
-for review, including construction technique Areas, the ConstructionScope instrument family,
-Euclidean results, nets, sectors and transformation refinements.
+The [Euclidean geometry record](docs/plan/euclidean-geometry-draft.md) documents its first follow-up,
+merged through [PR #82](https://github.com/christian-bick/edugraph-ontology/pull/82), including
+construction techniques and tools, Euclidean results, nets, sectors and transformation refinements.
+The [cross-product, arithmetic-sum and sequence-limit draft](docs/plan/vector-sums-sequence-limits-draft.md)
+implements the next batch for review on `codex/vector-sums-sequence-limits`, including the
+finite/infinite inference boundary.
 The [NumberTheory design and implementation record](docs/plan/number-theory-basics-draft.md)
 documents the school and introductory-university families, their boundary with arithmetic,
 and the shared closure concept in AlgebraicStructures.

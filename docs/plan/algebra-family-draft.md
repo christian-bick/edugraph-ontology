@@ -28,6 +28,10 @@ Fermat's little theorem and the coprime divisibility lemma are merged at `0af4ab
 [PR #81](https://github.com/christian-bick/edugraph-ontology/pull/81).
 The [2026-10-21 curriculum audit](coverage-audit-2026-10-21.md) now supplies the broader
 requirement-level coverage assessment and next extension priorities.
+The [Euclidean geometry batch](euclidean-geometry-draft.md) is merged at `5b89a92` through PR #82.
+The [cross-product, arithmetic-sum and sequence-limit draft](vector-sums-sequence-limits-draft.md)
+implements the next audit batch for review on `codex/vector-sums-sequence-limits`, including
+finite/infinite inference boundaries.
 
 Original implementation branch: `codex/algebra-refinements` (merged). Updated 2026-10-21 for
 the Calculus and statistics/probability merges and the remaining school-foundation proposals, following the NumberTheory and advanced extensions,
