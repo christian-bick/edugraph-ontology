@@ -17,11 +17,14 @@ develops roadmap step 6 using the existing Calculus root. Its school-foundation 
 extension is merged into `main` at `5f52168` through
 [PR #74](https://github.com/christian-bick/edugraph-ontology/pull/74).
 The explicitly deferred extensions remain future work.
-The next expansion develops Probability, Statistics, and Combinatorics in the
-[new design record](probability-statistics-combinatorics-draft.md).
+The Probability, Statistics, and Combinatorics extension is merged at `9750eff` through
+[PR #75](https://github.com/christian-bick/edugraph-ontology/pull/75); see its
+[design record](probability-statistics-combinatorics-draft.md). The
+[remaining-school-foundations record](remaining-school-foundations-draft.md) documents spatial
+geometry implemented for review and proposes the next complex-number, graph and logic batches.
 
 Original implementation branch: `codex/algebra-refinements` (merged). Updated 2026-10-21 for
-the Calculus merge and the next statistics/probability expansion, following the NumberTheory and advanced extensions,
+the Calculus and statistics/probability merges and the remaining school-foundation proposals, following the NumberTheory and advanced extensions,
 including the stage 4 and stage 5A merges.
 The authored sources are [Areas](../../core-areas-math.ttl) and [Scopes](../../core-scopes-math.ttl).
 This document builds on the manual refinement through `0f277c5` and the definition/example
@@ -1164,8 +1167,11 @@ Steps 1 and 2 are merged, with step 2's two additions at `702714b`. Step 3A is m
 through PR #74; see the
 [Calculus implementation record](calculus-family-draft.md#implementation-and-adoption--2026-10-20).
 The [Probability, Statistics, and Combinatorics extension](probability-statistics-combinatorics-draft.md)
-continues the broader school-mathematics coverage work.
-Stage 3B, step 4's optional refinements, and stages 5B–5C remain deferred.
+is merged at `9750eff` through PR #75. The
+[remaining-school-foundations record](remaining-school-foundations-draft.md) implements the
+finite-coordinate geometry portion of stage 5B for review on `codex/spatial-geometry`.
+Complex stage 3B, graph theory and logic remain proposals. Step 4's optional refinements and
+the broader university continuation of stages 5B–5C remain deferred.
 They are not a completeness claim for all CCSS geometry, statistics, or other fields. Proposed
 family names in the unimplemented stages below are planning candidates, not additional authored descriptors. The sequence
 separates core CCSS gaps from standards marked `(+)` and later calculus; a `(+)` item may still

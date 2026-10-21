@@ -334,6 +334,12 @@ direct-label eligibility is intended to remain unchanged; the source comparison 
 
 ## Stages 5B and 5C — introductory university continuation
 
+The [spatial-geometry implementation draft](remaining-school-foundations-draft.md#1-spatial-analytic-geometry)
+pulls finite-coordinate combinations, span, independence, bases and Euclidean dot-product
+knowledge forward for advanced secondary coverage on `codex/spatial-geometry`.
+Abstract structures and the broader continuation below remain deferred; existing concepts
+from the spatial batch should be reused when developing those later families.
+
 These are preserved family directions, not stage 5A implementation promises. Their exact
 definitions, specialization choices, and annotation effects need a subsequent proposal.
 

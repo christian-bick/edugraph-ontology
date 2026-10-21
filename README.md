@@ -63,11 +63,15 @@ The [Calculus implementation and adoption record](docs/plan/calculus-family-draf
 documents the school-foundation and university-entry extension merged through
 [PR #74](https://github.com/christian-bick/edugraph-ontology/pull/74). Calculus is a separate root for methods, applications, approximation,
 series, and differential equations; function properties retain their Analysis home.
-The [Probability, Statistics, and Combinatorics draft](docs/plan/probability-statistics-combinatorics-draft.md)
+The [Probability, Statistics, and Combinatorics extension](docs/plan/probability-statistics-combinatorics-draft.md),
+merged through [PR #75](https://github.com/christian-bick/edugraph-ontology/pull/75),
 extends these subjects from school foundations through introductory university concepts,
 with shared set foundations and probability and algebra representation Scopes. Its adoption notes
 identify existing `Statistics` labels that need more specific concepts and the rename from
 `GraphicalSolutionRepresentation` to the broader `GraphicalAlgebraicRepresentation`.
+The [remaining school-foundation record](docs/plan/remaining-school-foundations-draft.md)
+documents the spatial geometry implementation draft and the proposed advanced complex-number,
+graph and logic extensions.
 
 #### Foundations
 

@@ -1,6 +1,8 @@
 # Probability, statistics and combinatorics — implementation draft
 
-Status: implemented for review on `codex/probability-statistics-combinatorics`, 2026-10-21.
+Status: merged into `main` at `9750eff` through
+[PR #75](https://github.com/christian-bick/edugraph-ontology/pull/75), 2026-10-21.
+Original implementation branch: `codex/probability-statistics-combinatorics`.
 Baseline: merged `main` at `5f521686e01d20befb494f5af178e0f02c21e372`, including
 [Calculus PR #74](https://github.com/christian-bick/edugraph-ontology/pull/74).
 Authored sources: [Areas](../../core-areas-math.ttl) and [Scopes](../../core-scopes-math.ttl).
@@ -630,8 +632,12 @@ Verification passed on 2026-10-21, including the representation and foundational
 
 A passing build is not a curriculum completeness certificate.
 
-Deferred: full graph theory; broader logical foundations; advanced spatial geometry and complex
-extensions; abstract measure theory; general stochastic-process theory; Bayesian inference;
+The [remaining-school-foundations record](remaining-school-foundations-draft.md) develops
+spatial geometry on a separate review branch, with complex-number, elementary graph and logical
+extensions still proposed. None of these additions was part of the probability merge.
+
+Deferred beyond those proposals: full graph theory; abstract measure theory;
+general stochastic-process theory; Bayesian inference;
 ANOVA, multiple-regression inference, bootstrap families and detailed nonparametric methods.
 Statistical report evaluation composes these Areas with existing evaluation Abilities and
 evidence Scopes. A later standard-leaf audit should decide whether remaining tasks expose
