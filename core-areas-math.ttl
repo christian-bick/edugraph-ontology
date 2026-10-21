@@ -3128,11 +3128,11 @@
     rdfs:comment "Polygons, circles, and semicircular regions.";
     edu:expands :PlaneConcept;
     edu:partOf :GeometricObjects.
-:TypeIError a owl:NamedIndividual, edu:Area;
+:TypeOneError a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Rejection of a null hypothesis when that hypothesis is true.";
     rdfs:comment "Declaring evidence against a fair-coin model when the coin is fair.";
     edu:specializes :TestingError.
-:TypeIIError a owl:NamedIndividual, edu:Area;
+:TypeTwoError a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Failure to reject a null hypothesis when a specified alternative is true.";
     rdfs:comment "Failing to detect a coin whose probability of heads is 0.6 in a test against fairness.";
     edu:specializes :TestingError.
