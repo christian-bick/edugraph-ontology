@@ -161,6 +161,10 @@
 :CommonNumerator a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Fractions characterized by an identical numerator.";
     edu:specializes :RelatedFractions.
+:Compass a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "A drawing compass used to trace circles or arcs or to transfer distances between points.";
+    rdfs:comment "Using a physical compass to draw two arcs with the same radius.";
+    edu:partOf :GeometricConstruction.
 :CompassDirections a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Cardinal and intercardinal orientation indicators.";
     edu:partOf :DirectionalAbstraction.
@@ -186,6 +190,9 @@
     rdfs:isDefinedBy "Explicitly specified mathematical instances or configurations used to illustrate or examine a claim.";
     rdfs:comment "Two equal-area configurations used to compare different partitions of a whole. A construction may illustrate a claim, establish existence, or refute a general claim depending on its demonstrated role.";
     edu:specializes :EvidenceBasis.
+:ConstructionScope a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "The tools and material conditions used in constructing objects or configurations.";
+    rdfs:comment "Instruments and materials supplied for constructing a model or diagram.".
 :ConversionRepresentation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A representation that relates equivalent expressions of the same quantity under different units, scales, or representational forms.";
     edu:integrates :MultipleFramesOfReference;
@@ -454,6 +461,14 @@
     rdfs:isDefinedBy "Geometric figures represented by bands stretched between fixed pegs on a board.";
     rdfs:comment "A triangle formed by stretching a band around three pegs.";
     edu:specializes :PhysicalGeometry.
+:GeometricConstruction a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "The instruments and material conditions used in constructing geometric figures.";
+    rdfs:comment "A drawing compass and straightedge supplied for constructing a geometric diagram.";
+    edu:partOf :ConstructionScope.
+:GeometricNet a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Planar layouts of surface pieces used to represent a solid by folding or rolling them together without stretching.";
+    rdfs:comment "Six square faces of a cube; a cylinder's rectangle and circular bases.";
+    edu:specializes :GeometryRepresentation.
 :GeometryRepresentation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Physical or visual forms used to represent geometric figures and relationships.";
     rdfs:comment "A solid model, a drawn figure, or a shape assembled from manipulatives.";
@@ -1413,6 +1428,10 @@
     rdfs:comment "Measuring the duration of a race.";
     edu:integrates :HourIntervals, :MillisecondIntervals, :MinuteIntervals, :SecondIntervals;
     edu:partOf :TimeMeasurement.
+:Straightedge a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "A straight-edged guide used to draw or align straight lines without relying on a graduated scale.";
+    rdfs:comment "Using the edge of a ruler to join two constructed points without reading its markings.";
+    edu:partOf :GeometricConstruction.
 :SubtractiveCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Determining a collection's size by subtracting a known missing part from a known total.";
     rdfs:comment "Finding how many objects remain from a group of ten when three are missing.";

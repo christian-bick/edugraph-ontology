@@ -10,8 +10,12 @@ Logical foundations are merged at `4de7612` through
 [PR #79](https://github.com/christian-bick/edugraph-ontology/pull/79).
 Conics are merged at `6aa963e` through
 [PR #80](https://github.com/christian-bick/edugraph-ontology/pull/80).
-The two number-theory results in section 5 are implemented for review on
-`codex/number-theory-theorems`. Original proposal baseline: `9750eff`, after
+The two number-theory results in section 5 are merged at `0af4aba` through
+[PR #81](https://github.com/christian-bick/edugraph-ontology/pull/81).
+The [2026-10-21 curriculum audit](coverage-audit-2026-10-21.md) records the remaining requirement-level gaps.
+Its first follow-up is developed in the [Euclidean geometry draft](euclidean-geometry-draft.md),
+implemented for review on `codex/euclidean-geometry-foundations`.
+Original proposal baseline: `9750eff`, after
 [PR #75](https://github.com/christian-bick/edugraph-ontology/pull/75); complex-batch baseline: `209091b`;
 graph-batch baseline: `5733989`; logic-batch baseline: `13328d3`; conic-batch baseline: `4de7612`;
 number-theory result baseline: `6aa963e`.
@@ -32,9 +36,9 @@ Recommended implementation batches:
 5. Separate targeted passes for conics and the number-theory results identified below, followed
    by a competency-by-competency audit of the selected programmes.
 
-Each batch has its own reviewable ontology change. The spatial, complex, graph, logic and conic
-batches are merged. The targeted number-theory results are implemented for review; the next
-step is the competency-by-competency curriculum audit.
+Each batch has its own reviewable ontology change. The spatial, complex, graph, logic, conic and
+targeted number-theory batches are merged. The subsequent competency-by-competency curriculum
+audit is complete; its first follow-up is the Euclidean geometry proposal linked above.
 This is not a claim that every listed concept is required
 by every national curriculum. Existing
 Arithmetic, Algebra, Analysis, Calculus and LinearAlgebra meanings remain distinct.
@@ -570,7 +574,7 @@ typing, all 49 Python tests, and wheel/sdist consumer verification.
 
 ### Number-theory results
 
-The `codex/number-theory-theorems` branch implements two reusable results within the existing
+The merged `codex/number-theory-theorems` branch added two reusable results within the existing
 NumberTheory families. Each is eligible knowledge; no additional organizer or theorem-type
 Scope is needed.
 
@@ -637,8 +641,8 @@ Python lint and strict typing, all 49 Python tests, and wheel/sdist consumer ver
 
 Euler's totient theorem, Wilson's theorem and broader cryptography remain separate optional
 extensions; no application family is added merely for a context. The listed gap batches are
-now implemented, subject to review of this branch. The next audit must test individual
-curriculum requirements rather than infer complete coverage from the family tree.
+now merged. The [curriculum audit](coverage-audit-2026-10-21.md) tests individual requirements
+and identifies further gaps; this batch list is not a completeness claim.
 
 ## Review and implementation checks
 
@@ -646,7 +650,7 @@ The merged spatial implementation retains both affine-parametrization specializa
 The complex batch retains all seven proposed concepts with refined mathematical boundaries.
 The merged graph implementation uses the requested top-level field, and logical foundations
 are merged through PR #79. Conics are merged through PR #80, and the targeted number-theory
-results are implemented for review. Optional notation/representation Scopes and the broader
+results are merged through PR #81. Optional notation/representation Scopes and the broader
 university extensions remain separate review steps.
 
 Before implementing each batch, review every endpoint and affected ancestry, use the editor's
@@ -654,7 +658,7 @@ ordering, check definitions against examples and counterexamples, and run the no
 and Docker checks. Check links, source references and the implemented-versus-proposed boundary.
 Deferred topic names do not imply a source or dataset change.
 
-The final curriculum audit should classify each leaf as covered directly, covered by a
-defensible composition, a true concept gap, or a representation/constraint gap. Include ordinary
-geometry and school arithmetic as well as these extensions. Broad family coverage alone is
-not a completeness certificate.
+The [final curriculum audit](coverage-audit-2026-10-21.md) classifies the selected requirements
+as covered directly, covered by a defensible composition, a true concept/procedure gap, or a
+definition/representation gap. It includes ordinary CCSS geometry and school arithmetic as well
+as these extensions and records the limits of the selected advanced-school sources.

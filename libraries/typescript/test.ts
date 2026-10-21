@@ -91,7 +91,7 @@ console.log("✅ Direct-label eligibility checks passed.");
 // Conceptual grouping must not inherit the physical part relationships of the figures.
 console.log("Asserting circular-shape grouping...");
 assertOk(partOf(Area.CircularShapes).includes(Area.TwoDimensionalObjects));
-for (const shape of [Area.Circle, Area.HalfCircle, Area.QuarterCircle]) {
+for (const shape of [Area.Circle, Area.CircularSector]) {
   const expectedParents = shape === Area.Circle
     ? [Area.CircularShapes, Area.ConicSections]
     : [Area.CircularShapes];
@@ -105,10 +105,22 @@ for (const shape of [Area.Circle, Area.HalfCircle, Area.QuarterCircle]) {
   assertEqual(hasPart(shape).length, 0);
   assertEqual(specializesTransitive(shape).length, 0);
 }
-assertOk(!partOfTransitive(Area.HalfCircle).includes(Area.Circle));
-assertOk(!partOfTransitive(Area.QuarterCircle).includes(Area.Circle));
-assertOk(!partOfTransitive(Area.HalfCircle).includes(Area.ConicSections));
-assertOk(!partOfTransitive(Area.QuarterCircle).includes(Area.ConicSections));
+for (const sector of [Area.HalfCircle, Area.QuarterCircle]) {
+  assertEqual(partOf(sector).length, 0, "sector subtypes inherit through specialization");
+  assertEqual(specializes(sector).length, 1);
+  assertOk(specializes(sector).includes(Area.CircularSector));
+  assertOk(specializedBy(Area.CircularSector).includes(sector));
+  assertOk(structuresTransitive(sector).includes(Area.CircularShapes));
+  assertOk(structuresTransitive(sector).includes(Area.TwoDimensionalObjects));
+  assertEqual(partOfTransitive(sector).length, 0, "partOf traversal must not cross a specializes edge");
+  assertEqual(specializesTransitive(sector).length, 1);
+  assertOk(!specializesTransitive(sector).includes(Area.Circle), "a sector is not a complete circle");
+  assertOk(!structuresTransitive(sector).includes(Area.ConicSections));
+  assertEqual(hasPart(sector).length, 0);
+  assertEqual(isLabelEligible(sector), true);
+}
+assertEqual(isLabelEligible(Area.CircularSector), true, "a parent with only specializations remains eligible");
+assertOk(!specializesTransitive(Area.Circle).includes(Area.CircularSector));
 console.log("✅ Circular-shape grouping checks passed.");
 
 // Strategies belong to a methods family, not to the equal-value principle itself.

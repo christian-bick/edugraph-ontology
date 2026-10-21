@@ -70,7 +70,7 @@ class TestRelations(unittest.TestCase):
 
     def test_circular_shape_grouping(self):
         self.assertIn(Area.TwoDimensionalObjects, part_of(Area.CircularShapes))
-        for shape in [Area.Circle, Area.HalfCircle, Area.QuarterCircle]:
+        for shape in [Area.Circle, Area.CircularSector]:
             with self.subTest(shape=shape):
                 expected_parents = (
                     [Area.CircularShapes, Area.ConicSections]
@@ -84,10 +84,22 @@ class TestRelations(unittest.TestCase):
                 self.assertIn(Area.TwoDimensionalObjects, part_of_transitive(shape))
                 self.assertEqual(has_part(shape), [])
                 self.assertEqual(specializes_transitive(shape), [])
-        self.assertNotIn(Area.Circle, part_of_transitive(Area.HalfCircle))
-        self.assertNotIn(Area.Circle, part_of_transitive(Area.QuarterCircle))
-        self.assertNotIn(Area.ConicSections, part_of_transitive(Area.HalfCircle))
-        self.assertNotIn(Area.ConicSections, part_of_transitive(Area.QuarterCircle))
+        for shape in [Area.HalfCircle, Area.QuarterCircle]:
+            with self.subTest(shape=shape):
+                self.assertEqual(part_of(shape), [])
+                self.assertEqual(specializes(shape), [Area.CircularSector])
+                self.assertIn(shape, specialized_by(Area.CircularSector))
+                self.assertIn(shape, structured_by(Area.CircularSector))
+                self.assertNotIn(shape, has_part(Area.CircularShapes))
+                self.assertEqual(has_part(shape), [])
+                # Navigation crosses specialization into the constituent hierarchy.
+                self.assertIn(Area.CircularShapes, structures_transitive(shape))
+                self.assertIn(Area.TwoDimensionalObjects, structures_transitive(shape))
+                self.assertEqual(part_of_transitive(shape), [])
+                # Inherited meaning stops at the sector rather than crossing partOf.
+                self.assertEqual(specializes_transitive(shape), [Area.CircularSector])
+                self.assertNotIn(Area.Circle, structures_transitive(shape))
+                self.assertNotIn(Area.ConicSections, structures_transitive(shape))
 
     def test_basic_types(self):
         self.assertIsInstance(Area.AbsoluteNumberMagnitude, str)

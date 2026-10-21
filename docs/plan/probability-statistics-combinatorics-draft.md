@@ -634,9 +634,10 @@ A passing build is not a curriculum completeness certificate.
 
 The [remaining-school-foundations record](remaining-school-foundations-draft.md) records
 spatial geometry, complex numbers, the separate GraphTheory root, logical foundations and conics
-merged through PRs #76–80, and the two targeted number-theory results implemented for review
-on `codex/number-theory-theorems`. These are separate from the
-probability merge.
+merged through PRs #76–80, and the two targeted number-theory results merged at `0af4aba`
+through PR #81. These are separate from the probability merge. The
+[school curriculum audit](coverage-audit-2026-10-21.md) now checks the resulting subject coverage
+and distinguishes mathematical gaps from representation and digital-tool contexts.
 
 Deferred beyond those proposals: full graph theory; abstract measure theory;
 general stochastic-process theory; Bayesian inference;

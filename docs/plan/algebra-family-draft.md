@@ -24,8 +24,10 @@ The Probability, Statistics, and Combinatorics extension is merged at `9750eff` 
 geometry merged at `209091b` through PR #76, complex stage 3B merged at `5733989` through
 PR #77, GraphTheory merged at `13328d3` through PR #78 as a top-level Area, and logical
 foundations merged at `4de7612` through PR #79. Conics are merged at `6aa963e` through PR #80.
-Fermat's little theorem and the coprime divisibility lemma are implemented for review on
-`codex/number-theory-theorems`.
+Fermat's little theorem and the coprime divisibility lemma are merged at `0af4aba` through
+[PR #81](https://github.com/christian-bick/edugraph-ontology/pull/81).
+The [2026-10-21 curriculum audit](coverage-audit-2026-10-21.md) now supplies the broader
+requirement-level coverage assessment and next extension priorities.
 
 Original implementation branch: `codex/algebra-refinements` (merged). Updated 2026-10-21 for
 the Calculus and statistics/probability merges and the remaining school-foundation proposals, following the NumberTheory and advanced extensions,
@@ -1178,8 +1180,9 @@ is merged at `9750eff` through PR #75. The
 finite-coordinate geometry portion of stage 5B merged at `209091b` through PR #76 and complex
 stage 3B merged at `5733989` through PR #77. GraphTheory is merged at `13328d3` through PR #78
 as a root; logical foundations are merged at `4de7612` through PR #79. Conics are merged at
-`6aa963e` through PR #80; the two targeted number-theory results are implemented for review
-on `codex/number-theory-theorems`. The next step is the individual curriculum-requirement audit.
+`6aa963e` through PR #80; the two targeted number-theory results are merged at `0af4aba`
+through PR #81. The [individual curriculum-requirement audit](coverage-audit-2026-10-21.md)
+records remaining Euclidean geometry, advanced-course and representation follow-ups.
 Step 4's optional refinements and
 the broader university continuation of stages 5B–5C remain deferred.
 They are not a completeness claim for all CCSS geometry, statistics, or other fields. Proposed
