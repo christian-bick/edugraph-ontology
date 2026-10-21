@@ -13,11 +13,12 @@ counting and structure. Probability and Combinatorics are new roots. The existin
 root is retained and developed. Shared set knowledge lives in SetTheory and symbolic conventions
 in FormalMathematics. This follows a subject structure usable beyond an individual syllabus.
 
-The implementation adds **160 Areas and 9 Scopes**, including
-**17 new organizers** and **152 new eligible descriptors**.
-New edges comprise **123 partOf**, **44 specializes**, and
-**62 progression** assertions. The resulting graph has
-**1308 descriptors and 6975 assertions**.
+The implementation adds **160 Areas and 15 Scopes**, and replaces one existing Scope
+with a renamed, broader identifier. The **176 introduced identifiers** comprise
+**17 new organizers** and **159 eligible descriptors**; retiring the old identifier
+gives a net increase of 175 descriptors. These introduced identifiers carry
+**124 partOf**, **50 specializes**, and **62 progression** assertions.
+The resulting graph has **1314 descriptors and 7005 assertions**.
 
 The tags `core` and `advanced` below are planning annotations, not ontology Scopes or claims
 that every national curriculum requires the same content. The union spans school foundations,
@@ -196,6 +197,21 @@ PascalIdentity and BinomialCoefficientSymmetry specialize AlgebraicEquivalence, 
 second structural parent under Combinatorics. Their progression links retain the connection
 to BinomialCoefficient. Existing BinomialTheorem is reused.
 
+The representation refinements use the same subject-based organization:
+
+```text
+RepresentationalScope [existing]
+  P ProbabilityRepresentation
+    S ProbabilityTree
+  P AlgebraicRepresentation
+    S AlgebraTiles
+    S EqualityBalanceRepresentation
+    S GraphicalAlgebraicRepresentation [replaces GraphicalSolutionRepresentation]
+    S SymbolicAlgebraicRepresentation
+    S TabularAlgebraicRepresentation
+    S VerbalAlgebraicRepresentation
+```
+
 ## Boundary decisions
 
 - Probability laws retain one primary home in ProbabilityRules or RandomVariableMoments.
@@ -231,6 +247,15 @@ to BinomialCoefficient. Existing BinomialTheorem is reused.
   groups what is represented; the child identifies a particular form. A theoretical probability
   tree does not require collected data, while an unweighted counting tree alone does not establish
   ProbabilityTree. The new parent and its specialization remain eligible direct Scopes.
+- AlgebraicRepresentation groups algebraic presentation contexts, with symbolic, verbal,
+  tabular, balance-model, tile-model and graphical specializations. GraphicalAlgebraicRepresentation
+  replaces the narrower GraphicalSolutionRepresentation and covers function graphs as well as
+  graphical solution sets. Representation Scopes do not by themselves assert notation knowledge,
+  equation solving or solution-set interpretation; these remain separately evidenced Area claims.
+- A tabular algebraic rule need not be collected data or determine a unique rule beyond its displayed
+  values. A narrative setting alone does not establish a verbal algebraic relationship. AlgebraTiles
+  and EqualityBalanceRepresentation cover physical or depicted models; ordinary numerical tiles
+  and mass-measurement balances retain their existing meanings.
 - Existing proof-method and evidence Scopes are reused. BijectionCounting and DoubleCounting
   supply specifically combinatorial methods; their proof role can be described compositionally.
 - Finite Markov models cover state evolution, transition probabilities and stationary laws.
@@ -421,6 +446,13 @@ knowledge or a mathematical activity, rather than prescribing an Ability; see
 | StemAndLeafPlot | core | S: DataRepresentation | Numerical observations arranged into shared leading-digit stems and trailing-digit leaves under a stated key. | The row 2 &#124; 1 4 8 representing 21, 24, and 28. |
 | ProbabilityRepresentation | core | P: RepresentationalScope | Random outcomes, events, and their probabilities or distributions expressed through diagrams, tables, graphs, or symbolic forms. | A two-draw urn tree with branch probabilities; a table assigning probabilities to die outcomes. |
 | ProbabilityTree | core | S: ProbabilityRepresentation | Successive random outcomes represented by a branching tree whose branches carry conditional or initial probabilities. | A two-draw urn tree with updated probabilities on the second draw. |
+| AlgebraicRepresentation | core | P: RepresentationalScope | Algebraic quantities, expressions, constraints, and functions expressed through symbols, language, tables, diagrams, graphs, or physical models. | The relationship y = 2x + 1 expressed as a formula, a value table, a verbal rule, or a coordinate graph. |
+| SymbolicAlgebraicRepresentation | core | S: AlgebraicRepresentation | Algebraic quantities, expressions, constraints, or functions expressed using mathematical symbols and notation. | 3x + 2; 2x + 3 = 11; f(x) = x^2. |
+| VerbalAlgebraicRepresentation | core | S: AlgebraicRepresentation | Algebraic quantities, relationships, or rules expressed in spoken or written natural language. | Twice an unknown number plus three equals eleven; the output is one more than twice the input. |
+| TabularAlgebraicRepresentation | core | S: AlgebraicRepresentation | Algebraic relations or functions represented by rows or columns of corresponding variable values. | A table for y = 2x + 1 pairing inputs 0, 1, and 2 with outputs 1, 3, and 5. |
+| EqualityBalanceRepresentation | core | S: AlgebraicRepresentation | Equality of algebraic quantities or expressions represented by balanced opposing sides in a physical or depicted model. | Three identical unknown boxes and two unit weights balance eleven unit weights, representing 3x + 2 = 11. |
+| AlgebraTiles | core | S: AlgebraicRepresentation | Algebraic expressions represented by physical or depicted tiles whose shapes and sign conventions encode constant and variable terms. | One x^2 tile, three x tiles, and two unit tiles arranged into a rectangle with sides x + 1 and x + 2. |
+| GraphicalAlgebraicRepresentation | core | S: AlgebraicRepresentation | Algebraic relationships, functions, or solution sets represented by plotted points, curves, or regions on a number line or in a coordinate system. | The graph of y = x^2 used to compare function values; an open endpoint at 2 and a ray for x > 2; the shaded half-plane x + y <= 1 with its boundary included. |
 
 ### Existing annotation updates
 
@@ -517,13 +549,27 @@ label propagation or a universal teaching order; see [ONT-R3](../relations.md#on
 
 ## Adoption effects
 
-Only **Statistics and SetTheory** change existing labeling eligibility: their first constituent
+Among retained existing identifiers, only **Statistics and SetTheory** change labeling eligibility: their first constituent
 children make them organizers under [ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
-Their identifiers remain, with concise definitions and examples. Existing structural ancestry
-is unchanged. The schema, Ability source and existing Scope meanings remain unchanged.
+Their identifiers remain, with concise definitions and examples. Structural ancestry of retained
+existing identifiers is unchanged. The schema and Ability source remain unchanged.
 The user's merged NumericalIntegration relation refinement is preserved.
 Within this draft, ProbabilityTree gains ProbabilityRepresentation as an inherited Scope;
 its definition and direct-label eligibility are unchanged.
+
+**GraphicalSolutionRepresentation is retired in favor of GraphicalAlgebraicRepresentation.**
+The replacement broadens the meaning from displayed solution sets to graphical algebraic
+relationships and functions, and specializes the new AlgebraicRepresentation Scope. The parent
+and all six specializations are eligible direct labels. Existing uses of the old identifier can
+map to the broader graphical context, preserving any separately evidenced SolutionSet,
+RelationSatisfaction or solving claims. The new Scope alone does not establish those claims;
+annotations relying on the old Scope to convey the solution-set role need review.
+
+The retired IRI and generated client key are not retained as aliases. There were no incoming
+authored ontology relations or direct uses of the old identifier in the inspected sibling
+content repository's src/docs/.agents files. Current design and coverage references use the
+replacement; consumer packages, external annotations and model vocabularies must account for
+the identifier change when adopting the release.
 
 The inspected sibling content repository contains direct Statistics labels in CCSS grades
 1–5 and the statistical-graphs, measurement-data, measurement-extrema and
@@ -538,19 +584,21 @@ this branch does not upgrade or regenerate the content dataset.
 | Measurement line plots | FrequencyDistribution and relevant measurement/arithmetic concepts, retaining LinePlot. |
 | Measurement extrema | Existing comparison/extremal knowledge as evidenced; DataRange only when the greatest-minus-least spread is actually involved. |
 | Generic root labels in tests or fixtures | Replace according to the mathematical claim under test; do not mechanically assert every child. |
+| GraphicalSolutionRepresentation in external annotations or client code | Use GraphicalAlgebraicRepresentation for the broader context; preserve or review separately evidenced solution-set and solving claims. |
 
 ## Verification and remaining work
 
-Verification passed on 2026-10-21:
+Verification passed on 2026-10-21, including the algebra representation refinement:
 
 - Both Turtle sources round-trip byte for byte through the editor's actual parser and serializer,
   including its alphabetical relation order.
-- Independent source review confirms that all 169 new definitions, examples and relation sets
-  match the design tables. The graph has 1,308 descriptors and 6,975 assertions, with zero
+- Independent source review confirms that all 176 introduced definitions, examples and relation sets
+  match the design tables. The graph has 1,314 descriptors and 7,005 assertions, with zero
   structural, progression or eligibility findings.
-- Comparison with the merged baseline confirms 905 new-entity assertions, two existing definition
-  replacements and two added examples. Only Statistics and SetTheory change existing label
-  eligibility; all existing structural ancestry and the NumericalIntegration refinement are preserved.
+- Comparison with the merged baseline accounts for 940 assertions on introduced identifiers,
+  retirement of the five GraphicalSolutionRepresentation assertions, two existing definition
+  replacements and two added examples. Only Statistics and SetTheory change retained-identifier
+  label eligibility; retained ancestry and the NumericalIntegration refinement are preserved.
 - The full Docker gate passes: TypeScript compilation and client tests, ontology validation,
   validation of all 38 Markdown files, and npm package/browser checks; Python lint, strict typing,
   all 49 tests, and wheel/sdist consumer checks.

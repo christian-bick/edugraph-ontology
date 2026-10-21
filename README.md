@@ -65,8 +65,9 @@ documents the school-foundation and university-entry extension merged through
 series, and differential equations; function properties retain their Analysis home.
 The [Probability, Statistics, and Combinatorics draft](docs/plan/probability-statistics-combinatorics-draft.md)
 extends these subjects from school foundations through introductory university concepts,
-with shared set foundations and representation Scopes. Its adoption notes identify existing
-`Statistics` labels that need more specific concepts when consuming this extension.
+with shared set foundations and probability and algebra representation Scopes. Its adoption notes
+identify existing `Statistics` labels that need more specific concepts and the rename from
+`GraphicalSolutionRepresentation` to the broader `GraphicalAlgebraicRepresentation`.
 
 #### Foundations
 

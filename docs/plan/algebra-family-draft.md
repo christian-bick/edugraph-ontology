@@ -777,13 +777,21 @@ These two cases are authored as Scopes; a parallel Area is not necessary at this
 | Scope | Meaning | Placement and composition |
 | --- | --- | --- |
 | `ScientificExponentNotation` | Numerical values represented as a coefficient times an integer power of ten, with `1 <= abs(a) < 10` for nonzero coefficients, including equivalent E notation. Zero may be represented by coefficient zero with a stated exponent convention. | `specializes Numerals`. Compose with existing arithmetic, comparison, approximation, identity, or notation knowledge. |
-| `GraphicalSolutionRepresentation` | Solution sets represented by points, curves, or regions on a number line or in a coordinate system. | `partOf RepresentationalScope`. Compose with `SolutionSet`, `RelationSatisfaction`, constraints, and the relevant interpretation or construction Ability. |
+| `GraphicalAlgebraicRepresentation` | Algebraic relationships, functions, or solution sets represented by plotted points, curves, or regions on a number line or in a coordinate system. | `specializes AlgebraicRepresentation`. Compose with evidenced function, relation, solution-set or solving knowledge and the relevant Ability. |
 
 Examples: `3.2 * 10^5`, `1.25E6`; the ray for `x > 2`; the region satisfying `x + y <= 1`.
 NumberNotation is eligible in the published baseline, so `NumberNotation + ScientificExponentNotation`
 can describe studying the convention itself. Its existing notation children use specialization.
 The Scope alone does not assert that notation conventions are the knowledge being learned.
-Likewise the graphical Scope does not by itself claim graph-based solving or numerical accuracy.
+Likewise the graphical Scope does not by itself claim graph-based solving, solution-set interpretation,
+or numerical accuracy.
+
+The 2026-10-21 representation refinement on `codex/probability-statistics-combinatorics` renames
+GraphicalSolutionRepresentation to the broader GraphicalAlgebraicRepresentation. Its new parent,
+AlgebraicRepresentation, is partOf RepresentationalScope; symbolic, verbal, tabular, equality-balance,
+tile and graphical forms specialize it. The [implementation and adoption record](probability-statistics-combinatorics-draft.md#adoption-effects)
+documents the retired identifier, replacement meaning and consumer migration. No solution-set or
+solving claim follows from a generic function graph.
 
 Scientific notation addresses [8.EE.A.3-4](https://www.thecorestandards.org/Math/Content/8/EE/).
 The graph interpretation is supported by existing solution-set meaning; review representative

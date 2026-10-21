@@ -8,6 +8,16 @@ that source baseline. The [implementation record](#implementation-adoption-and-p
 separately records the two follow-up concepts now authored on `codex/unit-dimensionality-pythagorean`
 for preview review.
 
+Representation references were updated on 2026-10-21 for the rename from
+GraphicalSolutionRepresentation to GraphicalAlgebraicRepresentation in the
+[representation refinement](probability-statistics-combinatorics-draft.md#adoption-effects).
+The coverage judgments retain their original review baseline. The broader graphical Scope
+does not establish a solution-set role on its own; the accompanying Area claims in the
+compositions below remain necessary when that knowledge is evidenced.
+Four ratio/function-table mappings now use TabularAlgebraicRepresentation for corresponding
+variable values; DataTable remains applicable when the table presents collected or summarized
+observations. These representation refinements do not change the coverage result counts.
+
 ## Findings and recommended next work
 
 The earlier algebra gaps are closed by existing eligible concepts and composition. In
@@ -72,8 +82,8 @@ review probes, not newly authored target specifications.
 | Extraneous candidates | Solve sqrt(x+2)=x over the reals; squaring gives 2 and -1, but the original equation rejects -1: `EquationSolving` + `ConstraintTransformationLogic` + `RelationSatisfaction` + `S:SquaringBothSides`. | The unrestricted squaring step is implication, not equivalence. Merely checking a supplied candidate does not demonstrate complete solving. |
 | Parameters and reversibility | Solve ax=b for real x, separating a != 0, a=b=0, and a=0 with b != 0: `EquationSolving` + `AffineDependence` + `ConstraintTransformationLogic`; `S:ProofByCases` when the argument uses those cases. | Dividing by a without examining a=0 does not solve the unrestricted problem. A visible letter alone does not establish knowledge of its formal parameter role. |
 | Equivalent systems | Retain E1 and replace E2 by E2+kE1, proving reversibility: `SystemRewriting` + `AlgebraicEquivalence` + `B:DeductiveReasoning`. | Keeping only the combined equation generally loses a constraint. `SystemElimination` additionally requires eliminating a term or variable; not every row replacement does so. |
-| Graphs and approximate solutions | Approximate the unique intersection of y=2^x and y=3, using monotonicity to establish uniqueness: `EquationSolving` + `NumericApproximation` + `S:GraphicalSolutionRepresentation`; `FunctionMonotonicity` when used. | A cropped graph with one crossing does not establish that no other solutions exist. A rounded result is not an exact satisfying assignment. |
-| Whole graphical solution sets | Explain why precisely the points of y=x^2 satisfy its equation; shade the intersection of y>x and y<=2x+1: `SolutionSet` + `RelationSatisfaction` + `S:GraphicalSolutionRepresentation`, with solving or visualization as required. | Plotting three satisfying points establishes only those instances. `LineGraphing` does not cover arbitrary curves. |
+| Graphs and approximate solutions | Approximate the unique intersection of y=2^x and y=3, using monotonicity to establish uniqueness: `EquationSolving` + `NumericApproximation` + `S:GraphicalAlgebraicRepresentation`; `FunctionMonotonicity` when used. | A cropped graph with one crossing does not establish that no other solutions exist. A rounded result is not an exact satisfying assignment. |
+| Whole graphical solution sets | Explain why precisely the points of y=x^2 satisfy its equation; shade the intersection of y>x and y<=2x+1: `SolutionSet` + `RelationSatisfaction` + `S:GraphicalAlgebraicRepresentation`, with solving or visualization as required. | Plotting three satisfying points establishes only those instances. `LineGraphing` does not cover arbitrary curves. |
 | Remainder/factor knowledge | Relate p(2), the remainder on division by x-2, and whether x-2 divides p: `PolynomialRemainderTheorem` + `PolynomialFactorTheorem`. | Polynomial long division without examining that connection does not automatically evidence either theorem. |
 | Finite geometric sums | For a finite sum S, subtract rS and derive the identity, treating r=1 separately: `FiniteGeometricSum` + `AlgebraicEquivalence` + `B:DeductiveReasoning`. | `GeometricSequence` describes the terms; a formula supplied for substitution does not demonstrate its derivation. |
 | Radians and unit-circle functions | Explain why equal arc/radius ratios give equal turns, then connect the unit-circle coordinates to sine/cosine: `AngleConcept` + `ArchConcept` + `RatioEquivalence` + `S:RadianScale`, and `Sine`/`Cosine` when the coordinate relation is examined. | The incidental presence of pi/6 or a radian unit is insufficient. RadianScale already states the arc/radius relationship, so no new radian Area is demonstrated. |
@@ -404,7 +414,7 @@ Source: [CCSS 6.RP](https://www.thecorestandards.org/Math/Content/6/RP/).
 | --- | --- | --- | --- |
 | 6.RP.A.1 | Ratio meaning and language | `RatioAntecedentInterpretation` + `RatioConsequentInterpretation`; `RatioNotation` when notation is taught; `B:Interpretation`/`B:Articulation` | C |
 | 6.RP.A.2 | Unit-rate meaning | `RatioAntecedentInterpretation` + `RatioConsequentInterpretation` + `Division` + `ProportionalScaling`; contextual unit Scopes; `B:Interpretation` | C |
-| 6.RP.A.3.a | Equivalent-ratio tables and plots | `RatioEquivalence` + `ProportionManipulation` + `OrderedCoordinatePair` + `PointPlotting`; `S:DataTable`/`S:CartesianCoordinateSystem`; `B:Visualization` | C |
+| 6.RP.A.3.a | Equivalent-ratio tables and plots | `RatioEquivalence` + `ProportionManipulation` + `OrderedCoordinatePair` + `PointPlotting`; `S:TabularAlgebraicRepresentation`/`S:CartesianCoordinateSystem`; `B:Visualization` | C |
 | 6.RP.A.3.b | Unit-rate applications | `Division` + `ProportionalScaling` + `DirectProportionalDependence` when the dependence is examined; `B:ProcedureExecution`/`B:ResultInterpretation` | C |
 | 6.RP.A.3.c | Percent, part, and whole | `PercentageEquivalence` + `ProportionalScaling` + `Multiplication`/`Division`; `B:ProcedureExecution`/`B:ProcedureInversion` | C |
 | 6.RP.A.3.d | Conversion and unit manipulation | `UnitConversion` + `UnitFactorScaling`/`UnitMagnitudeScaling` + `ProportionalScaling` cover conversion. Compound-unit conversion is covered; the rule for combining unit dimensions needs review. | Boundary: unit algebra |
@@ -424,8 +434,8 @@ Source: [CCSS 6.EE](https://www.thecorestandards.org/Math/Content/6/EE/).
 | 6.EE.B.5 | Solution meaning and checks | `SolutionSet` + `RelationSatisfaction` + `AlgebraicSubstitution`; `EquationSolving`/`InequalitySolving` when finding the full set; `B:Interpretation`/`B:CorrectnessEvaluation` | C |
 | 6.EE.B.6 | Unknown versus varying quantity | `UnknownVariable` + `VaryingVariable` or general `Variable`; `AlgebraicModeling` + `AlgebraicExpression` when constructing a model; `B:Formalization`/`B:Interpretation` | C |
 | 6.EE.B.7 | One-step modeled equations | `AlgebraicModeling` + `Equation` + `EquationSolving` + `AffineDependence`; `S:RationalNumbers` and relevant sign conditions | C |
-| 6.EE.B.8 | `Inequality` constraints and number-line solutions | `Inequality` + `SolutionSet` + `InequalitySolving` + `NumerationWithIntervals`; `S:GraphicalSolutionRepresentation`/`S:Numberline`; `B:Visualization`/`B:Interpretation` | C |
-| 6.EE.C.9 | Input-output quantities, equations, tables, graphs | `IndependentVariable` + `DependentVariable` + `AlgebraicModeling` + `NumericFunction` + `OrderedCoordinatePair`; `S:DataTable`/`S:CartesianCoordinateSystem`; appropriate dependence and plotting concepts | C |
+| 6.EE.B.8 | `Inequality` constraints and number-line solutions | `Inequality` + `SolutionSet` + `InequalitySolving` + `NumerationWithIntervals`; `S:GraphicalAlgebraicRepresentation`/`S:Numberline`; `B:Visualization`/`B:Interpretation` | C |
+| 6.EE.C.9 | Input-output quantities, equations, tables, graphs | `IndependentVariable` + `DependentVariable` + `AlgebraicModeling` + `NumericFunction` + `OrderedCoordinatePair`; `S:TabularAlgebraicRepresentation`/`S:CartesianCoordinateSystem`; appropriate dependence and plotting concepts | C |
 
 #### Grade 7 ratios — six leaves
 
@@ -434,7 +444,7 @@ Source: [CCSS 7.RP](https://www.thecorestandards.org/Math/Content/7/RP/).
 | Leaf | Requirement fragment | Existing eligible composition | Result |
 | --- | --- | --- | --- |
 | 7.RP.A.1 | Rates involving fractional quantities | `Division` + `ProportionalScaling` + `RatioAntecedentInterpretation` + `RatioConsequentInterpretation`; `S:FractionNumbers`; relevant units | C; compound-unit generalization shares 6.RP.A.3.d boundary |
-| 7.RP.A.2.a | Recognize proportionality | `ProportionIdentification` + `DirectProportionalDependence` + `RatioEquivalence`; `Origin`/`LineGraphing` when graph evidence is used; `S:DataTable`/`S:CartesianCoordinateSystem` | C |
+| 7.RP.A.2.a | Recognize proportionality | `ProportionIdentification` + `DirectProportionalDependence` + `RatioEquivalence`; `Origin`/`LineGraphing` when graph evidence is used; `S:TabularAlgebraicRepresentation`/`S:CartesianCoordinateSystem` | C |
 | 7.RP.A.2.b | Identify proportionality constant | `DirectProportionalDependence` + `Coefficient` + `Division` where calculated; `SlopeConcept` for a graph; `B:InformationExtraction`/`B:Interpretation` | C |
 | 7.RP.A.2.c | Proportional equations | `ProportionExpression` + `Equation` + `DirectProportionalDependence`; `B:Formalization` | C |
 | 7.RP.A.2.d | Interpret plotted pairs | `OrderedCoordinatePair` + `DirectProportionalDependence` + `Origin` when relevant; `S:CartesianCoordinateSystem`; `B:Interpretation`/`B:ResultInterpretation` | C |
@@ -450,7 +460,7 @@ Source: [CCSS 7.EE](https://www.thecorestandards.org/Math/Content/7/EE/).
 | 7.EE.A.2 | Interpret equivalent contextual forms | `AlgebraicEquivalence` + `AlgebraicModeling`; `PercentageEquivalence`/`ProportionalScaling` when relevant; `B:Interpretation`/`B:ResultInterpretation` | C |
 | 7.EE.B.3 | Multistep rational problems and reasonableness | `ArithmeticEvaluation` + actual operations + `DecimalEquivalence`/`PercentageEquivalence` + `NumericApproximation`; `B:ProcedureComposition`/`B:PlausibilityEvaluation` | C |
 | 7.EE.B.4.a | Affine equations; compare approaches | `EquationSolving` + `AffineDependence` + `AlgebraicModeling` + `LinearRewriting`; arithmetic alternative uses `ArithmeticEvaluation`; `B:ProcedureUnderstanding`/`B:AnalogicalReasoning` | C |
-| 7.EE.B.4.b | Affine inequalities and contextual solutions | `InequalitySolving` + `AffineDependence` + `AlgebraicModeling` + `SolutionSet` + `NumerationWithIntervals`; `S:GraphicalSolutionRepresentation`; `B:ResultInterpretation` | C |
+| 7.EE.B.4.b | Affine inequalities and contextual solutions | `InequalitySolving` + `AffineDependence` + `AlgebraicModeling` + `SolutionSet` + `NumerationWithIntervals`; `S:GraphicalAlgebraicRepresentation`; `B:ResultInterpretation` | C |
 
 #### Grade 8 expressions and equations — eleven leaves
 
@@ -466,8 +476,8 @@ Source: [CCSS 8.EE](https://www.thecorestandards.org/Math/Content/8/EE/).
 | 8.EE.B.6 | Similar triangles justify slope/line equations | `SimilarityRelation` + `Triangle` + `SlopeConcept` + `AffineDependence` + `Equation`; `B:DeductiveReasoning`/`B:ConceptDerivation` | C |
 | 8.EE.C.7.a | Unique, empty, or infinite solutions | `EquationSolving` + `SolutionSet` + `AffineDependence` + `AlgebraicEquivalence`/`LinearRewriting`; `B:CorrectnessEvaluation`/`B:ProcedureUnderstanding` | C |
 | 8.EE.C.7.b | Solve rational-coefficient equations | `EquationSolving` + `AffineDependence` + `DistributingLinearCombinations` + `CollectingLinearTerms`; `S:RationalNumbers`; `B:ProcedureExecution` | C |
-| 8.EE.C.8.a | Graph intersections as joint solutions | `SystemOfEquations` + `SolutionSet` + `RelationSatisfaction` + `LineGraphing`; `S:GraphicalSolutionRepresentation`; `B:Interpretation`/`B:DeductiveReasoning` | C |
-| 8.EE.C.8.b | Algebraic, graphical, inspection solutions | `SystemSolving` + `AffineDependence` + `SystemElimination`/`SystemSubstitution` when used; `NumericApproximation` for graph estimates; `S:GraphicalSolutionRepresentation` | C |
+| 8.EE.C.8.a | Graph intersections as joint solutions | `SystemOfEquations` + `SolutionSet` + `RelationSatisfaction` + `LineGraphing`; `S:GraphicalAlgebraicRepresentation`; `B:Interpretation`/`B:DeductiveReasoning` | C |
+| 8.EE.C.8.b | Algebraic, graphical, inspection solutions | `SystemSolving` + `AffineDependence` + `SystemElimination`/`SystemSubstitution` when used; `NumericApproximation` for graph estimates; `S:GraphicalAlgebraicRepresentation` | C |
 | 8.EE.C.8.c | Model two-equation problems | `AlgebraicModeling` + `SystemOfEquations` + `SystemSolving` + `AffineDependence`; `LineGraphing`/`IntersectionRelation` as evidenced | C |
 
 #### Grade 8 functions — five leaves
@@ -477,7 +487,7 @@ Source: [CCSS 8.F](https://www.thecorestandards.org/Math/Content/8/F/). Function
 | Leaf | Requirement fragment | Existing eligible composition | Result |
 | --- | --- | --- | --- |
 | 8.F.A.1 | Single-output rule and ordered-pair graph | `NumericFunction` + `OrderedCoordinatePair` + `FunctionDomain` where domain matters; `S:CartesianCoordinateSystem`; `B:Interpretation`/`B:ConceptClassification` | C for numerical functions; general-set breadth is discussed with F-IF.A.1 |
-| 8.F.A.2 | Compare differently represented functions | `NumericFunction` + compared property, such as `AverageRateOfChange` + `NumericOrder`; `S:DataTable`/`S:CartesianCoordinateSystem`; `B:Interpretation` | C |
+| 8.F.A.2 | Compare differently represented functions | `NumericFunction` + compared property, such as `AverageRateOfChange` + `NumericOrder`; `S:TabularAlgebraicRepresentation`/`S:CartesianCoordinateSystem`; `B:Interpretation` | C |
 | 8.F.A.3 | Affine line versus nonlinear function | `NumericFunction` + `AffineDependence` + `LineGraphing`; contrasting `PowerFunction`/`QuadraticDependence` when actually evidenced; `B:ConceptClassification` | C |
 | 8.F.B.4 | Build affine model; interpret slope and start | `AlgebraicModeling` + `NumericFunction` + `AffineDependence` + `AverageRateOfChange` + `ConstantTerm`; `AlgebraicSubstitution` for value at zero; `B:Formalization`/`B:Interpretation` | C |
 | 8.F.B.5 | Qualitative graphs and verbal features | `NumericFunction` + `FunctionMonotonicity` + `AffineDependence` only for affine portions; `S:CartesianCoordinateSystem`; `B:SpatialInterpretation`/`B:Visualization` | C |
@@ -570,11 +580,11 @@ All 27 core leaves have supported compositions. A-APR.C.5/D.7 and A-REI.C.8/C.9 
 | A-REI.B.4a | Square completion derives formula | `CompletingSquare`, `QuadraticFormula`, `EquationSolving`; `B:DeductiveReasoning`, `S:DirectProof` |
 | A-REI.B.4b | Appropriate quadratic method | `EquationSolving`, `QuadraticDependence`, evidenced `Root`, `CompletingSquare`, `QuadraticFormula`, or `AlgebraicFactorization`; `ComplexNumberStructure` when complex form is interpreted/constructed; `S:ComplexNumbers` where applicable |
 | A-REI.C.5 | Reversible system row replacement | `SystemRewriting`, `AlgebraicEquivalence`; `SystemElimination` when a variable or term is eliminated; `B:DeductiveReasoning`, `S:DirectProof` |
-| A-REI.C.6 | Exact/approximate affine system | `SystemSolving`, `AffineDependence`, evidenced `SystemSubstitution`/`SystemElimination`; graphical tasks add `S:GraphicalSolutionRepresentation`, `B:Visualization`, `NumericApproximation` where approximate |
-| A-REI.C.7 | Mixed affine/quadratic system | `SystemSolving`, evidenced `SystemSubstitution`; graphical work adds `S:GraphicalSolutionRepresentation`, `B:Visualization`; dependence claims refer to their actual individual relations |
-| A-REI.D.10 | Entire locus equals solution set | `SolutionSet`, `RelationSatisfaction`, `Equation`; `S:GraphicalSolutionRepresentation`, `S:CartesianCoordinateSystem`; `B:Interpretation` |
-| A-REI.D.11 | Intersection inputs solve equality | `EquationSolving`, `SolutionSet`, `RelationSatisfaction`, `NumericApproximation`; `S:GraphicalSolutionRepresentation` for graphs; appropriate function/dependence Areas only when their knowledge is involved |
-| A-REI.D.12 | Simultaneous half-plane conditions | `InequalitySolving`/`SystemSolving`, `SolutionSet`, `AffineDependence`; `S:GraphicalSolutionRepresentation`, `S:CartesianCoordinateSystem`; `B:Visualization` |
+| A-REI.C.6 | Exact/approximate affine system | `SystemSolving`, `AffineDependence`, evidenced `SystemSubstitution`/`SystemElimination`; graphical tasks add `S:GraphicalAlgebraicRepresentation`, `B:Visualization`, `NumericApproximation` where approximate |
+| A-REI.C.7 | Mixed affine/quadratic system | `SystemSolving`, evidenced `SystemSubstitution`; graphical work adds `S:GraphicalAlgebraicRepresentation`, `B:Visualization`; dependence claims refer to their actual individual relations |
+| A-REI.D.10 | Entire locus equals solution set | `SolutionSet`, `RelationSatisfaction`, `Equation`; `S:GraphicalAlgebraicRepresentation`, `S:CartesianCoordinateSystem`; `B:Interpretation` |
+| A-REI.D.11 | Intersection inputs solve equality | `EquationSolving`, `SolutionSet`, `RelationSatisfaction`, `NumericApproximation`; `S:GraphicalAlgebraicRepresentation` for graphs; appropriate function/dependence Areas only when their knowledge is involved |
+| A-REI.D.12 | Simultaneous half-plane conditions | `InequalitySolving`/`SystemSolving`, `SolutionSet`, `AffineDependence`; `S:GraphicalAlgebraicRepresentation`, `S:CartesianCoordinateSystem`; `B:Visualization` |
 
 ### High-school Functions and right-triangle crosslinks
 
@@ -589,7 +599,7 @@ F-TF.A.3-4, B.6-7, C.9. General-triangle G-SRT.D.9-11 is also (+).
 
 | Core leaf | Existing eligible knowledge / composition | Result and limit |
 | --- | --- | --- |
-| F-IF.A.1 | `NumericFunction` + `FunctionDomain` + `FunctionRange` + `FunctionNotation`; `OrderedCoordinatePair`, `Equation`, `SolutionSet` and `S:GraphicalSolutionRepresentation` for the graph relationship | **B:** numerical mappings and their graphs covered; generic set-to-set correspondence is not. See the general-functions decision above. |
+| F-IF.A.1 | `NumericFunction` + `FunctionDomain` + `FunctionRange` + `FunctionNotation`; `OrderedCoordinatePair`, `Equation`, `SolutionSet` and `S:GraphicalAlgebraicRepresentation` for the graph relationship | **B:** numerical mappings and their graphs covered; generic set-to-set correspondence is not. See the general-functions decision above. |
 | F-IF.A.2 | `FunctionNotation`; `AlgebraicSubstitution` + `ArithmeticEvaluation`; `FunctionDomain` and the particular operation/function when learned or applied | **C:** interpreting notation and evaluating inputs remain distinct. |
 | F-IF.A.3 | `Sequence` + `NumericFunction`; `RecursiveSequence` when a recurrence is involved; `FunctionDomain` | **C:** recurrence and integer indexing are explicit. |
 | F-IF.B.4 | `FunctionZeros`, `FunctionMonotonicity`, `FunctionSign`, `FunctionExtrema`, `FunctionSymmetry`, `FunctionEndBehavior`, `FunctionPeriodicity`; `NumericFunction` + `AlgebraicModeling` and representation/interpretation Abilities | **C:** y-intercepts compose input-zero evaluation and coordinates; no intercept family required. |

@@ -124,8 +124,10 @@ The release job uploads the following files as assets to the Github Release:
 
 The [extension's adoption record](docs/plan/probability-statistics-combinatorics-draft.md#adoption-effects)
 lists new descriptors and the two existing descriptors whose labeling eligibility changes:
-`Statistics` and `SetTheory` become organizational nodes. Consumers should review direct labels
-before upgrading to a release containing this extension. The record identifies affected
+`Statistics` and `SetTheory` become organizational nodes. It also records the retired
+`GraphicalSolutionRepresentation` identifier and its broader replacement,
+`GraphicalAlgebraicRepresentation`, now specializing `AlgebraicRepresentation`. Consumers should
+review direct labels and references to the renamed client key before upgrading. The record identifies affected
 `edugraph-content` sources; this ontology branch does not upgrade consumer packages or datasets.
 
 ---
