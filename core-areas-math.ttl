@@ -2621,7 +2621,7 @@
     rdfs:isDefinedBy "The equivalence, for a Euclidean triangle with positive real side lengths a, b, and longest side c, between the angle opposite c being a right angle and a^2 + b^2 = c^2.";
     rdfs:comment "A right triangle with legs 1 and sqrt(2) has hypotenuse sqrt(3); a triangle with side lengths 5, 12, and 13 is right-angled because 5^2 + 12^2 = 13^2.";
     edu:expands :RightTriangle;
-    edu:partOf :GeometricRelations.
+    edu:partOf :TriangleRelations.
 :PythagoreanTrigonometricIdentity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identity sin(theta)^2 + cos(theta)^2 = 1 for every real angle theta, relating sine and cosine through the unit circle.";
     rdfs:comment "sin(pi/6)^2 + cos(pi/6)^2 = (1/2)^2 + (sqrt(3)/2)^2 = 1.";
