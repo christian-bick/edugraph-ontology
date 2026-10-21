@@ -4,10 +4,12 @@ Status: spatial batch merged at `209091b` through
 [PR #76](https://github.com/christian-bick/edugraph-ontology/pull/76), 2026-10-21.
 Complex-number stage 3B is merged at `5733989` through
 [PR #77](https://github.com/christian-bick/edugraph-ontology/pull/77).
-Graph theory is implemented for review on `codex/graph-theory`, with GraphTheory as a root Area.
-Sections 4–5 remain proposals. Original proposal baseline: `9750eff`, after
+Graph theory is merged at `13328d3` through
+[PR #78](https://github.com/christian-bick/edugraph-ontology/pull/78), with GraphTheory as a root Area.
+Logical foundations are implemented for review on `codex/logical-foundations`.
+Section 5 remains proposed. Original proposal baseline: `9750eff`, after
 [PR #75](https://github.com/christian-bick/edugraph-ontology/pull/75); complex-batch baseline: `209091b`;
-graph-batch baseline: `5733989`.
+graph-batch baseline: `5733989`; logic-batch baseline: `13328d3`.
 
 ## Scope and sequence
 
@@ -25,8 +27,8 @@ Recommended implementation batches:
 5. Separate targeted passes for conics and the number-theory results identified below, followed
    by a competency-by-competency audit of the selected programmes.
 
-Each batch has its own reviewable ontology change. The spatial and complex batches are merged,
-and graph theory is implemented for review; the later families remain proposals.
+Each batch has its own reviewable ontology change. The spatial, complex and graph batches are
+merged, and logical foundations are implemented for review; the targeted follow-ups remain proposed.
 This is not a claim that every listed concept is required
 by every national curriculum. Existing
 Arithmetic, Algebra, Analysis, Calculus and LinearAlgebra meanings remain distinct.
@@ -314,7 +316,8 @@ convention must be explicit when translating curriculum text.
 
 ### Graph implementation — 2026-10-21
 
-The branch adds 14 Areas: GraphTheory as a root, two constituent family organizers, and 11
+The graph batch, merged through PR #78 at `13328d3`, adds 14 Areas: GraphTheory as a root,
+two constituent family organizers, and 11
 eligible concepts. There are 11 partOf and two specializes edges. GraphTheory,
 GraphFoundations and GraphMatrixRelations organize knowledge and are not direct labels;
 GraphStructure and GraphWalk remain eligible alongside their specializations.
@@ -346,32 +349,56 @@ tests, and wheel/sdist consumer verification. A final documentation pass covers 
 
 ## 4. Logical foundations
 
-Develop the existing Logic root through two constituent families. PropositionalLogic organizes
-truth-functional relationships; Quantification organizes claims over specified domains.
+The existing Logic root has two new constituent families. PropositionalLogic organizes
+classical, two-valued truth relationships; Quantification organizes claims over specified domains.
 Adding these families makes Logic an organizer. Their members carry the particular knowledge.
 
-| Candidate | Placement | Concise definition | Example |
+```text
+Logic
+  P PropositionalLogic
+    P LogicalNegation
+    P LogicalConjunction
+    P LogicalDisjunction
+    P LogicalImplication
+    P LogicalEquivalence
+      S DeMorganLaws
+      S ContrapositionEquivalence
+  P Quantification
+    P UniversalQuantification
+    P ExistentialQuantification
+    P QuantifierOrder
+    P QuantifiedNegation
+```
+
+| Area | Placement | Concise definition | Example |
 | --- | --- | --- | --- |
-| PropositionalLogic | P: Logic | Truth relationships among statements formed using logical connectives and stated assumptions. | Distinguishing an implication from its converse. |
+| PropositionalLogic | P: Logic | Classical, two-valued truth relationships among statements formed using logical connectives and stated assumptions. | Distinguishing the implication from divisibility by 4 to evenness from its converse. |
 | LogicalNegation | P: PropositionalLogic | The reversal of a statement's truth value. | The negation of x>3 is x<=3 over the real numbers. |
-| LogicalConjunction | P: PropositionalLogic | A compound statement true precisely when both constituent statements are true. | x>0 and x<1. |
-| LogicalDisjunction | P: PropositionalLogic | A compound statement true when at least one constituent statement is true, including when both are true. | An integer can be divisible by 2 or by 3, including both. |
-| LogicalImplication | P: PropositionalLogic | A conditional relationship that excludes a true premise together with a false conclusion, expressing sufficient and necessary conditions in their respective directions. | Divisibility by 4 implies evenness; the converse fails for 6. |
+| LogicalConjunction | P: PropositionalLogic | A compound statement true precisely when both constituent statements are true. | For a real x, x>0 and x<1. |
+| LogicalDisjunction | P: PropositionalLogic | A compound statement true precisely when at least one constituent statement is true, including when both are true. | An integer can be divisible by 2 or by 3, including both as with 6. |
+| LogicalImplication | P: PropositionalLogic | A truth-functional conditional that is false exactly when its premise is true and its conclusion false, expressing sufficient and necessary conditions in their respective directions. | Divisibility by 4 implies evenness; the converse fails for 6. |
 | LogicalEquivalence | P: PropositionalLogic | Bidirectional implication between statements under the same stated assumptions, with matching truth values throughout the admissible interpretations. | For an integer n, n is even if and only if n^2 is even. |
 | DeMorganLaws | S: LogicalEquivalence | The equivalences exchanging negated conjunction with a disjunction of negations, and negated disjunction with a conjunction of negations. | Not (P and Q) is equivalent to (not P) or (not Q). |
-| ContrapositionEquivalence | S: LogicalEquivalence | The equivalence of P implies Q with not Q implies not P. | If n^2 is even then n is even, equivalently if n is odd then n^2 is odd. |
-| Quantification | P: Logic | The domains, binding and ordering of universal and existential claims. | Distinguishing one witness shared by everyone from a separate witness for each input. |
+| ContrapositionEquivalence | S: LogicalEquivalence | The classical equivalence of P implies Q with not Q implies not P. | For an integer n, if n^2 is even then n is even, equivalently if n is odd then n^2 is odd. |
+| Quantification | P: Logic | The domains, binding and ordering of universal and existential claims. | Distinguishing a real y larger than every real x from a separate larger y for each x. |
 | UniversalQuantification | P: Quantification | The assertion that a predicate holds for every element of a stated domain. | Every real x satisfies x^2>=0. |
 | ExistentialQuantification | P: Quantification | The assertion that a predicate holds for at least one element of a stated domain. | There exists a real x with x^2=2. |
 | QuantifierOrder | P: Quantification | The dependence of a quantified statement's meaning on the order and scope of its quantifiers. | For every real x there is a real y>x, whereas no real y exceeds every real x. |
-| QuantifiedNegation | P: Quantification | Negation of quantified statements by exchanging universal and existential quantifiers and negating the predicate within their scopes. | Not every integer is even means that some integer is not even. |
+| QuantifiedNegation | P: Quantification | The classical equivalences that negate quantified statements by exchanging universal and existential quantifiers and negating the predicate within their scopes, over unchanged domains. | Not every integer is even means that some integer is not even. |
 
 MathematicalStatement already covers the formal object. A duplicate Proposition label is
-unnecessary. BoundVariable and FreeVariable already express binding roles; clarify their
-wording from expression to mathematical expression or statement and add quantified examples
-if needed, after reviewing the Variable parent. A separate LogicalNotation Area under
+unnecessary. BoundVariable and FreeVariable retain occurrence-level binding roles and now
+explicitly cover mathematical expressions or statements. Variable already covers an identified
+mathematical context and includes equation examples. Its definition and the ExpressionStructure
+placement stay unchanged: the roles of symbols in expressions can depend on surrounding statement
+syntax. A separate LogicalNotation Area under
 FormalMathematics is optional if the conventions of quantifier/connective symbols themselves
 need explicit coverage; meanings can be learned in natural language.
+
+| Existing Area | Revised definition | Examples, including the added quantified case |
+| --- | --- | --- |
+| BoundVariable | The role of a variable occurrence governed by a binding construct within the mathematical expression or statement under consideration. | Identifying i as the bound summation index in sum_(i=1)^4 i*x; replacing the bound index k by j throughout product_(k=1)^3 (x + k); identifying x as bound in "for every real x, x^2>=y". |
+| FreeVariable | The role of a variable occurrence not governed by a binding construct within the mathematical expression or statement under consideration. | Distinguishing the free variable x from the bound index i in sum_(i=1)^4 i*x; identifying x as free in x + 3; identifying y as free in "for every real x, x^2>=y". |
 
 ConstraintTransformationLogic retains the additional algebraic knowledge about domains and
 solution sets. General LogicalImplication or LogicalEquivalence does not replace that content.
@@ -385,6 +412,41 @@ logical relationship; ProofByContraposition supplies the argument's method. Logi
 and DeductiveReasoning remain Abilities. Do not add parallel proof-method Areas merely because
 a curriculum requests a proof. A later review can identify any independent induction-principle
 knowledge beyond the currently modeled argument context.
+
+### Implementation and adoption — 2026-10-21
+
+The `codex/logical-foundations` branch implements 13 new Areas: two organizers and 11 eligible
+concepts, using 11 partOf and two specializes assertions. BoundVariable and FreeVariable have
+the two definition/example refinements above; their relations remain unchanged. No Scope,
+Ability, schema or progression changes are included.
+
+Logic becomes an organizational node under
+[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
+Existing direct Logic labels therefore need the supported connective or quantification concepts.
+A read-only search found no direct Logic uses in the local authored content sources (`src/`
+and `docs/`, TypeScript/JSON/Markdown); this does not audit external datasets or consumers.
+
+Semantic checks used [MIT's Mathematics for Computer Science, §§3.1, 3.3 and 3.6](https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/mit6_042js15_textbook.pdf)
+for connectives, equivalence and quantification,
+[Stanford CS103's quantifier notes](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/05/)
+for order, negation and empty ranges, and
+[Trinity College's binding notes](https://www.maths.tcd.ie/~stalker/22C00/notes/4.2-free-and-bound-variables.html)
+for occurrence-level, context-relative binding. These support the mathematical boundaries;
+the hierarchy is an ontology design choice.
+
+### Logical-foundations verification
+
+Independent comparison against `13328d3` confirms 13 new Areas and 65 new-entity assertions,
+giving 1,364 descriptors and 7,257 assertions. The only existing source changes are the four
+definition/example replacements for BoundVariable and FreeVariable. Logic is the only existing
+descriptor whose labeling eligibility changes; all existing ancestry remains unchanged.
+The source, design tables and hierarchy agree, both descriptor Turtle files round-trip exactly
+through the editor, and ontology assessment reports zero findings.
+
+The full `docker build . --output dist --progress plain` passed: TypeScript/client and ontology
+checks, documentation validation, npm package/browser checks, Python lint and strict typing,
+all 49 Python tests, and wheel/sdist consumer verification. The final documentation check also
+passes after adding this record.
 
 ## 5. Adjacent targeted follow-ups
 
@@ -424,13 +486,14 @@ separate optional extensions; no application family is added merely for a contex
 
 The merged spatial implementation retains both affine-parametrization specializations.
 The complex batch retains all seven proposed concepts with refined mathematical boundaries.
-The graph implementation uses the requested top-level field. Optional notation/representation
-Scopes and the later logical/conic/number-theory batches remain separate review steps.
+The merged graph implementation uses the requested top-level field. Logical foundations are
+implemented for review. Optional notation/representation Scopes and the later conic/number-theory
+batches remain separate review steps.
 
 Before implementing each batch, review every endpoint and affected ancestry, use the editor's
 ordering, check definitions against examples and counterexamples, and run the normal source
 and Docker checks. Check links, source references and the implemented-versus-proposed boundary.
-A candidate name in sections 4–5 does not imply a source or dataset change.
+A candidate name in section 5 does not imply a source or dataset change.
 
 The final curriculum audit should classify each leaf as covered directly, covered by a
 defensible composition, a true concept gap, or a representation/constraint gap. Include ordinary

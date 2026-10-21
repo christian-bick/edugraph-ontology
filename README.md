@@ -72,7 +72,8 @@ identify existing `Statistics` labels that need more specific concepts and the r
 The [remaining school-foundation record](docs/plan/remaining-school-foundations-draft.md)
 documents spatial geometry merged through [PR #76](https://github.com/christian-bick/edugraph-ontology/pull/76),
 advanced complex numbers merged through [PR #77](https://github.com/christian-bick/edugraph-ontology/pull/77),
-the GraphTheory root and its implementation draft, and the proposed logical foundations.
+the GraphTheory root merged through [PR #78](https://github.com/christian-bick/edugraph-ontology/pull/78),
+and the logical-foundations implementation draft with its connective and quantification families.
 
 #### Foundations
 

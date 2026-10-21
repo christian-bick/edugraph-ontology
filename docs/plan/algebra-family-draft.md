@@ -22,7 +22,8 @@ The Probability, Statistics, and Combinatorics extension is merged at `9750eff` 
 [design record](probability-statistics-combinatorics-draft.md). The
 [remaining-school-foundations record](remaining-school-foundations-draft.md) documents spatial
 geometry merged at `209091b` through PR #76, complex stage 3B merged at `5733989` through
-PR #77, GraphTheory implemented for review as a top-level Area, and the next logic proposal.
+PR #77, GraphTheory merged at `13328d3` through PR #78 as a top-level Area, and logical
+foundations implemented for review on `codex/logical-foundations`.
 
 Original implementation branch: `codex/algebra-refinements` (merged). Updated 2026-10-21 for
 the Calculus and statistics/probability merges and the remaining school-foundation proposals, following the NumberTheory and advanced extensions,
@@ -1171,8 +1172,9 @@ The [Probability, Statistics, and Combinatorics extension](probability-statistic
 is merged at `9750eff` through PR #75. The
 [remaining-school-foundations record](remaining-school-foundations-draft.md) records the
 finite-coordinate geometry portion of stage 5B merged at `209091b` through PR #76 and complex
-stage 3B merged at `5733989` through PR #77. GraphTheory is implemented for review as a root
-on `codex/graph-theory`; logical foundations remain proposed. Step 4's optional refinements and
+stage 3B merged at `5733989` through PR #77. GraphTheory is merged at `13328d3` through PR #78
+as a root; logical foundations are implemented for review on `codex/logical-foundations`.
+Conics and the targeted number-theory results remain proposed. Step 4's optional refinements and
 the broader university continuation of stages 5B–5C remain deferred.
 They are not a completeness claim for all CCSS geometry, statistics, or other fields. Proposed
 family names in the unimplemented stages below are planning candidates, not additional authored descriptors. The sequence
