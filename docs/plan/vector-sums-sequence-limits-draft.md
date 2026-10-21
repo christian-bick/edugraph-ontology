@@ -1,6 +1,9 @@
 # Cross product, finite arithmetic sums and sequence-limit guarantees
 
-Status: **implemented draft for review**, 2026-10-22, on `codex/vector-sums-sequence-limits`.
+Status: **merged**, verified 2026-10-22, through
+[PR #83](https://github.com/christian-bick/edugraph-ontology/pull/83) at
+`e6dba8b06e03bef49e62a91c80053e3ababe4cca`. Implementation branch:
+`codex/vector-sums-sequence-limits` (merged).
 Baseline: `main` at `5b89a920682700a18e722fad6d4cb690c589a3d0`, after
 [PR #82](https://github.com/christian-bick/edugraph-ontology/pull/82);
 1,416 descriptors and 7,521 authored assertions.
@@ -339,7 +342,7 @@ Documentation validation passed for all **48 Markdown files**, including local l
 
 ## Implementation and adoption — 2026-10-22
 
-The draft branch adds `CrossProduct`, `FiniteArithmeticSum`,
+The merged implementation adds `CrossProduct`, `FiniteArithmeticSum`,
 `MonotoneSequenceConvergenceTheorem`, `MonotoneSequenceDivergenceTheorem` and
 `InfiniteLimitComparison` to [the authored Areas](../../core-areas-math.ttl). Four additions use
 `partOf`; `FiniteArithmeticSum` specializes `AlgebraicEquivalence`. Each has a definition and example.
@@ -368,3 +371,10 @@ Implementation validation passed on 2026-10-22:
 
 These checks verify the implementation and generated clients. They do not constitute an
 end-to-end curriculum competency audit or change the historical coverage judgments.
+
+The merged tree was verified identical to the reviewed branch, and the checkout returned to
+`main` on 2026-10-22. Source validation passed on the merge, and the
+[merged release workflow](https://github.com/christian-bick/edugraph-ontology/actions/runs/39693290423)
+completed successfully. The
+[representation and digital-tool implementation draft](representations-digital-tools-draft.md) develops
+the next audit batch.

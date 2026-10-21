@@ -62,9 +62,12 @@ and French courses, and a requirement-level record of the remaining gaps and sou
 The [Euclidean geometry record](docs/plan/euclidean-geometry-draft.md) documents its first follow-up,
 merged through [PR #82](https://github.com/christian-bick/edugraph-ontology/pull/82), including
 construction techniques and tools, Euclidean results, nets, sectors and transformation refinements.
-The [cross-product, arithmetic-sum and sequence-limit draft](docs/plan/vector-sums-sequence-limits-draft.md)
-implements the next batch for review on `codex/vector-sums-sequence-limits`, including the
-finite/infinite inference boundary.
+The [cross-product, arithmetic-sum and sequence-limit record](docs/plan/vector-sums-sequence-limits-draft.md)
+documents the batch merged through [PR #83](https://github.com/christian-bick/edugraph-ontology/pull/83),
+including the finite/infinite inference boundary.
+The [representation and digital-tool implementation draft](docs/plan/representations-digital-tools-draft.md)
+adds sign and variation tables, theoretical probability histograms, and digital-tool contexts
+for review on `codex/representations-digital-tools`.
 The [NumberTheory design and implementation record](docs/plan/number-theory-basics-draft.md)
 documents the school and introductory-university families, their boundary with arithmetic,
 and the shared closure concept in AlgebraicStructures.
