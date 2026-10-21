@@ -1,8 +1,8 @@
 # School curriculum coverage audit — 2026-10-21
 
 The ontology covers most of the selected curricula through existing concepts and defensible
-compositions, but **complete requirement-level coverage is not yet established**. The largest
-remaining mathematical batch is elementary Euclidean geometry. Smaller advanced-school gaps
+compositions, but **complete requirement-level coverage is not yet established**. At the audit
+baseline, the largest remaining mathematical batch was elementary Euclidean geometry. Smaller advanced-school gaps
 concern the cross product, arithmetic sums and sequence-limit theorems. Representation boundaries
 and programming requirements need separate treatment.
 
@@ -11,9 +11,11 @@ At the time of this audit, the ontology checkout was on `main`, fast-forwarded t
 [PR #81](https://github.com/christian-bick/edugraph-ontology/pull/81) merged. This is the audit
 baseline: **1,374 descriptors and 7,308 authored assertions**. The audit changes documentation
 only; proposed follow-ups below were not additional authored descriptors at that baseline.
-The subsequent [Euclidean geometry implementation draft](euclidean-geometry-draft.md) develops
-the first batch on `codex/euclidean-geometry-foundations`; the counts and judgments here retain
-the original audit baseline.
+The subsequent [Euclidean geometry batch](euclidean-geometry-draft.md) is merged at `5b89a92`
+through [PR #82](https://github.com/christian-bick/edugraph-ontology/pull/82). The
+[cross-product, arithmetic-sum and sequence-limit draft](vector-sums-sequence-limits-draft.md)
+implements the next batch for review on `codex/vector-sums-sequence-limits`. The counts and
+judgments here retain the original audit baseline.
 
 ## Sources and scope
 
@@ -193,12 +195,14 @@ relabel content as part of the current documentation work.
 
 ## Suggested implementation order and exit criteria
 
-1. Review the [Euclidean theorem/criterion/construction implementation draft](euclidean-geometry-draft.md), with
-   nets, sectors and transformation boundaries reviewed alongside it. The proposal reuses existing
-   shapes and measurement concepts. Source implementation is on the draft branch; curriculum-level
-   task verification and acceptance remain separate from the ontology build.
-2. Add the cross product, arithmetic-sum identity and sequence-limit guarantees; refine the
-   finite/infinite inference boundary. These are small, independent additions to existing fields.
+1. The [Euclidean theorem/criterion/construction batch](euclidean-geometry-draft.md) is merged through
+   PR #82, with nets, sectors and transformation boundaries included. It reuses existing shapes and
+   measurement concepts; the merge also places PythagoreanTheorem under TriangleRelations.
+   Curriculum-level task verification remains separate from the successful ontology build.
+2. Review the [cross-product, arithmetic-sum and sequence-limit draft](vector-sums-sequence-limits-draft.md),
+   including finite/signed-infinite limit rules and the boundary between finite evidence and proof.
+   The draft branch implements five Areas in existing families and a broader LimitLaws definition;
+   curriculum-level acceptance remains separate from source and build validation.
 3. Resolve sign/variation tables, theoretical probability diagrams and digital-tool Scopes.
 4. Decide the computing/cryptography boundary, then cover optional Markov/enrichment requirements
    to the desired advanced-school depth.

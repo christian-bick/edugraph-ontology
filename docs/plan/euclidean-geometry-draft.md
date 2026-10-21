@@ -1,7 +1,8 @@
 # Euclidean geometry — theorem, criterion and construction draft
 
-Status: **implemented draft for review**, 2026-10-22, on
-`codex/euclidean-geometry-foundations`. Original proposal: 2026-10-21.
+Status: **merged**, verified 2026-10-22, through
+[PR #82](https://github.com/christian-bick/edugraph-ontology/pull/82) at `5b89a92`.
+Original branch: `codex/euclidean-geometry-foundations`; original proposal: 2026-10-21.
 Baseline: `main` at `0af4aba97731e49cbff3ac51ca9ef519d174a945`, following PR #81;
 1,374 descriptors and 7,308 authored assertions.
 
@@ -49,6 +50,7 @@ Geometry [existing]
 │  │  └─ P ParallelTransversalAngleTheorem
 │  ├─ P PerpendicularBisectorTheorem
 │  ├─ P TriangleRelations
+│  │  ├─ P PythagoreanTheorem [existing; moved here during review]
 │  │  ├─ P TriangleInequality
 │  │  ├─ P TriangleAngleSum
 │  │  ├─ P TriangleExteriorAngleTheorem
@@ -441,7 +443,8 @@ knowledge and derivation target in [G-C.B.5](https://www.thecorestandards.org/Ma
 
 ### Existing definition changes
 
-Retain every descriptor's current placement except the two sector-parent replacements above.
+The initial draft retained existing placements except the two sector-parent replacements above.
+The merged review also moves `PythagoreanTheorem` from `GeometricRelations` into `TriangleRelations`.
 
 | Existing descriptor | Proposed replacement definition | Example |
 | --- | --- | --- |
@@ -539,7 +542,7 @@ The mappings paraphrase requirements; the linked standards retain their full con
 
 ## Implementation and adoption — 2026-10-22
 
-The draft branch implements the 37 Areas and five Scopes shown above. The Scope hierarchy is
+The merged batch implements the 37 Areas and five Scopes shown above. The Scope hierarchy is
 `ConstructionScope` → `GeometricConstruction` → `Compass` / `Straightedge`, with constituent
 relations throughout. Mathematical methods belong to the distinct
 `GeometricConstructionTechnique` Area and its specializing children under `Geometry`.
@@ -562,7 +565,7 @@ planar restriction needed for the tangent-radius converse. This review does not 
 end-to-end execution of every curriculum competency. The implementation is validated under
 [ONT-W3](../change-review.md#ont-w3--verify-and-report-the-actual-change).
 
-Validation passed on 2026-10-22:
+Validation of the submitted draft passed on 2026-10-22:
 
 - Authored source: **1,416 descriptors and 7,521 assertions**, with no ontology assessment findings.
   All 42 additions match the approved definitions and structural plan; only the six intended
@@ -576,5 +579,11 @@ Validation passed on 2026-10-22:
   consumer verification. The circular-shape regression tests in both clients now distinguish
   specialization inheritance from structural navigation through the sector family.
 
-The build exports local generated artifacts only. No release, dataset update or merge is part
-of this draft.
+The merge adds the review refinement `PythagoreanTheorem partOf TriangleRelations`, preserving
+its ancestry under `GeometricRelations`. This is the seventh existing descriptor changed relative
+to the pre-batch baseline. Post-merge source validation passed, and the
+[merged release build](https://github.com/christian-bick/edugraph-ontology/actions/runs/39688911391)
+succeeded. No dataset package or target specifications were updated by this batch.
+
+The next [cross-product, arithmetic-sum and sequence-limit proposal](vector-sums-sequence-limits-draft.md)
+continues the audit roadmap; its descriptors are not part of this merged implementation.

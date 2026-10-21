@@ -661,6 +661,10 @@
     rdfs:isDefinedBy "The expected product of two centered random variables with finite second moments, measuring their joint linear variation.";
     rdfs:comment "For Y=2X with Var(X)=3, Cov(X,Y)=6; X uniform on [-1,1] has Cov(X,X squared)=0 despite dependence.";
     edu:partOf :RandomVariableMoments.
+:CrossProduct a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The vector-valued product of two vectors in oriented real Euclidean three-space, with magnitude equal to their parallelogram's area and, for independent inputs, perpendicular direction set by the right-hand rule for their order. Linearly dependent inputs give the zero vector.";
+    rdfs:comment "In right-handed orthonormal coordinates, (2,0,0) × (0,3,0) = (0,0,6); reversing the inputs gives (0,0,-6).";
+    edu:partOf :VectorArithmetic.
 :CrossSectionIntegration a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Expressing a solid's volume as the integral of its cross-sectional area with respect to position along a stated axis.";
     rdfs:comment "Cross sections of area x^2 for 0 <= x <= 2 give volume integral_0^2 x^2 dx = 8/3.";
@@ -1142,6 +1146,10 @@
     rdfs:isDefinedBy "The result that a^p is congruent to a modulo p for every integer a and prime p, with a^(p-1) congruent to 1 modulo p when p does not divide a. Satisfying these congruences for a chosen base does not establish that the modulus is prime.";
     rdfs:comment "3^7 is congruent to 3 modulo 7; 3^6 is congruent to 1 modulo 7; the composite 341=11*31 satisfies 2^340 congruent to 1 modulo 341.";
     edu:partOf :ModularArithmetic.
+:FiniteArithmeticSum a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The identity equating the sum of n arithmetic terms beginning with a, of common difference d, to n(2a + (n - 1)d)/2 for positive integer n, equivalently n times the mean of the first and last terms.";
+    rdfs:comment "3 + 7 + 11 + 15 = 4(3 + 15)/2 = 36; 1 + 2 + ... + 100 = 100(101)/2 = 5050.";
+    edu:specializes :AlgebraicEquivalence.
 :FiniteGeometricSum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identity equating the sum of n geometric terms beginning with a, of common ratio r, to a(1 - r^n)/(1 - r) for positive integer n and r != 1. For r = 1, the sum is na.";
     rdfs:comment "3 + 6 + 12 + 24 = 3(1 - 2^4)/(1 - 2) = 45.";
@@ -1574,6 +1582,10 @@
     rdfs:isDefinedBy "Determining the complete solution set of a single inequality in designated unknowns over a stated domain, including strict, non-strict, and non-equality constraints.";
     rdfs:comment "Solving -2x < 6 to obtain x > -3 over the reals; finding all real numbers except -1 and 1 as the solutions of x^2 != 1.";
     edu:specializes :ConstraintSolving.
+:InfiniteLimitComparison a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The guarantee that a real-valued function bounded below by a function tending to positive infinity also tends to positive infinity, and the corresponding upper-bound result for negative infinity, when the inequality holds sufficiently near the same approached point or domain end. Real sequences are included.";
+    rdfs:comment "n - 1 <= n + sin(n) for every positive integer n, so n + sin(n) tends to positive infinity.";
+    edu:partOf :LimitMethods.
 :InfinitudeOfPrimes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fact that no finite collection contains every prime number.";
     rdfs:comment "Constructing 2 * 3 * 5 * 7 * 11 * 13 + 1 = 30031 = 59 * 509 to find prime divisors absent from the list 2, 3, 5, 7, 11, 13.";
@@ -1749,8 +1761,8 @@
     edu:integrates :Differentiation;
     edu:partOf :LimitMethods.
 :LimitLaws a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Rules transferring finite function limits through sums, products, quotients with nonzero limiting denominator, and composition with a function continuous at the limiting value.";
-    rdfs:comment "From f(x) -> 2 and g(x) -> 3, infer f(x)g(x) -> 6.";
+    rdfs:isDefinedBy "Rules for combining finite or infinite limits through arithmetic operations and continuous functions, including when these rules apply and when a form is indeterminate.";
+    rdfs:comment "From u_n -> 2 and v_n -> positive infinity, infer u_n + v_n -> positive infinity and u_n/v_n -> 0; from w_n -> 0 through positive values, infer 1/w_n -> positive infinity.";
     edu:partOf :LimitMethods.
 :LimitMethods a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Rules and comparison principles for establishing limits of real functions.";
@@ -2024,6 +2036,14 @@
     edu:expands :Division;
     edu:partOf :BaseOperations;
     edu:translates :ImperfectDivisibility.
+:MonotoneSequenceConvergenceTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The guarantee that an infinite real sequence that is nondecreasing and bounded above, or nonincreasing and bounded below, converges to a finite real limit. The limit is respectively the supremum or infimum of its terms.";
+    rdfs:comment "The nondecreasing sequence a_n = 1 - 1/n for n >= 1 is bounded above by 1 and converges to its supremum 1.";
+    edu:partOf :FunctionTheorems.
+:MonotoneSequenceDivergenceTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The guarantee that an infinite nondecreasing real sequence unbounded above tends to positive infinity, and an infinite nonincreasing real sequence unbounded below tends to negative infinity.";
+    rdfs:comment "The nondecreasing sequence a_n = n^2 for n >= 1 is unbounded above, so it tends to positive infinity.";
+    edu:partOf :FunctionTheorems.
 :MonteCarloEstimation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Approximating a quantity by a sample average or frequency generated from a probability model, with sampling variation in the approximation.";
     rdfs:comment "Estimating pi from the fraction of uniform points in a unit square lying inside a quarter-circle.";
