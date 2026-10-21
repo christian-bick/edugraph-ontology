@@ -23,8 +23,9 @@ The Probability, Statistics, and Combinatorics extension is merged at `9750eff` 
 [remaining-school-foundations record](remaining-school-foundations-draft.md) documents spatial
 geometry merged at `209091b` through PR #76, complex stage 3B merged at `5733989` through
 PR #77, GraphTheory merged at `13328d3` through PR #78 as a top-level Area, and logical
-foundations merged at `4de7612` through PR #79. Conics are implemented for review on
-`codex/conic-sections`.
+foundations merged at `4de7612` through PR #79. Conics are merged at `6aa963e` through PR #80.
+Fermat's little theorem and the coprime divisibility lemma are implemented for review on
+`codex/number-theory-theorems`.
 
 Original implementation branch: `codex/algebra-refinements` (merged). Updated 2026-10-21 for
 the Calculus and statistics/probability merges and the remaining school-foundation proposals, following the NumberTheory and advanced extensions,
@@ -1176,8 +1177,9 @@ is merged at `9750eff` through PR #75. The
 [remaining-school-foundations record](remaining-school-foundations-draft.md) records the
 finite-coordinate geometry portion of stage 5B merged at `209091b` through PR #76 and complex
 stage 3B merged at `5733989` through PR #77. GraphTheory is merged at `13328d3` through PR #78
-as a root; logical foundations are merged at `4de7612` through PR #79. Conics are implemented
-for review on `codex/conic-sections`; the targeted number-theory results remain proposed.
+as a root; logical foundations are merged at `4de7612` through PR #79. Conics are merged at
+`6aa963e` through PR #80; the two targeted number-theory results are implemented for review
+on `codex/number-theory-theorems`. The next step is the individual curriculum-requirement audit.
 Step 4's optional refinements and
 the broader university continuation of stages 5B–5C remain deferred.
 They are not a completeness claim for all CCSS geometry, statistics, or other fields. Proposed

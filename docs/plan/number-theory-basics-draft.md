@@ -6,6 +6,10 @@ verified on 2026-10-11. The implementation was based on `d0d029d` after the Alge
 [implementation and adoption record](#implementation-and-adoption--2026-10-10) for the
 authored changes and remaining work. Consumer adoption remains separate.
 
+FermatsLittleTheorem and CoprimeDivisibilityLemma are implemented for review on
+`codex/number-theory-theorems`, 2026-10-21; see the
+[targeted result extension](remaining-school-foundations-draft.md#number-theory-results).
+
 The original school-gap proposal is preserved below. A separately researched
 [second draft](#draft-2--a-university-informed-subject-structure) follows it, comparing
 a broader subject structure with introductory university curricula and locating the
@@ -657,7 +661,10 @@ and generated libraries; they do not substitute for the separate content adoptio
   separate Scope work; no limit on the LCM result is implied.
 - Negative-input remainder conventions for the existing Modulo concept remain open.
   EuclideanDivision states its own positive-divisor and nonnegative-remainder convention.
-- Modular power theorems, quadratic residues/reciprocity, further approximation theory,
+- Fermat's little theorem is now implemented in the
+  [targeted result extension](remaining-school-foundations-draft.md#number-theory-results),
+  alongside the general coprime divisibility lemma. Further modular power theorems,
+  quadratic residues/reciprocity, further approximation theory,
   advanced numerical extensions, and the other topics in the reserved university table
   are not authored by this change. The previously deferred complex, linear-algebra, and
   calculus stages remain separate.
@@ -678,3 +685,14 @@ The example, NumberTheory parent and four constituent concepts are preserved: Di
 DivisorSum, EulersTotient and MultiplicativeArithmeticFunction. The family remains ineligible
 for direct labeling, while those concepts retain their eligibility. No specialization under
 NumericFunction is added.
+
+## Targeted theorem extension — 2026-10-21
+
+FermatsLittleTheorem is partOf ModularArithmetic; CoprimeDivisibilityLemma is partOf
+IntegerDivisibility. Both additions are eligible concepts under existing organizers.
+The [implementation record](remaining-school-foundations-draft.md#number-theory-results)
+contains their definitions, examples, mathematical boundaries, sources and verification.
+Existing concepts and their relations remain unchanged. The ability to derive the results
+using existing knowledge does not replace their reusable conclusions or imply progression
+assertions. Euler's totient theorem, Wilson's theorem and the other reserved university
+extensions remain deferred.

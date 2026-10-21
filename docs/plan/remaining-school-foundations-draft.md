@@ -8,10 +8,13 @@ Graph theory is merged at `13328d3` through
 [PR #78](https://github.com/christian-bick/edugraph-ontology/pull/78), with GraphTheory as a root Area.
 Logical foundations are merged at `4de7612` through
 [PR #79](https://github.com/christian-bick/edugraph-ontology/pull/79).
-Conics are implemented for review on `codex/conic-sections`; the number-theory follow-up
-in section 5 remains proposed. Original proposal baseline: `9750eff`, after
+Conics are merged at `6aa963e` through
+[PR #80](https://github.com/christian-bick/edugraph-ontology/pull/80).
+The two number-theory results in section 5 are implemented for review on
+`codex/number-theory-theorems`. Original proposal baseline: `9750eff`, after
 [PR #75](https://github.com/christian-bick/edugraph-ontology/pull/75); complex-batch baseline: `209091b`;
-graph-batch baseline: `5733989`; logic-batch baseline: `13328d3`; conic-batch baseline: `4de7612`.
+graph-batch baseline: `5733989`; logic-batch baseline: `13328d3`; conic-batch baseline: `4de7612`;
+number-theory result baseline: `6aa963e`.
 
 ## Scope and sequence
 
@@ -29,8 +32,9 @@ Recommended implementation batches:
 5. Separate targeted passes for conics and the number-theory results identified below, followed
    by a competency-by-competency audit of the selected programmes.
 
-Each batch has its own reviewable ontology change. The spatial, complex, graph and logic batches
-are merged. Conics are implemented for review; the targeted number-theory follow-up remains proposed.
+Each batch has its own reviewable ontology change. The spatial, complex, graph, logic and conic
+batches are merged. The targeted number-theory results are implemented for review; the next
+step is the competency-by-competency curriculum audit.
 This is not a claim that every listed concept is required
 by every national curriculum. Existing
 Arithmetic, Algebra, Analysis, Calculus and LinearAlgebra meanings remain distinct.
@@ -454,7 +458,7 @@ passes after adding this record.
 
 ### Conics
 
-The `codex/conic-sections` branch adds the missing focal-locus knowledge and its shared
+The conic batch, merged through PR #80 at `6aa963e`, adds the missing focal-locus knowledge and its shared
 relationships. QuadraticDependence identifies algebraic degree but does not supply the
 geometric meaning of a focus, directrix or fixed focal-distance condition.
 
@@ -566,31 +570,89 @@ typing, all 49 Python tests, and wheel/sdist consumer verification.
 
 ### Number-theory results
 
-The earlier number-theory plan deferred modular power theorems. The targeted French review
-shows that at least these two results warrant a concrete follow-up:
+The `codex/number-theory-theorems` branch implements two reusable results within the existing
+NumberTheory families. Each is eligible knowledge; no additional organizer or theorem-type
+Scope is needed.
 
-| Candidate | Placement | Definition and boundary |
-| --- | --- | --- |
-| FermatsLittleTheorem | P: ModularArithmetic | For prime p and integer a, a^p is congruent to a modulo p; if p does not divide a, a^(p-1) is congruent to 1. Passing such a congruence is not a general primality certificate. |
-| CoprimeDivisibilityLemma | P: IntegerDivisibility | If a nonzero integer a divides bc and is coprime to b, then a divides c. This is the general coprime form commonly called Gauss's lemma in the French school programme. |
+```text
+NumberTheory
+  P IntegerDivisibility
+    P CoprimeDivisibilityLemma
+  P ModularArithmetic
+    P FermatsLittleTheorem
+```
+
+| Area | Placement | Concise definition | Example |
+| --- | --- | --- | --- |
+| FermatsLittleTheorem | P: ModularArithmetic | The result that a^p is congruent to a modulo p for every integer a and prime p, with a^(p-1) congruent to 1 modulo p when p does not divide a. Satisfying these congruences for a chosen base does not establish that the modulus is prime. | 3^7 is congruent to 3 modulo 7; 3^6 is congruent to 1 modulo 7; the composite 341=11*31 satisfies 2^340 congruent to 1 modulo 341. |
+| CoprimeDivisibilityLemma | P: IntegerDivisibility | The divisibility implication that a divides c whenever a divides bc and gcd(a,b)=1, for integers a, b and c with a nonzero. | For integer n, 12 dividing 5n implies 12 divides n because gcd(12,5)=1; 6 divides 2*3 but does not divide 3. |
+
+#### Boundaries and reuse
+
+- Fermat's exponent-p form includes zero, negative integers and multiples of p. Its
+  exponent-(p-1) form needs p not to divide a; it must not be applied to a zero residue.
+  A failed congruence can refute primality, but a passing one is not a prime certificate.
+  Composite 341 passes the base-2 example, since 2^10 is congruent to 1 modulo 341.
+- The coprime divisor a may be positive or negative, prime or composite, including 1 and -1;
+  b and c may be zero. Coprimality concerns the pair (a,b), not the whole triple.
+  Without that condition, divisibility of the product does not justify cancelling b.
+- CoprimeDivisibilityLemma is the general coprime form of the result called the theorem
+  of Gauss in the French programme. A prime dividing a product yields the familiar
+  prime-divisor consequence, but this Area is not restricted to prime a. The identifier
+  avoids confusion with polynomial-content results also called Gauss's lemma.
 
 BezoutIdentity, Coprimality, prime factorization and congruence concepts already exist.
 Their composition can support deriving these statements, but the reusable conclusions are
-distinct knowledge. Euler's totient theorem, Wilson's theorem and broader cryptography remain
-separate optional extensions; no application family is added merely for a context.
+distinct knowledge. A proof using BezoutIdentity can carry both claims when supported by the
+content; direct application of the lemma does not imply that proof was used. Proof methods
+and cognitive performance reuse the existing Scopes and Abilities, and no progression edges
+are inferred merely because one result can prove another.
+
+The [French mathématiques expertes programme](https://eduscol.education.gouv.fr/sites/default/files/document/spe264annexe1158825pdf-84165.pdf),
+p. 9, lists both results as content. It also lists Gauss's theorem among the demonstrations,
+while proofs of Fermat's little theorem are optional problems. This is advanced-school
+coverage, not an assertion that the results are required by core CCSS.
+
+Mathematical checks use [Waterloo's Elementary Number Theory, Theorem 12.5 and Example 23.2](https://math.uwaterloo.ca/~f2alfais/notes/pm340-notes.pdf)
+for the two Fermat forms and the composite-modulus counterexample, and
+[Trinity College's Introduction to Number Theory, Lemma 1.19](https://www.maths.tcd.ie/~keilthya/teaching/2024/NT/NT2024.pdf)
+for the coprime divisibility implication. The family placement is an ontology design choice.
+
+#### Number-theory implementation and adoption — 2026-10-21
+
+Two new Areas add two partOf edges without changing existing definitions, examples, relations,
+ancestry or labeling eligibility. No Scope, Ability, schema, progression or dataset changes
+are included. Both parents were already organizers.
+
+Independent comparison against `6aa963e` confirms two new eligible Areas and ten added
+assertions, with none removed, giving 1,374 descriptors and 7,308 assertions. Existing
+assertions, ancestry and labeling eligibility are unchanged. Source, manifest, design table
+and hierarchy agree; the Area and Scope Turtle round-trip exactly through the editor, and
+ontology assessment reports zero findings. The numerical examples and bounded edge cases
+were checked separately from the mathematical source review.
+
+The full `docker build . --output dist --progress plain` passes for the final wording:
+TypeScript/client and ontology checks, documentation and npm package/browser validation,
+Python lint and strict typing, all 49 Python tests, and wheel/sdist consumer verification.
+
+Euler's totient theorem, Wilson's theorem and broader cryptography remain separate optional
+extensions; no application family is added merely for a context. The listed gap batches are
+now implemented, subject to review of this branch. The next audit must test individual
+curriculum requirements rather than infer complete coverage from the family tree.
 
 ## Review and implementation checks
 
 The merged spatial implementation retains both affine-parametrization specializations.
 The complex batch retains all seven proposed concepts with refined mathematical boundaries.
 The merged graph implementation uses the requested top-level field, and logical foundations
-are merged through PR #79. Conics are implemented for review. Optional notation/representation
-Scopes and the targeted number-theory batch remain separate review steps.
+are merged through PR #79. Conics are merged through PR #80, and the targeted number-theory
+results are implemented for review. Optional notation/representation Scopes and the broader
+university extensions remain separate review steps.
 
 Before implementing each batch, review every endpoint and affected ancestry, use the editor's
 ordering, check definitions against examples and counterexamples, and run the normal source
 and Docker checks. Check links, source references and the implemented-versus-proposed boundary.
-A candidate name in section 5's number-theory proposal does not imply a source or dataset change.
+Deferred topic names do not imply a source or dataset change.
 
 The final curriculum audit should classify each leaf as covered directly, covered by a
 defensible composition, a true concept gap, or a representation/constraint gap. Include ordinary
