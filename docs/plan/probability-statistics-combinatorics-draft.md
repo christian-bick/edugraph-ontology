@@ -13,11 +13,11 @@ counting and structure. Probability and Combinatorics are new roots. The existin
 root is retained and developed. Shared set knowledge lives in SetTheory and symbolic conventions
 in FormalMathematics. This follows a subject structure usable beyond an individual syllabus.
 
-The implementation adds **160 Areas and 15 Scopes**, and replaces one existing Scope
-with a renamed, broader identifier. The **176 introduced identifiers** comprise
-**17 new organizers** and **159 eligible descriptors**; retiring the old identifier
-gives a net increase of 175 descriptors. These introduced identifiers carry
-**124 partOf**, **50 specializes**, and **62 progression** assertions.
+The implementation adds **160 Areas and 15 Scopes**, and replaces one existing Area
+and one existing Scope with renamed identifiers. The Scope also gains broader meaning.
+The **177 introduced identifiers** comprise **18 organizers** and **159 eligible descriptors**;
+retiring the two old identifiers gives a net increase of 175 descriptors. These introduced identifiers carry
+**125 partOf**, **50 specializes**, and **62 progression** assertions.
 The resulting graph has **1314 descriptors and 7005 assertions**.
 
 The tags `core` and `advanced` below are planning annotations, not ontology Scopes or claims
@@ -198,6 +198,11 @@ ProbabilityNotation and SetNotation are additional constituents of FormalMathema
 PascalIdentity and BinomialCoefficientSymmetry specialize AlgebraicEquivalence, without a
 second structural parent under Combinatorics. Their progression links retain the connection
 to BinomialCoefficient. Existing BinomialTheorem is reused.
+
+The existing NumberTheory organizer ArithmeticFunctions is renamed to NumberTheoreticFunctions,
+retaining DivisorCount, DivisorSum, EulersTotient and MultiplicativeArithmeticFunction as
+constituents. Its clarified definition and naming rationale are recorded in the
+[number-theory design](number-theory-basics-draft.md#family-naming-refinement--2026-10-21).
 
 The representation refinements use the same subject-based organization:
 
@@ -442,6 +447,7 @@ knowledge or a mathematical activity, rather than prescribing an Ability; see
 | CartesianProduct | core | P: SetTheory | The set of ordered tuples formed by taking one element from each of a specified finite list of sets, with positions retaining the order of those sets. | {a, b} x {0, 1} = {(a,0), (a,1), (b,0), (b,1)}. |
 | FiniteSetCardinality | core | P: SetTheory | The number of distinct elements in a finite set, independent of their order or repeated listing. | The set {a, a, b} has cardinality 2; the empty set has cardinality 0. |
 | SetNotation | core | P: FormalMathematics | The conventions for expressing sets, their elements, membership, inclusion, and set operations using lists, set-builder descriptions, and symbols. | Interpreting 3 ∈ {1, 3, 5}, reading {x ∈ Z : x > 0}, and distinguishing element membership a ∈ A from subset inclusion A ⊆ B. |
+| NumberTheoreticFunctions | core | P: NumberTheory | The study of numerical functions on positive integers through divisibility, coprimality, prime factorization, and relationships among their values. | Counting the positive divisors of 12; determining how many integers from 1 through 12 are coprime to 12. |
 
 ### Representation Scopes
 
@@ -562,7 +568,8 @@ label propagation or a universal teaching order; see [ONT-R3](../relations.md#on
 Among retained existing identifiers, only **Statistics and SetTheory** change labeling eligibility: their first constituent
 children make them organizers under [ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
 Their identifiers remain, with concise definitions and examples. Structural ancestry of retained
-existing identifiers is unchanged. The schema and Ability source remain unchanged.
+existing identifiers is unchanged after mapping the renamed ArithmeticFunctions organizer to
+NumberTheoreticFunctions. The schema and Ability source remain unchanged.
 The user's merged NumericalIntegration relation refinement is preserved.
 Within this draft, ProbabilityTree gains ProbabilityRepresentation as an inherited Scope;
 its definition and direct-label eligibility are unchanged.
@@ -609,13 +616,14 @@ Verification passed on 2026-10-21, including the representation and foundational
 
 - Both Turtle sources round-trip byte for byte through the editor's actual parser and serializer,
   including its alphabetical relation order.
-- Independent source review confirms that all 176 introduced definitions, examples and relation sets
+- Independent source review confirms that all 177 introduced definitions, examples and relation sets
   match the design tables. The graph has 1,314 descriptors and 7,005 assertions, with zero
   structural, progression or eligibility findings.
-- Comparison with the merged baseline accounts for 940 assertions on introduced identifiers,
-  retirement of the five GraphicalSolutionRepresentation assertions, two existing definition
-  replacements and two added examples. Only Statistics and SetTheory change retained-identifier
-  label eligibility; retained ancestry and the NumericalIntegration refinement are preserved.
+- Comparison with the merged baseline accounts for 945 assertions on introduced identifiers,
+  retirement of five assertions each for GraphicalSolutionRepresentation and ArithmeticFunctions,
+  four incoming parent-reference replacements, two existing definition replacements and two
+  added examples. Only Statistics and SetTheory change retained-identifier label eligibility;
+  retained ancestry after rename mapping and the NumericalIntegration refinement are preserved.
 - The full Docker gate passes: TypeScript compilation and client tests, ontology validation,
   validation of all 38 Markdown files, and npm package/browser checks; Python lint, strict typing,
   all 49 tests, and wheel/sdist consumer checks.

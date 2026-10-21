@@ -177,10 +177,6 @@
     rdfs:comment "Interpreting 5, 5 + 5, 2 × (8 + 7), 2^3, sqrt(4), log_2(8), and pi + 2 as arithmetic expressions.";
     edu:expands :ArithmeticOperations;
     edu:specializes :MathematicalExpression.
-:ArithmeticFunctions a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Functions on positive integers that encode divisibility and prime structure, including their multiplicative relationships.";
-    rdfs:comment "Counting the positive divisors of 12; determining how many integers from 1 through 12 are coprime to 12.";
-    edu:partOf :NumberTheory.
 :ArithmeticLaws a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fundamental axiomatic rules that govern the manipulation and equivalence of mathematical expressions and statements.";
     edu:partOf :Arithmetic.
@@ -851,11 +847,11 @@
 :DivisorCount a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The number of positive divisors of a positive integer and its relationship to the exponents in a prime factorization.";
     rdfs:comment "12 = 2^2 * 3 has (2 + 1)(1 + 1) = 6 positive divisors.";
-    edu:partOf :ArithmeticFunctions.
+    edu:partOf :NumberTheoreticFunctions.
 :DivisorSum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The sum of the positive divisors of a positive integer and its relationship to prime factorization.";
     rdfs:comment "The positive divisors of 12 have sum 1 + 2 + 3 + 4 + 6 + 12 = 28.";
-    edu:partOf :ArithmeticFunctions.
+    edu:partOf :NumberTheoreticFunctions.
 :DoubleCounting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Establishing a cardinality relationship by counting the same finite collection in two different ways.";
     rdfs:comment "Counting each handshake at its two participants gives 5 * 4 = 2h, so h = 10 when five people all shake hands once.";
@@ -919,7 +915,7 @@
 :EulersTotient a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The number of integers from 1 through a positive integer n that are coprime to n, and its dependence on the prime factors of n.";
     rdfs:comment "phi(12) = 4, counting 1, 5, 7, and 11; phi(1) = 1.";
-    edu:partOf :ArithmeticFunctions.
+    edu:partOf :NumberTheoreticFunctions.
 :EvenDivisibility a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the divisor is two, permitting the source collection to be partitioned into exactly two subcollections of equal cardinality. The result identifies the source cardinality as an even integer, consisting of a quotient that represents the shared cardinality of the subcollections and a remainder of zero.";
     edu:expands :SetComparison, :Subitizing;
@@ -1836,7 +1832,7 @@
 :MultiplicativeArithmeticFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A number-valued function on the positive integers with f(1) = 1 and f(mn) = f(m)f(n) for coprime positive integers m and n.";
     rdfs:comment "Multiplying the divisor counts of 4 and 3 to obtain the divisor count of 12: 3 * 2 = 6.";
-    edu:partOf :ArithmeticFunctions.
+    edu:partOf :NumberTheoreticFunctions.
 :NewtonMethod a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Approximating a root through x_(n+1)=x_n-f(x_n)/f'(x_n) where the derivative is nonzero, using tangent-line roots as successive estimates. Convergence depends on the function and starting value.";
     rdfs:comment "For x^2-2 from x_0=1, the first two updates are 1.5 and 17/12.";
@@ -1879,6 +1875,10 @@
 :NumberSystems a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The membership relationships, extensions, and operation-dependent properties of systems of numbers.";
     rdfs:comment "The inclusion of integers in the rational numbers; real and imaginary parts of complex numbers; irrational results of mixed rational and irrational operations.";
+    edu:partOf :NumberTheory.
+:NumberTheoreticFunctions a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of numerical functions on positive integers through divisibility, coprimality, prime factorization, and relationships among their values.";
+    rdfs:comment "Counting the positive divisors of 12; determining how many integers from 1 through 12 are coprime to 12.";
     edu:partOf :NumberTheory.
 :NumberTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The properties and relationships of integers and number systems, including divisibility, prime structure, congruences, integer equations, rationality, and numerical extensions.";
