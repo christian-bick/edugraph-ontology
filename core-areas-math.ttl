@@ -8,6 +8,10 @@
 
 <http://edugraph.io/edu/> a owl:Ontology;
     owl:imports <http://edugraph.io/edu#>.
+:AATriangleSimilarity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The sufficiency of two equal corresponding angles for triangle similarity.";
+    rdfs:comment "Triangles with angles 40° and 70° are similar despite different sizes.";
+    edu:specializes :TriangleSimilarityCriterion.
 :AbsoluteNumberMagnitude a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The nonnegative magnitude of a rational number independently of its sign, represented as its distance from zero on the number line.";
     edu:expands :ZeroConcept;
@@ -169,6 +173,10 @@
     rdfs:isDefinedBy "The length traced by a piecewise continuously differentiable Euclidean curve, obtained by integrating the magnitude of its velocity over the parameter interval. Retraced portions contribute each time they are traversed.";
     rdfs:comment "r(t)=(3t,4t), 0 <= t <= 2, has length integral_0^2 5 dt = 10.";
     edu:partOf :CurveCalculus.
+:ArcSectorProportionality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationships s = rθ and A = r²θ/2 between radius r > 0, central angle 0 < θ < 2π in radians, arc length s and circular-sector area A.";
+    rdfs:comment "Radius 3 and angle π/2 give arc length 3π/2 and sector area 9π/4.";
+    edu:partOf :CircleRelations.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
     edu:expands :LengthCalculation, :PlaneConcept;
@@ -208,6 +216,10 @@
     rdfs:isDefinedBy "Methods and relationships used to represent numerical values and carry out arithmetic within number systems.";
     rdfs:comment "Regrouping integers; adding fractions; aligning decimal place values.";
     edu:partOf :Arithmetic.
+:ASATriangleCongruence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The sufficiency of two equal corresponding angles and equal included side lengths for triangle congruence.";
+    rdfs:comment "Angles 40° and 60° at the endpoints of a side of length 5 determine congruent triangles.";
+    edu:specializes :TriangleCongruenceCriterion.
 :AssociationAndCausation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The distinction between an observed relationship and evidence that changing one factor produces a change in another, accounting for study design and possible confounding.";
     rdfs:comment "An association between ice-cream sales and swimming incidents does not establish that buying ice cream causes the incidents.";
@@ -313,6 +325,10 @@
     rdfs:isDefinedBy "The correspondence between points in three-dimensional Euclidean space and ordered triples relative to a stated origin and perpendicular coordinate axes.";
     rdfs:comment "(2,-1,3) locates a point using three axes.";
     edu:partOf :GeometricVisualization.
+:CavalieriPrinciple a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equality of volumes of solids of equal height whose cross-sectional areas are equal at every corresponding height in parallel planes.";
+    rdfs:comment "Right and oblique prisms with equal base areas and equal heights have equal volumes.";
+    edu:partOf :GeometricRelations.
 :Census a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Data collection intended to include every unit in a specified finite population.";
     rdfs:comment "Recording the travel mode of every pupil enrolled in a class.";
@@ -362,6 +378,10 @@
     rdfs:comment "Five different people around an unnumbered round table have 4! = 24 seating orders when clockwise and anticlockwise orders are distinguished.";
     edu:integrates :DivisionCountingPrinciple, :PermutationCounting;
     edu:partOf :CombinatorialEnumeration.
+:CircularSector a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A circular region bounded by two radii and their included arc, with central angle strictly between zero and one full turn.";
+    rdfs:comment "A filled circular sector with central angle 120°.";
+    edu:partOf :CircularShapes.
 :CircularShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating drawings or models of complete circles and figures formed from portions of circles.";
     rdfs:comment "Drawing a circle with a compass, or constructing a semicircular outline.";
@@ -375,6 +395,10 @@
     rdfs:comment "Calculating a circle's circumference from its radius using 2πr.";
     edu:expands :Circle, :Pi, :RadiusDiameterRelation;
     edu:specializes :PerimeterCalculation.
+:CircumscribedAngleTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equality of the angle between two tangent rays from an exterior point to 180° minus the minor central angle between their contact-point radii.";
+    rdfs:comment "A minor central angle of 110° gives a tangent-ray angle of 70°.";
+    edu:partOf :CircleRelations.
 :ClassicalProbability a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The probability of an event as its number of favorable outcomes divided by the size of a finite sample space of equally likely outcomes.";
     rdfs:comment "Three even faces among six equally likely die faces give probability 1/2.";
@@ -661,6 +685,10 @@
     rdfs:isDefinedBy "Repeating integration by parts until the original integral recurs with a coefficient that permits isolating it algebraically.";
     rdfs:comment "Repeating integration by parts gives integral e^x cos(x) dx = e^x(cos(x)+sin(x))/2+C.";
     edu:specializes :RepeatedIntegrationByParts.
+:CyclicQuadrilateralAngleTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The supplementary opposite interior angles of a convex quadrilateral inscribed in a circle.";
+    rdfs:comment "An interior angle of 75° gives an opposite angle of 105°.";
+    edu:partOf :CircleRelations.
 :Cylinder a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A three-dimensional solid consisting of two parallel circular bases connected by a curved surface.";
     edu:expands :Circle, :Rectangle;
@@ -789,6 +817,10 @@
     rdfs:comment "diag(2, -3) multiplies plane area by 6 and reverses orientation; diag(1, 0) collapses plane area to zero.";
     edu:integrates :MatrixDeterminant;
     edu:partOf :LinearMaps.
+:DiameterAngleTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The right angle subtended by a diameter at any other point of its circle.";
+    rdfs:comment "If AB is a diameter and C lies elsewhere on the circle, ∠ACB = 90°.";
+    edu:specializes :InscribedAngleTheorem.
 :Difference a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining how two quantities or mathematical objects differ, including the amount separating two numerical values.";
     rdfs:comment "Finding how many more objects one collection contains than another.";
@@ -839,7 +871,8 @@
     edu:expands :NumericIdentity;
     edu:specializes :NumberNotation.
 :Dilation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A transformation that produces an image that is the same shape as the original, but is a different size, altering the scale of the geometric object.";
+    rdfs:isDefinedBy "Uniform scaling about a fixed center O, mapping each point P to O + k(P − O) for a nonzero real factor k.";
+    rdfs:comment "Center (1,1) and factor 2 send (3,2) to (5,3).";
     edu:expands :ShapeResizingConservation;
     edu:specializes :GeometricTransformations.
 :DiophantineProblems a owl:NamedIndividual, edu:Area;
@@ -1138,6 +1171,10 @@
     rdfs:comment "((x+h)^2-x^2)/h = 2x+h for h != 0, giving derivative 2x.";
     edu:integrates :FunctionLocalLimitBehavior;
     edu:specializes :Differentiation.
+:FoldingConstruction a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Constructive procedures using folds whose creases satisfy specified point or line coincidence conditions.";
+    rdfs:comment "Fold A onto B to produce their perpendicular bisector; intersect two such creases to locate a triangle's circumcenter.";
+    edu:specializes :GeometricConstructionTechnique.
 :FormalMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The syntax and meaning of symbolic representations of mathematical concepts, expressions, and statements.";
     rdfs:comment "Writing 'three more than x equals seven' as x + 3 = 7.".
@@ -1381,6 +1418,10 @@
     rdfs:isDefinedBy "The fundamental objects, quantities, and structures used to describe geometric space.";
     rdfs:comment "Points, lines, planes, angles, and vectors.";
     edu:partOf :Geometry.
+:GeometricConstructionTechnique a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Exact constructive procedures for geometric configurations from given data, including their feasibility and correctness under specified permitted operations.";
+    rdfs:comment "Construct a segment's perpendicular bisector using equal-radius arcs and justify the resulting equidistance.";
+    edu:partOf :Geometry.
 :GeometricDistribution a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The nature of the number of independent Bernoulli trials up to and including the first success with fixed probability 0 < p <= 1. The support begins at one.";
     rdfs:comment "For p=1/2, the probability that the first success is on trial three is 1/8.";
@@ -1467,7 +1508,7 @@
 :HalfCircle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A two-dimensional geometric figure bounded by a semicircular arc and its diameter, representing one half of a circle.";
     rdfs:comment "One of the two congruent regions formed by cutting a circular region along a diameter.";
-    edu:partOf :CircularShapes.
+    edu:specializes :CircularSector.
 :Hexagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with six edges and six vertices.";
     edu:specializes :Polygon.
@@ -1541,6 +1582,10 @@
     rdfs:isDefinedBy "A differential equation together with prescribed values of the unknown function, and any required derivatives, at a specified input. Its solutions satisfy both the equation and those conditions on an interval containing that input.";
     rdfs:comment "y'=2y with y(0)=3 has solution y(x)=3e^(2x).";
     edu:partOf :DifferentialEquations.
+:InscribedAngleTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equality of an inscribed angle to half the central-angle measure of its intercepted arc.";
+    rdfs:comment "An intercepted arc with central-angle measure 120° gives an inscribed angle of 60°.";
+    edu:partOf :CircleRelations.
 :InstantaneousRateOfChange a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The finite limit of [f(a + h) - f(a)]/h for a real-valued function at a fixed real input a as h approaches zero, when that limit exists.";
     rdfs:comment "The rate 6 of f(x) = x^2 at x = 3; the rate 0 of g(x) = 5 at every real input.";
@@ -1651,6 +1696,10 @@
     rdfs:isDefinedBy "A triangle that has at least two sides of equal length.";
     edu:expands :SymmetryRelation;
     edu:specializes :Triangle.
+:IsoscelesTriangleTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equivalence between equality of two triangle sides and equality of their opposite angles.";
+    rdfs:comment "AB = AC exactly when ∠ABC = ∠BCA.";
+    edu:partOf :TriangleRelations.
 :IteratedOperation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An arithmetic evaluation that repeatedly applies the same arithmetic operations on a single operand value.";
     edu:expands :ArithmeticOperations;
@@ -1779,6 +1828,10 @@
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
     edu:expands :LinearDrawing;
     edu:partOf :OneDimensionalObjects.
+:LocusIntersectionConstruction a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Constructing solutions by expressing geometric conditions as sets of points and finding their common points.";
+    rdfs:comment "Intersect circles centered at A and B to locate points at prescribed distances from both, distinguishing zero, one or two intersections for distinct centers.";
+    edu:specializes :GeometricConstructionTechnique.
 :Logarithm a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the exponent to which a base must be raised to produce a given number.";
     edu:inverts :Exponentiation;
@@ -2238,6 +2291,18 @@
     rdfs:isDefinedBy "The study of four-sided polygons with two pairs of parallel sides, their properties, and related measurements.";
     edu:expands :ParallelismRelation;
     edu:specializes :Quadrilateral.
+:ParallelogramDiagonalCriterion a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equivalence between a simple quadrilateral being a parallelogram and its diagonals bisecting one another.";
+    rdfs:comment "Diagonals AC and BD intersect at O with AO = OC and BO = OD.";
+    edu:partOf :QuadrilateralRelations.
+:ParallelogramOppositeSidesAndAngles a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equality of opposite side lengths and opposite angle measures in a parallelogram.";
+    rdfs:comment "A parallelogram angle of 70° has an opposite angle of 70°.";
+    edu:partOf :QuadrilateralRelations.
+:ParallelTransversalAngleTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equivalence of parallelism with equal corresponding or alternate interior angles, or supplementary same-side interior angles, for distinct coplanar lines cut by a transversal.";
+    rdfs:comment "Equal corresponding angles of 65° establish parallelism; same-side interior angles are then 65° and 115°.";
+    edu:partOf :AngleRelations.
 :Parameter a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a variable held fixed within one member of a family of expressions, relations, or functions, whose value may differ between members of that family.";
     rdfs:comment "Holding m and b fixed while x varies in one member of the family y = mx + b; changing m to select another member of that family.";
@@ -2326,6 +2391,10 @@
     rdfs:comment "Four different books have 4! = 24 orders on a shelf.";
     edu:integrates :Factorial;
     edu:specializes :OrderedSelectionWithoutRepetition.
+:PerpendicularBisectorTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The characterization, in a plane, of points equidistant from a nonzero segment's endpoints as exactly the points on its perpendicular bisector.";
+    rdfs:comment "PA = PB places P on the perpendicular bisector of AB.";
+    edu:partOf :GeometricRelations.
 :PerpendicularityRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between two geometric objects that intersect at a right angle (90 degrees).";
     edu:expands :IntersectionRelation;
@@ -2552,7 +2621,7 @@
     rdfs:isDefinedBy "The equivalence, for a Euclidean triangle with positive real side lengths a, b, and longest side c, between the angle opposite c being a right angle and a^2 + b^2 = c^2.";
     rdfs:comment "A right triangle with legs 1 and sqrt(2) has hypotenuse sqrt(3); a triangle with side lengths 5, 12, and 13 is right-angled because 5^2 + 12^2 = 13^2.";
     edu:expands :RightTriangle;
-    edu:partOf :GeometricRelations.
+    edu:partOf :TriangleRelations.
 :PythagoreanTrigonometricIdentity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identity sin(theta)^2 + cos(theta)^2 = 1 for every real angle theta, relating sine and cosine through the unit circle.";
     rdfs:comment "sin(pi/6)^2 + cos(pi/6)^2 = (1/2)^2 + (sqrt(3)/2)^2 = 1.";
@@ -2584,6 +2653,10 @@
 :Quadrilateral a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with four edges and four vertices.";
     edu:specializes :Polygon.
+:QuadrilateralRelations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Metric, angle and incidence relationships involving nondegenerate simple Euclidean quadrilaterals.";
+    rdfs:comment "A parallelogram with equal diagonals is a rectangle.";
+    edu:partOf :GeometricRelations.
 :Quantification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The domains, binding and ordering of universal and existential claims.";
     rdfs:comment "Distinguishing a real y larger than every real x from a separate larger y for each x.";
@@ -2603,7 +2676,7 @@
 :QuarterCircle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A two-dimensional geometric figure bounded by a quarter-circle arc and two perpendicular radii, representing one fourth of a circle.";
     rdfs:comment "One of four congruent regions formed by two perpendicular diameters.";
-    edu:partOf :CircularShapes.
+    edu:specializes :CircularSector.
 :Quartile a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A quantile at one quarter, one half, or three quarters of the cumulative distribution of ordered data, with a stated finite-data convention.";
     rdfs:comment "For the values 1 through 8, taking medians of the two halves gives lower quartile 2.5 and upper quartile 6.5.";
@@ -2707,6 +2780,10 @@
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements.";
     edu:integrates :RightAngle;
     edu:specializes :Parallelogram.
+:RectangleDiagonalCriterion a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equivalence between a parallelogram being a rectangle and its diagonals having equal lengths.";
+    rdfs:comment "A parallelogram with equal diagonals is a rectangle.";
+    edu:partOf :QuadrilateralRelations.
 :RectangleQuadrature a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Approximating a definite integral by partition rectangles using a stated left-endpoint, right-endpoint or midpoint sampling rule.";
     rdfs:comment "The two-piece right-endpoint estimate for integral_0^1 x^2 dx is 5/8.";
@@ -2803,7 +2880,8 @@
     rdfs:comment "The fourth roots 1,i,-1,-i are successive powers of i and multiply within the same set.";
     edu:specializes :ComplexRootStructure.
 :Rotation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A transformation that turns a geometric figure around a fixed point, known as the center of rotation, by a specific angle.";
+    rdfs:isDefinedBy "A Euclidean transformation turning points through a specified oriented angle about a fixed center in the plane or a fixed axis in three-dimensional space.";
+    rdfs:comment "A positive 90° rotation about the oriented z-axis sends (1,0,2) to (0,1,2).";
     edu:expands :ShapeRotationConservation;
     edu:specializes :GeometricTransformations.
 :Rounding a owl:NamedIndividual, edu:Area;
@@ -2843,6 +2921,14 @@
     rdfs:isDefinedBy "Generating random outcomes according to a specified probability model to examine its behavior over repeated simulated samples.";
     rdfs:comment "Simulating 10000 sets of ten fair tosses to estimate the probability of at least eight heads.";
     edu:partOf :ProbabilityMethods.
+:SASTriangleCongruence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The sufficiency of two equal corresponding side lengths and equal included angles for triangle congruence.";
+    rdfs:comment "Sides 4 and 6 with included angle 50° determine congruent triangles.";
+    edu:specializes :TriangleCongruenceCriterion.
+:SASTriangleSimilarity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The sufficiency of proportional corresponding pairs of sides and equal included angles for triangle similarity.";
+    rdfs:comment "Sides 3 and 5 correspond to 6 and 10, with equal included angles.";
+    edu:specializes :TriangleSimilarityCriterion.
 :ScalarMatrixMultiplication a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The action of a scalar on a matrix over the same field by multiplying every entry by that scalar, extending componentwise vector scaling to all rows or columns while preserving the matrix's shape.";
     rdfs:comment "2[[1, 3], [2, 4]] = [[2, 6], [4, 8]]; 0[[1, 3], [2, 4]] = [[0, 0], [0, 0]].";
@@ -3038,6 +3124,10 @@
     rdfs:isDefinedBy "The field of local tangent directions specified by y'=F(x,y) wherever the right-hand side is defined. Solution curves follow these directions.";
     rdfs:comment "For y'=x-y, the slope is -1 at (1,2) and zero along y=x.";
     edu:partOf :DifferentialEquations.
+:SolidOfRevolution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nature of solids formed by rotating a bounded plane region through a full turn about a line in its plane.";
+    rdfs:comment "A rectangular region rotated about one side generates a right circular cylinder.";
+    edu:partOf :ThreeDimensionalObjects.
 :SolutionSet a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The complete set of admissible assignments that make a mathematical constraint, or every constraint in a simultaneous system, true. This set may be empty, finite, or infinite.";
     rdfs:comment "The real solutions {-3, 3} of x^2 = 9; all real numbers greater than 2 for x > 2; the empty solution set of x + 1 = x + 2.";
@@ -3066,6 +3156,14 @@
     rdfs:isDefinedBy "The guarantee that a function bounded between two functions with the same finite limit has that limit, when the bounds hold sufficiently near the approached point or end of the domain.";
     rdfs:comment "From -x^2 <= x^2 sin(1/x) <= x^2, infer a limit of zero at x = 0.";
     edu:partOf :LimitMethods.
+:SSSTriangleCongruence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The sufficiency of three equal corresponding side lengths for triangle congruence.";
+    rdfs:comment "Triangles with corresponding sides 4, 5 and 6 are congruent.";
+    edu:specializes :TriangleCongruenceCriterion.
+:SSSTriangleSimilarity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The sufficiency of proportional corresponding side lengths for triangle similarity.";
+    rdfs:comment "Triangles with sides 3, 4, 5 and 6, 8, 10 are similar.";
+    edu:specializes :TriangleSimilarityCriterion.
 :StandardError a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The standard deviation of a statistic's sampling distribution, or an estimate of that standard deviation under a specified sampling model.";
     rdfs:comment "For independent observations with standard deviation 12, the mean of 36 observations has standard error 2.";
@@ -3131,6 +3229,10 @@
 :StraightAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures exactly 180 degrees, forming a straight line.";
     edu:specializes :AngleConcept.
+:StraightedgeAndCompassConstruction a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Constructive procedures using lines through known points, circles with given or constructed centers and radii, and their intersections, without reading measurement scales.";
+    rdfs:comment "Construct a perpendicular bisector using two equal-radius circles and the line through their intersections.";
+    edu:specializes :GeometricConstructionTechnique.
 :StratifiedSampling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Random selection of samples within defined, nonoverlapping population groups, with group sizes or selection probabilities accounted for when combining results.";
     rdfs:comment "Sampling pupils separately from each year group and weighting the estimates by year-group size.";
@@ -3256,7 +3358,8 @@
     rdfs:comment "tan(pi/4) = 1 and tan(3pi/4) = -1 for radian measures; opposite and adjacent sides of lengths 3 and 4 give tangent 3/4 for the acute angle.";
     edu:specializes :TrigonometricFunction.
 :TangentRadiusRelation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The geometric rule stating that a tangent line to a circle is perpendicular to the radius at the exact point of tangency.";
+    rdfs:isDefinedBy "The equivalence, for a line in a circle's plane through a point of the circle, between tangency and perpendicularity to the radius at that point.";
+    rdfs:comment "A line in the circle's plane through T perpendicular to radius OT is tangent at T.";
     edu:partOf :CircleRelations.
 :TaylorPolynomialApproximation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Approximating a sufficiently differentiable function near a by a finite polynomial whose coefficients are f^(k)(a)/k! through a chosen order.";
@@ -3318,6 +3421,54 @@
 :Triangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of three-sided polygons, their properties, and related measurements.";
     edu:specializes :Polygon.
+:TriangleAngleSum a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equality of a Euclidean triangle's interior-angle sum to 180°.";
+    rdfs:comment "Angles 50° and 60° leave a third angle of 70°.";
+    edu:partOf :TriangleRelations.
+:TriangleCenterRelations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Concurrency and equidistance relationships determining distinguished centers of a triangle.";
+    rdfs:comment "The medians of a triangle with vertices (0,0), (6,0) and (0,3) meet at (2,1).";
+    edu:partOf :TriangleRelations.
+:TriangleCentroidTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The concurrency of a triangle's vertex-to-opposite-midpoint segments at a point dividing each in a 2:1 ratio from the vertex.";
+    rdfs:comment "Vertices (0,0), (6,0), (0,3) give centroid (2,1).";
+    edu:partOf :TriangleCenterRelations.
+:TriangleCircumcenterTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The concurrency of a triangle's side perpendicular bisectors at its unique coplanar point equidistant from the vertices, the center of its circumcircle.";
+    rdfs:comment "A right triangle's circumcenter is its hypotenuse midpoint.";
+    edu:partOf :TriangleCenterRelations.
+:TriangleCongruenceCriterion a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Sufficient side-length or angle conditions for congruence of nondegenerate Euclidean triangles.";
+    rdfs:comment "Equal corresponding sides of lengths 4, 5 and 6 establish congruence.";
+    edu:partOf :TriangleRelations.
+:TriangleExteriorAngleTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equality of a triangle's exterior angle supplementary to one interior angle to the sum of the other two interior angles.";
+    rdfs:comment "Remote interior angles 50° and 60° give an exterior angle of 110°.";
+    edu:partOf :TriangleRelations.
+:TriangleIncenterTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The concurrency of a triangle's internal angle bisectors at its unique interior point equidistant from the sides, the center of its incircle.";
+    rdfs:comment "The perpendicular distances from the incenter to all three sides equal the inradius.";
+    edu:partOf :TriangleCenterRelations.
+:TriangleInequality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The condition that positive lengths form a nondegenerate Euclidean triangle exactly when each is less than the sum of the other two.";
+    rdfs:comment "Lengths 2, 3 and 4 form a triangle; lengths 2, 3 and 5 do not.";
+    edu:partOf :TriangleRelations.
+:TriangleMidsegmentTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The parallelism of a triangle's midpoint-joining segment to the third side and equality of its length to half that side.";
+    rdfs:comment "If D and E are side midpoints and the third side is 10, then DE is parallel to it and has length 5.";
+    edu:specializes :TriangleProportionalityTheorem.
+:TriangleProportionalityTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The equivalence, for interior points on two sides of a triangle, between parallelism of their joining segment to the third side and equal fractional distances from the shared vertex, with the joining segment in the same length ratio to the third side.";
+    rdfs:comment "For D inside AB and E inside AC, DE ∥ BC iff AD/AB = AE/AC; then DE/BC has that same ratio.";
+    edu:partOf :TriangleRelations.
+:TriangleRelations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Metric, angle and incidence relationships involving Euclidean triangles.";
+    rdfs:comment "A triangle with angles 50° and 60° has a third angle of 70°.";
+    edu:partOf :GeometricRelations.
+:TriangleSimilarityCriterion a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Sufficient angle or side-ratio conditions for similarity of nondegenerate Euclidean triangles.";
+    rdfs:comment "Equal corresponding angles of 40° and 70° establish similarity.";
+    edu:partOf :TriangleRelations.
 :TriangleSineAreaFormula a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship K = ab sin(C)/2 between the area K of a nondegenerate Euclidean triangle, two side lengths a and b, and their included angle C.";
     rdfs:comment "Sides 4 and 6 enclosing 30 degrees give area 6; enclosing 150 degrees also gives area 6.";
@@ -3486,7 +3637,8 @@
     rdfs:comment "Each vertex of a triangle has degree 2.";
     edu:partOf :GraphFoundations.
 :VerticalAngles a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The pairs of opposite angles made by two intersecting lines.";
+    rdfs:isDefinedBy "Opposite angles formed by two intersecting lines and the equality of their measures.";
+    rdfs:comment "An angle of 65° has a vertical opposite angle of 65°.";
     edu:partOf :AngleRelations.
 :VolumeCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the amount of space that a substance or object occupies.";

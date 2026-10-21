@@ -56,6 +56,12 @@ Its [extension roadmap](docs/plan/algebra-family-draft.md#recommended-next-ontol
 distinguishes core CCSS coverage, advanced CCSS extensions, and calculus work.
 The [remaining core coverage audit](docs/plan/core-ccss-coverage-audit.md) maps 114 terminal
 standards to eligible concepts and distinguishes supported compositions from targeted follow-ups.
+The [2026-10-21 school curriculum audit](docs/plan/coverage-audit-2026-10-21.md) supersedes that
+limited coverage check with all CCSS K–12 content standards, the selected advanced Bavarian
+and French courses, and a requirement-level record of the remaining gaps and source limits.
+The [Euclidean geometry draft](docs/plan/euclidean-geometry-draft.md) implements its first follow-up
+for review, including construction technique Areas, the ConstructionScope instrument family,
+Euclidean results, nets, sectors and transformation refinements.
 The [NumberTheory design and implementation record](docs/plan/number-theory-basics-draft.md)
 documents the school and introductory-university families, their boundary with arithmetic,
 and the shared closure concept in AlgebraicStructures.
@@ -75,7 +81,8 @@ advanced complex numbers merged through [PR #77](https://github.com/christian-bi
 the GraphTheory root merged through [PR #78](https://github.com/christian-bick/edugraph-ontology/pull/78),
 logical foundations merged through [PR #79](https://github.com/christian-bick/edugraph-ontology/pull/79),
 conics merged through [PR #80](https://github.com/christian-bick/edugraph-ontology/pull/80),
-and the draft additions of Fermat's little theorem and the coprime divisibility lemma.
+and Fermat's little theorem and the coprime divisibility lemma merged through
+[PR #81](https://github.com/christian-bick/edugraph-ontology/pull/81).
 
 #### Foundations
 

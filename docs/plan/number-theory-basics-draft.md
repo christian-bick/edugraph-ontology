@@ -6,9 +6,10 @@ verified on 2026-10-11. The implementation was based on `d0d029d` after the Alge
 [implementation and adoption record](#implementation-and-adoption--2026-10-10) for the
 authored changes and remaining work. Consumer adoption remains separate.
 
-FermatsLittleTheorem and CoprimeDivisibilityLemma are implemented for review on
-`codex/number-theory-theorems`, 2026-10-21; see the
+FermatsLittleTheorem and CoprimeDivisibilityLemma are merged at `0af4aba` through
+[PR #81](https://github.com/christian-bick/edugraph-ontology/pull/81), 2026-10-21; see the
 [targeted result extension](remaining-school-foundations-draft.md#number-theory-results).
+The [school curriculum audit](coverage-audit-2026-10-21.md) records subsequent coverage findings.
 
 The original school-gap proposal is preserved below. A separately researched
 [second draft](#draft-2--a-university-informed-subject-structure) follows it, comparing

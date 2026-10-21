@@ -1,5 +1,9 @@
 # Remaining core CCSS coverage audit
 
+Historical subset audit. The [2026-10-21 school curriculum audit](coverage-audit-2026-10-21.md)
+checks all 466 CCSS content leaves against the later merged ontology; the 114 rows below retain
+their original baseline and scope.
+
 Reviewed 2026-10-11 against ontology `main` at `1b9ecc3`, after the NumberTheory merge.
 This completes the evidence review in [roadmap step 2](algebra-family-draft.md#2-close-the-remaining-core-algebrafunction-coverage-questions).
 It assesses what the ontology can describe, not whether target specifications, generators,
