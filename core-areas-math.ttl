@@ -2266,7 +2266,7 @@
     rdfs:comment "The event {2,4,6} for an even result on a six-sided die.";
     edu:partOf :ProbabilityFoundations.
 :ProbabilityFoundations a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The experiments, outcome sets, events, models, and consistency conditions used to describe uncertainty.";
+    rdfs:isDefinedBy "The experiments, outcome sets, events, random variables, models, and consistency conditions used to describe uncertainty.";
     rdfs:comment "Distinguishing an individual die outcome from the event of rolling an even number.";
     edu:partOf :Probability.
 :ProbabilityLimitTheorems a owl:NamedIndividual, edu:Area;
@@ -2415,7 +2415,7 @@
 :RandomVariable a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A numerical quantity assigning one value to each outcome of a random experiment, with probabilities induced by its event model.";
     rdfs:comment "Assigning to each sequence of three coin tosses its number of heads.";
-    edu:partOf :RandomVariableTheory.
+    edu:partOf :ProbabilityFoundations.
 :RandomVariableIndependence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The factorization of joint probabilities into marginal probabilities for every choice of measurable value sets and every finite subcollection of the specified random variables.";
     rdfs:comment "The outcomes of independently rolled dice; the dependent quantities X and X squared when X is uniform on [-1,1].";
@@ -2430,7 +2430,7 @@
     edu:integrates :RandomVariableVariance;
     edu:partOf :RandomVariableMoments.
 :RandomVariableTheory a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Numerical quantities determined by random outcomes, their probability laws, and their dependence and numerical summaries.";
+    rdfs:isDefinedBy "The probability distributions, dependence, and numerical summaries of random variables.";
     rdfs:comment "The number of heads in ten tosses and its distribution.";
     edu:partOf :Probability.
 :RandomVariableVariance a owl:NamedIndividual, edu:Area;

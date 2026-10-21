@@ -39,6 +39,7 @@ Probability [root]
     P ProbabilityEvent
     P ProbabilityModel
     P RandomExperiment
+    P RandomVariable
     P RepeatedIndependentTrials
     P SampleSpace
   P ProbabilityLimitTheorems
@@ -78,7 +79,6 @@ Probability [root]
         S HypergeometricDistribution
         S PoissonDistribution
     P ProbabilityMassFunction
-    P RandomVariable
     P RandomVariableIndependence
     P RandomVariableMoments
       P Covariance
@@ -214,6 +214,9 @@ RepresentationalScope [existing]
 
 ## Boundary decisions
 
+- ProbabilityFoundations introduces RandomVariable alongside experiments, outcomes, events and
+  models. RandomVariableTheory groups its probability distributions, dependence and numerical
+  summaries; the foundational concept has one structural home.
 - Probability laws retain one primary home in ProbabilityRules or RandomVariableMoments.
   They establish how events, conditioning and stochastic quantities determine probabilities
   or moments. This is a reviewable educational placement choice: these laws are equalities,
@@ -273,8 +276,9 @@ knowledge or a mathematical activity, rather than prescribing an Ability; see
 | Identifier | Stage | Placement | Definition | Example |
 | --- | --- | --- | --- | --- |
 | Probability | core | Root | The mathematical study of random outcomes, their likelihoods, and the behavior of random quantities and processes. | Modeling repeated coin tosses; comparing the chances of different outcomes. |
-| ProbabilityFoundations | core | P: Probability | The experiments, outcome sets, events, models, and consistency conditions used to describe uncertainty. | Distinguishing an individual die outcome from the event of rolling an even number. |
+| ProbabilityFoundations | core | P: Probability | The experiments, outcome sets, events, random variables, models, and consistency conditions used to describe uncertainty. | Distinguishing an individual die outcome from the event of rolling an even number. |
 | RandomExperiment | core | P: ProbabilityFoundations | A specified procedure with an uncertain outcome among identifiable possibilities. | Rolling a die once; recording the waiting time until the next bus. |
+| RandomVariable | core | P: ProbabilityFoundations | A numerical quantity assigning one value to each outcome of a random experiment, with probabilities induced by its event model. | Assigning to each sequence of three coin tosses its number of heads. |
 | SampleSpace | core | P: ProbabilityFoundations | The set of all outcomes distinguished by a specified random experiment. | For two coin tosses, the outcomes HH, HT, TH, and TT. |
 | ProbabilityEvent | core | P: ProbabilityFoundations | A collection of outcomes in a sample space to which the probability model assigns a probability. | The event {2,4,6} for an even result on a six-sided die. |
 | ProbabilityModel | core | P: ProbabilityFoundations | A mathematical description assigning probabilities to events of a specified random experiment, with assumptions that can be compared with observations. | Assigning probability 1/6 to each face of a fair die; questioning that model after strongly uneven observed frequencies. |
@@ -289,8 +293,7 @@ knowledge or a mathematical activity, rather than prescribing an Ability; see
 | MultiplicationProbabilityRule | core | P: ProbabilityRules | The factorization of an intersection probability into a positive-probability conditioning event and a conditional probability, iterated along successive events when each conditioning probability is defined. | Drawing two red balls without replacement from three red and two blue balls has probability (3/5)(2/4). |
 | TotalProbabilityTheorem | core | P: ProbabilityRules | The expression of an event probability as the sum of conditional probabilities weighted by the probabilities of a finite or countable partition into positive-probability events. | With 60% of parts from a machine having defect rate 0.02 and 40% from one having rate 0.05, the overall defect probability is 0.032. |
 | BayesTheorem | core | P: ProbabilityRules | The reversal of conditioning through P(A given B)=P(B given A)P(A)/P(B), when both conditioning events have positive probability. | With P(A)=0.2, P(B given A)=0.8 and P(B)=0.4, P(A given B)=0.4. |
-| RandomVariableTheory | core | P: Probability | Numerical quantities determined by random outcomes, their probability laws, and their dependence and numerical summaries. | The number of heads in ten tosses and its distribution. |
-| RandomVariable | core | P: RandomVariableTheory | A numerical quantity assigning one value to each outcome of a random experiment, with probabilities induced by its event model. | Assigning to each sequence of three coin tosses its number of heads. |
+| RandomVariableTheory | core | P: Probability | The probability distributions, dependence, and numerical summaries of random variables. | The number of heads in ten tosses and its distribution. |
 | ProbabilityDistribution | core | P: RandomVariableTheory | The assignment of probabilities to possible values or sets of values of random quantities. | A fair die assigns probability 1/6 to each value from one through six. |
 | DiscreteProbabilityDistribution | core | S: ProbabilityDistribution | A probability distribution concentrated on a finite or countably infinite set of values, whose point probabilities sum to one. | The number of successes in ten trials; the number of trials until the first success. |
 | ContinuousProbabilityDistribution | core | S: ProbabilityDistribution | A real-valued probability distribution with a continuous cumulative distribution function and zero probability at each individual value. | A uniform distribution on [0,1] assigns probability 0.2 to [0.3,0.5] and zero to {0.4}. |
@@ -556,6 +559,9 @@ existing identifiers is unchanged. The schema and Ability source remain unchange
 The user's merged NumericalIntegration relation refinement is preserved.
 Within this draft, ProbabilityTree gains ProbabilityRepresentation as an inherited Scope;
 its definition and direct-label eligibility are unchanged.
+RandomVariable moves from RandomVariableTheory to ProbabilityFoundations, preserving its
+definition, example and direct-label eligibility; both containing-family definitions clarify
+the distinction between the foundational object and its distributions and properties.
 
 **GraphicalSolutionRepresentation is retired in favor of GraphicalAlgebraicRepresentation.**
 The replacement broadens the meaning from displayed solution sets to graphical algebraic
