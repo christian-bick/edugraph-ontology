@@ -6,10 +6,12 @@ Complex-number stage 3B is merged at `5733989` through
 [PR #77](https://github.com/christian-bick/edugraph-ontology/pull/77).
 Graph theory is merged at `13328d3` through
 [PR #78](https://github.com/christian-bick/edugraph-ontology/pull/78), with GraphTheory as a root Area.
-Logical foundations are implemented for review on `codex/logical-foundations`.
-Section 5 remains proposed. Original proposal baseline: `9750eff`, after
+Logical foundations are merged at `4de7612` through
+[PR #79](https://github.com/christian-bick/edugraph-ontology/pull/79).
+Conics are implemented for review on `codex/conic-sections`; the number-theory follow-up
+in section 5 remains proposed. Original proposal baseline: `9750eff`, after
 [PR #75](https://github.com/christian-bick/edugraph-ontology/pull/75); complex-batch baseline: `209091b`;
-graph-batch baseline: `5733989`; logic-batch baseline: `13328d3`.
+graph-batch baseline: `5733989`; logic-batch baseline: `13328d3`; conic-batch baseline: `4de7612`.
 
 ## Scope and sequence
 
@@ -27,8 +29,8 @@ Recommended implementation batches:
 5. Separate targeted passes for conics and the number-theory results identified below, followed
    by a competency-by-competency audit of the selected programmes.
 
-Each batch has its own reviewable ontology change. The spatial, complex and graph batches are
-merged, and logical foundations are implemented for review; the targeted follow-ups remain proposed.
+Each batch has its own reviewable ontology change. The spatial, complex, graph and logic batches
+are merged. Conics are implemented for review; the targeted number-theory follow-up remains proposed.
 This is not a claim that every listed concept is required
 by every national curriculum. Existing
 Arithmetic, Algebra, Analysis, Calculus and LinearAlgebra meanings remain distinct.
@@ -415,7 +417,7 @@ knowledge beyond the currently modeled argument context.
 
 ### Implementation and adoption — 2026-10-21
 
-The `codex/logical-foundations` branch implements 13 new Areas: two organizers and 11 eligible
+The logic batch, merged through PR #79 at `4de7612`, implements 13 new Areas: two organizers and 11 eligible
 concepts, using 11 partOf and two specializes assertions. BoundVariable and FreeVariable have
 the two definition/example refinements above; their relations remain unchanged. No Scope,
 Ability, schema or progression changes are included.
@@ -448,24 +450,119 @@ checks, documentation validation, npm package/browser checks, Python lint and st
 all 49 Python tests, and wheel/sdist consumer verification. The final documentation check also
 passes after adding this record.
 
-## 5. Adjacent targeted follow-ups
+## 5. Conics and adjacent targeted follow-ups
 
 ### Conics
 
-The current source has no Parabola, Ellipse, Hyperbola or equivalent focal-locus concepts.
-QuadraticDependence does not supply that geometric knowledge. Review a conic family under
-the existing geometry structure, with these distinctions:
+The `codex/conic-sections` branch adds the missing focal-locus knowledge and its shared
+relationships. QuadraticDependence identifies algebraic degree but does not supply the
+geometric meaning of a focus, directrix or fixed focal-distance condition.
 
-- Parabola: points equidistant from a focus and a line not containing that focus.
-- Ellipse: a constant sum of distances to two fixed foci, greater than their separation;
-  include the equal-focus circle case or state a deliberate noncircular convention.
-- Hyperbola: a positive constant absolute difference of distances to two distinct foci,
-  smaller than their separation.
+#### Structure
 
-Focus/directrix roles and the geometric-to-equation correspondence deserve explicit review.
-Circle equations can already compose Circle, CoordinateDistance, PythagoreanTheorem,
-AlgebraicEquivalence and CompletingSquare. Avoid creating a second Circle concept solely
-for its equation. This follow-up is needed before claiming complete CCSS geometry coverage.
+Follow the existing CircularShapes/CircleRelations separation. ConicSections organizes
+the shapes under TwoDimensionalObjects; ConicRelations organizes their focal relationships
+and eccentricity under GeometricRelations. All new edges are partOf.
+
+```text
+Geometry
+  P GeometricObjects
+    P TwoDimensionalObjects
+      P CircularShapes
+        P Circle
+      P ConicSections
+        P Circle
+        P Parabola
+        P Ellipse
+        P Hyperbola
+  P GeometricRelations
+    P ConicRelations
+      P ConicFocus
+      P ConicDirectrix
+      P ConicEccentricity
+```
+
+Circle appears twice only to show its two constituent homes; it remains one existing Area.
+Its definition, examples and prior relations are preserved. Ellipse includes coincident foci,
+but no Circle-specializes-Ellipse assertion is added: center/radius knowledge alone does not
+establish the two-focus description, and the existing Circle also includes its enclosed region.
+The two organizers have constituent children only; the six new substantive concepts remain
+eligible labels. This does not change any existing descriptor's labeling eligibility.
+
+#### Definitions and examples
+
+| Area | Placement | Concise definition | Example |
+| --- | --- | --- | --- |
+| ConicSections | P: TwoDimensionalObjects | The geometry of nondegenerate real plane sections of a right circular double cone, including their defining curves and enclosed regions when bounded. | A plane perpendicular to the cone's axis and avoiding its vertex cuts a circle; a plane avoiding the vertex and cutting both nappes gives a hyperbola. |
+| Parabola | P: ConicSections | The plane locus of points at equal distances from a fixed focus and a fixed line not containing it, with distance to the line measured perpendicularly. | Focus (0,1) and directrix y=-1 give x^2=4y. |
+| Ellipse | P: ConicSections | The plane locus of points whose sum of distances to two fixed foci is a constant greater than the distance between the foci. Coincident foci give a circle. | Foci (-3,0) and (3,0) with distance sum 10 give x^2/25+y^2/16=1. |
+| Hyperbola | P: ConicSections | The plane locus of points whose absolute difference of distances to two distinct fixed foci is a positive constant smaller than the distance between the foci. | Foci (-5,0) and (5,0) with absolute distance difference 6 give x^2/9-y^2/16=1. |
+| ConicRelations | P: GeometricRelations | The focal-distance relationships and shape parameters of nondegenerate real conics. | Relating an ellipse's foci to its eccentricity or a parabola's focus to its directrix. |
+| ConicFocus | P: ConicRelations | The role of a fixed point used in a conic's defining focal-distance relationship, with the two foci coinciding at the center in the circle case. | The focus (0,1) of x^2=4y; the foci (-3,0) and (3,0) of x^2/25+y^2/16=1. |
+| ConicDirectrix | P: ConicRelations | The role of a fixed line paired with a focus not on it so that each point of a noncircular conic has a constant positive ratio of distance to that focus to perpendicular distance to the line. A circle has no finite directrix. | The directrix y=-1 paired with (0,1) for x^2=4y; the directrix x=25/3 paired with (3,0) for x^2/25+y^2/16=1. |
+| ConicEccentricity | P: ConicRelations | The nonnegative shape parameter e, equal for a noncircular conic to the ratio of distance to a focus to perpendicular distance to its corresponding directrix. Circles have e=0, noncircular ellipses 0<e<1, parabolas e=1 and hyperbolas e>1. | x^2/25+y^2/16=1 has e=3/5; x^2/9-y^2/16=1 has e=5/3; x^2+y^2=9 has e=0. |
+
+#### Mathematical boundaries and composition
+
+- The focal loci are complete Euclidean plane curves, independent of axis alignment or the
+  existence of a globally single-valued function representation. A hyperbola includes both
+  branches; the absolute difference is essential.
+- The ellipse's distance sum must exceed focal separation. Equality gives the segment between
+  distinct foci, or a single point when the foci coincide. For a hyperbola, zero difference gives a perpendicular bisector;
+  difference equal to focal separation gives rays. These degenerate cases are excluded.
+  A parabola's focus must lie off its directrix.
+- A circle is the coincident-focus ellipse case and has eccentricity zero. The positive
+  focus/directrix ratio uses a corresponding pair and applies only to noncircular conics;
+  substituting zero into a finite focus/directrix construction does not produce a circle.
+- Derive conic equations compositionally from the focal definition, CoordinateDistance,
+  OrthogonalProjection when needed for point-to-line distance, and AlgebraicEquivalence.
+  Include ConstraintTransformationLogic when squaring or other transformations require
+  checking equivalence and possible extraneous solutions. ShapePlotting and the existing
+  coordinate Scopes cover graphing; no separate ConicEquation or conic-graphing Area is added.
+- Generic degree-two dependence alone does not identify a nondegenerate real conic:
+  x^2+y^2=0 is one point, x^2-y^2=0 is two intersecting lines, and x^2+y^2=-1 has no real
+  points. General quadratic classification, degenerate/projective conics and specialized
+  optical or tangent theorems remain separate follow-ups.
+
+#### CCSS coverage and sources
+
+The official [CCSS G-GPE standards](https://www.thecorestandards.org/Math/Content/HSG/GPE/)
+identify these three equation-derivation targets. Areas compose with the reasoning or
+procedural Ability actually required; their mere presence in a formula is not label evidence.
+
+| Standard | Relevant knowledge composition | Boundary |
+| --- | --- | --- |
+| HSG.GPE.A.1 | Existing Circle, CoordinateDistance, PythagoreanTheorem, AlgebraicEquivalence and CompletingSquare | Reuses the existing circle for center/radius derivation and recovery. |
+| HSG.GPE.A.2 | Parabola, ConicFocus, ConicDirectrix, CoordinateDistance and AlgebraicEquivalence | Derives the equation from a specified focus and directrix. |
+| HSG.GPE.A.3 (+) | Ellipse or Hyperbola, ConicFocus, CoordinateDistance and AlgebraicEquivalence | Uses the fixed distance sum or absolute difference; preserves the defining restrictions during rewriting. |
+
+ConicEccentricity supplies an advanced-school extension beyond these three CCSS leaves.
+Mathematical checks use OpenStax's [ellipse](https://openstax.org/books/precalculus-2e/pages/10-1-the-ellipse),
+[hyperbola](https://openstax.org/books/precalculus-2e/pages/10-2-the-hyperbola),
+[parabola](https://openstax.org/books/precalculus-2e/pages/10-3-the-parabola) and
+[focus/directrix treatment](https://openstax.org/books/precalculus-2e/pages/10-5-conic-sections-in-polar-coordinates).
+The hierarchy and the decision to reuse the existing Circle are ontology design choices.
+
+#### Conic implementation and adoption — 2026-10-21
+
+Eight new Areas add two organizers and six eligible concepts. Together with Circle's extra
+partOf membership, the batch adds nine structural assertions. No definition or example of
+an existing Area is changed; no Scope, Ability, schema or progression change is included.
+Circle gains ConicSections as an additional structural ancestor while retaining CircularShapes.
+Existing labels remain eligible; no dataset or package-pin changes are part of this branch.
+
+Independent comparison against `4de7612` confirms eight new Areas and 41 added assertions,
+with none removed, giving 1,372 descriptors and 7,298 assertions. Only Circle's structural
+ancestry changes. All design rows and the hierarchy match the source; Area and Scope Turtle
+round-trip byte for byte through the editor, and ontology assessment reports zero findings.
+
+The TypeScript and Python circle-grouping checks now expect Circle's two constituent parents
+and verify both inverse memberships. Their existing eligibility and non-inheritance checks
+remain, with explicit checks that HalfCircle and QuarterCircle have no ConicSections ancestry.
+
+The full `docker build . --output dist --progress plain` passes, including TypeScript/client
+and ontology checks, documentation and npm package/browser validation, Python lint and strict
+typing, all 49 Python tests, and wheel/sdist consumer verification.
 
 ### Number-theory results
 
@@ -486,14 +583,14 @@ separate optional extensions; no application family is added merely for a contex
 
 The merged spatial implementation retains both affine-parametrization specializations.
 The complex batch retains all seven proposed concepts with refined mathematical boundaries.
-The merged graph implementation uses the requested top-level field. Logical foundations are
-implemented for review. Optional notation/representation Scopes and the later conic/number-theory
-batches remain separate review steps.
+The merged graph implementation uses the requested top-level field, and logical foundations
+are merged through PR #79. Conics are implemented for review. Optional notation/representation
+Scopes and the targeted number-theory batch remain separate review steps.
 
 Before implementing each batch, review every endpoint and affected ancestry, use the editor's
 ordering, check definitions against examples and counterexamples, and run the normal source
 and Docker checks. Check links, source references and the implemented-versus-proposed boundary.
-A candidate name in section 5 does not imply a source or dataset change.
+A candidate name in section 5's number-theory proposal does not imply a source or dataset change.
 
 The final curriculum audit should classify each leaf as covered directly, covered by a
 defensible composition, a true concept gap, or a representation/constraint gap. Include ordinary

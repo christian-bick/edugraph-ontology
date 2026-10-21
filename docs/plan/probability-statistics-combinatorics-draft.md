@@ -633,8 +633,8 @@ Verification passed on 2026-10-21, including the representation and foundational
 A passing build is not a curriculum completeness certificate.
 
 The [remaining-school-foundations record](remaining-school-foundations-draft.md) records
-spatial geometry, complex numbers and the separate GraphTheory root merged through PRs #76–78,
-and logical foundations implemented for review on `codex/logical-foundations`. These are separate from the
+spatial geometry, complex numbers, the separate GraphTheory root and logical foundations merged
+through PRs #76–79, and conics implemented for review on `codex/conic-sections`. These are separate from the
 probability merge.
 
 Deferred beyond those proposals: full graph theory; abstract measure theory;

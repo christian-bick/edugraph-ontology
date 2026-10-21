@@ -92,16 +92,23 @@ console.log("✅ Direct-label eligibility checks passed.");
 console.log("Asserting circular-shape grouping...");
 assertOk(partOf(Area.CircularShapes).includes(Area.TwoDimensionalObjects));
 for (const shape of [Area.Circle, Area.HalfCircle, Area.QuarterCircle]) {
-  assertEqual(partOf(shape).length, 1);
-  assertOk(partOf(shape).includes(Area.CircularShapes));
-  assertOk(hasPart(Area.CircularShapes).includes(shape));
-  assertOk(structuredBy(Area.CircularShapes).includes(shape));
+  const expectedParents = shape === Area.Circle
+    ? [Area.CircularShapes, Area.ConicSections]
+    : [Area.CircularShapes];
+  assertEqual(partOf(shape).length, expectedParents.length);
+  for (const parent of expectedParents) {
+    assertOk(partOf(shape).includes(parent));
+    assertOk(hasPart(parent).includes(shape));
+    assertOk(structuredBy(parent).includes(shape));
+  }
   assertOk(partOfTransitive(shape).includes(Area.TwoDimensionalObjects));
   assertEqual(hasPart(shape).length, 0);
   assertEqual(specializesTransitive(shape).length, 0);
 }
 assertOk(!partOfTransitive(Area.HalfCircle).includes(Area.Circle));
 assertOk(!partOfTransitive(Area.QuarterCircle).includes(Area.Circle));
+assertOk(!partOfTransitive(Area.HalfCircle).includes(Area.ConicSections));
+assertOk(!partOfTransitive(Area.QuarterCircle).includes(Area.ConicSections));
 console.log("✅ Circular-shape grouping checks passed.");
 
 // Strategies belong to a methods family, not to the equal-value principle itself.
