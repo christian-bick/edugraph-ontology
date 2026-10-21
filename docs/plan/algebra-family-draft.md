@@ -23,7 +23,8 @@ The Probability, Statistics, and Combinatorics extension is merged at `9750eff` 
 [remaining-school-foundations record](remaining-school-foundations-draft.md) documents spatial
 geometry merged at `209091b` through PR #76, complex stage 3B merged at `5733989` through
 PR #77, GraphTheory merged at `13328d3` through PR #78 as a top-level Area, and logical
-foundations implemented for review on `codex/logical-foundations`.
+foundations merged at `4de7612` through PR #79. Conics are implemented for review on
+`codex/conic-sections`.
 
 Original implementation branch: `codex/algebra-refinements` (merged). Updated 2026-10-21 for
 the Calculus and statistics/probability merges and the remaining school-foundation proposals, following the NumberTheory and advanced extensions,
@@ -1115,8 +1116,10 @@ its transformed form over the same variables and admissible domain, distinguishi
 equivalence from one-way implication and the conditions needed for reversal."
 
 This adds the distinction from one-way consequence rather than redefining AlgebraicEquivalence.
-A future general Logic family could support it, but adding the first constituent to the
-currently eligible Logic descriptor requires its own usage review.
+The general Logic families are now merged through PR #79, with their eligibility review in the
+[logical-foundations record](remaining-school-foundations-draft.md#4-logical-foundations).
+ConstraintTransformationLogic retains the distinct algebraic knowledge about solution sets
+and admissible domains.
 
 The authored transformation-context Scopes cover squaring both sides, multiplying or dividing
 by a variable expression, and clearing denominators. They describe the actual operation and its
@@ -1173,8 +1176,9 @@ is merged at `9750eff` through PR #75. The
 [remaining-school-foundations record](remaining-school-foundations-draft.md) records the
 finite-coordinate geometry portion of stage 5B merged at `209091b` through PR #76 and complex
 stage 3B merged at `5733989` through PR #77. GraphTheory is merged at `13328d3` through PR #78
-as a root; logical foundations are implemented for review on `codex/logical-foundations`.
-Conics and the targeted number-theory results remain proposed. Step 4's optional refinements and
+as a root; logical foundations are merged at `4de7612` through PR #79. Conics are implemented
+for review on `codex/conic-sections`; the targeted number-theory results remain proposed.
+Step 4's optional refinements and
 the broader university continuation of stages 5B–5C remain deferred.
 They are not a completeness claim for all CCSS geometry, statistics, or other fields. Proposed
 family names in the unimplemented stages below are planning candidates, not additional authored descriptors. The sequence

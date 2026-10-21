@@ -73,7 +73,8 @@ The [remaining school-foundation record](docs/plan/remaining-school-foundations-
 documents spatial geometry merged through [PR #76](https://github.com/christian-bick/edugraph-ontology/pull/76),
 advanced complex numbers merged through [PR #77](https://github.com/christian-bick/edugraph-ontology/pull/77),
 the GraphTheory root merged through [PR #78](https://github.com/christian-bick/edugraph-ontology/pull/78),
-and the logical-foundations implementation draft with its connective and quantification families.
+logical foundations merged through [PR #79](https://github.com/christian-bick/edugraph-ontology/pull/79),
+and the conics implementation draft with its focal-locus and eccentricity concepts.
 
 #### Foundations
 

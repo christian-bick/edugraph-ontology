@@ -351,7 +351,7 @@
 :Circle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Knowledge of complete circles as closed curves whose points are equally distant from a center, including the circular regions they enclose.";
     edu:expands :CircularShapeDrawing;
-    edu:partOf :CircularShapes.
+    edu:partOf :CircularShapes, :ConicSections.
 :CircleRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of spatial and quantitative relationships among the elements of a circle.";
     rdfs:comment "Relating a radius to a diameter, a chord to the center, or a tangent to the radius at its point of contact.";
@@ -539,6 +539,26 @@
     edu:expands :ShapeConservation;
     edu:partOf :ShapeEquivalenceRelations;
     edu:translates :ShapeRotationConservation.
+:ConicDirectrix a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The role of a fixed line paired with a focus not on it so that each point of a noncircular conic has a constant positive ratio of distance to that focus to perpendicular distance to the line. A circle has no finite directrix.";
+    rdfs:comment "The directrix y=-1 paired with (0,1) for x^2=4y; the directrix x=25/3 paired with (3,0) for x^2/25+y^2/16=1.";
+    edu:partOf :ConicRelations.
+:ConicEccentricity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The nonnegative shape parameter e, equal for a noncircular conic to the ratio of distance to a focus to perpendicular distance to its corresponding directrix. Circles have e=0, noncircular ellipses 0<e<1, parabolas e=1 and hyperbolas e>1.";
+    rdfs:comment "x^2/25+y^2/16=1 has e=3/5; x^2/9-y^2/16=1 has e=5/3; x^2+y^2=9 has e=0.";
+    edu:partOf :ConicRelations.
+:ConicFocus a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The role of a fixed point used in a conic's defining focal-distance relationship, with the two foci coinciding at the center in the circle case.";
+    rdfs:comment "The focus (0,1) of x^2=4y; the foci (-3,0) and (3,0) of x^2/25+y^2/16=1.";
+    edu:partOf :ConicRelations.
+:ConicRelations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The focal-distance relationships and shape parameters of nondegenerate real conics.";
+    rdfs:comment "Relating an ellipse's foci to its eccentricity or a parabola's focus to its directrix.";
+    edu:partOf :GeometricRelations.
+:ConicSections a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The geometry of nondegenerate real plane sections of a right circular double cone, including their defining curves and enclosed regions when bounded.";
+    rdfs:comment "A plane perpendicular to the cone's axis and avoiding its vertex cuts a circle; a plane avoiding the vertex and cutting both nappes gives a hyperbola.";
+    edu:partOf :TwoDimensionalObjects.
 :Constant a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a literal or designated name for a fixed value, independent of the variable assignments under consideration.";
     rdfs:comment "Distinguishing the fixed values 7 and pi from the varying x in 7x + pi; treating a as fixed while x varies in ax.";
@@ -922,6 +942,10 @@
     rdfs:isDefinedBy "Identities giving derivatives of elementary real functions on their differentiability domains, with trigonometric arguments measured in radians.";
     rdfs:comment "(x^3)' = 3x^2; (ln(x))' = 1/x for x > 0; (sin(x))' = cos(x).";
     edu:partOf :DifferentiationRules.
+:Ellipse a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The plane locus of points whose sum of distances to two fixed foci is a constant greater than the distance between the foci. Coincident foci give a circle.";
+    rdfs:comment "Foci (-3,0) and (3,0) with distance sum 10 give x^2/25+y^2/16=1.";
+    edu:partOf :ConicSections.
 :EmergentFeatureRecognition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizing a recurring, alternating, invariant, or otherwise systematic property of generated pattern elements that follows from, but is not itself, the generative rule.";
     edu:specializes :PatternRecognition.
@@ -1443,6 +1467,10 @@
     rdfs:isDefinedBy "A derivative function obtained by repeated differentiation, of order at least two, on the inputs where the successive derivatives exist.";
     rdfs:comment "For f(x) = x^3, f''(x) = 6x and f'''(x) = 6.";
     edu:specializes :DerivativeFunction.
+:Hyperbola a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The plane locus of points whose absolute difference of distances to two distinct fixed foci is a positive constant smaller than the distance between the foci.";
+    rdfs:comment "Foci (-5,0) and (5,0) with absolute distance difference 6 give x^2/9-y^2/16=1.";
+    edu:partOf :ConicSections.
 :HypergeometricDistribution a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The nature of a success count in a uniformly chosen fixed-size sample without replacement from a finite population containing a fixed number of successes.";
     rdfs:comment "The number of red balls in three draws without replacement from five red and seven blue balls.";
@@ -2190,6 +2218,10 @@
     rdfs:isDefinedBy "The central level and extent of a bounded repeating oscillation with attained cycle extrema, described by the midline halfway between those extrema and the amplitude equal to half their difference.";
     rdfs:comment "f(x) = 2 sin(3x) + 1 has minimum -1, maximum 3, midline 1, and amplitude 2.";
     edu:partOf :FunctionRepetitionProperties.
+:Parabola a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The plane locus of points at equal distances from a fixed focus and a fixed line not containing it, with distance to the line measured perpendicularly.";
+    rdfs:comment "Focus (0,1) and directrix y=-1 give x^2=4y.";
+    edu:partOf :ConicSections.
 :ParallelismRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between lines or planes that are always the same distance apart and never intersect.";
     edu:inverts :IntersectionRelation;

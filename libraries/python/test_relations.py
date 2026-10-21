@@ -72,14 +72,22 @@ class TestRelations(unittest.TestCase):
         self.assertIn(Area.TwoDimensionalObjects, part_of(Area.CircularShapes))
         for shape in [Area.Circle, Area.HalfCircle, Area.QuarterCircle]:
             with self.subTest(shape=shape):
-                self.assertEqual(part_of(shape), [Area.CircularShapes])
-                self.assertIn(shape, has_part(Area.CircularShapes))
-                self.assertIn(shape, structured_by(Area.CircularShapes))
+                expected_parents = (
+                    [Area.CircularShapes, Area.ConicSections]
+                    if shape == Area.Circle
+                    else [Area.CircularShapes]
+                )
+                self.assertCountEqual(part_of(shape), expected_parents)
+                for parent in expected_parents:
+                    self.assertIn(shape, has_part(parent))
+                    self.assertIn(shape, structured_by(parent))
                 self.assertIn(Area.TwoDimensionalObjects, part_of_transitive(shape))
                 self.assertEqual(has_part(shape), [])
                 self.assertEqual(specializes_transitive(shape), [])
         self.assertNotIn(Area.Circle, part_of_transitive(Area.HalfCircle))
         self.assertNotIn(Area.Circle, part_of_transitive(Area.QuarterCircle))
+        self.assertNotIn(Area.ConicSections, part_of_transitive(Area.HalfCircle))
+        self.assertNotIn(Area.ConicSections, part_of_transitive(Area.QuarterCircle))
 
     def test_basic_types(self):
         self.assertIsInstance(Area.AbsoluteNumberMagnitude, str)
