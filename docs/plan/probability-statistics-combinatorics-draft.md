@@ -129,8 +129,8 @@ Statistics [root]
     P SignificanceLevel
     P StatisticalHypotheses
     P TestingError
-      S TypeIError
-      S TypeIIError
+      S TypeOneError
+      S TypeTwoError
     P TestPower
     P TestStatistic
   P StatisticalData
@@ -163,7 +163,6 @@ Combinatorics [root]
   P CombinatorialEnumeration
     P BinomialCoefficient
     P CircularPermutationCounting
-    P Factorial
     P MultinomialCoefficient
     P OrderedSelectionCounting
       S OrderedSelectionWithoutRepetition
@@ -180,6 +179,9 @@ Combinatorics [root]
     P PigeonholePrinciple
     P ProductCountingPrinciple
     P SumCountingPrinciple
+Arithmetic [existing]
+  P ArithmeticOperations [existing]
+    P Factorial
 SetTheory [root]
   P CartesianProduct
   P FiniteSetCardinality
@@ -239,6 +241,11 @@ RepresentationalScope [existing]
 - RegressionModel composes with existing AffineDependence, QuadraticDependence or
   ExponentialDependence. LeastSquaresFit and RegressionResidual provide independent
   statistical knowledge. There is no duplicated regression family per algebraic form.
+- Factorial belongs to ArithmeticOperations: its product rule and zero case are reusable
+  independently of counting. PermutationCounting and BinomialCoefficient retain their
+  integrates links to Factorial. Functional study composes Factorial with NumericFunction
+  and relevant sequence or function-property concepts when evidenced; no separate
+  FactorialFunction descriptor is introduced.
 - BinomialCoefficient gives subset-count meaning; BinomialTheorem remains the expansion
   identity. OrderedSelectionCounting specializes by repetition conditions; PermutationCounting
   is the full-selection case. StarsAndBars also covers unordered repeated selections.
@@ -395,8 +402,8 @@ knowledge or a mathematical activity, rather than prescribing an Ability; see
 | SignificanceLevel | core | P: HypothesisTesting | A prespecified upper bound on the probability of rejecting a true null hypothesis under the test's null model and assumptions. | Selecting a rejection region whose probability under H0 is at most 0.05. |
 | PValue | core | P: HypothesisTesting | The probability, under a specified null model, of a test-statistic result at least as incompatible with that model as the observed result, using the test's stated ordering of outcomes. | An upper-tail coin test reports p=0.03 for obtaining at least as many heads as observed under the null probability. |
 | TestingError | core | P: HypothesisTesting | An erroneous hypothesis-test decision, consisting of rejecting a true null hypothesis or failing to reject it when a specified alternative is true. | Rejecting a genuinely fair coin model; failing to reject fairness when a specified biased-coin alternative is true. |
-| TypeIError | core | S: TestingError | Rejection of a null hypothesis when that hypothesis is true. | Declaring evidence against a fair-coin model when the coin is fair. |
-| TypeIIError | core | S: TestingError | Failure to reject a null hypothesis when a specified alternative is true. | Failing to detect a coin whose probability of heads is 0.6 in a test against fairness. |
+| TypeOneError | core | S: TestingError | Rejection of a null hypothesis when that hypothesis is true. | Declaring evidence against a fair-coin model when the coin is fair. |
+| TypeTwoError | core | S: TestingError | Failure to reject a null hypothesis when a specified alternative is true. | Failing to detect a coin whose probability of heads is 0.6 in a test against fairness. |
 | TestPower | advanced | P: HypothesisTesting | The probability that a test rejects its null hypothesis for a specified alternative, equal to one minus the corresponding Type II error probability. | A test has power 0.8 against p=0.6 when it rejects fairness in 80% of repeated samples generated with p=0.6. |
 | BinomialTest | core | S: HypothesisTest | A hypothesis test about a success probability using the binomial count model for independent Bernoulli trials with a common probability. | Testing H0: p <= 0.5 against p > 0.5 using the upper tail of 100 independent trials. |
 | MeanTTest | advanced | S: HypothesisTest | A hypothesis test of a population mean or difference of means using a standardized mean statistic and a Student t reference distribution under the required model conditions or a justified approximation. | Testing a normal population mean with (sampleMean - mu0)/(sampleSD/sqrt(n)) and n-1 degrees of freedom. |
@@ -419,7 +426,7 @@ knowledge or a mathematical activity, rather than prescribing an Ability; see
 | OrderedSelectionWithoutRepetition | core | S: OrderedSelectionCounting | Counting length-k lists of distinct elements from an n-element set, giving n!/(n-k)! for integers 0 <= k <= n. | Assigning first, second, and third places among seven competitors gives 7 * 6 * 5 = 210 outcomes. |
 | PermutationCounting | core | S: OrderedSelectionWithoutRepetition | Counting linear arrangements of every member of an n-element set exactly once, giving n! for nonnegative integer n. | Four different books have 4! = 24 orders on a shelf. |
 | CircularPermutationCounting | advanced | P: CombinatorialEnumeration | Counting circular arrangements of n distinct objects, identifying arrangements exactly when a rotation matches them, giving (n-1)! for positive integer n. | Five different people around an unnumbered round table have 4! = 24 seating orders when clockwise and anticlockwise orders are distinguished. |
-| Factorial | core | P: CombinatorialEnumeration | The product of the integers from 1 through a nonnegative integer n, with the empty product 0! equal to 1. | 5! = 5 * 4 * 3 * 2 * 1 = 120; 0! = 1. |
+| Factorial | core | P: ArithmeticOperations | The product of the integers from 1 through a nonnegative integer n, with the empty product 0! equal to 1. | 5! = 5 * 4 * 3 * 2 * 1 = 120; 0! = 1. |
 | BinomialCoefficient | core | P: CombinatorialEnumeration | The number binom(n,k) of k-element subsets of an n-element set, equal to n!/(k!(n-k)!) for integers 0 <= k <= n. | binom(5,2) = 10 counts two-person committees from five people and length-five binary strings containing exactly two 1s. |
 | MultinomialCoefficient | advanced | P: CombinatorialEnumeration | The number n!/(n_1!...n_r!) of partitions of an n-element set into labeled groups of prescribed nonnegative sizes n_1 through n_r summing to n, equivalently counting arrangements with those fixed multiplicities. | The letters of LETTER have 6!/(2!2!) = 180 distinct linear arrangements. |
 | StarsAndBars | advanced | P: CombinatorialEnumeration | Counting nonnegative integer solutions of x_1 + ... + x_r = n by placing r-1 separators among n identical units, giving binom(n+r-1,r-1) for n >= 0 and r >= 1. | Allocating five identical tokens among three named boxes, allowing empty boxes, gives binom(7,2) = 21 allocations. |
@@ -562,6 +569,10 @@ its definition and direct-label eligibility are unchanged.
 RandomVariable moves from RandomVariableTheory to ProbabilityFoundations, preserving its
 definition, example and direct-label eligibility; both containing-family definitions clarify
 the distinction between the foundational object and its distributions and properties.
+Factorial moves from CombinatorialEnumeration to ArithmeticOperations, preserving its
+definition, example, incoming progression links and direct-label eligibility. Functional
+knowledge remains compositional. The draft uses the refined identifiers TypeOneError and
+TypeTwoError for testing errors.
 
 **GraphicalSolutionRepresentation is retired in favor of GraphicalAlgebraicRepresentation.**
 The replacement broadens the meaning from displayed solution sets to graphical algebraic
@@ -594,7 +605,7 @@ this branch does not upgrade or regenerate the content dataset.
 
 ## Verification and remaining work
 
-Verification passed on 2026-10-21, including the algebra representation refinement:
+Verification passed on 2026-10-21, including the representation and foundational-placement refinements:
 
 - Both Turtle sources round-trip byte for byte through the editor's actual parser and serializer,
   including its alphabetical relation order.

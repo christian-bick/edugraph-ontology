@@ -1002,7 +1002,7 @@
 :Factorial a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The product of the integers from 1 through a nonnegative integer n, with the empty product 0! equal to 1.";
     rdfs:comment "5! = 5 * 4 * 3 * 2 * 1 = 120; 0! = 1.";
-    edu:partOf :CombinatorialEnumeration.
+    edu:partOf :ArithmeticOperations.
 :Factorization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Decomposing an integer into a product of integer factors.";
     rdfs:comment "36 = 4 * 9; 36 = 2 * 2 * 3 * 3.";
