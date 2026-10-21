@@ -1575,8 +1575,7 @@
 :NumericalIntegration a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Approximating a finite definite-integral value using a weighted finite combination of sampled integrand values.";
     rdfs:comment "Estimating integral_0^1 x^2 dx from equally spaced samples.";
-    edu:partOf :CalculusApproximation;
-    edu:specializes :NumericApproximation.
+    edu:partOf :CalculusApproximation.
 :NumericApproximation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Estimating or replacing a numerical value with a nearby value suited to a stated purpose or precision.";
     rdfs:comment "Using a rounded measurement when estimating a total.";
