@@ -215,6 +215,10 @@ parents merely to place it in a complete complex-number tree.
 
 ## Stage 3B — preserved university-entry continuation
 
+The [remaining-school-foundations proposal](remaining-school-foundations-draft.md#2-advanced-complex-numbers)
+now develops this continuation into candidate definitions and placements. It remains unimplemented;
+the table below preserves the earlier options and rationale.
+
 These candidates extend the subject beyond the explicit CCSS requirements. They are not part
 of the seven-Area implementation recommendation. Oxford includes De Moivre, roots of unity,
 and exponential form in its introductory syllabus; OpenStax also develops powers and full root

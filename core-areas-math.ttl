@@ -75,6 +75,10 @@
     rdfs:isDefinedBy "Polynomial dependence whose governing expressions each have total degree at most one in the designated variables, including constant and zero expressions.";
     rdfs:comment "3x + 2; 2x + 3y - 6 in x and y; the zero residual of x + 1 = x + 1; f(x) = 5.";
     edu:specializes :PolynomialDependence.
+:AffineParametrization a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The description of an affine set by a fixed point plus linear combinations of independent direction vectors with freely varying real parameters.";
+    rdfs:comment "p+s*u+t*v describes a plane when u and v are independent.";
+    edu:partOf :GeometricVisualization.
 :Algebra a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of symbolic quantities, expressions, constraints, and functions and relations through their structure, representations, and transformations. Limiting behavior and function regularity are organized in Analysis; differential and integral methods are organized in Calculus.";
     rdfs:comment "Representing an unknown quantity with a variable, or solving an equation that relates several quantities.".
@@ -216,6 +220,10 @@
 :BaseOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The foundational application of mathematical rules and procedures to perform primary calculations through the core actions of addition, subtraction, multiplication, and division.";
     edu:partOf :ArithmeticOperations.
+:Basis a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "An ordered linearly independent spanning collection giving each vector in a stated finite-dimensional space a unique coordinate representation.";
+    rdfs:comment "Every vector (x,y,z) has unique coordinates in the standard basis of R^3.";
+    edu:partOf :VectorAlgebra.
 :BayesTheorem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The reversal of conditioning through P(A given B)=P(B given A)P(A)/P(B), when both conditioning events have positive probability.";
     rdfs:comment "With P(A)=0.2, P(B given A)=0.8 and P(B)=0.4, P(A given B)=0.4.";
@@ -293,6 +301,10 @@
     rdfs:isDefinedBy "The set of ordered tuples formed by taking one element from each of a specified finite list of sets, with positions retaining the order of those sets.";
     rdfs:comment "{a, b} x {0, 1} = {(a,0), (a,1), (b,0), (b,1)}.";
     edu:partOf :SetTheory.
+:CartesianSpace a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The correspondence between points in three-dimensional Euclidean space and ordered triples relative to a stated origin and perpendicular coordinate axes.";
+    rdfs:comment "(2,-1,3) locates a point using three axes.";
+    edu:partOf :GeometricVisualization.
 :Census a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Data collection intended to include every unit in a specified finite population.";
     rdfs:comment "Recording the travel mode of every pupil enrolled in a class.";
@@ -545,9 +557,14 @@
     edu:partOf :CartesianPlane;
     edu:translates :Numeration.
 :CoordinateDistance a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The calculation of the straight-line distance between two points on the Cartesian plane using their coordinates.";
+    rdfs:isDefinedBy "The calculation of the straight-line distance between points from their coordinates in an orthonormal Cartesian coordinate system.";
+    rdfs:comment "The distance from (0,0,0) to (1,2,2) is 3.";
     edu:expands :PointPlotting;
     edu:partOf :GeometricVisualization.
+:Coplanarity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The property of specified points, lines or other geometric objects being contained in a common plane.";
+    rdfs:comment "Two intersecting lines are coplanar.";
+    edu:partOf :PositionalRelations.
 :Coprimality a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship among a finite nonempty collection of integers, not all zero, whose greatest common divisor is one.";
     rdfs:comment "8 and 15 are coprime; 6, 10, and 15 have greatest common divisor 1 although no pair is coprime.";
@@ -852,6 +869,10 @@
     rdfs:isDefinedBy "The sum of the positive divisors of a positive integer and its relationship to prime factorization.";
     rdfs:comment "The positive divisors of 12 have sum 1 + 2 + 3 + 4 + 6 + 12 = 28.";
     edu:partOf :NumberTheoreticFunctions.
+:DotProduct a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The scalar product of real Euclidean vectors, given by the sum of component products in orthonormal coordinates and, for nonzero vectors, by the product of their magnitudes and the cosine of their angle.";
+    rdfs:comment "(1,2,0) dot (2,-1,3) = 0.";
+    edu:partOf :VectorArithmetic.
 :DoubleCounting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Establishing a cardinality relationship by counting the same finite collection in two different ways.";
     rdfs:comment "Counting each handshake at its two participants gives 5 * 4 = 2h, so h = 10 when five people all shake hands once.";
@@ -1301,8 +1322,8 @@
     edu:expands :FiniteGeometricSum;
     edu:partOf :SeriesCalculus.
 :GeometricTransformations a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Mappings that change a geometric figure's position, orientation, or scale according to a specified rule.";
-    rdfs:comment "A rotation, reflection, translation, or dilation.";
+    rdfs:isDefinedBy "Mappings of geometric points or figures according to a specified rule.";
+    rdfs:comment "Rotation about a point; orthogonal projection onto a plane.";
     edu:partOf :Geometry.
 :GeometricVectorCombination a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The head-to-tail and parallelogram constructions of sums of real geometric vectors, with differences formed by adding the reversed second vector. For vectors u and v with a common tail, u - v runs from the tip of v to the tip of u.";
@@ -1574,6 +1595,10 @@
     rdfs:isDefinedBy "Approximating a differentiable real function near a by f(a)+f'(a)(x-a), with an error that is small relative to x-a as x approaches a.";
     rdfs:comment "sqrt(4+h) is approximately 2+h/4 for small h.";
     edu:partOf :CalculusApproximation.
+:LinearCombination a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A finite sum of scalar multiples of specified vectors in a common vector space.";
+    rdfs:comment "2(1,0,0) + 3(0,1,0) = (2,3,0).";
+    edu:partOf :VectorAlgebra.
 :LinearCongruenceSolvability a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The existence of an integer solution x to ax congruent to b modulo m exactly when gcd(a, m) divides b, for integers a and b and a positive integer m.";
     rdfs:comment "6x congruent to 9 modulo 15 is solvable, but 6x congruent to 4 modulo 15 is not.";
@@ -1586,6 +1611,10 @@
     rdfs:isDefinedBy "Creating drawings or models of straight lines.";
     rdfs:comment "Drawing a straight line through two given points.";
     edu:partOf :SpatialModelling.
+:LinearIndependence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The condition that a linear combination of specified vectors equals zero only when all its coefficients are zero.";
+    rdfs:comment "(1,0,0) and (0,1,0) are independent; (1,0,0) and (2,0,0) are dependent.";
+    edu:partOf :VectorAlgebra.
 :LinearMap a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A map between vector spaces over the same field that preserves vector addition and scalar multiplication.";
     rdfs:comment "T(x, y) = (x + y, y) is linear; S(x, y) = (x + 1, y) is not.";
@@ -1602,6 +1631,10 @@
     rdfs:isDefinedBy "Creating drawings or models of figures bounded by straight line segments.";
     rdfs:comment "Drawing a triangle from specified vertices.";
     edu:partOf :SpatialModelling.
+:LinearSpan a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The set of all linear combinations of a specified collection of vectors over a stated scalar field.";
+    rdfs:comment "The span of (1,0,0) and (0,1,0) is the plane z=0.";
+    edu:partOf :VectorAlgebra.
 :LinearSystems a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The matrix representations, transformations, and solution structure of finite systems of linear equations over stated scalar fields.";
     rdfs:comment "Expressing two simultaneous equations as Ax = b; distinguishing a consistent singular system from an inconsistent one.";
@@ -1615,6 +1648,10 @@
     rdfs:comment "Plotting two points satisfying y = 2x + 1 and drawing the line through them.";
     edu:expands :PointPlotting;
     edu:partOf :GeometricVisualization.
+:LineParametrization a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "An affine parametrization with one real parameter and one nonzero direction vector.";
+    rdfs:comment "(x,y,z)=(1,0,2)+t*(2,1,-1), t real.";
+    edu:specializes :AffineParametrization.
 :LineSegment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A part of a line that is bounded by two distinct end points, and contains every point on the line that is between its endpoints.";
     edu:expands :LinearDrawing;
@@ -1847,6 +1884,14 @@
     rdfs:isDefinedBy "The nature of a real probability law with density exp(-(x-mu)^2/(2 sigma^2))/(sigma sqrt(2pi)), determined by its mean mu and positive standard deviation sigma.";
     rdfs:comment "A normal model with mean 100 and standard deviation 15; its standardized variable has mean zero and standard deviation one.";
     edu:specializes :ContinuousProbabilityDistribution.
+:NormalVector a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The role of a nonzero vector perpendicular to every direction of a specified line or plane in Euclidean space.";
+    rdfs:comment "(2,-1,3) is normal to the plane 2x-y+3z=5.";
+    edu:partOf :GeometricConcepts.
+:NormalVectorEquation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The description of a Euclidean line in two dimensions or a plane in three dimensions by n dot (x-p)=0, with nonzero normal n and a point p on the set.";
+    rdfs:comment "2x-y+3z=5 describes a plane with normal (2,-1,3).";
+    edu:partOf :GeometricVisualization.
 :NthTermDivergenceTest a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The necessary condition that terms of a convergent series tend to zero. A nonzero or nonexistent term limit proves divergence, while a zero term limit is inconclusive.";
     rdfs:comment "The terms n/(n+1) tend to 1, so their series diverges.";
@@ -2026,6 +2071,14 @@
     edu:expands :CoordinateAxes;
     edu:partOf :CartesianPlane;
     edu:translates :ZeroConcept.
+:OrthogonalProjection a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The assignment of a point to its unique nearest point on a specified Euclidean line or plane, with perpendicular displacement for points outside the set.";
+    rdfs:comment "The projection of (1,2,3) onto z=1 is (1,2,1).";
+    edu:specializes :GeometricTransformations.
+:OrthonormalBasis a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A basis of mutually orthogonal unit vectors in a real Euclidean space.";
+    rdfs:comment "The standard basis of R^3; (1,0) and (1,1) form a basis but not an orthonormal one.";
+    edu:specializes :Basis.
 :OscillationParameters a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The central level and extent of a bounded repeating oscillation with attained cycle extrema, described by the midline halfway between those extrema and the amplitude equal to half their difference.";
     rdfs:comment "f(x) = 2 sin(3x) + 1 has minimum -1, maximum 3, midline 1, and amplitude 2.";
@@ -2154,12 +2207,18 @@
     rdfs:isDefinedBy "A flat, two-dimensional surface that extends infinitely far.";
     edu:expands :LineConcept;
     edu:partOf :GeometricConcepts.
+:PlaneParametrization a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "An affine parametrization with two real parameters and two independent direction vectors.";
+    rdfs:comment "(x,y,z)=(0,0,1)+s*(1,0,0)+t*(0,1,0) describes z=1.";
+    edu:specializes :AffineParametrization.
 :PointConcept a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A precise location or position on a plane, usually represented by a dot.";
+    rdfs:isDefinedBy "A precise location in geometric space, with no extent.";
+    rdfs:comment "The location (2,-1,3) in space or (2,-1) in a plane.";
     edu:expands :SpatialModelling;
     edu:partOf :GeometricConcepts.
 :PointPlotting a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The process of locating and marking a point on a coordinate plane using a pair of numerical coordinates.";
+    rdfs:isDefinedBy "Locating and marking a point from its coordinates in a stated Cartesian coordinate system.";
+    rdfs:comment "Marking (2,-1) in a plane or (2,-1,3) in a spatial coordinate diagram.";
     edu:expands :NumericOrder, :OrderedCoordinatePair, :PointConcept;
     edu:partOf :GeometricVisualization.
 :PoissonDistribution a owl:NamedIndividual, edu:Area;
@@ -2800,6 +2859,10 @@
     rdfs:isDefinedBy "The relationship between an angle measure and the vertical coordinate of its corresponding point on the unit circle, using a specified angular unit.";
     rdfs:comment "sin(pi/2) = 1 and sin(3pi/2) = -1 for radian measures; an opposite side of length 3 and hypotenuse of length 5 give sine 3/5 for the acute angle.";
     edu:specializes :TrigonometricFunction.
+:SkewLines a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship between two lines in three-dimensional space that are not contained in a common plane and therefore neither intersect nor are parallel.";
+    rdfs:comment "The lines (t,0,0) and (0,s,1) are skew.";
+    edu:partOf :PositionalRelations.
 :SlopeConcept a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The measure of the steepness and direction of a line, calculated as the ratio of the vertical change (rise) to the horizontal change (run) between two points.";
     edu:expands :RatioInterpretation;
@@ -3243,6 +3306,10 @@
     rdfs:isDefinedBy "The conventions for vector symbols, ordered component lists, directed-segment symbols, and magnitude symbols.";
     rdfs:comment "Interpreting an arrow over PQ as displacement from P to Q and double bars around v as its magnitude.";
     edu:partOf :FormalMathematics.
+:VectorOrthogonality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship between real Euclidean vectors whose dot product is zero, including the zero vector.";
+    rdfs:comment "(1,2,0) is orthogonal to (2,-1,3); the zero vector is orthogonal to every vector.";
+    edu:partOf :VectorAlgebra.
 :VerticalAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The pairs of opposite angles made by two intersecting lines.";
     edu:partOf :AngleRelations.
