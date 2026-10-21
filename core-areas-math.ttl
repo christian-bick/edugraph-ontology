@@ -621,6 +621,10 @@
     rdfs:isDefinedBy "The relationship among a finite nonempty collection of integers, not all zero, whose greatest common divisor is one.";
     rdfs:comment "8 and 15 are coprime; 6, 10, and 15 have greatest common divisor 1 although no pair is coprime.";
     edu:partOf :IntegerDivisibility.
+:CoprimeDivisibilityLemma a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The divisibility implication that a divides c whenever a divides bc and gcd(a,b)=1, for integers a, b and c with a nonzero.";
+    rdfs:comment "For integer n, 12 dividing 5n implies 12 divides n because gcd(12,5)=1; 6 divides 2*3 but does not divide 3.";
+    edu:partOf :IntegerDivisibility.
 :Cosine a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between an angle measure and the horizontal coordinate of its corresponding point on the unit circle, using a specified angular unit.";
     rdfs:comment "cos(0) = 1 and cos(pi) = -1 for radian measures; an adjacent side of length 4 and hypotenuse of length 5 give cosine 4/5 for the included acute angle.";
@@ -1101,6 +1105,10 @@
     rdfs:comment "3 and 4 are factors of 12; 12, 24, and 36 are multiples of 12.";
     edu:expands :Division, :Multiplication;
     edu:partOf :IntegerDivisibility.
+:FermatsLittleTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The result that a^p is congruent to a modulo p for every integer a and prime p, with a^(p-1) congruent to 1 modulo p when p does not divide a. Satisfying these congruences for a chosen base does not establish that the modulus is prime.";
+    rdfs:comment "3^7 is congruent to 3 modulo 7; 3^6 is congruent to 1 modulo 7; the composite 341=11*31 satisfies 2^340 congruent to 1 modulo 341.";
+    edu:partOf :ModularArithmetic.
 :FiniteGeometricSum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identity equating the sum of n geometric terms beginning with a, of common ratio r, to a(1 - r^n)/(1 - r) for positive integer n and r != 1. For r = 1, the sum is na.";
     rdfs:comment "3 + 6 + 12 + 24 = 3(1 - 2^4)/(1 - 2) = 45.";

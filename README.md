@@ -74,7 +74,8 @@ documents spatial geometry merged through [PR #76](https://github.com/christian-
 advanced complex numbers merged through [PR #77](https://github.com/christian-bick/edugraph-ontology/pull/77),
 the GraphTheory root merged through [PR #78](https://github.com/christian-bick/edugraph-ontology/pull/78),
 logical foundations merged through [PR #79](https://github.com/christian-bick/edugraph-ontology/pull/79),
-and the conics implementation draft with its focal-locus and eccentricity concepts.
+conics merged through [PR #80](https://github.com/christian-bick/edugraph-ontology/pull/80),
+and the draft additions of Fermat's little theorem and the coprime divisibility lemma.
 
 #### Foundations
 
