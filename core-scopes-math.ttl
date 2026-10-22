@@ -186,10 +186,6 @@
     rdfs:isDefinedBy "Results of explicit calculations or enumerations used to support or examine a claim.";
     rdfs:comment "Calculated values used to examine an algebraic conjecture. Calculations can process observed or simulated data; a computed result alone establishes neither exhaustive coverage nor a general proof.";
     edu:specializes :EvidenceBasis.
-:ComputerAlgebraSystem a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "A digital tool that manipulates symbolic mathematical expressions and relations.";
-    rdfs:comment "Factoring x^2 + 5x + 6 symbolically.";
-    edu:specializes :DigitalTool.
 :ConstraintTransformationScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Operations supplied or required in proposed or performed transformations of equations, inequalities, or systems. Preservation of solution sets depends on the stated domain and side conditions.";
     rdfs:comment "Squaring both sides of x = 2 over the reals; dividing x(x - 1) = 0 by x.".
@@ -292,12 +288,24 @@
     rdfs:isDefinedBy "A specified error limit guaranteed not to be exceeded when the stated assumptions hold.";
     rdfs:comment "An approximation guaranteed to differ from the true value by at most 0.01. A rounded decimal without a supplied guarantee is insufficient.";
     edu:specializes :ErrorControl.
+:DigitalAlgebraTool a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "A digital tool that manipulates symbolic mathematical expressions and relations.";
+    rdfs:comment "Factoring x^2 + 5x + 6 symbolically.";
+    edu:specializes :DigitalTool.
 :DigitalClock a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Time represented by numerical digits on a clock display.";
     rdfs:comment "A display reading 14:35.";
     edu:integrates :HourIntervals, :MinuteIntervals, :SecondIntervals;
     edu:partOf :TimeMeasurement;
     edu:specializes :DigitalTool, :MeasurementTool.
+:DigitalGeometryTool a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Interactive digital tool for constructing and exploring geometric objects and their dependencies as objects or parameters change.";
+    rdfs:comment "Moving a triangle vertex while its constructed perpendicular bisectors update.";
+    edu:specializes :DigitalTool.
+:DigitalGraphingTool a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "A digital tool that plots and explores mathematical relationships in a coordinate system.";
+    rdfs:comment "Plotting two functions and adjusting the viewing window to investigate their intersections.";
+    edu:specializes :DigitalTool.
 :DigitalScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A weighing device or representation that reports a measured value on a numerical display.";
     rdfs:comment "Reading 250 grams from a scale's display.";
@@ -343,10 +351,6 @@
     rdfs:isDefinedBy "The Dollar currency.";
     edu:integrates :MajorDenomination, :MinorDenomination;
     edu:specializes :CurrencySystem.
-:DynamicGeometrySoftware a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Interactive software for constructing and exploring geometric objects and their dependencies as objects or parameters change.";
-    rdfs:comment "Moving a triangle vertex while its constructed perpendicular bisectors update.";
-    edu:specializes :DigitalTool.
 :East a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The cardinal direction East.";
     edu:specializes :CardinalDirections.
@@ -501,10 +505,6 @@
     rdfs:isDefinedBy "Algebraic relationships, functions, or solution sets represented by plotted points, curves, or regions on a number line or in a coordinate system.";
     rdfs:comment "The graph of y = x^2 used to compare function values; an open endpoint at 2 and a ray for x > 2; the shaded half-plane x + y <= 1 with its boundary included.";
     edu:specializes :AlgebraicRepresentation.
-:GraphingTool a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "A digital tool that plots and explores mathematical relationships in a coordinate system.";
-    rdfs:comment "Plotting two functions and adjusting the viewing window to investigate their intersections.";
-    edu:specializes :DigitalTool.
 :Greater a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The comparison of two entities where one has a larger quantity, size, or value than the other.";
     edu:specializes :OrderAbstraction.
@@ -1420,7 +1420,7 @@
 :StateProperties a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The identification and differentiation of states of matter.";
     edu:partOf :ObjectAbstraction.
-:StatisticalSoftware a owl:NamedIndividual, edu:Scope;
+:StatisticalTool a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A digital tool that computes statistical summaries, fits models, or performs statistical inference from data.";
     rdfs:comment "Selecting a t-test for a dataset and interpreting the reported p-value.";
     edu:specializes :DigitalTool.
