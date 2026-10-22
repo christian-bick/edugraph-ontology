@@ -33,7 +33,8 @@ The [cross-product, arithmetic-sum and sequence-limit record](vector-sums-sequen
 documents the batch merged at `e6dba8b` through PR #83, including finite/infinite inference boundaries.
 The [representation and digital-tool implementation draft](representations-digital-tools-draft.md)
 adds the next audit batch for review on `codex/representations-digital-tools`: sign and variation
-tables, theoretical probability histograms, and digital-tool contexts.
+tables, theoretical probability histograms, and tool contexts with measurement-tool links
+and separate digital-device and software families.
 
 Original implementation branch: `codex/algebra-refinements` (merged). Updated 2026-10-21 for
 the Calculus and statistics/probability merges and the remaining school-foundation proposals, following the NumberTheory and advanced extensions,

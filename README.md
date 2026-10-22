@@ -66,8 +66,9 @@ The [cross-product, arithmetic-sum and sequence-limit record](docs/plan/vector-s
 documents the batch merged through [PR #83](https://github.com/christian-bick/edugraph-ontology/pull/83),
 including the finite/infinite inference boundary.
 The [representation and digital-tool implementation draft](docs/plan/representations-digital-tools-draft.md)
-adds sign and variation tables, theoretical probability histograms, and digital-tool contexts
-for review on `codex/representations-digital-tools`.
+adds sign and variation tables, theoretical probability histograms, and tool contexts
+for review on `codex/representations-digital-tools`, including measurement-tool links and
+separate digital-device and software families.
 The [NumberTheory design and implementation record](docs/plan/number-theory-basics-draft.md)
 documents the school and introductory-university families, their boundary with arithmetic,
 and the shared closure concept in AlgebraicStructures.

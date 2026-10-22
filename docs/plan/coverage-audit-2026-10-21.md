@@ -204,8 +204,9 @@ relabel content as part of the current documentation work.
    including finite/signed-infinite limit rules and the boundary between finite evidence and proof.
    Curriculum-level acceptance remains separate from source and build validation.
 3. Review the [representation and digital-tool implementation draft](representations-digital-tools-draft.md)
-   on `codex/representations-digital-tools`: ten new Scopes for sign/variation tables,
-   theoretical probability histograms and digital-tool contexts, plus a broader tabular definition.
+   on `codex/representations-digital-tools`: fourteen new Scopes for sign/variation tables,
+   theoretical probability histograms and tool contexts, including device/software distinctions
+   and measurement-tool links, plus a broader tabular definition.
    Existing graphical compositions cover density and cumulative-distribution plots; programming
    knowledge and software-operation proficiency remain separate questions.
 4. Decide the computing/cryptography boundary, then cover optional Markov/enrichment requirements

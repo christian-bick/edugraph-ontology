@@ -6,8 +6,10 @@ Baseline: `main` at `e6dba8b06e03bef49e62a91c80053e3ababe4cca`, after
 1,421 descriptors and 7,546 authored assertions.
 
 This develops batch 3 of the [school curriculum audit](coverage-audit-2026-10-21.md).
-The implementation adds **ten Scopes**, broadens the existing
-`TabularAlgebraicRepresentation`, and reuses existing mathematical Areas and Abilities.
+The implementation adds **fourteen Scopes**, including the `ToolScope` organizer, broadens
+`TabularAlgebraicRepresentation`, and connects existing measurement tools to the new families.
+The device/software distinction separates how a digital tool is provided from what it does;
+existing mathematical Areas and Abilities remain in use.
 It distinguishes a representation's encoding from the mathematical knowledge being exercised
 and from the tool supplied or used in the task.
 
@@ -28,20 +30,29 @@ RepresentationalScope [existing organizer]
 └─ P DataRepresentation [existing; unchanged]
    └─ S Histogram [existing; empirical data]
 
-DigitalMathematicsTool [new Scope root; selectable]
-├─ S NumericalCalculator [new]
-├─ S GraphingTool [new]
-├─ S ComputerAlgebraSystem [new]
-├─ S Spreadsheet [new]
-├─ S DynamicGeometrySoftware [new]
-└─ S StatisticalSoftware [new]
+ToolScope [new organizer]
+├─ P MeasurementTool [new; selectable]
+│  └─ S Existing measurement instruments [listed below]
+└─ P DigitalTool [new; selectable]
+   ├─ S DigitalDevice [new; selectable]
+   │  └─ S DigitalScale [existing; also S MeasurementTool]
+   ├─ S SoftwareTool [new; selectable]
+   │  ├─ S DigitalAlgebraTool [new]
+   │  ├─ S DigitalGeometryTool [new]
+   │  ├─ S DigitalGraphingTool [new]
+   │  ├─ S Spreadsheet [new]
+   │  └─ S StatisticalTool [new]
+   ├─ S NumericalCalculator [new; hardware or software]
+   └─ S DigitalClock [existing; also S MeasurementTool]
 ```
 
-The general digital-tool Scope remains selectable because some requirements specify suitable
-software without prescribing its type. Specialization children preserve this eligibility under
+`ToolScope` organizes measurement and digital tools. `DigitalTool`, `DigitalDevice`,
+`SoftwareTool` and `MeasurementTool` remain selectable because their children specialize them;
+only the root has constituent children and is ineligible under
 [ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
-No additional organizational layer is needed. Existing physical measurement and construction
-tools retain their homes.
+Generic software requirements can therefore use `SoftwareTool`, while unspecified digital-tool
+context can use `DigitalTool`. Existing measurement instruments retain their subject-specific
+`partOf` homes alongside the new tool specializations. Construction tools retain their homes.
 
 ## Definitions and examples
 
@@ -65,22 +76,52 @@ includes interval summaries while preserving ordinary value-table content and th
 | `VariationTable` | `specializes TabularAlgebraicRepresentation` | Tables showing where a function increases, decreases, or is constant, with boundary values or limits included when specified. | For f(x) = x^2, a decreasing arrow toward the minimum 0 is followed by an increasing arrow, with +infinity at both unbounded ends. |
 | `ProbabilityHistogram` | `specializes ProbabilityRepresentation` | Probability distributions represented by adjacent bars whose areas equal interval or outcome probabilities, with heights adjusted for bar widths. | A binomial distribution with probabilities 1/4, 1/2 and 1/4 displayed by bars of width 1; intervals of widths 1 and 2 with probabilities 0.2 and 0.8 displayed with heights 0.2 and 0.4. |
 
-### New digital-tool Scopes
+### New tool Scopes
 
 | Descriptor | Relation | Definition | Example |
 | --- | --- | --- | --- |
-| `DigitalMathematicsTool` | root | A digital tool supplied or explicitly used for mathematical calculation, representation, or investigation. | Suitable mathematics software used to investigate successive matrix products. |
-| `NumericalCalculator` | `specializes DigitalMathematicsTool` | A digital tool that evaluates numerical expressions and functions. | A calculator used to approximate sin(35 degrees). |
-| `GraphingTool` | `specializes DigitalMathematicsTool` | A digital tool that plots and explores mathematical relationships in a coordinate system. | Plotting two functions and adjusting the viewing window to investigate their intersections. |
-| `ComputerAlgebraSystem` | `specializes DigitalMathematicsTool` | A digital tool that manipulates symbolic mathematical expressions and relations. | Factoring x^2 + 5x + 6 symbolically. |
-| `Spreadsheet` | `specializes DigitalMathematicsTool` | A digital grid of cells whose formulas reference values and recalculate dependent results. | Successive rows computing Newton iterates from the preceding row. |
-| `DynamicGeometrySoftware` | `specializes DigitalMathematicsTool` | Interactive software for constructing and exploring geometric objects and their dependencies as objects or parameters change. | Moving a triangle vertex while its constructed perpendicular bisectors update. |
-| `StatisticalSoftware` | `specializes DigitalMathematicsTool` | A digital tool that computes statistical summaries, fits models, or performs statistical inference from data. | Selecting a t-test for a dataset and interpreting the reported p-value. |
+| `ToolScope` | root | Physical or digital instruments, devices, and software tools supplied or required to perform a task. | A ruler used to measure a segment, a balance scale comparing masses, or graphing software used to inspect a function. |
+| `MeasurementTool` | `partOf ToolScope` | An instrument, device, or representation of one used to determine or compare measurable quantities. | A ruler aligned with a segment, a protractor measuring an angle, a balance scale comparing masses, or a clock showing a time of day. |
+| `DigitalTool` | `partOf ToolScope` | Digital devices or software applications, including explicit representations of them, supplied or used as tools in a task. | Software used to investigate successive matrix products, a graphing utility plotting functions, or a calculator evaluating a trigonometric expression. |
+| `DigitalDevice` | `specializes DigitalTool` | Physical digital devices, or explicit representations of them, supplied or used as tools in a task. | A handheld calculator used to evaluate an expression; a pictured digital scale whose display is read. |
+| `SoftwareTool` | `specializes DigitalTool` | Software applications or environments, including explicit representations of them, supplied or used to carry out a task. | A spreadsheet application used to compute successive iterates; a supplied screenshot of an algebra system's factorization output. |
+| `NumericalCalculator` | `specializes DigitalTool` | A digital tool that evaluates numerical expressions and functions. | A calculator used to approximate sin(35 degrees). |
+| `DigitalGraphingTool` | `specializes SoftwareTool` | Software for plotting and exploring mathematical relationships in a coordinate system. | Plotting two functions and adjusting the viewing window to investigate their intersections. |
+| `DigitalAlgebraTool` | `specializes SoftwareTool` | Software for manipulating symbolic mathematical expressions and relations. | Factoring x^2 + 5x + 6 symbolically. |
+| `Spreadsheet` | `specializes SoftwareTool` | Software with a grid of cells whose formulas reference values and recalculate dependent results. | Successive rows computing Newton iterates from the preceding row. |
+| `DigitalGeometryTool` | `specializes SoftwareTool` | Interactive software for constructing and exploring geometric objects and their dependencies as objects or parameters change. | Moving a triangle vertex while its constructed perpendicular bisectors update. |
+| `StatisticalTool` | `specializes SoftwareTool` | Software for computing statistical summaries, fitting models, or performing statistical inference from data. | Selecting a t-test for a dataset and interpreting the reported p-value. |
 
-These tool types may overlap. A multifunction application can supply a graphing, symbolic,
-spreadsheet, statistical or geometry environment; label the modes evidenced in the task,
-not every capability advertised for the product. A graphing calculator need not automatically
-receive a numerical-calculator label when only its graphing mode matters.
+These tool types may overlap in a task. A handheld graphing calculator can support
+`DigitalDevice` for its hardware and `DigitalGraphingTool` for its software functionality.
+A multifunction application can support several software specializations, according to the
+modes evidenced in the task rather than every advertised product feature.
+
+`NumericalCalculator` remains directly under `DigitalTool`: both a handheld calculator and a
+calculator application qualify. Compose it with `DigitalDevice` or `SoftwareTool` when the
+medium is evident. `DigitalClock` similarly identifies the display convention without forcing
+a physical device or a software application. Giving either concept both new parents would
+assert both meanings, not a choice between them.
+
+### Existing measurement-tool relations
+
+The following existing descriptors gain `specializes MeasurementTool` while retaining their
+measurement-family placement and existing integrations:
+
+| Existing descriptors | Retained `partOf` parent |
+| --- | --- |
+| `AnalogClock`, `Calendar`, `DigitalClock`, `SandClock`, `Stopwatch`, `Sundial` | `TimeMeasurement` |
+| `BalanceScale`, `DigitalScale` | `WeightMeasurement` |
+| `LaserRuler`, `PhysicalRuler`, `Tapemeter` | `LengthMeasurement` |
+| `Protractor`, `TriangleRuler` | `AngleMeasurement` |
+| `Thermometer` | `TemperatureMeasurement` |
+
+`DigitalClock` also specializes `DigitalTool`. `DigitalScale` specializes `DigitalDevice` as
+well as `MeasurementTool`; its definition explicitly covers a digital weighing device or a
+representation of one. Both actual instruments and depicted instruments/readouts can establish
+the applicable context. A bare supplied measurement does not establish which tool produced it.
+The `MeasurementTool` definition therefore includes representations of instruments without
+requiring graduation marks.
 
 ## Sign and variation tables
 
@@ -140,7 +181,7 @@ For intervals [0,1) and [1,3) assigned probabilities 0.2 and 0.8, area-coded hei
 0.2 and 0.4. Heights 0.2 and 0.8 would instead produce total area 1.8. Histogram and density
 heights can exceed 1; probabilities cannot. A CDF's area is not the probability supplied by its
 ordinate, and a density's height is not a point probability. Nor does every continuous distribution
-necessarily have a density; the proposed Scope does not change the existing distribution definitions.
+necessarily have a density; the new Scope does not change the existing distribution definitions.
 
 No `BinomialHistogram`, density-graph or cumulative-graph subtype is needed. Distribution type
 and representation compose independently. A bell-shaped image alone does not establish a
@@ -148,17 +189,22 @@ normal probability model.
 
 ## Digital-tool context and evidence
 
-The new root describes the tool context, independently of representation and mathematical knowledge.
-Its children describe useful tool kinds or modes, not manufacturers, device form factors or topics.
+The tool families describe context independently of mathematical knowledge. `DigitalDevice`
+identifies physical digital equipment or its explicit depiction; `SoftwareTool` identifies an
+application or environment, including an explicit representation of it. Software functionality
+can be embedded in a handheld device: its hardware and software are separate observable claims.
 
 | Observable situation | Scope decision and remaining knowledge |
 | --- | --- |
-| A supplied calculator evaluates a trigonometric expression | `NumericalCalculator`; the relevant operation/function knowledge remains separate |
-| A graphing environment is used to investigate intersections | `GraphingTool` and the relevant graphical Scope; approximate intersections are not automatically exact solutions |
+| A supplied calculator evaluates a trigonometric expression | `NumericalCalculator`; add `DigitalDevice` for a handheld calculator or `SoftwareTool` for an evidenced calculator application |
+| A graphing environment is used to investigate intersections | `DigitalGraphingTool` and the relevant graphical Scope; approximate intersections are not automatically exact solutions |
 | A printed graph without attributed tool use | Graphical representation only; hidden rendering software supplies no tool evidence |
 | A spreadsheet contains formulas for Newton iteration | `Spreadsheet` plus existing iteration knowledge; a static table of the same values alone is insufficient evidence of a spreadsheet |
-| A linked geometry construction updates when a vertex moves | `DynamicGeometrySoftware`; retain the actual geometric knowledge or construction technique |
-| A task explicitly requests suitable software without naming its kind | The eligible general `DigitalMathematicsTool`; do not infer a narrower tool |
+| A linked geometry construction updates when a vertex moves | `DigitalGeometryTool`; retain the actual geometric knowledge or construction technique |
+| A task explicitly requests suitable software without naming its kind | The eligible general `SoftwareTool`; do not infer a narrower application type |
+| A task specifies a digital tool without identifying hardware or software | The eligible general `DigitalTool` |
+| A pictured digital scale supplies a reading | `DigitalScale`, supporting `DigitalDevice` and `MeasurementTool`; interpreting the picture does not imply operating a physical scale |
+| A numerical clock display appears without identifying its medium | `DigitalClock`; do not infer hardware or software from the numerals alone |
 | A software output is explicitly supplied for interpretation | The evidenced tool Scope can apply; this does not prove the learner can operate that tool |
 
 Use existing `ProcedureApplicability`, `Evaluation` and `ErrorDetection` where the actual
@@ -168,7 +214,7 @@ demonstrate a learner's factorization reasoning; a statistical command does not 
 knowledge of model assumptions.
 
 Digital geometry may support linked graph and parameter exploration as well as constructions.
-A curriculum's explicit dynamic-geometry environment can therefore coexist with `GraphingTool`
+A curriculum's explicit dynamic-geometry environment can therefore coexist with `DigitalGraphingTool`
 when both descriptions are evidenced. A three-dimensional environment composes with existing
 `ThreeDimensional`; it does not need a separate 3D-software child.
 
@@ -178,7 +224,7 @@ frequencies do not by themselves justify untested cases or an infinite-process g
 [previous batch's inference boundary](vector-sums-sequence-limits-draft.md).
 
 Programming knowledge remains open: assignment, types, control flow, lists, functions and implementing
-an algorithm are not supplied by a digital-tool Scope. Nor does this proposal settle general software
+an algorithm are not supplied by a digital-tool Scope. Nor does this extension settle general software
 operation proficiency. Those belong in the later computing-foundations discussion.
 
 ## Curriculum mappings and source limits
@@ -194,9 +240,9 @@ historical audit statuses and not a claim of complete curriculum coverage.
 | Bavaria `BAV-PR1`, `BAV-12-2-02`, `BAV-12-2-05`, `BAV-13-2-01` | `ProbabilityHistogram` supplies the missing area-coded theoretical display. Density and CDF plots retain existing compositions. |
 | Bavaria `BAV-13-2-02` and `BAV-13-2-03` | Retain empirical `Histogram` for measured bell-shaped distributions and existing density/CDF graph composition for the model. |
 | CCSS S-MD.A.1 | Existing PMF/graph composition already covers theoretical distribution graphs; the new Scope identifies a particular encoding. |
-| CCSS MP5 | The six tool modes reflect explicitly named tool kinds. Strategic choice and recognition of tool limitations still need the appropriate knowledge and Abilities. |
+| CCSS MP5 | The calculator and five software-function Scopes reflect explicitly named tool kinds. Strategic choice and recognition of tool limitations still need the appropriate knowledge and Abilities. |
 | Bavaria `BAV-PR2`, `BAV-11-4_2-05` | General digital tools and the specific spreadsheet, graphing and dynamic-geometry modes fill the context distinction, including Newton iteration in a spreadsheet. |
-| Bavaria enrichment `BAV-V-R1`, `BAV-V12-1-06`, `BAV-V12-3-05` | Generic software requirements can use `DigitalMathematicsTool` without inventing a specific application type. |
+| Bavaria enrichment `BAV-V-R1`, `BAV-V12-1-06`, `BAV-V12-3-05` | Generic software requirements can use `SoftwareTool` without inventing a specific application type. |
 | Bavaria enrichment `BAV-V12-2-05`, `BAV-V12-5-03` | Dynamic-geometry and statistical-software contexts have explicit Scopes. |
 | France `FR-P1-GENERAL01`, `FR-TLE-GENERAL01`, `FR-EXP-GENERAL01` | Software-based experimentation and visualization gain tool context. Teacher demonstrations do not imply learner operation proficiency; programming remains a separate gap. |
 
@@ -220,20 +266,23 @@ and future-programme boundaries remain those recorded in the [French audit](cove
 2. **Add more probability display subtypes.** A probability-mass diagram would provide specificity,
    but the audited tasks already compose from PMF and graphical representation. Density/CDF-specific
    Scopes and distribution-specific diagrams are deferred unless a concrete labeling need emerges.
-3. **Introduce an organizational ToolScope.** `ToolScope > partOf DigitalMathematicsTool` with the same
-   specializing children would be valid, but currently adds a single-child layer. A root named
-   `DigitalToolScope` with specializing children is also a valid naming alternative. Making all tool
-   kinds constituent children of the general digital descriptor would make it ineligible and lose the
-   supported generic software context, so that structure is not recommended.
-4. **Add simulation, programming or hardware categories.** Digital simulation can compose the general
-   tool Scope with `SamplingSimulation` and, where relevant, `SimulationEvidence`. Programming and
-   software-operation knowledge need separate treatment, including `BAV-V12-4-01`; brands, devices,
-   restricted-tool modes and a reorganization of physical instruments are outside this batch.
+3. **Keep devices and software undifferentiated.** The accepted refinement keeps `DigitalTool`
+   as the common selectable parent and distinguishes `DigitalDevice` from `SoftwareTool` below it.
+   Functional calculator and clock contexts remain under the common parent where they span both
+   media. Software-specific graphing, algebra, geometry, spreadsheet and statistics contexts
+   specialize `SoftwareTool`.
+4. **Add simulation, programming or narrower device categories.** Digital simulation can compose
+   `SoftwareTool` or `DigitalTool`, as evidenced, with `SamplingSimulation` and, where relevant,
+   `SimulationEvidence`. Programming and software-operation knowledge need separate treatment,
+   including `BAV-V12-4-01`. Product brands, narrower hardware types, restricted-tool modes and
+   additional construction-tool organization remain outside this batch.
 
 ## Adoption and review checks
 
-All ten additions are eligible. Every new edge is `specializes`, and no existing
-relation changes. Existing labels retain eligibility; ordinary tabular content keeps its meaning.
+Thirteen of the fourteen additions are eligible; `ToolScope` is an organizational node.
+Existing labels retain eligibility. Existing measurement descriptors gain the tool-family
+specializations recorded above, so their broader inferred tool claims change even though their
+measurement-family homes remain intact. Ordinary tabular content keeps its meaning.
 The revised tabular definition broadens the accepted representation rather than requiring
 existing value tables to be relabeled. No automatic migration from empirical `Histogram` to
 `ProbabilityHistogram` or from arbitrary digital content to a tool Scope is appropriate.
@@ -245,7 +294,7 @@ cryptography, optional Markov/enrichment decisions and source-data repairs remai
 
 ## Proposal verification record — 2026-10-22
 
-A temporary candidate graph built from the definition tables passed the shared ontology assessment
+Before the tool-family refinements, a temporary candidate graph built from the original proposal passed the shared ontology assessment
 with no findings: **1,431 descriptors and 7,595 authored assertions**. All ten additions were eligible;
 no existing descriptor changed eligibility. All 19 explicitly checked knowledge/Ability/Scope IDs
 used in the compositions existed and were eligible in the baseline.
@@ -260,32 +309,40 @@ not source implementation or full curriculum acceptance.
 
 ## Implementation and adoption — 2026-10-22
 
-The draft branch adds the ten Scopes defined above to [the authored Scopes](../../core-scopes-math.ttl).
+The draft branch adds fourteen Scopes to [the authored Scopes](../../core-scopes-math.ttl):
+three representation Scopes and eleven tool descriptors, including the `ToolScope` organizer.
+The current definition tables and hierarchy incorporate the review refinements and the
+`DigitalDevice`/`SoftwareTool` split. No new Area or Ability is added.
+
 `SignTable` and `VariationTable` specialize `TabularAlgebraicRepresentation`;
-`ProbabilityHistogram` specializes `ProbabilityRepresentation`. `DigitalMathematicsTool` is a
-selectable root with six specializing children. No new Area, Ability or organizational node is added.
+`ProbabilityHistogram` specializes `ProbabilityRepresentation`. `ToolScope` organizes the
+selectable `MeasurementTool` and `DigitalTool` families. `DigitalDevice` and `SoftwareTool`
+specialize `DigitalTool`; the five software-function Scopes specialize `SoftwareTool`.
+`NumericalCalculator` and `DigitalClock` remain directly under `DigitalTool`.
 
-Among existing descriptors, only the definition and example of `TabularAlgebraicRepresentation`
-change. Its identifier, parent and eligibility are preserved. The new wording includes interval
-signs and variation alongside corresponding-value tables. Existing empirical `Histogram`, density
-and cumulative-distribution knowledge, and physical tool families remain unchanged.
+Among descriptors already on main, the definition and example of `TabularAlgebraicRepresentation`
+broaden to include interval signs and variation. Fourteen measurement descriptors gain
+`MeasurementTool` specialization, with `DigitalClock` also specializing `DigitalTool` and
+`DigitalScale` specializing `DigitalDevice`. The scale definition makes its digital-device
+meaning explicit. Existing measurement `partOf` placements and integrations are preserved.
+Existing empirical `Histogram`, density/CDF knowledge and construction-tool families remain unchanged.
 
-The resulting ontology contains **1,431 descriptors and 7,595 authored assertions**. All ten new
-Scopes are eligible, and no existing descriptor changes labeling eligibility. The implementation
-does not require an automatic relabeling of value tables, empirical histograms or digital content.
-The task's actual representation and supplied or evidenced tool use determine the applicable claims.
+The resulting ontology contains **1,435 descriptors and 7,631 authored assertions**. Thirteen
+new Scopes are eligible, `ToolScope` is organizational, and every descriptor already on main
+retains its labeling eligibility. The implementation does not require an automatic relabeling
+of value tables, empirical histograms or arbitrary digital content. Represented tool context
+does not establish learner proficiency in operating the device or software.
 
-Implementation validation passed on 2026-10-22:
+Validation of the final device/software split passed on 2026-10-22:
 
-- All ten Scopes match the approved definitions, examples and relations. Only the definition and
-  example of `TabularAlgebraicRepresentation` change among existing descriptors; ontology
-  assessment has no findings, and existing eligibility is preserved.
-- The Scope Turtle was serialized by the editor and round-trips byte for byte through its parser
-  and serializer, including entity, relation and target ordering.
-- Documentation validation passes for all 48 repository Markdown files. Independent semantic review
-  found no issues with the family placements, examples or representation boundaries.
-- The full `docker build . --output dist --progress plain` passes: TypeScript tests, source and
-  documentation validation, package checks, Python lint and typing, all 49 Python tests, and
+- All fourteen new-descriptor rows agree with the source definitions, examples and parents.
+  Ontology assessment has no findings, and existing label eligibility is preserved.
+- The Scope Turtle round-trips byte for byte through the editor's parser and serializer,
+  including entity order, relation order and sorted relation targets.
+- All 48 repository Markdown files pass documentation validation. Independent review confirms
+  the software placements, device/measurement composition and represented-tool boundaries.
+- The full `docker build . --output dist --progress plain` passes: TypeScript tests and package
+  checks, source/documentation validation, Python lint and typing, all 49 Python tests, and
   wheel, rebuilt sdist, optional-parser and typed-consumer verification.
 
 Curriculum-level acceptance remains separate: the historical audit judgments are not changed
