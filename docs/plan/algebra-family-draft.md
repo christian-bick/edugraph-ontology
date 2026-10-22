@@ -29,9 +29,12 @@ Fermat's little theorem and the coprime divisibility lemma are merged at `0af4ab
 The [2026-10-21 curriculum audit](coverage-audit-2026-10-21.md) now supplies the broader
 requirement-level coverage assessment and next extension priorities.
 The [Euclidean geometry batch](euclidean-geometry-draft.md) is merged at `5b89a92` through PR #82.
-The [cross-product, arithmetic-sum and sequence-limit draft](vector-sums-sequence-limits-draft.md)
-implements the next audit batch for review on `codex/vector-sums-sequence-limits`, including
-finite/infinite inference boundaries.
+The [cross-product, arithmetic-sum and sequence-limit record](vector-sums-sequence-limits-draft.md)
+documents the batch merged at `e6dba8b` through PR #83, including finite/infinite inference boundaries.
+The [representation and digital-tool implementation draft](representations-digital-tools-draft.md)
+adds the next audit batch for review on `codex/representations-digital-tools`: sign and variation
+tables, theoretical probability histograms, and tool contexts with measurement-tool links
+and separate digital-device and software families.
 
 Original implementation branch: `codex/algebra-refinements` (merged). Updated 2026-10-21 for
 the Calculus and statistics/probability merges and the remaining school-foundation proposals, following the NumberTheory and advanced extensions,

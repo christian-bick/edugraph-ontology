@@ -199,11 +199,16 @@ relabel content as part of the current documentation work.
    PR #82, with nets, sectors and transformation boundaries included. It reuses existing shapes and
    measurement concepts; the merge also places PythagoreanTheorem under TriangleRelations.
    Curriculum-level task verification remains separate from the successful ontology build.
-2. Review the [cross-product, arithmetic-sum and sequence-limit draft](vector-sums-sequence-limits-draft.md),
+2. The [cross-product, arithmetic-sum and sequence-limit batch](vector-sums-sequence-limits-draft.md)
+   is merged through PR #83: five Areas in existing families and a broader LimitLaws definition,
    including finite/signed-infinite limit rules and the boundary between finite evidence and proof.
-   The draft branch implements five Areas in existing families and a broader LimitLaws definition;
-   curriculum-level acceptance remains separate from source and build validation.
-3. Resolve sign/variation tables, theoretical probability diagrams and digital-tool Scopes.
+   Curriculum-level acceptance remains separate from source and build validation.
+3. Review the [representation and digital-tool implementation draft](representations-digital-tools-draft.md)
+   on `codex/representations-digital-tools`: fourteen new Scopes for sign/variation tables,
+   theoretical probability histograms and tool contexts, including device/software distinctions
+   and measurement-tool links, plus a broader tabular definition.
+   Existing graphical compositions cover density and cumulative-distribution plots; programming
+   knowledge and software-operation proficiency remain separate questions.
 4. Decide the computing/cryptography boundary, then cover optional Markov/enrichment requirements
    to the desired advanced-school depth.
 5. Repair CCSS source data, recheck the canonical Bavarian pages once accessible, and decide whether
