@@ -676,7 +676,7 @@
     rdfs:isDefinedBy "The conditions, tools, and representations through which quantities or measurable attributes are determined or supplied.";
     rdfs:comment "Counting objects, reading an instrument, or interpreting a provided measurement.".
 :MeasurementTool a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "An instrument, device, or graduated representation used to determine or compare measurable quantities such as length, angle, mass, temperature, or time.";
+    rdfs:isDefinedBy "An instrument, device, or representation of one used to determine or compare measurable quantities.";
     rdfs:comment "A ruler aligned with a segment, a protractor measuring an angle, a balance scale comparing masses, or a clock showing a time of day.";
     edu:partOf :ToolScope.
 :MediatedRelation a owl:NamedIndividual, edu:Scope;
