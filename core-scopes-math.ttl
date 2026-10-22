@@ -42,7 +42,8 @@
     rdfs:isDefinedBy "Time represented by the positions of hands on a graduated clock dial.";
     rdfs:comment "An hour hand between 3 and 4 with the minute hand at 6 to show half past three.";
     edu:integrates :HalfHourIntervals, :HourIntervals, :MinuteIntervals, :QuarterHourIntervals, :SecondIntervals;
-    edu:partOf :TimeMeasurement.
+    edu:partOf :TimeMeasurement;
+    edu:specializes :MeasurementTool.
 :AngleCount a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The identification and quantification of angles that constitute the physical structure of an object.";
     edu:specializes :ShapeAttributes.
@@ -69,7 +70,8 @@
     rdfs:isDefinedBy "A device or representation that compares mass by balancing loads on opposing sides.";
     rdfs:comment "Balancing an object against known masses.";
     edu:integrates :GramScale, :KilogramScale;
-    edu:partOf :WeightMeasurement.
+    edu:partOf :WeightMeasurement;
+    edu:specializes :MeasurementTool.
 :Banknotes a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Currency represented by paper or polymer notes with stated monetary values.";
     rdfs:comment "Two ten-euro notes used to represent twenty euros.";
@@ -126,7 +128,8 @@
     rdfs:isDefinedBy "Dates and time intervals represented through an ordered arrangement of days, weeks, months, and years.";
     rdfs:comment "Finding the number of days between two marked calendar dates.";
     edu:integrates :DayIntervals, :MonthIntervals, :WeekIntervals, :YearIntervals;
-    edu:partOf :TimeMeasurement.
+    edu:partOf :TimeMeasurement;
+    edu:specializes :MeasurementTool.
 :CardinalDirections a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The primary orientation indicators of North, South, East, and West.";
     edu:specializes :CompassDirections.
@@ -186,7 +189,7 @@
 :ComputerAlgebraSystem a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A digital tool that manipulates symbolic mathematical expressions and relations.";
     rdfs:comment "Factoring x^2 + 5x + 6 symbolically.";
-    edu:specializes :DigitalMathematicsTool.
+    edu:specializes :DigitalTool.
 :ConstraintTransformationScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Operations supplied or required in proposed or performed transformations of equations, inequalities, or systems. Preservation of solution sets depends on the stated domain and side conditions.";
     rdfs:comment "Squaring both sides of x = 2 over the reals; dividing x(x - 1) = 0 by x.".
@@ -293,15 +296,18 @@
     rdfs:isDefinedBy "Time represented by numerical digits on a clock display.";
     rdfs:comment "A display reading 14:35.";
     edu:integrates :HourIntervals, :MinuteIntervals, :SecondIntervals;
-    edu:partOf :TimeMeasurement.
-:DigitalMathematicsTool a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "A digital tool supplied or explicitly used for mathematical calculation, representation, or investigation.";
-    rdfs:comment "Suitable mathematics software used to investigate successive matrix products.".
+    edu:partOf :TimeMeasurement;
+    edu:specializes :DigitalTool, :MeasurementTool.
 :DigitalScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A weighing device or representation that reports a measured value on a numerical display.";
     rdfs:comment "Reading 250 grams from a scale's display.";
     edu:integrates :GramScale, :KilogramScale, :MilligramScale;
-    edu:partOf :WeightMeasurement.
+    edu:partOf :WeightMeasurement;
+    edu:specializes :MeasurementTool.
+:DigitalTool a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "A digital device or software application supplied or required for calculation, representation, or investigation.";
+    rdfs:comment "Software used to investigate successive matrix products, a graphing utility plotting functions, or a calculator evaluating a trigonometric expression.";
+    edu:partOf :ToolScope.
 :DimensionalAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Spatial dimensions with or without time or hyperdimensional concepts.";
     edu:partOf :AbstractionScope.
@@ -340,7 +346,7 @@
 :DynamicGeometrySoftware a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Interactive software for constructing and exploring geometric objects and their dependencies as objects or parameters change.";
     rdfs:comment "Moving a triangle vertex while its constructed perpendicular bisectors update.";
-    edu:specializes :DigitalMathematicsTool.
+    edu:specializes :DigitalTool.
 :East a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The cardinal direction East.";
     edu:specializes :CardinalDirections.
@@ -498,7 +504,7 @@
 :GraphingTool a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A digital tool that plots and explores mathematical relationships in a coordinate system.";
     rdfs:comment "Plotting two functions and adjusting the viewing window to investigate their intersections.";
-    edu:specializes :DigitalMathematicsTool.
+    edu:specializes :DigitalTool.
 :Greater a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The comparison of two entities where one has a larger quantity, size, or value than the other.";
     edu:specializes :OrderAbstraction.
@@ -617,7 +623,8 @@
     rdfs:isDefinedBy "A device or representation that determines distance using a laser-based measurement.";
     rdfs:comment "Reading a room's length from a laser distance meter.";
     edu:integrates :MicrometerScale;
-    edu:partOf :LengthMeasurement.
+    edu:partOf :LengthMeasurement;
+    edu:specializes :MeasurementTool.
 :Least a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The comparison of three or more entities to identify the one with the smallest quantity, size, or value.";
     edu:expands :Less;
@@ -668,6 +675,10 @@
 :MeasurementScope a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The conditions, tools, and representations through which quantities or measurable attributes are determined or supplied.";
     rdfs:comment "Counting objects, reading an instrument, or interpreting a provided measurement.".
+:MeasurementTool a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "An instrument, device, or graduated representation used to determine or compare measurable quantities such as length, angle, mass, temperature, or time.";
+    rdfs:comment "A ruler aligned with a segment, a protractor measuring an angle, a balance scale comparing masses, or a clock showing a time of day.";
+    edu:partOf :ToolScope.
 :MediatedRelation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A target relation inferred from a chain of compatible relations containing at least one intermediary entity.";
     rdfs:comment "Deriving A > B from A > C and C > B, x = z from x = y and y = z, or event A before C from event A before B and event B before C.";
@@ -999,7 +1010,7 @@
 :NumericalCalculator a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A digital tool that evaluates numerical expressions and functions.";
     rdfs:comment "A calculator used to approximate sin(35 degrees).";
-    edu:specializes :DigitalMathematicsTool.
+    edu:specializes :DigitalTool.
 :NumericBase a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The base that determines how places or symbols in a numeral system represent numerical values.";
     rdfs:comment "Binary, octal, decimal, or hexadecimal positional notation.";
@@ -1097,7 +1108,8 @@
     rdfs:isDefinedBy "A rigid straightedge with a graduated scale used to determine or compare lengths.";
     rdfs:comment "Reading the length of an object aligned with a marked ruler.";
     edu:integrates :CentimeterScale, :MillimeterScale;
-    edu:partOf :LengthMeasurement.
+    edu:partOf :LengthMeasurement;
+    edu:specializes :MeasurementTool.
 :PictureGraph a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Categorical quantities represented by repeated pictures or symbols with a stated numerical value per symbol.";
     rdfs:comment "A row of symbols showing how many votes a category received.";
@@ -1175,7 +1187,8 @@
     rdfs:isDefinedBy "A graduated instrument or representation used to measure or construct angles.";
     rdfs:comment "Aligning an angle's vertex and one ray with a protractor and reading the other ray's position.";
     edu:integrates :DegreeScale;
-    edu:partOf :AngleMeasurement.
+    edu:partOf :AngleMeasurement;
+    edu:specializes :MeasurementTool.
 :ProvidedMeasurement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Measurement values supplied explicitly as recorded data for interpretation or computation without requiring direct observation of their source objects.";
     rdfs:comment "A stated length of 12 centimeters or a table of recorded temperatures.";
@@ -1246,7 +1259,8 @@
     rdfs:isDefinedBy "Elapsed time represented by the transfer of sand between connected chambers of a timing device.";
     rdfs:comment "Timing an interval by waiting for the upper chamber to empty.";
     edu:integrates :HourIntervals, :MinuteIntervals;
-    edu:partOf :TimeMeasurement.
+    edu:partOf :TimeMeasurement;
+    edu:specializes :MeasurementTool.
 :ScatteredArrangement a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The irregular positioning and non-uniform organization of objects.";
     edu:specializes :ObjectArrangement.
@@ -1359,7 +1373,7 @@
 :Spreadsheet a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A digital grid of cells whose formulas reference values and recalculate dependent results.";
     rdfs:comment "Successive rows computing Newton iterates from the preceding row.";
-    edu:specializes :DigitalMathematicsTool.
+    edu:specializes :DigitalTool.
 :SquareCentimeterScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "The square centimeter unit or scale for surface measurement.";
     edu:integrates :CentimeterScale;
@@ -1409,7 +1423,7 @@
 :StatisticalSoftware a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A digital tool that computes statistical summaries, fits models, or performs statistical inference from data.";
     rdfs:comment "Selecting a t-test for a dataset and interpreting the reported p-value.";
-    edu:specializes :DigitalMathematicsTool.
+    edu:specializes :DigitalTool.
 :StemAndLeafPlot a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Numerical observations arranged into shared leading-digit stems and trailing-digit leaves under a stated key.";
     rdfs:comment "The row 2 | 1 4 8 representing 21, 24, and 28.";
@@ -1462,7 +1476,8 @@
     rdfs:isDefinedBy "A timing device or representation that records elapsed time between an explicit start and stop.";
     rdfs:comment "Measuring the duration of a race.";
     edu:integrates :HourIntervals, :MillisecondIntervals, :MinuteIntervals, :SecondIntervals;
-    edu:partOf :TimeMeasurement.
+    edu:partOf :TimeMeasurement;
+    edu:specializes :MeasurementTool.
 :Straightedge a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A straight-edged guide used to draw or align straight lines without relying on a graduated scale.";
     rdfs:comment "Using the edge of a ruler to join two constructed points without reading its markings.";
@@ -1476,7 +1491,8 @@
     rdfs:isDefinedBy "Time represented by the position of a shadow cast by sunlight on a marked surface.";
     rdfs:comment "Reading the hour indicated by a sundial's shadow.";
     edu:integrates :HourIntervals;
-    edu:partOf :TimeMeasurement.
+    edu:partOf :TimeMeasurement;
+    edu:specializes :MeasurementTool.
 :SymbolicAlgebraicRepresentation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Algebraic quantities, expressions, constraints, or functions expressed using mathematical symbols and notation.";
     rdfs:comment "3x + 2; 2x + 3 = 11; f(x) = x^2.";
@@ -1493,7 +1509,8 @@
     rdfs:isDefinedBy "A flexible graduated tape used to measure distances or the lengths of straight or curved objects.";
     rdfs:comment "Measuring a curved boundary with a measuring tape.";
     edu:integrates :CentimeterScale, :MeterScale, :MillimeterScale;
-    edu:partOf :LengthMeasurement.
+    edu:partOf :LengthMeasurement;
+    edu:specializes :MeasurementTool.
 :TemperatureAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Temperature or thermal concepts.";
     edu:partOf :AbstractionScope.
@@ -1524,7 +1541,8 @@
     rdfs:isDefinedBy "An instrument or representation that indicates temperature on a graduated or numerical scale.";
     rdfs:comment "Reading the indicated temperature from a liquid-column thermometer.";
     edu:integrates :CelsiusScale, :KelvinScale;
-    edu:partOf :TemperatureMeasurement.
+    edu:partOf :TemperatureMeasurement;
+    edu:specializes :MeasurementTool.
 :ThirdFractions a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Fractions characterized by a denominator of three.";
     edu:specializes :CommonDenominator.
@@ -1579,11 +1597,15 @@
 :TonneScale a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Weights measured in metric tons (tonnes).";
     edu:specializes :MetricWeightScale.
+:ToolScope a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Physical or digital instruments, devices, and software tools supplied or required to perform a task.";
+    rdfs:comment "A ruler used to measure a segment, a balance scale comparing masses, or graphing software used to inspect a function.".
 :TriangleRuler a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A triangular straightedge with fixed reference angles and a graduated length scale.";
     rdfs:comment "Using its right-angle corner to construct perpendicular lines or its scale to measure a segment.";
     edu:integrates :CentimeterScale, :DegreeScale, :MillimeterScale;
-    edu:partOf :AngleMeasurement.
+    edu:partOf :AngleMeasurement;
+    edu:specializes :MeasurementTool.
 :TwentiethDenomination a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "A denomination worth one twentieth of its associated major denomination.";
     edu:specializes :MinorDenomination;
