@@ -639,8 +639,9 @@ The full `docker build . --output dist --progress plain` passes for the final wo
 TypeScript/client and ontology checks, documentation and npm package/browser validation,
 Python lint and strict typing, all 49 Python tests, and wheel/sdist consumer verification.
 
-Euler's totient theorem, Wilson's theorem and broader cryptography remain separate optional
-extensions; no application family is added merely for a context. The listed gap batches are
+Euler's totient theorem and Wilson's theorem remain separate optional extensions. Encryption,
+keys and cryptographic protocols are [excluded from the current extension scope](coverage-audit-2026-10-21.md#programming-excluded-from-the-current-extension-scope).
+The listed gap batches are
 now merged. The [curriculum audit](coverage-audit-2026-10-21.md) tests individual requirements
 and identifies further gaps; this batch list is not a completeness claim.
 

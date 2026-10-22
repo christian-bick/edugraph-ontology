@@ -10,7 +10,13 @@ The web tool returned the full official-domain indexed page at the canonical URL
 
 Counts: **1 direct, 17 compositional, 3 mathematical gaps, 5 representation/tool-context gaps**. The five tool-context rows have mathematical coverage. All **108 mapped identifiers** exist in the correct dimension and have no constituent children. Generic roots are not coverage evidence.
 
+Scope decision, 2026-10-22: [programming is intentionally excluded](coverage-audit-2026-10-21.md#programming-excluded-from-the-current-extension-scope) from the current extension. In BAV-V12-4-01, retain the Euclidean-algorithm mathematics and exclude the programmed implementation requirement. The historical rows and counts remain unchanged; mathematical use of spreadsheet/software tools is not excluded merely because the tool is digital.
+
 D = direct; C = compositional; G = mathematical gap; R = definition/representation/tool gap. Candidate names below are proposals, not existing coverage IDs.
+
+The same scope decision excludes encryption/decryption, keys and cryptographic protocols,
+including BAV-V12-4-04 / BAV-V-G3. Markov-chain absorption and convergence remain in scope;
+BAV-V12-3-06 / BAV-V-G2 is included in the next mathematics batch.
 
 | Row | Curriculum reference | Requirement cue | Existing Areas / Abilities / Scopes | Judgment and boundary |
 |---|---|---|---|---|
@@ -62,6 +68,9 @@ State reachability and absorption assumptions must identify the relevant solutio
 Affected rows: `BAV-V12-3-06`.
 
 ### BAV-V-G3 — RSAEncryption
+
+**Excluded from the current extension scope.** The following is the historical audit proposal,
+retained for traceability; it is not pending work.
 
 No eligible descriptor identifies RSA key construction, public/private roles and encryption/decryption.
 

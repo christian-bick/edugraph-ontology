@@ -26,6 +26,19 @@
     rdfs:comment "Interpreting f(-3) = f(3) = 3 for f(x) = |x|; relating g(x) = -2|x - 3| + 4 to the basic absolute-value relationship.";
     edu:expands :AbsoluteNumberMagnitude;
     edu:specializes :NumericFunction.
+:AbsorbingMarkovChain a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A finite, time-homogeneous Markov chain in which every state can reach an absorbing state through transitions of positive probability. An absorbing state cannot be left once entered.";
+    rdfs:comment "States A and B are absorbing; from C, the next state is A, B or C with probabilities 0.2, 0.3 and 0.5.";
+    edu:specializes :FiniteMarkovChain.
+:AbsorptionProbability a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The probability that a finite, time-homogeneous Markov chain eventually enters a specified absorbing state or set of absorbing states, given its initial state or distribution.";
+    rdfs:comment "With A and B absorbing and C moving to A, B or C with probabilities 0.2, 0.3 and 0.5, eventual absorption in A from C has probability 0.4.";
+    edu:partOf :StochasticProcesses.
+:AbsorptionProbabilityEquations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "First-step equations for eventual absorption probabilities in a finite, time-homogeneous Markov chain, with value one on the target absorbing states and the least nonnegative solution selected elsewhere.";
+    rdfs:comment "With A and B absorbing and C moving to A, B or C with probabilities 0.2, 0.3 and 0.5, the probability of absorption in A satisfies h(A)=1, h(B)=0 and h(C)=0.2+0.5h(C), giving h(C)=0.4.";
+    edu:integrates :AbsorptionProbability, :TotalProbabilityTheorem;
+    edu:partOf :StochasticProcesses.
 :AccumulationFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The function A(x)=integral_a^x f(t) dt formed by holding a starting input fixed and varying an endpoint where the intervening integrals exist.";
     rdfs:comment "For f(t)=2t and a=1, A(x)=x^2-1.";
@@ -1154,9 +1167,19 @@
     rdfs:isDefinedBy "The identity equating the sum of n geometric terms beginning with a, of common ratio r, to a(1 - r^n)/(1 - r) for positive integer n and r != 1. For r = 1, the sum is na.";
     rdfs:comment "3 + 6 + 12 + 24 = 3(1 - 2^4)/(1 - 2) = 45.";
     edu:specializes :AlgebraicEquivalence.
+:FiniteMarkovAbsorptionTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The guarantee that a finite, time-homogeneous Markov chain in which every state can reach an absorbing state eventually enters some absorbing state with probability one.";
+    rdfs:comment "With A and B absorbing and C moving to A, B or C with probabilities 0.2, 0.3 and 0.5, the probability of remaining in C after n steps is 0.5^n and tends to zero.";
+    edu:integrates :AbsorbingMarkovChain;
+    edu:partOf :StochasticProcesses.
 :FiniteMarkovChain a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A process on a finite state set whose next-state distribution, given its history, depends only on the present state.";
     rdfs:comment "A two-state weather model whose tomorrow probabilities depend on today but not earlier weather.";
+    edu:partOf :StochasticProcesses.
+:FiniteMarkovConvergenceTheorem a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The guarantee that a finite, time-homogeneous, irreducible and aperiodic Markov chain has a unique stationary distribution and that its state distribution converges to it from every initial distribution.";
+    rdfs:comment "For P=[[0.8,0.2],[0.3,0.7]], every initial distribution converges to the stationary distribution [0.6,0.4].";
+    edu:integrates :MarkovChainIrreducibility, :MarkovChainPeriodicity, :StationaryDistribution;
     edu:partOf :StochasticProcesses.
 :FiniteSetCardinality a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The number of distinct elements in a finite set, independent of their order or repeated listing.";
@@ -1902,6 +1925,15 @@
     rdfs:comment "An estimate 0.46 with interval [0.42, 0.50] has a margin of error of 0.04 on each side.";
     edu:integrates :ConfidenceInterval;
     edu:partOf :StatisticalEstimation.
+:MarkovChainIrreducibility a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Mutual reachability of every pair of states through transitions of positive probability in a finite, time-homogeneous Markov chain.";
+    rdfs:comment "The chain with P=[[0,1],[1,0]] is irreducible; the chain with P=[[1,0],[0,1]] is not.";
+    edu:partOf :StochasticProcesses.
+:MarkovChainPeriodicity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The greatest common divisor of the possible positive return times to a state of a finite, time-homogeneous Markov chain, when such returns exist. Period one defines an aperiodic state.";
+    rdfs:comment "In P=[[0,1],[1,0]], each state has period two; in P=[[0.8,0.2],[0.3,0.7]], each state has period one.";
+    edu:integrates :GreatestCommonDivisor;
+    edu:partOf :StochasticProcesses.
 :MarkovInequality a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The bound P(X >= a) <= E(X)/a for nonnegative X with finite expectation and a > 0.";
     rdfs:comment "A nonnegative waiting time with mean two minutes exceeds or equals ten minutes with probability at most 0.2.";
