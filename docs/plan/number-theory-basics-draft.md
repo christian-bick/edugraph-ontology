@@ -577,8 +577,9 @@ Recommended implementation sequence after choosing a draft:
    criteria. Each gets concise definitions, contrasting tasks, and a progression review;
    course order alone supplies no progression edges.
 3. **Broader introductory course coverage:** develop modular power results and residues,
-   arithmetic functions, continued fractions, and selected Diophantine families. Keep
-   applications such as cryptography compositional unless they add independent knowledge.
+   arithmetic functions, continued fractions, and selected Diophantine families. Modular
+   arithmetic remains mathematical knowledge; encryption, keys and cryptographic protocols
+   are [excluded from the current extension scope](coverage-audit-2026-10-21.md#programming-excluded-from-the-current-extension-scope).
 4. **Later specialization:** revisit specific numerical extensions, algebraic structures,
    and analytic methods with their own evidence. Preserve the previously deferred complex,
    linear-algebra, and calculus stages rather than treating this tree as their implementation.

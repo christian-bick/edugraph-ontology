@@ -2,9 +2,10 @@
 
 The ontology covers most of the selected curricula through existing concepts and defensible
 compositions, but **complete requirement-level coverage is not yet established**. At the audit
-baseline, the largest remaining mathematical batch was elementary Euclidean geometry. Smaller advanced-school gaps
-concern the cross product, arithmetic sums and sequence-limit theorems. Representation boundaries
-and programming requirements need separate treatment.
+baseline, the largest remaining mathematical batch was elementary Euclidean geometry. Smaller
+advanced-school gaps concerned the cross product, arithmetic sums and sequence-limit theorems.
+Those batches and the representation/tool follow-ups are now merged. Programming requirements
+are deliberately excluded from the current extension scope, as recorded below.
 
 At the time of this audit, the ontology checkout was on `main`, fast-forwarded to
 `0af4aba97731e49cbff3ac51ca9ef519d174a945` after
@@ -13,9 +14,13 @@ baseline: **1,374 descriptors and 7,308 authored assertions**. The audit changes
 only; proposed follow-ups below were not additional authored descriptors at that baseline.
 The subsequent [Euclidean geometry batch](euclidean-geometry-draft.md) is merged at `5b89a92`
 through [PR #82](https://github.com/christian-bick/edugraph-ontology/pull/82). The
-[cross-product, arithmetic-sum and sequence-limit draft](vector-sums-sequence-limits-draft.md)
-implements the next batch for review on `codex/vector-sums-sequence-limits`. The counts and
-judgments here retain the original audit baseline.
+[cross-product, arithmetic-sum and sequence-limit batch](vector-sums-sequence-limits-draft.md)
+is merged at `e6dba8b` through PR #83. The
+[representation and tool-context batch](representations-digital-tools-draft.md) is merged at
+`d04c0d3` through [PR #84](https://github.com/christian-bick/edugraph-ontology/pull/84), including
+the final simplification to `DigitalTool` and `SoftwareTool` without a separate `DigitalDevice`.
+The counts and judgments below retain the original audit baseline; the
+[implementation order](#suggested-implementation-order-and-exit-criteria) records current progress.
 
 ## Sources and scope
 
@@ -47,6 +52,35 @@ German Länder, French complementary/technological tracks and examination-specif
 are outside this selected advanced-course audit. France explicitly inherits seconde automatisms;
 that requirement is marked unverified rather than silently counted as covered. CCSS K–8 provides
 a separate broad elementary/middle-school check, not proof of equivalence to those prerequisites.
+
+## Programming excluded from the current extension scope
+
+Decision recorded on 2026-10-22: **programming is intentionally excluded from this mathematics
+ontology extension**. It is not a pending implementation batch or a condition for completing
+the agreed scope. This includes program variables and types, assignment, control flow, loops as
+program constructs, computer functions, lists and other data structures, language syntax, and
+writing or debugging code implementations of algorithms.
+
+Mathematical variables, functions, sequences, iteration, algorithms and their correctness remain
+mathematical knowledge when studied independently of code. Calculator, CAS, spreadsheet and
+other software contexts remain covered by the tool Scopes where evidenced. These Scopes do not
+establish programming knowledge or general proficiency in operating an application.
+
+Historical audit rows retain their original requirements and judgments. Programming-only
+requirements are deliberately excluded from the current extension; mixed requirements keep
+their mathematical component in scope and exclude their code implementation component.
+For example, the Euclidean algorithm remains relevant while its programmed implementation
+in BAV-V12-4-01 is excluded. This decision does not turn an unmet programming requirement into
+a covered one or establish unrestricted coverage of the full curricula.
+
+The scope clarification also excludes **encryption/decryption, keys and cryptographic protocols**
+as computer-science knowledge, including RSA. FR-EXP-N09, FR-EXP-N22, FR-EXP-N25 and
+BAV-V12-4-04 remain historical curriculum evidence, not pending ontology work. Their underlying
+number theory remains in scope independently of cryptographic applications.
+
+**Markov-chain absorption and convergence are explicitly in scope** and are implemented for
+review in the [next mathematics batch](markov-absorption-convergence-draft.md), including eventual
+absorption probabilities and convergence guarantees.
 
 ## Method and interpretation
 
@@ -158,22 +192,25 @@ identified as direct or compositional in the inventories.
   functions. Decide separately whether arbitrary-set functions need a broader formal concept.
 - **Definition polish:** VerticalAngles should explicitly state equality as well as identify the pair.
 
-### 4. Programming and the strongest optional courses
+### 4. Excluded programming and further mathematical extensions
 
 French algorithmic/programming expectations involve mutable variables, assignment, types,
 conditionals, loops, computer functions, lists and Python syntax. Mathematical Variable,
 FunctionComposition, Iteration and ProcedureExecution do not fully describe that knowledge.
-Plan this as reusable computing/programming foundations if curriculum-wide coverage is desired;
-keep mathematical algorithms and their code implementation distinct.
+These requirements are now deliberately excluded by the
+[scope decision](#programming-excluded-from-the-current-extension-scope), rather than queued
+as computing/programming foundations. Keep mathematical algorithms and their code implementation distinct.
 
 Encryption arithmetic can often reuse congruences, modular inverses and number-theory results.
-Encryption/decryption, keys and protocol meaning are separate knowledge. The optional Bavarian
-enrichment audit checks RSA explicitly and also checks eventual absorption in finite Markov
-chains. StationaryDistribution correctly does not guarantee convergence or absorption.
+Encryption/decryption, keys and protocol meaning are excluded computer-science knowledge.
+The optional Bavarian enrichment audit records RSA as historical curricular content, while
+eventual absorption in finite Markov chains is implemented for review in the
+[Markov batch](markov-absorption-convergence-draft.md).
+StationaryDistribution correctly does not guarantee convergence or absorption.
 
 The French appendix preserves optional extensions such as Euler trails, Markov convergence,
-additional polynomial results and more specialized number theory. They are future choices,
-not an instruction to implement every optional problem. Similarly, illustrative algorithms such
+additional polynomial results and more specialized number theory. Markov convergence is now
+implemented for review in that batch; the others remain future choices. Illustrative algorithms such
 as bisection/secant methods must not be silently promoted to compulsory content.
 
 ## Source-data repairs, separate from ontology changes
@@ -203,14 +240,16 @@ relabel content as part of the current documentation work.
    is merged through PR #83: five Areas in existing families and a broader LimitLaws definition,
    including finite/signed-infinite limit rules and the boundary between finite evidence and proof.
    Curriculum-level acceptance remains separate from source and build validation.
-3. Review the [representation and digital-tool implementation draft](representations-digital-tools-draft.md)
-   on `codex/representations-digital-tools`: fourteen new Scopes for sign/variation tables,
-   theoretical probability histograms and tool contexts, including device/software distinctions
-   and measurement-tool links, plus a broader tabular definition.
-   Existing graphical compositions cover density and cumulative-distribution plots; programming
-   knowledge and software-operation proficiency remain separate questions.
-4. Decide the computing/cryptography boundary, then cover optional Markov/enrichment requirements
-   to the desired advanced-school depth.
+3. The [representation and tool-context batch](representations-digital-tools-draft.md) is merged
+   through PR #84: thirteen new Scopes for sign/variation tables, theoretical probability
+   histograms and tool contexts, including the `ToolScope` organizer, software specialization
+   and measurement-tool links, plus a broader tabular definition. Existing graphical compositions
+   cover density and cumulative-distribution plots. Programming is deliberately excluded.
+4. Review the [Markov-chain absorption and convergence implementation](markov-absorption-convergence-draft.md)
+   on `codex/markov-absorption-convergence`: seven Areas for eventual absorption probabilities
+   (BAV-V12-3-06 / BAV-V-G2) and convergence guarantees (FR-EXP-M14, optional in the curriculum
+   but explicitly included in this extension). Programming, encryption/key concepts and
+   cryptographic protocols are excluded from the work list.
 5. Repair CCSS source data, recheck the canonical Bavarian pages once accessible, and decide whether
    to audit the explicitly excluded prerequisite catalogues and future French programme in full.
 

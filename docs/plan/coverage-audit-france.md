@@ -4,7 +4,14 @@
 
 Ontology baseline: `0af4aba97731e49cbff3ac51ca9ef519d174a945`. Audit date: 2026-10-21.
 
-The current mathematical coverage is substantial, but it is not complete. Core mathematical gaps include arithmetic finite-sum identities and the monotone bounded-convergence and increasing-unbounded-divergence guarantees. Narrow definition/representation follow-ups remain for signed-infinite limit rules and sign/variation tables. Programming is a distinct curricular knowledge gap; broad procedural abilities do not fill it.
+At the audit baseline, mathematical coverage was substantial but incomplete. Core mathematical gaps included arithmetic finite-sum identities and the monotone bounded-convergence and increasing-unbounded-divergence guarantees. Definition/representation follow-ups included signed-infinite limit rules and sign/variation tables. Subsequent implementation progress is recorded in the [main audit roadmap](coverage-audit-2026-10-21.md#suggested-implementation-order-and-exit-criteria).
+
+Scope decision, 2026-10-22: [programming is intentionally excluded](coverage-audit-2026-10-21.md#programming-excluded-from-the-current-extension-scope) from the current ontology extension. Programming rows and the historical counts below remain evidence of curricular requirements, not pending work within the agreed scope. In mixed rows, the mathematical component remains relevant; its code implementation is excluded. Broad procedural Abilities and software-tool Scopes do not fill programming knowledge gaps.
+
+The same scope decision excludes encryption/decryption, key concepts and cryptographic protocols
+in FR-EXP-N09, FR-EXP-N22 and FR-EXP-N25. Their historical judgments remain below, but these
+are not pending work. Markov-chain absorption and convergence remain in scope; FR-EXP-M14
+is included in the next mathematics batch despite its optional curricular status.
 
 ## Programme versions
 

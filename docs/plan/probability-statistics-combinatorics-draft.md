@@ -7,6 +7,11 @@ Baseline: merged `main` at `5f521686e01d20befb494f5af178e0f02c21e372`, including
 [Calculus PR #74](https://github.com/christian-bick/edugraph-ontology/pull/74).
 Authored sources: [Areas](../../core-areas-math.ttl) and [Scopes](../../core-scopes-math.ttl).
 
+The [Markov-chain absorption and convergence follow-up](markov-absorption-convergence-draft.md)
+adds seven Areas under the existing stochastic-process family on
+`codex/markov-absorption-convergence` for review. It is not part of the merged implementation
+counts below.
+
 ## Scope and structure
 
 Probability models random outcomes and quantities; Statistics concerns observed data and the
