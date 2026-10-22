@@ -4,20 +4,59 @@
 
 Baseline: `0af4aba97731e49cbff3ac51ca9ef519d174a945`. Reviewed 2026-10-21. **179 content leaves: 127 core and 52 (+).** All 22 official domains reconcile with both local inventory representations; no missing or duplicate IDs.
 
+## Current status — 2026-10-22
+
+Reviewed against main `53e6602` after PRs #82–85. **Seventeen of the eighteen historically
+flagged high-school rows are addressed** by the merged
+[Euclidean geometry batch](euclidean-geometry-draft.md). Together with the three K–8 rows,
+this addresses 20 of the 21 flagged CCSS rows.
+
+| Historical rows | Current resolution |
+| --- | --- |
+| `G-CO.B.8`, `G-SRT.A.3`, `G-SRT.B.5` | Explicit triangle congruence and similarity criteria, including `ASATriangleCongruence`, `SASTriangleCongruence`, `SSSTriangleCongruence` and `AATriangleSimilarity`, compose with the required rigid-motion or dilation arguments. |
+| `G-CO.C.9` | Repaired `VerticalAngles`, `ParallelTransversalAngleTheorem` and `PerpendicularBisectorTheorem`. |
+| `G-CO.C.10` | `TriangleAngleSum`, `IsoscelesTriangleTheorem`, `TriangleMidsegmentTheorem` and `TriangleCentroidTheorem`. |
+| `G-CO.C.11` | Parallelogram relations, `ParallelogramDiagonalCriterion` and `RectangleDiagonalCriterion`. |
+| `G-CO.D.12`, `G-CO.D.13` | `GeometricConstructionTechnique` and its techniques compose with the relevant shapes and correctness results; instrument Scopes remain distinct from method knowledge. |
+| `G-SRT.A.1a`, `G-SRT.A.1b` | Repaired `Dilation` admits scale one and states fixed-center scaling. |
+| `G-C.A.2` | Inscribed-, diameter- and circumscribed-angle results plus tangent-radius relationships. |
+| `G-C.A.3` | Incenter/circumcenter results and construction techniques, plus `CyclicQuadrilateralAngleTheorem`. |
+| `G-C.A.4 (+)` | External tangent construction composes construction techniques, the diameter-angle result and tangent-radius converse. |
+| `G-C.B.5` | `CircularSector` and `ArcSectorProportionality` compose with arc, radian and calculation knowledge. |
+| `G-GMD.A.1`, `G-GMD.A.2 (+)` | `CavalieriPrinciple` supplies the noncalculus volume justification. |
+| `G-GMD.B.4` | `SolidOfRevolution` and `Rotation` identify rotational generation; plane sections retain their existing intersection composition. |
+
+`F-IF.A.1` remains an **optional generalization boundary**, not a reopened required gap in
+the agreed numerical scope. The accepted `NumericFunction` + `FunctionSymbol` +
+`FunctionArgument` composition, supported by notation, domain and range, is retained.
+A general arbitrary-set function would extend that boundary if later required.
+`F-IF.B.4` was already compositional: the existing zeros, monotonicity, sign, extrema,
+symmetry, end-behavior and periodicity concepts identify its named function properties.
+
+The summary counts, residual table and row judgments below preserve the **2026-10-21
+baseline**. This closure review checks the identified changes against merged descriptors;
+it does not certify every possible competency acceptance task. Source-data findings remain
+separate: the `S-ID.B.6a` omission of quadratic models was reconfirmed in the content
+repository's `public/coverage/ccss-tree.json` on 2026-10-22. See the
+[current cross-curriculum conclusion](coverage-audit-2026-10-21.md#current-mathematics-coverage--2026-10-22)
+for scope and verification limits.
+
 Local tree and flat-map inventory independently reconciled to all 22 official domain pages; PDF checked for parent qualifiers, heading stars, and transcription differences. Mappings use current eligible descriptors and include parent requirements. Composition lists are available facets/alternatives, not mandatory label bundles.
 
 This is ontology expressibility at its current granularity, not dataset/generator/target coverage or a proof that arbitrary teaching materials are fully classified. A definition-or-representation gap may be resolved by a definition/Scope decision instead of adding a new Area. Generic proof and object labels do not independently identify every theorem.
 
 **Judgments:** direct means a specific existing Area supplies the principal knowledge; composition combines eligible concepts; gap means a missing independent concept/procedure; definition-or-representation gap identifies a boundary or insufficient distinction requiring review. All listed descriptors passed existence and labeling-eligibility checks. Abilities and Scopes are prefixed B: and S:.
 
-## Summary
+## Historical baseline summary
 
 | Content set | Direct | Composition | Gap | Definition/representation boundary |
 | --- | ---: | ---: | ---: | ---: |
 | core | 7 | 104 | 11 | 5 |
 | plus | 7 | 43 | 2 | 0 |
 
-## Residual questions and representative tasks
+## Historical baseline residual questions and representative tasks
+
+Current dispositions are above; the following table retains the original findings and probes.
 
 | Standard | Classification | Reason | Probe |
 | --- | --- | --- | --- |

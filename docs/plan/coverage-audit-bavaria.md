@@ -6,6 +6,25 @@ Audit date: 2026-10-21. Ontology baseline: `0af4aba97731e49cbff3ac51ca9ef519d174
 
 **Scope:** Bavaria Gymnasium Mathematik 11 and regular elevated-level Mathematik 12–13; not Germany nationally, not all Länder. Grades 12–13 are the regular course on elevated level. The optional Vertiefungskurs is audited in the [separate enrichment appendix](coverage-audit-bavaria-enrichment.md) and is excluded from this regular-course denominator. This is an ontology coverage audit, not a statement about generated curriculum content or learner mastery.
 
+## Current status — 2026-10-22
+
+Reviewed against main `53e6602` after PRs #82–85. The identified in-scope mathematical
+and representation follow-ups are addressed:
+
+| Historical residual / rows | Current resolution |
+| --- | --- |
+| BAV-G1 / `BAV-12-5-04` | `CrossProduct`, merged in PR #83, supplies the oriented three-dimensional vector operation, including zero for dependent inputs. |
+| BAV-PR1 / `BAV-12-2-02`, `BAV-13-2-01` | `ProbabilityHistogram`, merged in PR #84, identifies the theoretical probability representation, preserving the bar-area/height distinction. |
+| BAV-PR2 / cross-cutting tool context | PR #84 supplies `SoftwareTool`, `Spreadsheet`, `DigitalGeometryTool`, `DigitalGraphingTool`, `DigitalAlgebraTool` and `StatisticalTool` where evidenced. A tool Scope identifies context, not general software proficiency. |
+| BAV-U1 / source freshness | Still open as a verification limit. Canonical grade 11 and 13 routes were rechecked on 2026-10-22 and still show maintenance through 23 October; grade 12 `/regulaer` still returns 403. |
+
+Programming and cryptography are excluded from the agreed mathematics extension scope.
+The counts, residual descriptions and row judgments below preserve the **2026-10-21
+baseline**, rather than current missing-work totals. The merged concepts address the
+identified requirements in the retrieved text; this is not a new unconditional claim of
+current curriculum completeness. See the
+[current cross-curriculum conclusion](coverage-audit-2026-10-21.md#current-mathematics-coverage--2026-10-22).
+
 ## Source status and limits
 
 - **BAV-S11:** [LehrplanPLUS Gymnasium Mathematik 11](https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium%20/11/mathematik). Complete 262-line indexed official text returned; tool crawl label: last week. Canonical route returns security maintenance through 23 October 2026. [Canonical route](https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/11/mathematik).
@@ -19,7 +38,7 @@ The rows cover every content/competency bullet in the retrieved selected courses
 
 Out of scope: the full grade5–10 prerequisite catalogue, optional Vertiefungskurs, W-Seminar, school-specific software packages and general career/cultural/interdisciplinary awareness. A broad application bullet does not certify every earlier-school theorem. No claim of German national completeness is made.
 
-## Judgments
+## Historical baseline judgments
 
 - **Direct:** existing eligible substantive descriptor(s) state the required mathematical knowledge.
 - **Compositional:** existing eligible descriptors jointly capture it; any formula or procedure relation needed for the composition is explained in caveats.
@@ -27,9 +46,11 @@ Out of scope: the full grade5–10 prerequisite catalogue, optional Vertiefungsk
 - **Definition/representation gap:** the mathematics is available but exact wording/context is not faithfully identified.
 - **Unverifiable:** source currency or unavailable requirement evidence prevents a firm claim; source freshness affects all rows as recorded above.
 
-Provisional text-level totals: **18 direct, 57 compositional, 2 definition/representation gaps, 1 mathematical gap**. These are bullet counts, not equal-weight mastery or completeness percentages. The two representation-gap bullets have their mathematical content covered. PR2 is a cross-cutting context issue rather than 78 duplicated failures.
+Historical provisional text-level totals: **18 direct, 57 compositional, 2 definition/representation gaps, 1 mathematical gap**. These are bullet counts, not equal-weight mastery or completeness percentages. The two representation-gap bullets have their mathematical content covered. PR2 is a cross-cutting context issue rather than 78 duplicated failures.
 
-## Concrete residuals
+## Historical baseline residuals
+
+The original findings are retained below; current dispositions are recorded above.
 
 ### BAV-G1: The real three-dimensional cross product is absent.
 

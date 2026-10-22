@@ -6,9 +6,31 @@ Baseline: `0af4aba97731e49cbff3ac51ca9ef519d174a945`; checked 2026-10-21. Separa
 
 The [official Vertiefungskurs programme](https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/12/mathematik/vertieft) offers five modules; the teacher chooses three. All five are inventoried here: 26 competency bullets. These elective offerings are not additional requirements for every Bavarian mathematics student.
 
+## Current status — 2026-10-22
+
+Reviewed against main `53e6602` after PRs #82–85. The identified mathematical follow-ups
+within the agreed scope are addressed, and cryptography is excluded:
+
+| Historical residual / rows | Current resolution |
+| --- | --- |
+| BAV-V-G1 / `BAV-V12-2-03` | `MonotoneSequenceConvergenceTheorem`, merged in PR #83, supplies the bounded-monotone real-sequence guarantee. |
+| BAV-V-G2 / `BAV-V12-3-06` | PR #85 supplies `AbsorptionProbability`, `AbsorptionProbabilityEquations` and `FiniteMarkovAbsorptionTheorem`, with the boundary conditions and eventual-absorption assumptions needed to distinguish finite-step computation from a limit claim. |
+| BAV-V-G3 / `BAV-V12-4-04` | RSA and cryptographic protocols are excluded, not marked covered. |
+| BAV-V-R1 / `BAV-V12-1-06`, `BAV-V12-2-05`, `BAV-V12-3-05`, `BAV-V12-4-01`, `BAV-V12-5-03` | PR #84 supplies the evidenced shared software context: `SoftwareTool`, `DigitalGeometryTool`, `Spreadsheet` or `StatisticalTool`. The Euclidean-algorithm mathematics remains compositional; programmed implementation is excluded. |
+
+Canonical regular-course access was rechecked on 2026-10-22: grade 11 and 13 still show
+maintenance through 23 October, and grade 12 `/regulaer` still returns 403. The indexed
+enrichment text remains reviewable evidence, without independent confirmation of live-origin
+freshness. No new freshness claim follows from the merged ontology work.
+
+Counts, rows and residual proposals below preserve the **2026-10-21 baseline**. They are
+not the remaining-work inventory. See the
+[current cross-curriculum conclusion](coverage-audit-2026-10-21.md#current-mathematics-coverage--2026-10-22)
+for the merged dispositions and limits of the coverage claim.
+
 The web tool returned the full official-domain indexed page at the canonical URL (246 lines, crawl label today). This establishes reviewable programme text, not independent live-origin freshness. Regular grade 12 still returned 403; grade 13 still displayed maintenance through 23 October 2026. Other German Länder, the full lower-secondary catalogue and W-Seminar remain outside scope. Cultural/historical/security-awareness clauses are acknowledged but not certified by this mathematical-content audit.
 
-Counts: **1 direct, 17 compositional, 3 mathematical gaps, 5 representation/tool-context gaps**. The five tool-context rows have mathematical coverage. All **108 mapped identifiers** exist in the correct dimension and have no constituent children. Generic roots are not coverage evidence.
+Historical baseline counts: **1 direct, 17 compositional, 3 mathematical gaps, 5 representation/tool-context gaps**. The five tool-context rows have mathematical coverage. All **108 mapped identifiers** exist in the correct dimension and have no constituent children. Generic roots are not coverage evidence.
 
 Scope decision, 2026-10-22: [programming is intentionally excluded](coverage-audit-2026-10-21.md#programming-excluded-from-the-current-extension-scope) from the current extension. In BAV-V12-4-01, retain the Euclidean-algorithm mathematics and exclude the programmed implementation requirement. The historical rows and counts remain unchanged; mathematical use of spreadsheet/software tools is not excluded merely because the tool is digital.
 
@@ -16,7 +38,9 @@ D = direct; C = compositional; G = mathematical gap; R = definition/representati
 
 The same scope decision excludes encryption/decryption, keys and cryptographic protocols,
 including BAV-V12-4-04 / BAV-V-G3. Markov-chain absorption and convergence remain in scope;
-BAV-V12-3-06 / BAV-V-G2 is included in the next mathematics batch.
+BAV-V12-3-06 / BAV-V-G2 is addressed by the Markov-chain batch merged through PR #85.
+
+## Historical baseline inventory
 
 | Row | Curriculum reference | Requirement cue | Existing Areas / Abilities / Scopes | Judgment and boundary |
 |---|---|---|---|---|
@@ -47,7 +71,9 @@ BAV-V12-3-06 / BAV-V-G2 is included in the next mathematics batch.
 | BAV-V12-5-03 | M12 Vertiefungskurs 5, bullet 3 (source line 212) | Chi-square/t tests and software p-values | A: `ChiSquaredIndependenceTest`, `MeanTTest`, `PValue`, `StatisticalHypotheses`<br>B: `ProcedureExecution`, `ResultInterpretation` | **R** — Either test satisfies the curricular choice. Mathematics is explicit, but statistical-software use has no dedicated context; keep the tests' model and expected-count assumptions. |
 | BAV-V12-5-04 | M12 Vertiefungskurs 5, bullet 4 (source line 219) | Critique misleading data displays | A: `FrequencyDistribution`, `RelativeFrequency`, `StatisticalVariable`<br>B: `CorrectnessEvaluation`, `Interpretation`<br>S: `DataRepresentation` | **C** — Select concrete graph Scopes and relevant scale/frequency Areas for each target. DataRepresentation is an eligible parent with specialization children, not a claim that every visual convention is automatically covered. |
 
-## Residual decisions
+## Historical baseline residual decisions
+
+The original proposals are retained below; current dispositions are recorded above.
 
 ### BAV-V-G1 — MonotoneSequenceConvergence
 

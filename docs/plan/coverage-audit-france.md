@@ -2,7 +2,7 @@
 
 [Audit conclusions and method](coverage-audit-2026-10-21.md).
 
-Ontology baseline: `0af4aba97731e49cbff3ac51ca9ef519d174a945`. Audit date: 2026-10-21.
+Historical ontology baseline: `0af4aba97731e49cbff3ac51ca9ef519d174a945`. Original audit date: 2026-10-21.
 
 At the audit baseline, mathematical coverage was substantial but incomplete. Core mathematical gaps included arithmetic finite-sum identities and the monotone bounded-convergence and increasing-unbounded-divergence guarantees. Definition/representation follow-ups included signed-infinite limit rules and sign/variation tables. Subsequent implementation progress is recorded in the [main audit roadmap](coverage-audit-2026-10-21.md#suggested-implementation-order-and-exit-criteria).
 
@@ -10,8 +10,57 @@ Scope decision, 2026-10-22: [programming is intentionally excluded](coverage-aud
 
 The same scope decision excludes encryption/decryption, key concepts and cryptographic protocols
 in FR-EXP-N09, FR-EXP-N22 and FR-EXP-N25. Their historical judgments remain below, but these
-are not pending work. Markov-chain absorption and convergence remain in scope; FR-EXP-M14
-is included in the next mathematics batch despite its optional curricular status.
+are not pending work. Markov-chain absorption and convergence remain in scope; PR #85 is
+merged and addresses the finite-chain asymptotic mathematics in FR-EXP-M14. The PageRank
+computer-science application in FR-EXP-M17 is outside the agreed extension scope.
+
+## Current status — 2026-10-22
+
+Rechecked against merged `main` at `53e6602c376c887131504ebadfdb6a3e47a1faab`, including
+PRs #82–85. No identified required mathematical gap remains in the audited current French
+rows within the agreed scope. This is a descriptor-coverage conclusion, not a claim that
+all curriculum exercises are implemented or that the entire French school trajectory is
+covered. **FR-P1-AUTO10 remains a verification limit:** the inherited seconde automatismes
+and lower-school prerequisites have not been fully row-audited.
+
+The inventory, counts and required-follow-up list below preserve the original baseline
+judgments. They are historical evidence, not the current backlog. The following mapping
+supersedes the corresponding gap judgments without rewriting that evidence.
+
+| Historical rows | Current disposition and evidence |
+|---|---|
+| FR-P1-GEO10 | Median concurrency is covered by `TriangleCentroidTheorem` from PR #82. The separate altitude-concurrency/orthocenter requirement in FR-P1-GEO09 remains optional enrichment. |
+| FR-EXP-G06 | The construction-technique/tool gap is addressed by `StraightedgeAndCompassConstruction` and the construction scopes from PR #82, composed with the existing roots-of-unity and trigonometric knowledge. This does not claim a separate theorem for every classical construction. |
+| FR-P1-SEQ04, FR-P1-SEQ10 | `FiniteArithmeticSum` from PR #83 states the missing reusable identity. |
+| FR-TLE-LIM02, FR-TLE-LIM09 | `MonotoneSequenceDivergenceTheorem` states the missing divergence guarantee. |
+| FR-TLE-LIM07 | `MonotoneSequenceConvergenceTheorem` states the monotone bounded-convergence guarantee. |
+| FR-TLE-LIM04, FR-TLE-LIM11 | `InfiniteLimitComparison` states the signed-infinite comparison inference. |
+| FR-TLE-LIM05, FR-TLE-LIM18 | Revised `LimitLaws`, with comparison where appropriate, covers the admissible finite/infinite limit rules and their conditions. |
+| FR-TLE-LIM14, FR-TLE-CALC19 | Adjacent-sequence arguments are compositional: monotone bounded convergence, bracketing, a vanishing difference and limit laws. Area arguments additionally use `RiemannSum` and `AreaIntegration`. The finite approximations alone do not establish the limiting equality. |
+| FR-TLE-LIM16 | Heron/Newton square-root convergence is compositional with `NewtonMethod`, monotone bounded convergence and the appropriate positive iteration/start conditions. This is not a convergence guarantee for arbitrary Newton iterations. |
+| FR-P1-AUTO05, FR-TLE-FUN04 | `VariationTable` and revised `TabularAlgebraicRepresentation` from PR #84 address the representation gaps. `SignTable` is available where required; AUTO05 itself does not explicitly require one. |
+| FR-EXP-M14 | `FiniteMarkovConvergenceTheorem`, with irreducibility and periodicity concepts from PR #85, covers the finite-chain asymptotic guarantee. This does not cover every random walk on an arbitrary state space. |
+| FR-FUT-LIMIT01, FR-FUT-LIMIT02 | PR #83 addresses these selected forward-comparison limit gaps; the future programme remains only partially audited. |
+
+The [current mathematics coverage and remaining-work table](coverage-audit-2026-10-21.md#current-mathematics-coverage--2026-10-22)
+records the complete current disposition and priorities. Remaining identified mathematical
+extensions are optional enrichment or illustrative algorithms, not unresolved required-core
+gaps. They include theorem/formula knowledge, further geometry, numerical methods,
+probability/statistics refinements and selected number/graph theory. Mathematical procedures
+such as bisection or sieving remain distinct from their excluded programming implementations.
+
+Some optional titles still need an explicit depth decision rather than an automatic new
+descriptor: Hanoi (FR-P1-SEQ15), Leibniz functions (FR-TLE-SPACE08/SPACE17), the Cauchy
+functional equation (FR-TLE-FUN14), Briggs/Brouncker algorithms (FR-TLE-FUN20/CALC23),
+random walks (FR-TLE-CONC07) and Mandelbrot/Julia experimentation (FR-EXP-C14). The named
+discrete Fourier transform extension (FR-EXP-G09) lacks specific transform knowledge, but
+its curricular title does not determine a full transform-theory syllabus. Error-correcting
+codes (FR-EXP-N24) require a separate scope decision: mathematical coding theory is not
+automatically programming or cryptography, and is not yet committed extension work.
+
+The eight FR-FUT rows remain selected comparisons with terminale2026, effective 2027–28;
+they do not establish complete future-programme coverage. The other programme and
+prerequisite boundaries below also remain in force.
 
 ## Programme versions
 
@@ -43,9 +92,9 @@ Judgments:
 - **definition-or-representation gap**: An existing close descriptor or combination exists, but its exact definition does not explicitly reach this rule, convention or representation. Often a concise refinement rather than a new family.
 - **unverifiable**: Programme wording or the audited source boundary does not determine an exact claim of coverage.
 
-## Inventory counts
+## Historical inventory counts
 
-344 current rows and 8 separate forward-comparison rows. These are normalized evidence units, not a syllabus completeness score.
+344 current-programme rows and 8 separate forward-comparison rows, with judgments counted at the original 2026-10-21 baseline. These counts are preserved, not recalculated after implementation. They are normalized evidence units, not a syllabus completeness score.
 
 |Status|Direct|Composition|Definition/representation gap|Gap|Unverifiable|
 |---|---:|---:|---:|---:|---:|
@@ -53,7 +102,10 @@ Judgments:
 |optional|10|33|16|10|6|
 |required|17|202|7|14|1|
 
-## Current required follow-ups
+## Historical required follow-ups at the original baseline
+
+These original findings are retained for traceability. Use the current-status mapping above
+for merged resolutions and the agreed scope exclusions; this list is not pending work.
 
 - **FR-P1-ALG01 — gap**: Understand computer variables, types and assignment, including pseudocode assignment notation. No eligible descriptor states mutable computer variables, types or assignment. Mathematical Variable is not the same knowledge. [Source p.4](https://www.education.gouv.fr/sites/default/files/document/Annexe%20%E2%80%93%20Programme%20d%26%23039%3Benseignement%20de%20sp%C3%A9cialit%C3%A9%20de%20math%C3%A9matiques%20de%20la%20classe%20de%20premi%C3%A8re%20de%20la%20voie%20g%C3%A9n%C3%A9rale-515408.pdf#page=4).
 - **FR-P1-ALG02 — gap**: Use conditionals and loops in algorithms/programs. Iteration covers mathematical repetition but not conditional control flow, loop state or program semantics. [Source p.4](https://www.education.gouv.fr/sites/default/files/document/Annexe%20%E2%80%93%20Programme%20d%26%23039%3Benseignement%20de%20sp%C3%A9cialit%C3%A9%20de%20math%C3%A9matiques%20de%20la%20classe%20de%20premi%C3%A8re%20de%20la%20voie%20g%C3%A9n%C3%A9rale-515408.pdf#page=4).

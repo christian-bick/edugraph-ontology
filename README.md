@@ -70,9 +70,9 @@ documents the batch merged through [PR #84](https://github.com/christian-bick/ed
 sign and variation tables, theoretical probability histograms, measurement-tool links, and
 the software specialization within digital tools. Programming is
 [explicitly excluded from the current mathematics extension scope](docs/plan/coverage-audit-2026-10-21.md#programming-excluded-from-the-current-extension-scope).
-The [Markov-chain absorption and convergence implementation](docs/plan/markov-absorption-convergence-draft.md)
-adds seven Areas for eventual absorption, probability equations and convergence guarantees
-for review on `codex/markov-absorption-convergence`.
+The [Markov-chain absorption and convergence record](docs/plan/markov-absorption-convergence-draft.md)
+documents seven Areas for eventual absorption, probability equations and convergence guarantees,
+merged through [PR #85](https://github.com/christian-bick/edugraph-ontology/pull/85).
 The [NumberTheory design and implementation record](docs/plan/number-theory-basics-draft.md)
 documents the school and introductory-university families, their boundary with arithmetic,
 and the shared closure concept in AlgebraicStructures.

@@ -1,10 +1,13 @@
 # Markov-chain absorption and convergence
 
-Status: **implementation for review**, 2026-10-22, on `codex/markov-absorption-convergence`.
+Status: **merged**, 2026-10-22, through
+[PR #85](https://github.com/christian-bick/edugraph-ontology/pull/85) at
+`53e6602c376c887131504ebadfdb6a3e47a1faab`.
+Original implementation branch: `codex/markov-absorption-convergence` (merged).
 Baseline: `main` at `d04c0d3524351b305e6dc6307c17c6771fc04b18`, after PR #84;
 1,434 descriptors and 7,626 authored assertions.
 
-This develops the next batch of the [school curriculum audit](coverage-audit-2026-10-21.md#suggested-implementation-order-and-exit-criteria).
+This records the fourth follow-up batch of the [school curriculum audit](coverage-audit-2026-10-21.md#suggested-implementation-order-and-exit-criteria).
 The approved implementation adds **seven new Areas**, using the existing `StochasticProcesses`
 family. No existing descriptor is renamed, reparented or redefined. No new Scope, Ability or
 organizational family is added.
@@ -231,21 +234,24 @@ gaps. This batch makes no claim that these broader subjects are covered by the s
 
 ## Implementation and adoption — 2026-10-22
 
-The branch adds the seven Areas above to [the authored Areas](../../core-areas-math.ttl),
+The merged implementation adds the seven Areas above to [the authored Areas](../../core-areas-math.ttl),
 with their definitions, examples, six `partOf` edges, one `specializes` edge and seven `integrates`
 assertions. Together these add **42 authored assertions**, bringing the ontology to
 **1,441 descriptors and 7,668 authored assertions**.
 
 The implementation changes no existing identifiers, definitions or outgoing relations.
 Existing labels retain eligibility, including `FiniteMarkovChain`, whose new child is a
-specialization. No automatic migration of existing annotations is needed. This branch does
-not upgrade consumer packages or datasets.
+specialization. No automatic migration of existing annotations is needed. The implementation
+does not upgrade consumer packages or datasets.
 
 The Area source uses the editor's actual parser and serializer. Entities are ordered by IRI;
 relation names and their target IRIs are sorted alphabetically. In this batch, `integrates`
 therefore precedes `partOf`; the definition and example remain ahead of the relations.
 
 Verification passed on 2026-10-22 under [ONT-W1–W3](../change-review.md):
+
+The merged source is identical to the validated implementation at `d02604c`; the checks below
+remain the pre-merge implementation record.
 
 - The authored graph agrees exactly with the approved definitions, examples and relations.
   The source delta is 42 added assertions and none removed; all existing label eligibility

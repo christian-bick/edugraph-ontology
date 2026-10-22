@@ -4,11 +4,32 @@
 
 Every terminal content standard in the selected K–8 inventory has its own row: **287 leaves**. Numbered parents with lettered children are not counted again. A child retains its parent and domain conditions. The official domain linked above each table controls the complete requirement; short row titles are navigation aids, not replacements for the standard.
 
+## Current status — 2026-10-22
+
+Reviewed against main `53e6602` after PRs #82–85. The three historically flagged K–8
+rows are addressed by the merged [Euclidean geometry batch](euclidean-geometry-draft.md):
+
+| Historical row | Current resolution |
+| --- | --- |
+| `6.G.A.4` / K8-R1 | `GeometricNet` identifies the representation; combine it with the solid, `SurfaceAreaCalculation` and the evidenced spatial Abilities. |
+| `7.G.A.2` / K8-G1 | `GeometricConstructionTechnique`, the relevant triangle criteria and `TriangleInequality` express construction, feasibility and uniqueness; targets retain the prescribed data and ambiguous cases. |
+| `8.G.A.5` / K8-G2 | `TriangleAngleSum`, `TriangleExteriorAngleTheorem`, `ParallelTransversalAngleTheorem` and `AATriangleSimilarity` supply the required results. |
+
+The related definition repairs are also complete: `Dilation` permits scale one, and
+`VerticalAngles` explicitly includes equality of their measures. `CavalieriPrinciple`
+addresses the separately identified high-school justification gap.
+
+The counts, row judgments and follow-up wording below preserve the **2026-10-21 baseline**;
+they are not remaining-work counts. This update checks the identified gaps against the
+merged descriptors, rather than rerunning every possible competency acceptance task.
+See the [current cross-curriculum conclusion](coverage-audit-2026-10-21.md#current-mathematics-coverage--2026-10-22)
+for scope and verification limits.
+
 Mappings identify mathematical knowledge, cognitive performances and contexts at the current ontology granularity. B: marks an Ability, S: a Scope; other IDs are Areas. Lists can include alternatives or facets for separate competencies and must not be copied blindly as one annotation. Select only observable evidence under [ONT-E1](../content-evidence.md#ont-e1--ground-annotations-in-accessible-evidence) and eligible descriptors under [ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
 
 Direct means that a specific Area supplies the principal knowledge. Composition means that existing concepts jointly express it; it does not assert automatic logical entailment. Knowledge/procedure gaps concern independently learned results or methods. Definition/representation gaps concern contexts or an existing descriptor's boundary. Exact numerical ranges, allowed denominators, required fluency, instruments and evidence requirements remain in the competency target even when omitted from this compact mapping. No additional Area is proposed merely for a numerical bound.
 
-## Results
+## Historical baseline results
 
 | Grade | Leaves | Direct | Composition | Knowledge/procedure gap | Definition/representation gap |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -22,7 +43,9 @@ Direct means that a specific Area supplies the principal knowledge. Composition 
 | 7 | 37 | 0 | 36 | 1 | 0 |
 | 8 | 33 | 0 | 32 | 1 | 0 |
 
-## Boundaries that require follow-up
+## Historical baseline follow-ups
+
+The identified ontology changes in this section are implemented; current dispositions are above.
 
 - **6.G.A.4:** nets need a representation decision. Foldable describes a physical object's flexibility, not a flat face arrangement and its correspondence with a solid. Existing surface-area calculation remains useful.
 - **7.G.A.2:** feasibility and uniqueness of triangles from prescribed side/angle data need explicit criteria; drawing a triangle is not the same knowledge.
