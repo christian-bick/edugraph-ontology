@@ -298,10 +298,6 @@
     edu:integrates :HourIntervals, :MinuteIntervals, :SecondIntervals;
     edu:partOf :TimeMeasurement;
     edu:specializes :DigitalTool, :MeasurementTool.
-:DigitalDevice a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Physical digital devices, or explicit representations of them, supplied or used as tools in a task.";
-    rdfs:comment "A handheld calculator used to evaluate an expression; a pictured digital scale whose display is read.";
-    edu:specializes :DigitalTool.
 :DigitalGeometryTool a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Interactive software for constructing and exploring geometric objects and their dependencies as objects or parameters change.";
     rdfs:comment "Moving a triangle vertex while its constructed perpendicular bisectors update.";
@@ -315,7 +311,7 @@
     rdfs:comment "Reading 250 grams from a scale's display.";
     edu:integrates :GramScale, :KilogramScale, :MilligramScale;
     edu:partOf :WeightMeasurement;
-    edu:specializes :DigitalDevice, :MeasurementTool.
+    edu:specializes :DigitalTool, :MeasurementTool.
 :DigitalTool a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Digital devices or software applications, including explicit representations of them, supplied or used as tools in a task.";
     rdfs:comment "Software used to investigate successive matrix products, a graphing utility plotting functions, or a calculator evaluating a trigonometric expression.";
