@@ -528,10 +528,11 @@ eligibility under
 This reparenting and the identifier cleanup below add no descriptors: the total remains 906
 `Area` individuals across 15 root domains.
 
-The broader boundary between `GeometricConcepts` and `GeometricObjects` remains deferred,
-including the placement of `Arc` and `ParametricCurve`. Both retain their existing
-`GeometricConcepts` parent. The line/ray change resolves the single-child organizer without
-settling those other placements, and the `GeometricConcepts` organizer retains its identifier.
+**Resolved follow-up — 2026-10-24:** The broader organizer review renamed `GeometricConcepts`
+to `GeometricFoundations`, moved `Arc` into `OneDimensionalObjects` as its fourth constituent,
+and retained `ParametricCurve` with foundations. See the
+[foundations implementation](#geometricfoundations-implementation) for the definition,
+structural decisions, and migration effects.
 
 ##### Identifier migration
 
@@ -560,8 +561,9 @@ concerns a geometric line while `FunctionSlope` is unchanged. `Arc` retains its 
 continuous portion of a circle or another curved line; it is not restricted to circular arcs.
 `Zero` remains the integer-zero concept, separate from the `NumericZero` Scope.
 
-Only `Line` and `Ray` change parents. Other structural and progression assertions retain their
-meanings with renamed endpoints, and existing descriptor eligibility is unchanged. Adopters
+In the suffix-removal change, only `Line` and `Ray` changed parents. Other structural and
+progression assertions retained their meanings with renamed endpoints, and existing descriptor
+eligibility was unchanged. Adopters
 should update stored identifiers, generated-client keys, and annotation/model vocabulary
 references for all ten renames. Derived structural ancestry for `Line` and `Ray` now reaches
 `Geometry` through `GeometricObjects` and `OneDimensionalObjects`, replacing the
@@ -939,22 +941,82 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
     distance from Cartesian coordinates but is missing proposed `CoordinateDistance` `specializes`
     `DistanceCalculation`.
 
-#### 2. `GeometricConcepts` vs. `GeometricObjects` (`NormalVector`, `Arc`, and `SolidOfRevolution`):
+#### 2. `GeometricFoundations` vs. `GeometricObjects` (`NormalVector`, `Arc`, and `SolidOfRevolution`):
 
-- **`NormalVector` vs. `Vector` (`ONT-S2`):** Under `GeometricConcepts`, `NormalVector`
-  ("The role of a nonzero vector perpendicular to every direction of a specified line or plane in
-  Euclidean space") sits as a `partOf` sibling of `Vector` instead of proposed
-  `NormalVector` `specializes` `Vector`.
+##### `GeometricFoundations` implementation
 
-- **Resolved — 2026-10-24, naming accuracy
-  ([ONT-D6](../descriptors.md#ont-d6--preserve-identifier-meaning)):** The current identifier is
-  `Arc`; the spelling correction and suffix removal preserve its definition. The broader
-  geometry boundary and its placement remain deferred, as recorded in
-  [section 3.2](#onedimensionalobjects).
+**Resolved — 2026-10-24, organizer boundary and specialization:** Renamed `GeometricConcepts`
+to `GeometricFoundations`, retaining its `partOf Geometry` placement. Its definition is:
 
-  **Former finding:** `ArchConcept` ("A continuous portion of the circumference of a
-  circle or any other curved line") uses the spelling `Arch` instead of the standard mathematical
-  term `Arc` (the original suggested identifier was `ArcConcept`).
+> The basic geometric entities and ambient spaces, together with quantities and parameterized
+> descriptions used to specify geometric configurations.
+
+The resulting structure uses `P` for `partOf` and `S` for `specializes`:
+
+```text
+Geometry
+  P GeometricFoundations
+    P Point
+    P Plane
+    P Space
+    P Angle
+      S existing angle specializations
+    P Vector
+      S NormalVector
+    P ParametricCurve
+  P GeometricObjects
+    P OneDimensionalObjects
+      P Line
+      P Ray
+      P LineSegment
+      P Arc
+```
+
+The organizer describes a common geometric toolkit under
+[ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries).
+Its topical boundary with `GeometricObjects` permits overlapping knowledge; `partOf`
+organizes constituents under [ONT-S1](../structure.md#ont-s1--partof-organizes-constituents).
+The existing two- and three-dimensional figure families retain their definitions and placement.
+
+- **`Arc` placement:** A continuous portion of a circle or another curved line is now
+  `partOf OneDimensionalObjects`, alongside lines, rays, and segments. Its definition still
+  includes noncircular arcs. The `Circle` topic continues to include the enclosed region as
+  well as the boundary, so its placement in plane geometry does not require the same placement
+  for a curved-line portion.
+- **`NormalVector` inheritance:** Replaced its direct membership in the former organizer with
+  `NormalVector specializes Vector`. Its nonzero and perpendicularity conditions narrow the
+  existing geometric-vector meaning under
+  [ONT-S2](../structure.md#ont-s2--specializes-preserves-the-broader-meaning). The general
+  `Vector` definition still includes the zero vector; zero is not a valid `NormalVector`.
+- **Remaining foundations:** `Point`, `Plane`, and `Space` supply reference locations and
+  ambient spaces; `Angle` and `Vector` describe geometric quantities. `ParametricCurve`
+  retains its continuous-correspondence meaning, including traversal multiplicity: tracing a
+  circle twice differs from tracing it once even when the image is the same. It is not moved
+  into a dimensional figure family solely because its domain has one real parameter.
+
+The affected paths retain composition before specialization and uniform child roles
+([ONT-S4](../structure.md#ont-s4--composition-may-lead-into-specialization),
+[ONT-S5](../structure.md#ont-s5--review-the-entire-affected-structure)). `Angle` retains its
+existing specialization children, and `Vector` gains only a specialization child.
+`GeometricFoundations` and `OneDimensionalObjects` remain organizational; the eight former
+foundation constituents retain direct-labeling eligibility under
+[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
+No descriptors are added: there remain 906 `Area` individuals across 15 root domains.
+
+**Adoption:** Replace the organizer identifier `GeometricConcepts` with `GeometricFoundations`
+in stored references, generated-client keys, and annotation/model vocabularies under
+[ONT-D6](../descriptors.md#ont-d6--preserve-identifier-meaning). The organizer definition is
+clarified; all other descriptor definitions and examples are preserved. Update derived
+structural ancestry for `Arc` and `NormalVector`; `NormalVector` now supports the broader
+`Vector` claim through specialization. Follow the
+[annotation and model guidance](../annotations-and-models.md#interpreting-annotations-across-ontology-versions).
+
+**Former findings:** `NormalVector` sat as a `partOf` sibling of `Vector` under
+`GeometricConcepts`. `ArchConcept` used the spelling `Arch` instead of the mathematical term
+`Arc`; the earlier suffix-removal change resolved that spelling while this follow-up resolves
+the placement.
+
+##### Remaining three-dimensional figure finding
 
 - **`ThreeDimensionalObjects` (`SolidOfRevolution` vs. `Cone`, `Cylinder`, `Sphere`, `ONT-S2`, `ONT-S3`):**
   Under `ThreeDimensionalObjects`, `Polyhedron` specializes into `Prism` (`RectangularPrism` ->
@@ -1256,7 +1318,7 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 **Resolved — 2026-10-24:** `PercentageArithmetic` now has three constituents
 ([record](#percentagearithmetic)), `DecimalStrategies` has four
-([record](#decimalstrategies)), and `OneDimensionalObjects` has three
+([record](#decimalstrategies)), and `OneDimensionalObjects` has four
 ([record](#onedimensionalobjects)).
 
 **Remaining:** `AlgebraicStructures` and `LinearSystems`.
@@ -1272,11 +1334,14 @@ The shared strategy-family semantics and naming audit is recorded separately und
 
 - Add missing mathematical `specializes` links: `EquilateralTriangle` $\to$ `IsoscelesTriangle` &
   `AcuteTriangle`; `Square` $\to$ `Rhombus`; `UnitFactorScaling` & `UnitMagnitudeScaling` $\to$
-  `UnitConversion`; `GraphCycle` $\to$ `GraphWalk`; `RootIndex` $\to$ `Operand`; `NormalVector`
-  $\to$ `Vector`; `PolarAreaIntegration` $\to$ `AreaIntegration`;
+  `UnitConversion`; `GraphCycle` $\to$ `GraphWalk`; `RootIndex` $\to$ `Operand`;
+  `PolarAreaIntegration` $\to$ `AreaIntegration`;
   `CoordinateDistance` $\to$ `DistanceCalculation`; `BinomialSquareIdentities` $\to$
   `QuadraticRewriting`; `DivisorCount`, `DivisorSum`, & `EulersTotient` $\to$
   `MultiplicativeArithmeticFunction`.
+
+- **Resolved — 2026-10-24:** `NormalVector specializes Vector`; see the
+  [foundations implementation](#geometricfoundations-implementation).
 
 - Convert `AverageRateOfChange` and `InstantaneousRateOfChange` from `partOf` to `specializes`
   under `FunctionSlope` to restore `FunctionSlope`'s `ONT-E7` eligibility.

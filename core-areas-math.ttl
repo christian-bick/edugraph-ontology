@@ -161,7 +161,7 @@
 :Angle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The amount of rotation or divergence between two intersecting rays, lines or planes.";
     edu:expands :Arc, :IntersectionRelation;
-    edu:partOf :GeometricConcepts.
+    edu:partOf :GeometricFoundations.
 :AngleCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining the magnitude of an angle from given measurements and geometric relationships.";
     rdfs:comment "Finding a triangle's missing angle from its other two angles.";
@@ -181,7 +181,7 @@
 :Arc a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A continuous portion of the circumference of a circle or any other curved line.";
     edu:expands :Circle, :RatioInterpretation;
-    edu:partOf :GeometricConcepts.
+    edu:partOf :OneDimensionalObjects.
 :ArcLengthIntegration a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The length traced by a piecewise continuously differentiable Euclidean curve, obtained by integrating the magnitude of its velocity over the parameter interval. Retraced portions contribute each time they are traversed.";
     rdfs:comment "r(t)=(3t,4t), 0 <= t <= 2, has length integral_0^2 5 dt = 10.";
@@ -1448,10 +1448,6 @@
     edu:expands :MeasuringObjects;
     edu:integrates :Arithmetic;
     edu:partOf :Geometry.
-:GeometricConcepts a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The fundamental objects, quantities, and structures used to describe geometric space.";
-    rdfs:comment "Points, lines, planes, angles, and vectors.";
-    edu:partOf :Geometry.
 :GeometricConstructionTechnique a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Exact constructive procedures for geometric configurations from given data, including their feasibility and correctness under specified permitted operations.";
     rdfs:comment "Construct a segment's perpendicular bisector using equal-radius arcs and justify the resulting equidistance.";
@@ -1460,6 +1456,10 @@
     rdfs:isDefinedBy "The nature of the number of independent Bernoulli trials up to and including the first success with fixed probability 0 < p <= 1. The support begins at one.";
     rdfs:comment "For p=1/2, the probability that the first success is on trial three is 1/8.";
     edu:specializes :DiscreteProbabilityDistribution.
+:GeometricFoundations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The basic geometric entities and ambient spaces, together with quantities and parameterized descriptions used to specify geometric configurations.";
+    rdfs:comment "Points, lines, planes, angles, and vectors.";
+    edu:partOf :Geometry.
 :GeometricObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of specific geometric shapes and figures in one, two, and three dimensions.";
     edu:partOf :Geometry.
@@ -2146,7 +2146,7 @@
 :NormalVector a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a nonzero vector perpendicular to every direction of a specified line or plane in Euclidean space.";
     rdfs:comment "(2,-1,3) is normal to the plane 2x-y+3z=5.";
-    edu:partOf :GeometricConcepts.
+    edu:specializes :Vector.
 :NormalVectorEquation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The description of a Euclidean line in two dimensions or a plane in three dimensions by n dot (x-p)=0, with nonzero normal n and a point p on the set.";
     rdfs:comment "2x-y+3z=5 describes a plane with normal (2,-1,3).";
@@ -2386,7 +2386,7 @@
 :ParametricCurve a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A continuous correspondence from a real parameter interval to geometric points, distinguishing the parameterized traversal from the set of points traced.";
     rdfs:comment "(cos(t),sin(t)) for 0<=t<=4pi traverses the unit circle twice.";
-    edu:partOf :GeometricConcepts.
+    edu:partOf :GeometricFoundations.
 :ParametricDifferentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding derivatives along a differentiable plane parameterization using dy/dx=(dy/dt)/(dx/dt) where dx/dt is nonzero, with further x-derivatives obtained by applying (1/x'(t))d/dt again.";
     rdfs:comment "For x=t^2,y=t^3 with t>0, dy/dx=3t/2 and d^2y/dx^2=3/(4t).";
@@ -2497,7 +2497,7 @@
 :Plane a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A flat, two-dimensional surface that extends infinitely far.";
     edu:expands :Line;
-    edu:partOf :GeometricConcepts.
+    edu:partOf :GeometricFoundations.
 :PlaneParametrization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An affine parametrization with two real parameters and two independent direction vectors.";
     rdfs:comment "(x,y,z)=(0,0,1)+s*(1,0,0)+t*(0,1,0) describes z=1.";
@@ -2506,7 +2506,7 @@
     rdfs:isDefinedBy "A precise location in geometric space, with no extent.";
     rdfs:comment "The location (2,-1,3) in space or (2,-1) in a plane.";
     edu:expands :SpatialModelling;
-    edu:partOf :GeometricConcepts.
+    edu:partOf :GeometricFoundations.
 :PointPlotting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Locating and marking a point from its coordinates in a stated Cartesian coordinate system.";
     rdfs:comment "Marking (2,-1) in a plane or (2,-1,3) in a spatial coordinate diagram.";
@@ -3238,7 +3238,7 @@
 :Space a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A boundless, three-dimensional extent that contains all geometric figures and extends infinitely in all directions.";
     edu:expands :Plane;
-    edu:partOf :GeometricConcepts.
+    edu:partOf :GeometricFoundations.
 :SpatialModelling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating mental or physical representations of objects and their spatial relationships.";
     edu:partOf :SpatialSense.
@@ -3683,7 +3683,7 @@
     rdfs:isDefinedBy "Directed quantities represented by geometric displacements, with magnitude and direction for nonzero vectors and a zero vector of magnitude zero with no direction.";
     rdfs:comment "A displacement represented by a directed line segment.";
     edu:expands :Line;
-    edu:partOf :GeometricConcepts.
+    edu:partOf :GeometricFoundations.
 :VectorAlgebra a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The components, geometric properties, and operations of coordinate vectors over stated scalar fields.";
     rdfs:comment "Adding displacement vectors; multiplying a coordinate vector by a scalar.";

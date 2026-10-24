@@ -73,6 +73,12 @@ for projections, and PositionalRelations for spatial relationships. GeometricVis
 current definition already describes coordinate geometry. A second overlapping AnalyticGeometry
 family is unnecessary; a later naming review can address the existing name separately.
 
+**Hierarchy follow-up — 2026-10-24:** The current tree uses `GeometricFoundations`, the renamed
+former `GeometricConcepts` organizer. `NormalVector` now specializes `Vector`, which remains a
+constituent of that family; see the
+[family review](core-areas-family-consistency-review.md#47-geometry). The original spatial-batch
+edge counts below describe the PR #76 baseline, before this correction.
+
 `P` denotes partOf; `S` denotes specializes. Existing ancestors are shown for context.
 
 ```text
@@ -87,8 +93,9 @@ LinearAlgebra
     P VectorArithmetic
       P DotProduct
 Geometry
-  P GeometricConcepts
-    P NormalVector
+  P GeometricFoundations
+    P Vector
+      S NormalVector
   P GeometricVisualization
     P CartesianSpace
     P AffineParametrization
