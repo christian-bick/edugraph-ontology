@@ -2432,10 +2432,6 @@
 :Pentagon a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A polygon with five edges and five vertices.";
     edu:specializes :Polygon.
-:PercentageApplication a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Using a specified percentage rate to determine the corresponding amount from a reference quantity, or recover the reference quantity from a known amount when the rate is nonzero.";
-    rdfs:comment "Finding 12 as 15% of 80; recovering a reference quantity of 80 when 12 is 15% of it; finding 120 as 150% of 80.";
-    edu:partOf :PercentageArithmetic.
 :PercentageArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The understanding and application of numbers expressed as a fraction of 100.";
     edu:partOf :RationalArithmetic.
@@ -2448,6 +2444,10 @@
     rdfs:comment "Writing 25% for twenty-five out of every hundred.";
     edu:expands :DecimalNotation;
     edu:specializes :NumberNotation.
+:PercentageRateApplication a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Using a specified percentage rate to determine the corresponding amount from a reference quantity, or recover the reference quantity from a known amount when the rate is nonzero.";
+    rdfs:comment "Finding 12 as 15% of 80; recovering a reference quantity of 80 when 12 is 15% of it; finding 120 as 150% of 80.";
+    edu:partOf :PercentageArithmetic.
 :PercentageRateDetermination a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining the unknown percentage rate represented by a quantity relative to a specified nonzero reference quantity of the same kind.";
     rdfs:comment "Expressing 12 out of 80 as 15%; expressing 120 relative to 80 as 150%.";
