@@ -386,8 +386,9 @@ relations/predicates and cardinality concepts.
 
 At the original review, every node below had exactly **one** `hasPart` child, making the parent
 **ineligible for content labeling under `ONT-E7`** while providing no sibling contrast (`ONT-S3`).
-The percentage and decimal-strategy families are now resolved with three and four constituents,
-respectively, as recorded below. The other three organizers remain single-child findings.
+The percentage, decimal-strategy, and straight one-dimensional-object families are now resolved
+with three, four, and three constituents, respectively, as recorded below. The other two
+organizers remain single-child findings.
 
 #### `PercentageArithmetic`
 
@@ -511,16 +512,73 @@ organizers, based on their intended meanings under
 
 #### `OneDimensionalObjects`
 
-- **Sole `hasPart` Child:** `LineSegment`
+**Resolved for lines, rays, and segments — 2026-10-24:** Moved `Line` and `Ray` from
+`GeometricConcepts` to `OneDimensionalObjects`, alongside the unchanged `LineSegment`. All three
+are `partOf` constituents of this organizer under
+[ONT-S1](../structure.md#ont-s1--partof-organizes-constituents). Their definitions retain the
+distinction between a straight line extending infinitely in both directions, a ray with one
+endpoint and one unbounded direction, and a segment bounded by two distinct endpoints.
+
+The paths through `GeometricObjects` retain composition ordering and uniform child roles
+([ONT-S4](../structure.md#ont-s4--composition-may-lead-into-specialization),
+[ONT-S5](../structure.md#ont-s5--review-the-entire-affected-structure)). `OneDimensionalObjects`
+remains an ineligible organizer; `Line`, `Ray`, and `LineSegment` retain direct-labeling
+eligibility under
+[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
+This reparenting and the identifier cleanup below add no descriptors: the total remains 906
+`Area` individuals across 15 root domains.
+
+The broader boundary between `GeometricConcepts` and `GeometricObjects` remains deferred,
+including the placement of `Arc` and `ParametricCurve`. Both retain their existing
+`GeometricConcepts` parent. The line/ray change resolves the single-child organizer without
+settling those other placements, and the `GeometricConcepts` organizer retains its identifier.
+
+##### Identifier migration
+
+**Resolved — 2026-10-24:** Removed the redundant `Concept` suffix from ten `Area` identifiers,
+including correction of the arc spelling. Former identifiers and their current replacements
+are recorded here under [ONT-D6](../descriptors.md#ont-d6--preserve-identifier-meaning):
+
+| Former identifier | Current identifier |
+| --- | --- |
+| `AngleConcept` | `Angle` |
+| `ArchConcept` | `Arc` |
+| `LineConcept` | `Line` |
+| `PlaneConcept` | `Plane` |
+| `PointConcept` | `Point` |
+| `RayConcept` | `Ray` |
+| `SlopeConcept` | `Slope` |
+| `SpaceConcept` | `Space` |
+| `VectorConcept` | `Vector` |
+| `ZeroConcept` | `Zero` |
+
+Existing definitions and comments are preserved under
+[ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries). The shorter
+names retain their boundaries: `Space` is the boundless three-dimensional geometric extent,
+`Vector` describes geometric directed quantities including the zero vector, and `Slope`
+concerns a geometric line while `FunctionSlope` is unchanged. `Arc` retains its meaning for a
+continuous portion of a circle or another curved line; it is not restricted to circular arcs.
+`Zero` remains the integer-zero concept, separate from the `NumericZero` Scope.
+
+Only `Line` and `Ray` change parents. Other structural and progression assertions retain their
+meanings with renamed endpoints, and existing descriptor eligibility is unchanged. Adopters
+should update stored identifiers, generated-client keys, and annotation/model vocabulary
+references for all ten renames. Derived structural ancestry for `Line` and `Ray` now reaches
+`Geometry` through `GeometricObjects` and `OneDimensionalObjects`, replacing the
+`GeometricConcepts` path. Follow
+[the annotation and model guidance](../annotations-and-models.md#interpreting-annotations-across-ontology-versions).
+
+- **Sole `hasPart` Child at Review:** `LineSegment`
 
 - **Rule IDs:** `ONT-E7`, `ONT-S1`, `ONT-S3`
 
-`LineSegment partOf OneDimensionalObjects` is the only child because `LineConcept`, `RayConcept`,
-`ArchConcept`, and `ParametricCurve` are placed under `GeometricConcepts`.
+**Former finding:** `LineSegment partOf OneDimensionalObjects` is the only child because
+`LineConcept`, `RayConcept`, `ArchConcept`, and `ParametricCurve` are placed under `GeometricConcepts`.
 
-**Suggestion:** Reconcile the boundary between `GeometricConcepts` and `GeometricObjects` so 1D
-geometric figures (`LineConcept`, `RayConcept`, `LineSegment`, `ArchConcept`, `ParametricCurve`) are
-not split across two branches leaving a single-child organizer.
+**Original Suggestion:** Reconcile the boundary between `GeometricConcepts` and
+`GeometricObjects` so 1D geometric figures (`LineConcept`, `RayConcept`, `LineSegment`,
+`ArchConcept`, `ParametricCurve`) are not split across two branches leaving a single-child
+organizer.
 
 #### `AlgebraicStructures`
 
@@ -881,16 +939,22 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
     distance from Cartesian coordinates but is missing proposed `CoordinateDistance` `specializes`
     `DistanceCalculation`.
 
-#### 2. `GeometricConcepts` vs. `GeometricObjects` (`NormalVector`, `ArchConcept`, and `SolidOfRevolution`):
+#### 2. `GeometricConcepts` vs. `GeometricObjects` (`NormalVector`, `Arc`, and `SolidOfRevolution`):
 
-- **`NormalVector` vs. `VectorConcept` (`ONT-S2`):** Under `GeometricConcepts`, `NormalVector`
+- **`NormalVector` vs. `Vector` (`ONT-S2`):** Under `GeometricConcepts`, `NormalVector`
   ("The role of a nonzero vector perpendicular to every direction of a specified line or plane in
-  Euclidean space") sits as a `partOf` sibling of `VectorConcept` instead of proposed
-  `NormalVector` `specializes` `VectorConcept`.
+  Euclidean space") sits as a `partOf` sibling of `Vector` instead of proposed
+  `NormalVector` `specializes` `Vector`.
 
-- **Naming accuracy (`ONT-D5`):** `ArchConcept` ("A continuous portion of the circumference of a
+- **Resolved — 2026-10-24, naming accuracy
+  ([ONT-D6](../descriptors.md#ont-d6--preserve-identifier-meaning)):** The current identifier is
+  `Arc`; the spelling correction and suffix removal preserve its definition. The broader
+  geometry boundary and its placement remain deferred, as recorded in
+  [section 3.2](#onedimensionalobjects).
+
+  **Former finding:** `ArchConcept` ("A continuous portion of the circumference of a
   circle or any other curved line") uses the spelling `Arch` instead of the standard mathematical
-  term `Arc` (`ArcConcept`).
+  term `Arc` (the original suggested identifier was `ArcConcept`).
 
 - **`ThreeDimensionalObjects` (`SolidOfRevolution` vs. `Cone`, `Cylinder`, `Sphere`, `ONT-S2`, `ONT-S3`):**
   Under `ThreeDimensionalObjects`, `Polyhedron` specializes into `Prism` (`RectangularPrism` ->
@@ -958,7 +1022,7 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 - The 13 `partOf` children of `GeometricVisualization` mix coordinate reference systems,
   plotting actions (`PointPlotting`, `LineGraphing`, `ShapePlotting`), analytic line/plane
   representations (`AffineParametrization`, `NormalVectorEquation`), and metric/geometric
-  concepts (`CoordinateDistance`, `SlopeConcept`, `ComplexArithmeticGeometry`).
+  concepts (`CoordinateDistance`, `Slope`, `ComplexArithmeticGeometry`).
 
 ---
 
@@ -1188,13 +1252,14 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ## 5. Summary of Priority Action Items
 
-### 1. Resolve the remaining 3 single-child `partOf` organizers (`ONT-E7`, `ONT-S1`):
+### 1. Resolve the remaining 2 single-child `partOf` organizers (`ONT-E7`, `ONT-S1`):
 
 **Resolved — 2026-10-24:** `PercentageArithmetic` now has three constituents
-([record](#percentagearithmetic)), and `DecimalStrategies` has four
-([record](#decimalstrategies)).
+([record](#percentagearithmetic)), `DecimalStrategies` has four
+([record](#decimalstrategies)), and `OneDimensionalObjects` has three
+([record](#onedimensionalobjects)).
 
-**Remaining:** `OneDimensionalObjects`, `AlgebraicStructures`, and `LinearSystems`.
+**Remaining:** `AlgebraicStructures` and `LinearSystems`.
 
 The shared strategy-family semantics and naming audit is recorded separately under
 [`DecimalStrategies`](#decimalstrategies).
@@ -1208,7 +1273,7 @@ The shared strategy-family semantics and naming audit is recorded separately und
 - Add missing mathematical `specializes` links: `EquilateralTriangle` $\to$ `IsoscelesTriangle` &
   `AcuteTriangle`; `Square` $\to$ `Rhombus`; `UnitFactorScaling` & `UnitMagnitudeScaling` $\to$
   `UnitConversion`; `GraphCycle` $\to$ `GraphWalk`; `RootIndex` $\to$ `Operand`; `NormalVector`
-  $\to$ `VectorConcept`; `PolarAreaIntegration` $\to$ `AreaIntegration`;
+  $\to$ `Vector`; `PolarAreaIntegration` $\to$ `AreaIntegration`;
   `CoordinateDistance` $\to$ `DistanceCalculation`; `BinomialSquareIdentities` $\to$
   `QuadraticRewriting`; `DivisorCount`, `DivisorSum`, & `EulersTotient` $\to$
   `MultiplicativeArithmeticFunction`.
@@ -1218,8 +1283,12 @@ The shared strategy-family semantics and naming audit is recorded separately und
 
 ### 3. Repair cross-branch misplacements and naming typos (`ONT-S1`, `ONT-S3`, `ONT-D5`):
 
-- Fix typos `DecimalPrecission` $\to$ `DecimalPrecision`, `ArchConcept` $\to$ `ArcConcept`, and
-  clarify `OddAndEvenNumbers` (divisibility-by-2 rule) vs. `IntegerParity`, and plural
+- **Resolved — 2026-10-24:** Corrected the arc spelling and removed the `Concept` suffix from ten
+  `Area` identifiers under [ONT-D6](../descriptors.md#ont-d6--preserve-identifier-meaning); see
+  the [identifier migration](#identifier-migration).
+
+- Fix typo `DecimalPrecission` $\to$ `DecimalPrecision`, and clarify `OddAndEvenNumbers`
+  (divisibility-by-2 rule) vs. `IntegerParity`, and plural
   `MeasuringVolumes` vs. singular `MeasuringLength` / `MeasuringWeight`.
 
 - Move `MonotoneSequenceConvergenceTheorem` and `MonotoneSequenceDivergenceTheorem` out of

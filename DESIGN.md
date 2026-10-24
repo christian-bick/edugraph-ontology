@@ -464,6 +464,28 @@ implemented grouping and that unresolved decision under
 [ONT-S5](docs/structure.md#ont-s5--review-the-entire-affected-structure), and
 [ONT-E7](docs/content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
 
+## 9. Geometric object placement and descriptor names
+
+Line and Ray are constituents of OneDimensionalObjects alongside LineSegment. They remain peers:
+a complete line extends infinitely in both directions, a ray in one direction from an endpoint,
+and a segment is bounded by two distinct endpoints. Their `partOf` placement organizes knowledge
+of these objects without implying that rays or segments preserve the complete line's defining
+meaning.
+
+The ten descriptor identifiers ending in Concept use conventional mathematical names after
+removing that suffix; Arc also corrects the former Arch spelling. Definitions and examples are
+preserved. Space still means the current three-dimensional geometric extent, Vector still
+means a geometric displacement including the zero vector, and Slope still concerns line slope,
+distinct from FunctionSlope. Zero retains its integer meaning. The
+[one-dimensional family review](docs/plan/core-areas-family-consistency-review.md#onedimensionalobjects)
+records all identifier replacements and their adoption effects under
+[ONT-D6](docs/descriptors.md#ont-d6--preserve-identifier-meaning).
+
+GeometricConcepts retains its organizer name pending the broader boundary review with
+GeometricObjects. Arc and ParametricCurve retain their existing placement: the classification
+of curved figures and the distinction between a parameterized traversal and its traced point
+set require separate decisions. No other family placement changes accompany the renames.
+
 
 ---
 

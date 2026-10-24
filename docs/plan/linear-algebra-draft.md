@@ -27,7 +27,7 @@ and stages 5B–5C for a broader introductory course. Stage 5A adds **28 new Are
 seven organizers and 21 eligible concepts, including two notation Areas in FormalMathematics.
 VectorArithmetic and MatrixArithmetic organize reusable techniques instead of repeating the
 numerical operation names for each object kind.
-It also applies one explicit definition repair to the existing geometric VectorConcept for
+It also applies one explicit definition repair to the existing geometric Vector for
 the zero vector. No existing identifier is renamed, moved, or retired.
 
 ## Research basis
@@ -72,7 +72,7 @@ FormalMathematics                        existing root
 └── MatrixNotation                       [A] notation knowledge
 
 Geometry / GeometricConcepts
-└── VectorConcept                        existing geometric concept, retained here
+└── Vector                        existing geometric concept, retained here
 ```
 
 VectorAlgebra initially concerns coordinate vectors. VectorSpaces later adds the abstract
@@ -232,9 +232,9 @@ is our ontology analysis. `VM` means `CCSS.Math.Content.HSN.VM`; `REI` means
 
 | Terminal standard | Requirement | Proposed or reused knowledge |
 | --- | --- | --- |
-| VM.A.1 | Vector quantities and representations | VectorConcept; VectorMagnitude, VectorDirection, VectorNotation |
+| VM.A.1 | Vector quantities and representations | Vector; VectorMagnitude, VectorDirection, VectorNotation |
 | VM.A.2 | Endpoint differences | VectorComponents; existing Subtraction for scalar entries |
-| VM.A.3 | Vector applications | VectorConcept; GeometricVectorCombination, EntrywiseCombination, or ScalarVectorMultiplication as evidenced; existing AlgebraicModeling and quantity context |
+| VM.A.3 | Vector applications | Vector; GeometricVectorCombination, EntrywiseCombination, or ScalarVectorMultiplication as evidenced; existing AlgebraicModeling and quantity context |
 | VM.B.4.a | Addition constructions and resultant length | GeometricVectorCombination, EntrywiseCombination, VectorComponents, VectorMagnitude; Addition for the scalar entry calculations |
 | VM.B.4.b | Resultant magnitude and direction | GeometricVectorCombination, VectorMagnitude, VectorDirection; EntrywiseCombination and trigonometry where evidenced |
 | VM.B.4.c | Subtraction and additive inverse | GeometricVectorCombination, EntrywiseCombination, VectorComponents; Subtraction for the scalar entry calculations |
@@ -259,13 +259,13 @@ No named row-reduction technique is required by this particular standard.
 
 | Existing concept | Decision and reason |
 | --- | --- |
-| VectorConcept | Retain its geometric home and LineConcept progression. Clarify the zero case using the proposed definition below; do not broaden it into the definition of an abstract vector-space element. |
+| Vector | Retain its geometric home and Line progression. Clarify the zero case using the proposed definition below; do not broaden it into the definition of an abstract vector-space element. |
 | VectorObjects | Retain as the existing vector-graphics Scope. It is not a context for mathematical vector quantities. |
 | Addition, Subtraction, Multiplication | Retain numeric meanings. They label evidenced scalar steps within EntrywiseCombination, RowColumnProduct, ScalarVectorMultiplication, and ScalarMatrixMultiplication; a vector or matrix context does not broaden them into operations on those objects. MatrixConformability supplies independently observable admissibility knowledge. |
 | AssociativeLaw, CommutativeLaw, DistributiveLaw | Retain numeric meanings. MatrixOperationIdentities adds domain-specific equivalence knowledge; matrix multiplication is not generally commutative. |
 | Sum | Its broad definition already admits vectors. It does not by itself identify coordinate or geometric vector-addition relationships. No reparenting is proposed. |
 | OperationClosure | Reuse its genuinely general meaning; no second closure concept under LinearAlgebra. |
-| ZeroConcept | Keep its integer meaning. Matrix and vector additive identities are not integer zero. |
+| Zero | Keep its integer meaning. Matrix and vector additive identities are not integer zero. |
 | SystemSolving, SystemRewriting, SystemElimination | Keep their homes and meanings. Matrix tasks compose with them when the complete constraints and required performance are evidenced. |
 | EquationSolving / SystemSolving | Existing system descriptors require at least two constraints. A one-row matrix equation uses the single-equation concept where appropriate. |
 | FunctionComposition, FunctionInversion | Their general definitions remain reusable with maps. NumericFunction is not a universal parent for maps between abstract vector spaces. |
@@ -273,7 +273,7 @@ No named row-reduction technique is required by this particular standard.
 | ExpressionIndex and other formal roles | Reuse existing roles; ExpressionIndex already illustrates matrix row and column indices. |
 | TwoDimensional, ThreeDimensional, FourDimensional | Existing spatial/spacetime Scopes do not encode matrix shape or abstract vector-space dimension. In particular, FourDimensional explicitly includes time. |
 
-**Proposed replacement definition for VectorConcept:**
+**Proposed replacement definition for Vector:**
 
 > Directed quantities represented by geometric displacements, with magnitude and direction for
 > nonzero vectors and a zero vector of magnitude zero with no direction.
@@ -404,7 +404,7 @@ are outside this extension; none of these alternatives schedules them for implem
 
 Review focuses on the accepted granularity, the zero-vector clarification, and the explicit
 bridge from matrix identities to AlgebraicEquivalence. The implementation has no identifier
-migration or reparenting; the VectorConcept text change extends its explicit boundary.
+migration or reparenting; the Vector text change extends its explicit boundary.
 The current dataset package pin and targets remain unchanged.
 
 Compare the authored graph with the implementation baseline, verify existing eligibility and
@@ -423,7 +423,7 @@ baseline. Both graphs pass the ontology assessment with no findings. The proposa
 28 Areas (seven organizers and 21 eligible concepts), 25 partOf edges, three specializes
 edges, and ten progression links. Its 150 new-Area assertions produce a simulated total
 of 1,009 descriptors and 5,393 assertions. Existing eligibility and ancestry are unchanged;
-the only proposed change to an existing assertion is the VectorConcept definition repair.
+the only proposed change to an existing assertion is the Vector definition repair.
 
 Review retained all 17 CCSS leaf mappings and checked shared-technique boundaries and
 numerical examples. This pre-implementation simulation left all four authored Turtle files
@@ -443,7 +443,7 @@ The source adds **28 Areas**, of which **seven are organizers and 21 are eligibl
 It authors **25 partOf edges, three specializes edges, and ten progression links**, including
 `ScalarMatrixMultiplication expands ScalarVectorMultiplication`. The 150 new-Area assertions
 take the authored graph from 981 descriptors and 5,243 assertions to **1,009 descriptors and
-5,393 assertions**. The VectorConcept definition is replaced separately, without changing
+5,393 assertions**. The Vector definition is replaced separately, without changing
 the assertion count. No existing identifier is renamed or retired, and no existing authored
 relation is changed.
 
@@ -453,7 +453,7 @@ relation is changed.
 | New eligible concepts | The 21 eligible additions supply vector, matrix, map, system, and notation knowledge. Select them from the content evidence; a vector or matrix appearing in a task does not establish every related concept. |
 | Scalar multiplication | ScalarVectorMultiplication and ScalarMatrixMultiplication have separate arithmetic homes. The expansion records how matrix scaling extends vector scaling; it does not automatically assign vector geometry labels to matrix tasks. |
 | Shared entrywise technique | EntrywiseCombination serves coordinate-vector and matrix addition/subtraction despite its single MatrixArithmetic home. Existing numerical operation Areas retain their definitions and identify evidenced scalar steps. |
-| VectorConcept | The replacement definition explicitly includes the zero vector while retaining geometric displacement meaning, its existing example, and all relations. Review definition-dependent classification or representations when adopting the release; existing nonzero geometric-vector uses retain their meaning. |
+| Vector | The replacement definition explicitly includes the zero vector while retaining geometric displacement meaning, its existing example, and all relations. Review definition-dependent classification or representations when adopting the release; existing nonzero geometric-vector uses retain their meaning. |
 | Existing structure and labels | Comparison with `f0dffbf` confirms unchanged existing ancestry, specialization inheritance, and direct-label eligibility. MatrixStructure remains eligible with specializing ZeroMatrix and IdentityMatrix children. |
 | Consumer packages and datasets | No package pin, competency target, or dataset annotation is updated by this ontology merge. Adopt a release containing the merge separately and apply the new eligible concepts only where supported. |
 
@@ -462,7 +462,7 @@ relation is changed.
 Implementation verification passed on 2026-10-11:
 
 - Authored-source comparison with `f0dffbf`: exactly 28 added Areas, 150 new-Area assertions,
-  and the approved VectorConcept definition replacement. No existing relations, ancestry,
+  and the approved Vector definition replacement. No existing relations, ancestry,
   identifiers, or labeling eligibility changed; the other three Turtle sources are unchanged.
 - All 28 authored definitions and examples match the design tables, including the concrete
   zero-matrix example for ScalarMatrixMultiplication. All 38 new relations match the approved graph.

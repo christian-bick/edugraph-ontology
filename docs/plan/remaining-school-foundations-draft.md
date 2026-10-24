@@ -137,7 +137,7 @@ changes while retaining their existing relations:
 
 | Existing Area | Revised definition | Example |
 | --- | --- | --- |
-| PointConcept | A precise location in geometric space, with no extent. | The location (2,-1,3) in space or (2,-1) in a plane. |
+| Point | A precise location in geometric space, with no extent. | The location (2,-1,3) in space or (2,-1) in a plane. |
 | PointPlotting | Locating and marking a point from its coordinates in a stated Cartesian coordinate system. | Marking (2,-1) in a plane or (2,-1,3) in a spatial coordinate diagram. |
 | CoordinateDistance | The calculation of the straight-line distance between points from their coordinates in an orthonormal Cartesian coordinate system. | The distance from (0,0,0) to (1,2,2) is 3. |
 | GeometricTransformations | Mappings of geometric points or figures according to a specified rule. | Rotation about a point; orthogonal projection onto a plane. |
@@ -166,8 +166,8 @@ cannot broaden a plane-only Area definition.
 - NormalVectorEquation avoids the ambiguous name NormalEquation, also used for least squares.
   Normalizing its normal vector and using projection covers Hesse-form work initially.
 - The implementation retains LineParametrization and PlaneParametrization to distinguish one
-  independent parameter from two. Composition of AffineParametrization with LineConcept or
-  PlaneConcept remains the leaner alternative considered during design.
+  independent parameter from two. Composition of AffineParametrization with Line or
+  Plane remains the leaner alternative considered during design.
 
 ### Spatial implementation — 2026-10-21
 

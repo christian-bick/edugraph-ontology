@@ -270,7 +270,7 @@ identified as direct or compositional in the inventories.
 - **Dilation:** include the identity scale factor and state its center/scale behavior; the current
   wording requires a different size (G-SRT.A.1a–b).
 - **Rotation/solid generation:** distinguish planar rotation from sweeping a figure about a spatial
-  axis (G-GMD.B.4). Plane sections already compose through PlaneConcept and IntersectionRelation.
+  axis (G-GMD.B.4). Plane sections already compose through Plane and IntersectionRelation.
 - **Sector geometry:** make sectors and their area relationship distinguishable where needed
   (G-C.B.5); ordinary circular area calculation itself is present.
 - **Sign and variation tables:** review TabularAlgebraicRepresentation, currently defined by

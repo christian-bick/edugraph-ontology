@@ -166,7 +166,7 @@ const squareRelations = relations(Area.Square);
 const isRectangle = squareRelations.specializes?.includes(Area.Rectangle); // true
 
 // 3. Direct helper functions
-const signExpands = expands(Area.SignNotation); // [Area.AbsoluteNumberMagnitude, Area.ZeroConcept]
+const signExpands = expands(Area.SignNotation); // [Area.AbsoluteNumberMagnitude, Area.Zero]
 
 // 4. Transitive helper functions (BFS closure traversal)
 // Specialization inheritance only: Square -> Rectangle -> Parallelogram -> Quadrilateral -> Polygon
@@ -200,7 +200,7 @@ square_relations = relations(Area.Square)
 is_rectangle = Area.Rectangle in square_relations.get("specializes", [])  # True
 
 # 3. Direct helper functions
-sign_expands = expands(Area.SignNotation)  # [Area.AbsoluteNumberMagnitude, Area.ZeroConcept]
+sign_expands = expands(Area.SignNotation)  # [Area.AbsoluteNumberMagnitude, Area.Zero]
 
 # 4. Transitive helper functions (BFS closure traversal)
 # Specialization inheritance only

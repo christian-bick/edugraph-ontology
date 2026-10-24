@@ -14,7 +14,7 @@
     edu:specializes :TriangleSimilarityCriterion.
 :AbsoluteNumberMagnitude a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The nonnegative magnitude of a rational number independently of its sign, represented as its distance from zero on the number line.";
-    edu:expands :ZeroConcept;
+    edu:expands :Zero;
     edu:partOf :NumberSense;
     edu:translates :DistanceCalculation.
 :AbsoluteSeriesConvergence a owl:NamedIndividual, edu:Area;
@@ -46,7 +46,7 @@
 :AcuteAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle greater than zero degrees and less than 90 degrees.";
     rdfs:comment "Angles measuring 30 degrees or 60 degrees.";
-    edu:specializes :AngleConcept.
+    edu:specializes :Angle.
 :AcuteTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle in which all three interior angles are acute angles.";
     edu:integrates :AcuteAngle;
@@ -158,27 +158,27 @@
 :Analysis a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of limits, continuity, and the behavior of functions and infinite processes.";
     rdfs:comment "Examining continuity at a point, convergence of a sequence, or conditions under which a series represents a function.".
+:Angle a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The amount of rotation or divergence between two intersecting rays, lines or planes.";
+    edu:expands :Arc, :IntersectionRelation;
+    edu:partOf :GeometricConcepts.
 :AngleCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining the magnitude of an angle from given measurements and geometric relationships.";
     rdfs:comment "Finding a triangle's missing angle from its other two angles.";
-    edu:expands :AngleConcept;
+    edu:expands :Angle;
     edu:integrates :TrigonometricRelations;
     edu:partOf :GeometricCalculations.
-:AngleConcept a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The amount of rotation or divergence between two intersecting rays, lines or planes.";
-    edu:expands :ArchConcept, :IntersectionRelation;
-    edu:partOf :GeometricConcepts.
 :AngleRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of relationships between angles based on their positions or measures.";
     rdfs:comment "Adjacent angles, complementary angles, or opposite angles formed by intersecting lines.";
-    edu:expands :AngleConcept;
+    edu:expands :Angle;
     edu:partOf :GeometricRelations.
 :Antidifferentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recovering functions with a prescribed derivative on a connected interval, where any two antiderivatives differ by a constant. Disconnected domains can require independent constants on their components.";
     rdfs:comment "The antiderivatives of 2x on the real line are x^2 + C.";
     edu:inverts :Differentiation;
     edu:partOf :IntegralCalculus.
-:ArchConcept a owl:NamedIndividual, edu:Area;
+:Arc a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A continuous portion of the circumference of a circle or any other curved line.";
     edu:expands :Circle, :RatioInterpretation;
     edu:partOf :GeometricConcepts.
@@ -192,7 +192,7 @@
     edu:partOf :CircleRelations.
 :AreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the extent or measurement of a surface.";
-    edu:expands :LengthCalculation, :PlaneConcept;
+    edu:expands :LengthCalculation, :Plane;
     edu:partOf :GeometricCalculations.
 :AreaIntegration a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Expressing geometric area as an integral of nonnegative slice lengths, splitting the domain where boundary order changes.";
@@ -328,7 +328,7 @@
     edu:partOf :Calculus.
 :CartesianPlane a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A two-dimensional plane defined by a horizontal axis and a vertical axis intersecting at a right angle.";
-    edu:expands :PlaneConcept;
+    edu:expands :Plane;
     edu:partOf :GeometricVisualization.
 :CartesianProduct a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The set of ordered tuples formed by taking one element from each of a specified finite list of sets, with positions retaining the order of those sets.";
@@ -1718,7 +1718,7 @@
     edu:partOf :CollectionSense.
 :IntersectionRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric entities that share one or more common points where they meet or cross.";
-    edu:expands :LineConcept, :PlaneConcept;
+    edu:expands :Line, :Plane;
     edu:partOf :PositionalRelations.
 :IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Intervals of numbers with no finite bound in at least one direction.";
@@ -1802,6 +1802,10 @@
     rdfs:isDefinedBy "The conventions for naming a limiting expression, its approaching variable and target, and its one-sided or infinite approach.";
     rdfs:comment "Distinguishing lim_(x->0+) 1/x from the value of 1/x at 0.";
     edu:specializes :MathematicalNotation.
+:Line a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A straight, one-dimensional figure that has no thickness and extends infinitely in both directions.";
+    edu:expands :Point;
+    edu:partOf :OneDimensionalObjects.
 :LinearAlgebra a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of vectors, vector spaces, linear maps, matrices, and linear systems through their algebraic and geometric relationships.";
     rdfs:comment "Expressing a system as Ax = b; relating a plane transformation to its matrix.".
@@ -1853,10 +1857,6 @@
     rdfs:isDefinedBy "The matrix representations, transformations, and solution structure of finite systems of linear equations over stated scalar fields.";
     rdfs:comment "Expressing two simultaneous equations as Ax = b; distinguishing a consistent singular system from an inconsistent one.";
     edu:partOf :LinearAlgebra.
-:LineConcept a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A straight, one-dimensional figure that has no thickness and extends infinitely in both directions.";
-    edu:expands :PointConcept;
-    edu:partOf :GeometricConcepts.
 :LineGraphing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Representing a straight line in a coordinate plane from its defining points or algebraic relationship.";
     rdfs:comment "Plotting two points satisfying y = 2x + 1 and drawing the line through them.";
@@ -2267,7 +2267,7 @@
     edu:partOf :StudyDesign.
 :ObtuseAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures more than 90 degrees but less than 180 degrees.";
-    edu:specializes :AngleConcept.
+    edu:specializes :Angle.
 :ObtuseTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle that has one obtuse angle.";
     edu:integrates :ObtuseAngle;
@@ -2288,7 +2288,7 @@
 :OneDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Geometric objects with length but no width or depth.";
     rdfs:comment "Lines, line segments, and rays.";
-    edu:expands :LineConcept;
+    edu:expands :Line;
     edu:partOf :GeometricObjects.
 :OneToOneFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mapping property that distinct inputs of a function have distinct outputs within its stated domain.";
@@ -2333,7 +2333,7 @@
     rdfs:isDefinedBy "The point (0,0) where the coordinate axes intersect on the Cartesian plane.";
     edu:expands :CoordinateAxes;
     edu:partOf :CartesianPlane;
-    edu:translates :ZeroConcept.
+    edu:translates :Zero.
 :OrthogonalProjection a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The assignment of a point to its unique nearest point on a specified Euclidean line or plane, with perpendicular displacement for points outside the set.";
     rdfs:comment "The projection of (1,2,3) onto z=1 is (1,2,1).";
@@ -2492,17 +2492,17 @@
     edu:partOf :CountingPrinciples.
 :PlaceValue a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The numerical value that a digit has by virtue of its position in a number.";
-    edu:expands :ZeroConcept;
+    edu:expands :Zero;
     edu:partOf :IntegerArithmetic.
-:PlaneConcept a owl:NamedIndividual, edu:Area;
+:Plane a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A flat, two-dimensional surface that extends infinitely far.";
-    edu:expands :LineConcept;
+    edu:expands :Line;
     edu:partOf :GeometricConcepts.
 :PlaneParametrization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An affine parametrization with two real parameters and two independent direction vectors.";
     rdfs:comment "(x,y,z)=(0,0,1)+s*(1,0,0)+t*(0,1,0) describes z=1.";
     edu:specializes :AffineParametrization.
-:PointConcept a owl:NamedIndividual, edu:Area;
+:Point a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A precise location in geometric space, with no extent.";
     rdfs:comment "The location (2,-1,3) in space or (2,-1) in a plane.";
     edu:expands :SpatialModelling;
@@ -2510,7 +2510,7 @@
 :PointPlotting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Locating and marking a point from its coordinates in a stated Cartesian coordinate system.";
     rdfs:comment "Marking (2,-1) in a plane or (2,-1,3) in a spatial coordinate diagram.";
-    edu:expands :NumericOrder, :OrderedCoordinatePair, :PointConcept;
+    edu:expands :NumericOrder, :OrderedCoordinatePair, :Point;
     edu:partOf :GeometricVisualization.
 :PoissonDistribution a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The nature of a count distribution with parameter lambda > 0 and probabilities exp(-lambda) lambda^k/k! for nonnegative integers k, with mean and variance lambda.";
@@ -2851,10 +2851,10 @@
     rdfs:isDefinedBy "The convergence criterion for eventually nonzero terms using L=lim abs(a_(n+1)/a_n): L below 1 guarantees absolute convergence and L above 1, including infinity, guarantees divergence. L=1 is inconclusive.";
     rdfs:comment "For a_n=2^n/n!, the ratio 2/(n+1) tends to zero, proving absolute convergence.";
     edu:partOf :SeriesConvergenceTests.
-:RayConcept a owl:NamedIndividual, edu:Area;
+:Ray a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A straight, one-dimensional figure that starts at a fixed point and extends infinitely in one direction.";
-    edu:expands :LineConcept;
-    edu:partOf :GeometricConcepts.
+    edu:expands :Line;
+    edu:partOf :OneDimensionalObjects.
 :Rectangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles, their properties, and related measurements.";
     edu:integrates :RightAngle;
@@ -2881,7 +2881,7 @@
     edu:specializes :GeometricTransformations.
 :ReflexAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures more than 180 degrees but less than 360 degrees.";
-    edu:specializes :AngleConcept.
+    edu:specializes :Angle.
 :RegressionModel a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A statistical relationship using explanatory values to model a numerical response while accounting for variation around fitted predictions.";
     rdfs:comment "Fitting a quadratic relationship between speed and stopping distance to measured pairs.";
@@ -2932,7 +2932,7 @@
 :RightAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle of exactly 90 degrees, corresponding to a quarter turn.";
     edu:expands :PerpendicularityRelation;
-    edu:specializes :AngleConcept.
+    edu:specializes :Angle.
 :RightTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle that has one right angle.";
     edu:integrates :RightAngle;
@@ -3196,7 +3196,7 @@
 :SignNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for indicating positive and negative numerical values with leading plus and minus signs, independently of magnitude. Either sign leaves zero unchanged.";
     rdfs:comment "Interpreting the minus signs in -4 and -9 as negative despite their different magnitudes; distinguishing +4 from -4; interpreting -0 as zero.";
-    edu:expands :AbsoluteNumberMagnitude, :ZeroConcept;
+    edu:expands :AbsoluteNumberMagnitude, :Zero;
     edu:specializes :NumberNotation.
 :SimilarityRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between geometric figures that have the same shape, with corresponding angles being equal and corresponding sides being in proportion.";
@@ -3219,7 +3219,7 @@
     rdfs:isDefinedBy "The relationship between two lines in three-dimensional space that are not contained in a common plane and therefore neither intersect nor are parallel.";
     rdfs:comment "The lines (t,0,0) and (0,s,1) are skew.";
     edu:partOf :PositionalRelations.
-:SlopeConcept a owl:NamedIndividual, edu:Area;
+:Slope a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The measure of the steepness and direction of a line, calculated as the ratio of the vertical change (rise) to the horizontal change (run) between two points.";
     edu:expands :RatioInterpretation;
     edu:partOf :GeometricVisualization.
@@ -3235,9 +3235,9 @@
     rdfs:isDefinedBy "The complete set of admissible assignments that make a mathematical constraint, or every constraint in a simultaneous system, true. This set may be empty, finite, or infinite.";
     rdfs:comment "The real solutions {-3, 3} of x^2 = 9; all real numbers greater than 2 for x > 2; the empty solution set of x + 1 = x + 2.";
     edu:partOf :AlgebraicConstraints.
-:SpaceConcept a owl:NamedIndividual, edu:Area;
+:Space a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A boundless, three-dimensional extent that contains all geometric figures and extends infinitely in all directions.";
-    edu:expands :PlaneConcept;
+    edu:expands :Plane;
     edu:partOf :GeometricConcepts.
 :SpatialModelling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating mental or physical representations of objects and their spatial relationships.";
@@ -3331,7 +3331,7 @@
     edu:partOf :Probability.
 :StraightAngle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An angle that measures exactly 180 degrees, forming a straight line.";
-    edu:specializes :AngleConcept.
+    edu:specializes :Angle.
 :StraightedgeAndCompassConstruction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Constructive procedures using lines through known points, circles with given or constructed centers and radii, and their intersections, without reading measurement scales.";
     rdfs:comment "Construct a perpendicular bisector using two equal-radius circles and the line through their intersections.";
@@ -3420,7 +3420,7 @@
     edu:partOf :AngleRelations.
 :SurfaceAreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the total area of the surface of a three-dimensional object.";
-    edu:expands :AreaCalculation, :SpaceConcept;
+    edu:expands :AreaCalculation, :Space;
     edu:partOf :GeometricCalculations.
 :SymmetryIntegration a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Evaluating or reducing proper definite integrals on symmetric intervals through reflection identities of their integrands.";
@@ -3502,7 +3502,7 @@
 :ThreeDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Solid geometric figures with length, width, and depth.";
     rdfs:comment "Spheres, cubes, and cylinders.";
-    edu:expands :SpaceConcept;
+    edu:expands :Space;
     edu:partOf :GeometricObjects.
 :TotalProbabilityTheorem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The expression of an event probability as the sum of conditional probabilities weighted by the probabilities of a finite or countable partition into positive-probability events.";
@@ -3601,7 +3601,7 @@
 :TrigonometricRelations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Relationships among angles, triangle side lengths, and trigonometric function values, including right-triangle ratios and circular trigonometry.";
     rdfs:comment "The ratio sin(theta) = opposite/hypotenuse in a right triangle; the coordinates (cos(theta), sin(theta)) on the unit circle.";
-    edu:expands :AngleConcept;
+    edu:expands :Angle;
     edu:partOf :GeometricRelations.
 :TrigonometricSubstitution a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Changing the integration variable to a trigonometric expression to simplify a radical, with an interval choice that determines signs and the inverse substitution.";
@@ -3610,7 +3610,7 @@
 :TwoDimensionalObjects a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Plane geometric figures with length and width but no depth.";
     rdfs:comment "Polygons, circles, and semicircular regions.";
-    edu:expands :PlaneConcept;
+    edu:expands :Plane;
     edu:partOf :GeometricObjects.
 :TypeOneError a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Rejection of a null hypothesis when that hypothesis is true.";
@@ -3679,6 +3679,11 @@
     rdfs:isDefinedBy "The role of a variable whose value is allowed to change across instances of a mathematical relationship.";
     rdfs:comment "Varying time t and the corresponding distance d in a table of values satisfying d = 5t.";
     edu:specializes :Variable.
+:Vector a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Directed quantities represented by geometric displacements, with magnitude and direction for nonzero vectors and a zero vector of magnitude zero with no direction.";
+    rdfs:comment "A displacement represented by a directed line segment.";
+    edu:expands :Line;
+    edu:partOf :GeometricConcepts.
 :VectorAlgebra a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The components, geometric properties, and operations of coordinate vectors over stated scalar fields.";
     rdfs:comment "Adding displacement vectors; multiplying a coordinate vector by a scalar.";
@@ -3691,11 +3696,6 @@
     rdfs:isDefinedBy "The ordered scalars expressing a finite-dimensional vector relative to a specified ordered basis, including coordinate differences between endpoints of a geometric displacement.";
     rdfs:comment "From P = (1, 4) to Q = (5, 1), the displacement components are (4, -3); 3e1 - 2e2 has components (3, -2) in basis (e1, e2).";
     edu:partOf :VectorAlgebra.
-:VectorConcept a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Directed quantities represented by geometric displacements, with magnitude and direction for nonzero vectors and a zero vector of magnitude zero with no direction.";
-    rdfs:comment "A displacement represented by a directed line segment.";
-    edu:expands :LineConcept;
-    edu:partOf :GeometricConcepts.
 :VectorCurveAntidifferentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Constructing vector-valued antiderivative curves by integrating their coordinates, with one arbitrary constant vector on each connected parameter interval.";
     rdfs:comment "integral (1,2t) dt=(t,t^2)+C for a constant vector C.";
@@ -3745,13 +3745,13 @@
     edu:partOf :AngleRelations.
 :VolumeCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the amount of space that a substance or object occupies.";
-    edu:expands :AreaCalculation, :SpaceConcept;
+    edu:expands :AreaCalculation, :Space;
     edu:partOf :GeometricCalculations.
 :WeightedArithmeticMean a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An average formed by dividing the sum of values multiplied by specified nonnegative weights by the positive total weight.";
     rdfs:comment "Scores 70 and 90 with weights 1 and 3 have weighted mean 85.";
     edu:partOf :DescriptiveStatistics.
-:ZeroConcept a owl:NamedIndividual, edu:Area;
+:Zero a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding zero as an integer expressing absence of quantity, the additive identity, and the origin between negative and positive values.";
     rdfs:comment "Recognizing that adding zero leaves a value unchanged, or using a zero digit as a placeholder in 305.";
     edu:partOf :IntegerArithmetic.
