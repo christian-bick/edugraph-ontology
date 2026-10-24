@@ -387,6 +387,26 @@ integer Factorization method, while FundamentalTheoremOfArithmetic supplies the 
 and uniqueness result. These distinctions connect school content to later mathematics without
 making the later theory an automatic claim about elementary exercises.
 
+## 6. Set foundations
+
+SetTheory separates set-forming operations, relationships involving sets and their elements,
+and properties of individual sets. Cardinality describes size through one-to-one
+correspondences; countability classifies whether elements can be indexed by natural numbers,
+including finite sets and the empty set. EmptySetCardinality specializes FiniteSetCardinality
+so that zero retains its finite meaning. The broader cardinality families also cover comparisons
+of infinite sizes.
+
+PowerSet identifies the construction of all subsets of a set. SetEquality specializes the
+inclusive SetInclusion concept because equality requires containment in both directions.
+SetComplement retains its specialization of SetDifference with a specified universe.
+These distinctions keep constructions, relations, and properties independently observable.
+Counting methods retain their Combinatorics home, and SetNotation remains within
+MathematicalNotation. The
+[set consolidation record](docs/plan/core-areas-family-consistency-review.md#settheory)
+documents the hierarchy, bounded fundamentals check, evidence, and adoption effects under
+[the structural rules](docs/structure.md) and
+[labeling eligibility](docs/content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
+
 
 ---
 

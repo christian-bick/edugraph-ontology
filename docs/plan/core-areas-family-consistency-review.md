@@ -191,18 +191,143 @@ directly under `FormalMathematics`, and
 
 #### `SetTheory`
 
-- **Current Structure:** 8 direct `partOf` children (`CartesianProduct`, `FiniteSetCardinality`,
+**Resolved — 2026-10-24:** Organized `SetTheory` into `SetOperations`, `SetRelations`, and
+`SetProperties`, and added the cardinality and countability distinctions below. The fundamentals
+completeness check also identified `PowerSet` and `SetEquality` as essential additions. This
+batch adds nine `Area` individuals, bringing the ontology to 903 individuals across 15 root
+domains. The original review snapshot remains 894 individuals across 16 roots; the earlier
+notation stage had 894 individuals across 15 roots.
+
+##### Implemented hierarchy and definitions
+
+The three organizers are `partOf` children of `SetTheory`, with these definitions and direct
+constituents:
+
+- **`SetOperations`:** "The study of constructions that form result sets from specified input
+  sets by determining their elements or constructing ordered tuples."
+  Its `partOf` children are `SetUnion`, `SetIntersection`, `SetDifference`, `CartesianProduct`,
+  and `PowerSet`. The existing `SetComplement` continues to specialize `SetDifference`.
+
+- **`SetRelations`:** "The study of relationships involving sets and their elements, including
+  membership, inclusion, and whether sets share elements."
+  Its `partOf` children are `SetMembership`, `SetInclusion`, and `SetDisjointness`.
+  `SetEquality` specializes the existing inclusive `SetInclusion` concept.
+
+- **`SetProperties`:** "The intrinsic characteristics of individual sets, including their sizes
+  and countability."
+  Its `partOf` children are `SetCardinality` and `SetCountability`.
+
+The general cardinality concept and its specializations distinguish these meanings:
+
+- **`SetCardinality`:** "The size of a set, with two sets having equal cardinality exactly when
+  there is a bijection between them."
+  `FiniteSetCardinality` and `InfiniteSetCardinality` specialize this parent.
+
+- **`FiniteSetCardinality`:** Its existing definition remains "The number of distinct elements
+  in a finite set, independent of their order or repeated listing."
+  Its former `partOf SetTheory` placement is replaced by specialization of `SetCardinality`.
+
+- **`InfiniteSetCardinality`:** "The cardinal size of an infinite set and comparisons of such
+  sizes through injections and bijections, including equal and unequal infinite cardinalities."
+
+- **`EmptySetCardinality`:** "The zero cardinality of a set containing no elements."
+  It specializes `FiniteSetCardinality`, retaining the empty set within finite cardinality.
+
+- **`SetCountability`:** "The classification of sets by whether their elements admit an injection
+  into the natural numbers, with countable sets comprising finite and countably infinite sets."
+  This is a sibling constituent of `SetCardinality` under `SetProperties`, rather than a
+  specialization restricted to infinite cardinality.
+
+The two additions from the completeness check have these definitions:
+
+- **`PowerSet`:** "The set of all subsets of a given set, including the empty set and the given
+  set itself."
+
+- **`SetEquality`:** "The relationship in which two sets have exactly the same elements,
+  equivalently each is a subset of the other."
+
+These definitions follow
+[ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries). Organizers
+and their constituents use
+[ONT-S1](../structure.md#ont-s1--partof-organizes-constituents); cardinality narrowings, equality
+under inclusive inclusion, and complement under difference use
+[ONT-S2](../structure.md#ont-s2--specializes-preserves-the-broader-meaning). The resulting paths
+retain composition before specialization
+([ONT-S4](../structure.md#ont-s4--composition-may-lead-into-specialization)) and uniform child
+roles at each parent ([ONT-S5](../structure.md#ont-s5--review-the-entire-affected-structure)).
+
+##### Evidence and counterexamples
+
+- `SetUnion`, `SetIntersection`, `SetDifference`, `SetComplement`, `CartesianProduct`, and
+  `PowerSet` concern result sets. Membership, inclusion, disjointness, and equality concern
+  relationships. Forming `A x B` produces ordered tuples; it does not multiply the elements as
+  numbers. A complement requires the specified universe: for `U = {1, 2, 3}` and `A = {1}`,
+  the complement is `{2, 3}`.
+
+- `EmptySetCardinality` applies to the size of the empty set, which is zero. The set containing
+  the empty set, `{empty set}`, has one element and is not empty.
+
+- `{a, b}` and `{1, 2}` have equal cardinality when `a` and `b` are distinct objects different
+  from `1` and `2`; they are not equal sets. Equal size does not establish `SetEquality`.
+
+- `{1}` is a subset of `{1, 2}`, but the sets are unequal. `SetEquality` requires inclusion in
+  both directions. Similarly, `1` being an element of `{1, 2}` differs from `{1}` being a
+  subset of that set.
+
+- `PowerSet` includes every subset: the power set of `{a}` is `{empty set, {a}}`, and the power
+  set of the empty set is `{empty set}`. It is not the original input set in either case.
+
+- Finite sets, including the empty set, are countable under the adopted definition; the natural
+  numbers are countably infinite, while the real numbers are uncountable. Infinite sets can
+  have equal cardinality without being equal sets, as with the natural numbers and integers.
+  Infinite cardinality is not a single undifferentiated size.
+
+The empty-set distinction and cardinality/countability boundaries were checked against
+[Hammack, *Book of Proof*, chapters 1 and 14](https://richardhammack.github.io/BookOfProof/).
+The operation-versus-relation distinction, subset/equality tests, and power-set cases were
+checked against
+[Levin, *Discrete Mathematics: An Open Introduction*, section 5.1](https://discrete.openmathbooks.org/dmoi4/sec_structures-sets.html)
+and Hammack's chapter 8 on proofs involving sets.
+
+##### Eligibility, adoption, and completeness boundary
+
+`SetTheory` remains organizational. The three new organizers have constituent children and are
+ineligible for direct labeling under
+[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
+The existing eight direct-child labels remain eligible after reparenting. `SetCardinality`,
+`FiniteSetCardinality`, `SetInclusion`, and `SetDifference` are eligible despite their
+specialization children; `SetCountability`, `PowerSet`, and the new specialization leaves are
+also eligible.
+
+Existing identifiers, definitions, comments, and progression relations are unchanged. Existing
+direct labels retain their meanings, while structural ancestry now includes the appropriate
+organizer. `FiniteSetCardinality` additionally supports the broader `SetCardinality` claim;
+`EmptySetCardinality` supports both. Adopters should review derived ancestor claims and model
+representations against these changed paths using
+[the annotation and model guidance](../annotations-and-models.md#interpreting-annotations-across-ontology-versions).
+
+The bounded completeness check covers basic result-set constructions, complement's universe,
+ordered products, element-versus-subset relations, equality versus one-way inclusion, empty,
+finite and infinite cardinality, and countability. `PowerSet` and `SetEquality` close the two
+essential gaps identified within that scope; no other essential gap was identified within this
+boundary. A dedicated symmetric-difference descriptor is an optional follow-up: its construction
+is expressible with set differences and union. Indexed
+families and general arbitrary-union/intersection theory, partitions and equivalence classes,
+and axiomatic set theory are outside this minimal fundamentals batch. This is not a claim of
+complete coverage of set theory.
+
+- **Structure at Review:** 8 direct `partOf` children (`CartesianProduct`, `FiniteSetCardinality`,
   `SetDifference`, `SetDisjointness`, `SetInclusion`, `SetIntersection`, `SetMembership`,
   `SetUnion`)
 
 - **Rule IDs:** `ONT-S1`, `ONT-S3`
 
-`SetTheory` is the only multi-node root without mid-level branch organizers, mixing binary set
-operations (`SetUnion`, `SetIntersection`, `SetDifference`, `CartesianProduct`), set relations
-(`SetMembership`, `SetInclusion`, `SetDisjointness`), and a cardinality invariant
+**Former finding:** `SetTheory` is the only multi-node root without mid-level branch organizers,
+mixing binary set operations (`SetUnion`, `SetIntersection`, `SetDifference`, `CartesianProduct`),
+set relations (`SetMembership`, `SetInclusion`, `SetDisjointness`), and a cardinality invariant
 (`FiniteSetCardinality`) in one flat list.
 
-**Suggestion:** Separate set-forming operations (e.g., proposed `SetOperations`) from set
+**Original Suggestion:** Separate set-forming operations (e.g., proposed `SetOperations`) from set
 relations/predicates and cardinality concepts.
 
 ### 3.2 Single-Child `partOf` Organizers (`ONT-E7`, `ONT-S1`, `ONT-D6`)

@@ -333,7 +333,7 @@
 :CartesianProduct a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The set of ordered tuples formed by taking one element from each of a specified finite list of sets, with positions retaining the order of those sets.";
     rdfs:comment "{a, b} x {0, 1} = {(a,0), (a,1), (b,0), (b,1)}.";
-    edu:partOf :SetTheory.
+    edu:partOf :SetOperations.
 :CartesianSpace a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The correspondence between points in three-dimensional Euclidean space and ordered triples relative to a stated origin and perpendicular coordinate axes.";
     rdfs:comment "(2,-1,3) locates a point using three axes.";
@@ -1005,6 +1005,10 @@
     rdfs:isDefinedBy "The overall arrangement of observed frequencies across values, including symmetry, skewness, peaks, gaps, and clusters.";
     rdfs:comment "Journey times concentrated near 15 minutes with a long tail toward longer journeys.";
     edu:partOf :DescriptiveStatistics.
+:EmptySetCardinality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The zero cardinality of a set containing no elements.";
+    rdfs:comment "The empty set has size 0; the set containing the empty set as its sole element has size 1.";
+    edu:specializes :FiniteSetCardinality.
 :EntrywiseCombination a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Addition or subtraction of coordinate vectors or matrices over a common field by applying the corresponding scalar operation at each matching entry. Operands have the same shape, and coordinate-vector interpretations use a common ordered basis.";
     rdfs:comment "(3, 1) - (1, 4) = (2, -3); [[1, 2], [3, 4]] + [[5, 6], [7, 8]] = [[6, 8], [10, 12]].";
@@ -1182,7 +1186,7 @@
 :FiniteSetCardinality a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The number of distinct elements in a finite set, independent of their order or repeated listing.";
     rdfs:comment "The set {a, a, b} has cardinality 2; the empty set has cardinality 0.";
-    edu:partOf :SetTheory.
+    edu:specializes :SetCardinality.
 :FirstDerivativeExtremumTest a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Classifying a candidate local extremum of a continuous function by first-derivative signs on the two neighboring intervals.";
     rdfs:comment "The derivative of x^2 changes from negative to positive at 0, giving a local minimum.";
@@ -1607,6 +1611,10 @@
     rdfs:isDefinedBy "The guarantee that a real-valued function bounded below by a function tending to positive infinity also tends to positive infinity, and the corresponding upper-bound result for negative infinity, when the inequality holds sufficiently near the same approached point or domain end. Real sequences are included.";
     rdfs:comment "n - 1 <= n + sin(n) for every positive integer n, so n + sin(n) tends to positive infinity.";
     edu:partOf :LimitMethods.
+:InfiniteSetCardinality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The cardinal size of an infinite set and comparisons of such sizes through injections and bijections, including equal and unequal infinite cardinalities.";
+    rdfs:comment "Matching n with 2n pairs the natural numbers with the even natural numbers; the real numbers have strictly larger cardinality than the natural numbers.";
+    edu:specializes :SetCardinality.
 :InfinitudeOfPrimes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fact that no finite collection contains every prime number.";
     rdfs:comment "Constructing 2 * 3 * 5 * 7 * 11 * 13 + 1 = 30031 = 59 * 509 to find prime divisors absent from the list 2, 3, 5, 7, 11, 13.";
@@ -2557,6 +2565,10 @@
     rdfs:isDefinedBy "The coefficients, center and convergence radius of sum c_n(x-a)^n, with absolute convergence inside the radius and divergence outside. Finite boundary points require separate tests.";
     rdfs:comment "sum_(n=1)^infinity x^n/n has radius 1, converges at -1 and diverges at 1.";
     edu:partOf :SequenceAndSeriesProperties.
+:PowerSet a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The set of all subsets of a given set, including the empty set and the given set itself.";
+    rdfs:comment "The power set of {a,b} is {{},{a},{b},{a,b}}; the power set of {} is {{}}.";
+    edu:partOf :SetOperations.
 :PrimeFactorization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Decomposing an integer greater than one into a product of prime integers.";
     rdfs:comment "60 = 2^2 * 3 * 5.";
@@ -3043,6 +3055,10 @@
     rdfs:isDefinedBy "Conditions that establish convergence or divergence of numerical series.";
     rdfs:comment "Comparing a positive series with a convergent p-series.";
     edu:partOf :SeriesCalculus.
+:SetCardinality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The size of a set, with two sets having equal cardinality exactly when there is a bijection between them.";
+    rdfs:comment "Matching a with 0 and b with 1 shows {a,b} and {0,1} have equal size; matching n with 2n pairs the natural numbers with the even natural numbers.";
+    edu:partOf :SetProperties.
 :SetComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Comparing the quantities of two bounded collections intuitively or visually without formal counting.";
     rdfs:comment "Judging which of two visibly matched groups has extra objects.";
@@ -3052,37 +3068,57 @@
     rdfs:isDefinedBy "The difference between a specified universe and one of its subsets, containing exactly the universe's elements outside that subset.";
     rdfs:comment "Within U = {1, 2, 3, 4, 5, 6}, the complement of {2, 4, 6} is {1, 3, 5}.";
     edu:specializes :SetDifference.
+:SetCountability a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The classification of sets by whether their elements admit an injection into the natural numbers, with countable sets comprising finite and countably infinite sets.";
+    rdfs:comment "The empty set is finite and countable; the integers are countably infinite; the real numbers are uncountable.";
+    edu:partOf :SetProperties.
 :SetDifference a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The set of elements belonging to a first set and not to a second set.";
     rdfs:comment "{1, 2, 3} minus {2, 4} = {1, 3}.";
-    edu:partOf :SetTheory.
+    edu:partOf :SetOperations.
 :SetDisjointness a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The absence of shared elements between two sets, extended to a family by requiring every distinct pair to have empty intersection.";
     rdfs:comment "{1, 3, 5} and {2, 4, 6} are disjoint; {1, 2} and {2, 3} are not.";
-    edu:partOf :SetTheory.
+    edu:partOf :SetRelations.
+:SetEquality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship in which two sets have exactly the same elements, equivalently each is a subset of the other.";
+    rdfs:comment "{1,2} = {2,1,1}; {1} is a subset of {1,2} but the sets are unequal.";
+    edu:specializes :SetInclusion.
 :SetInclusion a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship in which every element of one set is also an element of another, including equality and proper inclusion.";
     rdfs:comment "{1, 3} is a proper subset of {1, 3, 5}; the empty set is a subset of every set.";
-    edu:partOf :SetTheory.
+    edu:partOf :SetRelations.
 :SetIntersection a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The set of elements belonging to every one of the given sets.";
     rdfs:comment "{1, 2} intersection {2, 3} = {2}.";
-    edu:partOf :SetTheory.
+    edu:partOf :SetOperations.
 :SetMembership a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between an object and a set containing that object as an element.";
     rdfs:comment "For A = {1, 3, 5}, 3 belongs to A and 2 does not.";
-    edu:partOf :SetTheory.
+    edu:partOf :SetRelations.
 :SetNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for expressing sets, their elements, membership, inclusion, and set operations using lists, set-builder descriptions, and symbols.";
     rdfs:comment "Interpreting 3 ∈ {1, 3, 5}, reading {x ∈ Z : x > 0}, and distinguishing element membership a ∈ A from subset inclusion A ⊆ B.";
     edu:specializes :MathematicalNotation.
+:SetOperations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of constructions that form result sets from specified input sets by determining their elements or constructing ordered tuples.";
+    rdfs:comment "Forming {1,2,3} as the union of {1,2} and {2,3}; forming {(a,0),(b,0)} as {a,b} x {0}.";
+    edu:partOf :SetTheory.
+:SetProperties a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The intrinsic characteristics of individual sets, including their sizes and countability.";
+    rdfs:comment "The set {a,b} has two elements; the integers are countably infinite.";
+    edu:partOf :SetTheory.
+:SetRelations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of relationships involving sets and their elements, including membership, inclusion, and whether sets share elements.";
+    rdfs:comment "Recognizing 3 as an element of {1,3}; recognizing {1} as a subset of {1,3}; recognizing {1} and {2} as disjoint.";
+    edu:partOf :SetTheory.
 :SetTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical study of sets, their elements, operations, and relationships.";
     rdfs:comment "Describing an event as a subset of possible outcomes; forming a Cartesian product of two sets.".
 :SetUnion a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The set of elements belonging to at least one of the given sets.";
     rdfs:comment "{1, 2} union {2, 3} = {1, 2, 3}.";
-    edu:partOf :SetTheory.
+    edu:partOf :SetOperations.
 :ShapeClassification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Classifying geometric shapes by their defining attributes.";
     rdfs:comment "Classifying a figure by its number of sides and the relationships among its angles.";
