@@ -2,7 +2,7 @@
 
 Current source checked on 2026-10-24. This plan retains unresolved decisions and optional
 continuations from the completed mathematics drafts. Implementation history is summarized in
-[October mathematics history](../history/2026-10-mathematics.md). Curriculum verification belongs
+[October history](../history/2026-10-mathematics-and-consolidation.md). Curriculum verification belongs
 in [curriculum follow-ups](curriculum-follow-ups.md); shared hierarchy work belongs in
 [ontology consolidation](ontology-consolidation.md).
 

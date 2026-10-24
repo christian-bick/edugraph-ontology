@@ -3,7 +3,7 @@
 Open family and sibling findings for [`core-areas-math.ttl`](../../core-areas-math.ttl).
 Each proposal still needs review against the affected definitions, incoming references, complete
 paths, and content evidence before implementation. This document retains unresolved work;
-completed changes and migration details belong in [history](../history/2026-10-tooling-and-consolidation.md).
+completed changes are summarized in [history](../history/2026-10-mathematics-and-consolidation.md).
 
 ## Contents
 
