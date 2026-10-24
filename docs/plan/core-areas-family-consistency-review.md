@@ -105,7 +105,7 @@ all other `*Notation` descriptors) are split across different root domains.
 
 **Resolved — 2026-10-24:** Removed `ComputationalMathematics` from
 [`core-areas-math.ttl`](../../core-areas-math.ttl). It had no descriptor relations or children to
-reassign. The ontology now has 893 `Area` individuals across 15 root domains; counts elsewhere in
+reassign. The removal left 893 `Area` individuals across 15 root domains; counts elsewhere in
 this document describe the original review snapshot. Existing annotations using the removed
 identifier require review when adopting this change.
 
@@ -139,18 +139,55 @@ or grouping foundational symbolic practices consistently.
 
 #### `FormalMathematics`
 
-- **Current Structure:** 4 subtrees (`ExpressionStructure`, `MathematicalExpression`,
+**Resolved — 2026-10-24:** Added `MathematicalNotation` as the common parent of the notation
+families, including `NumberNotation`. This addition brings the ontology to 894 `Area` individuals
+across 15 root domains after the earlier removal of `ComputationalMathematics`; the original
+review snapshot remains 894 individuals across 16 roots.
+
+The new family's definition follows
+[ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries):
+
+> The conventions for writing and interpreting the symbols, words, and arrangements used to
+> denote mathematical objects, operations, and relations.
+
+`MathematicalNotation partOf FormalMathematics` places the family within the broader field
+([ONT-S1](../structure.md#ont-s1--partof-organizes-constituents)). Its ten direct `specializes`
+children are `DerivativeNotation`, `FunctionNotation`, `IntegralNotation`, `LimitNotation`,
+`MatrixNotation`, `NumberNotation`, `ProbabilityNotation`, `SetNotation`, `SummationNotation`, and
+`VectorNotation` ([ONT-S2](../structure.md#ont-s2--specializes-preserves-the-broader-meaning)).
+The ten existing specializations of `NumberNotation` retain their definitions and parent links.
+
+The eight notation leaves previously attached directly to `FormalMathematics`, and
+`NumberNotation` itself, now specialize `MathematicalNotation`. `FunctionNotation` also
+specializes the new family, replacing its `partOf AlgebraicFunctions` link. Its structural
+ancestry therefore moves from `Algebra` to `FormalMathematics`; the other notation families gain
+the intermediate parent without changing their root. These paths retain composition before
+specialization ([ONT-S4](../structure.md#ont-s4--composition-may-lead-into-specialization)) and
+uniform child roles at each parent
+([ONT-S5](../structure.md#ont-s5--review-the-entire-affected-structure)).
+
+Existing notation identifiers, definitions, comments, and direct-labeling eligibility are
+unchanged. `MathematicalNotation` and `NumberNotation` have only specialization children and
+are eligible under
+[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
+Existing direct notation labels remain usable; derived ancestor claims now include
+`MathematicalNotation`. Interpreting what the argument in `f(3)` denotes establishes notation
+knowledge; merely evaluating `f(3)` from a function rule does not establish that knowledge
+([ONT-D5](../descriptors.md#ont-d5--distinguish-learning-about-notation-from-using-notation)).
+
+- **Structure at Review:** 4 subtrees (`ExpressionStructure`, `MathematicalExpression`,
   `MathematicalStatement`, `NumberNotation`) + 8 leaf `*Notation` nodes
 
 - **Rule IDs:** `ONT-S1`, `ONT-S3`
 
-While numerical notations are grouped under `NumberNotation`, eight domain-specific notations
-(`DerivativeNotation`, `IntegralNotation`, `LimitNotation`, `MatrixNotation`, `ProbabilityNotation`,
-`SetNotation`, `SummationNotation`, `VectorNotation`) sit directly under `FormalMathematics`, and
+**Former finding:** While numerical notations are grouped under `NumberNotation`, eight
+domain-specific notations (`DerivativeNotation`, `IntegralNotation`, `LimitNotation`,
+`MatrixNotation`, `ProbabilityNotation`, `SetNotation`, `SummationNotation`, `VectorNotation`) sit
+directly under `FormalMathematics`, and
 `FunctionNotation` sits in `Algebra` (`FunctionNotation partOf AlgebraicFunctions`).
 
-**Suggestion:** Group domain notations under a sibling parent (e.g., proposed `SymbolicNotation` or
-`DomainNotation` alongside `NumberNotation`) and align `FunctionNotation`.
+**Original Suggestion:** Group domain notations under a sibling parent (e.g., proposed
+`SymbolicNotation` or `DomainNotation` alongside `NumberNotation`) and align `FunctionNotation`.
 
 #### `SetTheory`
 
@@ -912,8 +949,11 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 - Move `MonotoneSequenceConvergenceTheorem` and `MonotoneSequenceDivergenceTheorem` out of
   `FunctionTheorems` into `SequenceAndSeriesProperties`.
 
-- Align `FunctionNotation` with the notation descriptors in `FormalMathematics`, and reconcile
-  `FunctionDomain` (`Algebra`) with `FunctionRange` (`Analysis`).
+- **Resolved — 2026-10-24:** Aligned `FunctionNotation` with the notation descriptors in
+  `FormalMathematics` through the `MathematicalNotation` family recorded in
+  [section 3.1](#formalmathematics).
+
+- **Open:** Reconcile `FunctionDomain` (`Algebra`) with `FunctionRange` (`Analysis`).
 
 - Relocate `NumericIdentity` out of `NumericComparison`, `ShapeReflection` out of
   `ShapePartWholeRelations`, `OneToOneFunction` out of `FunctionTypes`, and `MidpointCalculation`

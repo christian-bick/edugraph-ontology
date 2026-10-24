@@ -814,7 +814,7 @@
 :DerivativeNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for writing derivative values, derivative functions and differentiation operators, including the designated variable and derivative order.";
     rdfs:comment "Distinguishing f'(a), f', d/dx and d^2y/dx^2; interpreting dy/dx as a derivative rather than an ordinary quotient of two numbers.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :DerivativeOptimization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a constrained extremum problem to an admissible function domain and using derivative information with boundary checks to identify the required optimum.";
     rdfs:comment "Among positive rectangles of perimeter 20, maximize A(x)=x(10-x) for 0 < x < 10 to obtain a square of side 5.";
@@ -1344,7 +1344,7 @@
 :FunctionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The symbolic conventions for naming a function, marking its argument, and denoting its output, including the distinction between a function's name and a value of that function.";
     rdfs:comment "Interpreting f(3) as the output of f at input 3; writing f(x) = 2x + 1 and then f(3) = 7.";
-    edu:partOf :AlgebraicFunctions.
+    edu:specializes :MathematicalNotation.
 :FunctionOrderProperties a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The ordering of function outputs across inputs and the local or global extremal values attained.";
     rdfs:comment "The decrease of f(x) = x^2 up to x = 0, its increase after x = 0, and its minimum value 0.";
@@ -1673,7 +1673,7 @@
 :IntegralNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for integrands, integration variables, definite-integral bounds, antiderivative families and the differential marking the variable of integration.";
     rdfs:comment "Interpreting t as bound and x as free in integral_0^x t^2 dt; distinguishing that value from integral x^2 dx=x^3/3+C.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :IntegralSeriesTest a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Equivalence of convergence of sum f(n) and integral_N^infinity f(x) dx when f is eventually continuous, positive and decreasing. Their values need not be equal.";
     rdfs:comment "Convergence of integral_1^infinity x^(-2) dx establishes convergence of sum_(n=1)^infinity 1/n^2.";
@@ -1792,7 +1792,7 @@
 :LimitNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for naming a limiting expression, its approaching variable and target, and its one-sided or infinite approach.";
     rdfs:comment "Distinguishing lim_(x->0+) 1/x from the value of 1/x at 0.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :LinearAlgebra a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of vectors, vector spaces, linear maps, matrices, and linear systems through their algebraic and geometric relationships.";
     rdfs:comment "Expressing a system as Ax = b; relating a plane transformation to its matrix.".
@@ -1951,6 +1951,10 @@
     rdfs:isDefinedBy "The syntax and meaning of well-formed finite symbolic forms denoting a value without asserting a relation at their outermost level, including single value-denoting symbols.";
     rdfs:comment "Distinguishing the value-denoting form 3x + 2 from the assertion 3x + 2 = 11; interpreting 5, x, and sin(x) as expressions.";
     edu:partOf :FormalMathematics.
+:MathematicalNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conventions for writing and interpreting the symbols, words, and arrangements used to denote mathematical objects, operations, and relations.";
+    rdfs:comment "Explaining what the argument in f(3) denotes; reading 437 as four hundred thirty-seven; interpreting the lower and upper indices in sum_(k=1)^n k.";
+    edu:partOf :FormalMathematics.
 :MathematicalStatement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The form and meaning of declarative mathematical sentences that assert relations between expressions and can be evaluated as true or false.";
     rdfs:comment "Interpreting 3 < 5 as a true assertion and 2 + 2 = 5 as a false assertion.";
@@ -1978,7 +1982,7 @@
 :MatrixNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for displaying matrix entries in rows and columns and writing entry indices, matrix sizes, determinants, and inverse symbols.";
     rdfs:comment "Reading A_(2,1) as the row-2, column-1 entry, det(A) as its determinant, and A^-1 as a matrix inverse.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :MatrixOperationIdentities a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Value-preserving equalities for conformable matrix addition, scalar multiplication, and ordered matrix products, including associativity, distributivity, additive commutativity, and neutral-element rules.";
     rdfs:comment "A(B + C) = AB + AC; (AB)C = A(BC); I_m A = A = A I_n for an m-by-n matrix A.";
@@ -2150,7 +2154,7 @@
 :NumberNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The systems of symbols and conventions used to express numerical values.";
     rdfs:comment "Positional numerals, fraction notation, decimal notation, or number names.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :NumberOperationResultTypes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The necessary or possible number-system membership of an operation's result, given the operand types and stated restrictions.";
     rdfs:comment "A rational plus an irrational number is irrational; a nonzero rational times an irrational number is irrational; sqrt(2) * sqrt(2) = 2 is rational.";
@@ -2613,7 +2617,7 @@
 :ProbabilityNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for denoting event probabilities, conditioning, probability distributions, and expectations of random quantities.";
     rdfs:comment "Reading P(A given B) as conditioning on B, X~B(10,0.5) as a distribution assertion, and E(X) as an expectation.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :ProbabilityRules a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Rules for deriving event probabilities from a probability model and relationships among events.";
     rdfs:comment "Computing a union probability; updating a probability after observing evidence.";
@@ -3071,7 +3075,7 @@
 :SetNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for expressing sets, their elements, membership, inclusion, and set operations using lists, set-builder descriptions, and symbols.";
     rdfs:comment "Interpreting 3 ∈ {1, 3, 5}, reading {x ∈ Z : x > 0}, and distinguishing element membership a ∈ A from subset inclusion A ⊆ B.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :SetTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical study of sets, their elements, operations, and relationships.";
     rdfs:comment "Describing an event as a subset of possible outcomes; forming a Cartesian product of two sets.".
@@ -3361,7 +3365,7 @@
 :SummationNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for indexed sums, including the summand, bound index and index limits, with an infinite endpoint interpreted through finite partial sums.";
     rdfs:comment "sum_(k=1)^3 k=6; sum_(n=1)^infinity 2^(-n)=1.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :SupplementaryAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles whose sum is exactly 180 degrees.";
     edu:partOf :AngleRelations.
@@ -3677,7 +3681,7 @@
 :VectorNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for vector symbols, ordered component lists, directed-segment symbols, and magnitude symbols.";
     rdfs:comment "Interpreting an arrow over PQ as displacement from P to Q and double bars around v as its magnitude.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :VectorOrthogonality a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between real Euclidean vectors whose dot product is zero, including the zero vector.";
     rdfs:comment "(1,2,0) is orthogonal to (2,-1,3); the zero vector is orthogonal to every vector.";

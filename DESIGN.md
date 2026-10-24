@@ -318,6 +318,16 @@ are composable Areas within the existing schema, not additional dimensions. The 
 [Algebra design and extension record](docs/plan/algebra-family-draft.md) preserves the authored
 families, annotation migration, examples, and remaining work.
 
+MathematicalNotation brings numerical and domain-specific notation into one family. Numerals
+are themselves symbolic, and notation such as `P(A)` can denote a number while exercising
+probability conventions. NumberNotation and the other notation families specialize this shared
+parent, which is a constituent of FormalMathematics. Expression and statement forms and the
+roles within expressions retain their separate families. The
+[notation consolidation record](docs/plan/core-areas-family-consistency-review.md#formalmathematics)
+records the hierarchy and adoption effects. A notation claim still requires evidence that the
+conventions themselves are being studied under
+[ONT-D5](docs/descriptors.md#ont-d5--distinguish-learning-about-notation-from-using-notation).
+
 This separation avoids parallel quadratic-expression, quadratic-equation, and quadratic-function
 trees. QuadraticDependence identifies the relationship in designated variables; CompletingSquare
 identifies a reusable transformation; EquationSolving identifies an objective. Completing the
