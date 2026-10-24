@@ -9,23 +9,22 @@ completed changes are summarized in [history](../history/2026-10-mathematics-and
 
 - [1. Review boundary](#1-review-boundary)
 - [2. Cross-family follow-ups](#2-cross-family-follow-ups)
-- [3. Single-child organizers](#3-single-child-organizers)
-- [4. Family-by-family findings](#4-family-by-family-sibling-consistency-analysis)
-  - [Algebra](#41-algebra)
-  - [Analysis](#42-analysis)
-  - [Arithmetic](#43-arithmetic)
-  - [Calculus](#44-calculus)
-  - [Combinatorics](#45-combinatorics)
-  - [FormalMathematics](#46-formalmathematics)
-  - [Geometry](#47-geometry)
-  - [GraphTheory](#48-graphtheory)
-  - [IntuitiveMathematics](#49-intuitivemathematics)
-  - [LinearAlgebra](#410-linearalgebra)
-  - [Logic](#411-logic)
-  - [NumberTheory](#412-numbertheory)
-  - [Probability](#413-probability)
-  - [Statistics](#414-statistics)
-- [5. Priority actions](#5-summary-of-priority-action-items)
+- [3. Family-by-family findings](#3-family-by-family-sibling-consistency-analysis)
+  - [Algebra](#31-algebra)
+  - [Analysis](#32-analysis)
+  - [Arithmetic](#33-arithmetic)
+  - [Calculus](#34-calculus)
+  - [Combinatorics](#35-combinatorics)
+  - [FormalMathematics](#36-formalmathematics)
+  - [Geometry](#37-geometry)
+  - [GraphTheory](#38-graphtheory)
+  - [IntuitiveMathematics](#39-intuitivemathematics)
+  - [LinearAlgebra](#310-linearalgebra)
+  - [Logic](#311-logic)
+  - [NumberTheory](#312-numbertheory)
+  - [Probability](#313-probability)
+  - [Statistics](#314-statistics)
+- [4. Priority actions](#4-summary-of-priority-action-items)
 
 ## 1. Review boundary
 
@@ -62,27 +61,9 @@ meaning beyond composition with set differences and union (ONT-D1). Indexed fami
 arbitrary-union/intersection theory, partitions, equivalence classes, and axiomatic set theory
 remain outside the minimal fundamentals scope; they are not required for this family cleanup.
 
-## 3. Single-child organizers
+## 3. Family-by-Family Sibling Consistency Analysis
 
-### `LinearSystems`
-
-- **Sole `hasPart` Child:** `MatrixSystemRepresentation`
-
-- **Rule IDs:** `ONT-E7`, `ONT-S1`, `ONT-D6`
-
-`MatrixSystemRepresentation partOf LinearSystems` is the only child under
-`LinearAlgebra > LinearSystems`, leaving row-reduction/echelon methods and linear-system solution
-structure unrepresented under `LinearSystems` (while `SystemRewriting` sits in `Algebra`).
-
-**Suggestion:** Populate `LinearSystems` with sibling descriptors (e.g., row reduction / Gaussian
-elimination, homogeneous and particular solution structure) or merge with `MatrixAlgebra` /
-`LinearMaps`.
-
----
-
-## 4. Family-by-Family Sibling Consistency Analysis
-
-### 4.1 `Algebra`
+### 3.1 `Algebra`
 
 #### 1. `AlgebraicConstraints` (`ConstraintSolving` vs. `ConstraintSystem`):
 
@@ -192,7 +173,7 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ---
 
-### 4.2 `Analysis`
+### 3.2 `Analysis`
 
 #### 1. `FunctionProperties` (Mixed `partOf` vs. `specializes` subtrees and `FunctionLimitingBehavior`):
 
@@ -236,7 +217,7 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ---
 
-### 4.3 `Arithmetic`
+### 3.3 `Arithmetic`
 
 #### 1. `ArithmeticLaws` (`OrderOfOperations` mixed with axiomatic identities):
 
@@ -288,7 +269,7 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ---
 
-### 4.4 `Calculus`
+### 3.4 `Calculus`
 
 #### 1. `CalculusApproximation` (Methods mixed with error bounds, and `LinearApproximation` vs. `TaylorPolynomialApproximation`):
 
@@ -336,7 +317,7 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ---
 
-### 4.5 `Combinatorics`
+### 3.5 `Combinatorics`
 
 #### 1. `CombinatorialEnumeration` (Asymmetric Ordered vs. Unordered Selection and role mixing):
 
@@ -358,7 +339,7 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ---
 
-### 4.6 `FormalMathematics`
+### 3.6 `FormalMathematics`
 
 #### 1. `ExpressionStructure` (`RootIndex` vs. `Operand`, piecewise components, and `Variable` axes):
 
@@ -387,7 +368,7 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ---
 
-### 4.7 `Geometry`
+### 3.7 `Geometry`
 
 #### 1. `GeometricCalculations` (`MidpointCalculation` and missing `specializes` links):
 
@@ -481,7 +462,7 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ---
 
-### 4.8 `GraphTheory`
+### 3.8 `GraphTheory`
 
 #### 1. `GraphFoundations` (`GraphCycle` vs. `GraphWalk` and single-child `GraphStructure`):
 
@@ -497,7 +478,7 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ---
 
-### 4.9 `IntuitiveMathematics`
+### 3.9 `IntuitiveMathematics`
 
 #### 1. `CollectionSense > DivisionOfCollections` (Definition contradiction, flattened axes, and missing `specializes` links):
 
@@ -568,7 +549,7 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ---
 
-### 4.10 `LinearAlgebra`
+### 3.10 `LinearAlgebra`
 
 #### 1. `VectorAlgebra` and `MatrixAlgebra`:
 
@@ -583,7 +564,7 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ---
 
-### 4.11 `Logic`
+### 3.11 `Logic`
 
 #### 1. `PropositionalLogic` (`LogicalEquivalence` vs. truth-functional connectives):
 
@@ -595,7 +576,7 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ---
 
-### 4.12 `NumberTheory`
+### 3.12 `NumberTheory`
 
 #### 1. `IntegerDivisibility` (`OddAndEvenNumbers` vs. `IntegerParity` and level mixing):
 
@@ -637,7 +618,7 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ---
 
-### 4.13 `Probability`
+### 3.13 `Probability`
 
 #### 1. `ProbabilityFoundations`, `ProbabilityRules`, and `RandomVariableTheory`:
 
@@ -674,7 +655,7 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ---
 
-### 4.14 `Statistics`
+### 3.14 `Statistics`
 
 #### 1. `DescriptiveStatistics` (Asymmetric grouping of Dispersion vs. Location/Central Tendency):
 
@@ -705,14 +686,9 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ---
 
-## 5. Summary of Priority Action Items
+## 4. Summary of Priority Action Items
 
-### 1. Resolve the remaining single-child organizer (ONT-E7, ONT-S1)
-
-Review `LinearSystems` as described [above](#3-single-child-organizers).
-The shared strategy-family audit is tracked under [`DecimalStrategies`](#decimalstrategies).
-
-### 2. Fix definition/specialization conflicts and missing `specializes` edges (`ONT-S2`, `ONT-D2`):
+### 1. Fix definition/specialization conflicts and missing `specializes` edges (`ONT-S2`, `ONT-D2`):
 
 - Revise `DivisionOfCollections` so its definition admits nonzero remainders, and nest
   `EvenDivisibility` under `PerfectDivisibility`, `UnevenDivisibility` under
@@ -729,7 +705,7 @@ The shared strategy-family audit is tracked under [`DecimalStrategies`](#decimal
 - Convert `AverageRateOfChange` and `InstantaneousRateOfChange` from `partOf` to `specializes`
   under `FunctionSlope` to restore `FunctionSlope`'s `ONT-E7` eligibility.
 
-### 3. Repair cross-branch misplacements and naming typos (`ONT-S1`, `ONT-S3`, `ONT-D5`):
+### 2. Repair cross-branch misplacements and naming typos (`ONT-S1`, `ONT-S3`, `ONT-D5`):
 
 - Fix typo `DecimalPrecission` $\to$ `DecimalPrecision`, and clarify `OddAndEvenNumbers`
   (divisibility-by-2 rule) vs. `IntegerParity`, and plural

@@ -56,11 +56,10 @@ drafting a family; each proposal needs a bounded definition and contrasting evid
   net edge/vertex identification and folding-validity criteria; general quadratic classification,
   degenerate/projective conics, optical/tangent theorems; broader rotational sweeps and spatial
   reflection. Instrument, object, construction method, and representation remain distinct.
-- **Linear algebra:** abstract vector spaces, subspaces and dimension; matrix reduction, rank
-  and transpose; linear-map kernel/image, rank-nullity and change of basis; general inner products,
-  norms, Gram–Schmidt, least squares, spectral theory and factorizations. Generic matrix reduction
-  cannot specialize `SystemElimination`. The existing finite-coordinate combination, span,
-  independence, basis, projection, and cross-product concepts need no duplicates.
+- **Linear algebra:** abstract vector spaces, subspaces and dimension; rank and transpose;
+  linear-map kernel/image, rank-nullity and change of basis; general inner products, norms,
+  Gram–Schmidt, least squares, spectral theory and factorizations. The existing finite-coordinate
+  combination, span, independence, basis, projection, and cross-product concepts need no duplicates.
 - **Calculus and analysis:** multivariable/vector calculus, including partial/directional
   derivatives, gradient/Jacobian/Hessian, multiple/line/surface integrals and Green/Gauss/Stokes;
   broader differential equations, integrability, ordered-field completeness and real analysis.

@@ -1864,10 +1864,19 @@
     rdfs:isDefinedBy "The set of all linear combinations of a specified collection of vectors over a stated scalar field.";
     rdfs:comment "The span of (1,0,0) and (0,1,0) is the plane z=0.";
     edu:partOf :VectorAlgebra.
+:LinearSystemConsistency a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The existence of at least one vector x satisfying a finite linear system Ax = b over a stated scalar field. In an equivalent row echelon form of [A | b], consistency is equivalent to the absence of a row [0, ..., 0 | c] with c nonzero.";
+    rdfs:comment "Over the reals, {x+y=3, 2x+2y=6} is consistent; {x+y=3, 2x+2y=7} is inconsistent.";
+    edu:partOf :LinearSystems.
 :LinearSystems a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The matrix representations, transformations, and solution structure of finite systems of linear equations over stated scalar fields.";
     rdfs:comment "Expressing two simultaneous equations as Ax = b; distinguishing a consistent singular system from an inconsistent one.";
     edu:partOf :LinearAlgebra.
+:LinearSystemSolutionSet a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The complete set of vectors x satisfying a finite linear system Ax = b over a stated scalar field, empty when the system is inconsistent. Otherwise it is {x_p + v : Av = 0} for any particular solution x_p, with free parameters ranging over that field and uniqueness exactly when Av = 0 has only the zero solution.";
+    rdfs:comment "Over the reals, {x+y=3, 2x+2y=6} has solution set {(3-t,t) : t real}; over the two-element field F_2, x+y=0 has solution set {(0,0),(1,1)}.";
+    edu:partOf :LinearSystems;
+    edu:specializes :SolutionSet.
 :LineGraphing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Representing a straight line in a coordinate plane from its defining points or algebraic relationship.";
     rdfs:comment "Plotting two points satisfying y = 2x + 1 and drawing the line through them.";
@@ -2013,13 +2022,17 @@
     rdfs:comment "In standard bases, T(x, y) = (x + y, y) has matrix [[1, 1], [0, 1]].";
     edu:partOf :LinearMaps;
     edu:translates :LinearMap.
+:MatrixRowReduction a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Transforming a finite matrix over a stated field into row echelon or reduced row echelon form using row interchanges, multiplication of a row by a nonzero scalar, and addition of a scalar multiple of one row to another. For an augmented system matrix, each operation acts on the entire row, including the right-hand side, preserving the system's complete solution set.";
+    rdfs:comment "Over the rationals, [[0,2,4],[1,1,3]] reduces to [[1,0,1],[0,1,2]]; [[1,1,3],[2,2,6]] reduces to [[1,1,3],[0,0,0]].";
+    edu:partOf :LinearSystems, :MatrixAlgebra.
 :MatrixStructure a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Rectangular arrays of scalars over a stated field, with fixed row and column counts and equality determined entry by entry at matching positions.";
     rdfs:comment "[[2, 3, 5], [7, 11, 13]] has two rows and three columns; its entry in row 2, column 1 is 7.";
     edu:partOf :MatrixAlgebra.
 :MatrixSystemRepresentation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The correspondence between a finite system of linear equations and Ax = b, matching each row to an equation and each column to one consistently ordered unknown.";
-    rdfs:comment "x + y = 7 and x - y = 1 correspond to [[1, 1], [1, -1]][x, y]^T = [7, 1]^T.";
+    rdfs:isDefinedBy "The correspondence between a finite system of linear equations over a stated field, its matrix equation Ax = b, and its augmented matrix [A | b]. Rows correspond to equations, columns of A follow one fixed ordering of the unknowns, and b records the right-hand sides.";
+    rdfs:comment "x + y = 7 and x - y = 1 correspond to [[1, 1], [1, -1]][x, y]^T = [7, 1]^T and the augmented matrix [[1, 1 | 7], [1, -1 | 1]].";
     edu:integrates :RowColumnProduct;
     edu:partOf :LinearSystems.
 :MeanAbsoluteDeviation a owl:NamedIndividual, edu:Area;
