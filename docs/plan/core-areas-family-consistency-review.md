@@ -386,20 +386,20 @@ relations/predicates and cardinality concepts.
 
 At the original review, every node below had exactly **one** `hasPart` child, making the parent
 **ineligible for content labeling under `ONT-E7`** while providing no sibling contrast (`ONT-S3`).
-The percentage family is now resolved with three constituents, as recorded below. The other
-four organizers remain single-child findings.
+The percentage and decimal-strategy families are now resolved with three and four constituents,
+respectively, as recorded below. The other three organizers remain single-child findings.
 
 #### `PercentageArithmetic`
 
-**Resolved — 2026-10-24:** Added `PercentageApplication` and `PercentageRateDetermination` as
+**Resolved — 2026-10-24:** Added `PercentageRateApplication` and `PercentageRateDetermination` as
 `partOf` siblings of the unchanged `PercentageEquivalence`. `PercentageArithmetic` remains
 `partOf RationalArithmetic`. These two additions bring the ontology to 906 `Area` individuals
 across 15 root domains, following the earlier 904-Area substitution stage; original-review and
 earlier implementation-stage totals remain historical.
 
-- **`PercentageApplication`:** "Using a specified percentage rate to determine the corresponding
-  amount from a reference quantity, or recover the reference quantity from a known amount when
-  the rate is nonzero."
+- **`PercentageRateApplication`:** "Using a specified percentage rate to determine the
+  corresponding amount from a reference quantity, or recover the reference quantity from a known
+  amount when the rate is nonzero."
   The rate is supplied: finding 12 as 15% of 80, or recovering 80 when 12 is 15% of it, exercises
   the two directions of application. A zero rate permits a forward amount calculation but does
   not determine a unique reference quantity from a zero amount.
@@ -420,7 +420,7 @@ three siblings are constituent aspects of percentage arithmetic under
 Percentage change and percentage-point difference receive no additional descriptors. A relative
 change from 80 to 100 can combine `Difference` for the change of 20 with
 `PercentageRateDetermination` relative to 80, giving 25%. Applying a known increase or decrease
-can combine `PercentageApplication` with `Sum` or `Difference`. Comparing rates of 15% and 20%
+can combine `PercentageRateApplication` with `Sum` or `Difference`. Comparing rates of 15% and 20%
 uses `Difference` to obtain five percentage points. These compositions reuse existing concepts
 under [ONT-D1](../descriptors.md#ont-d1--define-reusable-concepts); descriptors apply when their
 knowledge or procedure is evidenced, rather than being automatic labels for every percentage
@@ -437,6 +437,11 @@ The [earlier coverage audit](core-ccss-coverage-audit.md) uses `PercentageEquiva
 percentage-application compositions; review those uses against the new quantity-role boundaries
 and retain equivalence claims where representation conversion is evidenced.
 
+Former identifier `PercentageApplication` was renamed to `PercentageRateApplication` in editor
+commit `5f3fece`. Its definition and parent link are unchanged. Adopters should update stored
+annotation and client-identifier references to the new name under
+[ONT-D6](../descriptors.md#ont-d6--preserve-identifier-meaning).
+
 - **Sole `hasPart` Child at Review:** `PercentageEquivalence`
 
 - **Rule IDs:** `ONT-E7`, `ONT-S1`, `ONT-D6`
@@ -452,15 +457,54 @@ authored.
 
 #### `DecimalStrategies`
 
-- **Sole `hasPart` Child:** `DecimalDivisorShift`
+**Resolved — 2026-10-24:** Grouped four decimal methods as `partOf` constituents of
+`DecimalStrategies`. `DecimalDivisorShift` retains its existing parent link;
+`DecimalPointAlignment` and `DecimalRounding` move from directly under `DecimalArithmetic` to
+`DecimalStrategies`; `DecimalPadding` gains the same organizational parent while retaining its
+`specializes DecimalEquivalence` link. No descriptor is added or renamed, and the ontology total
+remains 906 `Area` individuals across 15 root domains.
+
+`DecimalStrategies` remains `partOf DecimalArithmetic`, whose direct constituents are now
+`DecimalEquivalence`, `DecimalPrecission`, and `DecimalStrategies`. The four methods are grouped
+as constituents under [ONT-S1](../structure.md#ont-s1--partof-organizes-constituents).
+`DecimalPadding` also preserves the broader equivalence meaning under
+[ONT-S2](../structure.md#ont-s2--specializes-preserves-the-broader-meaning): writing `2.5` as
+`2.50` preserves the value. By contrast, rounding `3.146` to `3.15` changes the value; sharing
+the strategy organizer does not make that method an equivalence transformation.
+
+The `DecimalPadding` path through `DecimalStrategies` uses composition only; the path through
+`DecimalEquivalence` ends in specialization. Both respect path ordering and uniform child roles
+([ONT-S4](../structure.md#ont-s4--composition-may-lead-into-specialization),
+[ONT-S5](../structure.md#ont-s5--review-the-entire-affected-structure)). `DecimalStrategies`
+remains an ineligible organizer, while all four methods remain eligible for direct labeling
+under [ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
+`DecimalEquivalence` also retains eligibility with its specialization child.
+
+Existing definitions, comments, and progression relations are unchanged. Existing direct method
+labels keep their meanings and eligibility. `DecimalPointAlignment` and `DecimalRounding` now
+reach `DecimalArithmetic` through `DecimalStrategies`; `DecimalPadding` gains that organizational
+path while retaining its equivalence ancestry. Adopters should review derived ancestor claims
+and model representations using
+[the annotation and model guidance](../annotations-and-models.md#interpreting-annotations-across-ontology-versions).
+
+**Deferred shared semantic and naming audit:** Review `DecimalStrategies`, `FractionStrategies`,
+and `IntegerStrategies` together for field-versus-method boundaries, definitions, naming, and
+family structure before any broader rename or relation conversion. The present decision uses
+the plural identifier and retains its organizational `partOf` placement. The shared audit will
+consider singular method concepts and specialization families alongside the existing plural
+organizers, based on their intended meanings under
+[ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries).
+
+- **Sole `hasPart` Child at Review:** `DecimalDivisorShift`
 
 - **Rule IDs:** `ONT-E7`, `ONT-S1`, `ONT-S3`
 
-`DecimalDivisorShift partOf DecimalStrategies` is the sole child of `DecimalStrategies`, whereas
+**Former finding:** `DecimalDivisorShift partOf DecimalStrategies` is the sole child of
+`DecimalStrategies`, whereas
 `DecimalPointAlignment` and `DecimalRounding` sit as `partOf` siblings of `DecimalStrategies` under
 `DecimalArithmetic`, and `DecimalPadding` specializes `DecimalEquivalence`.
 
-**Suggestion:** Either group decimal procedural techniques (`DecimalPointAlignment`,
+**Original Suggestion:** Either group decimal procedural techniques (`DecimalPointAlignment`,
 `DecimalDivisorShift`, place-value shifting) together under `DecimalStrategies` or make
 `DecimalStrategies` an eligible concept specialized by concrete decimal strategies (`ONT-S2`,
 `ONT-E7`).
@@ -1144,13 +1188,16 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ## 5. Summary of Priority Action Items
 
-### 1. Resolve the remaining 4 single-child `partOf` organizers (`ONT-E7`, `ONT-S1`):
+### 1. Resolve the remaining 3 single-child `partOf` organizers (`ONT-E7`, `ONT-S1`):
 
-**Resolved — 2026-10-24:** `PercentageArithmetic` now has three constituents, as recorded in
-[section 3.2](#percentagearithmetic).
+**Resolved — 2026-10-24:** `PercentageArithmetic` now has three constituents
+([record](#percentagearithmetic)), and `DecimalStrategies` has four
+([record](#decimalstrategies)).
 
-**Remaining:** `DecimalStrategies`, `OneDimensionalObjects`, `AlgebraicStructures`, and
-`LinearSystems`.
+**Remaining:** `OneDimensionalObjects`, `AlgebraicStructures`, and `LinearSystems`.
+
+The shared strategy-family semantics and naming audit is recorded separately under
+[`DecimalStrategies`](#decimalstrategies).
 
 ### 2. Fix definition/specialization conflicts and missing `specializes` edges (`ONT-S2`, `ONT-D2`):
 
