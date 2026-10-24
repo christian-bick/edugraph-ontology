@@ -36,3 +36,9 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   laws retain their definitions and arithmetic placement while specializing the generic operation
   properties. Existing identifiers and labeling eligibility are unchanged; specialization now
   supports the corresponding broader claims. See the [authored Areas](../../core-areas-math.ttl).
+- **October 24 — Linear-system foundations.** Added `MatrixRowReduction`, `LinearSystemConsistency`,
+  and `LinearSystemSolutionSet` under `LinearSystems`. Row reduction also belongs to `MatrixAlgebra`;
+  the solution-set concept specializes `SolutionSet`. `MatrixSystemRepresentation` now explicitly
+  relates `Ax = b` and `[A | b]`, with fixed unknown ordering and right-hand sides. Review
+  definition-dependent uses of that retained identifier. Existing labeling eligibility is unchanged;
+  `LinearSystems` remains organizational. See the [authored Areas](../../core-areas-math.ttl).
