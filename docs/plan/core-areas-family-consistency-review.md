@@ -455,24 +455,25 @@ they do not justify a mechanical rename, new group, or relation conversion.
 
 ### 2.9 `IntuitiveMathematics`
 
-#### 1. `CollectionSense > DivisionOfCollections` (Definition contradiction, flattened axes, and missing `specializes` links):
+#### 1. `CollectionSense > DivisionOfCollections` (Remaining parity boundary and partition link):
 
-- **Parent definition contradicts `ImperfectDivisibility` and `UnevenDivisibility` (`ONT-S2`, `ONT-D2`):**
-  `DivisionOfCollections` states: *"The source cardinality equals the number of subcollections
-  multiplied by their shared cardinality, so either factor can be determined through division."*
-  This requires remainder zero. However, two of its `specializes` children—`ImperfectDivisibility`
-  and `UnevenDivisibility`—explicitly have a **nonzero remainder**, contradicting the parent's
-  definition.
+- **Remaining definition conflict (`ONT-S2`, `ONT-D4`):** `DivisionOfCollections` requires an
+  exact equal partition, but `UnevenDivisibility` still specializes it while explicitly leaving
+  one object undistributed. Keep the concrete collection meaning distinct from the numerical
+  remainder cases now represented by `PerfectDivisibility` and `ImperfectDivisibility` under
+  `EuclideanDivision`.
 
-- **Missing `specializes` links for divisor-2 cases (`ONT-S2`, `ONT-S3`):**
-  `EvenDivisibility` (divisor = 2, remainder = 0) is a narrower case of `PerfectDivisibility`
-  (any divisor, remainder = 0), and `UnevenDivisibility` (divisor = 2, remainder = 1) is a
-  narrower case of `ImperfectDivisibility` (any divisor, nonzero remainder), yet all four sit as
-  flat siblings directly under `DivisionOfCollections`.
-
-- **Orthogonal classification axes flattened (`ONT-S3`):** `PartitiveDivision` and
-  `QuotativeDivision` classify division by **given vs. unknown role**, whereas
-  `PerfectDivisibility` and `ImperfectDivisibility` classify division by **remainder outcome**.
+- **Open parity consolidation (`ONT-D1`, `ONT-D4`, `ONT-E1`, `ONT-W2`):** `EvenDivisibility` and
+  `UnevenDivisibility` currently describe a concrete two-group sharing model; `IntegerParity`
+  describes the even/odd character of all integers and its behavior under operations. Purely
+  numerical even/odd versions would duplicate `IntegerParity` with the relevant `EvenNumbers`
+  or `OddNumbers` context. Decide whether the concrete model merits a distinct concept before
+  retiring, renaming, or reparenting these descriptors. A candidate `ParityByEqualSharing` could
+  cover both outcomes in one method concept: eight objects split into two groups of four, or
+  seven objects into two groups of three with one left over. Review existing annotations individually:
+  finding group sizes may also involve division, and a leftover-object example does not satisfy
+  the exact `DivisionOfCollections` definition. Review `OddAndEvenNumbers expands EvenDivisibility`
+  and `UnevenDivisibility contradicts EvenDivisibility` with any consolidation.
 
 - **Missing link to `PartitionOfCollections` (`ONT-S2`):** Under `CollectionSense`,
   `DivisionOfCollections` ("splitting a single bounded collection into two or more distinct
@@ -665,9 +666,10 @@ they do not justify a mechanical rename, new group, or relation conversion.
 
 ### 1. Fix definition/specialization conflicts and missing `specializes` edges (`ONT-S2`, `ONT-D2`):
 
-- Revise `DivisionOfCollections` so its definition admits nonzero remainders, and nest
-  `EvenDivisibility` under `PerfectDivisibility`, `UnevenDivisibility` under
-  `ImperfectDivisibility`, and `DivisionOfCollections` under `PartitionOfCollections`.
+- Resolve `UnevenDivisibility`'s remaining conflict with the exact `DivisionOfCollections`
+  definition, assess the two concrete divisor-two concepts against `IntegerParity`, and review the proposed
+  `DivisionOfCollections specializes PartitionOfCollections`. Numerical zero/nonzero remainder
+  cases now specialize `EuclideanDivision`; do not broaden the collection parent to absorb them.
 
 - Add missing mathematical `specializes` links: `EquilateralTriangle` $\to$ `IsoscelesTriangle` &
   `AcuteTriangle`; `Square` $\to$ `Rhombus`; `UnitFactorScaling` & `UnitMagnitudeScaling` $\to$
