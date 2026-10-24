@@ -69,7 +69,7 @@ The mathematical-practice audit applies across grades and is included [with the 
 | --- | --- | --- | --- |
 | K.CC.A.1 | Count by ones and tens to 100 | `NumerationWithIntegers`, S:`StepsOf1`, S:`StepsOf10` | **Composition** — Counting concept with step-size contexts. |
 | K.CC.A.2 | Continue counting from a given number | `NumerationWithIntegers`, `Increment`, B:`ProcedureExecution` | **Composition** — Successor steps applied from a supplied starting value. |
-| K.CC.A.3 | Write 0–20 numerals and represent a collection count | `IntegerNotation`, S:`QuantityMeasurement`, `ZeroConcept` | **Composition** — Notation, counting and the empty collection. |
+| K.CC.A.3 | Write 0–20 numerals and represent a collection count | `IntegerNotation`, S:`QuantityMeasurement`, `Zero` | **Composition** — Notation, counting and the empty collection. |
 | K.CC.B.4a | Match one number word to each object | S:`QuantityMeasurement`, `NumerationWithIntegers`, B:`ProcedureUnderstanding` | **Composition** — Count procedure coordinates objects and successive values. |
 | K.CC.B.4b | Last count gives cardinality regardless of arrangement | S:`QuantityMeasurement`, `NumericIdentity`, B:`ProcedureUnderstanding` | **Composition** — Count and value conservation; object movement does not change membership. |
 | K.CC.B.4c | Successive counts differ by one | `NumerationWithIntegers`, `Increment` | **Composition** — Successor relation and integer sequence. |
@@ -146,7 +146,7 @@ The mathematical-practice audit applies across grades and is included [with the 
 | 1.NBT.A.1 | Count/read/write numbers to 120 | `NumerationWithIntegers`, `IntegerNotation`, S:`QuantityMeasurement` | **Composition** — Number sequence, notation and collection size. |
 | 1.NBT.B.2a | Ten ones form one ten | `PlaceValue`, `IntegerRegrouping` | **Composition** — Unit bundling and place values. |
 | 1.NBT.B.2b | Teen numbers as ten and ones | `PlaceValue`, `IntegerRegrouping` | **Composition** — Same grouping relation in teen-number context. |
-| 1.NBT.B.2c | Multiples of ten as tens and zero ones | `PlaceValue`, `ZeroConcept`, S:`MultiplesOf10` | **Composition** — Positional zero and grouped tens. |
+| 1.NBT.B.2c | Multiples of ten as tens and zero ones | `PlaceValue`, `Zero`, S:`MultiplesOf10` | **Composition** — Positional zero and grouped tens. |
 | 1.NBT.B.3 | Compare two-digit numbers using place value | `NumericOrder`, `PlaceValue`, `IntegerNotation` | **Composition** — Positional comparison. |
 | 1.NBT.C.4 | Add within 100 with models and regrouping | `AdditionPlaceValuePartitioning`, `IntegerRegrouping`, S:`BaseTenBlocks`, B:`ProcedureUnderstanding` | **Composition** — Place-value strategy and justification. |
 | 1.NBT.C.5 | Mentally find ten more/less | `Addition`, `Subtraction`, `PlaceValue`, S:`StepsOf10` | **Composition** — Place-value change with a fixed step. |
@@ -193,7 +193,7 @@ The mathematical-practice audit applies across grades and is included [with the 
 | Standard | Requirement | Eligible descriptors | Judgment and reason |
 | --- | --- | --- | --- |
 | 2.NBT.A.1a | Ten tens form one hundred | `PlaceValue`, `IntegerRegrouping` | **Composition** — Base-ten bundling relation. |
-| 2.NBT.A.1b | Whole hundreds as hundreds and zero lower places | `PlaceValue`, `ZeroConcept`, S:`MultiplesOf100` | **Composition** — Positional representation of hundreds. |
+| 2.NBT.A.1b | Whole hundreds as hundreds and zero lower places | `PlaceValue`, `Zero`, S:`MultiplesOf100` | **Composition** — Positional representation of hundreds. |
 | 2.NBT.A.2 | Count to 1000; skip by 5/10/100 | `NumerationWithIntegers`, S:`StepsOf5`, S:`StepsOf10`, S:`StepsOf100` | **Composition** — Counting with explicit step contexts. |
 | 2.NBT.A.3 | Read/write expanded and named integers | `IntegerNotation`, `NumberNameNotation`, `PlaceValue`, `Addition` | **Composition** — Expanded notation composes place values and a sum. |
 | 2.NBT.A.4 | Compare three-digit numbers | `NumericOrder`, `PlaceValue`, `IntegerNotation` | **Composition** — Positional comparison with target bounds. |
@@ -337,9 +337,9 @@ The mathematical-practice audit applies across grades and is included [with the 
 | 4.MD.A.2 | Mixed measurement/money arithmetic | `Addition`, `Subtraction`, `Multiplication`, `Division`, `UnitConversion`, S:`Numberline`, S:`FractionNumbers`, S:`DecimalNumbers` | **Composition** — Arithmetic and unit knowledge; target specifies quantities and units. |
 | 4.MD.A.3 | Rectangle formulas and missing lengths | `Rectangle`, `AreaCalculation`, `PerimeterCalculation`, `EquationSolving` | **Composition** — Formula use composed with solving. |
 | 4.MD.B.4 | Fractional line-plot data and arithmetic | S:`LinePlot`, S:`FractionNumbers`, `Addition`, `Subtraction` | **Composition** — Data representation and operations. |
-| 4.MD.C.5a | Degree as a fraction of a turn | `AngleConcept`, `Circle`, S:`DegreeScale`, `FractionDenominatorInterpretation` | **Composition** — Angle, circle and unit convention compose. |
-| 4.MD.C.5b | Angle magnitude counts unit degrees | `AngleConcept`, S:`DegreeScale`, S:`QuantityMeasurement` | **Composition** — Measurement as iteration of an angular unit. |
-| 4.MD.C.6 | Measure/draw angles with protractors | `AngleConcept`, `AngleCalculation`, S:`Protractor`, S:`DegreeScale`, B:`Visualization` | **Composition** — Measurement and construction with a specified tool. |
+| 4.MD.C.5a | Degree as a fraction of a turn | `Angle`, `Circle`, S:`DegreeScale`, `FractionDenominatorInterpretation` | **Composition** — Angle, circle and unit convention compose. |
+| 4.MD.C.5b | Angle magnitude counts unit degrees | `Angle`, S:`DegreeScale`, S:`QuantityMeasurement` | **Composition** — Measurement as iteration of an angular unit. |
+| 4.MD.C.6 | Measure/draw angles with protractors | `Angle`, `AngleCalculation`, S:`Protractor`, S:`DegreeScale`, B:`Visualization` | **Composition** — Measurement and construction with a specified tool. |
 | 4.MD.C.7 | Angle addition and missing angles | `AdjacentAngles`, `AngleCalculation`, `Addition`, `Subtraction`, `EquationSolving` | **Composition** — Disjoint adjacent angles and additive measurement. |
 
 ### 4.G
@@ -348,8 +348,8 @@ The mathematical-practice audit applies across grades and is included [with the 
 
 | Standard | Requirement | Eligible descriptors | Judgment and reason |
 | --- | --- | --- | --- |
-| 4.G.A.1 | Draw/classify elementary geometric objects | `PointConcept`, `LineConcept`, `RayConcept`, `LineSegment`, `AngleConcept`, `ParallelismRelation`, `PerpendicularityRelation`, `LinearDrawing` | **Composition** — Existing object and relation concepts. |
-| 4.G.A.2 | Classify figures by lines and angles | `ShapeClassification`, `ParallelismRelation`, `PerpendicularityRelation`, `RightTriangle`, `AngleConcept` | **Composition** — Relation-based shape classification. |
+| 4.G.A.1 | Draw/classify elementary geometric objects | `Point`, `Line`, `Ray`, `LineSegment`, `Angle`, `ParallelismRelation`, `PerpendicularityRelation`, `LinearDrawing` | **Composition** — Existing object and relation concepts. |
+| 4.G.A.2 | Classify figures by lines and angles | `ShapeClassification`, `ParallelismRelation`, `PerpendicularityRelation`, `RightTriangle`, `Angle` | **Composition** — Relation-based shape classification. |
 | 4.G.A.3 | Identify/draw lines of symmetry | `SymmetryRelation`, `Reflection`, `LinearDrawing` | **Composition** — Symmetry and its reflecting axis. |
 
 ### 4.NF
@@ -496,8 +496,8 @@ The mathematical-practice audit applies across grades and is included [with the 
 | 6.NS.B.2 | Standard multidigit division | `DivisionStandardAlgorithm`, B:`ProcedureExecution` | **Composition** — Named algorithm with fluency requirement. |
 | 6.NS.B.3 | Standard algorithms for decimal arithmetic | `AdditionStandardAlgorithm`, `SubtractionStandardAlgorithm`, `MultiplicationStandardAlgorithm`, `DivisionStandardAlgorithm`, `DecimalPointAlignment`, `DecimalDivisorShift` | **Composition** — Algorithms compose with decimal handling. |
 | 6.NS.B.4 | GCD/LCM and distributive integer factoring | `GreatestCommonDivisor`, `LeastCommonMultiple`, `DistributiveLaw`, `FactorsAndMultiples` | **Composition** — Named number-theoretic operations plus factor extraction. |
-| 6.NS.C.5 | Signed quantities and contextual zero | `SignNotation`, `ZeroConcept`, S:`NumbersWithNegatives`, B:`Interpretation` | **Composition** — Meaning of signs and reference zero. |
-| 6.NS.C.6a | Opposite numbers around zero | `SignNotation`, `NumerationWithIntegers`, S:`Numberline`, `ZeroConcept` | **Composition** — Sign interpretation and reflected positions. |
+| 6.NS.C.5 | Signed quantities and contextual zero | `SignNotation`, `Zero`, S:`NumbersWithNegatives`, B:`Interpretation` | **Composition** — Meaning of signs and reference zero. |
+| 6.NS.C.6a | Opposite numbers around zero | `SignNotation`, `NumerationWithIntegers`, S:`Numberline`, `Zero` | **Composition** — Sign interpretation and reflected positions. |
 | 6.NS.C.6b | Coordinate signs and axis reflections | `Quadrants`, `OrderedCoordinatePair`, `Reflection`, `SignNotation` | **Composition** — Sign changes interpreted geometrically. |
 | 6.NS.C.6c | Locate rational numbers and coordinate pairs | `NumerationWithFractions`, `NumerationWithIntegers`, `PointPlotting`, S:`Numberline`, S:`RationalNumbers` | **Composition** — Spatial placement of the number representations. |
 | 6.NS.C.7a | Inequality and number-line order | `NumericOrder`, `NumericInequality`, S:`Numberline` | **Composition** — Symbolic order tied to position. |
@@ -543,7 +543,7 @@ The mathematical-practice audit applies across grades and is included [with the 
 | --- | --- | --- | --- |
 | 7.G.A.1 | Scale drawings and lengths/areas | `Dilation`, `ProportionalScaling`, `AreaCalculation`, `LengthCalculation` | **Composition** — Geometric scaling and measurements. |
 | 7.G.A.2 | Triangle constructions: none, one or multiple solutions | `Triangle`, `LinearShapeDrawing`, `AngleCalculation`, `LengthCalculation`, S:`Protractor` | **Knowledge/procedure gap** — K8-G1: existing shape/drawing concepts do not identify feasibility and uniqueness criteria for prescribed sides/angles. |
-| 7.G.A.3 | Plane sections of prisms/pyramids | `PlaneConcept`, `IntersectionRelation`, `Prism`, `Pyramid`, `ShapeRecognition`, B:`SpatialInterpretation` | **Composition** — Section is the intersection with a plane; does not require integral calculus. |
+| 7.G.A.3 | Plane sections of prisms/pyramids | `Plane`, `IntersectionRelation`, `Prism`, `Pyramid`, `ShapeRecognition`, B:`SpatialInterpretation` | **Composition** — Section is the intersection with a plane; does not require integral calculus. |
 | 7.G.B.4 | Circle circumference/area and informal derivation | `Circle`, `Pi`, `CircumferenceCalculation`, `AreaCalculation`, B:`ProcedureDerivation` | **Composition** — Shape-specific measurement procedures and the constant can be composed. |
 | 7.G.B.5 | Equations using elementary angle relations | `SupplementaryAngles`, `ComplementaryAngles`, `VerticalAngles`, `AdjacentAngles`, `AngleCalculation`, `EquationSolving` | **Composition** — Definitions/angle relationships plus solving; VerticalAngles equality should be explicit in future definition polish. |
 | 7.G.B.6 | Measures of composite plane/solid figures | `AreaCalculation`, `VolumeCalculation`, `SurfaceAreaCalculation`, `ShapeDecomposition`, `Polygon`, `Prism` | **Composition** — Decomposition composed with the relevant measure. |
@@ -567,7 +567,7 @@ The mathematical-practice audit applies across grades and is included [with the 
 
 | Standard | Requirement | Eligible descriptors | Judgment and reason |
 | --- | --- | --- | --- |
-| 7.NS.A.1a | Opposite quantities combine to zero | `Addition`, `RulesOfSigns`, `ZeroConcept`, `SignNotation` | **Composition** — Signed addition and additive cancellation. |
+| 7.NS.A.1a | Opposite quantities combine to zero | `Addition`, `RulesOfSigns`, `Zero`, `SignNotation` | **Composition** — Signed addition and additive cancellation. |
 | 7.NS.A.1b | Signed addition as directed movement | `Addition`, `RulesOfSigns`, `AbsoluteNumberMagnitude`, S:`Numberline` | **Composition** — Sign sets direction and magnitude sets displacement. |
 | 7.NS.A.1c | Subtract by adding the opposite; distance | `Subtraction`, `Addition`, `RulesOfSigns`, `AbsoluteNumberMagnitude`, S:`Numberline` | **Composition** — Inverse-sign reasoning and magnitude of difference. |
 | 7.NS.A.1d | Use laws for signed sums/differences | `Addition`, `Subtraction`, `CommutativeLaw`, `AssociativeLaw`, `RulesOfSigns` | **Composition** — Operation laws in signed contexts. |
@@ -607,8 +607,8 @@ The mathematical-practice audit applies across grades and is included [with the 
 | 8.EE.A.2 | Roots, power equations and irrational square roots | `Root`, `EquationSolving`, `Exponentiation`, `RationalNumberCharacterization`, S:`IrrationalNumbers` | **Composition** — Operations, solving and number characterization. |
 | 8.EE.A.3 | Estimate/compare scientific-scale quantities | S:`ScientificExponentNotation`, `Exponentiation`, `NumericApproximation`, `ProportionalScaling` | **Composition** — Notation Scope composed with arithmetic and approximation knowledge. |
 | 8.EE.A.4 | Scientific notation arithmetic and units | S:`ScientificExponentNotation`, `ExponentLaws`, `ArithmeticEvaluation`, `UnitConversion`, `UnitDimensionality` | **Composition** — Existing notation context includes interpretation; unit choice is applicability. |
-| 8.EE.B.5 | Proportional graphs, slopes and rates | `DirectProportionalDependence`, `SlopeConcept`, `LineGraphing`, `AverageRateOfChange` | **Composition** — Same dependence across graph and quantity interpretations. |
-| 8.EE.B.6 | Derive constant slope and affine line equation | `SimilarityRelation`, `Triangle`, `SlopeConcept`, `AffineDependence`, `Equation`, B:`ProcedureDerivation` | **Composition** — Similar-triangle proportionality supports the derivation; no separate theorem target here. |
+| 8.EE.B.5 | Proportional graphs, slopes and rates | `DirectProportionalDependence`, `Slope`, `LineGraphing`, `AverageRateOfChange` | **Composition** — Same dependence across graph and quantity interpretations. |
+| 8.EE.B.6 | Derive constant slope and affine line equation | `SimilarityRelation`, `Triangle`, `Slope`, `AffineDependence`, `Equation`, B:`ProcedureDerivation` | **Composition** — Similar-triangle proportionality supports the derivation; no separate theorem target here. |
 | 8.EE.C.7a | Linear equations with zero/one/infinitely many solutions | `EquationSolving`, `SolutionSet`, `LinearRewriting`, `AlgebraicEquivalence` | **Composition** — Rewriting to tautology, contradiction or assignment. |
 | 8.EE.C.7b | Solve rational linear equations with expansion | `EquationSolving`, `LinearRewriting`, `DistributiveLaw`, `CollectingLinearTerms`, S:`RationalNumbers` | **Composition** — Methods composed with the solving objective. |
 | 8.EE.C.8a | System solutions as graph intersections | `SystemOfEquations`, `SolutionSet`, `IntersectionRelation`, S:`GraphicalAlgebraicRepresentation` | **Composition** — Simultaneous constraint satisfaction and graphical representation. |
@@ -621,8 +621,8 @@ The mathematical-practice audit applies across grades and is included [with the 
 
 | Standard | Requirement | Eligible descriptors | Judgment and reason |
 | --- | --- | --- | --- |
-| 8.G.A.1a | Rigid motions preserve lines and segment lengths | `Translation`, `Reflection`, `Rotation`, `LineConcept`, `LineSegment`, `LengthCalculation`, S:`ConstructedCaseEvidence` | **Composition** — Transform properties composed with experimental evidence. |
-| 8.G.A.1b | Rigid motions preserve angle measure | `Translation`, `Reflection`, `Rotation`, `AngleConcept`, S:`ConstructedCaseEvidence` | **Composition** — Geometric transformation and angular invariance. |
+| 8.G.A.1a | Rigid motions preserve lines and segment lengths | `Translation`, `Reflection`, `Rotation`, `Line`, `LineSegment`, `LengthCalculation`, S:`ConstructedCaseEvidence` | **Composition** — Transform properties composed with experimental evidence. |
+| 8.G.A.1b | Rigid motions preserve angle measure | `Translation`, `Reflection`, `Rotation`, `Angle`, S:`ConstructedCaseEvidence` | **Composition** — Geometric transformation and angular invariance. |
 | 8.G.A.1c | Rigid motions preserve parallelism | `Translation`, `Reflection`, `Rotation`, `ParallelismRelation`, S:`ConstructedCaseEvidence` | **Composition** — Relation preserved under the specified motions. |
 | 8.G.A.2 | Congruence through sequences of rigid motions | `CongruenceRelation`, `Translation`, `Reflection`, `Rotation`, B:`ProcedureComposition` | **Composition** — Composed transformations witness congruence. |
 | 8.G.A.3 | Coordinate effects of transformations | `Translation`, `Reflection`, `Rotation`, `Dilation`, `OrderedCoordinatePair`, `PointPlotting` | **Composition** — Geometric operations applied to coordinate representations. |
@@ -650,7 +650,7 @@ The mathematical-practice audit applies across grades and is included [with the 
 | --- | --- | --- | --- |
 | 8.SP.A.1 | Bivariate scatter patterns and outliers | `StatisticalVariable`, `StatisticalOutlier`, `AssociationAndCausation`, S:`ScatterPlot` | **Composition** — Association patterns and representation; causation is not inferred. |
 | 8.SP.A.2 | Informal straight-line fit and closeness | `RegressionModel`, `RegressionResidual`, `AffineDependence`, S:`ScatterPlot` | **Composition** — Model family and residual interpretation; least squares is not imposed. |
-| 8.SP.A.3 | Interpret slope/intercept in a linear model | `RegressionModel`, `AffineDependence`, `SlopeConcept`, B:`ResultInterpretation` | **Composition** — Model parameters interpreted in context. |
+| 8.SP.A.3 | Interpret slope/intercept in a linear model | `RegressionModel`, `AffineDependence`, `Slope`, B:`ResultInterpretation` | **Composition** — Model parameters interpreted in context. |
 | 8.SP.A.4 | Categorical association in two-way tables | `ContingencyAssociation`, `ConditionalRelativeFrequency`, S:`TwoWayTable` | **Composition** — Conditional frequencies identify categorical association. |
 
 ### 8.F
@@ -662,5 +662,5 @@ The mathematical-practice audit applies across grades and is included [with the 
 | 8.F.A.1 | Unique-output rule and graph of input/output pairs | `NumericFunction`, `FunctionArgument`, `OrderedCoordinatePair`, S:`GraphicalAlgebraicRepresentation` | **Composition** — Function meaning is already explicit without renaming FunctionTypes. |
 | 8.F.A.2 | Compare functions across representations | `NumericFunction`, `AverageRateOfChange`, S:`SymbolicAlgebraicRepresentation`, S:`TabularAlgebraicRepresentation`, S:`GraphicalAlgebraicRepresentation`, S:`VerbalAlgebraicRepresentation` | **Composition** — Shared properties and alternate representations. |
 | 8.F.A.3 | Affine versus nonlinear functions | `NumericFunction`, `AffineDependence`, `QuadraticDependence`, `LineGraphing` | **Composition** — Shared dependence descriptors identify the contrast. |
-| 8.F.B.4 | Build and interpret affine models | `AlgebraicModeling`, `NumericFunction`, `AffineDependence`, `SlopeConcept`, `AverageRateOfChange` | **Composition** — Initial value and constant rate determine the model. |
+| 8.F.B.4 | Build and interpret affine models | `AlgebraicModeling`, `NumericFunction`, `AffineDependence`, `Slope`, `AverageRateOfChange` | **Composition** — Initial value and constant rate determine the model. |
 | 8.F.B.5 | Describe/sketch qualitative function behavior | `FunctionMonotonicity`, `NumericFunction`, `AffineDependence`, S:`GraphicalAlgebraicRepresentation`, B:`Visualization` | **Composition** — Property knowledge composed with graphical production/interpretation. |

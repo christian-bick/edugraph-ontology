@@ -67,7 +67,7 @@ import { Area, Scope, relations, specializesTransitive, structuresTransitive, ex
 const squareRelations = relations(Area.Square);
 
 // Direct expands list
-const signExpands = expands(Area.SignNotation);  // [Area.AbsoluteNumberMagnitude, Area.ZeroConcept]
+const signExpands = expands(Area.SignNotation);  // [Area.AbsoluteNumberMagnitude, Area.Zero]
 
 // Specialization inheritance does not traverse partOf
 const inheritedCapabilities = specializesTransitive(Area.Square);

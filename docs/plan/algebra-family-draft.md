@@ -1159,7 +1159,7 @@ CompletingSquare remain Areas where they contribute additional mathematical know
 | --- | --- | --- |
 | NumberTheory foundations | Complex-number structure, rational/irrational characterization, closure and mixed-system result types. | Merged at `1b9ecc3`; see the design record and adoption map below. |
 | Advanced complex numbers | Conjugates, modulus and argument, rectangular/polar forms, complex-plane representations and operations, Fundamental Theorem of Algebra. | Stage 3A merged at `cf74a23`; FTA is a constituent of AlgebraicTheorems. University-entry stage 3B merged at `5733989` through PR #77; optional Scopes remain deferred. |
-| Linear algebra | Vector operations, matrix quantities and arithmetic, zero/identity matrices, determinants, inverses, matrix systems, linear transformations. | Stage 5A merged at `69f60f9` through [PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73); see the [implementation and adoption record](linear-algebra-draft.md#implementation-and-adoption--2026-10-11). LinearAlgebra is a separate root. Spatial finite-coordinate foundations from stage 5B merged through PR #76; the broader stages 5B–5C remain deferred. VectorConcept retains its geometric home with an explicit zero-vector boundary, and VectorObjects means graphics. |
+| Linear algebra | Vector operations, matrix quantities and arithmetic, zero/identity matrices, determinants, inverses, matrix systems, linear transformations. | Stage 5A merged at `69f60f9` through [PR #73](https://github.com/christian-bick/edugraph-ontology/pull/73); see the [implementation and adoption record](linear-algebra-draft.md#implementation-and-adoption--2026-10-11). LinearAlgebra is a separate root. Spatial finite-coordinate foundations from stage 5B merged through PR #76; the broader stages 5B–5C remain deferred. Vector retains its geometric home with an explicit zero-vector boundary, and VectorObjects means graphics. |
 | Further function/trigonometric work | Rational-function asymptotes, continuous repair, angle addition/subtraction identities, sine-area relationship, Laws of Sines and Cosines. | Stage 4 merged at `f0dffbf` through [PR #72](https://github.com/christian-bick/edugraph-ontology/pull/72); see the [implementation record](further-functions-trigonometry-draft.md#implementation-and-adoption--2026-10-11). Subtypes and other optional refinements remain deferred. |
 | Calculus methods | Limit and derivative methods, derivative tests and applications, integration/accumulation, elementary differential equations, approximation, series, and curve calculus. | Merged at `5f52168` through [PR #74](https://github.com/christian-bick/edugraph-ontology/pull/74), covering stages A, B, and E under the existing Calculus root; see [implementation and adoption](calculus-family-draft.md#implementation-and-adoption--2026-10-20). Existing Analysis properties remain in place. This is independent of completing CCSS; consumer adoption and direct-Calculus-label review remain separate work. |
 
@@ -1345,7 +1345,7 @@ EntrywiseCombination supplies corresponding-entry sums and differences, RowColum
 supplies ordered matrix products, and MatrixConformability supplies shape conditions.
 ScalarMatrixMultiplication expands ScalarVectorMultiplication. Existing numerical operation
 definitions remain unchanged. The only existing-definition change explicitly includes the
-zero vector in VectorConcept; its geometric home and relations remain unchanged.
+zero vector in Vector; its geometric home and relations remain unchanged.
 
 The source has 25 new partOf edges, three specializes edges, and ten progression links.
 Its 150 new-Area assertions produce 1,009 descriptors and 5,393 assertions. Source comparison,
@@ -1354,7 +1354,7 @@ graph assessment, and the full Docker/client gate passed; results are recorded i
 Consumer packages and dataset targets remain separate adoption work.
 
 The field covers vectors, matrices, their operations, determinants,
-inverses, matrix systems, and linear transformations. Reuse VectorConcept and existing constraint
+inverses, matrix systems, and linear transformations. Reuse Vector and existing constraint
 and function concepts where appropriate; distinguish matrix multiplication and inverse structure
 from ordinary numerical arithmetic. All [N-VM standards](https://www.thecorestandards.org/Math/Content/HSN/VM/)
 and matrix-system standards [A-REI.C.8-9](https://www.thecorestandards.org/Math/Content/HSA/REI/)

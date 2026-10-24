@@ -357,9 +357,9 @@ An alternative folding procedure should receive its own appropriate technique la
 | Construction | Reuse and observable procedure |
 | --- | --- |
 | Copy a segment | `GeometricConstructionTechnique` + `LineSegment` + `CongruenceRelation`; transfer the given length by a circle intersection on a specified ray. |
-| Copy an angle | `GeometricConstructionTechnique` + `AngleConcept` + `CongruenceRelation`; reproduce equal-radius arc intersections and the connecting chord. |
+| Copy an angle | `GeometricConstructionTechnique` + `Angle` + `CongruenceRelation`; reproduce equal-radius arc intersections and the connecting chord. |
 | Bisect a segment | `GeometricConstructionTechnique` + `PerpendicularBisectorTheorem` + `LineSegment`; intersect equal-radius circles about the endpoints and join their two crossings. |
-| Bisect an angle | `GeometricConstructionTechnique` + `AngleConcept` + `CongruenceRelation`; equal distances along the rays and equal-radius arcs produce two congruent subtriangles. |
+| Bisect an angle | `GeometricConstructionTechnique` + `Angle` + `CongruenceRelation`; equal distances along the rays and equal-radius arcs produce two congruent subtriangles. |
 | Construct a perpendicular through a point on or off a line | `GeometricConstructionTechnique` + `PerpendicularityRelation` + `PerpendicularBisectorTheorem`; choose equal-distance intersections on the line and construct their perpendicular bisector. |
 | Construct a parallel through a point off a line | `GeometricConstructionTechnique` + `ParallelTransversalAngleTheorem` + `ParallelismRelation`; copy a corresponding angle, or construct successive perpendiculars. |
 | Construct an incircle | `GeometricConstructionTechnique` + `TriangleIncenterTheorem` + `Circle`; intersect internal angle bisectors and use the perpendicular distance to a side as radius. |
@@ -435,9 +435,9 @@ their ancestry still reaches `CircularShapes` through the new sector. Preserve t
 Complete `Circle` is excluded from that specialization because this sector definition excludes
 a full turn. Minor, semicircular and major sectors are included.
 
-Reuse **`ArchConcept` under its existing identifier**, together with `RadianScale`,
+Reuse **`Arc` under its existing identifier**, together with `RadianScale`,
 `LengthCalculation` and `AreaCalculation`. Do not create a duplicate arc primitive or rename
-`ArchConcept` incidentally. `ArcSectorProportionality` supplies the reusable proportionality
+`Arc` incidentally. `ArcSectorProportionality` supplies the reusable proportionality
 knowledge and derivation target in [G-C.B.5](https://www.thecorestandards.org/Math/Content/HSG/C/).
 `ArcLengthIntegration` is not needed for circular arcs in this elementary setting.
 
@@ -509,7 +509,7 @@ An implementation must include a representative task and a nearby failure case f
 | G-C.A.2 | Inscribed, diameter and circumscribed angle results plus existing/repaired tangent-radius relationships; include the intercepted-arc distinction. |
 | G-C.A.3 | Incenter/circumcenter results + `GeometricConstructionTechnique`; cyclic-quadrilateral angle theorem for the separate proof requirement. |
 | G-C.A.4 (+) | External tangent construction using the diameter circle and tangent-radius converse; distinguish exterior from interior starting points. |
-| G-C.B.5 | `CircularSector`, `ArchConcept`, `ArcSectorProportionality`, `RadianScale` and calculation Areas; derive the relationships and use the correct angle unit. |
+| G-C.B.5 | `CircularSector`, `Arc`, `ArcSectorProportionality`, `RadianScale` and calculation Areas; derive the relationships and use the correct angle unit. |
 | G-GMD.A.1 | `CavalieriPrinciple` + existing dissection, circle/solid and calculation knowledge; distinguish an informal justification from substitution into a volume formula. |
 | G-GMD.A.2 (+) | `CavalieriPrinciple` + cylinder, pyramid, cone and sphere calculations; verify the hemisphere comparison without requiring integration. |
 | G-GMD.B.4 | `SolidOfRevolution` + `Rotation` and existing shapes; distinguish a generating region from its boundary. Existing plane/solid intersection composition retains the cross-section part. |

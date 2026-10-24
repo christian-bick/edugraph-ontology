@@ -71,7 +71,7 @@ from edugraph import Area, Scope, relations, specializes_transitive, structures_
 square_relations = relations(Area.Square)
 
 # Direct expands list
-sign_expands = expands(Area.SignNotation)  # [Area.AbsoluteNumberMagnitude, Area.ZeroConcept]
+sign_expands = expands(Area.SignNotation)  # [Area.AbsoluteNumberMagnitude, Area.Zero]
 
 # Specialization inheritance does not traverse partOf
 inherited_capabilities = specializes_transitive(Area.Square)
