@@ -1579,10 +1579,10 @@
     rdfs:comment "[[1, 0], [0, 1]] leaves every two-component column vector unchanged.";
     edu:specializes :MatrixStructure.
 :ImperfectDivisibility a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection is not an integer multiple of the divisor, preventing every source object from being assigned to the equal subcollections. The result consists of a quotient, representing the number or shared cardinality of the subcollections, and a remainder, representing the subset of source objects that cannot be distributed while maintaining equal cardinality.";
+    rdfs:isDefinedBy "Euclidean division of an integer a by a positive integer b with a nonzero remainder, so a = bq + r for integers q and r satisfying 0 < r < b, and b does not divide a.";
+    rdfs:comment "17 = 5 * 3 + 2; -7 = 3 * (-3) + 2.";
     edu:contradicts :PerfectDivisibility;
-    edu:inverts :PerfectDivisibility;
-    edu:specializes :DivisionOfCollections.
+    edu:specializes :EuclideanDivision.
 :ImplicitDifferentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Differentiating a relation satisfied by a locally differentiable unknown function, using the chain rule and solving for the derivative where the resulting relation permits it.";
     rdfs:comment "From x^2+y^2 = 1 obtain y' = -x/y where y != 0 on a differentiable branch.";
@@ -2101,8 +2101,7 @@
 :Modulo a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the remainder after dividing one number by another.";
     edu:expands :Division;
-    edu:partOf :BaseOperations;
-    edu:translates :ImperfectDivisibility.
+    edu:partOf :BaseOperations.
 :MonotoneSequenceConvergenceTheorem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The guarantee that an infinite real sequence that is nondecreasing and bounded above, or nonincreasing and bounded below, converges to a finite real limit. The limit is respectively the supremum or infimum of its terms.";
     rdfs:comment "The nondecreasing sequence a_n = 1 - 1/n for n >= 1 is bounded above by 1 and converges to its supremum 1.";
@@ -2127,7 +2126,7 @@
     edu:expands :Addition;
     edu:integrates :Iteration;
     edu:partOf :BaseOperations;
-    edu:translates :PerfectDivisibility.
+    edu:translates :DivisionOfCollections.
 :MultiplicationDoublingAndHalving a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Preserving a product by repeatedly doubling one factor while halving the other.";
     edu:expands :Division, :FactorsAndMultiples, :Multiplication;
@@ -2490,8 +2489,9 @@
     rdfs:comment "Expressing 12 out of 80 as 15%; expressing 120 relative to 80 as 150%.";
     edu:partOf :PercentageArithmetic.
 :PerfectDivisibility a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A division of collections in which the cardinality of the source collection is an integer multiple of the divisor, permitting every source object to be assigned to the equal subcollections. The result consists of a quotient, representing the number or shared cardinality of the subcollections, and a remainder of zero, indicating that the source collection is partitioned entirely into subcollections of equal cardinality.";
-    edu:specializes :DivisionOfCollections.
+    rdfs:isDefinedBy "Euclidean division of an integer a by a positive integer b with remainder zero, so a = bq for an integer quotient q and b divides a.";
+    rdfs:comment "12 = 3 * 4 + 0; -12 = 3 * (-4) + 0; 0 = 5 * 0 + 0.";
+    edu:specializes :EuclideanDivision.
 :PerimeterCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Calculating the total length of a closed plane figure's boundary.";
     rdfs:comment "Adding the side lengths of a polygon.";

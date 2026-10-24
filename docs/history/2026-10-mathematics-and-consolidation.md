@@ -42,3 +42,10 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   relates `Ax = b` and `[A | b]`, with fixed unknown ordering and right-hand sides. Review
   definition-dependent uses of that retained identifier. Existing labeling eligibility is unchanged;
   `LinearSystems` remains organizational. See the [authored Areas](../../core-areas-math.ttl).
+- **October 24 — Numerical divisibility.** Redefined `PerfectDivisibility` and
+  `ImperfectDivisibility` as the zero and positive remainder cases of `EuclideanDivision`,
+  including negative and zero dividends with positive integer divisors. Removed the inversion
+  between these outcomes and `Modulo`'s nonzero-only translation; `Multiplication` now links
+  to `DivisionOfCollections` for its concrete grouping perspective. Identifiers and labeling
+  eligibility are unchanged; review definition- and ancestry-dependent uses of the two revised
+  concepts. See the [authored Areas](../../core-areas-math.ttl).
