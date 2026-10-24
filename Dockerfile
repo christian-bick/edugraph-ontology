@@ -38,7 +38,7 @@ COPY ./.venv* ./.venv
 COPY ./src ./src
 
 RUN uv sync
-RUN uv run src/ontology/generate-ts.py
+RUN uv run src/ontology/generate-ts.py --ontology /core-ontology-math.rdf --output /dist/typescript
 
 FROM node:20-alpine AS typescript-compiler
 

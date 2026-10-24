@@ -25,9 +25,10 @@ meaning, and interpreting annotations across ontology versions.
 
 Ontology releases are published [here](https://github.com/christian-bick/edugraph-ontology/releases) on Github.
 
-The ontology is currently published in Turtle (.ttl) and XML/RDF (.rdf) format. The source files use the turtle
-format and all files for other formats are generated from these source files during release. More file formats can
-be added upon demand.
+The ontology is published in Turtle (.ttl) and XML/RDF (.rdf) format. The authored sources are
+the Turtle files. Builds generate RDF/XML and client packages in `dist/`; the release workflow
+publishes those outputs as assets. See the
+[build workflow](DOCS.md#43-compiling-via-docker) to generate local outputs.
 
 ## Ontology
 
@@ -148,9 +149,11 @@ a Github issue** to spark the discussion.
 The ontology is defined in the web ontology language (OWL). To ensure easy adoption with any tools, databases
 and libraries that support OWL and RDF, we provide various file formats in the releases.
 
-When editing the ontology, only edit the source files (.ttl) in the repository. All other file formats will be 
-automatically generated upon release. It is recommended to use [Protege](https://protege.stanford.edu/) for editing
-and to use one of the shipped reasoners for validation purposes.
+When editing the ontology, edit the authored Turtle (.ttl) sources. The combined
+`core-ontology-math.rdf` is a generated build output in `dist/` and a release asset. Use the
+[build workflow](DOCS.md#43-compiling-via-docker) to regenerate it and the client packages.
+It is recommended to use [Protege](https://protege.stanford.edu/) for editing and to use one of
+the shipped reasoners for validation purposes.
 
 Pull requests can be submitted via the usual Github workflow using reasonably small iterative changesets. Pull requests
 will only be merged when changes were previously approved on a ticket.

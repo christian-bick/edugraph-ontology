@@ -33,6 +33,8 @@ This repository contains the source definitions of the EduGraph core ontology, a
 - **[core-abilities.ttl](core-abilities.ttl)**: Individuals belonging to the `Ability` class.
 - **[core-areas-math.ttl](core-areas-math.ttl)**: Individuals belonging to the `Area` class (Math taxonomy).
 - **[core-scopes-math.ttl](core-scopes-math.ttl)**: Individuals belonging to the `Scope` class (Math taxonomy).
+- **`dist/`**: Generated build outputs, including `core-ontology-math.rdf`, client packages,
+  and the shared authored snapshot. The Turtle files above are the ontology sources.
 - **[catalog-v001.xml](catalog-v001.xml)**: XML Catalog mapping the online namespace to local Turtle files for Protégé.
 - **[Dockerfile](Dockerfile)**: Multi-stage build definition wrapping the compilers and code generator.
 - **[pyproject.toml](pyproject.toml)** & **[uv.lock](uv.lock)**: Python project dependencies and locking definitions managed by the `uv` tool.
@@ -55,20 +57,29 @@ graph TD
 
 1. **Stage 1 (`ontology-formats`)**:
    - Downloads Apache Jena (v5.6.0).
-   - Merges and compiles the source Turtle (`.ttl`) files into a single, unified XML/RDF format (`core-ontology-math.rdf`) using the Apache Jena `riot` tool:
+   - Merges and compiles the source Turtle (`.ttl`) files into a single XML/RDF file using
+     Apache Jena `riot`. This command runs inside the stage's `/opt/app` working directory;
+     the final export writes the generated RDF to `dist/core-ontology-math.rdf` on the host.
      ```bash
      riot --output=RDF/XML core-schema.ttl core-abilities.ttl core-areas-math.ttl core-scopes-math.ttl > core-ontology-math.rdf
      ```
 2. **Stage 2 (`python-code-gen`)**:
    - Sets up Python 3.13 via `astral-sh/uv`.
-   - Runs [generate-ts.py](src/ontology/generate-ts.py) to extract TypeScript enums from the compiled RDF. TypeScript relation helpers are maintained adapters over the shared core; a separate bootstrap step generates its bundled snapshot from authored Turtle.
+   - Copies the freshly generated RDF from `ontology-formats` and extracts TypeScript enums
+     with explicit container paths:
+     ```bash
+     uv run src/ontology/generate-ts.py --ontology /core-ontology-math.rdf --output /dist/typescript
+     ```
+     TypeScript relation helpers are maintained adapters over the shared core; a separate
+     bootstrap step generates its bundled snapshot from authored Turtle.
 3. **Stage 3 (`typescript-compiler`)**:
    - Installs node dependencies, compiles the generated TypeScript with `tsc`, runs the client
      relation tests, validates the ontology source rules, and checks documentation references.
 4. **Stage 4 (`python-builder`)**:
    - Assembles maintained Python modules and enums from the shared authored JSON snapshot, maps `PACKAGE_VERSION` to PEP 440, runs strict typing/lint, conformance and client tests, and builds/verifies wheel and sdist consumers. The optional parser is included in test environments; core runtime dependencies remain empty.
 5. **Stage 5 (`export`)**:
-   - Outputs the compiled assets (TypeScript and Python distribution files) back to the host filesystem.
+   - Exports the Turtle files, generated RDF, shared snapshot, and TypeScript/Python distribution
+     files to the host's `dist/` directory.
 
 ---
 
@@ -80,18 +91,33 @@ Ensure you have the following installed:
 - Docker Desktop (if building the full pipeline locally)
 - Node.js (for compiling/testing TS libraries locally without Docker)
 
-### 4.2 Local Python Code Generation
-To setup the environment and trigger TypeScript and Python enum generation locally:
+### 4.2 Local Generator Development
+
+For ordinary generated outputs, use the [Docker build](#43-compiling-via-docker). To work on
+generator scripts, first prepare fresh input artifacts and Python dependencies from the
+repository root:
+
 ```powershell
-# Sync Python workspace dependencies
+docker build . --output dist
 uv sync
-
-# Run the TypeScript generator script (requires core-ontology-math.rdf to be present)
-uv run src/ontology/generate-ts.py
-
-# Run the Python generator script (requires core-ontology-math.rdf to be present)
-uv run src/ontology/generate-py.py # requires dist/typescript/snapshot.json from the build
 ```
+
+After editing a generator, rerun the appropriate command against those build outputs:
+
+```powershell
+# Generate TypeScript sources from the exported RDF
+uv run src/ontology/generate-ts.py --ontology dist/core-ontology-math.rdf --output dist/typescript
+
+# Assemble Python sources from the exported shared JSON snapshot
+uv run src/ontology/generate-py.py --snapshot dist/typescript/snapshot.json
+```
+
+The TypeScript generator defaults to the repository's `dist/core-ontology-math.rdf` input and
+`dist/typescript` output, independently of the working directory; both flags can be omitted
+to use those defaults. The explicit relative paths above assume the repository root.
+The Python assembler defaults to `dist/typescript/snapshot.json` and writes to `dist/python`.
+Manual reruns regenerate source outputs. Compilation, packaging, and full validation use the
+Docker workflow below.
 
 ### 4.3 Compiling via Docker
 To run the full compilation pipeline and output the generated distribution files to your local `dist/` directory:

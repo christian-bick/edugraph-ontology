@@ -1,9 +1,12 @@
 from owlready2 import *
+import argparse
 import os
+from pathlib import Path
 
 # --- Main Configuration ---
-ONTOLOGY_FILE = "core-ontology-math.rdf"
-OUTPUT_DIR = "dist/typescript"
+ROOT_DIR = Path(__file__).resolve().parents[2]
+ONTOLOGY_FILE = ROOT_DIR / "dist" / "core-ontology-math.rdf"
+OUTPUT_DIR = ROOT_DIR / "dist" / "typescript"
 BASE_IRI = "http://edugraph.io/edu#"
 
 # Define all enums to be generated from the ontology
@@ -13,10 +16,10 @@ ENUM_CONFIGS = [
     {"class_name": "Ability", "output_file": "Ability.ts"},
 ]
 
-def generate_enum_for_class(ontology, config: dict):
+def generate_enum_for_class(ontology, config: dict, output_dir):
     """Generates a single TypeScript enum file based on a configuration."""
     class_name = config["class_name"]
-    output_filename = os.path.join(OUTPUT_DIR, config["output_file"])
+    output_filename = os.path.join(output_dir, config["output_file"])
     target_class_iri = f"{BASE_IRI}{class_name}"
 
     print(f"⚙️  Processing class: {class_name}")
@@ -57,7 +60,7 @@ def generate_enum_for_class(ontology, config: dict):
     enum_content += "}\n"
 
     # Write the content to the output file
-    with open(output_filename, "w") as f:
+    with open(output_filename, "w", encoding="utf-8", newline="\n") as f:
         f.write(enum_content)
 
     print(f"  ✅ Successfully generated {output_filename}\n")
@@ -78,7 +81,7 @@ def generate_index_file(configs, output_dir):
     index_content += 'export * from "./DocumentationValidation";\n'
 
     # Write the content to the index file
-    with open(index_filename, "w") as f:
+    with open(index_filename, "w", encoding="utf-8", newline="\n") as f:
         f.write(index_content)
 
     print(f"  ✅ Successfully generated {index_filename}\n")
@@ -86,14 +89,34 @@ def generate_index_file(configs, output_dir):
 
 
 def main():
-    """Loads the ontology once and generates all configured enums and relations."""
+    """Load build-generated RDF once and generate the configured TypeScript files."""
+    parser = argparse.ArgumentParser(description=__doc__ or main.__doc__)
+    parser.add_argument(
+        "--ontology", type=Path, default=ONTOLOGY_FILE,
+        help="Generated RDF/XML input (default: repository dist/core-ontology-math.rdf).",
+    )
+    parser.add_argument(
+        "--output", type=Path, default=OUTPUT_DIR,
+        help="Generated TypeScript directory (default: repository dist/typescript).",
+    )
+    args = parser.parse_args()
+    ontology_path = args.ontology.resolve()
+    output_dir = args.output.resolve()
+    if not ontology_path.is_file():
+        parser.error(
+            f"Generated ontology not found: {ontology_path}. "
+            "Run 'docker build . --output dist' from the repository root first, "
+            "or pass --ontology with a freshly generated RDF/XML file."
+        )
+
     print("🚀 Starting TypeScript code generation...")
 
     # Ensure the output directory exists
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     # Load the ontology from the file
-    onto = get_ontology(f"file://{os.path.abspath(ONTOLOGY_FILE)}").load()
+    with ontology_path.open("rb") as source:
+        onto = get_ontology(ontology_path.as_uri()).load(fileobj=source)
 
     # Build maps of individuals to their core class names
     individual_to_class = {}
@@ -106,12 +129,12 @@ def main():
 
     # Generate an enum for each item in the configuration list
     for config in ENUM_CONFIGS:
-        generate_enum_for_class(onto, config)
+        generate_enum_for_class(onto, config, output_dir)
 
     # Relations.ts is a maintained adapter over the shared snapshot core.
 
     # Generate the index file
-    generate_index_file(ENUM_CONFIGS, OUTPUT_DIR)
+    generate_index_file(ENUM_CONFIGS, output_dir)
 
     print("✨ All TypeScript files generated successfully.")
 
