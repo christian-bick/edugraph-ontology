@@ -423,7 +423,7 @@ documents the hierarchy, bounded fundamentals check, evidence, and adoption effe
 
 PercentageArithmetic organizes three constituent topics: PercentageEquivalence relates equal
 representations, PercentageRateDetermination finds an unknown percentage from two quantities,
-and PercentageApplication uses a specified rate to find an amount or recover its reference
+and PercentageRateApplication uses a specified rate to find an amount or recover its reference
 quantity. The reference quantity need not contain the compared amount: 120 relative to 80 is
 150%. Rate determination requires a nonzero reference quantity; recovering a reference quantity
 through application requires a nonzero rate.
@@ -433,7 +433,7 @@ operations and cognitive performances used to solve a task. ProportionalScaling,
 Division, and ProcedureInversion retain their existing meanings and can describe the evidenced
 operations or performance. Percentage change can combine Difference with
 PercentageRateDetermination: a change from 80 to 100 has difference 20, which is 25% of the
-original 80. Applying a known increase or discount can combine PercentageApplication with Sum
+original 80. Applying a known increase or discount can combine PercentageRateApplication with Sum
 or Difference. The difference between 20% and 25% can use Difference without a separate
 PercentagePointDifference descriptor.
 
@@ -443,6 +443,25 @@ organizational node. Its eligible children provide the direct content claims. Th
 records the definitions, examples, and adoption effects under
 [ONT-D1](docs/descriptors.md#ont-d1--define-reusable-concepts),
 [ONT-S1](docs/structure.md#ont-s1--partof-organizes-constituents), and
+[ONT-E7](docs/content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
+
+## 8. Decimal strategy grouping
+
+DecimalStrategies retains its identifier and organizes DecimalDivisorShift,
+DecimalPointAlignment, DecimalPadding, and DecimalRounding as `partOf` constituents. The family
+covers methods for exact calculations, equivalent representations, and approximation.
+DecimalPadding also retains its specialization of DecimalEquivalence: appending zeros preserves
+the represented value. Shifting both operands of a division preserves the quotient, while
+rounding can change a value; neither is assigned that equivalence inheritance.
+
+This grouping gives the methods a common organizational home without changing their definitions
+or direct-labeling eligibility. DecimalStrategies remains organizational. A later audit will
+consider the meaning, singular/plural naming, and composition or specialization roles of
+DecimalStrategies, FractionStrategies, and IntegerStrategies together. The
+[decimal review](docs/plan/core-areas-family-consistency-review.md#decimalstrategies) records the
+implemented grouping and that unresolved decision under
+[ONT-S1](docs/structure.md#ont-s1--partof-organizes-constituents),
+[ONT-S5](docs/structure.md#ont-s5--review-the-entire-affected-structure), and
 [ONT-E7](docs/content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
 
 

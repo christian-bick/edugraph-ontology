@@ -746,11 +746,12 @@
 :DecimalPadding a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Appending trailing zeros to a finite decimal representation to express the same value with additional decimal places.";
     rdfs:comment "Writing 2.5 as 2.50 before aligning decimal places in an addition.";
+    edu:partOf :DecimalStrategies;
     edu:specializes :DecimalEquivalence.
 :DecimalPointAlignment a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Aligning the decimal separators of numbers so corresponding place values line up during an operation.";
     rdfs:comment "Placing the decimal points of 3.2 and 0.45 in one column before adding.";
-    edu:partOf :DecimalArithmetic.
+    edu:partOf :DecimalStrategies.
 :DecimalPrecission a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The number of decimal places used to represent a value and the place value of the last displayed digit.";
     rdfs:comment "3.14 is written to two decimal places. The number of displayed places does not by itself establish a measurement's accuracy.";
@@ -760,7 +761,7 @@
     rdfs:isDefinedBy "Approximating a decimal value to a specified place by selecting the appropriate nearby value under a stated rounding convention.";
     rdfs:comment "Rounding 3.146 to 3.15 to the nearest hundredth.";
     edu:expands :DecimalPrecission, :IntegerRounding;
-    edu:partOf :DecimalArithmetic.
+    edu:partOf :DecimalStrategies.
 :DecimalStrategies a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizable methods for coordinating decimal place value and arithmetic relationships to obtain or explain a result.";
     edu:partOf :DecimalArithmetic.
