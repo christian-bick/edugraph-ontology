@@ -537,8 +537,6 @@
     edu:contradicts :PrimeNumbers;
     edu:expands :FactorsAndMultiples;
     edu:partOf :PrimesAndFactorization.
-:ComputationalMathematics a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
 :ConditionalBranch a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a value expression paired with an explicit or default condition specifying when it supplies the value of a piecewise expression.";
     rdfs:comment "Pairing -x with x < 0 and x with the default condition otherwise to construct a piecewise expression for absolute value.";
