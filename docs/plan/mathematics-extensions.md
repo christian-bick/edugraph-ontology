@@ -35,6 +35,11 @@ These are candidates for explicit concepts or finer labels, not approved additio
 that every corresponding task is unrepresentable. Existing composition should be checked before
 drafting a family; each proposal needs a bounded definition and contrasting evidence.
 
+- **Set theory:** consider a dedicated symmetric-difference descriptor only if it adds reusable
+  educational meaning beyond composition with set differences and union
+  ([ONT-D1](../descriptors.md#ont-d1--define-reusable-concepts)). Indexed families, general
+  arbitrary-union/intersection theory, partitions, equivalence classes, and axiomatic set theory
+  remain outside the completed fundamentals scope.
 - **Arithmetic and algebra:** square/cube power-sum identities, geometric mean and AM–GM,
   Vieta's formulas, the rational-root theorem, and Cardano's formula.
 - **Functions and trigonometry:** separate vertical/horizontal/oblique asymptotes; inverse
