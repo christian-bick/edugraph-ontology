@@ -64,20 +64,6 @@ remain outside the minimal fundamentals scope; they are not required for this fa
 
 ## 3. Single-child organizers
 
-### `AlgebraicStructures`
-
-- **Sole `hasPart` Child:** `OperationClosure`
-
-- **Rule IDs:** `ONT-E7`, `ONT-S1`, `ONT-D6`
-
-`OperationClosure partOf AlgebraicStructures` leaves `AlgebraicStructures` ineligible with only one
-property leaf, while `AssociativeLaw`, `CommutativeLaw`, and `DistributiveLaw` sit in
-`Arithmetic > ArithmeticLaws`.
-
-**Suggestion:** Either expand `AlgebraicStructures` with structural properties (identity, inverse,
-associativity/commutativity in algebraic structures) or fold `OperationClosure` into a broader
-laws/structures family.
-
 ### `LinearSystems`
 
 - **Sole `hasPart` Child:** `MatrixSystemRepresentation`
@@ -721,9 +707,9 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ## 5. Summary of Priority Action Items
 
-### 1. Resolve the remaining single-child organizers (ONT-E7, ONT-S1)
+### 1. Resolve the remaining single-child organizer (ONT-E7, ONT-S1)
 
-Review `AlgebraicStructures` and `LinearSystems` as described [above](#3-single-child-organizers).
+Review `LinearSystems` as described [above](#3-single-child-organizers).
 The shared strategy-family audit is tracked under [`DecimalStrategies`](#decimalstrategies).
 
 ### 2. Fix definition/specialization conflicts and missing `specializes` edges (`ONT-S2`, `ONT-D2`):
