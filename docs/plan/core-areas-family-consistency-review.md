@@ -8,23 +8,22 @@ completed changes are summarized in [history](../history/2026-10-mathematics-and
 ## Contents
 
 - [1. Review boundary](#1-review-boundary)
-- [2. Cross-family follow-ups](#2-cross-family-follow-ups)
-- [3. Family-by-family findings](#3-family-by-family-sibling-consistency-analysis)
-  - [Algebra](#31-algebra)
-  - [Analysis](#32-analysis)
-  - [Arithmetic](#33-arithmetic)
-  - [Calculus](#34-calculus)
-  - [Combinatorics](#35-combinatorics)
-  - [FormalMathematics](#36-formalmathematics)
-  - [Geometry](#37-geometry)
-  - [GraphTheory](#38-graphtheory)
-  - [IntuitiveMathematics](#39-intuitivemathematics)
-  - [LinearAlgebra](#310-linearalgebra)
-  - [Logic](#311-logic)
-  - [NumberTheory](#312-numbertheory)
-  - [Probability](#313-probability)
-  - [Statistics](#314-statistics)
-- [4. Priority actions](#4-summary-of-priority-action-items)
+- [2. Family-by-family findings](#2-family-by-family-sibling-consistency-analysis)
+  - [Algebra](#21-algebra)
+  - [Analysis](#22-analysis)
+  - [Arithmetic](#23-arithmetic)
+  - [Calculus](#24-calculus)
+  - [Combinatorics](#25-combinatorics)
+  - [FormalMathematics](#26-formalmathematics)
+  - [Geometry](#27-geometry)
+  - [GraphTheory](#28-graphtheory)
+  - [IntuitiveMathematics](#29-intuitivemathematics)
+  - [LinearAlgebra](#210-linearalgebra)
+  - [Logic](#211-logic)
+  - [NumberTheory](#212-numbertheory)
+  - [Probability](#213-probability)
+  - [Statistics](#214-statistics)
+- [3. Priority actions](#3-summary-of-priority-action-items)
 
 ## 1. Review boundary
 
@@ -37,33 +36,9 @@ multi-parent paths and uniform child roles (ONT-S4/S5), and direct-label eligibi
 Different sibling roles, missing parallel groups, or an ineligible organizer are review prompts;
 they do not justify a mechanical rename, new group, or relation conversion.
 
-## 2. Cross-family follow-ups
+## 2. Family-by-Family Sibling Consistency Analysis
 
-### `DecimalStrategies`
-
-Review `DecimalStrategies`, `FractionStrategies`, and `IntegerStrategies` together for
-field-versus-method boundaries, definitions, naming, and family structure before any broader
-rename or relation conversion. Consider singular method concepts and specialization families
-alongside plural organizers, based on their intended meanings under
-[ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries).
-
-### Percentage coverage mappings
-
-Review uses of `PercentageEquivalence` in general percentage-application compositions against
-`PercentageRateApplication` and `PercentageRateDetermination`. Retain equivalence claims where
-representation conversion is evidenced; review annotation and model adoption in the owning
-repositories under [ONT-W2](../change-review.md#ont-w2--review-definitions-relations-and-effects-together).
-
-### Optional set-theory extension
-
-Consider a dedicated symmetric-difference descriptor only if it adds reusable educational
-meaning beyond composition with set differences and union (ONT-D1). Indexed families, general
-arbitrary-union/intersection theory, partitions, equivalence classes, and axiomatic set theory
-remain outside the minimal fundamentals scope; they are not required for this family cleanup.
-
-## 3. Family-by-Family Sibling Consistency Analysis
-
-### 3.1 `Algebra`
+### 2.1 `Algebra`
 
 #### 1. `AlgebraicConstraints` (`ConstraintSolving` vs. `ConstraintSystem`):
 
@@ -173,7 +148,7 @@ remain outside the minimal fundamentals scope; they are not required for this fa
 
 ---
 
-### 3.2 `Analysis`
+### 2.2 `Analysis`
 
 #### 1. `FunctionProperties` (Mixed `partOf` vs. `specializes` subtrees and `FunctionLimitingBehavior`):
 
@@ -217,7 +192,7 @@ remain outside the minimal fundamentals scope; they are not required for this fa
 
 ---
 
-### 3.3 `Arithmetic`
+### 2.3 `Arithmetic`
 
 #### 1. `ArithmeticLaws` (`OrderOfOperations` mixed with axiomatic identities):
 
@@ -269,7 +244,7 @@ remain outside the minimal fundamentals scope; they are not required for this fa
 
 ---
 
-### 3.4 `Calculus`
+### 2.4 `Calculus`
 
 #### 1. `CalculusApproximation` (Methods mixed with error bounds, and `LinearApproximation` vs. `TaylorPolynomialApproximation`):
 
@@ -317,7 +292,7 @@ remain outside the minimal fundamentals scope; they are not required for this fa
 
 ---
 
-### 3.5 `Combinatorics`
+### 2.5 `Combinatorics`
 
 #### 1. `CombinatorialEnumeration` (Asymmetric Ordered vs. Unordered Selection and role mixing):
 
@@ -339,7 +314,7 @@ remain outside the minimal fundamentals scope; they are not required for this fa
 
 ---
 
-### 3.6 `FormalMathematics`
+### 2.6 `FormalMathematics`
 
 #### 1. `ExpressionStructure` (`RootIndex` vs. `Operand`, piecewise components, and `Variable` axes):
 
@@ -368,7 +343,7 @@ remain outside the minimal fundamentals scope; they are not required for this fa
 
 ---
 
-### 3.7 `Geometry`
+### 2.7 `Geometry`
 
 #### 1. `GeometricCalculations` (`MidpointCalculation` and missing `specializes` links):
 
@@ -462,7 +437,7 @@ remain outside the minimal fundamentals scope; they are not required for this fa
 
 ---
 
-### 3.8 `GraphTheory`
+### 2.8 `GraphTheory`
 
 #### 1. `GraphFoundations` (`GraphCycle` vs. `GraphWalk` and single-child `GraphStructure`):
 
@@ -478,7 +453,7 @@ remain outside the minimal fundamentals scope; they are not required for this fa
 
 ---
 
-### 3.9 `IntuitiveMathematics`
+### 2.9 `IntuitiveMathematics`
 
 #### 1. `CollectionSense > DivisionOfCollections` (Definition contradiction, flattened axes, and missing `specializes` links):
 
@@ -549,7 +524,7 @@ remain outside the minimal fundamentals scope; they are not required for this fa
 
 ---
 
-### 3.10 `LinearAlgebra`
+### 2.10 `LinearAlgebra`
 
 #### 1. `VectorAlgebra` and `MatrixAlgebra`:
 
@@ -564,7 +539,7 @@ remain outside the minimal fundamentals scope; they are not required for this fa
 
 ---
 
-### 3.11 `Logic`
+### 2.11 `Logic`
 
 #### 1. `PropositionalLogic` (`LogicalEquivalence` vs. truth-functional connectives):
 
@@ -576,7 +551,7 @@ remain outside the minimal fundamentals scope; they are not required for this fa
 
 ---
 
-### 3.12 `NumberTheory`
+### 2.12 `NumberTheory`
 
 #### 1. `IntegerDivisibility` (`OddAndEvenNumbers` vs. `IntegerParity` and level mixing):
 
@@ -618,7 +593,7 @@ remain outside the minimal fundamentals scope; they are not required for this fa
 
 ---
 
-### 3.13 `Probability`
+### 2.13 `Probability`
 
 #### 1. `ProbabilityFoundations`, `ProbabilityRules`, and `RandomVariableTheory`:
 
@@ -655,7 +630,7 @@ remain outside the minimal fundamentals scope; they are not required for this fa
 
 ---
 
-### 3.14 `Statistics`
+### 2.14 `Statistics`
 
 #### 1. `DescriptiveStatistics` (Asymmetric grouping of Dispersion vs. Location/Central Tendency):
 
@@ -686,7 +661,7 @@ remain outside the minimal fundamentals scope; they are not required for this fa
 
 ---
 
-## 4. Summary of Priority Action Items
+## 3. Summary of Priority Action Items
 
 ### 1. Fix definition/specialization conflicts and missing `specializes` edges (`ONT-S2`, `ONT-D2`):
 

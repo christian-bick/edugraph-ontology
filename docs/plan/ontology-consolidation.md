@@ -19,6 +19,17 @@ of `expands`.
 Sources: [Areas](../../core-areas-math.ttl), [Scopes](../../core-scopes-math.ttl).
 Rules: ONT-R1, ONT-R3, ONT-R4, ONT-R5.
 
+## Deferred arithmetic strategy audit
+
+Review `DecimalStrategies`, `FractionStrategies`, and `IntegerStrategies` together for
+field-versus-method boundaries, definitions, naming, and family structure before any broader
+rename or relation conversion. Consider singular method concepts and specialization families
+alongside plural organizers, based on their intended meanings under
+[ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries).
+
+Source: [core-areas-math.ttl](../../core-areas-math.ttl).
+Rules: ONT-D4, ONT-S1, ONT-S2, ONT-W2.
+
 ## Unit-fraction endpoint
 
 `UnitFractions` allows numerator one and any positive integer denominator, so it includes 1/1.
