@@ -31,3 +31,8 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   retained unresolved work in active backlogs, and separated brief history from general design
   and operational documentation.
   [Cleanup commit](https://github.com/christian-bick/edugraph-ontology/commit/57f19f2f7320a6002544c010bc40c8915f7c6e1c).
+- **October 24 — Algebraic-structure fundamentals.** Expanded `AlgebraicStructures` to closure,
+  identity, inverse, associativity, commutativity, and distributivity. The three existing arithmetic
+  laws retain their definitions and arithmetic placement while specializing the generic operation
+  properties. Existing identifiers and labeling eligibility are unchanged; specialization now
+  supports the corresponding broader claims. See the [authored Areas](../../core-areas-math.ttl).
