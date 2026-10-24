@@ -49,51 +49,9 @@ It is therefore divided into two layers:
 
 ### Core Ontology
 
-The [Algebra and analysis design record](docs/plan/algebra-family-draft.md) records the merged
-hierarchy, including formal expression roles, shared dependence and rewriting families,
-function types and properties, the parallel trigonometric families, and effects on existing labels.
-Its [extension roadmap](docs/plan/algebra-family-draft.md#recommended-next-ontology-extensions)
-distinguishes core CCSS coverage, advanced CCSS extensions, and calculus work.
-The [remaining core coverage audit](docs/plan/core-ccss-coverage-audit.md) maps 114 terminal
-standards to eligible concepts and distinguishes supported compositions from targeted follow-ups.
-The [2026-10-21 school curriculum audit](docs/plan/coverage-audit-2026-10-21.md) supersedes that
-limited coverage check with all CCSS K–12 content standards, the selected advanced Bavarian
-and French courses, and a requirement-level record of the remaining gaps and source limits.
-The [Euclidean geometry record](docs/plan/euclidean-geometry-draft.md) documents its first follow-up,
-merged through [PR #82](https://github.com/christian-bick/edugraph-ontology/pull/82), including
-construction techniques and tools, Euclidean results, nets, sectors and transformation refinements.
-The [cross-product, arithmetic-sum and sequence-limit record](docs/plan/vector-sums-sequence-limits-draft.md)
-documents the batch merged through [PR #83](https://github.com/christian-bick/edugraph-ontology/pull/83),
-including the finite/infinite inference boundary.
-The [representation and digital-tool record](docs/plan/representations-digital-tools-draft.md)
-documents the batch merged through [PR #84](https://github.com/christian-bick/edugraph-ontology/pull/84):
-sign and variation tables, theoretical probability histograms, measurement-tool links, and
-the software specialization within digital tools. Programming is
-[explicitly excluded from the current mathematics extension scope](docs/plan/coverage-audit-2026-10-21.md#programming-excluded-from-the-current-extension-scope).
-The [Markov-chain absorption and convergence record](docs/plan/markov-absorption-convergence-draft.md)
-documents seven Areas for eventual absorption, probability equations and convergence guarantees,
-merged through [PR #85](https://github.com/christian-bick/edugraph-ontology/pull/85).
-The [NumberTheory design and implementation record](docs/plan/number-theory-basics-draft.md)
-documents the school and introductory-university families, their boundary with arithmetic,
-and the shared closure concept in AlgebraicStructures.
-The [Calculus implementation and adoption record](docs/plan/calculus-family-draft.md#implementation-and-adoption--2026-10-20)
-documents the school-foundation and university-entry extension merged through
-[PR #74](https://github.com/christian-bick/edugraph-ontology/pull/74). Calculus is a separate root for methods, applications, approximation,
-series, and differential equations; function properties retain their Analysis home.
-The [Probability, Statistics, and Combinatorics extension](docs/plan/probability-statistics-combinatorics-draft.md),
-merged through [PR #75](https://github.com/christian-bick/edugraph-ontology/pull/75),
-extends these subjects from school foundations through introductory university concepts,
-with shared set foundations and probability and algebra representation Scopes. Its adoption notes
-identify existing `Statistics` labels that need more specific concepts and the rename from
-`GraphicalSolutionRepresentation` to the broader `GraphicalAlgebraicRepresentation`.
-The [remaining school-foundation record](docs/plan/remaining-school-foundations-draft.md)
-documents spatial geometry merged through [PR #76](https://github.com/christian-bick/edugraph-ontology/pull/76),
-advanced complex numbers merged through [PR #77](https://github.com/christian-bick/edugraph-ontology/pull/77),
-the GraphTheory root merged through [PR #78](https://github.com/christian-bick/edugraph-ontology/pull/78),
-logical foundations merged through [PR #79](https://github.com/christian-bick/edugraph-ontology/pull/79),
-conics merged through [PR #80](https://github.com/christian-bick/edugraph-ontology/pull/80),
-and Fermat's little theorem and the coprime divisibility lemma merged through
-[PR #81](https://github.com/christian-bick/edugraph-ontology/pull/81).
+Brief summaries of completed ontology and tooling work are in [the history notes](docs/history/README.md).
+Current authoring rules are in [the development references](docs/README.md), and
+unresolved work is tracked in [the active plans](docs/plan/README.md).
 
 #### Foundations
 

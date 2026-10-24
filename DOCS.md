@@ -100,8 +100,8 @@ docker build . --output dist
 ```
 
 This is the authoritative local gate. It includes the TypeScript ontology validators and the
-mechanical documentation checks described in the
-[algorithmic check inventory](docs/plan/automated-rule-checks.md). The same validation functions
+mechanical documentation checks described in
+[verification scope](#66-verification-scope). The same validation functions
 are exported by `edugraph-ts` for editor integration.
 
 ---
@@ -120,15 +120,14 @@ The release job uploads the following files as assets to the Github Release:
 - **TypeScript Package**: `edugraph-ts.tgz` (a tarball containing the compiled JS/TS client libraries).
 - **Python Package**: A wheel and source distribution containing the generated Python client library.
 
-### 5.3 Adopting the Probability, Statistics, and Combinatorics Extension
+### 5.3 Adopting ontology changes
 
-The [extension's adoption record](docs/plan/probability-statistics-combinatorics-draft.md#adoption-effects)
-lists new descriptors and the two existing descriptors whose labeling eligibility changes:
-`Statistics` and `SetTheory` become organizational nodes. It also records the retired
-`GraphicalSolutionRepresentation` identifier and its broader replacement,
-`GraphicalAlgebraicRepresentation`, now specializing `AlgebraicRepresentation`. Consumers should
-review direct labels and references to the renamed client key before upgrading. The record identifies affected
-`edugraph-content` sources; this ontology branch does not upgrade consumer packages or datasets.
+Review the [release notes](docs/releases/) and
+[annotation and model guidance](docs/annotations-and-models.md#interpreting-annotations-across-ontology-versions)
+before upgrading consumers. Identifier, definition, relation, and labeling-eligibility changes
+can affect stored annotations, generated-client keys, and model vocabularies. Brief accounts of
+completed work are in [history](docs/history/README.md); outstanding adoption tasks belong in
+[active plans](docs/plan/README.md).
 
 ---
 
@@ -310,8 +309,25 @@ ontology source rules, and checks mechanical documentation integrity. Run it aft
 section 4.3. These checks do not judge definitions, the educational meaning of a relation, or the
 truth of scholarly claims. Use [change review](docs/change-review.md#ont-w3--verify-and-report-the-actual-change)
 for that semantic review. [Consolidation tracking](docs/plan/ontology-consolidation.md) holds open
-definition and inference decisions; the [algorithmic check inventory](docs/plan/automated-rule-checks.md)
-states the exact automated boundary.
+definition and inference decisions.
+
+The current automated coverage is:
+
+| Check | Enforced boundary |
+| --- | --- |
+| O1 | Existing Turtle parsing, generation, and compilation provide source-integrity checks; there is no separate descriptor-quality validator. |
+| O2 | The declared relation schema matches the inverse and subproperty contracts. |
+| O3 | Authored descriptors use primary properties, with at most one relation per family and directed pair. |
+| O4–O6 | Structural graphs are acyclic, composition precedes specialization, and parents have uniform child roles. |
+| O7 | Consumer helpers report label eligibility from the complete constituent-child set; ineligible organizers do not fail ontology validation. |
+| O8 | The combined progression graph is acyclic. |
+| O9 | Focused client and package regressions check generated identifiers, definitions, relations, and supported APIs. |
+| O10 | Documentation checks cover local links, anchors, rule references, and documented descriptor/relation examples. |
+
+The [validator contracts](libraries/typescript/ValidationRules.ts) define the source-check
+identifiers and diagnostic fields. Definitions, conceptual placement, content evidence, and
+future inference semantics still require review. Outstanding performance evidence and conditions
+for any incremental validation are tracked in [automated rule checks](docs/plan/automated-rule-checks.md).
 
 
 ### 6.7 Shared snapshot APIs and package verification
@@ -320,9 +336,8 @@ The TypeScript package exposes `edugraph-ts/core`, `edugraph-ts/rdf`, and
 `edugraph-ts/generated`. See the [package API guide](libraries/typescript/README.md#6-supplied-snapshots-and-portable-imports)
 for supplied snapshots, query semantics, explicit assessments, and compatibility adapters.
 The root import remains available. Python provides typed snapshot queries, optional RDF parsing, and bundled compatibility helpers.
-See the [Python API guide](libraries/python/README.md#4-typed-snapshot-queries) and
-[implementation record](docs/plan/shared-python-library-implementation.md); ontology validation
-remains TypeScript-only.
+See the [Python API guide](libraries/python/README.md#4-typed-snapshot-queries);
+ontology validation remains TypeScript-only.
 
 The Docker build compiles the parser-independent core separately, bootstraps the authored
 TypeScript snapshot, builds both clients, and runs their tests. It then copies original rule
@@ -340,8 +355,8 @@ not a complete browser or editor test suite. The editor's model projection and s
 in its repository; its reviewed parser boundary uses N3 terms and deliberately filters inverse
 predicates from the editable model. The shared parser retains those assertions for validation.
 
-The [implementation record](docs/plan/shared-typescript-library-implementation.md) tracks coverage
-and deferred performance evidence. Full validation remains the default; no delta-validation or
+The [library roadmap](docs/plan/library-roadmap.md) tracks remaining consumer integration and
+performance work. Full validation remains the default; no delta-validation or
 mutable editor-state API is introduced.
 
 ### 6.8 Combined descriptor statements

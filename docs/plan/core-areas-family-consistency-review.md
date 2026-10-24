@@ -1,588 +1,70 @@
 # Core Areas Family and Sibling Consistency Review
 
-This document records the structural review of [`core-areas-math.ttl`](../../core-areas-math.ttl)
-with respect to consistent descriptor families, focusing on logically consistent siblings in the
-[`structures`](../structure.md) relations (`partOf` and `specializes`) and equivalence of semantic
-and logical level across sibling sets.
+Open family and sibling findings for [`core-areas-math.ttl`](../../core-areas-math.ttl).
+Each proposal still needs review against the affected definitions, incoming references, complete
+paths, and content evidence before implementation. This document retains unresolved work;
+completed changes and migration details belong in [history](../history/2026-10-tooling-and-consolidation.md).
 
 ## Contents
 
-- [1. Scope and Evaluation Criteria](#1-scope-and-evaluation-criteria)
-- [2. Cross-Family Structural Patterns](#2-cross-family-structural-patterns)
-- [3. Root-Level and Single-Child Organizer Findings](#3-root-level-and-single-child-organizer-findings)
-  - [3.1 Root-Level Consistency (`ONT-E7`, `ONT-S1`, `ONT-D1`)](#31-root-level-consistency-ont-e7-ont-s1-ont-d1)
-  - [3.2 Single-Child `partOf` Organizers (`ONT-E7`, `ONT-S1`, `ONT-D6`)](#32-single-child-partof-organizers-ont-e7-ont-s1-ont-d6)
-- [4. Family-by-Family Sibling Consistency Analysis](#4-family-by-family-sibling-consistency-analysis)
-  - [4.1 `Algebra`](#41-algebra)
-  - [4.2 `Analysis`](#42-analysis)
-  - [4.3 `Arithmetic`](#43-arithmetic)
-  - [4.4 `Calculus`](#44-calculus)
-  - [4.5 `Combinatorics`](#45-combinatorics)
-  - [4.6 `FormalMathematics`](#46-formalmathematics)
-  - [4.7 `Geometry`](#47-geometry)
-  - [4.8 `GraphTheory`](#48-graphtheory)
-  - [4.9 `IntuitiveMathematics`](#49-intuitivemathematics)
-  - [4.10 `LinearAlgebra`](#410-linearalgebra)
-  - [4.11 `Logic`](#411-logic)
-  - [4.12 `NumberTheory`](#412-numbertheory)
-  - [4.13 `Probability`](#413-probability)
-  - [4.14 `Statistics`](#414-statistics)
-- [5. Summary of Priority Action Items](#5-summary-of-priority-action-items)
-
-## 1. Scope and Evaluation Criteria
-
-The review evaluates all 894 `Area` individuals across the 16 root domains of
-[`core-areas-math.ttl`](../../core-areas-math.ttl) against the normative rules in
-[`docs/structure.md`](../structure.md), [`docs/descriptors.md`](../descriptors.md),
-[`docs/content-evidence.md`](../content-evidence.md), [`docs/relations.md`](../relations.md), and
-[`docs/change-review.md`](../change-review.md):
-
-- **Composition vs. Specialization (`ONT-S1`, `ONT-S2`):** `partOf` (`hasPart`) connects a broader
-  area to constituent components, stages, instruments, or aspects without inheritance; `specializes`
-  (`specializedBy`) connects a narrower subtype to a broader concept whose core meaning it preserves
-  and substitutes for.
-
-- **Sibling Independence and Level Equivalence (`ONT-S3`, `ONT-D2`, `ONT-D3`):** Siblings under a
-  shared parent should sit at the same semantic level, partition or organize the parent along a
-  coherent dimension, and state what distinguishes each sibling from its parent and peers.
-
-- **Hierarchy Path Ordering and Multi-Parent Integrity (`ONT-S4`, `ONT-S5`):** From root to leaf,
-  composition (`hasPart`) may transition into specialization (`specializedBy`), never the reverse;
-  a parent must not mix `hasPart` and `specializedBy` children; multi-parent paths must reflect
-  genuine dual membership rather than asymmetric omissions.
-
-- **Labeling Eligibility (`ONT-E7`, `ONT-E3`):** A descriptor is eligible for direct content
-  labeling if and only if it has no `hasPart` children (`specializedBy` children preserve parent
-  eligibility). Consequently, attaching a single child via `partOf` instead of `specializes`—or
-  creating an under-populated `partOf` organizer—removes the parent from content labeling.
-
----
-
-## 2. Cross-Family Structural Patterns
-
-Across the 16 roots, sibling inconsistencies fall into six recurring structural patterns:
-
-### 1. Single-Child `partOf` Organizers Suppressing Parent Eligibility (`ONT-E7`, `ONT-S1`, `ONT-D6`):
-
-Five organizational nodes have only a single `hasPart` child, making the parent ineligible for
-content labeling while providing no sibling decomposition.
-
-### 2. Missing `specializes` Links Between Mathematically Nested Siblings (`ONT-S2`, `ONT-S3`):
-
-Several sibling sets place a mathematically narrower concept as a flat peer of the broader
-concept it satisfies (even when the broader sibling's `rdfs:isDefinedBy` text is explicitly
-inclusive).
-
-### 3. Orthogonal Classification Axes Flattened into One `specializes` List (`ONT-S2`, `ONT-S3`):
-
-A parent specializes simultaneously along two or more independent dimensions (e.g., side length
-vs. interior angle, or problem role vs. remainder outcome) without intermediate grouping or
-clear dimensional separation.
-
-### 4. Constituent Roles, Theorems, or Constants Mixed with Object/Operation Siblings (`ONT-S1`, `ONT-S2`, `ONT-S3`):
-
-`partOf` or `specializes` sibling lists mix general families, concrete operations, named
-theorems, and mathematical constants at the same structural tier.
-
-### 5. Asymmetric Intermediate Grouping Across Parallel Subfamilies (`ONT-S1`, `ONT-S3`, `ONT-E7`):
-
-One branch introduces an intermediate `partOf` or `specializes` parent (e.g.,
-`OrderedSelectionCounting`, `DispersionMeasure`, `VectorCurveCalculus`), while its immediate
-counterpart leaves parallel concepts ungrouped at the parent level.
-
-### 6. Cross-Root Placement and Boundary Asymmetries (`ONT-D3`, `ONT-S1`, `ONT-S5`):
-
-Closely paired concepts (such as `FunctionDomain` vs. `FunctionRange`, or `FunctionNotation` vs.
-all other `*Notation` descriptors) are split across different root domains.
-
----
-
-## 3. Root-Level and Single-Child Organizer Findings
-
-### 3.1 Root-Level Consistency (`ONT-E7`, `ONT-S1`, `ONT-D1`)
-
-#### `ComputationalMathematics`
-
-**Resolved — 2026-10-24:** Removed `ComputationalMathematics` from
-[`core-areas-math.ttl`](../../core-areas-math.ttl). It had no descriptor relations or children to
-reassign. The removal left 893 `Area` individuals across 15 root domains; counts elsewhere in
-this document describe the original review snapshot. Existing annotations using the removed
-identifier require review when adopting this change.
-
-- **Structure at Review:** Root `Area` with `0` `hasPart` and `0` `specializedBy` children
-
-- **Rule IDs:** `ONT-E7`, `ONT-S1`, `ONT-D1`
-
-Out of 16 roots, 15 have `hasPart` children and act as non-eligible discipline organizers
-(`ONT-E7`). `ComputationalMathematics` is a bare leaf root—making an entire branch of mathematics
-directly label-eligible—while computational and numerical methods (`EulerMethod`, `NewtonMethod`,
-`NumericalDifferentiation`, `NumericalIntegration`, `EuclideanAlgorithm`, standard arithmetic
-algorithms) reside under domain roots.
-
-**Original Suggestion:** Retire `ComputationalMathematics` (per
-[`ontology-consolidation.md`](ontology-consolidation.md)) or populate it with `hasPart` branches so
-root-level eligibility is uniform.
-
-#### `Algebra`
-
-**Resolved — 2026-10-24:** Retained `AlgebraicSubstitution` directly under `Algebra` and added
-`NumericSubstitution` as its specialization. `SystemSubstitution` now also specializes
-`AlgebraicSubstitution`, retaining its existing `SystemRewriting` parent. This adds one `Area`
-after the 903-Area set-foundations stage, bringing the ontology at this stage to 904 individuals
-across 15 root domains; the original review and earlier implementation-stage counts remain
-historical.
-
-`AlgebraicSubstitution partOf Algebra` remains appropriate for the cross-cutting practice of
-replacing designated symbol occurrences with admissible values or expressions. Its definition
-continues to require consistency, variable binding, and domain restrictions
-([ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries)).
-`AlgebraicModeling` also remains directly under `Algebra`; no new organizer is introduced
-([ONT-S1](../structure.md#ont-s1--partof-organizes-constituents)).
-
-`NumericSubstitution` has this definition:
-
-> The consistent replacement of designated symbol occurrences by specified admissible numerical
-> values, represented by numerals or expressions without free variables, while respecting
-> variable binding and domain restrictions.
-
-The two narrower substitutions classify overlapping axes: `NumericSubstitution` concerns the
-replacement payload, whereas `SystemSubstitution` concerns a solution-preserving system context.
-Replacing `x` by `4` or `sqrt(2)` can be numeric substitution outside a system. Rewriting
-`{y = 2x + 1, x + y = 7}` as `{y = 2x + 1, x + (2x + 1) = 7}` is system substitution with the
-symbolic payload `2x + 1`, which has a free variable and is not numeric substitution. Rewriting
-`{x = 2, x + y = 5}` as `{x = 2, 2 + y = 5}` fits both: the replacement is numerical, and the
-retained equation preserves the condition needed to recover the original system's solutions.
-The unchanged `SystemSubstitution` definition still requires its defining equation or an
-equivalent reconstruction condition and preservation of the complete solution set over the
-original variables and admissible domain.
-
-Numeric replacement alone does not establish `AlgebraicEquivalence`: replacing `x` by `4` in
-`3x + 2` instantiates a selected value, rather than preserving that expression for every `x`.
-Substitution yields `3*4 + 2`; arithmetic evaluation yields `14`, while establishing that `x = 4`
-satisfies `3x + 2 = 14` concerns `RelationSatisfaction`.
-Replacing `x` by zero in `1/x` is inadmissible. Numeric substitution therefore specializes the
-generic substitution concept without acquiring a value- or solution-preservation claim from
-the separate system-rewriting family
-([ONT-S2](../structure.md#ont-s2--specializes-preserves-the-broader-meaning)).
-
-Both system-substitution parent paths retain composition before specialization and uniform
-child roles ([ONT-S4](../structure.md#ont-s4--composition-may-lead-into-specialization),
-[ONT-S5](../structure.md#ont-s5--review-the-entire-affected-structure)). Existing definitions,
-comments, and progression relations are unchanged. `AlgebraicSubstitution` remains eligible
-with specialization children, and existing direct labels retain eligibility under
-[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
-`SystemSubstitution` gains the broader substitution claim while retaining its rewriting ancestry;
-`NumericSubstitution` is eligible as a new specific label. Derived ancestor claims and model
-representations should be reviewed using
-[the adoption guidance](../annotations-and-models.md#interpreting-annotations-across-ontology-versions).
-
-- **Structure at Review:** 6 `partOf` subtrees + 2 direct leaf children (`AlgebraicModeling`,
-  `AlgebraicSubstitution`)
-
-- **Rule IDs:** `ONT-S1`, `ONT-S3`
-
-**Former finding:** Direct `partOf` children mix broad sub-branches (`AlgebraicConstraints`,
-`AlgebraicDependence`, `AlgebraicEquivalence`, `AlgebraicFunctions`, `AlgebraicStructures`,
-`AlgebraicTheorems`) with two
-atomic leaf concepts (`AlgebraicModeling`, `AlgebraicSubstitution`).
-
-**Original Suggestion:** Consider placing `AlgebraicSubstitution` with expression/equivalence
-transformations or grouping foundational symbolic practices consistently.
-
-#### `FormalMathematics`
-
-**Resolved — 2026-10-24:** Added `MathematicalNotation` as the common parent of the notation
-families, including `NumberNotation`. This addition brings the ontology to 894 `Area` individuals
-across 15 root domains after the earlier removal of `ComputationalMathematics`; the original
-review snapshot remains 894 individuals across 16 roots.
-
-The new family's definition follows
-[ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries):
-
-> The conventions for writing and interpreting the symbols, words, and arrangements used to
-> denote mathematical objects, operations, and relations.
-
-`MathematicalNotation partOf FormalMathematics` places the family within the broader field
-([ONT-S1](../structure.md#ont-s1--partof-organizes-constituents)). Its ten direct `specializes`
-children are `DerivativeNotation`, `FunctionNotation`, `IntegralNotation`, `LimitNotation`,
-`MatrixNotation`, `NumberNotation`, `ProbabilityNotation`, `SetNotation`, `SummationNotation`, and
-`VectorNotation` ([ONT-S2](../structure.md#ont-s2--specializes-preserves-the-broader-meaning)).
-The ten existing specializations of `NumberNotation` retain their definitions and parent links.
-
-The eight notation leaves previously attached directly to `FormalMathematics`, and
-`NumberNotation` itself, now specialize `MathematicalNotation`. `FunctionNotation` also
-specializes the new family, replacing its `partOf AlgebraicFunctions` link. Its structural
-ancestry therefore moves from `Algebra` to `FormalMathematics`; the other notation families gain
-the intermediate parent without changing their root. These paths retain composition before
-specialization ([ONT-S4](../structure.md#ont-s4--composition-may-lead-into-specialization)) and
-uniform child roles at each parent
-([ONT-S5](../structure.md#ont-s5--review-the-entire-affected-structure)).
-
-Existing notation identifiers, definitions, comments, and direct-labeling eligibility are
-unchanged. `MathematicalNotation` and `NumberNotation` have only specialization children and
-are eligible under
-[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
-Existing direct notation labels remain usable; derived ancestor claims now include
-`MathematicalNotation`. Interpreting what the argument in `f(3)` denotes establishes notation
-knowledge; merely evaluating `f(3)` from a function rule does not establish that knowledge
-([ONT-D5](../descriptors.md#ont-d5--distinguish-learning-about-notation-from-using-notation)).
-
-- **Structure at Review:** 4 subtrees (`ExpressionStructure`, `MathematicalExpression`,
-  `MathematicalStatement`, `NumberNotation`) + 8 leaf `*Notation` nodes
-
-- **Rule IDs:** `ONT-S1`, `ONT-S3`
-
-**Former finding:** While numerical notations are grouped under `NumberNotation`, eight
-domain-specific notations (`DerivativeNotation`, `IntegralNotation`, `LimitNotation`,
-`MatrixNotation`, `ProbabilityNotation`, `SetNotation`, `SummationNotation`, `VectorNotation`) sit
-directly under `FormalMathematics`, and
-`FunctionNotation` sits in `Algebra` (`FunctionNotation partOf AlgebraicFunctions`).
-
-**Original Suggestion:** Group domain notations under a sibling parent (e.g., proposed
-`SymbolicNotation` or `DomainNotation` alongside `NumberNotation`) and align `FunctionNotation`.
-
-#### `SetTheory`
-
-**Resolved — 2026-10-24:** Organized `SetTheory` into `SetOperations`, `SetRelations`, and
-`SetProperties`, and added the cardinality and countability distinctions below. The fundamentals
-completeness check also identified `PowerSet` and `SetEquality` as essential additions. This
-batch adds nine `Area` individuals, bringing the ontology to 903 individuals across 15 root
-domains. The original review snapshot remains 894 individuals across 16 roots; the earlier
-notation stage had 894 individuals across 15 roots.
-
-##### Implemented hierarchy and definitions
-
-The three organizers are `partOf` children of `SetTheory`, with these definitions and direct
-constituents:
-
-- **`SetOperations`:** "The study of constructions that form result sets from specified input
-  sets by determining their elements or constructing ordered tuples."
-  Its `partOf` children are `SetUnion`, `SetIntersection`, `SetDifference`, `CartesianProduct`,
-  and `PowerSet`. The existing `SetComplement` continues to specialize `SetDifference`.
-
-- **`SetRelations`:** "The study of relationships involving sets and their elements, including
-  membership, inclusion, and whether sets share elements."
-  Its `partOf` children are `SetMembership`, `SetInclusion`, and `SetDisjointness`.
-  `SetEquality` specializes the existing inclusive `SetInclusion` concept.
-
-- **`SetProperties`:** "The intrinsic characteristics of individual sets, including their sizes
-  and countability."
-  Its `partOf` children are `SetCardinality` and `SetCountability`.
-
-The general cardinality concept and its specializations distinguish these meanings:
-
-- **`SetCardinality`:** "The size of a set, with two sets having equal cardinality exactly when
-  there is a bijection between them."
-  `FiniteSetCardinality` and `InfiniteSetCardinality` specialize this parent.
-
-- **`FiniteSetCardinality`:** Its existing definition remains "The number of distinct elements
-  in a finite set, independent of their order or repeated listing."
-  Its former `partOf SetTheory` placement is replaced by specialization of `SetCardinality`.
-
-- **`InfiniteSetCardinality`:** "The cardinal size of an infinite set and comparisons of such
-  sizes through injections and bijections, including equal and unequal infinite cardinalities."
-
-- **`EmptySetCardinality`:** "The zero cardinality of a set containing no elements."
-  It specializes `FiniteSetCardinality`, retaining the empty set within finite cardinality.
-
-- **`SetCountability`:** "The classification of sets by whether their elements admit an injection
-  into the natural numbers, with countable sets comprising finite and countably infinite sets."
-  This is a sibling constituent of `SetCardinality` under `SetProperties`, rather than a
-  specialization restricted to infinite cardinality.
-
-The two additions from the completeness check have these definitions:
-
-- **`PowerSet`:** "The set of all subsets of a given set, including the empty set and the given
-  set itself."
-
-- **`SetEquality`:** "The relationship in which two sets have exactly the same elements,
-  equivalently each is a subset of the other."
-
-These definitions follow
-[ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries). Organizers
-and their constituents use
-[ONT-S1](../structure.md#ont-s1--partof-organizes-constituents); cardinality narrowings, equality
-under inclusive inclusion, and complement under difference use
-[ONT-S2](../structure.md#ont-s2--specializes-preserves-the-broader-meaning). The resulting paths
-retain composition before specialization
-([ONT-S4](../structure.md#ont-s4--composition-may-lead-into-specialization)) and uniform child
-roles at each parent ([ONT-S5](../structure.md#ont-s5--review-the-entire-affected-structure)).
-
-##### Evidence and counterexamples
-
-- `SetUnion`, `SetIntersection`, `SetDifference`, `SetComplement`, `CartesianProduct`, and
-  `PowerSet` concern result sets. Membership, inclusion, disjointness, and equality concern
-  relationships. Forming `A x B` produces ordered tuples; it does not multiply the elements as
-  numbers. A complement requires the specified universe: for `U = {1, 2, 3}` and `A = {1}`,
-  the complement is `{2, 3}`.
-
-- `EmptySetCardinality` applies to the size of the empty set, which is zero. The set containing
-  the empty set, `{empty set}`, has one element and is not empty.
-
-- `{a, b}` and `{1, 2}` have equal cardinality when `a` and `b` are distinct objects different
-  from `1` and `2`; they are not equal sets. Equal size does not establish `SetEquality`.
-
-- `{1}` is a subset of `{1, 2}`, but the sets are unequal. `SetEquality` requires inclusion in
-  both directions. Similarly, `1` being an element of `{1, 2}` differs from `{1}` being a
-  subset of that set.
-
-- `PowerSet` includes every subset: the power set of `{a}` is `{empty set, {a}}`, and the power
-  set of the empty set is `{empty set}`. It is not the original input set in either case.
-
-- Finite sets, including the empty set, are countable under the adopted definition; the natural
-  numbers are countably infinite, while the real numbers are uncountable. Infinite sets can
-  have equal cardinality without being equal sets, as with the natural numbers and integers.
-  Infinite cardinality is not a single undifferentiated size.
-
-The empty-set distinction and cardinality/countability boundaries were checked against
-[Hammack, *Book of Proof*, chapters 1 and 14](https://richardhammack.github.io/BookOfProof/).
-The operation-versus-relation distinction, subset/equality tests, and power-set cases were
-checked against
-[Levin, *Discrete Mathematics: An Open Introduction*, section 5.1](https://discrete.openmathbooks.org/dmoi4/sec_structures-sets.html)
-and Hammack's chapter 8 on proofs involving sets.
-
-##### Eligibility, adoption, and completeness boundary
-
-`SetTheory` remains organizational. The three new organizers have constituent children and are
-ineligible for direct labeling under
-[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
-The existing eight direct-child labels remain eligible after reparenting. `SetCardinality`,
-`FiniteSetCardinality`, `SetInclusion`, and `SetDifference` are eligible despite their
-specialization children; `SetCountability`, `PowerSet`, and the new specialization leaves are
-also eligible.
-
-Existing identifiers, definitions, comments, and progression relations are unchanged. Existing
-direct labels retain their meanings, while structural ancestry now includes the appropriate
-organizer. `FiniteSetCardinality` additionally supports the broader `SetCardinality` claim;
-`EmptySetCardinality` supports both. Adopters should review derived ancestor claims and model
-representations against these changed paths using
-[the annotation and model guidance](../annotations-and-models.md#interpreting-annotations-across-ontology-versions).
-
-The bounded completeness check covers basic result-set constructions, complement's universe,
-ordered products, element-versus-subset relations, equality versus one-way inclusion, empty,
-finite and infinite cardinality, and countability. `PowerSet` and `SetEquality` close the two
-essential gaps identified within that scope; no other essential gap was identified within this
-boundary. A dedicated symmetric-difference descriptor is an optional follow-up: its construction
-is expressible with set differences and union. Indexed
-families and general arbitrary-union/intersection theory, partitions and equivalence classes,
-and axiomatic set theory are outside this minimal fundamentals batch. This is not a claim of
-complete coverage of set theory.
-
-- **Structure at Review:** 8 direct `partOf` children (`CartesianProduct`, `FiniteSetCardinality`,
-  `SetDifference`, `SetDisjointness`, `SetInclusion`, `SetIntersection`, `SetMembership`,
-  `SetUnion`)
-
-- **Rule IDs:** `ONT-S1`, `ONT-S3`
-
-**Former finding:** `SetTheory` is the only multi-node root without mid-level branch organizers,
-mixing binary set operations (`SetUnion`, `SetIntersection`, `SetDifference`, `CartesianProduct`),
-set relations (`SetMembership`, `SetInclusion`, `SetDisjointness`), and a cardinality invariant
-(`FiniteSetCardinality`) in one flat list.
-
-**Original Suggestion:** Separate set-forming operations (e.g., proposed `SetOperations`) from set
-relations/predicates and cardinality concepts.
-
-### 3.2 Single-Child `partOf` Organizers (`ONT-E7`, `ONT-S1`, `ONT-D6`)
-
-At the original review, every node below had exactly **one** `hasPart` child, making the parent
-**ineligible for content labeling under `ONT-E7`** while providing no sibling contrast (`ONT-S3`).
-The percentage, decimal-strategy, and straight one-dimensional-object families are now resolved
-with three, four, and three constituents, respectively, as recorded below. The other two
-organizers remain single-child findings.
-
-#### `PercentageArithmetic`
-
-**Resolved — 2026-10-24:** Added `PercentageRateApplication` and `PercentageRateDetermination` as
-`partOf` siblings of the unchanged `PercentageEquivalence`. `PercentageArithmetic` remains
-`partOf RationalArithmetic`. These two additions bring the ontology to 906 `Area` individuals
-across 15 root domains, following the earlier 904-Area substitution stage; original-review and
-earlier implementation-stage totals remain historical.
-
-- **`PercentageRateApplication`:** "Using a specified percentage rate to determine the
-  corresponding amount from a reference quantity, or recover the reference quantity from a known
-  amount when the rate is nonzero."
-  The rate is supplied: finding 12 as 15% of 80, or recovering 80 when 12 is 15% of it, exercises
-  the two directions of application. A zero rate permits a forward amount calculation but does
-  not determine a unique reference quantity from a zero amount.
-
-- **`PercentageRateDetermination`:** "Determining the unknown percentage rate represented by a
-  quantity relative to a specified nonzero reference quantity of the same kind."
-  The rate is unknown: expressing 12 relative to 80 as 15%, or 120 relative to 80 as 150%, fits
-  this concept. The reference need not contain the compared amount; rates above 100% are
-  included. A zero reference does not define the ratio.
-
-The new boundaries follow
-[ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries).
-`PercentageEquivalence` continues to cover equal percentage, fraction, and decimal forms. The
-three siblings are constituent aspects of percentage arithmetic under
-[ONT-S1](../structure.md#ont-s1--partof-organizes-constituents), with uniform child roles under
-[ONT-S5](../structure.md#ont-s5--review-the-entire-affected-structure).
-
-Percentage change and percentage-point difference receive no additional descriptors. A relative
-change from 80 to 100 can combine `Difference` for the change of 20 with
-`PercentageRateDetermination` relative to 80, giving 25%. Applying a known increase or decrease
-can combine `PercentageRateApplication` with `Sum` or `Difference`. Comparing rates of 15% and 20%
-uses `Difference` to obtain five percentage points. These compositions reuse existing concepts
-under [ONT-D1](../descriptors.md#ont-d1--define-reusable-concepts); descriptors apply when their
-knowledge or procedure is evidenced, rather than being automatic labels for every percentage
-word problem.
-
-`PercentageArithmetic` remains an ineligible organizer, and all three constituents are eligible
-for direct labeling under
-[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
-Existing definitions, comments, parent links, and progression relations are unchanged. Existing
-`PercentageEquivalence` labels retain their meaning and eligibility; the two new labels express
-knowledge that equivalence alone did not identify. Adoption follows
-[the annotation and model guidance](../annotations-and-models.md#interpreting-annotations-across-ontology-versions).
-The [earlier coverage audit](core-ccss-coverage-audit.md) uses `PercentageEquivalence` in general
-percentage-application compositions; review those uses against the new quantity-role boundaries
-and retain equivalence claims where representation conversion is evidenced.
-
-Former identifier `PercentageApplication` was renamed to `PercentageRateApplication` in editor
-commit `5f3fece`. Its definition and parent link are unchanged. Adopters should update stored
-annotation and client-identifier references to the new name under
-[ONT-D6](../descriptors.md#ont-d6--preserve-identifier-meaning).
-
-- **Sole `hasPart` Child at Review:** `PercentageEquivalence`
-
-- **Rule IDs:** `ONT-E7`, `ONT-S1`, `ONT-D6`
-
-**Former finding:** Because `PercentageEquivalence partOf PercentageArithmetic` is the only child,
-`PercentageArithmetic` is ineligible under `ONT-E7`, and no eligible descriptor exists for
-calculating percentages of quantities, percentage increase/decrease, or finding rate/base (only
-converting between percent, fraction, and decimal representations).
-
-**Original Suggestion:** Add sibling descriptors for percentage calculations/applications, or
-convert `PercentageEquivalence` to `specializes` if appropriate, or flatten until siblings are
-authored.
-
-#### `DecimalStrategies`
-
-**Resolved — 2026-10-24:** Grouped four decimal methods as `partOf` constituents of
-`DecimalStrategies`. `DecimalDivisorShift` retains its existing parent link;
-`DecimalPointAlignment` and `DecimalRounding` move from directly under `DecimalArithmetic` to
-`DecimalStrategies`; `DecimalPadding` gains the same organizational parent while retaining its
-`specializes DecimalEquivalence` link. No descriptor is added or renamed, and the ontology total
-remains 906 `Area` individuals across 15 root domains.
-
-`DecimalStrategies` remains `partOf DecimalArithmetic`, whose direct constituents are now
-`DecimalEquivalence`, `DecimalPrecission`, and `DecimalStrategies`. The four methods are grouped
-as constituents under [ONT-S1](../structure.md#ont-s1--partof-organizes-constituents).
-`DecimalPadding` also preserves the broader equivalence meaning under
-[ONT-S2](../structure.md#ont-s2--specializes-preserves-the-broader-meaning): writing `2.5` as
-`2.50` preserves the value. By contrast, rounding `3.146` to `3.15` changes the value; sharing
-the strategy organizer does not make that method an equivalence transformation.
-
-The `DecimalPadding` path through `DecimalStrategies` uses composition only; the path through
-`DecimalEquivalence` ends in specialization. Both respect path ordering and uniform child roles
-([ONT-S4](../structure.md#ont-s4--composition-may-lead-into-specialization),
-[ONT-S5](../structure.md#ont-s5--review-the-entire-affected-structure)). `DecimalStrategies`
-remains an ineligible organizer, while all four methods remain eligible for direct labeling
-under [ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
-`DecimalEquivalence` also retains eligibility with its specialization child.
-
-Existing definitions, comments, and progression relations are unchanged. Existing direct method
-labels keep their meanings and eligibility. `DecimalPointAlignment` and `DecimalRounding` now
-reach `DecimalArithmetic` through `DecimalStrategies`; `DecimalPadding` gains that organizational
-path while retaining its equivalence ancestry. Adopters should review derived ancestor claims
-and model representations using
-[the annotation and model guidance](../annotations-and-models.md#interpreting-annotations-across-ontology-versions).
-
-**Deferred shared semantic and naming audit:** Review `DecimalStrategies`, `FractionStrategies`,
-and `IntegerStrategies` together for field-versus-method boundaries, definitions, naming, and
-family structure before any broader rename or relation conversion. The present decision uses
-the plural identifier and retains its organizational `partOf` placement. The shared audit will
-consider singular method concepts and specialization families alongside the existing plural
-organizers, based on their intended meanings under
+- [1. Review boundary](#1-review-boundary)
+- [2. Cross-family follow-ups](#2-cross-family-follow-ups)
+- [3. Single-child organizers](#3-single-child-organizers)
+- [4. Family-by-family findings](#4-family-by-family-sibling-consistency-analysis)
+  - [Algebra](#41-algebra)
+  - [Analysis](#42-analysis)
+  - [Arithmetic](#43-arithmetic)
+  - [Calculus](#44-calculus)
+  - [Combinatorics](#45-combinatorics)
+  - [FormalMathematics](#46-formalmathematics)
+  - [Geometry](#47-geometry)
+  - [GraphTheory](#48-graphtheory)
+  - [IntuitiveMathematics](#49-intuitivemathematics)
+  - [LinearAlgebra](#410-linearalgebra)
+  - [Logic](#411-logic)
+  - [NumberTheory](#412-numbertheory)
+  - [Probability](#413-probability)
+  - [Statistics](#414-statistics)
+- [5. Priority actions](#5-summary-of-priority-action-items)
+
+## 1. Review boundary
+
+Use the normative [structure](../structure.md), [descriptor](../descriptors.md),
+[content-evidence](../content-evidence.md), [relation](../relations.md), and
+[change-review](../change-review.md) references. Relevant checks include truthful constituent
+and specialization meanings (ONT-S1/S2), coherent descriptor dimensions (ONT-D2/D3), complete
+multi-parent paths and uniform child roles (ONT-S4/S5), and direct-label eligibility (ONT-E7).
+
+Different sibling roles, missing parallel groups, or an ineligible organizer are review prompts;
+they do not justify a mechanical rename, new group, or relation conversion.
+
+## 2. Cross-family follow-ups
+
+### `DecimalStrategies`
+
+Review `DecimalStrategies`, `FractionStrategies`, and `IntegerStrategies` together for
+field-versus-method boundaries, definitions, naming, and family structure before any broader
+rename or relation conversion. Consider singular method concepts and specialization families
+alongside plural organizers, based on their intended meanings under
 [ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries).
 
-- **Sole `hasPart` Child at Review:** `DecimalDivisorShift`
+### Percentage coverage mappings
 
-- **Rule IDs:** `ONT-E7`, `ONT-S1`, `ONT-S3`
+Review uses of `PercentageEquivalence` in general percentage-application compositions against
+`PercentageRateApplication` and `PercentageRateDetermination`. Retain equivalence claims where
+representation conversion is evidenced; review annotation and model adoption in the owning
+repositories under [ONT-W2](../change-review.md#ont-w2--review-definitions-relations-and-effects-together).
 
-**Former finding:** `DecimalDivisorShift partOf DecimalStrategies` is the sole child of
-`DecimalStrategies`, whereas
-`DecimalPointAlignment` and `DecimalRounding` sit as `partOf` siblings of `DecimalStrategies` under
-`DecimalArithmetic`, and `DecimalPadding` specializes `DecimalEquivalence`.
+### Optional set-theory extension
 
-**Original Suggestion:** Either group decimal procedural techniques (`DecimalPointAlignment`,
-`DecimalDivisorShift`, place-value shifting) together under `DecimalStrategies` or make
-`DecimalStrategies` an eligible concept specialized by concrete decimal strategies (`ONT-S2`,
-`ONT-E7`).
+Consider a dedicated symmetric-difference descriptor only if it adds reusable educational
+meaning beyond composition with set differences and union (ONT-D1). Indexed families, general
+arbitrary-union/intersection theory, partitions, equivalence classes, and axiomatic set theory
+remain outside the minimal fundamentals scope; they are not required for this family cleanup.
 
-#### `OneDimensionalObjects`
+## 3. Single-child organizers
 
-**Resolved for lines, rays, and segments — 2026-10-24:** Moved `Line` and `Ray` from
-`GeometricConcepts` to `OneDimensionalObjects`, alongside the unchanged `LineSegment`. All three
-are `partOf` constituents of this organizer under
-[ONT-S1](../structure.md#ont-s1--partof-organizes-constituents). Their definitions retain the
-distinction between a straight line extending infinitely in both directions, a ray with one
-endpoint and one unbounded direction, and a segment bounded by two distinct endpoints.
-
-The paths through `GeometricObjects` retain composition ordering and uniform child roles
-([ONT-S4](../structure.md#ont-s4--composition-may-lead-into-specialization),
-[ONT-S5](../structure.md#ont-s5--review-the-entire-affected-structure)). `OneDimensionalObjects`
-remains an ineligible organizer; `Line`, `Ray`, and `LineSegment` retain direct-labeling
-eligibility under
-[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
-This reparenting and the identifier cleanup below add no descriptors: the total remains 906
-`Area` individuals across 15 root domains.
-
-**Resolved follow-up — 2026-10-24:** The broader organizer review renamed `GeometricConcepts`
-to `GeometricFoundations`, moved `Arc` into `OneDimensionalObjects` as its fourth constituent,
-and retained `ParametricCurve` with foundations. See the
-[foundations implementation](#geometricfoundations-implementation) for the definition,
-structural decisions, and migration effects.
-
-##### Identifier migration
-
-**Resolved — 2026-10-24:** Removed the redundant `Concept` suffix from ten `Area` identifiers,
-including correction of the arc spelling. Former identifiers and their current replacements
-are recorded here under [ONT-D6](../descriptors.md#ont-d6--preserve-identifier-meaning):
-
-| Former identifier | Current identifier |
-| --- | --- |
-| `AngleConcept` | `Angle` |
-| `ArchConcept` | `Arc` |
-| `LineConcept` | `Line` |
-| `PlaneConcept` | `Plane` |
-| `PointConcept` | `Point` |
-| `RayConcept` | `Ray` |
-| `SlopeConcept` | `Slope` |
-| `SpaceConcept` | `Space` |
-| `VectorConcept` | `Vector` |
-| `ZeroConcept` | `Zero` |
-
-Existing definitions and comments are preserved under
-[ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries). The shorter
-names retain their boundaries: `Space` is the boundless three-dimensional geometric extent,
-`Vector` describes geometric directed quantities including the zero vector, and `Slope`
-concerns a geometric line while `FunctionSlope` is unchanged. `Arc` retains its meaning for a
-continuous portion of a circle or another curved line; it is not restricted to circular arcs.
-`Zero` remains the integer-zero concept, separate from the `NumericZero` Scope.
-
-In the suffix-removal change, only `Line` and `Ray` changed parents. Other structural and
-progression assertions retained their meanings with renamed endpoints, and existing descriptor
-eligibility was unchanged. Adopters
-should update stored identifiers, generated-client keys, and annotation/model vocabulary
-references for all ten renames. Derived structural ancestry for `Line` and `Ray` now reaches
-`Geometry` through `GeometricObjects` and `OneDimensionalObjects`, replacing the
-`GeometricConcepts` path. Follow
-[the annotation and model guidance](../annotations-and-models.md#interpreting-annotations-across-ontology-versions).
-
-- **Sole `hasPart` Child at Review:** `LineSegment`
-
-- **Rule IDs:** `ONT-E7`, `ONT-S1`, `ONT-S3`
-
-**Former finding:** `LineSegment partOf OneDimensionalObjects` is the only child because
-`LineConcept`, `RayConcept`, `ArchConcept`, and `ParametricCurve` are placed under `GeometricConcepts`.
-
-**Original Suggestion:** Reconcile the boundary between `GeometricConcepts` and
-`GeometricObjects` so 1D geometric figures (`LineConcept`, `RayConcept`, `LineSegment`,
-`ArchConcept`, `ParametricCurve`) are not split across two branches leaving a single-child
-organizer.
-
-#### `AlgebraicStructures`
+### `AlgebraicStructures`
 
 - **Sole `hasPart` Child:** `OperationClosure`
 
@@ -596,7 +78,7 @@ property leaf, while `AssociativeLaw`, `CommutativeLaw`, and `DistributiveLaw` s
 associativity/commutativity in algebraic structures) or fold `OperationClosure` into a broader
 laws/structures family.
 
-#### `LinearSystems`
+### `LinearSystems`
 
 - **Sole `hasPart` Child:** `MatrixSystemRepresentation`
 
@@ -941,82 +423,7 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
     distance from Cartesian coordinates but is missing proposed `CoordinateDistance` `specializes`
     `DistanceCalculation`.
 
-#### 2. `GeometricFoundations` vs. `GeometricObjects` (`NormalVector`, `Arc`, and `SolidOfRevolution`):
-
-##### `GeometricFoundations` implementation
-
-**Resolved — 2026-10-24, organizer boundary and specialization:** Renamed `GeometricConcepts`
-to `GeometricFoundations`, retaining its `partOf Geometry` placement. Its definition is:
-
-> The basic geometric entities and ambient spaces, together with quantities and parameterized
-> descriptions used to specify geometric configurations.
-
-The resulting structure uses `P` for `partOf` and `S` for `specializes`:
-
-```text
-Geometry
-  P GeometricFoundations
-    P Point
-    P Plane
-    P Space
-    P Angle
-      S existing angle specializations
-    P Vector
-      S NormalVector
-    P ParametricCurve
-  P GeometricObjects
-    P OneDimensionalObjects
-      P Line
-      P Ray
-      P LineSegment
-      P Arc
-```
-
-The organizer describes a common geometric toolkit under
-[ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries).
-Its topical boundary with `GeometricObjects` permits overlapping knowledge; `partOf`
-organizes constituents under [ONT-S1](../structure.md#ont-s1--partof-organizes-constituents).
-The existing two- and three-dimensional figure families retain their definitions and placement.
-
-- **`Arc` placement:** A continuous portion of a circle or another curved line is now
-  `partOf OneDimensionalObjects`, alongside lines, rays, and segments. Its definition still
-  includes noncircular arcs. The `Circle` topic continues to include the enclosed region as
-  well as the boundary, so its placement in plane geometry does not require the same placement
-  for a curved-line portion.
-- **`NormalVector` inheritance:** Replaced its direct membership in the former organizer with
-  `NormalVector specializes Vector`. Its nonzero and perpendicularity conditions narrow the
-  existing geometric-vector meaning under
-  [ONT-S2](../structure.md#ont-s2--specializes-preserves-the-broader-meaning). The general
-  `Vector` definition still includes the zero vector; zero is not a valid `NormalVector`.
-- **Remaining foundations:** `Point`, `Plane`, and `Space` supply reference locations and
-  ambient spaces; `Angle` and `Vector` describe geometric quantities. `ParametricCurve`
-  retains its continuous-correspondence meaning, including traversal multiplicity: tracing a
-  circle twice differs from tracing it once even when the image is the same. It is not moved
-  into a dimensional figure family solely because its domain has one real parameter.
-
-The affected paths retain composition before specialization and uniform child roles
-([ONT-S4](../structure.md#ont-s4--composition-may-lead-into-specialization),
-[ONT-S5](../structure.md#ont-s5--review-the-entire-affected-structure)). `Angle` retains its
-existing specialization children, and `Vector` gains only a specialization child.
-`GeometricFoundations` and `OneDimensionalObjects` remain organizational; the eight former
-foundation constituents retain direct-labeling eligibility under
-[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
-No descriptors are added: there remain 906 `Area` individuals across 15 root domains.
-
-**Adoption:** Replace the organizer identifier `GeometricConcepts` with `GeometricFoundations`
-in stored references, generated-client keys, and annotation/model vocabularies under
-[ONT-D6](../descriptors.md#ont-d6--preserve-identifier-meaning). The organizer definition is
-clarified; all other descriptor definitions and examples are preserved. Update derived
-structural ancestry for `Arc` and `NormalVector`; `NormalVector` now supports the broader
-`Vector` claim through specialization. Follow the
-[annotation and model guidance](../annotations-and-models.md#interpreting-annotations-across-ontology-versions).
-
-**Former findings:** `NormalVector` sat as a `partOf` sibling of `Vector` under
-`GeometricConcepts`. `ArchConcept` used the spelling `Arch` instead of the mathematical term
-`Arc`; the earlier suffix-removal change resolved that spelling while this follow-up resolves
-the placement.
-
-##### Remaining three-dimensional figure finding
+#### 2. `ThreeDimensionalObjects` (`SolidOfRevolution`, `Cone`, `Cylinder`, and `Sphere`):
 
 - **`ThreeDimensionalObjects` (`SolidOfRevolution` vs. `Cone`, `Cylinder`, `Sphere`, `ONT-S2`, `ONT-S3`):**
   Under `ThreeDimensionalObjects`, `Polyhedron` specializes into `Prism` (`RectangularPrism` ->
@@ -1314,17 +721,10 @@ the placement.
 
 ## 5. Summary of Priority Action Items
 
-### 1. Resolve the remaining 2 single-child `partOf` organizers (`ONT-E7`, `ONT-S1`):
+### 1. Resolve the remaining single-child organizers (ONT-E7, ONT-S1)
 
-**Resolved — 2026-10-24:** `PercentageArithmetic` now has three constituents
-([record](#percentagearithmetic)), `DecimalStrategies` has four
-([record](#decimalstrategies)), and `OneDimensionalObjects` has four
-([record](#onedimensionalobjects)).
-
-**Remaining:** `AlgebraicStructures` and `LinearSystems`.
-
-The shared strategy-family semantics and naming audit is recorded separately under
-[`DecimalStrategies`](#decimalstrategies).
+Review `AlgebraicStructures` and `LinearSystems` as described [above](#3-single-child-organizers).
+The shared strategy-family audit is tracked under [`DecimalStrategies`](#decimalstrategies).
 
 ### 2. Fix definition/specialization conflicts and missing `specializes` edges (`ONT-S2`, `ONT-D2`):
 
@@ -1340,17 +740,10 @@ The shared strategy-family semantics and naming audit is recorded separately und
   `QuadraticRewriting`; `DivisorCount`, `DivisorSum`, & `EulersTotient` $\to$
   `MultiplicativeArithmeticFunction`.
 
-- **Resolved — 2026-10-24:** `NormalVector specializes Vector`; see the
-  [foundations implementation](#geometricfoundations-implementation).
-
 - Convert `AverageRateOfChange` and `InstantaneousRateOfChange` from `partOf` to `specializes`
   under `FunctionSlope` to restore `FunctionSlope`'s `ONT-E7` eligibility.
 
 ### 3. Repair cross-branch misplacements and naming typos (`ONT-S1`, `ONT-S3`, `ONT-D5`):
-
-- **Resolved — 2026-10-24:** Corrected the arc spelling and removed the `Concept` suffix from ten
-  `Area` identifiers under [ONT-D6](../descriptors.md#ont-d6--preserve-identifier-meaning); see
-  the [identifier migration](#identifier-migration).
 
 - Fix typo `DecimalPrecission` $\to$ `DecimalPrecision`, and clarify `OddAndEvenNumbers`
   (divisibility-by-2 rule) vs. `IntegerParity`, and plural
@@ -1358,10 +751,6 @@ The shared strategy-family semantics and naming audit is recorded separately und
 
 - Move `MonotoneSequenceConvergenceTheorem` and `MonotoneSequenceDivergenceTheorem` out of
   `FunctionTheorems` into `SequenceAndSeriesProperties`.
-
-- **Resolved — 2026-10-24:** Aligned `FunctionNotation` with the notation descriptors in
-  `FormalMathematics` through the `MathematicalNotation` family recorded in
-  [section 3.1](#formalmathematics).
 
 - **Open:** Reconcile `FunctionDomain` (`Algebra`) with `FunctionRange` (`Analysis`).
 

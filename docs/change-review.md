@@ -60,7 +60,7 @@ use the workflow in [DOCS.md](../DOCS.md#43-compiling-via-docker) rather than ed
 
 The Docker gate runs focused generated-client tests and the agreed mechanical ontology and
 documentation checks. It does not prove that every definition or relation is semantically correct.
-The [algorithmic check inventory](plan/automated-rule-checks.md) states the automated boundary;
+The [verification scope](../DOCS.md#66-verification-scope) states the automated boundary;
 report which checks ran and which meanings were reviewed.
 
 For a behavior change, report the identifiers and relations changed, the reason, the evidence,
