@@ -128,8 +128,9 @@ root-level eligibility is uniform.
 **Resolved — 2026-10-24:** Retained `AlgebraicSubstitution` directly under `Algebra` and added
 `NumericSubstitution` as its specialization. `SystemSubstitution` now also specializes
 `AlgebraicSubstitution`, retaining its existing `SystemRewriting` parent. This adds one `Area`
-after the 903-Area set-foundations stage, bringing the current ontology to 904 individuals across
-15 root domains; the original review and earlier implementation-stage counts remain historical.
+after the 903-Area set-foundations stage, bringing the ontology at this stage to 904 individuals
+across 15 root domains; the original review and earlier implementation-stage counts remain
+historical.
 
 `AlgebraicSubstitution partOf Algebra` remains appropriate for the cross-cutting practice of
 replacing designated symbol occurrences with admissible values or expressions. Its definition
@@ -383,22 +384,71 @@ relations/predicates and cardinality concepts.
 
 ### 3.2 Single-Child `partOf` Organizers (`ONT-E7`, `ONT-S1`, `ONT-D6`)
 
-Every node below has exactly **one** `hasPart` child, which makes the parent **ineligible for
-content labeling under `ONT-E7`** while providing no sibling contrast (`ONT-S3`):
+At the original review, every node below had exactly **one** `hasPart` child, making the parent
+**ineligible for content labeling under `ONT-E7`** while providing no sibling contrast (`ONT-S3`).
+The percentage family is now resolved with three constituents, as recorded below. The other
+four organizers remain single-child findings.
 
 #### `PercentageArithmetic`
 
-- **Sole `hasPart` Child:** `PercentageEquivalence`
+**Resolved — 2026-10-24:** Added `PercentageApplication` and `PercentageRateDetermination` as
+`partOf` siblings of the unchanged `PercentageEquivalence`. `PercentageArithmetic` remains
+`partOf RationalArithmetic`. These two additions bring the ontology to 906 `Area` individuals
+across 15 root domains, following the earlier 904-Area substitution stage; original-review and
+earlier implementation-stage totals remain historical.
+
+- **`PercentageApplication`:** "Using a specified percentage rate to determine the corresponding
+  amount from a reference quantity, or recover the reference quantity from a known amount when
+  the rate is nonzero."
+  The rate is supplied: finding 12 as 15% of 80, or recovering 80 when 12 is 15% of it, exercises
+  the two directions of application. A zero rate permits a forward amount calculation but does
+  not determine a unique reference quantity from a zero amount.
+
+- **`PercentageRateDetermination`:** "Determining the unknown percentage rate represented by a
+  quantity relative to a specified nonzero reference quantity of the same kind."
+  The rate is unknown: expressing 12 relative to 80 as 15%, or 120 relative to 80 as 150%, fits
+  this concept. The reference need not contain the compared amount; rates above 100% are
+  included. A zero reference does not define the ratio.
+
+The new boundaries follow
+[ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries).
+`PercentageEquivalence` continues to cover equal percentage, fraction, and decimal forms. The
+three siblings are constituent aspects of percentage arithmetic under
+[ONT-S1](../structure.md#ont-s1--partof-organizes-constituents), with uniform child roles under
+[ONT-S5](../structure.md#ont-s5--review-the-entire-affected-structure).
+
+Percentage change and percentage-point difference receive no additional descriptors. A relative
+change from 80 to 100 can combine `Difference` for the change of 20 with
+`PercentageRateDetermination` relative to 80, giving 25%. Applying a known increase or decrease
+can combine `PercentageApplication` with `Sum` or `Difference`. Comparing rates of 15% and 20%
+uses `Difference` to obtain five percentage points. These compositions reuse existing concepts
+under [ONT-D1](../descriptors.md#ont-d1--define-reusable-concepts); descriptors apply when their
+knowledge or procedure is evidenced, rather than being automatic labels for every percentage
+word problem.
+
+`PercentageArithmetic` remains an ineligible organizer, and all three constituents are eligible
+for direct labeling under
+[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
+Existing definitions, comments, parent links, and progression relations are unchanged. Existing
+`PercentageEquivalence` labels retain their meaning and eligibility; the two new labels express
+knowledge that equivalence alone did not identify. Adoption follows
+[the annotation and model guidance](../annotations-and-models.md#interpreting-annotations-across-ontology-versions).
+The [earlier coverage audit](core-ccss-coverage-audit.md) uses `PercentageEquivalence` in general
+percentage-application compositions; review those uses against the new quantity-role boundaries
+and retain equivalence claims where representation conversion is evidenced.
+
+- **Sole `hasPart` Child at Review:** `PercentageEquivalence`
 
 - **Rule IDs:** `ONT-E7`, `ONT-S1`, `ONT-D6`
 
-Because `PercentageEquivalence partOf PercentageArithmetic` is the only child,
+**Former finding:** Because `PercentageEquivalence partOf PercentageArithmetic` is the only child,
 `PercentageArithmetic` is ineligible under `ONT-E7`, and no eligible descriptor exists for
 calculating percentages of quantities, percentage increase/decrease, or finding rate/base (only
 converting between percent, fraction, and decimal representations).
 
-**Suggestion:** Add sibling descriptors for percentage calculations/applications, or convert
-`PercentageEquivalence` to `specializes` if appropriate, or flatten until siblings are authored.
+**Original Suggestion:** Add sibling descriptors for percentage calculations/applications, or
+convert `PercentageEquivalence` to `specializes` if appropriate, or flatten until siblings are
+authored.
 
 #### `DecimalStrategies`
 
@@ -1094,9 +1144,12 @@ elimination, homogeneous and particular solution structure) or merge with `Matri
 
 ## 5. Summary of Priority Action Items
 
-### 1. Resolve the 5 single-child `partOf` organizers (`ONT-E7`, `ONT-S1`):
+### 1. Resolve the remaining 4 single-child `partOf` organizers (`ONT-E7`, `ONT-S1`):
 
-`PercentageArithmetic`, `DecimalStrategies`, `OneDimensionalObjects`, `AlgebraicStructures`, and
+**Resolved — 2026-10-24:** `PercentageArithmetic` now has three constituents, as recorded in
+[section 3.2](#percentagearithmetic).
+
+**Remaining:** `DecimalStrategies`, `OneDimensionalObjects`, `AlgebraicStructures`, and
 `LinearSystems`.
 
 ### 2. Fix definition/specialization conflicts and missing `specializes` edges (`ONT-S2`, `ONT-D2`):
