@@ -11,6 +11,11 @@ The [Calculus extension](calculus-family-draft.md) is merged through PR #74. The
 merged through PR #76, adds finite-coordinate foundations from stage 5B.
 The broader university continuation of stages 5B–5C remains deferred.
 
+**Hierarchy follow-up — 2026-10-24:** `Vector` remains in Geometry under
+`GeometricFoundations`, the renamed former `GeometricConcepts` organizer. `NormalVector` now
+specializes `Vector`; see the [family review](core-areas-family-consistency-review.md#47-geometry).
+The original stage 5A counts and adoption effects below describe that implementation baseline.
+
 ## Recommendation and field boundary
 
 The implementation adds **LinearAlgebra as a root Area alongside Algebra, Analysis, Geometry, and NumberTheory**.
@@ -71,7 +76,7 @@ FormalMathematics                        existing root
 ├── VectorNotation                       [A] notation knowledge
 └── MatrixNotation                       [A] notation knowledge
 
-Geometry / GeometricConcepts
+Geometry / GeometricFoundations
 └── Vector                        existing geometric concept, retained here
 ```
 

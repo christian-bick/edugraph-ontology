@@ -9,6 +9,12 @@ See [implementation and adoption](#implementation-and-adoption--2026-10-20) for 
 and validation. Earlier alternatives remain as the design rationale.
 This develops [roadmap step 6](algebra-family-draft.md#6-calculus-methods--after-the-ccss-extensions).
 
+**Hierarchy follow-up — 2026-10-24:** The former `GeometricConcepts` organizer is now
+`GeometricFoundations`. The tree and placement table use the current name; `ParametricCurve`
+retains its geometric home and traversal definition. See the
+[family review](core-areas-family-consistency-review.md#47-geometry) for the consolidation.
+Original implementation counts and merge records below retain their documented baselines.
+
 ## Recommendation and scope
 
 Populate the **existing Calculus root** as a peer of Algebra, Analysis, LinearAlgebra,
@@ -217,7 +223,7 @@ FormalMathematics                             existing root
 
 AlgebraicEquivalence                          existing eligible concept
 └── S PartialFractionDecomposition
-GeometricConcepts                            existing organizer
+GeometricFoundations                         existing organizer
 └── P ParametricCurve
 GeometricVisualization                       existing organizer
 └── P PolarCoordinateRepresentation
@@ -502,7 +508,7 @@ extension. Convergence of an infinite series never follows merely from observing
 
 | Candidate | Stage | Placement | Definition | Example |
 | --- | --- | --- | --- | --- |
-| ParametricCurve | B | P: GeometricConcepts | A continuous correspondence from a real parameter interval to geometric points, distinguishing the parameterized traversal from the set of points traced. | (cos(t),sin(t)) for 0<=t<=4pi traverses the unit circle twice. |
+| ParametricCurve | B | P: GeometricFoundations | A continuous correspondence from a real parameter interval to geometric points, distinguishing the parameterized traversal from the set of points traced. | (cos(t),sin(t)) for 0<=t<=4pi traverses the unit circle twice. |
 | PolarCoordinateRepresentation | B | P: GeometricVisualization | The correspondence between plane points and radius-angle pairs through x=r cos(theta), y=r sin(theta), including nonunique angle and signed-radius representations. | (r,theta)=(2,pi/2) and (-2,-pi/2) both represent (0,2). |
 | ParametricDifferentiation | B | P: CurveCalculus | Finding derivatives along a differentiable plane parameterization using dy/dx=(dy/dt)/(dx/dt) where dx/dt is nonzero, with further x-derivatives obtained by applying (1/x'(t))d/dt again. | For x=t^2,y=t^3 with t>0, dy/dx=3t/2 and d^2y/dx^2=3/(4t). |
 | ParametricSecondDerivative | B | S: ParametricDifferentiation | Determining d^2y/dx^2 along a twice differentiable plane parameterization by applying (1/x'(t))d/dt to y'(t)/x'(t), where x'(t) is nonzero. | For x=t^2,y=t^3 with t>0, d^2y/dx^2=3/(4t). |

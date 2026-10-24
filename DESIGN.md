@@ -481,10 +481,28 @@ distinct from FunctionSlope. Zero retains its integer meaning. The
 records all identifier replacements and their adoption effects under
 [ONT-D6](docs/descriptors.md#ont-d6--preserve-identifier-meaning).
 
-GeometricConcepts retains its organizer name pending the broader boundary review with
-GeometricObjects. Arc and ParametricCurve retain their existing placement: the classification
-of curved figures and the distinction between a parameterized traversal and its traced point
-set require separate decisions. No other family placement changes accompany the renames.
+GeometricFoundations replaces the organizer name GeometricConcepts. It covers the basic
+geometric entities and ambient spaces, together with quantities and parameterized descriptions
+used to specify geometric configurations. Point, Plane, Space, Angle, Vector, and ParametricCurve
+are its `partOf` constituents. This topical organization can overlap with knowledge organized
+in GeometricObjects; it does not define an exclusive classification of mathematical objects.
+
+Arc is a fourth `partOf` constituent of OneDimensionalObjects: a curved-line portion has a
+natural home alongside lines, rays, and segments. ParametricCurve retains its foundation role
+because its meaning includes the parameterized traversal, which can differ while tracing the
+same point set. Plane and Space retain their ambient-space meanings, and Vector retains its
+geometric meaning independently of the coordinate-vector and abstract-space families in
+LinearAlgebra.
+
+NormalVector specializes Vector, preserving the geometric vector meaning while adding nonzero
+magnitude and perpendicularity to the directions of a specified line or plane. Vector remains
+eligible for direct labeling because its new child is a specialization. The
+[foundations review](docs/plan/core-areas-family-consistency-review.md#geometricfoundations-implementation)
+records the boundary, identifier migration, and inheritance effects under
+[ONT-D4](docs/descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries),
+[ONT-S1](docs/structure.md#ont-s1--partof-organizes-constituents),
+[ONT-S2](docs/structure.md#ont-s2--specializes-preserves-the-broader-meaning), and
+[ONT-E7](docs/content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
 
 
 ---
