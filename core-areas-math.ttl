@@ -333,7 +333,7 @@
 :CartesianProduct a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The set of ordered tuples formed by taking one element from each of a specified finite list of sets, with positions retaining the order of those sets.";
     rdfs:comment "{a, b} x {0, 1} = {(a,0), (a,1), (b,0), (b,1)}.";
-    edu:partOf :SetTheory.
+    edu:partOf :SetOperations.
 :CartesianSpace a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The correspondence between points in three-dimensional Euclidean space and ordered triples relative to a stated origin and perpendicular coordinate axes.";
     rdfs:comment "(2,-1,3) locates a point using three axes.";
@@ -537,8 +537,6 @@
     edu:contradicts :PrimeNumbers;
     edu:expands :FactorsAndMultiples;
     edu:partOf :PrimesAndFactorization.
-:ComputationalMathematics a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The branch of mathematics that involves the development and application of mathematical methods and algorithms for solving problems using computers.".
 :ConditionalBranch a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a value expression paired with an explicit or default condition specifying when it supplies the value of a piecewise expression.";
     rdfs:comment "Pairing -x with x < 0 and x with the default condition otherwise to construct a piecewise expression for absolute value.";
@@ -816,7 +814,7 @@
 :DerivativeNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for writing derivative values, derivative functions and differentiation operators, including the designated variable and derivative order.";
     rdfs:comment "Distinguishing f'(a), f', d/dx and d^2y/dx^2; interpreting dy/dx as a derivative rather than an ordinary quotient of two numbers.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :DerivativeOptimization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a constrained extremum problem to an admissible function domain and using derivative information with boundary checks to identify the required optimum.";
     rdfs:comment "Among positive rectangles of perimeter 20, maximize A(x)=x(10-x) for 0 < x < 10 to obtain a square of side 5.";
@@ -1007,6 +1005,10 @@
     rdfs:isDefinedBy "The overall arrangement of observed frequencies across values, including symmetry, skewness, peaks, gaps, and clusters.";
     rdfs:comment "Journey times concentrated near 15 minutes with a long tail toward longer journeys.";
     edu:partOf :DescriptiveStatistics.
+:EmptySetCardinality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The zero cardinality of a set containing no elements.";
+    rdfs:comment "The empty set has size 0; the set containing the empty set as its sole element has size 1.";
+    edu:specializes :FiniteSetCardinality.
 :EntrywiseCombination a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Addition or subtraction of coordinate vectors or matrices over a common field by applying the corresponding scalar operation at each matching entry. Operands have the same shape, and coordinate-vector interpretations use a common ordered basis.";
     rdfs:comment "(3, 1) - (1, 4) = (2, -3); [[1, 2], [3, 4]] + [[5, 6], [7, 8]] = [[6, 8], [10, 12]].";
@@ -1184,7 +1186,7 @@
 :FiniteSetCardinality a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The number of distinct elements in a finite set, independent of their order or repeated listing.";
     rdfs:comment "The set {a, a, b} has cardinality 2; the empty set has cardinality 0.";
-    edu:partOf :SetTheory.
+    edu:specializes :SetCardinality.
 :FirstDerivativeExtremumTest a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Classifying a candidate local extremum of a continuous function by first-derivative signs on the two neighboring intervals.";
     rdfs:comment "The derivative of x^2 changes from negative to positive at 0, giving a local minimum.";
@@ -1346,7 +1348,7 @@
 :FunctionNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The symbolic conventions for naming a function, marking its argument, and denoting its output, including the distinction between a function's name and a value of that function.";
     rdfs:comment "Interpreting f(3) as the output of f at input 3; writing f(x) = 2x + 1 and then f(3) = 7.";
-    edu:partOf :AlgebraicFunctions.
+    edu:specializes :MathematicalNotation.
 :FunctionOrderProperties a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The ordering of function outputs across inputs and the local or global extremal values attained.";
     rdfs:comment "The decrease of f(x) = x^2 up to x = 0, its increase after x = 0, and its minimum value 0.";
@@ -1609,6 +1611,10 @@
     rdfs:isDefinedBy "The guarantee that a real-valued function bounded below by a function tending to positive infinity also tends to positive infinity, and the corresponding upper-bound result for negative infinity, when the inequality holds sufficiently near the same approached point or domain end. Real sequences are included.";
     rdfs:comment "n - 1 <= n + sin(n) for every positive integer n, so n + sin(n) tends to positive infinity.";
     edu:partOf :LimitMethods.
+:InfiniteSetCardinality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The cardinal size of an infinite set and comparisons of such sizes through injections and bijections, including equal and unequal infinite cardinalities.";
+    rdfs:comment "Matching n with 2n pairs the natural numbers with the even natural numbers; the real numbers have strictly larger cardinality than the natural numbers.";
+    edu:specializes :SetCardinality.
 :InfinitudeOfPrimes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The fact that no finite collection contains every prime number.";
     rdfs:comment "Constructing 2 * 3 * 5 * 7 * 11 * 13 + 1 = 30031 = 59 * 509 to find prime divisors absent from the list 2, 3, 5, 7, 11, 13.";
@@ -1675,7 +1681,7 @@
 :IntegralNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for integrands, integration variables, definite-integral bounds, antiderivative families and the differential marking the variable of integration.";
     rdfs:comment "Interpreting t as bound and x as free in integral_0^x t^2 dt; distinguishing that value from integral x^2 dx=x^3/3+C.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :IntegralSeriesTest a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Equivalence of convergence of sum f(n) and integral_N^infinity f(x) dx when f is eventually continuous, positive and decreasing. Their values need not be equal.";
     rdfs:comment "Convergence of integral_1^infinity x^(-2) dx establishes convergence of sum_(n=1)^infinity 1/n^2.";
@@ -1794,7 +1800,7 @@
 :LimitNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for naming a limiting expression, its approaching variable and target, and its one-sided or infinite approach.";
     rdfs:comment "Distinguishing lim_(x->0+) 1/x from the value of 1/x at 0.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :LinearAlgebra a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of vectors, vector spaces, linear maps, matrices, and linear systems through their algebraic and geometric relationships.";
     rdfs:comment "Expressing a system as Ax = b; relating a plane transformation to its matrix.".
@@ -1953,6 +1959,10 @@
     rdfs:isDefinedBy "The syntax and meaning of well-formed finite symbolic forms denoting a value without asserting a relation at their outermost level, including single value-denoting symbols.";
     rdfs:comment "Distinguishing the value-denoting form 3x + 2 from the assertion 3x + 2 = 11; interpreting 5, x, and sin(x) as expressions.";
     edu:partOf :FormalMathematics.
+:MathematicalNotation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The conventions for writing and interpreting the symbols, words, and arrangements used to denote mathematical objects, operations, and relations.";
+    rdfs:comment "Explaining what the argument in f(3) denotes; reading 437 as four hundred thirty-seven; interpreting the lower and upper indices in sum_(k=1)^n k.";
+    edu:partOf :FormalMathematics.
 :MathematicalStatement a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The form and meaning of declarative mathematical sentences that assert relations between expressions and can be evaluated as true or false.";
     rdfs:comment "Interpreting 3 < 5 as a true assertion and 2 + 2 = 5 as a false assertion.";
@@ -1980,7 +1990,7 @@
 :MatrixNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for displaying matrix entries in rows and columns and writing entry indices, matrix sizes, determinants, and inverse symbols.";
     rdfs:comment "Reading A_(2,1) as the row-2, column-1 entry, det(A) as its determinant, and A^-1 as a matrix inverse.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :MatrixOperationIdentities a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Value-preserving equalities for conformable matrix addition, scalar multiplication, and ordered matrix products, including associativity, distributivity, additive commutativity, and neutral-element rules.";
     rdfs:comment "A(B + C) = AB + AC; (AB)C = A(BC); I_m A = A = A I_n for an m-by-n matrix A.";
@@ -2152,7 +2162,7 @@
 :NumberNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The systems of symbols and conventions used to express numerical values.";
     rdfs:comment "Positional numerals, fraction notation, decimal notation, or number names.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :NumberOperationResultTypes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The necessary or possible number-system membership of an operation's result, given the operand types and stated restrictions.";
     rdfs:comment "A rational plus an irrational number is irrational; a nonzero rational times an irrational number is irrational; sqrt(2) * sqrt(2) = 2 is rational.";
@@ -2241,6 +2251,10 @@
     rdfs:comment "Ordering 0.2, 1/2, and 1 from least to greatest.";
     edu:expands :NumericIdentity;
     edu:partOf :NumericComparison.
+:NumericSubstitution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The consistent replacement of designated symbol occurrences by specified admissible numerical values, represented by numerals or expressions without free variables, while respecting variable binding and domain restrictions.";
+    rdfs:comment "Replacing x by 4 in 3x + 2 to obtain 3*4 + 2; replacing x by sqrt(2) in x^2; rewriting {x = 2, x + y = 5} as {x = 2, 2 + y = 5}.";
+    edu:specializes :AlgebraicSubstitution.
 :ObjectSorting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Separating a mixed collection into distinct groups according to shared observable attributes.";
     rdfs:comment "Sorting objects by color, shape, or size. Sorting forms groups; identifying a subgroup need not rearrange the collection.";
@@ -2555,6 +2569,10 @@
     rdfs:isDefinedBy "The coefficients, center and convergence radius of sum c_n(x-a)^n, with absolute convergence inside the radius and divergence outside. Finite boundary points require separate tests.";
     rdfs:comment "sum_(n=1)^infinity x^n/n has radius 1, converges at -1 and diverges at 1.";
     edu:partOf :SequenceAndSeriesProperties.
+:PowerSet a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The set of all subsets of a given set, including the empty set and the given set itself.";
+    rdfs:comment "The power set of {a,b} is {{},{a},{b},{a,b}}; the power set of {} is {{}}.";
+    edu:partOf :SetOperations.
 :PrimeFactorization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Decomposing an integer greater than one into a product of prime integers.";
     rdfs:comment "60 = 2^2 * 3 * 5.";
@@ -2615,7 +2633,7 @@
 :ProbabilityNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for denoting event probabilities, conditioning, probability distributions, and expectations of random quantities.";
     rdfs:comment "Reading P(A given B) as conditioning on B, X~B(10,0.5) as a distribution assertion, and E(X) as an expectation.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :ProbabilityRules a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Rules for deriving event probabilities from a probability model and relationships among events.";
     rdfs:comment "Computing a union probability; updating a probability after observing evidence.";
@@ -3041,6 +3059,10 @@
     rdfs:isDefinedBy "Conditions that establish convergence or divergence of numerical series.";
     rdfs:comment "Comparing a positive series with a convergent p-series.";
     edu:partOf :SeriesCalculus.
+:SetCardinality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The size of a set, with two sets having equal cardinality exactly when there is a bijection between them.";
+    rdfs:comment "Matching a with 0 and b with 1 shows {a,b} and {0,1} have equal size; matching n with 2n pairs the natural numbers with the even natural numbers.";
+    edu:partOf :SetProperties.
 :SetComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Comparing the quantities of two bounded collections intuitively or visually without formal counting.";
     rdfs:comment "Judging which of two visibly matched groups has extra objects.";
@@ -3050,37 +3072,57 @@
     rdfs:isDefinedBy "The difference between a specified universe and one of its subsets, containing exactly the universe's elements outside that subset.";
     rdfs:comment "Within U = {1, 2, 3, 4, 5, 6}, the complement of {2, 4, 6} is {1, 3, 5}.";
     edu:specializes :SetDifference.
+:SetCountability a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The classification of sets by whether their elements admit an injection into the natural numbers, with countable sets comprising finite and countably infinite sets.";
+    rdfs:comment "The empty set is finite and countable; the integers are countably infinite; the real numbers are uncountable.";
+    edu:partOf :SetProperties.
 :SetDifference a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The set of elements belonging to a first set and not to a second set.";
     rdfs:comment "{1, 2, 3} minus {2, 4} = {1, 3}.";
-    edu:partOf :SetTheory.
+    edu:partOf :SetOperations.
 :SetDisjointness a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The absence of shared elements between two sets, extended to a family by requiring every distinct pair to have empty intersection.";
     rdfs:comment "{1, 3, 5} and {2, 4, 6} are disjoint; {1, 2} and {2, 3} are not.";
-    edu:partOf :SetTheory.
+    edu:partOf :SetRelations.
+:SetEquality a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The relationship in which two sets have exactly the same elements, equivalently each is a subset of the other.";
+    rdfs:comment "{1,2} = {2,1,1}; {1} is a subset of {1,2} but the sets are unequal.";
+    edu:specializes :SetInclusion.
 :SetInclusion a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship in which every element of one set is also an element of another, including equality and proper inclusion.";
     rdfs:comment "{1, 3} is a proper subset of {1, 3, 5}; the empty set is a subset of every set.";
-    edu:partOf :SetTheory.
+    edu:partOf :SetRelations.
 :SetIntersection a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The set of elements belonging to every one of the given sets.";
     rdfs:comment "{1, 2} intersection {2, 3} = {2}.";
-    edu:partOf :SetTheory.
+    edu:partOf :SetOperations.
 :SetMembership a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between an object and a set containing that object as an element.";
     rdfs:comment "For A = {1, 3, 5}, 3 belongs to A and 2 does not.";
-    edu:partOf :SetTheory.
+    edu:partOf :SetRelations.
 :SetNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for expressing sets, their elements, membership, inclusion, and set operations using lists, set-builder descriptions, and symbols.";
     rdfs:comment "Interpreting 3 ∈ {1, 3, 5}, reading {x ∈ Z : x > 0}, and distinguishing element membership a ∈ A from subset inclusion A ⊆ B.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
+:SetOperations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of constructions that form result sets from specified input sets by determining their elements or constructing ordered tuples.";
+    rdfs:comment "Forming {1,2,3} as the union of {1,2} and {2,3}; forming {(a,0),(b,0)} as {a,b} x {0}.";
+    edu:partOf :SetTheory.
+:SetProperties a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The intrinsic characteristics of individual sets, including their sizes and countability.";
+    rdfs:comment "The set {a,b} has two elements; the integers are countably infinite.";
+    edu:partOf :SetTheory.
+:SetRelations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The study of relationships involving sets and their elements, including membership, inclusion, and whether sets share elements.";
+    rdfs:comment "Recognizing 3 as an element of {1,3}; recognizing {1} as a subset of {1,3}; recognizing {1} and {2} as disjoint.";
+    edu:partOf :SetTheory.
 :SetTheory a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The mathematical study of sets, their elements, operations, and relationships.";
     rdfs:comment "Describing an event as a subset of possible outcomes; forming a Cartesian product of two sets.".
 :SetUnion a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The set of elements belonging to at least one of the given sets.";
     rdfs:comment "{1, 2} union {2, 3} = {1, 2, 3}.";
-    edu:partOf :SetTheory.
+    edu:partOf :SetOperations.
 :ShapeClassification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Classifying geometric shapes by their defining attributes.";
     rdfs:comment "Classifying a figure by its number of sides and the relationships among its angles.";
@@ -3363,7 +3405,7 @@
 :SummationNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for indexed sums, including the summand, bound index and index limits, with an infinite endpoint interpreted through finite partial sums.";
     rdfs:comment "sum_(k=1)^3 k=6; sum_(n=1)^infinity 2^(-n)=1.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :SupplementaryAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles whose sum is exactly 180 degrees.";
     edu:partOf :AngleRelations.
@@ -3404,7 +3446,7 @@
 :SystemSubstitution a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Rewriting a simultaneous equation system by substituting an expression for a variable into other equations while retaining its defining equation or an equivalent reconstruction condition. The rewritten system preserves the complete solution set over the original variables and admissible domain.";
     rdfs:comment "Rewriting {y = 2x + 1, x + y = 7} as {y = 2x + 1, 3x + 1 = 7}, then recovering x = 2 and y = 5.";
-    edu:specializes :SystemRewriting.
+    edu:specializes :AlgebraicSubstitution, :SystemRewriting.
 :Tangent a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between an angle measure and the quotient of its sine by its cosine, using a specified angular unit and excluding angles with zero cosine.";
     rdfs:comment "tan(pi/4) = 1 and tan(3pi/4) = -1 for radian measures; opposite and adjacent sides of lengths 3 and 4 give tangent 3/4 for the acute angle.";
@@ -3679,7 +3721,7 @@
 :VectorNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions for vector symbols, ordered component lists, directed-segment symbols, and magnitude symbols.";
     rdfs:comment "Interpreting an arrow over PQ as displacement from P to Q and double bars around v as its magnitude.";
-    edu:partOf :FormalMathematics.
+    edu:specializes :MathematicalNotation.
 :VectorOrthogonality a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between real Euclidean vectors whose dot product is zero, including the zero vector.";
     rdfs:comment "(1,2,0) is orthogonal to (2,-1,3); the zero vector is orthogonal to every vector.";

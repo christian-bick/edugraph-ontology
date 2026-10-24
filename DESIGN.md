@@ -318,6 +318,16 @@ are composable Areas within the existing schema, not additional dimensions. The 
 [Algebra design and extension record](docs/plan/algebra-family-draft.md) preserves the authored
 families, annotation migration, examples, and remaining work.
 
+MathematicalNotation brings numerical and domain-specific notation into one family. Numerals
+are themselves symbolic, and notation such as `P(A)` can denote a number while exercising
+probability conventions. NumberNotation and the other notation families specialize this shared
+parent, which is a constituent of FormalMathematics. Expression and statement forms and the
+roles within expressions retain their separate families. The
+[notation consolidation record](docs/plan/core-areas-family-consistency-review.md#formalmathematics)
+records the hierarchy and adoption effects. A notation claim still requires evidence that the
+conventions themselves are being studied under
+[ONT-D5](docs/descriptors.md#ont-d5--distinguish-learning-about-notation-from-using-notation).
+
 This separation avoids parallel quadratic-expression, quadratic-equation, and quadratic-function
 trees. QuadraticDependence identifies the relationship in designated variables; CompletingSquare
 identifies a reusable transformation; EquationSolving identifies an objective. Completing the
@@ -344,6 +354,18 @@ conditions and solving objectives. ConstraintTransformationLogic concerns why a 
 equivalent or only a one-way consequence, while transformation Scopes identify the operation
 being considered. AlgebraicTheorems gives results such as the polynomial remainder and factor
 theorems a home without adding a second parent to every named identity.
+
+AlgebraicSubstitution remains a direct constituent of Algebra because replacing symbols by
+admissible values or expressions need not preserve equivalence over the same variables.
+NumericSubstitution specializes it by restricting replacement values to numerical values,
+including expressions without free variables. SystemSubstitution specializes both
+AlgebraicSubstitution and SystemRewriting, retaining its defining equation or reconstruction
+condition and complete solution set. These specializations describe overlapping axes:
+numerical replacement and substitution within a system. For example, replacing x by 2 in
+{x = 2, x + y = 5} while retaining x = 2 belongs to both. Neither generic nor numeric
+substitution inherits an equivalence guarantee from the system-specific branch. The
+[family review](docs/plan/core-areas-family-consistency-review.md#algebra) records the
+placement and annotation consequences.
 
 Algebra includes functions and relations. Function types describe their mathematical nature,
 while Analysis organizes FunctionProperties, including range, monotonicity, symmetry, limiting
@@ -376,6 +398,26 @@ IntegerCongruence concerns equality modulo an integer. PrimeFactorization is a n
 integer Factorization method, while FundamentalTheoremOfArithmetic supplies the existence
 and uniqueness result. These distinctions connect school content to later mathematics without
 making the later theory an automatic claim about elementary exercises.
+
+## 6. Set foundations
+
+SetTheory separates set-forming operations, relationships involving sets and their elements,
+and properties of individual sets. Cardinality describes size through one-to-one
+correspondences; countability classifies whether elements can be indexed by natural numbers,
+including finite sets and the empty set. EmptySetCardinality specializes FiniteSetCardinality
+so that zero retains its finite meaning. The broader cardinality families also cover comparisons
+of infinite sizes.
+
+PowerSet identifies the construction of all subsets of a set. SetEquality specializes the
+inclusive SetInclusion concept because equality requires containment in both directions.
+SetComplement retains its specialization of SetDifference with a specified universe.
+These distinctions keep constructions, relations, and properties independently observable.
+Counting methods retain their Combinatorics home, and SetNotation remains within
+MathematicalNotation. The
+[set consolidation record](docs/plan/core-areas-family-consistency-review.md#settheory)
+documents the hierarchy, bounded fundamentals check, evidence, and adoption effects under
+[the structural rules](docs/structure.md) and
+[labeling eligibility](docs/content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
 
 
 ---
