@@ -2251,6 +2251,10 @@
     rdfs:comment "Ordering 0.2, 1/2, and 1 from least to greatest.";
     edu:expands :NumericIdentity;
     edu:partOf :NumericComparison.
+:NumericSubstitution a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The consistent replacement of designated symbol occurrences by specified admissible numerical values, represented by numerals or expressions without free variables, while respecting variable binding and domain restrictions.";
+    rdfs:comment "Replacing x by 4 in 3x + 2 to obtain 3*4 + 2; replacing x by sqrt(2) in x^2; rewriting {x = 2, x + y = 5} as {x = 2, 2 + y = 5}.";
+    edu:specializes :AlgebraicSubstitution.
 :ObjectSorting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Separating a mixed collection into distinct groups according to shared observable attributes.";
     rdfs:comment "Sorting objects by color, shape, or size. Sorting forms groups; identifying a subgroup need not rearrange the collection.";
@@ -3442,7 +3446,7 @@
 :SystemSubstitution a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Rewriting a simultaneous equation system by substituting an expression for a variable into other equations while retaining its defining equation or an equivalent reconstruction condition. The rewritten system preserves the complete solution set over the original variables and admissible domain.";
     rdfs:comment "Rewriting {y = 2x + 1, x + y = 7} as {y = 2x + 1, 3x + 1 = 7}, then recovering x = 2 and y = 5.";
-    edu:specializes :SystemRewriting.
+    edu:specializes :AlgebraicSubstitution, :SystemRewriting.
 :Tangent a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between an angle measure and the quotient of its sine by its cosine, using a specified angular unit and excluding angles with zero cosine.";
     rdfs:comment "tan(pi/4) = 1 and tan(3pi/4) = -1 for radian measures; opposite and adjacent sides of lengths 3 and 4 give tangent 3/4 for the acute angle.";

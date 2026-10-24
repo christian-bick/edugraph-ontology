@@ -125,17 +125,68 @@ root-level eligibility is uniform.
 
 #### `Algebra`
 
-- **Current Structure:** 6 `partOf` subtrees + 2 direct leaf children (`AlgebraicModeling`,
+**Resolved — 2026-10-24:** Retained `AlgebraicSubstitution` directly under `Algebra` and added
+`NumericSubstitution` as its specialization. `SystemSubstitution` now also specializes
+`AlgebraicSubstitution`, retaining its existing `SystemRewriting` parent. This adds one `Area`
+after the 903-Area set-foundations stage, bringing the current ontology to 904 individuals across
+15 root domains; the original review and earlier implementation-stage counts remain historical.
+
+`AlgebraicSubstitution partOf Algebra` remains appropriate for the cross-cutting practice of
+replacing designated symbol occurrences with admissible values or expressions. Its definition
+continues to require consistency, variable binding, and domain restrictions
+([ONT-D4](../descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries)).
+`AlgebraicModeling` also remains directly under `Algebra`; no new organizer is introduced
+([ONT-S1](../structure.md#ont-s1--partof-organizes-constituents)).
+
+`NumericSubstitution` has this definition:
+
+> The consistent replacement of designated symbol occurrences by specified admissible numerical
+> values, represented by numerals or expressions without free variables, while respecting
+> variable binding and domain restrictions.
+
+The two narrower substitutions classify overlapping axes: `NumericSubstitution` concerns the
+replacement payload, whereas `SystemSubstitution` concerns a solution-preserving system context.
+Replacing `x` by `4` or `sqrt(2)` can be numeric substitution outside a system. Rewriting
+`{y = 2x + 1, x + y = 7}` as `{y = 2x + 1, x + (2x + 1) = 7}` is system substitution with the
+symbolic payload `2x + 1`, which has a free variable and is not numeric substitution. Rewriting
+`{x = 2, x + y = 5}` as `{x = 2, 2 + y = 5}` fits both: the replacement is numerical, and the
+retained equation preserves the condition needed to recover the original system's solutions.
+The unchanged `SystemSubstitution` definition still requires its defining equation or an
+equivalent reconstruction condition and preservation of the complete solution set over the
+original variables and admissible domain.
+
+Numeric replacement alone does not establish `AlgebraicEquivalence`: replacing `x` by `4` in
+`3x + 2` instantiates a selected value, rather than preserving that expression for every `x`.
+Substitution yields `3*4 + 2`; arithmetic evaluation yields `14`, while establishing that `x = 4`
+satisfies `3x + 2 = 14` concerns `RelationSatisfaction`.
+Replacing `x` by zero in `1/x` is inadmissible. Numeric substitution therefore specializes the
+generic substitution concept without acquiring a value- or solution-preservation claim from
+the separate system-rewriting family
+([ONT-S2](../structure.md#ont-s2--specializes-preserves-the-broader-meaning)).
+
+Both system-substitution parent paths retain composition before specialization and uniform
+child roles ([ONT-S4](../structure.md#ont-s4--composition-may-lead-into-specialization),
+[ONT-S5](../structure.md#ont-s5--review-the-entire-affected-structure)). Existing definitions,
+comments, and progression relations are unchanged. `AlgebraicSubstitution` remains eligible
+with specialization children, and existing direct labels retain eligibility under
+[ONT-E7](../content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes).
+`SystemSubstitution` gains the broader substitution claim while retaining its rewriting ancestry;
+`NumericSubstitution` is eligible as a new specific label. Derived ancestor claims and model
+representations should be reviewed using
+[the adoption guidance](../annotations-and-models.md#interpreting-annotations-across-ontology-versions).
+
+- **Structure at Review:** 6 `partOf` subtrees + 2 direct leaf children (`AlgebraicModeling`,
   `AlgebraicSubstitution`)
 
 - **Rule IDs:** `ONT-S1`, `ONT-S3`
 
-Direct `partOf` children mix broad sub-branches (`AlgebraicConstraints`, `AlgebraicDependence`,
-`AlgebraicEquivalence`, `AlgebraicFunctions`, `AlgebraicStructures`, `AlgebraicTheorems`) with two
+**Former finding:** Direct `partOf` children mix broad sub-branches (`AlgebraicConstraints`,
+`AlgebraicDependence`, `AlgebraicEquivalence`, `AlgebraicFunctions`, `AlgebraicStructures`,
+`AlgebraicTheorems`) with two
 atomic leaf concepts (`AlgebraicModeling`, `AlgebraicSubstitution`).
 
-**Suggestion:** Consider placing `AlgebraicSubstitution` with expression/equivalence transformations
-or grouping foundational symbolic practices consistently.
+**Original Suggestion:** Consider placing `AlgebraicSubstitution` with expression/equivalence
+transformations or grouping foundational symbolic practices consistently.
 
 #### `FormalMathematics`
 

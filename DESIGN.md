@@ -355,6 +355,18 @@ equivalent or only a one-way consequence, while transformation Scopes identify t
 being considered. AlgebraicTheorems gives results such as the polynomial remainder and factor
 theorems a home without adding a second parent to every named identity.
 
+AlgebraicSubstitution remains a direct constituent of Algebra because replacing symbols by
+admissible values or expressions need not preserve equivalence over the same variables.
+NumericSubstitution specializes it by restricting replacement values to numerical values,
+including expressions without free variables. SystemSubstitution specializes both
+AlgebraicSubstitution and SystemRewriting, retaining its defining equation or reconstruction
+condition and complete solution set. These specializations describe overlapping axes:
+numerical replacement and substitution within a system. For example, replacing x by 2 in
+{x = 2, x + y = 5} while retaining x = 2 belongs to both. Neither generic nor numeric
+substitution inherits an equivalence guarantee from the system-specific branch. The
+[family review](docs/plan/core-areas-family-consistency-review.md#algebra) records the
+placement and annotation consequences.
+
 Algebra includes functions and relations. Function types describe their mathematical nature,
 while Analysis organizes FunctionProperties, including range, monotonicity, symmetry, limiting
 behavior, regularity, and shape. These properties remain distinct from methods for calculating
