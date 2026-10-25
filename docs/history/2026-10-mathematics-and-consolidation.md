@@ -67,7 +67,11 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   while rate eligibility is preserved. Review definition-, ancestry-, progression-, and
   eligibility-dependent uses against the [authored Areas](../../core-areas-math.ttl).
 - **October 25 — Identifier clarity.** Renamed former `DecimalPrecission` → `DecimalPrecision`,
-  former `OddAndEvenNumbers` → `ParityTest`, and former `MeasuringVolumes` → `MeasuringVolume`.
+  former `OddAndEvenNumbers` → `ParityTest`, former `MeasuringVolumes` → `MeasuringVolume`,
+  former `IntervalsWithInfinity` → `UnboundedIntervals`, and former `SpatialModelling` → `SpatialModeling`.
   Updated `DecimalRounding`'s precision reference.
   Definitions, examples, and relation meanings are unchanged. Update stored descriptor IRIs and
   generated enum keys in annotations and client code to adopt the new identifiers.
+- **October 25 — Interval families.** Added `BoundedIntervals` alongside `UnboundedIntervals`,
+  both specializing `NumerationWithIntervals`. Bounded intervals have finite bounds in both
+  directions, allowing included or excluded endpoints. Existing labeling eligibility is unchanged.
