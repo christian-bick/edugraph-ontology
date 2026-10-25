@@ -50,15 +50,7 @@ particular new identifier, definition, or hierarchy.
 
 ### 2.1 `Algebra`
 
-#### 1. `AlgebraicDependence` (Inverse proportionality):
-
-- **Discussion, group 3 (`ONT-D1`, `ONT-D4`, `ONT-S2`):**
-  `DirectProportionalDependence` ($y = kx$) is modeled under `AffineDependence`, while inverse
-  proportionality ($y = k/x$) has no counterpart under `RationalDependence` or `PowerFunction`.
-  Consider a distinct inverse-proportional concept only after specifying its coefficient and
-  domain conditions and checking the existing descriptors together.
-
-#### 2. `AlgebraicFunctions` (`AlgebraicDependence` vs. `NumericFunction`):
+#### 1. `AlgebraicFunctions` (`AlgebraicDependence` vs. `NumericFunction`):
 
 - **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S2`, `ONT-S3`):**
   `NumericFunction` specializes into `AbsoluteValueFunction`, `ComplexExponentialFunction`,
@@ -68,6 +60,13 @@ particular new identifier, definition, or hierarchy.
   algebraic expression or constraint dependence and a single-valued numerical function before
   introducing function-family descriptors or links.
 
+- **Deferred, group 3 (`ONT-D4`, `ONT-S2`):** Review the proposed
+  `InverseProportionalDependence specializes PowerFunction` link with that family boundary.
+  Inverse proportional dependence retains a general numerical domain with $k \ne 0$ and
+  $x \ne 0$, while `PowerFunction` explicitly describes real input-output relationships.
+  For real inputs and outputs, inverse proportional dependence has exponent $-1$; the additional
+  specialization remains deferred until the intended domain and family roles are settled.
+
 - **Discussion, group 3 (`ONT-D4`, `ONT-D6`):** Keep the current identifiers while reviewing
   the broader family's terminology together. The authored dependence descriptors classify
   governing expressions; they do not express linear dependence over the rational numbers or
@@ -75,7 +74,7 @@ particular new identifier, definition, or hierarchy.
   `ExponentialDependence`. Consider coordinated expression-based names only after settling the
   family boundary; the polynomial/rational inclusion is resolved and does not depend on a rename.
 
-#### 3. `AlgebraicEquivalence` (Optional rewriting and identity subfamilies):
+#### 2. `AlgebraicEquivalence` (Optional rewriting and identity subfamilies):
 
 - **Discussion, group 3 (`ONT-D1`, `ONT-D4`, `ONT-S2`, `ONT-S5`):** The accepted variety of
   current equivalences does not require regrouping, but intermediate families remain an option.
@@ -454,8 +453,9 @@ need a concrete proposal and review.
 
 These items require a meaning or scope decision before implementation.
 
-- [Algebra](#21-algebra): inverse proportionality; the dependence/function boundary and
-  coordinated family naming; and optional rewriting and binomial/finite-sum families.
+- [Algebra](#21-algebra): the dependence/function boundary, including the deferred
+  inverse-proportional/`PowerFunction` specialization; coordinated family naming; and optional
+  rewriting and binomial/finite-sum families.
 - [Analysis](#22-analysis): discontinuity coverage, including holes outside the domain, and
   domain/range organization with their distinct meanings retained.
 - [Arithmetic](#23-arithmetic): `Factorial`/`Modulo` placement and a defensible boundary for any
