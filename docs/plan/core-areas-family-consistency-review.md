@@ -80,25 +80,20 @@ particular new identifier, definition, or hierarchy.
 
 ### 2.2 `Arithmetic`
 
-#### 1. `ArithmeticOperations` (`Factorial`, `Modulo`, and a possible composite-operation family):
+#### 1. `ArithmeticOperations` (Modulo convention and deferred progression links):
 
 - **Complex change, group 2 (`ONT-D4`, `ONT-S2`, `ONT-W2`):** `Modulo` currently describes
   the remainder after dividing one number by another, without fixing its number domain,
   divisor restrictions, or convention for negative inputs. `EuclideanDivision` fixes an
   integer dividend, positive integer divisor, and remainder between zero inclusive and the
-  divisor exclusive. Settle the intended modulo boundary before adding a structural link or
-  changing either definition; the composite-operation proposal below does not resolve it.
+  divisor exclusive. Settle the intended modulo boundary before changing either definition
+  or relating the two concepts; moving `Modulo` directly under `ArithmeticOperations` does
+  not resolve that meaning decision.
 
-- **Discussion, group 3 (`ONT-D1`, `ONT-D4`, `ONT-S1`, `ONT-R3`):** `Factorial` is a direct
-  constituent of `ArithmeticOperations`, whereas `Modulo` is a constituent of `BaseOperations`.
-  The `BaseOperations` definition names addition, subtraction, multiplication, and division but
-  does not describe remainders. Review that boundary alongside the proposed
-  `CompositeOperations` grouping for `Factorial` and `Modulo`.
-
-- Using other operations during execution is not yet a distinguishing definition for that
-  proposed family: multiplication and powers can also be carried out using other operations.
-  Compare a new family with truthful progression or composition relations, including
-  `integrates` where appropriate. No new organizer or placement change is approved here.
+- **Deferred, group 3 (`ONT-R3`, `ONT-W2`):** The proposed
+  `Factorial integrates Multiplication` and `Modulo integrates EuclideanDivision` links
+  remain unapproved. Revisit their conceptual meaning and progression paths separately;
+  the modulo proposal also depends on the unresolved number-domain and remainder convention.
 
 #### 2. `ArithmeticSpaces` (`IntegerStrategies` and fraction-strategy coverage):
 
@@ -424,8 +419,8 @@ These items require a meaning or scope decision before implementation.
 
 - [Algebra](#21-algebra): function-family coverage and deferred specialization links connecting
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
-- [Arithmetic](#22-arithmetic): `Factorial`/`Modulo` placement and a defensible boundary for any
-  composite-operation family; overlapping integer-method classifications; the meaning of
+- [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links;
+  overlapping integer-method classifications; the meaning of
   `LowestCommonNumerator`; and any missing reusable fraction-operation strategies.
 - [Calculus](#23-calculus): the deferred polar-area definition boundary and the organizer vs.
   specialization-family role of differentiation rules.
