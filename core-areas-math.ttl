@@ -3759,6 +3759,10 @@
     rdfs:isDefinedBy "The role of a variable representing a particular value to be determined from stated conditions.";
     rdfs:comment "Using x for the number to be determined from 3x + 2 = 17.";
     edu:specializes :Variable.
+:UnorderedSelectionCounting a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Determining or interpreting the number of finite selections whose outcomes are identified by the selected elements and their multiplicities, independently of selection order, under stated availability and repetition restrictions.";
+    rdfs:comment "Unordered selections of two items from types A, B, and C are AB, AC, BC without repetition (three choices), or AA, AB, AC, BB, BC, CC with repetition (six choices).";
+    edu:partOf :CombinatorialEnumeration.
 :Variable a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a symbol standing for an unknown or unspecified value, or a quantity permitted to vary, within an identified mathematical context.";
     rdfs:comment "Using x for an unknown number in x + 3 = 8; using t for varying time in d = 5t.";
