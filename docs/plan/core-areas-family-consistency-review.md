@@ -98,7 +98,7 @@ particular new identifier, definition, or hierarchy.
 
 ### 2.3 `Combinatorics`
 
-#### 1. `CombinatorialEnumeration` (Unordered selection and circular permutations):
+#### 1. `CombinatorialEnumeration` (Deferred unordered-selection specializations):
 
 - **Deferred, group 3 (`ONT-D4`, `ONT-S2`, `ONT-S5`, `ONT-W2`):** Review the proposed
   `BinomialCoefficient specializes UnorderedSelectionCounting` and
@@ -110,12 +110,6 @@ particular new identifier, definition, or hierarchy.
   selection and multiplicity interpretation, rather than relying on a possible bijection alone. Review
   definitions and complete affected paths before adding either specialization; existing
   relations remain unchanged.
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-S2`):** `CircularPermutationCounting` identifies
-  arrangements up to rotation, while `OrderedSelectionCounting` distinguishes positions and
-  `PermutationCounting` describes linear arrangements. Review the desired counting-family
-  boundary before proposing either specialization; circular arrangements do not automatically
-  preserve those current linear/position-distinguishing meanings.
 
 ---
 
@@ -377,8 +371,7 @@ These items require a meaning or scope decision before implementation.
 - [Algebra](#21-algebra): function-family coverage and deferred specialization links connecting
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
 - [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links.
-- [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links and
-  circular vs. linear counting-family boundaries.
+- [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links.
 - [Formal mathematics](#24-formalmathematics): the deferred explicit/implicit radical-index
   boundary.
 - [Geometry](#25-geometry): midpoint-calculation placement, broad cone/cylinder meanings vs.
@@ -401,6 +394,12 @@ These items require a meaning or scope decision before implementation.
 
 No open actions remain in this group. Accepted differences in constituent roles, hierarchy depth,
 strategy organization, and overlapping classification axes have been removed from the findings.
+
+The `CircularPermutationCounting` placement question is resolved (`ONT-S1`, `ONT-S2`, `ONT-R3`):
+retain `partOf CombinatorialEnumeration` and its existing `integrates` links to
+`PermutationCounting` and `DivisionCountingPrinciple`. Identifying arrangements up to rotation
+does not preserve the linear-arrangement or position-distinguishing meanings of the proposed
+specialization parents. Its definition and all relations remain unchanged.
 
 The `FractionStrategies` coverage question is resolved (`ONT-D1`, `ONT-D2`, `ONT-E1`):
 retain the existing family. Routine fraction addition and multiplication are expressible through

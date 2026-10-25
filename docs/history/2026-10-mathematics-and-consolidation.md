@@ -162,3 +162,7 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   of selection order, with examples without and with repetition. Existing descriptors, relations,
   and labeling eligibility are unchanged. The generic coverage review is resolved; proposed
   specializations from `BinomialCoefficient` and `StarsAndBars` remain deferred.
+- **October 26 — Circular-permutation placement.** Closed the review as no change: retained
+  `CircularPermutationCounting partOf CombinatorialEnumeration` and its existing integration
+  links to `PermutationCounting` and `DivisionCountingPrinciple`. Counting arrangements up to
+  rotation does not preserve the proposed parents' linear or position-distinguishing meanings.
