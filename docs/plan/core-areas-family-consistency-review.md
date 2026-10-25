@@ -95,13 +95,6 @@ particular new identifier, definition, or hierarchy.
   remain unapproved. Revisit their conceptual meaning and progression paths separately;
   the modulo proposal also depends on the unresolved number-domain and remainder convention.
 
-#### 2. `ArithmeticSpaces` (Fraction-strategy coverage):
-
-- **Discussion, group 3 (`ONT-D1`, `ONT-E1`):** `FractionStrategies` covers equivalence and
-  comparison techniques but has no explicit fraction-addition or fraction-multiplication
-  methods. Assess whether reusable methods add observable knowledge beyond the existing
-  arithmetic Areas and fraction Scopes before proposing new descriptors.
-
 ---
 
 ### 2.3 `Calculus`
@@ -404,8 +397,7 @@ These items require a meaning or scope decision before implementation.
 
 - [Algebra](#21-algebra): function-family coverage and deferred specialization links connecting
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
-- [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links and any missing
-  reusable fraction-operation strategies.
+- [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links.
 - [Calculus](#23-calculus): the deferred polar-area definition boundary and the organizer vs.
   specialization-family role of differentiation rules.
 - [Combinatorics](#24-combinatorics): unordered-selection coverage and circular vs. linear
@@ -432,6 +424,13 @@ These items require a meaning or scope decision before implementation.
 
 No open actions remain in this group. Accepted differences in constituent roles, hierarchy depth,
 strategy organization, and overlapping classification axes have been removed from the findings.
+
+The `FractionStrategies` coverage question is resolved (`ONT-D1`, `ONT-D2`, `ONT-E1`):
+retain the existing family. Routine fraction addition and multiplication are expressible through
+the existing arithmetic Areas and fraction Scopes, with equivalence, denominator selection,
+and simplification concepts used when evidenced. No missing reusable method has been established;
+specific procedural distinctions can be reconsidered against concrete content. The broader
+strategy audit remains deferred independently.
 
 The `IntegerStrategies` regrouping question is resolved (`ONT-D4`, `ONT-S1`, `ONT-S5`):
 retain its current definition and 20 direct `partOf` methods, including the four standard
