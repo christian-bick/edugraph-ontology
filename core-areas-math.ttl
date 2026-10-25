@@ -96,10 +96,10 @@
 :AdjacentAngles a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Two angles that share a common vertex and a common side but do not overlap.";
     edu:partOf :AngleRelations.
-:AffineDependence a owl:NamedIndividual, edu:Area;
+:AffineExpressionDependence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Polynomial dependence whose governing expressions each have total degree at most one in the designated variables, including constant and zero expressions.";
     rdfs:comment "3x + 2; 2x + 3y - 6 in x and y; the zero residual of x + 1 = x + 1; f(x) = 5.";
-    edu:specializes :PolynomialDependence.
+    edu:specializes :PolynomialExpressionDependence.
 :AffineParametrization a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The description of an affine set by a fixed point plus linear combinations of independent direction vectors with freely varying real parameters.";
     rdfs:comment "p+s*u+t*v describes a plane when u and v are independent.";
@@ -110,10 +110,6 @@
 :AlgebraicConstraints a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The solution conditions of equations, inequalities, and simultaneous systems, including satisfaction, solution sets, and methods for finding or preserving those sets.";
     rdfs:comment "Solving 2x + 3 = 11; finding the real values satisfying x + 2 < 5; finding x and y that satisfy both x + y = 7 and x - y = 1.";
-    edu:partOf :Algebra.
-:AlgebraicDependence a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Numerical dependence governed by algebraic expressions in designated variables, retaining original domains. Expressions and input-output rules are classified by their value expressions; constraints and systems are classified by the simplified left-minus-right expression of each studied relation.";
-    rdfs:comment "The dependence on x in x^2 + 3; the residual x^2 - 4 of x^2 = 4; the defining rule 2^t of f(t) = 2^t.";
     edu:partOf :Algebra.
 :AlgebraicEquivalence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Equality of expression values or constraint solution sets over the same designated variables and admissible domain, including transformations that preserve that equality and original domain restrictions.";
@@ -906,7 +902,7 @@
 :DirectProportionalDependence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dependence in which a designated output quantity equals a fixed multiple k of one input quantity, with no constant offset, including k = 0.";
     rdfs:comment "y = 3x with input x and output y; the output expression 3x; f(t) = 4t; f(t) = 0.";
-    edu:specializes :AffineDependence.
+    edu:specializes :AffineExpressionDependence.
 :DiscreteProbabilityDistribution a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A probability distribution concentrated on a finite or countably infinite set of values, whose point probabilities sum to one.";
     rdfs:comment "The number of successes in ten trials; the number of trials until the first success.";
@@ -1109,10 +1105,6 @@
     rdfs:isDefinedBy "The role of the input written in the exponent position of a power expression.";
     rdfs:comment "Distinguishing the exponent 3 from the base x in x^3; treating x + 1 as the complete exponent in 2^(x + 1).";
     edu:specializes :Operand.
-:ExponentialDependence a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Dependence whose governing expression has the form a*b^u + c in one designated variable u, with fixed real a != 0, b > 0, b != 1, and c, on a stated real domain.";
-    rdfs:comment "2^x; the residual 3*2^x - 12 of 3*2^x = 12; f(t) = 5*(1/2)^t + 3.";
-    edu:specializes :AlgebraicDependence.
 :ExponentialDerivativeIdentity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identity (a^x)' = a^x ln(a) for a fixed positive base, including (e^x)' = e^x.";
     rdfs:comment "d/dx 2^x = 2^x ln(2).";
@@ -1125,6 +1117,10 @@
     rdfs:isDefinedBy "The nature of a nonnegative waiting-time law with density lambda exp(-lambda x) for x >= 0 and rate lambda > 0, including its memoryless property.";
     rdfs:comment "With rate two per minute, the probability of waiting longer than one minute is exp(-2).";
     edu:specializes :ContinuousProbabilityDistribution.
+:ExponentialExpressionDependence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Dependence whose governing expression has the form a*b^u + c in one designated variable u, with fixed real a != 0, b > 0, b != 1, and c, on a stated real domain.";
+    rdfs:comment "2^x; the residual 3*2^x - 12 of 3*2^x = 12; f(t) = 5*(1/2)^t + 3.";
+    edu:specializes :ExpressionBasedDependence.
 :ExponentialRewriting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Equivalent rewriting of algebraic expressions with designated quantities in exponent positions, preserving their values and applicable base, exponent, and domain restrictions.";
     rdfs:comment "4^x = 2^(2x); 2^(x + 1) = 2*2^x; 3^x*3^(2x) = 3^(3x).";
@@ -1138,6 +1134,10 @@
     rdfs:isDefinedBy "The identities relating products, quotients, and powers of powers to operations on exponents, with base and exponent restrictions that make each identity valid.";
     rdfs:comment "2^3*2^4 = 2^7; 5^6/5^2 = 5^4; (x^2)^3 = x^6.";
     edu:partOf :ArithmeticLaws.
+:ExpressionBasedDependence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Numerical dependence governed by algebraic expressions in designated variables, retaining original domains. Expressions and input-output rules are classified by their value expressions; constraints and systems are classified by the simplified left-minus-right expression of each studied relation.";
+    rdfs:comment "The dependence on x in x^2 + 3; the residual x^2 - 4 of x^2 = 4; the defining rule 2^t of f(t) = 2^t.";
+    edu:partOf :Algebra.
 :ExpressionIndex a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of an expression identifying a member or position within an indexed collection.";
     rdfs:comment "Interpreting n in a_n as the position of a sequence term; interpreting i and j in A_(i,j) as the row and column positions of a matrix entry.";
@@ -1752,7 +1752,7 @@
 :InverseProportionalDependence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dependence in which a designated output quantity y equals k/x for one input quantity x and a fixed nonzero constant k. The stated domain excludes x = 0, and the product xy remains k.";
     rdfs:comment "y = 12/x for x != 0, with (x, y) = (2, 6), (4, 3), or (-2, -6); xy = 12 with input x and output y; f(t) = -6/t for t != 0.";
-    edu:specializes :RationalDependence.
+    edu:specializes :RationalExpressionDependence.
 :InverseTrigonometricDerivativeIdentities a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Derivative identities for specified real inverse trigonometric branches on the interiors of their differentiability domains.";
     rdfs:comment "(arcsin(x))' = 1/sqrt(1-x^2) for -1 < x < 1; (arctan(x))' = 1/(1+x^2) for every real x.";
@@ -2580,14 +2580,14 @@
     rdfs:isDefinedBy "A solid geometric figure that has flat polygonal faces, straight edges, and vertices.";
     edu:expands :Polygon;
     edu:partOf :ThreeDimensionalObjects.
-:PolynomialDependence a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Dependence whose governing expressions are polynomials in designated variables, with coefficients independent of those variables. Nonnegative integer powers, constants, and the zero polynomial are included on the stated domain.";
-    rdfs:comment "3x^2 - 2x + 5; xy + y^2 in x and y; the residual x - 1 of x^2 + x = x^2 + 1; f(x) = 5.";
-    edu:specializes :RationalDependence.
 :PolynomialDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Decomposing a polynomial in one variable into a nonzero divisor times a quotient plus a remainder over a stated coefficient field. The remainder is zero or has degree less than the divisor.";
     rdfs:comment "Dividing x^2 + 1 by x - 1 to obtain quotient x + 1 and remainder 2.";
     edu:specializes :AlgebraicEquivalence.
+:PolynomialExpressionDependence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Dependence whose governing expressions are polynomials in designated variables, with coefficients independent of those variables. Nonnegative integer powers, constants, and the zero polynomial are included on the stated domain.";
+    rdfs:comment "3x^2 - 2x + 5; xy + y^2 in x and y; the residual x - 1 of x^2 + x = x^2 + 1; f(x) = 5.";
+    edu:specializes :RationalExpressionDependence.
 :PolynomialFactorTheorem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The equivalence between p(a) = 0 and divisibility of a polynomial p(x) by x - a, over a stated coefficient field containing a.";
     rdfs:comment "p(2) = 0 for p(x) = x^2 - 4, so x - 2 is a factor.";
@@ -2761,10 +2761,10 @@
     rdfs:isDefinedBy "The four regions formed by the perpendicular coordinate axes in a Cartesian plane.";
     rdfs:comment "A point with positive x and negative y lies in quadrant IV. The conventional numbering starts at the upper right and proceeds counterclockwise.";
     edu:partOf :CartesianPlane.
-:QuadraticDependence a owl:NamedIndividual, edu:Area;
+:QuadraticExpressionDependence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Polynomial dependence whose governing expressions each have total degree exactly two in the designated variables after collecting like terms.";
     rdfs:comment "xy + y^2 in x and y; the residual x^2 - 1 of x^3 + x^2 = x^3 + 1; f(x) = (x - 2)^2 + 3.";
-    edu:specializes :PolynomialDependence.
+    edu:specializes :PolynomialExpressionDependence.
 :QuadraticFormula a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The formula x = (-b +/- sqrt(b^2 - 4ac))/(2a) characterizing all real or complex solutions of ax^2 + bx + c = 0 with a nonzero.";
     rdfs:comment "Obtaining x = (5 +/- sqrt(25 - 24))/2, hence x = 2 or x = 3, from x^2 - 5x + 6 = 0.";
@@ -2879,10 +2879,10 @@
 :RationalArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The understanding and application of numbers that can be expressed as the quotient or fraction of two integers, where the denominator is non-zero.";
     edu:partOf :ArithmeticSpaces.
-:RationalDependence a owl:NamedIndividual, edu:Area;
+:RationalExpressionDependence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dependence whose governing expressions are quotients of polynomials in designated variables with denominator polynomials that are not identically zero, including nonzero constant denominators. Original denominator exclusions remain in force after cancellation.";
     rdfs:comment "x^2 + 3 = (x^2 + 3)/1; (x^2 - 1)/(x - 1), with x != 1; the residual 1/x - 2 of 1/x = 2, with x != 0; f(x) = 1/(x + 1).";
-    edu:specializes :AlgebraicDependence.
+    edu:specializes :ExpressionBasedDependence.
 :RationalityAndApproximation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Exact rational representations, rationality criteria, and the structure and accuracy of approximation by rational numbers.";
     rdfs:comment "Characterizing an eventually repeating decimal as rational; finding the convergent 7/5 of the continued fraction for sqrt(2).";

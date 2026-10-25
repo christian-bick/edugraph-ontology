@@ -50,15 +50,25 @@ particular new identifier, definition, or hierarchy.
 
 ### 2.1 `Algebra`
 
-#### 1. `AlgebraicFunctions` (`AlgebraicDependence` vs. `NumericFunction`):
+#### 1. `AlgebraicFunctions` (`ExpressionBasedDependence` vs. `NumericFunction`):
 
-- **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S2`, `ONT-S3`):**
+- **Discussion, group 3 (`ONT-D1`, `ONT-D4`, `ONT-S2`):**
   `NumericFunction` specializes into `AbsoluteValueFunction`, `ComplexExponentialFunction`,
   `LogarithmicFunction`, `PowerFunction`, `TrigonometricFunction`, `ArithmeticSequence`, and
   `GeometricSequence`, but polynomial, affine/linear, quadratic, rational, and real exponential
-  families are represented under `AlgebraicDependence`. Clarify the distinction between an
-  algebraic expression or constraint dependence and a single-valued numerical function before
-  introducing function-family descriptors or links.
+  families are represented under `ExpressionBasedDependence`. The dependence family classifies
+  governing expressions, including constraint residuals; `NumericFunction` requires exactly one
+  numerical output for each admissible input. Review whether dedicated function-family
+  descriptors add useful meanings or inheritance beyond supported combinations of existing
+  descriptors before introducing them.
+
+- **Deferred, group 3 (`ONT-D4`, `ONT-S2`, `ONT-S5`):** Review the proposed
+  `DirectProportionalDependence specializes NumericFunction`,
+  `InverseProportionalDependence specializes NumericFunction`, and
+  `PowerFunction specializes ExpressionBasedDependence` links. The proportional concepts
+  designate numerical inputs and outputs, while the power-function definition supplies a
+  governing expression. The naming cleanup preserves existing relations; review the intended
+  inheritance and complete affected paths before adding these links.
 
 - **Deferred, group 3 (`ONT-D4`, `ONT-S2`):** Review the proposed
   `InverseProportionalDependence specializes PowerFunction` link with that family boundary.
@@ -66,13 +76,6 @@ particular new identifier, definition, or hierarchy.
   $x \ne 0$, while `PowerFunction` explicitly describes real input-output relationships.
   For real inputs and outputs, inverse proportional dependence has exponent $-1$; the additional
   specialization remains deferred until the intended domain and family roles are settled.
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-D6`):** Keep the current identifiers while reviewing
-  the broader family's terminology together. The authored dependence descriptors classify
-  governing expressions; they do not express linear dependence over the rational numbers or
-  field-theoretic algebraic dependence. `AlgebraicDependence` also includes
-  `ExponentialDependence`. Consider coordinated expression-based names only after settling the
-  family boundary; the polynomial/rational inclusion is resolved and does not depend on a rename.
 
 #### 2. `AlgebraicEquivalence` (Optional rewriting and identity subfamilies):
 
@@ -453,8 +456,8 @@ need a concrete proposal and review.
 
 These items require a meaning or scope decision before implementation.
 
-- [Algebra](#21-algebra): the dependence/function boundary, including the deferred
-  inverse-proportional/`PowerFunction` specialization; coordinated family naming; and optional
+- [Algebra](#21-algebra): function-family coverage and deferred specialization links connecting
+  expression dependence, proportionality, `NumericFunction`, and `PowerFunction`; and optional
   rewriting and binomial/finite-sum families.
 - [Analysis](#22-analysis): discontinuity coverage, including holes outside the domain, and
   domain/range organization with their distinct meanings retained.
