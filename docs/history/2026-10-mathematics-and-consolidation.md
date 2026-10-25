@@ -166,3 +166,7 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   `CircularPermutationCounting partOf CombinatorialEnumeration` and its existing integration
   links to `PermutationCounting` and `DivisionCountingPrinciple`. Counting arrangements up to
   rotation does not preserve the proposed parents' linear or position-distinguishing meanings.
+- **October 26 — Root-index placement.** Closed the review as no change: retained
+  `RootIndex partOf ExpressionStructure`, including its implicit square-root index, and kept
+  `Operand`'s explicit-input boundary. Removed the completed formal-mathematics section and
+  renumbered the remaining family review sections.
