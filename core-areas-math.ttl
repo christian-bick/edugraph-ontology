@@ -1332,6 +1332,10 @@
     rdfs:isDefinedBy "Existence of a finite derivative of a real-valued function at a specified interior input or throughout a stated interval, with any endpoint derivative convention stated separately.";
     rdfs:comment "f(x) = x^2 is differentiable at every real input; g(x) = |x| is not differentiable at 0.";
     edu:partOf :FunctionRegularity.
+:FunctionDiscontinuity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Failure of a real-valued function of a real variable to have a defined value agreeing with a finite limit at a specified finite accumulation point of its domain. The point may lie outside the domain, and limiting approaches use only inputs available in that domain.";
+    rdfs:comment "f(x) = x for x != 0 with f(0) = 1 is discontinuous at 0; sin(1/x), defined for x != 0, has no limit at 0.";
+    edu:partOf :FunctionRegularity.
 :FunctionDomain a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The set of inputs admitted by a function, including restrictions imposed by its defining rule and by the situation it models.";
     rdfs:comment "The real domain x >= 0 for f(x) = sqrt(x); the nonnegative integer domain for the cost of buying whole items.";
@@ -1344,6 +1348,10 @@
     rdfs:isDefinedBy "Maximum and minimum values of a real-valued function and the inputs where they occur, distinguishing comparison with the whole stated domain from comparison within a specified neighborhood.";
     rdfs:comment "The minimum value 0 attained by f(x) = (x - 2)^2 at x = 2; the maximum value 4 attained by g(x) = 4 - x^2 at x = 0.";
     edu:partOf :FunctionOrderProperties.
+:FunctionInfiniteDiscontinuity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A positive or negative infinite limit from at least one side of a finite input for a real-valued function of a real variable, with the domain accumulating from that side. The point's value may be assigned or missing.";
+    rdfs:comment "1/x tends to negative infinity from the left and positive infinity from the right at 0; 1/x^2 tends to positive infinity from both sides at 0.";
+    edu:specializes :FunctionDiscontinuity.
 :FunctionInflection a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A change between upward and downward concavity at a point where a real function is continuous.";
     rdfs:comment "f(x) = x^3 has an inflection at (0, 0); g(x) = x^4 has no inflection at (0, 0) despite its second derivative being zero there.";
@@ -1356,6 +1364,10 @@
     rdfs:isDefinedBy "Constructing or interpreting the function that reverses a one-to-one function's input-output correspondence, exchanging its domain and range. A function that is not one-to-one must first be restricted to a suitable domain before this inverse is a function.";
     rdfs:comment "Inverting f(x) = 2x + 3 to obtain g(y) = (y - 3)/2; inverting x^2 on nonnegative real inputs to obtain the principal square-root function.";
     edu:partOf :AlgebraicFunctions.
+:FunctionJumpDiscontinuity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Unequal finite left-hand and right-hand limits of a real-valued function of a real variable at a finite input approached from both sides through its domain. The point's value may be assigned or missing.";
+    rdfs:comment "f(x) = 0 for x < 0 and f(x) = 1 for x >= 0 has left-hand limit 0 and right-hand limit 1 at 0.";
+    edu:specializes :FunctionDiscontinuity.
 :FunctionLimitingBehavior a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The behavior of a real-valued function as its input approaches a specified location or extends without bound through its domain, distinguishing finite limits, unbounded behavior, and failure to approach a limit.";
     rdfs:comment "f(x) = 1/x tends to 0 as x tends to positive infinity and increases without bound as positive x tends to 0; sin(x) has no limit as x tends to positive infinity.";
@@ -1389,13 +1401,13 @@
     rdfs:comment "The range [0, infinity) for f(x) = x^2 on the real numbers; the range {2, 4, 6} for f(n) = 2n on {1, 2, 3}.";
     edu:partOf :FunctionValueProperties.
 :FunctionRegularity a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Continuity, differentiability, and specified forms of integrability of functions on stated domains.";
+    rdfs:isDefinedBy "Continuity, discontinuity, differentiability, and specified forms of integrability of functions relative to their stated domains.";
     rdfs:comment "The continuity of f(x) = |x| on the real numbers and its failure to be differentiable at x = 0.";
     edu:partOf :FunctionProperties.
 :FunctionRemovableDiscontinuity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A missing or mismatched value at a finite input approached by other inputs in a real function's domain, where a finite limit exists and assigning that limit makes the function continuous there.";
     rdfs:comment "(x^2 - 4)/(x - 2), with x != 2, becomes continuous at 2 by assigning value 4; f(x) = x for x != 0 with f(0) = 1 becomes continuous at 0 by changing f(0) to 0.";
-    edu:partOf :FunctionRegularity.
+    edu:specializes :FunctionDiscontinuity.
 :FunctionRepetitionProperties a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Repeated input-output patterns and the quantitative features of bounded periodic oscillations.";
     rdfs:comment "The period 2pi/3, amplitude 2, and midline 1 of f(x) = 2 sin(3x) + 1.";

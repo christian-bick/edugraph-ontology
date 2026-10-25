@@ -81,15 +81,7 @@ particular new identifier, definition, or hierarchy.
 
 ### 2.2 `Analysis`
 
-#### 1. `FunctionProperties` (Regularity coverage and domain/range placement):
-
-- **Discussion, group 3 (`ONT-D1`, `ONT-D4`, `ONT-S1`):** `FunctionRegularity` contains
-  `FunctionContinuity`, `FunctionDifferentiability`, `RiemannIntegrability`, and
-  `FunctionRemovableDiscontinuity`. Review whether discontinuity needs a broader reusable
-  concept or additional distinctions for jump and infinite discontinuities. The current mix
-  alone does not require a new organizer or additional descriptors. A broader discontinuity
-  concept must accommodate holes at points outside the current domain, as covered by the
-  existing removable-discontinuity definition.
+#### 1. `FunctionProperties` (Domain/range placement):
 
 - **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S3`):** `FunctionRange` is placed under
   `Analysis > FunctionProperties > FunctionValueProperties`, whereas `FunctionDomain` is placed
@@ -446,8 +438,7 @@ These items require a meaning or scope decision before implementation.
 
 - [Algebra](#21-algebra): function-family coverage and deferred specialization links connecting
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
-- [Analysis](#22-analysis): discontinuity coverage, including holes outside the domain, and
-  domain/range organization with their distinct meanings retained.
+- [Analysis](#22-analysis): domain/range organization with their distinct meanings retained.
 - [Arithmetic](#23-arithmetic): `Factorial`/`Modulo` placement and a defensible boundary for any
   composite-operation family; overlapping integer-method classifications; the meaning of
   `LowestCommonNumerator`; and any missing reusable fraction-operation strategies.

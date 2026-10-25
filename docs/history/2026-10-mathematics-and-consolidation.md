@@ -113,3 +113,11 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   The four new concepts are eligible for direct labeling; review ancestry-dependent uses.
   Retained the `AlgebraicEquivalence` name and definition to cover both expression-value equality
   and constraint solution-set equivalence, resolving the top-family naming review.
+- **October 25 — Discontinuity family.** Added `FunctionDiscontinuity` under `FunctionRegularity`,
+  with new `FunctionJumpDiscontinuity` and `FunctionInfiniteDiscontinuity` specializations.
+  Replaced the existing `FunctionRemovableDiscontinuity` constituent link with specialization
+  of the new parent, preserving its definition and examples. The family includes excluded
+  accumulation inputs and respects approaches available in the stated domain; its named types
+  are not exhaustive. Clarified `FunctionRegularity` to include discontinuity explicitly.
+  Existing labeling eligibility is unchanged, and all three new concepts are eligible.
+  Review the new discontinuity ancestry and direct-parent queries; the coverage review is resolved.
