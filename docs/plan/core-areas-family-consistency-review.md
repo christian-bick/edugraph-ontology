@@ -13,15 +13,14 @@ claims have been removed from the family findings; completed work is summarized 
   - [Algebra](#21-algebra)
   - [Arithmetic](#22-arithmetic)
   - [Combinatorics](#23-combinatorics)
-  - [FormalMathematics](#24-formalmathematics)
-  - [Geometry](#25-geometry)
-  - [GraphTheory](#26-graphtheory)
-  - [IntuitiveMathematics](#27-intuitivemathematics)
-  - [LinearAlgebra](#28-linearalgebra)
-  - [Logic](#29-logic)
-  - [NumberTheory](#210-numbertheory)
-  - [Probability](#211-probability)
-  - [Statistics](#212-statistics)
+  - [Geometry](#24-geometry)
+  - [GraphTheory](#25-graphtheory)
+  - [IntuitiveMathematics](#26-intuitivemathematics)
+  - [LinearAlgebra](#27-linearalgebra)
+  - [Logic](#28-logic)
+  - [NumberTheory](#29-numbertheory)
+  - [Probability](#210-probability)
+  - [Statistics](#211-statistics)
 - [3. Priority actions](#3-summary-of-priority-action-items)
   - [1. Agreed simple changes](#1-agreed-simple-changes)
   - [2. Agreed complex changes](#2-agreed-complex-changes)
@@ -113,20 +112,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.4 `FormalMathematics`
-
-#### 1. `ExpressionStructure` (`RootIndex` vs. `Operand`):
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-S2`, `ONT-S3`):** `Operand` requires an explicit input
-  role determined by written structure, while `RootIndex` includes the implicit index two in
-  square-root notation. An explicit radical index can match that input role, but an omitted
-  index does not satisfy the current explicit-input boundary. Review the explicit/implicit
-  distinction before adding the proposed specialization; both definitions and the current
-  `RootIndex partOf ExpressionStructure` placement remain unchanged.
-
----
-
-### 2.5 `Geometry`
+### 2.4 `Geometry`
 
 #### 1. `GeometricCalculations` (`MidpointCalculation`):
 
@@ -168,7 +154,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.6 `GraphTheory`
+### 2.5 `GraphTheory`
 
 #### 1. `GraphFoundations` (Possible foundational graph families):
 
@@ -186,7 +172,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.7 `IntuitiveMathematics`
+### 2.6 `IntuitiveMathematics`
 
 #### 1. `CollectionSense > DivisionOfCollections` (Remaining parity boundary and partition link):
 
@@ -249,7 +235,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.8 `LinearAlgebra`
+### 2.7 `LinearAlgebra`
 
 #### 1. `VectorAlgebra` (Optional organization review):
 
@@ -263,7 +249,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.9 `Logic`
+### 2.8 `Logic`
 
 #### 1. `PropositionalLogic` (`LogicalEquivalence`):
 
@@ -279,7 +265,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.10 `NumberTheory`
+### 2.9 `NumberTheory`
 
 #### 1. `NumberSystems` (Complex-number organization):
 
@@ -293,7 +279,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.11 `Probability`
+### 2.10 `Probability`
 
 #### 1. `ProbabilityFoundations` and `RandomVariableTheory`:
 
@@ -317,7 +303,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.12 `Statistics`
+### 2.11 `Statistics`
 
 #### 1. `DescriptiveStatistics` (Location/central-tendency family):
 
@@ -356,13 +342,13 @@ need a concrete proposal and review.
 
 - [Arithmetic](#22-arithmetic): `Modulo`'s number domain, divisor restrictions, and
   negative-input convention relative to `EuclideanDivision`.
-- [Intuitive mathematics](#27-intuitivemathematics): the exact-division/concrete-parity boundary
+- [Intuitive mathematics](#26-intuitivemathematics): the exact-division/concrete-parity boundary
   and deferred division/partition specialization. The concrete parity descriptors remain
   unchanged pending the separate meaning decision.
-- [Intuitive mathematics](#27-intuitivemathematics): interval numeration's meaning and parent
+- [Intuitive mathematics](#26-intuitivemathematics): interval numeration's meaning and parent
   boundary.
-- [Number theory](#210-numbertheory): complex-number organization.
-- [Probability](#211-probability): finite-Markov/absorption topic organization.
+- [Number theory](#29-numbertheory): complex-number organization.
+- [Probability](#210-probability): finite-Markov/absorption topic organization.
 
 ### 3. Discussion and conditional proposals
 
@@ -372,21 +358,19 @@ These items require a meaning or scope decision before implementation.
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
 - [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links.
 - [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links.
-- [Formal mathematics](#24-formalmathematics): the deferred explicit/implicit radical-index
-  boundary.
-- [Geometry](#25-geometry): midpoint-calculation placement, broad cone/cylinder meanings vs.
+- [Geometry](#24-geometry): midpoint-calculation placement, broad cone/cylinder meanings vs.
   right-circular solids of revolution, right-triangle ratio definitions/examples, and the
   coordinate-plane field vs. observable-concept role.
-- [Graph theory](#26-graphtheory): concrete foundational graph-family proposals and conventions.
-- [Intuitive mathematics](#27-intuitivemathematics): iteration overlap, reflective-symmetry
+- [Graph theory](#25-graphtheory): concrete foundational graph-family proposals and conventions.
+- [Intuitive mathematics](#26-intuitivemathematics): iteration overlap, reflective-symmetry
   placement, and the whole numeric-comparison family's boundaries, structural roles, and
   eligibility consequences.
-- [Linear algebra](#28-linearalgebra): whether additional vector-topic organization is useful.
-- [Logic](#29-logic): formula construction vs. equivalence of formulas within propositional
+- [Linear algebra](#27-linearalgebra): whether additional vector-topic organization is useful.
+- [Logic](#28-logic): formula construction vs. equivalence of formulas within propositional
   logic.
-- [Probability](#211-probability): whether broader random-variable organization is useful
+- [Probability](#210-probability): whether broader random-variable organization is useful
   beyond the current supported placements.
-- [Statistics](#212-statistics): a location/central-tendency family that accommodates
+- [Statistics](#211-statistics): a location/central-tendency family that accommodates
   categorical modes and preserves median's quantile role, and the shared inference context of
   sampling distributions and standard errors.
 
@@ -394,6 +378,12 @@ These items require a meaning or scope decision before implementation.
 
 No open actions remain in this group. Accepted differences in constituent roles, hierarchy depth,
 strategy organization, and overlapping classification axes have been removed from the findings.
+
+The `RootIndex` placement question is resolved (`ONT-D4`, `ONT-S1`, `ONT-S2`): retain
+`partOf ExpressionStructure` and its definition, including the implicit index two in square-root
+notation. That implicit case does not preserve `Operand`'s explicit-input meaning. This matches
+the neighboring `Factor` family, which also includes implied values and remains a constituent
+of `ExpressionStructure`; no definitions or relations change.
 
 The `CircularPermutationCounting` placement question is resolved (`ONT-S1`, `ONT-S2`, `ONT-R3`):
 retain `partOf CombinatorialEnumeration` and its existing `integrates` links to
