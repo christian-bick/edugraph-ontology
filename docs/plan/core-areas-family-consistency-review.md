@@ -95,13 +95,7 @@ particular new identifier, definition, or hierarchy.
   remain unapproved. Revisit their conceptual meaning and progression paths separately;
   the modulo proposal also depends on the unresolved number-domain and remainder convention.
 
-#### 2. `ArithmeticSpaces` (Fraction-strategy naming and coverage):
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-D6`):** `LowestCommonNumerator` finds the least common
-  multiple of the written positive numerators. Clarify whether its name means that procedure
-  or a lowest common numerator after simplifying the inputs: $4/6$ and $6/9$ both reduce to
-  $2/3$, giving common numerator two rather than the original numerators' least common multiple
-  twelve. Retain the accepted strategy role of `LowestCommonDenominator`.
+#### 2. `ArithmeticSpaces` (Fraction-strategy coverage):
 
 - **Discussion, group 3 (`ONT-D1`, `ONT-E1`):** `FractionStrategies` covers equivalence and
   comparison techniques but has no explicit fraction-addition or fraction-multiplication
@@ -410,8 +404,8 @@ These items require a meaning or scope decision before implementation.
 
 - [Algebra](#21-algebra): function-family coverage and deferred specialization links connecting
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
-- [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links; the meaning of
-  `LowestCommonNumerator`; and any missing reusable fraction-operation strategies.
+- [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links and any missing
+  reusable fraction-operation strategies.
 - [Calculus](#23-calculus): the deferred polar-area definition boundary and the organizer vs.
   specialization-family role of differentiation rules.
 - [Combinatorics](#24-combinatorics): unordered-selection coverage and circular vs. linear

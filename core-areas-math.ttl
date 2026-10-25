@@ -1983,8 +1983,8 @@
     edu:expands :FactorsAndMultiples;
     edu:partOf :FractionStrategies.
 :LowestCommonNumerator a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Finding the least common multiple of the positive numerators of two or more fractions to express them with a shared numerator.";
-    rdfs:comment "2/5 and 3/7 can be written as 6/15 and 6/14 using the lowest common numerator 6.";
+    rdfs:isDefinedBy "Finding the least common multiple of the positive integer numerators as written in two or more fractions, giving the smallest shared numerator obtainable by multiplying each numerator and denominator by the same positive integer.";
+    rdfs:comment "2/5 and 3/7 can be written as 6/15 and 6/14 using the lowest common numerator 6. 4/6 multiplied by 3/3 and 6/9 multiplied by 2/2 both give 12/18, with shared numerator 12.";
     edu:expands :FactorsAndMultiples;
     edu:partOf :FractionStrategies.
 :MarginOfError a owl:NamedIndividual, edu:Area;
