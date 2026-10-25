@@ -250,7 +250,8 @@
 :AverageRateOfChange a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The quotient of the change in a real-valued function's output by the nonzero change between two distinct real inputs in its stated domain.";
     rdfs:comment "The average rate of change of f(x) = x^2 from x = 1 to x = 3 is (9 - 1)/(3 - 1) = 4; a distance increase of 60 kilometers in 2 hours gives 30 kilometers per hour.";
-    edu:partOf :FunctionSlope.
+    edu:partOf :FunctionInterpretation;
+    edu:translates :FunctionSlope.
 :BaseOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The foundational application of mathematical rules and procedures to perform primary calculations through the core actions of addition, subtraction, multiplication, and division.";
     edu:partOf :ArithmeticOperations.
@@ -1334,6 +1335,10 @@
     rdfs:isDefinedBy "A change between upward and downward concavity at a point where a real function is continuous.";
     rdfs:comment "f(x) = x^3 has an inflection at (0, 0); g(x) = x^4 has no inflection at (0, 0) despite its second derivative being zero there.";
     edu:partOf :FunctionShapeProperties.
+:FunctionInterpretation a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The mathematical meanings of a function's inputs, outputs, and rates of change, including their relationships in mathematical and applied settings.";
+    rdfs:comment "For d(t) = 30t, with t in hours and d(t) in kilometers, d(2) = 60 gives the distance at two hours, and the average rate 30 on [1,3] gives kilometers traveled per hour over that interval.";
+    edu:partOf :AlgebraicFunctions.
 :FunctionInversion a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Constructing or interpreting the function that reverses a one-to-one function's input-output correspondence, exchanging its domain and range. A function that is not one-to-one must first be restricted to a suitable domain before this inverse is a function.";
     rdfs:comment "Inverting f(x) = 2x + 3 to obtain g(y) = (y - 3)/2; inverting x^2 on nonnegative real inputs to obtain the principal square-root function.";
@@ -1391,8 +1396,8 @@
     rdfs:comment "f(x) = x^2 - 1 is negative on (-1, 1), zero at -1 and 1, and positive for x < -1 or x > 1.";
     edu:partOf :FunctionValueProperties.
 :FunctionSlope a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Rates of change of a real-valued function with respect to its real input, measured between distinct inputs or at a point where a finite limiting rate exists.";
-    rdfs:comment "The constant slope 3 of f(x) = 3x + 2; the average rate 4 of g(x) = x^2 from x = 1 to x = 3; its instantaneous rate 2 at x = 1.";
+    rdfs:isDefinedBy "The geometric steepness and direction of a real-valued function's graph in Cartesian coordinates, described by slopes of secant lines through graph points with distinct inputs and nonvertical tangent lines where a finite limiting slope exists.";
+    rdfs:comment "For y = x^2, the secant through (1,1) and (3,9) has slope 4, and the tangent at (1,1) has slope 2; y = |x| has no unique tangent at (0,0).";
     edu:partOf :AlgebraicFunctions.
 :FunctionStationaryPoints a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Interior domain points where a real-valued function has a finite derivative equal to zero, whether or not an extremum or inflection occurs.";
@@ -1639,7 +1644,8 @@
 :InstantaneousRateOfChange a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The finite limit of [f(a + h) - f(a)]/h for a real-valued function at a fixed real input a as h approaches zero, when that limit exists.";
     rdfs:comment "The rate 6 of f(x) = x^2 at x = 3; the rate 0 of g(x) = 5 at every real input.";
-    edu:partOf :FunctionSlope.
+    edu:partOf :FunctionInterpretation;
+    edu:translates :FunctionSlope.
 :IntegerArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding and operating on numbers with no fractional part, including positive integers, negative integers, and zero.";
     rdfs:comment "Adding signed integers or exchanging units between integer place values. Integer value is independent of whether a representation includes a decimal separator.";

@@ -59,3 +59,10 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   retaining distinct existing parents. Identifiers, definitions, progression assertions, and
   labeling eligibility are unchanged; structural ancestry and direct-parent queries change.
   Review ancestry-dependent uses against the [authored Areas](../../core-areas-math.ttl).
+- **October 25 — Function interpretation and slope.** Added `FunctionInterpretation` under
+  `AlgebraicFunctions` as the organizer for `AverageRateOfChange` and `InstantaneousRateOfChange`,
+  moving their `partOf` edges while retaining their definitions. Both now translate `FunctionSlope`,
+  redefined as secant and nonvertical tangent slopes of a function graph. `FunctionSlope` retains
+  its placement under `AlgebraicFunctions` and becomes eligible; the new organizer is ineligible,
+  while rate eligibility is preserved. Review definition-, ancestry-, progression-, and
+  eligibility-dependent uses against the [authored Areas](../../core-areas-math.ttl).
