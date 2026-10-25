@@ -84,14 +84,23 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   labeling. Review structural ancestry and direct-parent queries.
   Retired accepted no-change findings and stale claims from the family review, separating remaining
   modeling work from open discussion in its priority groups.
-- **October 25 — Polynomial and rational dependence.** Made `PolynomialDependence` specialize
-  `RationalDependence`, retaining `AlgebraicDependence` through inheritance. Clarified that rational
+- **October 25 — Polynomial and rational dependence.** Made former `PolynomialDependence` specialize
+  former `RationalDependence`, retaining former `AlgebraicDependence` through inheritance. Clarified that rational
   governing expressions include nonzero constant denominators, with a polynomial example, while
   preserving original domain exclusions. Names and labeling eligibility are unchanged; polynomial,
   affine, quadratic, and direct-proportional concepts now inherit rational-dependence ancestry.
-  Coordinated family naming remains open in the review.
+  The subsequent identifier renames are recorded below.
 - **October 25 — Inverse proportional dependence.** Added the eligible
-  `InverseProportionalDependence` specialization of `RationalDependence`, with fixed $k \ne 0$
+  `InverseProportionalDependence` specialization of former `RationalDependence`, with fixed $k \ne 0$
   and input $x \ne 0$, constant product, and signed examples. Existing descriptors and labeling
   eligibility are unchanged. The proposed `PowerFunction` link remains deferred with the broader
   dependence/function discussion.
+- **October 25 — Expression-dependence names.** Renamed former `AlgebraicDependence` →
+  `ExpressionBasedDependence`, former `PolynomialDependence` → `PolynomialExpressionDependence`,
+  former `RationalDependence` → `RationalExpressionDependence`, former `AffineDependence` →
+  `AffineExpressionDependence`, former `QuadraticDependence` → `QuadraticExpressionDependence`,
+  and former `ExponentialDependence` → `ExponentialExpressionDependence`. Definitions, examples,
+  relation meanings, and labeling eligibility are unchanged. Update stored descriptor IRIs and
+  generated enum keys in annotations and client code to adopt the new identifiers. The naming
+  review is resolved; proposed links involving proportional dependence, `NumericFunction`,
+  `PowerFunction`, and the renamed umbrella remain deferred.
