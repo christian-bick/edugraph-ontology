@@ -1749,6 +1749,10 @@
     rdfs:isDefinedBy "The identity (f^(-1))'(f(a)) = 1/f'(a) for a locally invertible continuously differentiable real function with nonzero derivative at a.";
     rdfs:comment "Inverting the exponential derivative gives (ln(x))' = 1/x for x > 0.";
     edu:partOf :DifferentiationRules.
+:InverseProportionalDependence a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Dependence in which a designated output quantity y equals k/x for one input quantity x and a fixed nonzero constant k. The stated domain excludes x = 0, and the product xy remains k.";
+    rdfs:comment "y = 12/x for x != 0, with (x, y) = (2, 6), (4, 3), or (-2, -6); xy = 12 with input x and output y; f(t) = -6/t for t != 0.";
+    edu:specializes :RationalDependence.
 :InverseTrigonometricDerivativeIdentities a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Derivative identities for specified real inverse trigonometric branches on the interiors of their differentiability domains.";
     rdfs:comment "(arcsin(x))' = 1/sqrt(1-x^2) for -1 < x < 1; (arctan(x))' = 1/(1+x^2) for every real x.";
