@@ -174,3 +174,9 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   while retaining its place in `GeometricCalculations`. Clarified the Cartesian coordinate-plane
   boundary and added an endpoint-averaging example. Resolved the placement review; labeling
   eligibility is unchanged, and structural queries now also reach the coordinate-geometry family.
+- **October 26 — Circular cones and cylinders.** Defined `Cone` and `Cylinder` with circular
+  bases and added `RightCircularCone`, `ObliqueCircularCone`, `RightCircularCylinder`, and
+  `ObliqueCircularCylinder` as specializations. The two right forms also specialize
+  `SolidOfRevolution`. Clarified the `GeometricNet` example and resolved the family review;
+  existing labeling eligibility is unchanged. `Cone`'s formerly general-base wording is now
+  limited to circular bases, so prior annotations using noncircular bases need review.

@@ -488,7 +488,7 @@
     edu:partOf :ConstructionScope.
 :GeometricNet a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Planar layouts of surface pieces used to represent a solid by folding or rolling them together without stretching.";
-    rdfs:comment "Six square faces of a cube; a cylinder's rectangle and circular bases.";
+    rdfs:comment "Six square faces of a cube; a right circular cylinder's rectangle and circular bases.";
     edu:specializes :GeometryRepresentation.
 :GeometryRepresentation a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Physical or visual forms used to represent geometric figures and relationships.";

@@ -114,16 +114,7 @@ particular new identifier, definition, or hierarchy.
 
 ### 2.4 `Geometry`
 
-#### 1. `ThreeDimensionalObjects` (`Cone`, `Cylinder`, and solids of revolution):
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-S2`):** The current `Cone` definition permits a
-  general flat base, and `Cylinder` specifies parallel circular bases without requiring a
-  right cylinder. A blanket specialization of either under `SolidOfRevolution` would therefore
-  assert more than those definitions guarantee. Decide whether to retain these broad concepts
-  and add useful right-circular specializations or clarify their intended boundaries.
-  The completed `Sphere` specialization does not settle those separate decisions.
-
-#### 2. `GeometricRelations` (Right-triangle trigonometric ratios):
+#### 1. `GeometricRelations` (Right-triangle trigonometric ratios):
 
 - **Discussion, group 3 (`ONT-D4`, `ONT-E1`, `ONT-E7`):** `TrigonometricRelations` includes
   right-triangle ratios and circular trigonometry, and is an ineligible organizer.
@@ -133,7 +124,7 @@ particular new identifier, definition, or hierarchy.
   right-triangle ratios. Reconcile definitions and examples, or establish the distinct
   observable knowledge a separate ratio-family descriptor would add, before adding one.
 
-#### 3. `GeometricVisualization` (`CartesianPlane`):
+#### 2. `GeometricVisualization` (`CartesianPlane`):
 
 - **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S2`, `ONT-E7`):** `CartesianPlane` is
   ineligible because `CoordinateAxes`, `Origin`, and `Quadrants` are its `partOf` children.
@@ -349,9 +340,8 @@ These items require a meaning or scope decision before implementation.
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
 - [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links.
 - [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links.
-- [Geometry](#24-geometry): broad cone/cylinder meanings vs. right-circular solids of revolution,
-  right-triangle ratio definitions/examples, and the coordinate-plane field vs. observable-concept
-  role.
+- [Geometry](#24-geometry): right-triangle ratio definitions/examples and the coordinate-plane
+  field vs. observable-concept role.
 - [Graph theory](#25-graphtheory): concrete foundational graph-family proposals and conventions.
 - [Intuitive mathematics](#26-intuitivemathematics): iteration overlap, reflective-symmetry
   placement, and the whole numeric-comparison family's boundaries, structural roles, and
