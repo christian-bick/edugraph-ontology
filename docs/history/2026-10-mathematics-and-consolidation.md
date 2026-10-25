@@ -147,3 +147,9 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   without ontology changes: existing operations, fraction contexts, and supporting equivalence,
   denominator-selection, and simplification concepts cover routine addition and multiplication.
   No distinct missing method was established; the broader strategy audit remains deferred.
+- **October 25 — Area-integration family.** Broadened `AreaIntegration` from slice lengths to
+  nonnegative area contributions for plane regions. Clarified `PolarAreaIntegration` around
+  ordered outer and inner radial distances and counting each region part once, with an annular-sector
+  example. Added its specialization of `AreaIntegration` while retaining `partOf CurveCalculus`;
+  the existing parametric specialization and labeling eligibility are unchanged. The review item
+  is resolved; review definition-dependent uses and the new polar-area specialization ancestry.
