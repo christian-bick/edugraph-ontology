@@ -886,7 +886,7 @@
     edu:integrates :DerivativeFunction;
     edu:partOf :DifferentialCalculus.
 :DifferentiationRules a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Identities relating derivatives to the elementary functions and operations from which a function is formed.";
+    rdfs:isDefinedBy "The body of identities for determining derivatives from function forms and operations, together with the conditions under which those identities apply.";
     rdfs:comment "Using a product rule or chain rule.";
     edu:partOf :DifferentialCalculus.
 :DigitNotation a owl:NamedIndividual, edu:Area;

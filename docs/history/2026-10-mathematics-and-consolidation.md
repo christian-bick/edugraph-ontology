@@ -153,3 +153,7 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   example. Added its specialization of `AreaIntegration` while retaining `partOf CurveCalculus`;
   the existing parametric specialization and labeling eligibility are unchanged. The review item
   is resolved; review definition-dependent uses and the new polar-area specialization ancestry.
+- **October 25 — Differentiation-rule organizer.** Clarified `DifferentiationRules` as the body
+  of derivative identities and their applicability conditions. Retained its name, six direct
+  `partOf` children, and the elementary-identity specializations; labeling eligibility is
+  unchanged. Resolved the family-role review and removed the completed calculus section.

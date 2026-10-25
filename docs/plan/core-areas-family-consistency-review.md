@@ -12,17 +12,16 @@ claims have been removed from the family findings; completed work is summarized 
 - [2. Family-by-family findings](#2-family-by-family-sibling-consistency-analysis)
   - [Algebra](#21-algebra)
   - [Arithmetic](#22-arithmetic)
-  - [Calculus](#23-calculus)
-  - [Combinatorics](#24-combinatorics)
-  - [FormalMathematics](#25-formalmathematics)
-  - [Geometry](#26-geometry)
-  - [GraphTheory](#27-graphtheory)
-  - [IntuitiveMathematics](#28-intuitivemathematics)
-  - [LinearAlgebra](#29-linearalgebra)
-  - [Logic](#210-logic)
-  - [NumberTheory](#211-numbertheory)
-  - [Probability](#212-probability)
-  - [Statistics](#213-statistics)
+  - [Combinatorics](#23-combinatorics)
+  - [FormalMathematics](#24-formalmathematics)
+  - [Geometry](#25-geometry)
+  - [GraphTheory](#26-graphtheory)
+  - [IntuitiveMathematics](#27-intuitivemathematics)
+  - [LinearAlgebra](#28-linearalgebra)
+  - [Logic](#29-logic)
+  - [NumberTheory](#210-numbertheory)
+  - [Probability](#211-probability)
+  - [Statistics](#212-statistics)
 - [3. Priority actions](#3-summary-of-priority-action-items)
   - [1. Agreed simple changes](#1-agreed-simple-changes)
   - [2. Agreed complex changes](#2-agreed-complex-changes)
@@ -97,23 +96,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.3 `Calculus`
-
-#### 1. `DifferentialCalculus > DifferentiationRules` (Family role):
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S2`, `ONT-S5`, `ONT-E7`):**
-  `DifferentiationRules` has five structural combination rules (`ChainRule`,
-  `DerivativeLinearity`, `InverseFunctionDerivativeRule`, `ProductRule`, `QuotientRule`) and
-  `ElementaryDerivativeIdentities` as `partOf` children. The latter has six specializing
-  derivative identities. The definition of `DifferentiationRules` as identities makes a
-  specialization family worth considering, but different depths and label eligibility do not
-  establish that conversion. Decide between the current plural organizer and a family of
-  narrower identities through their intended meanings; review every child and complete path
-  before any conversion.
-
----
-
-### 2.4 `Combinatorics`
+### 2.3 `Combinatorics`
 
 #### 1. `CombinatorialEnumeration` (Unordered selection and circular permutations):
 
@@ -132,7 +115,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.5 `FormalMathematics`
+### 2.4 `FormalMathematics`
 
 #### 1. `ExpressionStructure` (`RootIndex` vs. `Operand`):
 
@@ -145,7 +128,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.6 `Geometry`
+### 2.5 `Geometry`
 
 #### 1. `GeometricCalculations` (`MidpointCalculation`):
 
@@ -187,7 +170,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.7 `GraphTheory`
+### 2.6 `GraphTheory`
 
 #### 1. `GraphFoundations` (Possible foundational graph families):
 
@@ -205,7 +188,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.8 `IntuitiveMathematics`
+### 2.7 `IntuitiveMathematics`
 
 #### 1. `CollectionSense > DivisionOfCollections` (Remaining parity boundary and partition link):
 
@@ -268,7 +251,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.9 `LinearAlgebra`
+### 2.8 `LinearAlgebra`
 
 #### 1. `VectorAlgebra` (Optional organization review):
 
@@ -282,7 +265,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.10 `Logic`
+### 2.9 `Logic`
 
 #### 1. `PropositionalLogic` (`LogicalEquivalence`):
 
@@ -298,7 +281,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.11 `NumberTheory`
+### 2.10 `NumberTheory`
 
 #### 1. `NumberSystems` (Complex-number organization):
 
@@ -312,7 +295,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.12 `Probability`
+### 2.11 `Probability`
 
 #### 1. `ProbabilityFoundations` and `RandomVariableTheory`:
 
@@ -336,7 +319,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.13 `Statistics`
+### 2.12 `Statistics`
 
 #### 1. `DescriptiveStatistics` (Location/central-tendency family):
 
@@ -375,13 +358,13 @@ need a concrete proposal and review.
 
 - [Arithmetic](#22-arithmetic): `Modulo`'s number domain, divisor restrictions, and
   negative-input convention relative to `EuclideanDivision`.
-- [Intuitive mathematics](#28-intuitivemathematics): the exact-division/concrete-parity boundary
+- [Intuitive mathematics](#27-intuitivemathematics): the exact-division/concrete-parity boundary
   and deferred division/partition specialization. The concrete parity descriptors remain
   unchanged pending the separate meaning decision.
-- [Intuitive mathematics](#28-intuitivemathematics): interval numeration's meaning and parent
+- [Intuitive mathematics](#27-intuitivemathematics): interval numeration's meaning and parent
   boundary.
-- [Number theory](#211-numbertheory): complex-number organization.
-- [Probability](#212-probability): finite-Markov/absorption topic organization.
+- [Number theory](#210-numbertheory): complex-number organization.
+- [Probability](#211-probability): finite-Markov/absorption topic organization.
 
 ### 3. Discussion and conditional proposals
 
@@ -390,24 +373,23 @@ These items require a meaning or scope decision before implementation.
 - [Algebra](#21-algebra): function-family coverage and deferred specialization links connecting
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
 - [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links.
-- [Calculus](#23-calculus): the organizer vs. specialization-family role of differentiation rules.
-- [Combinatorics](#24-combinatorics): unordered-selection coverage and circular vs. linear
+- [Combinatorics](#23-combinatorics): unordered-selection coverage and circular vs. linear
   counting-family boundaries.
-- [Formal mathematics](#25-formalmathematics): the deferred explicit/implicit radical-index
+- [Formal mathematics](#24-formalmathematics): the deferred explicit/implicit radical-index
   boundary.
-- [Geometry](#26-geometry): midpoint-calculation placement, broad cone/cylinder meanings vs.
+- [Geometry](#25-geometry): midpoint-calculation placement, broad cone/cylinder meanings vs.
   right-circular solids of revolution, right-triangle ratio definitions/examples, and the
   coordinate-plane field vs. observable-concept role.
-- [Graph theory](#27-graphtheory): concrete foundational graph-family proposals and conventions.
-- [Intuitive mathematics](#28-intuitivemathematics): iteration overlap, reflective-symmetry
+- [Graph theory](#26-graphtheory): concrete foundational graph-family proposals and conventions.
+- [Intuitive mathematics](#27-intuitivemathematics): iteration overlap, reflective-symmetry
   placement, and the whole numeric-comparison family's boundaries, structural roles, and
   eligibility consequences.
-- [Linear algebra](#29-linearalgebra): whether additional vector-topic organization is useful.
-- [Logic](#210-logic): formula construction vs. equivalence of formulas within propositional
+- [Linear algebra](#28-linearalgebra): whether additional vector-topic organization is useful.
+- [Logic](#29-logic): formula construction vs. equivalence of formulas within propositional
   logic.
-- [Probability](#212-probability): whether broader random-variable organization is useful
+- [Probability](#211-probability): whether broader random-variable organization is useful
   beyond the current supported placements.
-- [Statistics](#213-statistics): a location/central-tendency family that accommodates
+- [Statistics](#212-statistics): a location/central-tendency family that accommodates
   categorical modes and preserves median's quantile role, and the shared inference context of
   sampling distributions and standard errors.
 
