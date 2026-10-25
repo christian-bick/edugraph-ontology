@@ -87,12 +87,6 @@ they do not justify a mechanical rename, new group, or relation conversion.
     `BinomialCoefficientSymmetry`, `PascalIdentity`, `DeMoivreIdentity`, `FiniteArithmeticSum`,
     `FiniteGeometricSum`, `QuadraticFormula`, `MatrixOperationIdentities`.
 
-- **Quadratic identity split:** `CompletingSquare` and `DifferenceOfSquaresIdentity` specialize
-  `QuadraticRewriting` ("Equivalent forms of expressions based on degree-two polynomial patterns
-  in designated variables or subexpressions..."), whereas `BinomialSquareIdentities`
-  ($(a \pm b)^2 = a^2 \pm 2ab + b^2$) only specializes `BinomialTheorem` (`BinomialSquareIdentities specializes BinomialTheorem`)
-  and is missing a `specializes` link to `QuadraticRewriting`.
-
 - **Category mismatch of `QuadraticFormula`:** `QuadraticFormula` ("characterizing all real or
   complex solutions of $ax^2 + bx + c = 0$ with $a$ nonzero") is a root-finding formula for a
   quadratic equation rather than an expression-rewriting equivalence on the same footing as
@@ -103,10 +97,6 @@ they do not justify a mechanical rename, new group, or relation conversion.
   sitting as flat top-level siblings of `LinearRewriting` and `SystemRewriting`.
 
 - **Suggestion (`ONT-S2`, `ONT-S3`, `ONT-S5`):**
-
-  - Add proposed `BinomialSquareIdentities` `specializes` `QuadraticRewriting` so all three core
-    degree-two polynomial identities (`CompletingSquare`, `DifferenceOfSquaresIdentity`,
-    `BinomialSquareIdentities`) are reachable under `QuadraticRewriting`.
 
   - Group polynomial/rational rewriting (`PolynomialDivision`, `PartialFractionDecomposition`,
     `AlgebraicFactorization`) and summation/binomial identities (`BinomialTheorem`,
@@ -257,7 +247,7 @@ they do not justify a mechanical rename, new group, or relation conversion.
   `TaylorPolynomialApproximation` ($\sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x-a)^k$), yet sits as an
   unlinked `partOf` sibling (`ONT-S2`).
 
-#### 2. `CurveCalculus` and `IntegralApplications` (Asymmetric grouping and missing `specializes` link):
+#### 2. `CurveCalculus` and `IntegralApplications` (Asymmetric grouping and deferred area boundary):
 
 - **Asymmetric intermediate organizer (`ONT-S1`, `ONT-S3`):** Under `CurveCalculus`, scalar
   parametric and polar curve descriptors (`ArcLengthIntegration`, `ParametricAreaIntegration`,
@@ -266,12 +256,12 @@ they do not justify a mechanical rename, new group, or relation conversion.
   organizer `VectorCurveCalculus` (`CurveMotion`, `VectorCurveDifferentiation`,
   `VectorCurveIntegration`).
 
-- **Asymmetric `AreaIntegration` specialization (`ONT-S2`, `ONT-S5`):** `ParametricAreaIntegration`
-  has both `ParametricAreaIntegration partOf CurveCalculus` and
-  `ParametricAreaIntegration specializes AreaIntegration`. Its immediate sibling
-  `PolarAreaIntegration` ("Expressing area swept by a polar curve as one half the integral of
-  squared radius with respect to angle...") has `PolarAreaIntegration partOf CurveCalculus` but
-  is missing proposed `PolarAreaIntegration` `specializes` `AreaIntegration`.
+- **Deferred polar-area specialization (`ONT-D4`, `ONT-S2`, `ONT-S5`):** `AreaIntegration`
+  requires integrals of nonnegative slice lengths. `PolarAreaIntegration` uses the angular
+  sector-area density $r(\theta)^2/2$, rather than a slice length, with intervals and multiplicity
+  chosen for the intended region. Review that defining boundary and orientation/multiplicity
+  conditions before adding the proposed specialization. Both definitions and placements remain
+  unchanged.
 
 - **Volume of revolution split in `IntegralApplications` (`ONT-S2`, `ONT-S3`):** Under
   `IntegralApplications`, `DiskWasherIntegration` specializes `CrossSectionIntegration`, while
@@ -318,12 +308,12 @@ they do not justify a mechanical rename, new group, or relation conversion.
 
 #### 1. `ExpressionStructure` (`RootIndex` vs. `Operand`, piecewise components, and `Variable` axes):
 
-- **`RootIndex` vs. `Operand` (`ONT-S2`, `ONT-S3`):** In power and radical expressions,
-  `PowerBase`, `Exponent`, and `Radicand` all specialize `Operand` (`PowerBase specializes Operand`,
-  `Exponent specializes Operand`, `Radicand specializes Operand`). However, `RootIndex` ("The
-  role of the index specifying which root is requested by radical notation...") is placed as a
-  `partOf` sibling of `Operand` under `ExpressionStructure` (`RootIndex partOf ExpressionStructure`)
-  instead of proposed `RootIndex` `specializes` `Operand`.
+- **Deferred `RootIndex` vs. `Operand` (`ONT-D4`, `ONT-S2`, `ONT-S3`):** `Operand` requires an
+  explicit input role determined by written structure, while `RootIndex` includes the implicit
+  index two in square-root notation. An explicit radical index can match that input role, but
+  an omitted index does not satisfy the current explicit-input boundary. Review the explicit/
+  implicit distinction before adding the proposed specialization; both definitions and the
+  current `RootIndex partOf ExpressionStructure` placement remain unchanged.
 
 - **`BranchCondition` and `ConditionalBranch` level (`ONT-S1`, `ONT-S3`):** `BranchCondition` and
   `ConditionalBranch` are specific syntactic components of a `PiecewiseExpression`
@@ -361,10 +351,6 @@ they do not justify a mechanical rename, new group, or relation conversion.
     `DistanceCalculation` have no `specializes` link to `LengthCalculation`, and
     `SurfaceAreaCalculation` has no link to `AreaCalculation`.
 
-  - `CoordinateDistance` (`CoordinateDistance partOf GeometricVisualization`) computes straight-line
-    distance from Cartesian coordinates but is missing proposed `CoordinateDistance` `specializes`
-    `DistanceCalculation`.
-
 #### 2. `ThreeDimensionalObjects` (`SolidOfRevolution`, `Cone`, `Cylinder`, and `Sphere`):
 
 - **`ThreeDimensionalObjects` (`SolidOfRevolution` vs. `Cone`, `Cylinder`, `Sphere`, `ONT-S2`, `ONT-S3`):**
@@ -375,25 +361,13 @@ they do not justify a mechanical rename, new group, or relation conversion.
 
 #### 3. `Polygon` (`Triangle` and `Quadrilateral` specialization hierarchies, `ONT-S2`, `ONT-S3`):
 
-- **`Triangle` (`specializes` children flatten two orthogonal axes and omit mathematical inclusion):**
+- **`Triangle` (`specializes` children flatten two orthogonal axes):**
 
   - Flattens **angle classification** (`AcuteTriangle`, `RightTriangle`, `ObtuseTriangle`) and
-    **side-length classification** (`EquilateralTriangle`, `IsoscelesTriangle`, `ScaleneTriangle`)
-    into a single 6-sibling list.
+    **side-length classification** (`IsoscelesTriangle`, `ScaleneTriangle`) into a single
+    5-sibling list. `EquilateralTriangle` is nested under `IsoscelesTriangle` and `AcuteTriangle`.
 
-  - By the ontology's own inclusive definitions—`IsoscelesTriangle` ("at least two sides of equal
-    length") and `AcuteTriangle` ("all three interior angles are acute angles")—every
-    `EquilateralTriangle` ("all three sides are of equal length and all three angles are 60
-    degrees") is both an `IsoscelesTriangle` and an `AcuteTriangle`. Yet `EquilateralTriangle`
-    only has `EquilateralTriangle specializes Triangle`, missing proposed
-    `EquilateralTriangle` `specializes` `IsoscelesTriangle` and proposed
-    `EquilateralTriangle` `specializes` `AcuteTriangle`.
-
-- **`Quadrilateral` (missing `Square` -> `Rhombus` and inclusive `Trapezoid` tension):**
-
-  - `Square` ("four right angles and four equal sides") has `Square specializes Rectangle`, but
-    is missing proposed `Square` `specializes` `Rhombus` ("A parallelogram with four equal-length
-    sides").
+- **`Quadrilateral` (inclusive `Trapezoid` tension):**
 
   - `Trapezoid` is defined inclusively as *"A quadrilateral with at least one pair of parallel
     sides"*. Under that definition, `Parallelogram` ("two pairs of parallel sides") satisfies
@@ -439,13 +413,7 @@ they do not justify a mechanical rename, new group, or relation conversion.
 
 ### 2.8 `GraphTheory`
 
-#### 1. `GraphFoundations` (`GraphCycle` vs. `GraphWalk` and single-child `GraphStructure`):
-
-- **Missing `specializes` link (`ONT-S2`, `ONT-S3`):** `GraphWalk` has `GraphPath specializes GraphWalk`
-  ("A graph walk with no repeated vertices"). Meanwhile, `GraphCycle` is defined as *"A
-  positive-length closed **graph walk** with distinct edges and no repeated vertices except its
-  common first and last vertex..."*, yet sits as a `partOf` sibling of `GraphWalk`
-  (`GraphCycle partOf GraphFoundations`) instead of proposed `GraphCycle` `specializes` `GraphWalk`.
+#### 1. `GraphFoundations` (Single-specialization `GraphStructure`):
 
 - **Under-populated `GraphStructure` (`ONT-S3`):** `GraphStructure` has only one specialization
   (`CompleteGraph specializes GraphStructure`), with no sibling graph families (such as trees,
@@ -511,13 +479,6 @@ they do not justify a mechanical rename, new group, or relation conversion.
   and `MeasuringWeight` specialize `MeasuringObjects`, while `MeasuringTime` sits one tier higher
   as a `partOf` sibling of `MeasuringObjects` and `MeasuringWithUnits`.
 
-- **`MeasuringWithUnits` missing `specializes` links (`ONT-S2`, `ONT-S3`):** `UnitConversion`,
-  `UnitFactorScaling` ("converting measurements within a system using specific, non-base-10
-  numerical conversion factors"), and `UnitMagnitudeScaling` ("Converting a measurement between
-  metric units related by powers of ten...") sit as flat `partOf` siblings under
-  `MeasuringWithUnits`, even though `UnitFactorScaling` and `UnitMagnitudeScaling` are direct
-  narrowings (proposed `specializes`) of `UnitConversion`.
-
 - **`ShapePartWholeRelations` (`ONT-S1`, `ONT-S3`):** Pairs `ShapeDecomposition` and
   `ShapeSynthesis` (part-whole composition/decomposition operations) with `ShapeReflection`
   ("Understanding reflective symmetry as a defining property of a shape's form..."), which is an
@@ -579,18 +540,16 @@ they do not justify a mechanical rename, new group, or relation conversion.
   `ComplexRootStructure` `partOf` `ComplexNumberStructure`) so `NumberSystems` has siblings at
   the same level of generality.
 
-#### 3. `NumberTheoreticFunctions` (Missing `specializes` links to `MultiplicativeArithmeticFunction`):
+#### 3. `NumberTheoreticFunctions` (Optional organizer review):
 
-- `DivisorCount`, `DivisorSum`, `EulersTotient`, and `MultiplicativeArithmeticFunction` sit as
-  four flat `partOf` siblings under `NumberTheoreticFunctions`.
+- `MultiplicativeArithmeticFunction` is now the sole direct `partOf` child of
+  `NumberTheoreticFunctions`; `DivisorCount`, `DivisorSum`, and `EulersTotient` specialize that
+  eligible family.
 
-- Mathematically, `DivisorCount` ($d(n)$), `DivisorSum` ($\sigma(n)$), and `EulersTotient`
-  ($\varphi(n)$) are concrete examples (`specializes`) of `MultiplicativeArithmeticFunction`
-  ($f(mn) = f(m)f(n)$ for $\gcd(m,n)=1$).
-
-- **Suggestion (`ONT-S2`, `ONT-E7`):** Model `DivisorCount`, `DivisorSum`, and `EulersTotient` as
-  proposed `specializes` children of `MultiplicativeArithmeticFunction` (keeping
-  `MultiplicativeArithmeticFunction` eligible under `ONT-E7`).
+- **Optional review (`ONT-S1`, `ONT-D4`, `ONT-E7`):** Assess the usefulness of the broader
+  organizer with its current single-family coverage. A single direct family is a review prompt;
+  any later additions need independent educational justification. This review proposes no new
+  concepts.
 
 ---
 
@@ -671,13 +630,12 @@ they do not justify a mechanical rename, new group, or relation conversion.
   `DivisionOfCollections specializes PartitionOfCollections`. Numerical zero/nonzero remainder
   cases now specialize `EuclideanDivision`; do not broaden the collection parent to absorb them.
 
-- Add missing mathematical `specializes` links: `EquilateralTriangle` $\to$ `IsoscelesTriangle` &
-  `AcuteTriangle`; `Square` $\to$ `Rhombus`; `UnitFactorScaling` & `UnitMagnitudeScaling` $\to$
-  `UnitConversion`; `GraphCycle` $\to$ `GraphWalk`; `RootIndex` $\to$ `Operand`;
-  `PolarAreaIntegration` $\to$ `AreaIntegration`;
-  `CoordinateDistance` $\to$ `DistanceCalculation`; `BinomialSquareIdentities` $\to$
-  `QuadraticRewriting`; `DivisorCount`, `DivisorSum`, & `EulersTotient` $\to$
-  `MultiplicativeArithmeticFunction`.
+- **Deferred:** Review `RootIndex`'s implicit index two against `Operand`'s explicit-input
+  boundary before adding the proposed specialization or changing either definition.
+
+- **Deferred:** Review `PolarAreaIntegration`'s angular sector-area density against
+  `AreaIntegration`'s nonnegative slice-length definition, including orientation and multiplicity,
+  before adding the proposed specialization or changing either definition.
 
 - Convert `AverageRateOfChange` and `InstantaneousRateOfChange` from `partOf` to `specializes`
   under `FunctionSlope` to restore `FunctionSlope`'s `ONT-E7` eligibility.
