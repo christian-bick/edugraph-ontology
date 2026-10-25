@@ -64,8 +64,13 @@ class TestRelations(unittest.TestCase):
                 self.assertIn(strategy, has_part(Area.FractionStrategies))
                 self.assertIn(strategy, structured_by(Area.FractionStrategies))
                 self.assertIn(Area.FractionArithmetic, part_of_transitive(strategy))
-                self.assertNotIn(Area.FractionEquivalence, structures_transitive(strategy))
-                self.assertEqual(specializes_transitive(strategy), [])
+                if strategy == Area.FractionSimplification:
+                    self.assertEqual(specializes(strategy), [Area.FractionEquivalence])
+                    self.assertIn(Area.FractionEquivalence, structures_transitive(strategy))
+                    self.assertEqual(specializes_transitive(strategy), [Area.FractionEquivalence])
+                else:
+                    self.assertNotIn(Area.FractionEquivalence, structures_transitive(strategy))
+                    self.assertEqual(specializes_transitive(strategy), [])
         self.assertEqual(has_part(Area.FractionEquivalence), [])
 
     def test_circular_shape_grouping(self):
