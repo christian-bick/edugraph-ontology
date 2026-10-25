@@ -2120,8 +2120,9 @@
     rdfs:comment "The median of 2, 4, and 9 is 4; the median of 2, 4, 8, and 10 is 6.";
     edu:specializes :Quantile.
 :MidpointCalculation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The process of finding the exact center point of a line segment on the coordinate plane by averaging the coordinates of its endpoints.";
-    edu:partOf :GeometricCalculations.
+    rdfs:isDefinedBy "Determining the midpoint of a line segment in a Cartesian coordinate plane by averaging the corresponding coordinates of its endpoints.";
+    rdfs:comment "The endpoints (2, 4) and (8, 10) have midpoint ((2 + 8)/2, (4 + 10)/2) = (5, 7).";
+    edu:partOf :GeometricCalculations, :GeometricVisualization.
 :Minuend a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of the input from which another input is subtracted in a subtraction expression.";
     rdfs:comment "Treating x + 2 as the complete minuend in (x + 2) - y; distinguishing the minuend a from the subtrahend b in a - b.";
