@@ -210,10 +210,6 @@ they do not justify a mechanical rename, new group, or relation conversion.
   four operations. Grouping by operation or separating standard algorithms from mental/partitioning
   strategies would improve sibling coherence.
 
-- **Identifier typo in `DecimalArithmetic` (`ONT-D5`):** `DecimalPrecission`
-  (`DecimalPrecission partOf DecimalArithmetic`) is misspelled with a double `s` instead of
-  `DecimalPrecision`.
-
 - **Inconsistent relation choice for equivalence techniques (`ONT-S1`, `ONT-S2`):** Under
   `DecimalArithmetic`, `DecimalPadding` is modeled as `DecimalPadding specializes DecimalEquivalence`,
   rendering `DecimalEquivalence` eligible under `ONT-E7`. Under `FractionArithmetic`,
@@ -432,7 +428,7 @@ they do not justify a mechanical rename, new group, or relation conversion.
   cover both outcomes in one method concept: eight objects split into two groups of four, or
   seven objects into two groups of three with one left over. Review existing annotations individually:
   finding group sizes may also involve division, and a leftover-object example does not satisfy
-  the exact `DivisionOfCollections` definition. Review `OddAndEvenNumbers expands EvenDivisibility`
+  the exact `DivisionOfCollections` definition. Review `ParityTest expands EvenDivisibility`
   and `UnevenDivisibility contradicts EvenDivisibility` with any consolidation.
 
 - **Missing link to `PartitionOfCollections` (`ONT-S2`):** Under `CollectionSense`,
@@ -507,18 +503,12 @@ they do not justify a mechanical rename, new group, or relation conversion.
 
 ### 2.12 `NumberTheory`
 
-#### 1. `IntegerDivisibility` (`OddAndEvenNumbers` vs. `IntegerParity` and level mixing):
+#### 1. `IntegerDivisibility` (Level mixing):
 
-- `OddAndEvenNumbers` (`OddAndEvenNumbers partOf DivisibilityRules`) is defined as *"Testing
-  an integer's divisibility by two directly from its numerical representation without performing
-  division"*, whereas the nearby `IntegerParity` (`IntegerParity partOf IntegerDivisibility`) is
-  defined as *"The even or odd character of integers, represented by the forms $2k$ and $2k + 1$..."*.
-
-- **Suggestion (`ONT-D5`, `ONT-S3`):** Rename `OddAndEvenNumbers` to reflect that it is a
-  **divisibility-by-two rule/test** (rather than the number class of odd and even integers), and
-  separate divisibility concepts (`FactorsAndMultiples`, `GreatestCommonDivisor`,
-  `LeastCommonMultiple`, `Coprimality`, `IntegerParity`) from division/GCD algorithms and lemmas
-  (`EuclideanDivision`, `EuclideanAlgorithm`, `BezoutIdentity`, `CoprimeDivisibilityLemma`).
+- **Suggestion (`ONT-S3`):** Separate divisibility concepts (`FactorsAndMultiples`,
+  `GreatestCommonDivisor`, `LeastCommonMultiple`, `Coprimality`, `IntegerParity`) from division/GCD
+  algorithms and lemmas (`EuclideanDivision`, `EuclideanAlgorithm`, `BezoutIdentity`,
+  `CoprimeDivisibilityLemma`).
 
 #### 2. `NumberSystems` (Complex-number components mixed with general number-system relations):
 
@@ -629,11 +619,9 @@ they do not justify a mechanical rename, new group, or relation conversion.
   `AreaIntegration`'s nonnegative slice-length definition, including orientation and multiplicity,
   before adding the proposed specialization or changing either definition.
 
-### 2. Repair cross-branch misplacements and naming typos (`ONT-S1`, `ONT-S3`, `ONT-D5`):
+### 2. Repair cross-branch misplacements and naming inconsistencies (`ONT-S1`, `ONT-S3`, `ONT-D5`):
 
-- Fix typo `DecimalPrecission` $\to$ `DecimalPrecision`, and clarify `OddAndEvenNumbers`
-  (divisibility-by-2 rule) vs. `IntegerParity`, and plural
-  `MeasuringVolumes` vs. singular `MeasuringLength` / `MeasuringWeight`.
+- Clarify plural `MeasuringVolumes` vs. singular `MeasuringLength` / `MeasuringWeight`.
 
 - Move `MonotoneSequenceConvergenceTheorem` and `MonotoneSequenceDivergenceTheorem` out of
   `FunctionTheorems` into `SequenceAndSeriesProperties`.

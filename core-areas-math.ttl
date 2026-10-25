@@ -756,7 +756,7 @@
     rdfs:isDefinedBy "Aligning the decimal separators of numbers so corresponding place values line up during an operation.";
     rdfs:comment "Placing the decimal points of 3.2 and 0.45 in one column before adding.";
     edu:partOf :DecimalStrategies.
-:DecimalPrecission a owl:NamedIndividual, edu:Area;
+:DecimalPrecision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The number of decimal places used to represent a value and the place value of the last displayed digit.";
     rdfs:comment "3.14 is written to two decimal places. The number of displayed places does not by itself establish a measurement's accuracy.";
     edu:expands :DecimalEquivalence;
@@ -764,7 +764,7 @@
 :DecimalRounding a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Approximating a decimal value to a specified place by selecting the appropriate nearby value under a stated rounding convention.";
     rdfs:comment "Rounding 3.146 to 3.15 to the nearest hundredth.";
-    edu:expands :DecimalPrecission, :IntegerRounding;
+    edu:expands :DecimalPrecision, :IntegerRounding;
     edu:partOf :DecimalStrategies.
 :DecimalStrategies a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizable methods for coordinating decimal place value and arithmetic relationships to obtain or explain a result.";
@@ -2302,11 +2302,6 @@
     rdfs:isDefinedBy "A triangle that has one obtuse angle.";
     edu:integrates :ObtuseAngle;
     edu:specializes :Triangle.
-:OddAndEvenNumbers a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Testing an integer's divisibility by two directly from its numerical representation without performing division.";
-    rdfs:comment "Using the last digit of 348 to identify it as even.";
-    edu:expands :EvenDivisibility, :PlaceValue;
-    edu:partOf :DivisibilityRules.
 :OddFunctionIntegralCancellation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Cancellation to zero of a proper definite integral of an odd function over [-a,a], with a > 0, by pairing reflected contributions.";
     rdfs:comment "integral_(-2)^2 x^3 dx = 0.";
@@ -2437,6 +2432,11 @@
     rdfs:isDefinedBy "Determining d^2y/dx^2 along a twice differentiable plane parameterization by applying (1/x'(t))d/dt to y'(t)/x'(t), where x'(t) is nonzero.";
     rdfs:comment "For x=t^2,y=t^3 with t>0, d^2y/dx^2=3/(4t).";
     edu:specializes :ParametricDifferentiation.
+:ParityTest a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Testing an integer's divisibility by two directly from its numerical representation without performing division.";
+    rdfs:comment "Using the last digit of 348 to identify it as even.";
+    edu:expands :EvenDivisibility, :PlaceValue;
+    edu:partOf :DivisibilityRules.
 :PartialFractionDecomposition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Rewriting a rational function as a polynomial plus simpler fractions based on its denominator factors over a specified coefficient field, preserving the original excluded inputs.";
     rdfs:comment "1/(x(x+1))=1/x-1/(x+1), with x!=-1 and x!=0 retained.";
