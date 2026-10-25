@@ -2579,7 +2579,7 @@
 :PolynomialDependence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dependence whose governing expressions are polynomials in designated variables, with coefficients independent of those variables. Nonnegative integer powers, constants, and the zero polynomial are included on the stated domain.";
     rdfs:comment "3x^2 - 2x + 5; xy + y^2 in x and y; the residual x - 1 of x^2 + x = x^2 + 1; f(x) = 5.";
-    edu:specializes :AlgebraicDependence.
+    edu:specializes :RationalDependence.
 :PolynomialDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Decomposing a polynomial in one variable into a nonzero divisor times a quotient plus a remainder over a stated coefficient field. The remainder is zero or has degree less than the divisor.";
     rdfs:comment "Dividing x^2 + 1 by x - 1 to obtain quotient x + 1 and remainder 2.";
@@ -2876,8 +2876,8 @@
     rdfs:isDefinedBy "The understanding and application of numbers that can be expressed as the quotient or fraction of two integers, where the denominator is non-zero.";
     edu:partOf :ArithmeticSpaces.
 :RationalDependence a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Dependence represented by a quotient of polynomials in designated variables with a denominator polynomial that is not identically zero. Original denominator exclusions remain in force after cancellation.";
-    rdfs:comment "(x^2 - 1)/(x - 1), with x != 1; the residual 1/x - 2 of 1/x = 2, with x != 0; f(x) = 1/(x + 1).";
+    rdfs:isDefinedBy "Dependence whose governing expressions are quotients of polynomials in designated variables with denominator polynomials that are not identically zero, including nonzero constant denominators. Original denominator exclusions remain in force after cancellation.";
+    rdfs:comment "x^2 + 3 = (x^2 + 3)/1; (x^2 - 1)/(x - 1), with x != 1; the residual 1/x - 2 of 1/x = 2, with x != 0; f(x) = 1/(x + 1).";
     edu:specializes :AlgebraicDependence.
 :RationalityAndApproximation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Exact rational representations, rationality criteria, and the structure and accuracy of approximation by rational numbers.";
