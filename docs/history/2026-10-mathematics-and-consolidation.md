@@ -104,3 +104,12 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   generated enum keys in annotations and client code to adopt the new identifiers. The naming
   review is resolved; proposed links involving proportional dependence, `NumericFunction`,
   `PowerFunction`, and the renamed umbrella remain deferred.
+- **October 25 — Rewriting and identity families.** Added `RationalRewriting`, its
+  `PolynomialRewriting` specialization, `FiniteSumIdentity`, and `BinomialCoefficientIdentity`
+  under `AlgebraicEquivalence`. Grouped existing polynomial and rational rewriting, finite-sum
+  formulas, and binomial-coefficient identities under those concepts; `BinomialTheorem`
+  specializes both `PolynomialRewriting` and `FiniteSumIdentity`. Replaced redundant direct
+  ancestor links while preserving existing definitions, other relations, and labeling eligibility.
+  The four new concepts are eligible for direct labeling; review ancestry-dependent uses.
+  Retained the `AlgebraicEquivalence` name and definition to cover both expression-value equality
+  and constraint solution-set equivalence, resolving the top-family naming review.
