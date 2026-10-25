@@ -124,7 +124,7 @@
     rdfs:comment "Factoring x^2 + 5x + 6 as (x + 2)(x + 3) over integer polynomial factors; factoring ab + ac as a(b + c).";
     edu:specializes :AlgebraicEquivalence.
 :AlgebraicFunctions a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The study of functions through their types, domains, representations, constructions, and rates of change.";
+    rdfs:isDefinedBy "The study of functions through their types, input and output sets, representations, constructions, and rates of change.";
     rdfs:comment "Interpreting f(3) = 7 for f(x) = 2x + 1; composing f(x) = x^2 with g(x) = x + 1 to obtain f(g(x)) = (x + 1)^2.";
     edu:partOf :Algebra.
 :AlgebraicModeling a owl:NamedIndividual, edu:Area;
@@ -1312,6 +1312,10 @@
     rdfs:isDefinedBy "Numbers bounding a real-valued function's outputs from below or above on a stated set of inputs, distinguishing sharp bounds from attained extrema.";
     rdfs:comment "f(x) = x on (0, 1) has sharp lower bound 0 and sharp upper bound 1, neither attained; f(x) = x^2 on the real numbers has attained lower bound 0 and no upper bound.";
     edu:partOf :FunctionValueProperties.
+:FunctionCodomain a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The specified target set of a function, containing every output attained from its stated domain but potentially including elements the function never attains.";
+    rdfs:comment "For f: R -> R with f(x) = x^2, the codomain is R while the range is [0, infinity).";
+    edu:partOf :FunctionStructure.
 :FunctionComposition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Constructing or interpreting a function by using the output of one function as the input to another in a specified order. Its domain contains exactly those inputs admitted by the inner function whose outputs are admitted by the outer function, unless a narrower domain is explicitly prescribed.";
     rdfs:comment "For f(x) = x^2 and g(x) = x + 1, f(g(x)) = (x + 1)^2 and g(f(x)) = x^2 + 1.";
@@ -1339,7 +1343,7 @@
 :FunctionDomain a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The set of inputs admitted by a function, including restrictions imposed by its defining rule and by the situation it models.";
     rdfs:comment "The real domain x >= 0 for f(x) = sqrt(x); the nonnegative integer domain for the cost of buying whole items.";
-    edu:partOf :AlgebraicFunctions.
+    edu:partOf :FunctionStructure.
 :FunctionEndBehavior a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Limiting behavior of a real-valued function as its input tends toward positive or negative infinity through a domain unbounded in that direction, distinguishing finite limits, signed infinite limits, and failure to approach a limit.";
     rdfs:comment "x^3 tends to positive infinity as x tends to positive infinity and to negative infinity as x tends to negative infinity; sin(x) has no limit as x tends to positive infinity.";
@@ -1357,7 +1361,7 @@
     rdfs:comment "f(x) = x^3 has an inflection at (0, 0); g(x) = x^4 has no inflection at (0, 0) despite its second derivative being zero there.";
     edu:partOf :FunctionShapeProperties.
 :FunctionInterpretation a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The mathematical meanings of a function's inputs, outputs, and rates of change, including their relationships in mathematical and applied settings.";
+    rdfs:isDefinedBy "The general meanings of function properties when describing real-world quantities and their relationships, including how changes in inputs relate to changes in outputs.";
     rdfs:comment "For d(t) = 30t, with t in hours and d(t) in kilometers, d(2) = 60 gives the distance at two hours, and the average rate 30 on [1,3] gives kilometers traveled per hour over that interval.";
     edu:partOf :AlgebraicFunctions.
 :FunctionInversion a owl:NamedIndividual, edu:Area;
@@ -1399,7 +1403,7 @@
 :FunctionRange a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The set of outputs actually attained by a function as its input runs through its stated domain, distinguished from an output set that may also contain unattained values.";
     rdfs:comment "The range [0, infinity) for f(x) = x^2 on the real numbers; the range {2, 4, 6} for f(n) = 2n on {1, 2, 3}.";
-    edu:partOf :FunctionValueProperties.
+    edu:partOf :FunctionStructure.
 :FunctionRegularity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Continuity, discontinuity, differentiability, and specified forms of integrability of functions relative to their stated domains.";
     rdfs:comment "The continuity of f(x) = |x| on the real numbers and its failure to be differentiable at x = 0.";
@@ -1428,6 +1432,10 @@
     rdfs:isDefinedBy "Interior domain points where a real-valued function has a finite derivative equal to zero, whether or not an extremum or inflection occurs.";
     rdfs:comment "x = 0 is stationary for f(x) = x^2 and g(x) = x^3; it is not stationary for h(x) = |x|.";
     edu:specializes :FunctionCriticalPoints.
+:FunctionStructure a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The organization of a function as a mapping between sets, including its admitted inputs, specified target set, and the outputs it actually attains.";
+    rdfs:comment "For f: R -> R with f(x) = x^2, the domain and codomain are R and the range is [0, infinity).";
+    edu:partOf :AlgebraicFunctions.
 :FunctionSymbol a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a symbol or written name identifying the function applied to the arguments of a function-application expression.";
     rdfs:comment "Distinguishing f from its argument x + 1 in f(x + 1); identifying sin and max as the function names in sin(x) and max(a, b).";
@@ -1449,8 +1457,8 @@
     rdfs:comment "Distinguishing numerical correspondence in f(x) = x^2, distinct outputs for distinct inputs in g(x) = 2x + 1, and indexed terms in a_n = n^2.";
     edu:partOf :AlgebraicFunctions.
 :FunctionValueProperties a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The attained outputs, zeros, signs, and output bounds of functions on stated domains.";
-    rdfs:comment "The range [-1, infinity), zeros -1 and 1, and negative values on (-1, 1) of f(x) = x^2 - 1 over the real numbers.";
+    rdfs:isDefinedBy "The zeros, signs, and output bounds of functions on stated domains.";
+    rdfs:comment "The zeros -1 and 1, negative values on (-1, 1), and attained lower bound -1 of f(x) = x^2 - 1 over the real numbers.";
     edu:partOf :FunctionProperties.
 :FunctionZeros a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The admissible inputs at which a numerical function has output zero.";
