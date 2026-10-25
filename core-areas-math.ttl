@@ -191,7 +191,7 @@
     edu:expands :LengthCalculation, :Plane;
     edu:partOf :GeometricCalculations.
 :AreaIntegration a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Expressing geometric area as an integral of nonnegative slice lengths, splitting the domain where boundary order changes.";
+    rdfs:isDefinedBy "Expressing the geometric area of a plane region through integration of nonnegative area contributions, with bounds and subdivisions chosen to count each part of the region once.";
     rdfs:comment "The area between y=x and y=x^2 on [0,1] is integral_0^1 (x-x^2) dx = 1/6.";
     edu:partOf :IntegralApplications.
 :Arithmetic a owl:NamedIndividual, edu:Area;
@@ -2593,9 +2593,10 @@
     rdfs:comment "A model assigning mean three arrivals per interval to an arrival count.";
     edu:specializes :DiscreteProbabilityDistribution.
 :PolarAreaIntegration a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Expressing area swept by a polar curve as one half the integral of squared radius with respect to angle, with intervals and multiplicity chosen to describe the intended region.";
-    rdfs:comment "For r=2 on 0<=theta<=pi/2, the sector area is integral_0^(pi/2) 2 dtheta=pi.";
-    edu:partOf :CurveCalculus.
+    rdfs:isDefinedBy "Expressing the geometric area of a plane region in polar coordinates by summing integrals of one half the difference between squared outer and inner radial distances with respect to angle, using nonnegative distances ordered along each ray. Bounds and subdivisions are chosen to count each part of the region once, with inner distance zero where the region reaches the pole.";
+    rdfs:comment "For r=2 on 0<=theta<=pi/2, the sector area is integral_0^(pi/2) 2 dtheta=pi. The annular sector 1<=r<=2 on 0<=theta<=pi/2 has area (1/2) integral_0^(pi/2) (4-1) dtheta=3pi/4.";
+    edu:partOf :CurveCalculus;
+    edu:specializes :AreaIntegration.
 :PolarCoordinateRepresentation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The correspondence between plane points and radius-angle pairs through x=r cos(theta), y=r sin(theta), including nonunique angle and signed-radius representations.";
     rdfs:comment "(r,theta)=(2,pi/2) and (-2,-pi/2) both represent (0,2).";

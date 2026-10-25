@@ -99,15 +99,7 @@ particular new identifier, definition, or hierarchy.
 
 ### 2.3 `Calculus`
 
-#### 1. `CurveCalculus` (Deferred polar-area boundary):
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-S2`, `ONT-S5`):** `AreaIntegration` requires integrals
-  of nonnegative slice lengths. `PolarAreaIntegration` uses the angular sector-area density
-  $r(\theta)^2/2$, rather than a slice length, with intervals and multiplicity chosen for the
-  intended region. Review that defining boundary and orientation/multiplicity conditions before
-  adding the proposed specialization. Both definitions and placements remain unchanged.
-
-#### 2. `DifferentialCalculus > DifferentiationRules` (Family role):
+#### 1. `DifferentialCalculus > DifferentiationRules` (Family role):
 
 - **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S2`, `ONT-S5`, `ONT-E7`):**
   `DifferentiationRules` has five structural combination rules (`ChainRule`,
@@ -398,8 +390,7 @@ These items require a meaning or scope decision before implementation.
 - [Algebra](#21-algebra): function-family coverage and deferred specialization links connecting
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
 - [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links.
-- [Calculus](#23-calculus): the deferred polar-area definition boundary and the organizer vs.
-  specialization-family role of differentiation rules.
+- [Calculus](#23-calculus): the organizer vs. specialization-family role of differentiation rules.
 - [Combinatorics](#24-combinatorics): unordered-selection coverage and circular vs. linear
   counting-family boundaries.
 - [Formal mathematics](#25-formalmathematics): the deferred explicit/implicit radical-index
