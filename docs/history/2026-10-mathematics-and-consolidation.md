@@ -138,3 +138,8 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
 - **October 25 — Integer-strategy review.** Closed the `IntegerStrategies` regrouping item as
   an accepted no-change decision: its 20 methods, including four standard algorithms, remain
   direct `partOf` children. The broader strategy naming and relation audit remains deferred.
+- **October 25 — Lowest common numerator.** Clarified minimality under positive-integer
+  expansion of the fractions as written, using their positive integer numerators' least common
+  multiple. Added the unreduced example $4/6$ and $6/9$ expanding to $12/18$ with shared numerator
+  twelve. The name, relations, and labeling eligibility are unchanged; the definition review
+  is resolved. Review uses that assume a minimum after simplifying the supplied fractions.
