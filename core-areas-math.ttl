@@ -313,6 +313,10 @@
     rdfs:isDefinedBy "Descriptions and models of relationships between two observed variables, including the limits of interpretation.";
     rdfs:comment "Relating height to arm span or comparing travel modes between year groups.";
     edu:partOf :Statistics.
+:BoundedIntervals a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Intervals of numbers with finite bounds in both directions, whether their endpoints are included or excluded.";
+    rdfs:comment "The intervals [2,5], (2,5], and (2,5).";
+    edu:specializes :NumerationWithIntervals.
 :BoundVariable a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a variable occurrence governed by a binding construct within the mathematical expression or statement under consideration.";
     rdfs:comment "Identifying i as the bound summation index in sum_(i=1)^4 i*x; replacing the bound index k by j throughout product_(k=1)^3 (x + k); identifying x as bound in \"for every real x, x^2>=y\".";
@@ -400,7 +404,7 @@
 :CircularShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating drawings or models of complete circles and figures formed from portions of circles.";
     rdfs:comment "Drawing a circle with a compass, or constructing a semicircular outline.";
-    edu:partOf :SpatialModelling.
+    edu:partOf :SpatialModeling.
 :CircularShapes a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The field of knowledge concerning complete circles and plane figures formed from portions of circles, including their boundaries, properties, and relationships.";
     rdfs:comment "Complete circles, half circles, and quarter circles. These are distinct concepts within the field; a physical piece of a circle does not make its concept a specialization of the complete-circle concept.";
@@ -1734,10 +1738,6 @@
     rdfs:isDefinedBy "The relationship between geometric entities that share one or more common points where they meet or cross.";
     edu:expands :Line, :Plane;
     edu:partOf :PositionalRelations.
-:IntervalsWithInfinity a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Intervals of numbers with no finite bound in at least one direction.";
-    rdfs:comment "The interval of all real numbers greater than 3. Infinity indicates an unbounded direction rather than an included endpoint.";
-    edu:specializes :NumerationWithIntervals.
 :IntuitiveMathematics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The branch of mathematics that focuses on understanding foundational math concepts through direct experience and visualization, gradually familiarizing students with increasingly formal and abstract representations of math concepts.".
 :InverseElement a owl:NamedIndividual, edu:Area;
@@ -1846,7 +1846,7 @@
 :LinearDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating drawings or models of straight lines.";
     rdfs:comment "Drawing a straight line through two given points.";
-    edu:partOf :SpatialModelling.
+    edu:partOf :SpatialModeling.
 :LinearIndependence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The condition that a linear combination of specified vectors equals zero only when all its coefficients are zero.";
     rdfs:comment "(1,0,0) and (0,1,0) are independent; (1,0,0) and (2,0,0) are dependent.";
@@ -1866,7 +1866,7 @@
 :LinearShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating drawings or models of figures bounded by straight line segments.";
     rdfs:comment "Drawing a triangle from specified vertices.";
-    edu:partOf :SpatialModelling.
+    edu:partOf :SpatialModeling.
 :LinearSpan a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The set of all linear combinations of a specified collection of vectors over a stated scalar field.";
     rdfs:comment "The span of (1,0,0) and (0,1,0) is the plane z=0.";
@@ -2548,7 +2548,7 @@
 :Point a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A precise location in geometric space, with no extent.";
     rdfs:comment "The location (2,-1,3) in space or (2,-1) in a plane.";
-    edu:expands :SpatialModelling;
+    edu:expands :SpatialModeling;
     edu:partOf :GeometricFoundations.
 :PointPlotting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Locating and marking a point from its coordinates in a stated Cartesian coordinate system.";
@@ -3282,7 +3282,7 @@
     rdfs:isDefinedBy "A boundless, three-dimensional extent that contains all geometric figures and extends infinitely in all directions.";
     edu:expands :Plane;
     edu:partOf :GeometricFoundations.
-:SpatialModelling a owl:NamedIndividual, edu:Area;
+:SpatialModeling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating mental or physical representations of objects and their spatial relationships.";
     edu:partOf :SpatialSense.
 :SpatialPosition a owl:NamedIndividual, edu:Area;
@@ -3671,6 +3671,10 @@
     rdfs:isDefinedBy "Estimation of a population variance by the sum of squared deviations from the sample mean divided by n-1 for n independent identically distributed observations with finite variance and n > 1.";
     rdfs:comment "For sample values 1 and 3, the variance estimate is ((1-2)^2 + (3-2)^2)/(2-1) = 2.";
     edu:specializes :ParameterEstimation.
+:UnboundedIntervals a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Intervals of numbers with no finite bound in at least one direction.";
+    rdfs:comment "The interval of all real numbers greater than 3. Infinity indicates an unbounded direction rather than an included endpoint.";
+    edu:specializes :NumerationWithIntervals.
 :UnevenDivisibility a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the divisor is two, precluding the source collection from being partitioned into exactly two subcollections of equal cardinality. The result identifies the source cardinality as an odd integer, consisting of a quotient that represents the shared cardinality of the subcollections and a remainder of one.";
     edu:contradicts :EvenDivisibility;

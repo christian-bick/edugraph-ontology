@@ -449,7 +449,9 @@ they do not justify a mechanical rename, new group, or relation conversion.
   `NumerationWithDecimals` specialize `Numeration` ("Counting, ordering, and grouping numbers and
   relating them to numerical representations") by number domain, whereas `NumerationWithIntervals`
   ("Representing sets of numbers by their lower and upper bounds...") is about interval set
-  representation rather than counting and ordering numbers.
+  representation rather than counting and ordering numbers. `NumerationWithIntervals` now has
+  `BoundedIntervals` and `UnboundedIntervals` as specializing children; this split does not
+  resolve the parent mismatch.
 
 - **`NumericComparison` (`ONT-S1`, `ONT-S2`, `ONT-E7`):**
 
