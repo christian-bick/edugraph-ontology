@@ -282,11 +282,15 @@
     rdfs:comment "binom(5,2) = 10 counts two-person committees from five people and length-five binary strings containing exactly two 1s.";
     edu:integrates :Factorial;
     edu:partOf :CombinatorialEnumeration.
+:BinomialCoefficientIdentity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Equalities relating binomial coefficients through their indices and values, including symmetry, recurrence, and boundary-value identities under stated integer index bounds.";
+    rdfs:comment "binom(7,2) = binom(7,5); binom(6,2) = binom(5,1) + binom(5,2); binom(n,0) = 1 for nonnegative integer n.";
+    edu:specializes :AlgebraicEquivalence.
 :BinomialCoefficientSymmetry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identity binom(n,k) = binom(n,n-k) for integers 0 <= k <= n, relating the counts of selected and omitted elements.";
     rdfs:comment "binom(7,2) = binom(7,5) = 21.";
     edu:integrates :BinomialCoefficient;
-    edu:specializes :AlgebraicEquivalence.
+    edu:specializes :BinomialCoefficientIdentity.
 :BinomialDistribution a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The nature of the count of successes in n independent Bernoulli trials with one fixed success probability p, including its parameters and probabilities.";
     rdfs:comment "The number of heads in ten independent fair coin tosses.";
@@ -304,7 +308,7 @@
 :BinomialTheorem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identity expanding (a + b)^n as the sum of binom(n, k) a^(n-k) b^k over k = 0, ..., n, for real or complex a, b and nonnegative integer n, with zero powers interpreted as constant polynomial terms.";
     rdfs:comment "(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3.";
-    edu:specializes :AlgebraicEquivalence.
+    edu:specializes :FiniteSumIdentity, :PolynomialRewriting.
 :BivariateStatistics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Descriptions and models of relationships between two observed variables, including the limits of interpretation.";
     rdfs:comment "Relating height to arm span or comparing travel modes between year groups.";
@@ -1174,11 +1178,11 @@
 :FiniteArithmeticSum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identity equating the sum of n arithmetic terms beginning with a, of common difference d, to n(2a + (n - 1)d)/2 for positive integer n, equivalently n times the mean of the first and last terms.";
     rdfs:comment "3 + 7 + 11 + 15 = 4(3 + 15)/2 = 36; 1 + 2 + ... + 100 = 100(101)/2 = 5050.";
-    edu:specializes :AlgebraicEquivalence.
+    edu:specializes :FiniteSumIdentity.
 :FiniteGeometricSum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identity equating the sum of n geometric terms beginning with a, of common ratio r, to a(1 - r^n)/(1 - r) for positive integer n and r != 1. For r = 1, the sum is na.";
     rdfs:comment "3 + 6 + 12 + 24 = 3(1 - 2^4)/(1 - 2) = 45.";
-    edu:specializes :AlgebraicEquivalence.
+    edu:specializes :FiniteSumIdentity.
 :FiniteMarkovAbsorptionTheorem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The guarantee that a finite, time-homogeneous Markov chain in which every state can reach an absorbing state eventually enters some absorbing state with probability one.";
     rdfs:comment "With A and B absorbing and C moving to A, B or C with probabilities 0.2, 0.3 and 0.5, the probability of remaining in C after n steps is 0.5^n and tends to zero.";
@@ -1197,6 +1201,10 @@
     rdfs:isDefinedBy "The number of distinct elements in a finite set, independent of their order or repeated listing.";
     rdfs:comment "The set {a, a, b} has cardinality 2; the empty set has cardinality 0.";
     edu:specializes :SetCardinality.
+:FiniteSumIdentity a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Equalities expressing finite sums of indexed terms in equivalent forms, valid under stated summation bounds, parameter conditions, and domain restrictions.";
+    rdfs:comment "sum_(k=1)^n k = n(n+1)/2 for positive integer n; sum_(k=0)^n binom(n,k) = 2^n for nonnegative integer n.";
+    edu:specializes :AlgebraicEquivalence.
 :FirstDerivativeExtremumTest a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Classifying a candidate local extremum of a continuous function by first-derivative signs on the two neighboring intervals.";
     rdfs:comment "The derivative of x^2 changes from negative to positive at 0, giving a local minimum.";
@@ -1867,7 +1875,7 @@
 :LinearRewriting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Equivalent rewriting of affine combinations of designated variables or subexpressions, using coefficients independent of those quantities. Constant terms are included.";
     rdfs:comment "2(x + 3) + 4x = 6x + 6; 3*sin(x) + 2*sin(x) = 5*sin(x), treating sin(x) as the designated quantity.";
-    edu:specializes :AlgebraicEquivalence.
+    edu:specializes :PolynomialRewriting.
 :LinearShapeDrawing a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Creating drawings or models of figures bounded by straight line segments.";
     rdfs:comment "Drawing a triangle from specified vertices.";
@@ -2445,7 +2453,7 @@
 :PartialFractionDecomposition a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Rewriting a rational function as a polynomial plus simpler fractions based on its denominator factors over a specified coefficient field, preserving the original excluded inputs.";
     rdfs:comment "1/(x(x+1))=1/x-1/(x+1), with x!=-1 and x!=0 retained.";
-    edu:specializes :AlgebraicEquivalence.
+    edu:specializes :RationalRewriting.
 :PartitionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The physical, visual or symbolized act of splitting a single bounded collection into two or more distinct non-overlapping subcollections, establishing boundaries between them.";
     edu:expands :GroupRecognition;
@@ -2458,7 +2466,7 @@
     rdfs:isDefinedBy "The recurrence binom(n+1,k) = binom(n,k-1) + binom(n,k) for integers n >= 1 and 1 <= k <= n, together with the boundary values binom(n,0) = binom(n,n) = 1.";
     rdfs:comment "binom(6,2) = binom(5,1) + binom(5,2) = 5 + 10 = 15.";
     edu:integrates :BinomialCoefficient;
-    edu:specializes :AlgebraicEquivalence.
+    edu:specializes :BinomialCoefficientIdentity.
 :PatternCorrespondence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Identifying a systematic relationship between aligned elements of two patterns.";
     edu:expands :PatternRecognition;
@@ -2583,7 +2591,7 @@
 :PolynomialDivision a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Decomposing a polynomial in one variable into a nonzero divisor times a quotient plus a remainder over a stated coefficient field. The remainder is zero or has degree less than the divisor.";
     rdfs:comment "Dividing x^2 + 1 by x - 1 to obtain quotient x + 1 and remainder 2.";
-    edu:specializes :AlgebraicEquivalence.
+    edu:specializes :PolynomialRewriting.
 :PolynomialExpressionDependence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dependence whose governing expressions are polynomials in designated variables, with coefficients independent of those variables. Nonnegative integer powers, constants, and the zero polynomial are included on the stated domain.";
     rdfs:comment "3x^2 - 2x + 5; xy + y^2 in x and y; the residual x - 1 of x^2 + x = x^2 + 1; f(x) = 5.";
@@ -2596,6 +2604,10 @@
     rdfs:isDefinedBy "The equality between the remainder when a polynomial p(x) is divided by x - a and the value p(a), over a stated coefficient field containing a.";
     rdfs:comment "Dividing p(x) = x^2 + 1 by x - 2 leaves remainder 5 = p(2).";
     edu:partOf :AlgebraicTheorems.
+:PolynomialRewriting a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Equivalent polynomial forms in designated variables or subexpressions, including constants, and value-preserving rewriting justified by polynomial operations in those quantities. Coefficients are independent of the designated quantities, and original domain restrictions are retained.";
+    rdfs:comment "(x + 1)^3 = x^3 + 3x^2 + 3x + 1; 3*sin(x) + 2*sin(x) = 5*sin(x), treating sin(x) as the designated quantity; x^2 + 1 = (x - 1)(x + 1) + 2 for every real x, including x = 1.";
+    edu:specializes :RationalRewriting.
 :PopulationParameter a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A numerical characteristic of a specified population or probability model, distinguished from a statistic calculated from observed sample data.";
     rdfs:comment "The proportion of all town residents who commute by bicycle.";
@@ -2772,7 +2784,7 @@
 :QuadraticRewriting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Equivalent forms of expressions based on degree-two polynomial patterns in designated variables or subexpressions, and value-preserving rewriting between those forms.";
     rdfs:comment "x^2 + 6x + 5 = (x + 3)^2 - 4; (x^3 + 2)^2 = x^6 + 4x^3 + 4, using a quadratic pattern in x^3.";
-    edu:specializes :AlgebraicEquivalence.
+    edu:specializes :PolynomialRewriting.
 :QuadratureErrorBounds a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Guaranteed bounds on quadrature error derived from interval width, partition spacing and bounds on the required integrand derivatives.";
     rdfs:comment "For x^2 on [0,1], the composite trapezoidal error with n equal pieces is at most 1/(6n^2).";
@@ -2891,6 +2903,10 @@
     rdfs:isDefinedBy "The characterization of rational real numbers as quotients of integers with nonzero denominators and as values with terminating or eventually repeating decimal expansions. Irrational real numbers satisfy neither characterization.";
     rdfs:comment "Explaining why 0.125 = 1/8 and the exact repeating decimal 0.333... = 1/3 are rational.";
     edu:partOf :RationalityAndApproximation.
+:RationalRewriting a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Equivalent forms of quotients of polynomials in designated variables or subexpressions, including nonzero constant denominators, and value-preserving rewriting justified by rational operations in those quantities. Coefficients are independent of the designated quantities, denominator polynomials are not identically zero, and original domain restrictions are retained.";
+    rdfs:comment "1/x + 1/(x + 1) = (2x + 1)/(x(x + 1)), with x != 0 and x != -1 retained; (x^2 - 1)/(x - 1) = x + 1, with x != 1 retained.";
+    edu:specializes :AlgebraicEquivalence.
 :RatioNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The symbols and conventions used to represent ratios, and the meaning of the ordered quantities they compare.";
     rdfs:comment "Writing 2:3 for two red counters to three blue counters; interpreting 3:2 as the ratio of blue counters to red counters in the same collection.";

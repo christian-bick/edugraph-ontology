@@ -77,18 +77,6 @@ particular new identifier, definition, or hierarchy.
   For real inputs and outputs, inverse proportional dependence has exponent $-1$; the additional
   specialization remains deferred until the intended domain and family roles are settled.
 
-#### 2. `AlgebraicEquivalence` (Optional rewriting and identity subfamilies):
-
-- **Discussion, group 3 (`ONT-D1`, `ONT-D4`, `ONT-S2`, `ONT-S5`):** The accepted variety of
-  current equivalences does not require regrouping, but intermediate families remain an option.
-  Consider polynomial/rational rewriting around `PolynomialDivision` and
-  `PartialFractionDecomposition`, and binomial/finite-sum identities around `BinomialTheorem`,
-  `BinomialCoefficientSymmetry`, `PascalIdentity`, `FiniteArithmeticSum`, and
-  `FiniteGeometricSum`. Define any proposed shared claim before choosing members.
-  `AlgebraicFactorization` applies to algebraic expressions in a stated class of factors and
-  coefficient domain; do not narrow its current meaning to polynomial factorization merely
-  to fit a proposed family.
-
 ---
 
 ### 2.2 `Analysis`
@@ -457,8 +445,7 @@ need a concrete proposal and review.
 These items require a meaning or scope decision before implementation.
 
 - [Algebra](#21-algebra): function-family coverage and deferred specialization links connecting
-  expression dependence, proportionality, `NumericFunction`, and `PowerFunction`; and optional
-  rewriting and binomial/finite-sum families.
+  expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
 - [Analysis](#22-analysis): discontinuity coverage, including holes outside the domain, and
   domain/range organization with their distinct meanings retained.
 - [Arithmetic](#23-arithmetic): `Factorial`/`Modulo` placement and a defensible boundary for any
@@ -490,6 +477,11 @@ These items require a meaning or scope decision before implementation.
 
 No open actions remain in this group. Accepted differences in constituent roles, hierarchy depth,
 strategy organization, and overlapping classification axes have been removed from the findings.
+
+The `AlgebraicEquivalence` naming question is resolved (`ONT-D4`, `ONT-S2`): retain its name and
+definition, covering both expression-value equality and constraint solution-set equivalence.
+The implemented rewriting and identity subfamilies are recorded in
+[history](../history/2026-10-mathematics-and-consolidation.md).
 
 ### 5. Already-addressed claims
 
