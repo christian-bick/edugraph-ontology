@@ -170,3 +170,7 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   `RootIndex partOf ExpressionStructure`, including its implicit square-root index, and kept
   `Operand`'s explicit-input boundary. Removed the completed formal-mathematics section and
   renumbered the remaining family review sections.
+- **October 26 — Midpoint calculation.** Added `MidpointCalculation partOf GeometricVisualization`
+  while retaining its place in `GeometricCalculations`. Clarified the Cartesian coordinate-plane
+  boundary and added an endpoint-averaging example. Resolved the placement review; labeling
+  eligibility is unchanged, and structural queries now also reach the coordinate-geometry family.
