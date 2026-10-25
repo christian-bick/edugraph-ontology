@@ -11,19 +11,18 @@ claims have been removed from the family findings; completed work is summarized 
 - [1. Review boundary](#1-review-boundary)
 - [2. Family-by-family findings](#2-family-by-family-sibling-consistency-analysis)
   - [Algebra](#21-algebra)
-  - [Analysis](#22-analysis)
-  - [Arithmetic](#23-arithmetic)
-  - [Calculus](#24-calculus)
-  - [Combinatorics](#25-combinatorics)
-  - [FormalMathematics](#26-formalmathematics)
-  - [Geometry](#27-geometry)
-  - [GraphTheory](#28-graphtheory)
-  - [IntuitiveMathematics](#29-intuitivemathematics)
-  - [LinearAlgebra](#210-linearalgebra)
-  - [Logic](#211-logic)
-  - [NumberTheory](#212-numbertheory)
-  - [Probability](#213-probability)
-  - [Statistics](#214-statistics)
+  - [Arithmetic](#22-arithmetic)
+  - [Calculus](#23-calculus)
+  - [Combinatorics](#24-combinatorics)
+  - [FormalMathematics](#25-formalmathematics)
+  - [Geometry](#26-geometry)
+  - [GraphTheory](#27-graphtheory)
+  - [IntuitiveMathematics](#28-intuitivemathematics)
+  - [LinearAlgebra](#29-linearalgebra)
+  - [Logic](#210-logic)
+  - [NumberTheory](#211-numbertheory)
+  - [Probability](#212-probability)
+  - [Statistics](#213-statistics)
 - [3. Priority actions](#3-summary-of-priority-action-items)
   - [1. Agreed simple changes](#1-agreed-simple-changes)
   - [2. Agreed complex changes](#2-agreed-complex-changes)
@@ -79,20 +78,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.2 `Analysis`
-
-#### 1. `FunctionProperties` (Domain/range placement):
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S3`):** `FunctionRange` is placed under
-  `Analysis > FunctionProperties > FunctionValueProperties`, whereas `FunctionDomain` is placed
-  under `Algebra > AlgebraicFunctions`. Reconcile their intended family roles and the
-  algebra/analysis boundary before changing placement. `FunctionInterpretation` is a possible
-  shared context to consider; preserve the distinction between admissible inputs and the range
-  of outputs actually attained, rather than an arbitrary output set.
-
----
-
-### 2.3 `Arithmetic`
+### 2.2 `Arithmetic`
 
 #### 1. `ArithmeticOperations` (`Factorial`, `Modulo`, and a possible composite-operation family):
 
@@ -138,7 +124,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.4 `Calculus`
+### 2.3 `Calculus`
 
 #### 1. `CurveCalculus` (Deferred polar-area boundary):
 
@@ -162,7 +148,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.5 `Combinatorics`
+### 2.4 `Combinatorics`
 
 #### 1. `CombinatorialEnumeration` (Unordered selection and circular permutations):
 
@@ -181,7 +167,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.6 `FormalMathematics`
+### 2.5 `FormalMathematics`
 
 #### 1. `ExpressionStructure` (`RootIndex` vs. `Operand`):
 
@@ -194,7 +180,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.7 `Geometry`
+### 2.6 `Geometry`
 
 #### 1. `GeometricCalculations` (`MidpointCalculation`):
 
@@ -236,7 +222,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.8 `GraphTheory`
+### 2.7 `GraphTheory`
 
 #### 1. `GraphFoundations` (Possible foundational graph families):
 
@@ -254,7 +240,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.9 `IntuitiveMathematics`
+### 2.8 `IntuitiveMathematics`
 
 #### 1. `CollectionSense > DivisionOfCollections` (Remaining parity boundary and partition link):
 
@@ -317,7 +303,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.10 `LinearAlgebra`
+### 2.9 `LinearAlgebra`
 
 #### 1. `VectorAlgebra` (Optional organization review):
 
@@ -331,7 +317,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.11 `Logic`
+### 2.10 `Logic`
 
 #### 1. `PropositionalLogic` (`LogicalEquivalence`):
 
@@ -347,7 +333,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.12 `NumberTheory`
+### 2.11 `NumberTheory`
 
 #### 1. `NumberSystems` (Complex-number organization):
 
@@ -361,7 +347,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.13 `Probability`
+### 2.12 `Probability`
 
 #### 1. `ProbabilityFoundations` and `RandomVariableTheory`:
 
@@ -385,7 +371,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.14 `Statistics`
+### 2.13 `Statistics`
 
 #### 1. `DescriptiveStatistics` (Location/central-tendency family):
 
@@ -422,15 +408,15 @@ The collection-partition proposal remains explicitly deferred with parity work i
 Agreement concerns the issue to resolve; identifiers, definitions, and final graph changes still
 need a concrete proposal and review.
 
-- [Arithmetic](#23-arithmetic): `Modulo`'s number domain, divisor restrictions, and
+- [Arithmetic](#22-arithmetic): `Modulo`'s number domain, divisor restrictions, and
   negative-input convention relative to `EuclideanDivision`.
-- [Intuitive mathematics](#29-intuitivemathematics): the exact-division/concrete-parity boundary
+- [Intuitive mathematics](#28-intuitivemathematics): the exact-division/concrete-parity boundary
   and deferred division/partition specialization. The concrete parity descriptors remain
   unchanged pending the separate meaning decision.
-- [Intuitive mathematics](#29-intuitivemathematics): interval numeration's meaning and parent
+- [Intuitive mathematics](#28-intuitivemathematics): interval numeration's meaning and parent
   boundary.
-- [Number theory](#212-numbertheory): complex-number organization.
-- [Probability](#213-probability): finite-Markov/absorption topic organization.
+- [Number theory](#211-numbertheory): complex-number organization.
+- [Probability](#212-probability): finite-Markov/absorption topic organization.
 
 ### 3. Discussion and conditional proposals
 
@@ -438,29 +424,28 @@ These items require a meaning or scope decision before implementation.
 
 - [Algebra](#21-algebra): function-family coverage and deferred specialization links connecting
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
-- [Analysis](#22-analysis): domain/range organization with their distinct meanings retained.
-- [Arithmetic](#23-arithmetic): `Factorial`/`Modulo` placement and a defensible boundary for any
+- [Arithmetic](#22-arithmetic): `Factorial`/`Modulo` placement and a defensible boundary for any
   composite-operation family; overlapping integer-method classifications; the meaning of
   `LowestCommonNumerator`; and any missing reusable fraction-operation strategies.
-- [Calculus](#24-calculus): the deferred polar-area definition boundary and the organizer vs.
+- [Calculus](#23-calculus): the deferred polar-area definition boundary and the organizer vs.
   specialization-family role of differentiation rules.
-- [Combinatorics](#25-combinatorics): unordered-selection coverage and circular vs. linear
+- [Combinatorics](#24-combinatorics): unordered-selection coverage and circular vs. linear
   counting-family boundaries.
-- [Formal mathematics](#26-formalmathematics): the deferred explicit/implicit radical-index
+- [Formal mathematics](#25-formalmathematics): the deferred explicit/implicit radical-index
   boundary.
-- [Geometry](#27-geometry): midpoint-calculation placement, broad cone/cylinder meanings vs.
+- [Geometry](#26-geometry): midpoint-calculation placement, broad cone/cylinder meanings vs.
   right-circular solids of revolution, right-triangle ratio definitions/examples, and the
   coordinate-plane field vs. observable-concept role.
-- [Graph theory](#28-graphtheory): concrete foundational graph-family proposals and conventions.
-- [Intuitive mathematics](#29-intuitivemathematics): iteration overlap, reflective-symmetry
+- [Graph theory](#27-graphtheory): concrete foundational graph-family proposals and conventions.
+- [Intuitive mathematics](#28-intuitivemathematics): iteration overlap, reflective-symmetry
   placement, and the whole numeric-comparison family's boundaries, structural roles, and
   eligibility consequences.
-- [Linear algebra](#210-linearalgebra): whether additional vector-topic organization is useful.
-- [Logic](#211-logic): formula construction vs. equivalence of formulas within propositional
+- [Linear algebra](#29-linearalgebra): whether additional vector-topic organization is useful.
+- [Logic](#210-logic): formula construction vs. equivalence of formulas within propositional
   logic.
-- [Probability](#213-probability): whether broader random-variable organization is useful
+- [Probability](#212-probability): whether broader random-variable organization is useful
   beyond the current supported placements.
-- [Statistics](#214-statistics): a location/central-tendency family that accommodates
+- [Statistics](#213-statistics): a location/central-tendency family that accommodates
   categorical modes and preserves median's quantile role, and the shared inference context of
   sampling distributions and standard errors.
 

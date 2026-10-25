@@ -121,3 +121,11 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   are not exhaustive. Clarified `FunctionRegularity` to include discontinuity explicitly.
   Existing labeling eligibility is unchanged, and all three new concepts are eligible.
   Review the new discontinuity ancestry and direct-parent queries; the coverage review is resolved.
+- **October 25 — Function structure.** Added `FunctionStructure` under `AlgebraicFunctions`,
+  grouping `FunctionDomain`, new `FunctionCodomain`, and `FunctionRange` through `partOf`.
+  Replaced domain's direct algebraic-function parent and range's value-properties parent,
+  preserving their definitions and examples. Clarified `FunctionInterpretation` around general
+  meanings in real-world models and refined `FunctionValueProperties` around zeros, signs, and
+  bounds. Existing labeling eligibility is unchanged; codomain is eligible and the new structure
+  family is organizational. Review changed ancestry and the clarified interpretation boundary.
+  Removed the resolved domain/range finding and renumbered the remaining family review sections.
