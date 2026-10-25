@@ -2073,7 +2073,7 @@
     rdfs:isDefinedBy "Determining, representing, or comparing times of day, calendar dates, or elapsed durations using temporal reference systems and units.";
     rdfs:comment "Finding how long an activity lasts from its start and finish times.";
     edu:partOf :Measurement.
-:MeasuringVolumes a owl:NamedIndividual, edu:Area;
+:MeasuringVolume a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining or comparing the three-dimensional extent or amount of space occupied by manifested objects directly, through an intermediary, or by using tools and units.";
     edu:specializes :MeasuringObjects.
 :MeasuringWeight a owl:NamedIndividual, edu:Area;

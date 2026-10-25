@@ -462,8 +462,7 @@ they do not justify a mechanical rename, new group, or relation conversion.
 
 #### 3. `SpatialSense` (`Measurement` and `ShapePartWholeRelations`):
 
-- **`MeasuringObjects` vs. `MeasuringTime` (`ONT-S3`):** `MeasuringLength`, `MeasuringVolumes`
-  (note plural `MeasuringVolumes` vs. singular `MeasuringLength` and `MeasuringWeight`, `ONT-D5`),
+- **`MeasuringObjects` vs. `MeasuringTime` (`ONT-S3`):** `MeasuringLength`, `MeasuringVolume`,
   and `MeasuringWeight` specialize `MeasuringObjects`, while `MeasuringTime` sits one tier higher
   as a `partOf` sibling of `MeasuringObjects` and `MeasuringWithUnits`.
 
@@ -619,9 +618,7 @@ they do not justify a mechanical rename, new group, or relation conversion.
   `AreaIntegration`'s nonnegative slice-length definition, including orientation and multiplicity,
   before adding the proposed specialization or changing either definition.
 
-### 2. Repair cross-branch misplacements and naming inconsistencies (`ONT-S1`, `ONT-S3`, `ONT-D5`):
-
-- Clarify plural `MeasuringVolumes` vs. singular `MeasuringLength` / `MeasuringWeight`.
+### 2. Repair cross-branch misplacements (`ONT-S1`, `ONT-S3`):
 
 - Move `MonotoneSequenceConvergenceTheorem` and `MonotoneSequenceDivergenceTheorem` out of
   `FunctionTheorems` into `SequenceAndSeriesProperties`.

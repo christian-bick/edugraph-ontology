@@ -66,7 +66,8 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   its placement under `AlgebraicFunctions` and becomes eligible; the new organizer is ineligible,
   while rate eligibility is preserved. Review definition-, ancestry-, progression-, and
   eligibility-dependent uses against the [authored Areas](../../core-areas-math.ttl).
-- **October 25 — Identifier clarity.** Renamed former `DecimalPrecission` → `DecimalPrecision`
-  and former `OddAndEvenNumbers` → `ParityTest`; updated `DecimalRounding`'s precision reference.
+- **October 25 — Identifier clarity.** Renamed former `DecimalPrecission` → `DecimalPrecision`,
+  former `OddAndEvenNumbers` → `ParityTest`, and former `MeasuringVolumes` → `MeasuringVolume`.
+  Updated `DecimalRounding`'s precision reference.
   Definitions, examples, and relation meanings are unchanged. Update stored descriptor IRIs and
   generated enum keys in annotations and client code to adopt the new identifiers.
