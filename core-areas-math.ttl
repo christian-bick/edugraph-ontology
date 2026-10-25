@@ -2141,7 +2141,7 @@
 :Modulo a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Finding the remainder after dividing one number by another.";
     edu:expands :Division;
-    edu:partOf :BaseOperations.
+    edu:partOf :ArithmeticOperations.
 :MonotoneSequenceConvergenceTheorem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The guarantee that an infinite real sequence that is nondecreasing and bounded above, or nonincreasing and bounded below, converges to a finite real limit. The limit is respectively the supremum or infimum of its terms.";
     rdfs:comment "The nondecreasing sequence a_n = 1 - 1/n for n >= 1 is bounded above by 1 and converges to its supremum 1.";

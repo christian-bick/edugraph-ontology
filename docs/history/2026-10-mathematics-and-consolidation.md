@@ -129,3 +129,9 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   bounds. Existing labeling eligibility is unchanged; codomain is eligible and the new structure
   family is organizational. Review changed ancestry and the clarified interpretation boundary.
   Removed the resolved domain/range finding and renumbered the remaining family review sections.
+- **October 25 — Factorial and modulo placement.** Moved `Modulo` from `BaseOperations` directly
+  under `ArithmeticOperations`, alongside the existing `Factorial` placement. Preserved both
+  definitions, other relations, and labeling eligibility. Added no composite-operation family
+  or modular-arithmetic parent. The proposed factorial/multiplication and modulo/Euclidean-division
+  integration links remain deferred, as does modulo's number-domain and remainder convention.
+  Review direct-parent queries and removal of modulo's base-operation ancestry.
