@@ -216,7 +216,7 @@
 :ArithmeticMean a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The sum of the values in a nonempty finite numerical data collection divided by the number of observations.";
     rdfs:comment "The mean of 2, 4, and 9 is 5.";
-    edu:partOf :DescriptiveStatistics.
+    edu:specializes :WeightedArithmeticMean.
 :ArithmeticOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Mathematical operations that combine or transform numerical values according to defined rules.";
     rdfs:comment "Addition, subtraction, multiplication, division, exponentiation, or root extraction.";
@@ -267,7 +267,7 @@
 :BernoulliDistribution a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The nature of a two-valued probability law assigning probability p to 1 and 1-p to 0, with 0 <= p <= 1.";
     rdfs:comment "A success indicator with p=0.3.";
-    edu:specializes :DiscreteProbabilityDistribution.
+    edu:specializes :BinomialDistribution.
 :BezoutIdentity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The representation of the greatest common divisor of two integers, not both zero, as an integer linear combination of them.";
     rdfs:comment "gcd(30, 18) = 6 = 2 * 18 - 30.";
@@ -926,7 +926,7 @@
 :DistanceCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of distance between two points.";
     edu:expands :Difference;
-    edu:partOf :GeometricCalculations.
+    edu:specializes :LengthCalculation.
 :DistributingLinearCombinations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Expanding or factoring a common scalar multiplier across an affine sum in designated variables or subexpressions, with the multiplier independent of those quantities.";
     rdfs:comment "3(x + 2) = 3x + 6; 2*sin(x) + 2 = 2(sin(x) + 1).";
@@ -1270,12 +1270,13 @@
 :FractionReferenceDistanceComparison a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Comparing fraction magnitudes located on the same side of a reference value by evaluating the size of their respective remaining distances to that value.";
     edu:expands :Difference, :FractionReferenceComparison;
-    edu:partOf :FractionStrategies.
+    edu:specializes :FractionReferenceComparison.
 :FractionSimplification a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reducing a fraction to an equivalent simplest form by dividing its numerator and denominator by their greatest common factor.";
     rdfs:comment "12/18 simplifies to 2/3 by dividing both numerator and denominator by 6.";
     edu:expands :FactorsAndMultiples;
-    edu:partOf :FractionStrategies.
+    edu:partOf :FractionStrategies;
+    edu:specializes :FractionEquivalence.
 :FractionStrategies a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Recognizable methods for coordinating fraction magnitude, equivalence, and arithmetic relationships to obtain or explain a result.";
     edu:partOf :FractionArithmetic.
@@ -1830,7 +1831,7 @@
 :LinearApproximation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Approximating a differentiable real function near a by f(a)+f'(a)(x-a), with an error that is small relative to x-a as x approaches a.";
     rdfs:comment "sqrt(4+h) is approximately 2+h/4 for small h.";
-    edu:partOf :CalculusApproximation.
+    edu:specializes :TaylorPolynomialApproximation.
 :LinearCombination a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A finite sum of scalar multiples of specified vectors in a common vector space.";
     rdfs:comment "2(1,0,0) + 3(0,1,0) = (2,3,0).";
@@ -2112,11 +2113,11 @@
 :MonotoneSequenceConvergenceTheorem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The guarantee that an infinite real sequence that is nondecreasing and bounded above, or nonincreasing and bounded below, converges to a finite real limit. The limit is respectively the supremum or infimum of its terms.";
     rdfs:comment "The nondecreasing sequence a_n = 1 - 1/n for n >= 1 is bounded above by 1 and converges to its supremum 1.";
-    edu:partOf :FunctionTheorems.
+    edu:partOf :SequenceTheorems.
 :MonotoneSequenceDivergenceTheorem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The guarantee that an infinite nondecreasing real sequence unbounded above tends to positive infinity, and an infinite nonincreasing real sequence unbounded below tends to negative infinity.";
     rdfs:comment "The nondecreasing sequence a_n = n^2 for n >= 1 is unbounded above, so it tends to positive infinity.";
-    edu:partOf :FunctionTheorems.
+    edu:partOf :SequenceTheorems.
 :MonteCarloEstimation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Approximating a quantity by a sample average or frequency generated from a probability model, with sampling variation in the approximation.";
     rdfs:comment "Estimating pi from the fraction of uniform points in a unit square lying inside a quarter-circle.";
@@ -2365,7 +2366,7 @@
 :OrderOfOperations a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The conventions determining how operators bind to subexpressions in written mathematical notation, including precedence and the prescribed grouping of operators at equal precedence.";
     rdfs:comment "Interpreting a + b × c as a + (b × c); interpreting a - b - c as (a - b) - c.";
-    edu:partOf :ArithmeticLaws.
+    edu:partOf :ExpressionStructure.
 :Origin a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The point (0,0) where the coordinate axes intersect on the Cartesian plane.";
     edu:expands :CoordinateAxes;
@@ -2394,7 +2395,7 @@
 :Parallelogram a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with two pairs of parallel sides, their properties, and related measurements.";
     edu:expands :ParallelismRelation;
-    edu:specializes :Quadrilateral.
+    edu:specializes :Trapezoid.
 :ParallelogramDiagonalCriterion a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The equivalence between a simple quadrilateral being a parallelogram and its diagonals bisecting one another.";
     rdfs:comment "Diagonals AC and BD intersect at O with AO = OC and BO = OD.";
@@ -2503,7 +2504,7 @@
     rdfs:isDefinedBy "Calculating the total length of a closed plane figure's boundary.";
     rdfs:comment "Adding the side lengths of a polygon.";
     edu:expands :LengthCalculation;
-    edu:partOf :GeometricCalculations.
+    edu:specializes :LengthCalculation.
 :PermutationCounting a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Counting linear arrangements of every member of an n-element set exactly once, giving n! for nonnegative integer n.";
     rdfs:comment "Four different books have 4! = 24 orders on a shelf.";
@@ -3094,6 +3095,10 @@
     rdfs:isDefinedBy "Approach of an infinite numerical sequence to a finite value: every positive tolerance contains all sufficiently late terms around that value.";
     rdfs:comment "1/n converges to 0, while (-1)^n does not converge. For a_n = 1/n and epsilon > 0, choosing an integer N > 1/epsilon ensures abs(a_n) < epsilon for every n >= N.";
     edu:partOf :SequenceAndSeriesProperties.
+:SequenceTheorems a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Theorems establishing limit behavior and convergence or divergence of numerical sequences under stated hypotheses.";
+    rdfs:comment "For a_n = 1 - 1/n, n >= 1, monotonicity and the upper bound 1 guarantee convergence to 1; for a_n = n^2, monotonicity and unboundedness guarantee divergence to positive infinity.";
+    edu:partOf :SequenceAndSeriesProperties.
 :SequentialLimitCriterion a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The equivalence, for a real function at a finite accumulation point a of its domain, between having finite limit L and having f(x_n) approach L for every domain sequence with x_n != a and x_n approaching a.";
     rdfs:comment "For f(x) = abs(x)/x, the sequences x_n = 1/n and y_n = -1/n approach 0 while f(x_n) = 1 and f(y_n) = -1, ruling out a limit at 0.";
@@ -3294,7 +3299,7 @@
 :Sphere a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A solid geometric figure that is perfectly round and defined by a surface where every point is equidistant from a central point.";
     edu:expands :Circle;
-    edu:partOf :ThreeDimensionalObjects.
+    edu:specializes :SolidOfRevolution.
 :Square a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles and four equal sides, their properties, and related measurements.";
     edu:specializes :Rectangle, :Rhombus.
@@ -3464,7 +3469,7 @@
 :SurfaceAreaCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The calculation of the total area of the surface of a three-dimensional object.";
     edu:expands :AreaCalculation, :Space;
-    edu:partOf :GeometricCalculations.
+    edu:specializes :AreaCalculation.
 :SymmetryIntegration a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Evaluating or reducing proper definite integrals on symmetric intervals through reflection identities of their integrands.";
     rdfs:comment "integral_(-1)^1 (x^3+x^2) dx = 2 integral_0^1 x^2 dx = 2/3.";

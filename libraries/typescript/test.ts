@@ -123,7 +123,7 @@ assertEqual(isLabelEligible(Area.CircularSector), true, "a parent with only spec
 assertOk(!specializesTransitive(Area.Circle).includes(Area.CircularSector));
 console.log("✅ Circular-shape grouping checks passed.");
 
-// Strategies belong to a methods family, not to the equal-value principle itself.
+// Simplification is both a strategy and an equivalence transformation; common multiples remain strategies.
 console.log("Asserting fraction strategy grouping...");
 for (const strategy of [Area.FractionSimplification, Area.LowestCommonDenominator, Area.LowestCommonNumerator]) {
   assertEqual(partOf(strategy).length, 1);
@@ -131,8 +131,14 @@ for (const strategy of [Area.FractionSimplification, Area.LowestCommonDenominato
   assertOk(hasPart(Area.FractionStrategies).includes(strategy));
   assertOk(structuredBy(Area.FractionStrategies).includes(strategy));
   assertOk(partOfTransitive(strategy).includes(Area.FractionArithmetic));
-  assertOk(!structuresTransitive(strategy).includes(Area.FractionEquivalence));
-  assertEqual(specializesTransitive(strategy).length, 0);
+  if (strategy === Area.FractionSimplification) {
+    assertOk(specializes(strategy).includes(Area.FractionEquivalence));
+    assertOk(structuresTransitive(strategy).includes(Area.FractionEquivalence));
+    assertEqual(specializesTransitive(strategy).length, 1);
+  } else {
+    assertOk(!structuresTransitive(strategy).includes(Area.FractionEquivalence));
+    assertEqual(specializesTransitive(strategy).length, 0);
+  }
 }
 assertEqual(hasPart(Area.FractionEquivalence).length, 0);
 console.log("✅ Fraction strategy grouping checks passed.");
