@@ -135,3 +135,6 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   or modular-arithmetic parent. The proposed factorial/multiplication and modulo/Euclidean-division
   integration links remain deferred, as does modulo's number-domain and remainder convention.
   Review direct-parent queries and removal of modulo's base-operation ancestry.
+- **October 25 — Integer-strategy review.** Closed the `IntegerStrategies` regrouping item as
+  an accepted no-change decision: its 20 methods, including four standard algorithms, remain
+  direct `partOf` children. The broader strategy naming and relation audit remains deferred.

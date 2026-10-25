@@ -95,16 +95,7 @@ particular new identifier, definition, or hierarchy.
   remain unapproved. Revisit their conceptual meaning and progression paths separately;
   the modulo proposal also depends on the unresolved number-domain and remainder convention.
 
-#### 2. `ArithmeticSpaces` (`IntegerStrategies` and fraction-strategy coverage):
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S3`):** `IntegerStrategies` contains 20
-  direct `partOf` children: four standard written vertical/long algorithms
-  (`AdditionStandardAlgorithm`, `SubtractionStandardAlgorithm`, `MultiplicationStandardAlgorithm`,
-  `DivisionStandardAlgorithm`) and 16 other strategies across the four operations. Written,
-  mental, and decomposition methods can overlap, so they do not supply disjoint groups.
-  Consider grouping by operation alongside other proposals in the
-  [shared strategy audit](ontology-consolidation.md#deferred-arithmetic-strategy-audit).
-  This does not reopen the accepted use of fraction techniques as strategies.
+#### 2. `ArithmeticSpaces` (Fraction-strategy naming and coverage):
 
 - **Discussion, group 3 (`ONT-D4`, `ONT-D6`):** `LowestCommonNumerator` finds the least common
   multiple of the written positive numerators. Clarify whether its name means that procedure
@@ -419,8 +410,7 @@ These items require a meaning or scope decision before implementation.
 
 - [Algebra](#21-algebra): function-family coverage and deferred specialization links connecting
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
-- [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links;
-  overlapping integer-method classifications; the meaning of
+- [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links; the meaning of
   `LowestCommonNumerator`; and any missing reusable fraction-operation strategies.
 - [Calculus](#23-calculus): the deferred polar-area definition boundary and the organizer vs.
   specialization-family role of differentiation rules.
@@ -448,6 +438,12 @@ These items require a meaning or scope decision before implementation.
 
 No open actions remain in this group. Accepted differences in constituent roles, hierarchy depth,
 strategy organization, and overlapping classification axes have been removed from the findings.
+
+The `IntegerStrategies` regrouping question is resolved (`ONT-D4`, `ONT-S1`, `ONT-S5`):
+retain its current definition and 20 direct `partOf` methods, including the four standard
+algorithms. Overlapping written, mental, and decomposition methods do not establish a family
+deficit. The [broader strategy audit](ontology-consolidation.md#deferred-arithmetic-strategy-audit)
+remains deferred independently.
 
 The `AlgebraicEquivalence` naming question is resolved (`ONT-D4`, `ONT-S2`): retain its name and
 definition, covering both expression-value equality and constraint solution-set equivalence.
