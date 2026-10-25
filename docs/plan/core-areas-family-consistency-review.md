@@ -104,15 +104,7 @@ they do not justify a mechanical rename, new group, or relation conversion.
     under intermediate specialization families, and review whether `QuadraticFormula` belongs
     under `AlgebraicConstraints` / `EquationSolving` or `QuadraticRewriting`.
 
-#### 4. `AlgebraicFunctions` (`FunctionSlope`, `FunctionTypes`, and `NumericFunction`):
-
-- **`FunctionSlope` eligibility (`ONT-S2`, `ONT-E7`):** `AverageRateOfChange partOf FunctionSlope`
-  and `InstantaneousRateOfChange partOf FunctionSlope` make `FunctionSlope` ineligible under
-  `ONT-E7`. Yet `FunctionSlope` is defined as *"Rates of change of a real-valued function with
-  respect to its real input, measured between distinct inputs or at a point where a finite
-  limiting rate exists"*—so `AverageRateOfChange` and `InstantaneousRateOfChange` are narrower
-  forms (`specializes`) of `FunctionSlope`. Changing these two edges from `partOf` to proposed
-  `specializes` restores `FunctionSlope`'s eligibility under `ONT-E7`.
+#### 4. `AlgebraicFunctions` (`FunctionTypes` and `NumericFunction`):
 
 - **`FunctionTypes` category mixing (`ONT-S1`, `ONT-S3`):** The four `partOf` children of
   `FunctionTypes` are `NumericFunction` (input/output value domain), `Sequence` (consecutive
@@ -134,7 +126,7 @@ they do not justify a mechanical rename, new group, or relation conversion.
 - **Suggestion (`ONT-S1`, `ONT-S2`, `ONT-S3`):** Move `OneToOneFunction` out of `FunctionTypes`
   (e.g., directly under `AlgebraicFunctions` next to `FunctionInversion`, or under
   `FunctionProperties`), clarify the relationship between `AlgebraicDependence` and
-  `NumericFunction`, and convert `FunctionSlope`'s children to `specializes`.
+  `NumericFunction`.
 
 ---
 
@@ -636,9 +628,6 @@ they do not justify a mechanical rename, new group, or relation conversion.
 - **Deferred:** Review `PolarAreaIntegration`'s angular sector-area density against
   `AreaIntegration`'s nonnegative slice-length definition, including orientation and multiplicity,
   before adding the proposed specialization or changing either definition.
-
-- Convert `AverageRateOfChange` and `InstantaneousRateOfChange` from `partOf` to `specializes`
-  under `FunctionSlope` to restore `FunctionSlope`'s `ONT-E7` eligibility.
 
 ### 2. Repair cross-branch misplacements and naming typos (`ONT-S1`, `ONT-S3`, `ONT-D5`):
 
