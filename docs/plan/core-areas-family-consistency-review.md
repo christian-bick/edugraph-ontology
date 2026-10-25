@@ -50,17 +50,7 @@ particular new identifier, definition, or hierarchy.
 
 ### 2.1 `Algebra`
 
-#### 1. `AlgebraicDependence` (Polynomial/rational meaning and inverse proportionality):
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-S2`):** The local `PolynomialDependence` definition
-  classifies dependence by polynomial governing expressions. `RationalDependence` uses quotients
-  of polynomials with a denominator not identically zero, so a polynomial expression can be
-  written as $p/1$ under that definition. The alternative terminology of rational dependence as
-  linear dependence over the rational numbers concerns a different meaning; it does not settle
-  the relationship between these authored expression-based descriptors. Decide which meanings
-  and inherited claims are intended before changing definitions or adding a specialization.
-  Both current definitions and edges are retained pending that decision; sibling families need
-  not be disjoint.
+#### 1. `AlgebraicDependence` (Inverse proportionality):
 
 - **Discussion, group 3 (`ONT-D1`, `ONT-D4`, `ONT-S2`):**
   `DirectProportionalDependence` ($y = kx$) is modeled under `AffineDependence`, while inverse
@@ -77,6 +67,13 @@ particular new identifier, definition, or hierarchy.
   families are represented under `AlgebraicDependence`. Clarify the distinction between an
   algebraic expression or constraint dependence and a single-valued numerical function before
   introducing function-family descriptors or links.
+
+- **Discussion, group 3 (`ONT-D4`, `ONT-D6`):** Keep the current identifiers while reviewing
+  the broader family's terminology together. The authored dependence descriptors classify
+  governing expressions; they do not express linear dependence over the rational numbers or
+  field-theoretic algebraic dependence. `AlgebraicDependence` also includes
+  `ExponentialDependence`. Consider coordinated expression-based names only after settling the
+  family boundary; the polynomial/rational inclusion is resolved and does not depend on a rename.
 
 #### 3. `AlgebraicEquivalence` (Optional rewriting and identity subfamilies):
 
@@ -457,9 +454,8 @@ need a concrete proposal and review.
 
 These items require a meaning or scope decision before implementation.
 
-- [Algebra](#21-algebra): polynomial/rational terminology and the quotient-based inclusion
-  question; inverse proportionality; the dependence/function boundary; and optional rewriting
-  and binomial/finite-sum families. No new specialization or subgroup is approved.
+- [Algebra](#21-algebra): inverse proportionality; the dependence/function boundary and
+  coordinated family naming; and optional rewriting and binomial/finite-sum families.
 - [Analysis](#22-analysis): discontinuity coverage, including holes outside the domain, and
   domain/range organization with their distinct meanings retained.
 - [Arithmetic](#23-arithmetic): `Factorial`/`Modulo` placement and a defensible boundary for any

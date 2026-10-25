@@ -84,3 +84,9 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   labeling. Review structural ancestry and direct-parent queries.
   Retired accepted no-change findings and stale claims from the family review, separating remaining
   modeling work from open discussion in its priority groups.
+- **October 25 — Polynomial and rational dependence.** Made `PolynomialDependence` specialize
+  `RationalDependence`, retaining `AlgebraicDependence` through inheritance. Clarified that rational
+  governing expressions include nonzero constant denominators, with a polynomial example, while
+  preserving original domain exclusions. Names and labeling eligibility are unchanged; polynomial,
+  affine, quadratic, and direct-proportional concepts now inherit rational-dependence ancestry.
+  Coordinated family naming remains open in the review.
