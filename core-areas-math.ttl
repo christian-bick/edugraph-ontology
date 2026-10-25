@@ -1579,10 +1579,10 @@
     rdfs:comment "[[1, 0], [0, 1]] leaves every two-component column vector unchanged.";
     edu:specializes :MatrixStructure.
 :ImperfectDivisibility a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Euclidean division of an integer a by a positive integer b with a nonzero remainder, so a = bq + r for integers q and r satisfying 0 < r < b, and b does not divide a.";
+    rdfs:isDefinedBy "Division of an integer a by a positive integer b with a nonzero remainder, so a = bq + r for integers q and r satisfying 0 < r < b, and b does not divide a.";
     rdfs:comment "17 = 5 * 3 + 2; -7 = 3 * (-3) + 2.";
     edu:contradicts :PerfectDivisibility;
-    edu:specializes :EuclideanDivision.
+    edu:partOf :DivisibilityRules.
 :ImplicitDifferentiation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Differentiating a relation satisfied by a locally differentiable unknown function, using the chain rule and solving for the derivative where the resulting relation permits it.";
     rdfs:comment "From x^2+y^2 = 1 obtain y' = -x/y where y != 0 on a differentiable branch.";
@@ -2299,7 +2299,7 @@
     rdfs:isDefinedBy "Testing an integer's divisibility by two directly from its numerical representation without performing division.";
     rdfs:comment "Using the last digit of 348 to identify it as even.";
     edu:expands :EvenDivisibility, :PlaceValue;
-    edu:specializes :DivisibilityRules.
+    edu:partOf :DivisibilityRules.
 :OddFunctionIntegralCancellation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Cancellation to zero of a proper definite integral of an odd function over [-a,a], with a > 0, by pairing reflected contributions.";
     rdfs:comment "integral_(-2)^2 x^3 dx = 0.";
@@ -2489,9 +2489,9 @@
     rdfs:comment "Expressing 12 out of 80 as 15%; expressing 120 relative to 80 as 150%.";
     edu:partOf :PercentageArithmetic.
 :PerfectDivisibility a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Euclidean division of an integer a by a positive integer b with remainder zero, so a = bq for an integer quotient q and b divides a.";
+    rdfs:isDefinedBy "Division of an integer a by a positive integer b with remainder zero, so a = bq for an integer quotient q and b divides a.";
     rdfs:comment "12 = 3 * 4 + 0; -12 = 3 * (-4) + 0; 0 = 5 * 0 + 0.";
-    edu:specializes :EuclideanDivision.
+    edu:partOf :DivisibilityRules.
 :PerimeterCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Calculating the total length of a closed plane figure's boundary.";
     rdfs:comment "Adding the side lengths of a polygon.";
