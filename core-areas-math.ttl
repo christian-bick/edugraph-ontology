@@ -565,7 +565,7 @@
     rdfs:comment "The alternating harmonic series converges conditionally.";
     edu:specializes :SeriesConvergence.
 :Cone a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A three-dimensional geometric shape that tapers smoothly from a flat base to a point called the apex or vertex.";
+    rdfs:isDefinedBy "A solid consisting of all line segments joining points of a circular disk of positive radius to an apex outside the disk's plane.";
     edu:expands :Circle, :Triangle;
     edu:partOf :ThreeDimensionalObjects.
 :ConfidenceInterval a owl:NamedIndividual, edu:Area;
@@ -713,7 +713,7 @@
     rdfs:comment "An interior angle of 75° gives an opposite angle of 105°.";
     edu:partOf :CircleRelations.
 :Cylinder a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A three-dimensional solid consisting of two parallel circular bases connected by a curved surface.";
+    rdfs:isDefinedBy "A solid swept out by translating a circular disk of positive radius along a nonzero straight segment whose direction is not parallel to the disk's plane.";
     edu:expands :Circle, :Rectangle;
     edu:partOf :ThreeDimensionalObjects.
 :CylindricalShellIntegration a owl:NamedIndividual, edu:Area;
@@ -2325,6 +2325,14 @@
     rdfs:comment "Sorting objects by color, shape, or size. Sorting forms groups; identifying a subgroup need not rearrange the collection.";
     edu:expands :GroupRecognition;
     edu:partOf :CollectionSense.
+:ObliqueCircularCone a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A circular cone whose apex lies off the line perpendicular to its base plane through the base center.";
+    rdfs:comment "A cone with a unit-disk base in the plane z = 0 centered at (0, 0, 0) and apex (1, 0, 2).";
+    edu:specializes :Cone.
+:ObliqueCircularCylinder a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A circular cylinder whose base centers lie on a line that is not perpendicular to the base planes.";
+    rdfs:comment "The solid swept out by translating a unit disk in the plane z = 0 along the segment from (0, 0, 0) to (1, 0, 2).";
+    edu:specializes :Cylinder.
 :ObservationalStudy a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Data collection without assigning the exposures or treatments whose relationships are being investigated.";
     rdfs:comment "Recording existing exercise habits and blood pressure without assigning exercise routines.";
@@ -3019,6 +3027,14 @@
     rdfs:isDefinedBy "An angle of exactly 90 degrees, corresponding to a quarter turn.";
     edu:expands :PerpendicularityRelation;
     edu:specializes :Angle.
+:RightCircularCone a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A circular cone whose apex lies on the line perpendicular to its base plane through the base center.";
+    rdfs:comment "Rotating a right triangular region with legs 3 and 4 through a full turn about the leg of length 4 produces a cone with radius 3 and height 4.";
+    edu:specializes :Cone, :SolidOfRevolution.
+:RightCircularCylinder a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A circular cylinder whose base centers lie on a line perpendicular to the base planes.";
+    rdfs:comment "Rotating a rectangular region with side lengths 3 and 4 through a full turn about a side of length 4 produces a cylinder with radius 3 and height 4.";
+    edu:specializes :Cylinder, :SolidOfRevolution.
 :RightTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle that has one right angle.";
     edu:integrates :RightAngle;
