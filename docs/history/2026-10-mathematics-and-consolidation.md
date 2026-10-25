@@ -157,3 +157,8 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   of derivative identities and their applicability conditions. Retained its name, six direct
   `partOf` children, and the elementary-identity specializations; labeling eligibility is
   unchanged. Resolved the family-role review and removed the completed calculus section.
+- **October 25 — Unordered-selection counting.** Added eligible `UnorderedSelectionCounting`
+  under `CombinatorialEnumeration` for determining or interpreting selection counts independently
+  of selection order, with examples without and with repetition. Existing descriptors, relations,
+  and labeling eligibility are unchanged. The generic coverage review is resolved; proposed
+  specializations from `BinomialCoefficient` and `StarsAndBars` remain deferred.

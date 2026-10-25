@@ -100,12 +100,16 @@ particular new identifier, definition, or hierarchy.
 
 #### 1. `CombinatorialEnumeration` (Unordered selection and circular permutations):
 
-- **Discussion, group 3 (`ONT-D1`, `ONT-D4`, `ONT-S2`, `ONT-E7`):** Ordered selection has an
-  eligible hierarchy under `OrderedSelectionCounting`, whereas unordered selection without
-  repetition is represented by `BinomialCoefficient` and multiset counting by `StarsAndBars`.
-  Consider an unordered-selection / combination-counting family only if it adds a useful
-  observable generic claim. The current difference in names and hierarchy depth is not itself
-  a defect, and the coefficient descriptors already express counting knowledge.
+- **Deferred, group 3 (`ONT-D4`, `ONT-S2`, `ONT-S5`, `ONT-W2`):** Review the proposed
+  `BinomialCoefficient specializes UnorderedSelectionCounting` and
+  `StarsAndBars specializes UnorderedSelectionCounting` links separately. `BinomialCoefficient`
+  defines the number of subsets, while the new parent concerns determining or interpreting
+  selection counts. Decide whether this supports specialization for the full coefficient meaning.
+  `StarsAndBars` counts nonnegative integer solutions through a separator construction,
+  including allocation interpretations. Establish whether those meanings preserve the parent's
+  selection and multiplicity interpretation, rather than relying on a possible bijection alone. Review
+  definitions and complete affected paths before adding either specialization; existing
+  relations remain unchanged.
 
 - **Discussion, group 3 (`ONT-D4`, `ONT-S2`):** `CircularPermutationCounting` identifies
   arrangements up to rotation, while `OrderedSelectionCounting` distinguishes positions and
@@ -373,8 +377,8 @@ These items require a meaning or scope decision before implementation.
 - [Algebra](#21-algebra): function-family coverage and deferred specialization links connecting
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
 - [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links.
-- [Combinatorics](#23-combinatorics): unordered-selection coverage and circular vs. linear
-  counting-family boundaries.
+- [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links and
+  circular vs. linear counting-family boundaries.
 - [Formal mathematics](#24-formalmathematics): the deferred explicit/implicit radical-index
   boundary.
 - [Geometry](#25-geometry): midpoint-calculation placement, broad cone/cylinder meanings vs.
