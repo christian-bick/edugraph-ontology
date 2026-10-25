@@ -429,7 +429,7 @@ they do not justify a mechanical rename, new group, or relation conversion.
   exact equal partition, but `UnevenDivisibility` still specializes it while explicitly leaving
   one object undistributed. Keep the concrete collection meaning distinct from the numerical
   remainder cases now represented by `PerfectDivisibility` and `ImperfectDivisibility` under
-  `EuclideanDivision`.
+  `DivisibilityRules`.
 
 - **Open parity consolidation (`ONT-D1`, `ONT-D4`, `ONT-E1`, `ONT-W2`):** `EvenDivisibility` and
   `UnevenDivisibility` currently describe a concrete two-group sharing model; `IntegerParity`
@@ -517,9 +517,9 @@ they do not justify a mechanical rename, new group, or relation conversion.
 
 #### 1. `IntegerDivisibility` (`OddAndEvenNumbers` vs. `IntegerParity` and level mixing):
 
-- `OddAndEvenNumbers` (`OddAndEvenNumbers specializes DivisibilityRules`) is defined as *"Testing
+- `OddAndEvenNumbers` (`OddAndEvenNumbers partOf DivisibilityRules`) is defined as *"Testing
   an integer's divisibility by two directly from its numerical representation without performing
-  division"*, whereas its sibling `IntegerParity` (`IntegerParity partOf IntegerDivisibility`) is
+  division"*, whereas the nearby `IntegerParity` (`IntegerParity partOf IntegerDivisibility`) is
   defined as *"The even or odd character of integers, represented by the forms $2k$ and $2k + 1$..."*.
 
 - **Suggestion (`ONT-D5`, `ONT-S3`):** Rename `OddAndEvenNumbers` to reflect that it is a
@@ -628,7 +628,7 @@ they do not justify a mechanical rename, new group, or relation conversion.
 - Resolve `UnevenDivisibility`'s remaining conflict with the exact `DivisionOfCollections`
   definition, assess the two concrete divisor-two concepts against `IntegerParity`, and review the proposed
   `DivisionOfCollections specializes PartitionOfCollections`. Numerical zero/nonzero remainder
-  cases now specialize `EuclideanDivision`; do not broaden the collection parent to absorb them.
+  cases now belong to `DivisibilityRules`; do not broaden the collection parent to absorb them.
 
 - **Deferred:** Review `RootIndex`'s implicit index two against `Operand`'s explicit-input
   boundary before adding the proposed specialization or changing either definition.

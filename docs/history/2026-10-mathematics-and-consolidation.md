@@ -49,6 +49,10 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   to `DivisionOfCollections` for its concrete grouping perspective. Identifiers and labeling
   eligibility are unchanged; review definition- and ancestry-dependent uses of the two revised
   concepts. See the [authored Areas](../../core-areas-math.ttl).
+- **October 25 — Divisibility grouping.** Grouped `PerfectDivisibility`, `ImperfectDivisibility`,
+  and `OddAndEvenNumbers` under `DivisibilityRules` using `partOf`. Review the removed specialization
+  inheritance and direct annotations of `DivisibilityRules`, which is now organizational and
+  ineligible for direct labels. See the [regrouping commit](https://github.com/christian-bick/edugraph-ontology/commit/caf753f825d92243ee6d56d9a0742d5036ffa9a8).
 - **October 25 — Specialization alignment.** Added eleven specialization links for triangle
   and quadrilateral inclusion, unit conversion, graph walks, coordinate distance, quadratic
   identities, and multiplicative arithmetic functions. Removed redundant direct parents while
