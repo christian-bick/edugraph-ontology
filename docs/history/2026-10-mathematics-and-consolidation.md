@@ -143,3 +143,7 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   multiple. Added the unreduced example $4/6$ and $6/9$ expanding to $12/18$ with shared numerator
   twelve. The name, relations, and labeling eligibility are unchanged; the definition review
   is resolved. Review uses that assume a minimum after simplifying the supplied fractions.
+- **October 25 — Fraction-strategy coverage.** Closed the `FractionStrategies` coverage item
+  without ontology changes: existing operations, fraction contexts, and supporting equivalence,
+  denominator-selection, and simplification concepts cover routine addition and multiplication.
+  No distinct missing method was established; the broader strategy audit remains deferred.
