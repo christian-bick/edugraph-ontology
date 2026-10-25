@@ -75,3 +75,12 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
 - **October 25 — Interval families.** Added `BoundedIntervals` alongside `UnboundedIntervals`,
   both specializing `NumerationWithIntervals`. Bounded intervals have finite bounds in both
   directions, allowing included or excluded endpoints. Existing labeling eligibility is unchanged.
+- **October 25 — Further family alignment.** Added specialization links for fraction methods,
+  first-order Taylor approximation, geometric measures, solids of revolution, inclusive trapezoids,
+  Bernoulli distributions, and equal-weight means. Moved `OrderOfOperations` to `ExpressionStructure`
+  and removed redundant direct ancestors. Added `SequenceTheorems` under `SequenceAndSeriesProperties`
+  for both monotone-sequence theorems. Existing identifiers, definitions, progression assertions,
+  and labeling eligibility are unchanged; the new sequence organizer is ineligible for direct
+  labeling. Review structural ancestry and direct-parent queries.
+  Retired accepted no-change findings and stale claims from the family review, separating remaining
+  modeling work from open discussion in its priority groups.
