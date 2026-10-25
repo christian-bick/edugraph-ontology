@@ -49,3 +49,9 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   to `DivisionOfCollections` for its concrete grouping perspective. Identifiers and labeling
   eligibility are unchanged; review definition- and ancestry-dependent uses of the two revised
   concepts. See the [authored Areas](../../core-areas-math.ttl).
+- **October 25 — Specialization alignment.** Added eleven specialization links for triangle
+  and quadrilateral inclusion, unit conversion, graph walks, coordinate distance, quadratic
+  identities, and multiplicative arithmetic functions. Removed redundant direct parents while
+  retaining distinct existing parents. Identifiers, definitions, progression assertions, and
+  labeling eligibility are unchanged; structural ancestry and direct-parent queries change.
+  Review ancestry-dependent uses against the [authored Areas](../../core-areas-math.ttl).

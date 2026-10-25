@@ -298,7 +298,7 @@
 :BinomialSquareIdentities a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The square-of-sum and square-of-difference identities (a + b)^2 = a^2 + 2ab + b^2 and (a - b)^2 = a^2 - 2ab + b^2 for real or complex quantities.";
     rdfs:comment "(x + 3)^2 = x^2 + 6x + 9; (x - 3)^2 = x^2 - 6x + 9.";
-    edu:specializes :BinomialTheorem.
+    edu:specializes :BinomialTheorem, :QuadraticRewriting.
 :BinomialTest a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A hypothesis test about a success probability using the binomial count model for independent Bernoulli trials with a common probability.";
     rdfs:comment "Testing H0: p <= 0.5 against p > 0.5 using the upper tail of 100 independent trials.";
@@ -649,7 +649,8 @@
     rdfs:isDefinedBy "The calculation of the straight-line distance between points from their coordinates in an orthonormal Cartesian coordinate system.";
     rdfs:comment "The distance from (0,0,0) to (1,2,2) is 3.";
     edu:expands :PointPlotting;
-    edu:partOf :GeometricVisualization.
+    edu:partOf :GeometricVisualization;
+    edu:specializes :DistanceCalculation.
 :Coplanarity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The property of specified points, lines or other geometric objects being contained in a common plane.";
     rdfs:comment "Two intersecting lines are coplanar.";
@@ -980,11 +981,11 @@
 :DivisorCount a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The number of positive divisors of a positive integer and its relationship to the exponents in a prime factorization.";
     rdfs:comment "12 = 2^2 * 3 has (2 + 1)(1 + 1) = 6 positive divisors.";
-    edu:partOf :NumberTheoreticFunctions.
+    edu:specializes :MultiplicativeArithmeticFunction.
 :DivisorSum a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The sum of the positive divisors of a positive integer and its relationship to prime factorization.";
     rdfs:comment "The positive divisors of 12 have sum 1 + 2 + 3 + 4 + 6 + 12 = 28.";
-    edu:partOf :NumberTheoreticFunctions.
+    edu:specializes :MultiplicativeArithmeticFunction.
 :DotProduct a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The scalar product of real Euclidean vectors, given by the sum of component products in orthonormal coordinates and, for nonzero vectors, by the product of their magnitudes and the cosine of their angle.";
     rdfs:comment "(1,2,0) dot (2,-1,3) = 0.";
@@ -1030,7 +1031,7 @@
 :EquilateralTriangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A triangle in which all three sides are of equal length and all three angles are 60 degrees.";
     edu:expands :SymmetryRelation;
-    edu:specializes :Triangle.
+    edu:specializes :AcuteTriangle, :IsoscelesTriangle.
 :EquilibriumSolution a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A constant function that satisfies a differential equation throughout the stated interval.";
     rdfs:comment "y=0 and y=1 satisfy y'=y(1-y).";
@@ -1060,7 +1061,7 @@
 :EulersTotient a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The number of integers from 1 through a positive integer n that are coprime to n, and its dependence on the prime factors of n.";
     rdfs:comment "phi(12) = 4, counting 1, 5, 7, and 11; phi(1) = 1.";
-    edu:partOf :NumberTheoreticFunctions.
+    edu:specializes :MultiplicativeArithmeticFunction.
 :EulerTrigonometricIdentities a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identities cos(theta)=(exp(i*theta)+exp(-i*theta))/2 and sin(theta)=(exp(i*theta)-exp(-i*theta))/(2i) for real radian angles theta.";
     rdfs:comment "Rewriting cos(theta) as the average of the two opposite-angle complex exponentials.";
@@ -1503,7 +1504,7 @@
 :GraphCycle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A positive-length closed graph walk with distinct edges and no repeated vertices except its common first and last vertex, under the stated graph conventions.";
     rdfs:comment "A-B-C-A is a cycle in a simple triangle graph; A-B-A on one undirected edge is not.";
-    edu:partOf :GraphFoundations.
+    edu:specializes :GraphWalk.
 :GraphEdgeWeight a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a numerical value assigned to an edge under a stated interpretation.";
     rdfs:comment "Edge weights recording travel times; outgoing transition probabilities in a stochastic graph.";
@@ -3290,7 +3291,7 @@
     edu:partOf :ThreeDimensionalObjects.
 :Square a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of four-sided polygons with four right angles and four equal sides, their properties, and related measurements.";
-    edu:specializes :Rectangle.
+    edu:specializes :Rectangle, :Rhombus.
 :SqueezeTheorem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The guarantee that a function bounded between two functions with the same finite limit has that limit, when the bounds hold sufficiently near the approached point or end of the domain.";
     rdfs:comment "From -x^2 <= x^2 sin(1/x) <= x^2, infer a limit of zero at x = 0.";
@@ -3684,12 +3685,12 @@
 :UnitFactorScaling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The process of converting measurements within a system using specific, non-base-10 numerical conversion factors.";
     edu:expands :FactorsAndMultiples, :UnitScaleRelation;
-    edu:partOf :MeasuringWithUnits.
+    edu:specializes :UnitConversion.
 :UnitMagnitudeScaling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Converting a measurement between metric units related by powers of ten while preserving the measured quantity.";
     rdfs:comment "Expressing 1.5 meters as 150 centimeters by multiplying the numerical value by 100.";
     edu:expands :PlaceValue, :UnitScaleRelation;
-    edu:partOf :MeasuringWithUnits.
+    edu:specializes :UnitConversion.
 :UnitScaleRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The foundational understanding of the inverse relationship between the size of a measurement unit and the numerical value obtained, specifically that measuring the same quantity with a larger unit results in a smaller number.";
     edu:expands :MeasuringObjects, :NumericComparison;
