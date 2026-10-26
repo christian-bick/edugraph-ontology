@@ -226,3 +226,9 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   `ArithmeticMean`'s specialization of `WeightedArithmeticMean` and `Median`'s of `Quantile`.
   Existing definitions and labeling eligibility are unchanged; the new concept is eligible.
   Resolved the family review; review new specialization ancestry and direct-parent queries.
+- **October 26 — Statistical-inference family.** Added `StatisticalInference` under `Statistics`
+  as the shared organizer for `StatisticalEstimation`, `HypothesisTesting`,
+  `SamplingDistribution`, and `StandardError`, replacing their previous direct parents.
+  Existing definitions, progression links, and labeling eligibility are unchanged; the new
+  organizer is ineligible for direct labeling. Review changed structural ancestry and
+  direct-parent queries. Resolved the final statistics finding and removed the completed section.

@@ -16,7 +16,6 @@ claims have been removed from the family findings; completed work is summarized 
   - [IntuitiveMathematics](#24-intuitivemathematics)
   - [NumberTheory](#25-numbertheory)
   - [Probability](#26-probability)
-  - [Statistics](#27-statistics)
 - [3. Priority actions](#3-summary-of-priority-action-items)
   - [1. Agreed simple changes](#1-agreed-simple-changes)
   - [2. Agreed complex changes](#2-agreed-complex-changes)
@@ -185,18 +184,6 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.7 `Statistics`
-
-#### 1. `StatisticalEstimation` vs. `HypothesisTesting`:
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S3`):** `SamplingDistribution` and
-  `StandardError` are constituents of `StatisticalEstimation` and also support hypothesis
-  testing. Review whether an additional or broader statistical-inference home is useful.
-  Applicability in both contexts alone does not invalidate the present placement or require
-  duplicate parents.
-
----
-
 ## 3. Summary of Priority Action Items
 
 ### 1. Agreed simple changes
@@ -231,8 +218,6 @@ These items require a meaning or scope decision before implementation.
 - [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links.
 - [Intuitive mathematics](#24-intuitivemathematics): deferred iteration consolidation and
   dataset adoption.
-- [Statistics](#27-statistics): the shared inference context of sampling distributions and
-  standard errors.
 
 ### 4. Accepted no-change decisions
 
