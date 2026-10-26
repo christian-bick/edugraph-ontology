@@ -140,11 +140,13 @@ particular new identifier, definition, or hierarchy.
 
 #### 2. `NumberSense` (`FoundationalOperations`, `Numeration`, and `NumericComparison`):
 
-- **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S3`):** `FoundationalOperations` mixes
-  the concrete additive/subtractive actions `Increment`, `Decrement`, `Sum`, and `Difference`
-  with `Iteration`, a general repetition process overlapping `IteratedOperation` in
-  `Arithmetic > ArithmeticEvaluation`. Clarify the boundary before merging, renaming, or
-  changing structural or progression relations.
+- **Deferred, group 3 (`ONT-D1`, `ONT-D4`, `ONT-E1`, `ONT-W2`):** Retain `Iteration` and
+  `IteratedOperation` with their existing names, definitions, and relations for now.
+  General repetition and its arithmetic application overlap, while the latter's phrase
+  "single operand value" leaves its intended boundary unclear. Consolidation and any new
+  specialization link remain deferred. Revisit the meaning together with the
+  [dataset adoption and equal-addends follow-up](ontology-consolidation.md#deferred-iteration-consolidation-and-dataset-adoption);
+  the dataset currently uses the arithmetic label for both repeated groups and two equal addends.
 
 - **Complex change, group 2 (`ONT-D4`, `ONT-S2`, `ONT-S3`):** `NumerationWithIntegers`,
   `NumerationWithFractions`, and `NumerationWithDecimals` specialize `Numeration`, whose meaning
@@ -296,9 +298,9 @@ These items require a meaning or scope decision before implementation.
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
 - [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links.
 - [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links.
-- [Intuitive mathematics](#24-intuitivemathematics): iteration overlap, reflective-symmetry
-  placement, and the whole numeric-comparison family's boundaries, structural roles, and
-  eligibility consequences.
+- [Intuitive mathematics](#24-intuitivemathematics): deferred iteration consolidation and
+  dataset adoption, reflective-symmetry placement, and the whole numeric-comparison family's
+  boundaries, structural roles, and eligibility consequences.
 - [Linear algebra](#25-linearalgebra): whether additional vector-topic organization is useful.
 - [Logic](#26-logic): formula construction vs. equivalence of formulas within propositional
   logic.
