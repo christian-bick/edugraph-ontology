@@ -251,3 +251,10 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   specified ordered number domain, with real and integer examples. Retained the bounded and
   unbounded specializations and labeling eligibility. Resolved the family review and recorded
   the [identifier and inheritance adoption follow-up](../plan/ontology-consolidation.md#adopt-interval-family-rename).
+- **October 26 — Complex-number foundations.** Added `ComplexNumberFoundations` under
+  `NumberSystems` and moved `ComplexNumberStructure`, `ComplexModulus`, `ComplexArgument`,
+  `ComplexConjugation`, and `ComplexRootStructure` beneath it using `partOf`. Existing
+  definitions, other relations, specialization inheritance, and labeling eligibility are
+  unchanged; the new organizer is ineligible. Resolved the family review and renumbered the
+  remaining section. Review direct-parent queries and the additional structural ancestor when
+  adopting the change.

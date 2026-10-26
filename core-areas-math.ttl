@@ -503,7 +503,7 @@
 :ComplexArgument a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The directed angle from the positive real axis to a nonzero complex number, determined modulo a full turn. A principal argument selects one value using a stated interval convention.";
     rdfs:comment "The arguments of -i are -pi/2 + 2k*pi for integer k; its principal argument in (-pi, pi] is -pi/2.";
-    edu:partOf :NumberSystems.
+    edu:partOf :ComplexNumberFoundations.
 :ComplexArithmeticGeometry a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The geometric interpretation of complex arithmetic as translations for addition and subtraction, rotation and scaling about zero for multiplication and division by nonzero numbers, and reflection in the real axis for conjugation. Multiplication by zero sends every point to zero.";
     rdfs:comment "Multiplication by 2i doubles distances from zero and rotates by a quarter-turn; conjugation reflects 2 + i to 2 - i.";
@@ -515,7 +515,7 @@
 :ComplexConjugation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The operation replacing a complex number a + bi by a - bi, for real a and b, and its relationships with complex arithmetic.";
     rdfs:comment "The conjugate of 4 - 3i is 4 + 3i; (4 - 3i)(4 + 3i) = 25.";
-    edu:partOf :NumberSystems.
+    edu:partOf :ComplexNumberFoundations.
 :ComplexExponentialFunction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The nature of the complex exponential exp(x+iy)=exp(x)(cos(y)+i sin(y)) for real x and y using radian angle measures. Its values are nonzero and satisfy exp(z+w)=exp(z)exp(w) and exp(z+2pi*i)=exp(z).";
     rdfs:comment "exp(i*pi)=-1; exp(1+2pi*i)=exp(1).";
@@ -528,11 +528,15 @@
     rdfs:isDefinedBy "The nonnegative real magnitude of a complex number a + bi, given by sqrt(a^2 + b^2) and equal to its distance from zero in the complex plane.";
     rdfs:comment "The modulus of 5 - 12i is 13; the modulus of zero is zero.";
     edu:expands :AbsoluteNumberMagnitude;
+    edu:partOf :ComplexNumberFoundations.
+:ComplexNumberFoundations a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The foundational structure, properties, and characteristic operations of the complex number system, covering real and imaginary components, modulus, argument, conjugation, and n-th roots.";
+    rdfs:comment "Identifying the real and imaginary parts of 3 - 4i, finding its modulus 5 and conjugate 3 + 4i, and determining the square roots of -1 as i and -i.";
     edu:partOf :NumberSystems.
 :ComplexNumberStructure a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The extension of real numbers by an imaginary unit satisfying i^2 = -1, with each complex number uniquely expressed as a + bi for real a and b.";
     rdfs:comment "Identifying 3 and -2 as the real and imaginary parts of 3 - 2i; expressing 5 as 5 + 0i.";
-    edu:partOf :NumberSystems.
+    edu:partOf :ComplexNumberFoundations.
 :ComplexPlane a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The correspondence between a complex number a + bi and the point (a, b) in a plane with perpendicular real and imaginary axes.";
     rdfs:comment "-2 + 5i corresponds to (-2, 5); 3 corresponds to (3, 0).";
@@ -545,7 +549,7 @@
 :ComplexRootStructure a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The complete n-th-root set of a complex number for positive integer n: for nonzero r exp(i*theta), the n distinct values r^(1/n) exp(i*(theta+2k*pi)/n), k=0,...,n-1, with r>0 and theta in radians. Zero has only the root zero.";
     rdfs:comment "The cube roots of 8 have modulus 2 and arguments 0, 2pi/3 and 4pi/3.";
-    edu:partOf :NumberSystems.
+    edu:partOf :ComplexNumberFoundations.
 :CompositeNumbers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study and classification of whole numbers greater than 1 that have more than two positive factors; equivalently, numbers divisible by a positive whole number other than 1 and themselves.";
     rdfs:comment "4, 6, 8, and 9 are composite numbers.";

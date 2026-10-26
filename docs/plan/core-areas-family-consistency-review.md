@@ -14,8 +14,7 @@ claims have been removed from the family findings; completed work is summarized 
   - [Arithmetic](#22-arithmetic)
   - [Combinatorics](#23-combinatorics)
   - [IntuitiveMathematics](#24-intuitivemathematics)
-  - [NumberTheory](#25-numbertheory)
-  - [Probability](#26-probability)
+  - [Probability](#25-probability)
 - [3. Priority actions](#3-summary-of-priority-action-items)
   - [1. Agreed simple changes](#1-agreed-simple-changes)
   - [2. Agreed complex changes](#2-agreed-complex-changes)
@@ -114,21 +113,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.5 `NumberTheory`
-
-#### 1. `NumberSystems` (Complex-number organization):
-
-- **Complex change, group 2 (`ONT-D4`, `ONT-S1`, `ONT-S3`, `ONT-S4`, `ONT-S5`):**
-  `ComplexArgument`, `ComplexConjugation`, `ComplexModulus`, `ComplexNumberStructure`, and
-  `ComplexRootStructure` are direct constituents alongside the cross-system
-  `NumberOperationResultTypes` and `NumberSystemRelations`. Consider a complex-number organizer
-  or a clarified role for `ComplexNumberStructure`; check the full graph and the meaning of
-  each candidate child before choosing a parent. Their shared complex-number context does not
-  by itself make one concept a specialization of another.
-
----
-
-### 2.6 `Probability`
+### 2.5 `Probability`
 
 #### 1. `StochasticProcesses` (Finite Markov-chain organization):
 
@@ -157,8 +142,7 @@ changes, including sequence-theorem grouping, are recorded in
 Agreement concerns the issue to resolve; identifiers, definitions, and final graph changes still
 need a concrete proposal and review.
 
-- [Number theory](#25-numbertheory): complex-number organization.
-- [Probability](#26-probability): finite-Markov/absorption topic organization.
+- [Probability](#25-probability): finite-Markov/absorption topic organization.
 
 ### 3. Discussion and conditional proposals
 
