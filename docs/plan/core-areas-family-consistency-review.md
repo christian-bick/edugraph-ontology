@@ -165,14 +165,6 @@ particular new identifier, definition, or hierarchy.
   Decide each boundary and the parent's role before any conversions or relocations;
   `NumericComparison`'s present ineligibility does not establish the required change.
 
-#### 3. `SpatialSense` (`ShapePartWholeRelations`):
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S3`):** `ShapePartWholeRelations` groups
-  `ShapeDecomposition` and `ShapeSynthesis` with `ShapeReflection`, whose definition concerns
-  reflective symmetry as a defining property of a shape. Its mirrored-halves definition and
-  decomposition relation make the current part-whole placement defensible. Review its relationship to
-  `ShapeIdentity` and `SymmetryRelation` before choosing a new placement or definition.
-
 ---
 
 ### 2.5 `LinearAlgebra`
@@ -299,8 +291,8 @@ These items require a meaning or scope decision before implementation.
 - [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links.
 - [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links.
 - [Intuitive mathematics](#24-intuitivemathematics): deferred iteration consolidation and
-  dataset adoption, reflective-symmetry placement, and the whole numeric-comparison family's
-  boundaries, structural roles, and eligibility consequences.
+  dataset adoption, and the whole numeric-comparison family's boundaries, structural roles,
+  and eligibility consequences.
 - [Linear algebra](#25-linearalgebra): whether additional vector-topic organization is useful.
 - [Logic](#26-logic): formula construction vs. equivalence of formulas within propositional
   logic.
@@ -314,6 +306,12 @@ These items require a meaning or scope decision before implementation.
 
 No open actions remain in this group. Accepted differences in constituent roles, hierarchy depth,
 strategy organization, and overlapping classification axes have been removed from the findings.
+
+The `ShapeReflection` review is resolved as no change (`ONT-D4`, `ONT-S1`, `ONT-S3`): retain
+its name, definition, `partOf ShapePartWholeRelations`, and all existing progression relations.
+Its mirrored-halves meaning supports the part-whole placement and remains distinct from the
+general `Reflection` transformation and broader `SymmetryRelation`. The proposed rename,
+definition clarification, and additional specialization are not being pursued.
 
 The `RootIndex` placement question is resolved (`ONT-D4`, `ONT-S1`, `ONT-S2`): retain
 `partOf ExpressionStructure` and its definition, including the implicit index two in square-root

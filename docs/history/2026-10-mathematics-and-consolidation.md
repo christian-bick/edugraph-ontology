@@ -200,3 +200,7 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   [conditional dataset adoption work](../plan/ontology-consolidation.md#deferred-iteration-consolidation-and-dataset-adoption),
   including the distinction between repeated operations and two equal addends. No consolidation
   or dataset migration was performed.
+- **October 26 — Shape-reflection review.** Closed the item as no change: retained
+  `ShapeReflection` with its existing name, definition, part-whole placement, and progression
+  relations. Its mirrored-halves meaning supports the current organization; the proposed
+  rename and additional symmetry specialization are not being pursued.
