@@ -267,3 +267,7 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   and does not assume absorption is guaranteed. Closed the final group 2 finding; review
   removed organizer references, direct-parent queries, and structural ancestry when adopting
   the change.
+- **October 26 — Family-review closure.** Parked the four remaining coverage, relation, and
+  consolidation proposals with no active action items. Reopen only for a demonstrated defect;
+  optional additions and overlap alone do not warrant changes. Retained the historical
+  equal-addends observation as a conditional consumer-verification note. No ontology changes.

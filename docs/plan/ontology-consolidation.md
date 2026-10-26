@@ -32,10 +32,10 @@ Rules: ONT-D4, ONT-S1, ONT-S2, ONT-W2.
 
 ## Deferred iteration consolidation and dataset adoption
 
-Retain `Iteration` and `IteratedOperation` unchanged for now. Their overlap remains an open
-meaning decision; neither consolidation nor a new specialization link is approved. Review the
-general repetition meaning and the arithmetic descriptor's ambiguous "single operand value"
-boundary before changing definitions, identifiers, or ancestry.
+Retain `Iteration` and `IteratedOperation` unchanged. Consolidation and a new specialization
+link are parked; reopen only when concrete evidence establishes an actual ontology defect.
+Their overlap and the arithmetic descriptor's ambiguous "single operand value" wording alone
+do not establish such a defect.
 
 The dataset review at
 [commit `2e08f365`](https://github.com/christian-bick/edugraph-dataset/tree/2e08f3654d30cc1567f701c4bc78b1b68f60d568)
@@ -46,6 +46,10 @@ The repeated-group cases support general iteration. The equal-addends case needs
 review: an expression such as `7 + 7` shows one addition, and equal operand values alone do not
 clearly establish repeated application. The existing label also enforces operand equality;
 simply dropping it would lose that task constraint.
+
+This is historical consumer evidence, not a verified current dataset defect or evidence that
+the ontology requires consolidation. Verify current task content and annotations before
+proposing a consumer correction; a consumer error does not by itself justify an ontology merge.
 
 If consolidation is resumed, resolve that evidence issue before migrating annotations: either
 make repeated accumulation observable or represent the equal-addends requirement separately.
