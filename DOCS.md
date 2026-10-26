@@ -13,11 +13,27 @@ the repository tooling and generated APIs.
 This repository contains the source definitions of the EduGraph core ontology, along with code generators to translate the ontology into client libraries.
 
 ### 1.1 Mapped Editing Workflows
-- **Online Editor (Primary & Recommended)**: Official ontology edits should be performed using the specialized online editor. This editor is equipped with specialized tooling, including: 
-  - simplified in-context editing capabilities 
-  - sophisticated onology visualization and visual navigation
-  - an AI agent designed for batch operations and reviews using the relevant [ontology references](docs/README.md).
-- **Protégé (Convenience Exploration)**: The configuration files such as [catalog-v001.xml](catalog-v001.xml) and related properties in the repository are provided as a convenience for developers who are accustomed to [Protégé](https://protege.stanford.edu/) and want to explore, visualize, or locally query the ontology using desktop tools.
+
+The [EduGraph Editor](https://edugraph-editor.web.app) is the recommended workflow for authoring
+and reviewing ontology changes. It is built specifically for EduGraph and brings together:
+
+- Visual editing and navigation of Areas, Abilities, Scopes, and their relations.
+- Project-specific validation of ontology changes using the shared library's rules.
+- Optional AI assistance for proposing edits and reviewing ontology work.
+- Integrated GitHub issue tracking, branch operations, and draft pull requests.
+
+This keeps edits, checks, and the issues motivating them in one workflow. Follow the
+[ontology references](docs/README.md) for authoring decisions and
+[change review](docs/change-review.md) for semantic review; automated validation covers the
+checks described in [verification scope](#66-verification-scope).
+
+[Protégé](https://protege.stanford.edu/) remains a compatible desktop option for editing,
+exploring, and querying the OWL/RDF ontology. The supplied [catalog-v001.xml](catalog-v001.xml)
+supports local ontology resolution. Project-specific validation still uses the
+[Docker build](#43-compiling-via-docker).
+
+In either workflow, commit the authored Turtle (`.ttl`) sources. RDF/XML and client packages
+are generated outputs; regenerate them with the build rather than editing them directly.
 
 ---
 

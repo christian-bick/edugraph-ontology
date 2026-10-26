@@ -1,8 +1,16 @@
 # EduGraph
 
-EduGraph is an open education ontology to describe learning content in a simple and interoperable format. It is an
+EduGraph is an open competency ontology to describe learning content in a simple and interoperable format. It is an
 independent open source project to foster collaboration and data exchange across education organizations, both
-non-profit and pro-profit.
+non-profit and for-profit.
+
+### Focus Areas
+
+**Primary & Secondary Education**: EduGraph focuses on primary and secondary education up to the typical university
+entry level, but is in no way limited to it.
+
+**STEM & Language**: EduGraph's current focus is **Mathematics** with plans for other STEM subjects and language for
+native speakers and second-language learners alike.
 
 ### Example Usecases
 
@@ -12,23 +20,36 @@ Annotating learning content in the terms of the ontology allows for programmatic
 - describing learning journeys of students across distributed learning content
 - reasoning about potential root causes of student performance issues
 
-## Annotated Content and Models
+## Annotated Content and Classification Models
 
 EduGraph provides shared terms for annotating learning content. Classification models can help
 identify those terms in content; embedding models can represent descriptors and their relationships
-for comparison and search. Neither use depends on a particular model or application architecture.
+for comparison and search. In all of this, EduGraph stays agnostic to a particular base model or
+application architecture.
 
 See [Annotations and models](docs/annotations-and-models.md) for guidance on evidence, relation
 meaning, and interpreting annotations across ontology versions.
 
 ## Releases
 
-Ontology releases are published [here](https://github.com/christian-bick/edugraph-ontology/releases) on Github.
+Each [GitHub release](https://github.com/christian-bick/edugraph-ontology/releases) provides
+ontology files and client libraries for the same snapshot. Choose the artifact that fits your
+workflow; [release notes](docs/releases/) describe changes and adoption considerations.
 
-The ontology is published in Turtle (.ttl) and XML/RDF (.rdf) format. The authored sources are
-the Turtle files. Builds generate RDF/XML and client packages in `dist/`; the release workflow
-publishes those outputs as assets. See the
-[build workflow](DOCS.md#43-compiling-via-docker) to generate local outputs.
+| Artifact | Useful for | Documentation |
+| --- | --- | --- |
+| **Turtle sources** — four `.ttl` files | Reading or editing the authored ontology, or loading its schema and descriptor collections into RDF tools | [Source files](DOCS.md#2-directory-structure) |
+| **Combined RDF/XML** — `core-ontology-math.rdf` | Importing the complete generated ontology into tools such as Protégé or a triple store | [Build and formats](DOCS.md#3-build--generation-pipeline) |
+| **TypeScript library** — `edugraph-ts.tgz` | JavaScript/TypeScript applications, including Node.js services and browser bundles | [Installation and API guide](libraries/typescript/README.md) |
+| **Python wheel** — `edugraph_py-<version>-py3-none-any.whl` | Installing the typed Python library for notebooks, data pipelines, annotation, and model workflows | [Installation and API guide](libraries/python/README.md) |
+| **Python source distribution** — `edugraph_py-<version>.tar.gz` | Building the Python library from source, with the generated ontology data already included | [Packaging details](libraries/python/README.md#6-compatibility-references-and-development) |
+
+Programming libraries provide typed terms and definitions, relation traversal, specialization queries,
+labeling-eligibility checks, and algorithms for constraint expansion and incompatibility checks
+based on recorded implications and contradictions. They work with the released ontology or a
+supplied snapshot. TypeScript additionally provides ontology and documentation validation.
+
+See the [API overview](DOCS.md#6-client-libraries-api--relations-usage) and [constraint algorithms](DOCS.md#64-deduction-helpers-constraint-expansion) for examples and semantics.
 
 ## Ontology
 
@@ -40,107 +61,68 @@ publishes those outputs as assets. See the
 
 **Ontology Browser:** [A dedicated visualization tool for the ontology](https://edugraph-editor.web.app)
 
-EduGraph is designed to support both human annotation and interpretation by language and
-vision-language models.
+### Elements and Competency Compounds
 
-It is therefore divided into two layers:
+Think of EduGraph terms as **elements** and competencies as **molecules**. EduGraph defines
+reusable elements, their properties, and their relationships. Curriculum authors and applications
+combine these elements into competency compounds that express what their learners should know
+or be able to do.
 
-- **Core Ontology:** Curated for describing learning content with a set of terms organized along different dimensions.
-- **Competency Ontology:** Generated for identifying broad competencies that apply specific solutions to a problem domain.
+The elements describe three dimensions:
 
-### Core Ontology
+| Dimension | What it describes | Example |
+| --- | --- | --- |
+| **Area** | The knowledge, concept, or activity involved | `Multiplication` |
+| **Ability** | The cognitive performance involved | `ProcedureExecution` |
+| **Scope** | The context or conditions in which it applies | `IntegerNumbers` |
 
-Brief summaries of completed ontology and tooling work are in [the history notes](docs/history/README.md).
-Current authoring rules are in [the development references](docs/README.md). The
-[v0.32.0 adoption handover](docs/releases/v0.32.0-dataset-adoption.md) describes required dataset
-changes; the [working-plan archive](docs/history/2026-10-working-plan-archive.md) preserves
-unfinished findings from the retired plans.
+Together, these example terms describe carrying out multiplication with integers. A compound
+can include several terms from any dimension. Because the terms apply together, adding terms
+that introduce new requirements makes a compound more specific; keeping only a subset can
+express a more general competency. Our current descriptions are simple, flat sets: each selected
+term occurs once, without ordering or repeated occurrences. More sophisticated compositions
+can be introduced later.
 
-#### Foundations
+### Describing Existing Curricula and Standards
 
-The core ontology describes learning content by combining reusable claims across three dimensions.
-Multiple terms in a dimension can apply together. Each annotation must be supported by observable
-content; those claims allow applications to compare competencies and investigate related content.
+We already use these compounds to describe competencies from the
+[Common Core State Standards in the dataset project](https://github.com/christian-bick/edugraph-dataset/tree/main/src/spec/ccss).
+The same approach can be applied to any curriculum, educational standard, or proprietary
+competency ontology: map its competencies to combinations of EduGraph terms while retaining
+its identifiers, names, and existing relations. Shared term subsets describe broader competencies,
+while more specific children add requirements, naturally supporting tree-like structures. A Common
+Core mapping can, for example, refine a general multiplication competency by number context or
+cognitive demand. These shared meanings also support comparison across different systems.
 
-The terms of each dimension are organized and defined within a taxonomy for each dimension.
+Each element retains its identity, meaning, properties, and relations wherever it appears.
+Consumers can therefore reuse the facts already expressed at element level and the conclusions
+supported by the [applicable inference rules](docs/relations.md#ont-r4--state-the-inference-rule-separately).
+Those relationships provide a foundation for comparing compounds; they do not need to be
+redeclared for every competency. Consumers add relationships specific to the combinations,
+especially statistical relationships such as how performance on one competency predicts
+performance on another.
 
-The dimensions are:
+Adoption can proceed incrementally. Start with the term mappings and preserve the existing
+competency relations. Later, remove redundant assertions where a relation can already be
+derived, or retain the original links as hypotheses for statistical validation. This preserves
+the source system's knowledge while allowing its assumptions to be examined through a shared
+vocabulary and evidence.
 
-- **Area:** The task, concept, or independently learned knowledge involved (e.g. _Multiplication_).
-- **Ability:** The cognitive performance demanded (e.g. _ProcedureExecution_).
-- **Scope:** The context or challenge within that task (e.g. _IntegerNumbers_ or _NumbersLarger1000_).
+### Related Projects
 
-A competency description combines whichever descriptors express its meaning. The ontology imposes
-no required dimension or descriptor count; applications define their own completeness requirements.
-For example, _Multiplication_, _ProcedureExecution_, _IntegerNumbers_, and _NumbersLarger1000_
-describe multiplication in a numeric context; they do not by themselves identify a particular
-written algorithm. The core ontology describes observables, while named competencies group
-meaningful combinations of those claims.
+The dataset and classification models put this approach into practice:
 
-These concepts make it easy to build both classification models and embedding models, allowing AI models to reason over learning
-content with high accuracy and speed. This is the necessary foundation for creating high-value recommendation systems and AI agents. 
+| Project | Purpose | GitHub | Hugging Face |
+| --- | --- | --- | --- |
+| **EduGraph Dataset** | Labeled exercise images, generation tools, and mappings from standards to term combinations | [Repository](https://github.com/christian-bick/edugraph-dataset) | [Dataset](https://huggingface.co/datasets/christian-bick/edugraph-exercises) |
+| **EduGraph Classification Models** | Training and evaluation tools for models that identify Areas, Abilities, and Scopes in educational task images | [Repository](https://github.com/christian-bick/edugraph-classify) | [Published classifier](https://huggingface.co/christian-bick/EduGraph-Classifier-Qwen3.8-27B-GGUF) |
 
-#### Structure
-
-Each dimension is organized through two explicit structural relations. `partOf` places a constituent
-inside a broader field without implying that the constituent covers the whole. `specializes` identifies
-a narrower form of the same observable concept and therefore supports inheritance to the more general
-concept. For example, _Square_ specializes _Rectangle_, whereas a measurement instrument is only part
-of its broader measurement context.
-
-Both relations are subproperties of `structures`. Their inverses are `hasPart` and
-`specializedBy`, under `structuredBy`. Moving from a broad field toward descendants,
-composition may lead into specialization, but specialization must not lead back into composition.
-See [the structural rules](docs/structure.md) for examples and path review.
-
-This distinction allows precise and generic descriptions without treating every structural member as
-a substitute for its containing field. Leaf status alone does not determine whether a concept is
-an appropriate observable claim.
-
-#### Logical Relations
-
-However, terms in the ontology are not only organized along classic hierarchical relations, but are further described
-through logical relations between each other. For example _IntegerMultiplications_ conceptually _expands_ the concept of
-_IntegerAddition_. Such relations can be used as indicators for identifying natural learning paths (e.g. suggesting to 
-teach addition before multiplication) or for adaptive testing (e.g. exploring if a student's weakness in executing long 
-multiplication is rooted in multiplying small numbers or in executing long addition).
-
-Such logical releations elevate ontologies to be more than a semantic standard of identifiers. They allow us to 
-define a shared yet operationally distributed understanding of how various competencies are related with each other.
-
-### Competency Ontology
-
-#### Foundations
-
-While the core ontology focuses on a mostly generic approach to describing learning material, the competency ontology uses
-commonly used terms for well-known solution strategies to a specific problem domain.
-
-#### Flavors
-
-The core ontology seeks shared, distinguishable terms for observable claims, which can overlap through specialization or apply together. Competencies on the other hand, are typically described from an application
-perspective and therefore largely influenced by context. 
-
-That makes competencies inherently more likely to be influenced by purpose, culture and language, and that makes it way harder 
-to agree on distinct competencies that collectively describe all areas of learning with great detail. At the same time, 
-developing practical competencies is a fundamentally important part of learning.
-
-EduGraph's solution for this issue is to define competencies as abstract concepts, but always in terms from the core ontology. 
-This allows for different flavors of competency ontologies and at the same time makes it easy to map competencies between 
-different flavors.
-
-#### Automated Generation
-
-Defining competencies in the terms of the core ontology further allows for an automated approach of identifying and naming
-competencies with the help of embeddings, making it substantially more likely that such solutions successfully converge to 
-a mutually exclusive and collectively exhaustive set of competencies.
-
-#### Relations Inheritance
-
-Defining competencies through core descriptors makes their shared claims and specialization
-relationships available for comparison. Deriving progression between whole competencies requires
-an explicit inference rule; `involves` does not copy every descriptor relation automatically.
-Progression coverage and propagation through structural or specialization paths remain a separate
-refinement task. Existing relations are evidence to review, not the specification of that rule.
+The dataset provides concrete examples of competency compounds and labeled content. Classifiers
+can propose the same terms for existing learning materials, helping connect those materials to
+a curriculum's mapped competencies. This supports adoption from both directions: translate the
+competencies already defined by a system, and annotate the content already used within it.
+Mappings and predictions can then be reviewed against the shared
+[content-evidence guidance](docs/content-evidence.md).
 
 ## Contributions
 
@@ -149,13 +131,17 @@ contributor fully understands how to contribute in a meaningful way. Before cont
 a Github issue** to spark the discussion.
 
 The ontology is defined in the web ontology language (OWL). To ensure easy adoption with any tools, databases
-and libraries that support OWL and RDF, we provide various file formats in the releases.
+and libraries that support OWL and RDF, we generate various file formats in the releases as well as ontology types
+for the supported programming languages.
 
-When editing the ontology, edit the authored Turtle (.ttl) sources. The combined
-`core-ontology-math.rdf` is a generated build output in `dist/` and a release asset. Use the
-[build workflow](DOCS.md#43-compiling-via-docker) to regenerate it and the client packages.
-It is recommended to use [Protege](https://protege.stanford.edu/) for editing and to use one of
-the shipped reasoners for validation purposes.
+We recommend the [EduGraph Editor](https://edugraph-editor.web.app) for authoring and reviewing
+ontology changes. Built specifically for EduGraph, it combines visual editing, project-specific
+validation, AI assistance, and GitHub issue tracking in one workflow. This keeps changes connected
+to the ontology's rules and the issues they address.
+
+[Protégé](https://protege.stanford.edu/) is also compatible and can be used to work directly with
+the OWL/RDF ontology files. See the [editing workflows](DOCS.md#11-mapped-editing-workflows)
+for details.
 
 Pull requests can be submitted via the usual Github workflow using reasonably small iterative changesets. Pull requests
 will only be merged when changes were previously approved on a ticket.
