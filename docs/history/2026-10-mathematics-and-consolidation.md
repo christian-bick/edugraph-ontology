@@ -207,3 +207,7 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
 - **October 26 — Numeric-comparison review.** Closed the family item as no change: retained
   `NumericComparison` and its four constituents with all names, definitions, and relations
   unchanged. The proposed organizer and numeric-order wording changes are not being pursued.
+- **October 26 — Vector-algebra review.** Closed the organization item as no change: retained
+  the nine direct `VectorAlgebra` constituents and the existing `OrthonormalBasis`
+  specialization of `Basis`. Removed the completed linear-algebra review section and
+  renumbered the remaining families; ontology names, definitions, and relations are unchanged.
