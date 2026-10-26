@@ -320,7 +320,7 @@
 :BoundedIntervals a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Intervals of numbers with finite bounds in both directions, whether their endpoints are included or excluded.";
     rdfs:comment "The intervals [2,5], (2,5], and (2,5).";
-    edu:specializes :NumerationWithIntervals.
+    edu:specializes :NumberIntervals.
 :BoundVariable a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of a variable occurrence governed by a binding construct within the mathematical expression or statement under consideration.";
     rdfs:comment "Identifying i as the bound summation index in sum_(i=1)^4 i*x; replacing the bound index k by j throughout product_(k=1)^3 (x + k); identifying x as bound in \"for every real x, x^2>=y\".";
@@ -2236,6 +2236,10 @@
     rdfs:isDefinedBy "The necessary condition that terms of a convergent series tend to zero. A nonzero or nonexistent term limit proves divergence, while a zero term limit is inconclusive.";
     rdfs:comment "The terms n/(n+1) tend to 1, so their series diverges.";
     edu:partOf :SeriesConvergenceTests.
+:NumberIntervals a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "Sets of numbers that contain every value between any two of their members within the specified ordered number domain. They may be bounded or unbounded, with finite boundary points included or excluded.";
+    rdfs:comment "The real intervals [2,5) and (3,+infinity); the integer interval {2,3,4,5}.";
+    edu:partOf :NumberSense.
 :NumberNameNotation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The words and conventions used to express numerical values in written language.";
     rdfs:comment "Writing 437 as four hundred thirty-seven.";
@@ -2285,10 +2289,6 @@
 :NumerationWithIntegers a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding the sequence, order, and magnitude of integer values.";
     rdfs:comment "Ordering -2, 0, and 3 on a number line.";
-    edu:specializes :Numeration.
-:NumerationWithIntervals a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "Representing sets of numbers by their lower and upper bounds and the inclusion or exclusion of their endpoints.";
-    rdfs:comment "Describing all values from 2 through 5 inclusive, or values greater than 2 and less than 5.";
     edu:specializes :Numeration.
 :Numerator a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The role of the dividend expression written above a fraction bar or before a slash representing that bar.";
@@ -3766,7 +3766,7 @@
 :UnboundedIntervals a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Intervals of numbers with no finite bound in at least one direction.";
     rdfs:comment "The interval of all real numbers greater than 3. Infinity indicates an unbounded direction rather than an included endpoint.";
-    edu:specializes :NumerationWithIntervals.
+    edu:specializes :NumberIntervals.
 :UndirectedGraph a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A graph in which each edge joins endpoints without a designated direction, allowing loops and parallel edges.";
     rdfs:comment "A graph on A and B with two distinct undirected edges joining A to B and a loop at A.";

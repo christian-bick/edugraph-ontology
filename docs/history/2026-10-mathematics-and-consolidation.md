@@ -73,7 +73,7 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   Definitions, examples, and relation meanings are unchanged. Update stored descriptor IRIs and
   generated enum keys in annotations and client code to adopt the new identifiers.
 - **October 25 — Interval families.** Added `BoundedIntervals` alongside `UnboundedIntervals`,
-  both specializing `NumerationWithIntervals`. Bounded intervals have finite bounds in both
+  both specializing former `NumerationWithIntervals`. Bounded intervals have finite bounds in both
   directions, allowing included or excluded endpoints. Existing labeling eligibility is unchanged.
 - **October 25 — Further family alignment.** Added specialization links for fraction methods,
   first-order Taylor approximation, geometric measures, solids of revolution, inclusive trapezoids,
@@ -245,3 +245,9 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   Resolved the parity and partition-link review. Parity no longer inherits division, while
   division and its specializations gain partition ancestry; recorded the
   [annotation adoption follow-up](../plan/ontology-consolidation.md#adopt-revised-definition-and-comment-text).
+- **October 26 — Number intervals.** Renamed former `NumerationWithIntervals` to
+  `NumberIntervals` and made it directly `partOf NumberSense`, replacing its specialization
+  of `Numeration`. Clarified intervals as sets containing every intervening value in the
+  specified ordered number domain, with real and integer examples. Retained the bounded and
+  unbounded specializations and labeling eligibility. Resolved the family review and recorded
+  the [identifier and inheritance adoption follow-up](../plan/ontology-consolidation.md#adopt-interval-family-rename).

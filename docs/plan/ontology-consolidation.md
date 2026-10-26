@@ -75,6 +75,17 @@ boundary.
 Source: [core-scopes-math.ttl](../../core-scopes-math.ttl).
 Rules: ONT-D4, ONT-S2, ONT-W2.
 
+## Adopt interval-family rename
+
+Migrate former `NumerationWithIntervals` identifiers and generated-client keys to
+`NumberIntervals`, and review annotations against its clarified interval-set definition.
+The concept and its `BoundedIntervals` and `UnboundedIntervals` specializations remain eligible
+for labeling, but no longer inherit `Numeration`; the family is directly `partOf NumberSense`.
+Review derived claims and structural queries when adopting the change. Consumer migration
+belongs in the owning repositories and has not been performed.
+
+Rules: ONT-D4, ONT-D6, ONT-S2, ONT-E5, ONT-W2, ONT-W3.
+
 ## Adopt revised definition and comment text
 
 Review definition-dependent annotations, prompts, and model inputs when adopting clarified
