@@ -237,3 +237,11 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   and remainder conventions come from context; no integer-only restriction is introduced.
   Removed the duplicate extension finding; the proposed Euclidean-division integration remains
   deferred independently.
+- **October 26 — Collection divisibility.** Added `DivisibilityOfCollections` under
+  `CollectionSense`; `EvenDivisibility` and `UnevenDivisibility` now specialize it, with
+  pairing and equal-sharing definitions and examples. `DivisionOfCollections` now specializes
+  `PartitionOfCollections`, retaining its partitive and quotative specializations. Existing
+  progression, contradiction, and labeling eligibility are unchanged; the new concept is eligible.
+  Resolved the parity and partition-link review. Parity no longer inherits division, while
+  division and its specializations gain partition ancestry; recorded the
+  [annotation adoption follow-up](../plan/ontology-consolidation.md#adopt-revised-definition-and-comment-text).

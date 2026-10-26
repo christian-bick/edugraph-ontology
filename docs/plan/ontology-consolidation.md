@@ -81,6 +81,12 @@ Review definition-dependent annotations, prompts, and model inputs when adopting
 definitions and revised examples. Application-specific rendering and dataset changes belong in
 their owning repositories.
 
+For `EvenDivisibility` and `UnevenDivisibility`, review uses against their clarified pairing
+and equal-sharing properties under `DivisibilityOfCollections`; they no longer inherit
+`DivisionOfCollections`. That descriptor and its partitive and quotative specializations now
+inherit `PartitionOfCollections`. Review inferred labels and direct-parent queries accordingly;
+no consumer migration has been performed.
+
 Review consumers that previously obtained examples from definition lookup alone. Use the
 separate `rdfs:comment` assertions or the combined statement helpers where appropriate. A
 dedicated comment accessor can be considered if a concrete consumer need remains. Follow

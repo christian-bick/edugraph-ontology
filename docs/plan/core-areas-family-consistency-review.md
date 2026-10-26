@@ -102,33 +102,7 @@ particular new identifier, definition, or hierarchy.
 
 ### 2.4 `IntuitiveMathematics`
 
-#### 1. `CollectionSense > DivisionOfCollections` (Remaining parity boundary and partition link):
-
-- **Complex change, group 2 (`ONT-S2`, `ONT-D4`):** `DivisionOfCollections` requires an exact
-  equal partition, but `UnevenDivisibility` still specializes it while explicitly leaving one
-  object undistributed. Keep the concrete collection meaning distinct from the numerical
-  remainder cases represented by `PerfectDivisibility` and `ImperfectDivisibility` under
-  `DivisibilityRules`.
-
-- **Complex change, group 2 (`ONT-D1`, `ONT-D4`, `ONT-E1`, `ONT-W2`):** `EvenDivisibility` and
-  `UnevenDivisibility` describe a concrete two-group sharing model; `IntegerParity` describes
-  the even/odd character of all integers and its behavior under operations. Purely numerical
-  even/odd versions would duplicate `IntegerParity` with the relevant `EvenNumbers` or
-  `OddNumbers` context. The concrete concepts remain unchanged pending a decision about their
-  distinct role. A candidate `ParityByEqualSharing` could cover both outcomes in one method
-  concept: eight objects split into two groups of four, or seven objects into two groups of
-  three with one left over. Review existing annotations individually: finding group sizes may
-  also involve division, and a leftover-object example does not satisfy the exact
-  `DivisionOfCollections` definition. Review `ParityTest expands EvenDivisibility` and
-  `UnevenDivisibility contradicts EvenDivisibility` with any consolidation.
-
-- **Conditional change, group 2 (`ONT-D4`, `ONT-S2`, `ONT-S4`, `ONT-S5`):**
-  `DivisionOfCollections`' equal partition is a narrower form of `PartitionOfCollections`.
-  The proposed specialization is agreed in principle but explicitly deferred with the unresolved
-  `UnevenDivisibility` child conflict. Review the complete paths together with that parity work
-  before implementation.
-
-#### 2. `NumberSense` (`FoundationalOperations` and `Numeration`):
+#### 1. `NumberSense` (`FoundationalOperations` and `Numeration`):
 
 - **Deferred, group 3 (`ONT-D1`, `ONT-D4`, `ONT-E1`, `ONT-W2`):** Retain `Iteration` and
   `IteratedOperation` with their existing names, definitions, and relations for now.
@@ -184,16 +158,12 @@ particular new identifier, definition, or hierarchy.
 No open items remain from the applied simple-change batch. Its placement and specialization
 changes, including sequence-theorem grouping, are recorded in
 [history](../history/2026-10-mathematics-and-consolidation.md).
-The collection-partition proposal remains explicitly deferred with parity work in group 2.
 
 ### 2. Agreed complex changes
 
 Agreement concerns the issue to resolve; identifiers, definitions, and final graph changes still
 need a concrete proposal and review.
 
-- [Intuitive mathematics](#24-intuitivemathematics): the exact-division/concrete-parity boundary
-  and deferred division/partition specialization. The concrete parity descriptors remain
-  unchanged pending the separate meaning decision.
 - [Intuitive mathematics](#24-intuitivemathematics): interval numeration's meaning and parent
   boundary.
 - [Number theory](#25-numbertheory): complex-number organization.
