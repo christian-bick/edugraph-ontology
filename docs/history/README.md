@@ -12,7 +12,17 @@ dates or downstream adoption.
 | [September 2026: authoring and tooling](2026-09-authoring-and-tooling.md) | Authoring references, validation, shared snapshot clients, and definition/comment refinements |
 | [October 2026: mathematics and consolidation](2026-10-mathematics-and-consolidation.md) | Subject extensions, curriculum reviews, hierarchy consolidation, and documentation cleanup |
 
-Detailed former drafts, curriculum mappings, migration instructions, and alternatives remain in
+## Design and archival records
+
+- [Hierarchy design decisions](2026-10-hierarchy-design-decisions.md): considered alternatives
+  and final decisions across the consolidation series, organized by the resulting structure.
+- [Working-plan archive](2026-10-working-plan-archive.md): disposition of the removed plans,
+  preserving unfinished findings and optional choices as they stood on 2026-10-26.
+- [v0.32.0 dataset adoption](../releases/v0.32.0-dataset-adoption.md): the implementation
+  handover for identifier, definition, eligibility and relation changes since v0.31.0.
+
+Detailed former drafts and curriculum mappings remain in
 [Git history](https://github.com/christian-bick/edugraph-ontology/tree/c2fc224e261830ef4ffdb4b95dc7d13c2942b41c/docs/plan).
-Version-specific compatibility belongs in [release notes](../releases/); current rules are in
-[the reference library](../README.md), and unresolved work is in [active plans](../plan/README.md).
+The [final working plans](https://github.com/christian-bick/edugraph-ontology/tree/337e1ec8b3fc06094a8ace4deb356ca2d793fa01/docs/plan)
+are also pinned before their removal. Version-specific compatibility belongs in
+[release notes](../releases/); current rules are in [the reference library](../README.md).

@@ -25,9 +25,10 @@ definition describes its object without repeating that relation or the descripto
 
 Under ONT-D4, descriptor comments contain only example content, directly and without a
 "For example:" prefix. Consumers own presentation markers and can add an example marker when
-rendering a conforming comment. Existing source comments still need an
-[audit](plan/ontology-consolidation.md#6-audit-existing-descriptor-comments-for-example-only-content),
-so consumers should check the ontology version they use.
+rendering a conforming comment. The
+[working-plan archive](history/2026-10-working-plan-archive.md#ontology-boundaries-still-unresolved-at-archival)
+records that existing source comments have not all received this audit, so consumers should
+check the ontology version they use.
 Omit the comment portion when absent. An illustrative example describes the concept, not
 necessarily the particular content being annotated, and must not be treated as evidence
 visible in that content.

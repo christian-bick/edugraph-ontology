@@ -152,8 +152,9 @@ Review the [release notes](docs/releases/) and
 [annotation and model guidance](docs/annotations-and-models.md#interpreting-annotations-across-ontology-versions)
 before upgrading consumers. Identifier, definition, relation, and labeling-eligibility changes
 can affect stored annotations, generated-client keys, and model vocabularies. Brief accounts of
-completed work are in [history](docs/history/README.md); outstanding adoption tasks belong in
-[active plans](docs/plan/README.md).
+completed work are in [history](docs/history/README.md). The
+[v0.32.0 dataset handover](docs/releases/v0.32.0-dataset-adoption.md) specifies adoption from
+v0.31.0; implementation and completion records belong in the consuming repository.
 
 ---
 
@@ -167,7 +168,8 @@ editor can use the same rules. Python provides descriptor and relation queries o
 
 Definition lookups in both clients return `rdfs:isDefinedBy` only. Descriptor examples are
 authored in `rdfs:comment` under [ONT-D4](docs/descriptors.md#ont-d4--define-the-educational-meaning-and-its-boundaries).
-Existing source comments still need an [example-only audit](docs/plan/ontology-consolidation.md#6-audit-existing-descriptor-comments-for-example-only-content). The
+The [working-plan archive](docs/history/2026-10-working-plan-archive.md#ontology-boundaries-still-unresolved-at-archival)
+records the incomplete example-only comment audit. The
 [shared snapshot APIs](#67-shared-snapshot-apis-and-package-verification) retain those assertions:
 use `context.authoredAssertions(iri)` in TypeScript or `context.authored_assertions(iri)` in
 Python and select the literal assertions whose predicate is
@@ -334,8 +336,8 @@ The Docker build compiles both clients, runs their focused relation tests, valid
 ontology source rules, and checks mechanical documentation integrity. Run it after changes using
 section 4.3. These checks do not judge definitions, the educational meaning of a relation, or the
 truth of scholarly claims. Use [change review](docs/change-review.md#ont-w3--verify-and-report-the-actual-change)
-for that semantic review. [Consolidation tracking](docs/plan/ontology-consolidation.md) holds open
-definition and inference decisions.
+for that semantic review. The [working-plan archive](docs/history/2026-10-working-plan-archive.md#ontology-boundaries-still-unresolved-at-archival)
+records definition and inference decisions that remained unresolved when the plans were removed.
 
 The current automated coverage is:
 
@@ -353,7 +355,8 @@ The current automated coverage is:
 The [validator contracts](libraries/typescript/ValidationRules.ts) define the source-check
 identifiers and diagnostic fields. Definitions, conceptual placement, content evidence, and
 future inference semantics still require review. Outstanding performance evidence and conditions
-for any incremental validation are tracked in [automated rule checks](docs/plan/automated-rule-checks.md).
+for any incremental validation are preserved in the
+[validation archive](docs/history/2026-10-working-plan-archive.md#validation-and-consumer-work).
 
 
 ### 6.7 Shared snapshot APIs and package verification
@@ -381,9 +384,9 @@ not a complete browser or editor test suite. The editor's model projection and s
 in its repository; its reviewed parser boundary uses N3 terms and deliberately filters inverse
 predicates from the editable model. The shared parser retains those assertions for validation.
 
-The [library roadmap](docs/plan/library-roadmap.md) tracks remaining consumer integration and
-performance work. Full validation remains the default; no delta-validation or
-mutable editor-state API is introduced.
+The [working-plan archive](docs/history/2026-10-working-plan-archive.md#validation-and-consumer-work)
+records unfinished consumer integration and performance evidence. Full validation remains the
+default; no delta-validation or mutable editor-state API is introduced.
 
 ### 6.8 Combined descriptor statements
 

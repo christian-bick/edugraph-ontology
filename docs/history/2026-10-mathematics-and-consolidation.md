@@ -197,7 +197,7 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   review, removed its completed section, and renumbered the remaining families.
 - **October 26 — Iteration review deferred.** Retained `Iteration` and `IteratedOperation`
   with all definitions and relations unchanged. Recorded the unresolved boundary and the
-  [conditional dataset adoption work](../plan/ontology-consolidation.md#deferred-iteration-consolidation-and-dataset-adoption),
+  [conditional dataset adoption evidence](../releases/v0.32.0-dataset-adoption.md),
   including the distinction between repeated operations and two equal addends. No consolidation
   or dataset migration was performed.
 - **October 26 — Shape-reflection review.** Closed the item as no change: retained
@@ -244,13 +244,13 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   progression, contradiction, and labeling eligibility are unchanged; the new concept is eligible.
   Resolved the parity and partition-link review. Parity no longer inherits division, while
   division and its specializations gain partition ancestry; recorded the
-  [annotation adoption follow-up](../plan/ontology-consolidation.md#adopt-revised-definition-and-comment-text).
+  [annotation adoption handover](../releases/v0.32.0-dataset-adoption.md).
 - **October 26 — Number intervals.** Renamed former `NumerationWithIntervals` to
   `NumberIntervals` and made it directly `partOf NumberSense`, replacing its specialization
   of `Numeration`. Clarified intervals as sets containing every intervening value in the
   specified ordered number domain, with real and integer examples. Retained the bounded and
   unbounded specializations and labeling eligibility. Resolved the family review and recorded
-  the [identifier and inheritance adoption follow-up](../plan/ontology-consolidation.md#adopt-interval-family-rename).
+  the [identifier and inheritance adoption handover](../releases/v0.32.0-dataset-adoption.md).
 - **October 26 — Complex-number foundations.** Added `ComplexNumberFoundations` under
   `NumberSystems` and moved `ComplexNumberStructure`, `ComplexModulus`, `ComplexArgument`,
   `ComplexConjugation`, and `ComplexRootStructure` beneath it using `partOf`. Existing

@@ -51,8 +51,10 @@ It is therefore divided into two layers:
 ### Core Ontology
 
 Brief summaries of completed ontology and tooling work are in [the history notes](docs/history/README.md).
-Current authoring rules are in [the development references](docs/README.md), and
-unresolved work is tracked in [the active plans](docs/plan/README.md).
+Current authoring rules are in [the development references](docs/README.md). The
+[v0.32.0 adoption handover](docs/releases/v0.32.0-dataset-adoption.md) describes required dataset
+changes; the [working-plan archive](docs/history/2026-10-working-plan-archive.md) preserves
+unfinished findings from the retired plans.
 
 #### Foundations
 

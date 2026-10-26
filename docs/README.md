@@ -11,13 +11,9 @@ Start here when changing a descriptor, relation, or competency description.
 | Review or implement any ontology change | [Change review](change-review.md), plus the relevant references above |
 | Use descriptors with annotated content or models | [Content evidence](content-evidence.md), especially [labeling eligibility](content-evidence.md#ont-e7--label-observable-descriptors-not-organizational-nodes), and [annotations and models](annotations-and-models.md) |
 | Review proof, evidence, or error-guarantee context | [Justification Scopes](justification.md) and [content evidence](content-evidence.md) |
-| Find pending consolidation decisions | [Consolidation record](plan/ontology-consolidation.md) |
-| Review `core-areas-math.ttl` family and sibling consistency across `partOf` and `specializes` | [Core areas family and sibling consistency review](plan/core-areas-family-consistency-review.md) |
-| Review deferred mathematical extensions | [Mathematics extensions](plan/mathematics-extensions.md) |
-| Review remaining curriculum verification and source issues | [Curriculum follow-ups](plan/curriculum-follow-ups.md) |
-| Plan further validation work | [Automated rule checks](plan/automated-rule-checks.md) |
-| Review remaining shared-library and consumer work | [Library roadmap](plan/library-roadmap.md) |
-| Find all unresolved work | [Active plans](plan/README.md) |
+| Adopt v0.32.0 in the dataset | [Dataset adoption handover](releases/v0.32.0-dataset-adoption.md) |
+| Review hierarchy alternatives and final decisions by family | [Hierarchy design decisions](history/2026-10-hierarchy-design-decisions.md) |
+| Recover unfinished boundary, curriculum, validation or consumer findings from the retired plans | [Working-plan archive](history/2026-10-working-plan-archive.md) |
 | Read brief summaries of completed work | [History](history/README.md) |
 
 ## How to use these references
@@ -48,9 +44,10 @@ rules. If they disagree, record the discrepancy and resolve its meaning explicit
 - [DESIGN.md](../DESIGN.md) explains general design principles and relates them to academic literature.
 - [DOCS.md](../DOCS.md) covers builds, generated libraries, APIs, and release workflows.
 - This library defines ontology authoring and review rules.
-- [The consolidation record](plan/ontology-consolidation.md) tracks findings and unfinished work.
 - [Verification scope](../DOCS.md#66-verification-scope) describes current automated coverage.
-- [Active plans](plan/README.md) contain unresolved work; [history notes](history/README.md) briefly summarize completed work.
+- [History](history/README.md) records milestones and design choices; its working-plan archive
+  preserves unresolved findings without treating them as completed.
+- [Release notes](releases/) document compatibility; release-specific handovers describe consumer adoption.
 - Application repositories own their implementation, labeling format, and validation requirements.
 
 The Turtle files are the authored machine-readable model. The references explain how to develop
