@@ -1212,16 +1212,12 @@
 :FiniteMarkovChain a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A process on a finite state set whose next-state distribution, given its history, depends only on the present state.";
     rdfs:comment "A two-state weather model whose tomorrow probabilities depend on today but not earlier weather.";
-    edu:partOf :FiniteMarkovChainTheory.
-:FiniteMarkovChainTheory a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The structure, evolution, and long-term behavior of Markov chains with finitely many states.";
-    rdfs:comment "A two-state weather chain with P=[[0.8,0.2],[0.3,0.7]] and stationary distribution [0.6,0.4].";
     edu:partOf :StochasticProcesses.
 :FiniteMarkovConvergenceTheorem a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The guarantee that a finite, time-homogeneous, irreducible and aperiodic Markov chain has a unique stationary distribution and that its state distribution converges to it from every initial distribution.";
     rdfs:comment "For P=[[0.8,0.2],[0.3,0.7]], every initial distribution converges to the stationary distribution [0.6,0.4].";
     edu:integrates :MarkovChainIrreducibility, :MarkovChainPeriodicity, :StationaryDistribution;
-    edu:partOf :FiniteMarkovChainTheory.
+    edu:partOf :StochasticProcesses.
 :FiniteSetCardinality a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The number of distinct elements in a finite set, independent of their order or repeated listing.";
     rdfs:comment "The set {a, a, b} has cardinality 2; the empty set has cardinality 0.";
@@ -2020,16 +2016,16 @@
 :MarkovChainAbsorption a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Eventual entry into absorbing states in finite, time-homogeneous Markov chains, including absorption probabilities, equations for determining them, and conditions guaranteeing absorption.";
     rdfs:comment "With A absorbing and B and C alternating deterministically, the probability of eventual absorption in A from B is zero.";
-    edu:partOf :FiniteMarkovChainTheory.
+    edu:partOf :StochasticProcesses.
 :MarkovChainIrreducibility a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Mutual reachability of every pair of states through transitions of positive probability in a finite, time-homogeneous Markov chain.";
     rdfs:comment "The chain with P=[[0,1],[1,0]] is irreducible; the chain with P=[[1,0],[0,1]] is not.";
-    edu:partOf :FiniteMarkovChainTheory.
+    edu:partOf :StochasticProcesses.
 :MarkovChainPeriodicity a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The greatest common divisor of the possible positive return times to a state of a finite, time-homogeneous Markov chain, when such returns exist. Period one defines an aperiodic state.";
     rdfs:comment "In P=[[0,1],[1,0]], each state has period two; in P=[[0.8,0.2],[0.3,0.7]], each state has period one.";
     edu:integrates :GreatestCommonDivisor;
-    edu:partOf :FiniteMarkovChainTheory.
+    edu:partOf :StochasticProcesses.
 :MarkovInequality a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The bound P(X >= a) <= E(X)/a for nonnegative X with finite expectation and a > 0.";
     rdfs:comment "A nonnegative waiting time with mean two minutes exceeds or equals ten minutes with probability at most 0.2.";
@@ -2039,12 +2035,12 @@
     rdfs:isDefinedBy "The probability vector over states of a finite Markov chain and its propagation by pi_(n+1)=pi_n P for a time-homogeneous row transition matrix.";
     rdfs:comment "Starting at pi_0=[1,0] with P=[[0.8,0.2],[0.3,0.7]] gives pi_1=[0.8,0.2].";
     edu:integrates :MarkovTransitionMatrix, :RowColumnProduct;
-    edu:partOf :FiniteMarkovChainTheory.
+    edu:partOf :StochasticProcesses.
 :MarkovTransitionMatrix a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The row-stochastic matrix P of a time-homogeneous finite Markov chain, with entry P(i,j) giving the probability of state j next given state i now.";
     rdfs:comment "P=[[0.8,0.2],[0.3,0.7]] gives a 0.2 chance of moving from the first state to the second.";
     edu:integrates :ConditionalProbability, :MatrixStructure;
-    edu:partOf :FiniteMarkovChainTheory.
+    edu:partOf :StochasticProcesses.
 :MathematicalExpression a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The syntax and meaning of well-formed finite symbolic forms denoting a value without asserting a relation at their outermost level, including single value-denoting symbols.";
     rdfs:comment "Distinguishing the value-denoting form 3x + 2 from the assertion 3x + 2 = 11; interpreting 5, x, and sin(x) as expressions.";
@@ -3420,7 +3416,7 @@
     rdfs:isDefinedBy "A probability row vector pi satisfying pi P=pi for a finite Markov transition matrix, remaining unchanged under a step without itself guaranteeing convergence from other initial states.";
     rdfs:comment "For P=[[0.8,0.2],[0.3,0.7]], pi=[0.6,0.4] is stationary.";
     edu:integrates :MarkovTransitionMatrix;
-    edu:partOf :FiniteMarkovChainTheory.
+    edu:partOf :StochasticProcesses.
 :StatisticalData a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The units, variables, populations, samples, and variation that give statistical data their meaning.";
     rdfs:comment "Identifying the pupils, recorded heights, and sampled classes in a school height survey.";
