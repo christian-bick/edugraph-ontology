@@ -73,20 +73,13 @@ particular new identifier, definition, or hierarchy.
 
 ### 2.2 `Arithmetic`
 
-#### 1. `ArithmeticOperations` (Modulo convention and deferred progression links):
-
-- **Complex change, group 2 (`ONT-D4`, `ONT-S2`, `ONT-W2`):** `Modulo` currently describes
-  the remainder after dividing one number by another, without fixing its number domain,
-  divisor restrictions, or convention for negative inputs. `EuclideanDivision` fixes an
-  integer dividend, positive integer divisor, and remainder between zero inclusive and the
-  divisor exclusive. Settle the intended modulo boundary before changing either definition
-  or relating the two concepts; moving `Modulo` directly under `ArithmeticOperations` does
-  not resolve that meaning decision.
+#### 1. `ArithmeticOperations` (Deferred progression links):
 
 - **Deferred, group 3 (`ONT-R3`, `ONT-W2`):** The proposed
   `Factorial integrates Multiplication` and `Modulo integrates EuclideanDivision` links
   remain unapproved. Revisit their conceptual meaning and progression paths separately;
-  the modulo proposal also depends on the unresolved number-domain and remainder convention.
+  any modulo proposal must account for the general operation's contextual domain and remainder
+  convention alongside `EuclideanDivision`'s explicit integer and positive-divisor boundary.
 
 ---
 
@@ -198,8 +191,6 @@ The collection-partition proposal remains explicitly deferred with parity work i
 Agreement concerns the issue to resolve; identifiers, definitions, and final graph changes still
 need a concrete proposal and review.
 
-- [Arithmetic](#22-arithmetic): `Modulo`'s number domain, divisor restrictions, and
-  negative-input convention relative to `EuclideanDivision`.
 - [Intuitive mathematics](#24-intuitivemathematics): the exact-division/concrete-parity boundary
   and deferred division/partition specialization. The concrete parity descriptors remain
   unchanged pending the separate meaning decision.
@@ -223,6 +214,13 @@ These items require a meaning or scope decision before implementation.
 
 No open actions remain in this group. Accepted differences in constituent roles, hierarchy depth,
 strategy organization, and overlapping classification axes have been removed from the findings.
+
+The `Modulo` boundary review is resolved as no change (`ONT-D4`, `ONT-D6`, `ONT-S1`): retain
+its definition as the operation of finding a remainder, `partOf ArithmeticOperations`, and
+`expands Division`. The operation does not impose a numerical domain; applicable operand
+domains and remainder conventions come from context. Do not import `EuclideanDivision`'s
+integer and positive-divisor restrictions into this operation. The proposed integration link
+remains deferred independently, and no additional `ModularArithmetic` parent is introduced.
 
 The `RandomVariable` and `RandomVariableTheory` review is resolved as no change (`ONT-D4`,
 `ONT-S1`, `ONT-S3`): retain both names, definitions, and all relations. The foundational

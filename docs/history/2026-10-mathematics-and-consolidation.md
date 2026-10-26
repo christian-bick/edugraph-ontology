@@ -232,3 +232,8 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   Existing definitions, progression links, and labeling eligibility are unchanged; the new
   organizer is ineligible for direct labeling. Review changed structural ancestry and
   direct-parent queries. Resolved the final statistics finding and removed the completed section.
+- **October 26 — Modulo boundary review.** Closed the item as no change: retained `Modulo`
+  as a general remainder operation with its existing definition and relations. Operand domains
+  and remainder conventions come from context; no integer-only restriction is introduced.
+  Removed the duplicate extension finding; the proposed Euclidean-division integration remains
+  deferred independently.
