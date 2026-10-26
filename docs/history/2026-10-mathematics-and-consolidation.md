@@ -204,3 +204,6 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   `ShapeReflection` with its existing name, definition, part-whole placement, and progression
   relations. Its mirrored-halves meaning supports the current organization; the proposed
   rename and additional symmetry specialization are not being pursued.
+- **October 26 — Numeric-comparison review.** Closed the family item as no change: retained
+  `NumericComparison` and its four constituents with all names, definitions, and relations
+  unchanged. The proposed organizer and numeric-order wording changes are not being pursued.
