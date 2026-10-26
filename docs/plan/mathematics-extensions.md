@@ -16,9 +16,6 @@ in [curriculum follow-ups](curriculum-follow-ups.md); shared hierarchy work belo
   to integers but specializes `RationalNumbers`. Align definition and ancestry, then review the
   `implies FractionNumbers` assertions from `FractionDividend`, `FractionDivisor`,
   `FractionExponent`, and `FractionQuotient`.
-- **Remainder convention.** `Modulo` leaves negative-input behavior unspecified. Define that
-  boundary before using negative examples, distinguishing the computational convention from
-  the existing positive-divisor `EuclideanDivision` concept.
 - **General functions and relations.** Decide whether arbitrary-set correspondence needs an
   eligible generic concept beyond the accepted numerical-correspondence coverage using
   `NumericFunction` and the reusable `FunctionSymbol` / `FunctionArgument` roles. Do not silently
