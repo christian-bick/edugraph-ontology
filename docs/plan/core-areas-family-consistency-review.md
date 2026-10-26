@@ -14,11 +14,10 @@ claims have been removed from the family findings; completed work is summarized 
   - [Arithmetic](#22-arithmetic)
   - [Combinatorics](#23-combinatorics)
   - [IntuitiveMathematics](#24-intuitivemathematics)
-  - [LinearAlgebra](#25-linearalgebra)
-  - [Logic](#26-logic)
-  - [NumberTheory](#27-numbertheory)
-  - [Probability](#28-probability)
-  - [Statistics](#29-statistics)
+  - [Logic](#25-logic)
+  - [NumberTheory](#26-numbertheory)
+  - [Probability](#27-probability)
+  - [Statistics](#28-statistics)
 - [3. Priority actions](#3-summary-of-priority-action-items)
   - [1. Agreed simple changes](#1-agreed-simple-changes)
   - [2. Agreed complex changes](#2-agreed-complex-changes)
@@ -157,21 +156,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.5 `LinearAlgebra`
-
-#### 1. `VectorAlgebra` (Optional organization review):
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S3`):** The nine direct constituents combine
-  abstract vector-space concepts (`Basis`, `LinearCombination`, `LinearIndependence`,
-  `LinearSpan`), geometric properties (`VectorDirection`, `VectorMagnitude`,
-  `VectorOrthogonality`), coordinate representation (`VectorComponents`), and operations
-  (`VectorArithmetic`). `OrthonormalBasis` already specializes `Basis`. Review whether any
-  additional organization or definition clarification adds useful meaning; the different
-  constituent roles alone do not require regrouping.
-
----
-
-### 2.6 `Logic`
+### 2.5 `Logic`
 
 #### 1. `PropositionalLogic` (`LogicalEquivalence`):
 
@@ -187,7 +172,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.7 `NumberTheory`
+### 2.6 `NumberTheory`
 
 #### 1. `NumberSystems` (Complex-number organization):
 
@@ -201,7 +186,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.8 `Probability`
+### 2.7 `Probability`
 
 #### 1. `ProbabilityFoundations` and `RandomVariableTheory`:
 
@@ -225,7 +210,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.9 `Statistics`
+### 2.8 `Statistics`
 
 #### 1. `DescriptiveStatistics` (Location/central-tendency family):
 
@@ -269,8 +254,8 @@ need a concrete proposal and review.
   unchanged pending the separate meaning decision.
 - [Intuitive mathematics](#24-intuitivemathematics): interval numeration's meaning and parent
   boundary.
-- [Number theory](#27-numbertheory): complex-number organization.
-- [Probability](#28-probability): finite-Markov/absorption topic organization.
+- [Number theory](#26-numbertheory): complex-number organization.
+- [Probability](#27-probability): finite-Markov/absorption topic organization.
 
 ### 3. Discussion and conditional proposals
 
@@ -282,12 +267,11 @@ These items require a meaning or scope decision before implementation.
 - [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links.
 - [Intuitive mathematics](#24-intuitivemathematics): deferred iteration consolidation and
   dataset adoption.
-- [Linear algebra](#25-linearalgebra): whether additional vector-topic organization is useful.
-- [Logic](#26-logic): formula construction vs. equivalence of formulas within propositional
+- [Logic](#25-logic): formula construction vs. equivalence of formulas within propositional
   logic.
-- [Probability](#28-probability): whether broader random-variable organization is useful
+- [Probability](#27-probability): whether broader random-variable organization is useful
   beyond the current supported placements.
-- [Statistics](#29-statistics): a location/central-tendency family that accommodates
+- [Statistics](#28-statistics): a location/central-tendency family that accommodates
   categorical modes and preserves median's quantile role, and the shared inference context of
   sampling distributions and standard errors.
 
@@ -295,6 +279,12 @@ These items require a meaning or scope decision before implementation.
 
 No open actions remain in this group. Accepted differences in constituent roles, hierarchy depth,
 strategy organization, and overlapping classification axes have been removed from the findings.
+
+The `VectorAlgebra` organization review is resolved as no change (`ONT-D4`, `ONT-S1`, `ONT-S5`):
+retain its nine direct `partOf` constituents and all names, definitions, and relations.
+Representation, geometric properties, operations, and relationships among vectors are
+complementary topics within the field. Their differing roles do not require additional
+organizers; `OrthonormalBasis` already specializes `Basis`.
 
 The `NumericComparison` family review is resolved as no change (`ONT-D4`, `ONT-S1`, `ONT-E7`):
 retain the organizer and its four `partOf` children, `NumericEquality`, `NumericInequality`,
