@@ -102,7 +102,7 @@ particular new identifier, definition, or hierarchy.
 
 ### 2.4 `IntuitiveMathematics`
 
-#### 1. `NumberSense` (`FoundationalOperations` and `Numeration`):
+#### 1. `NumberSense > FoundationalOperations`:
 
 - **Deferred, group 3 (`ONT-D1`, `ONT-D4`, `ONT-E1`, `ONT-W2`):** Retain `Iteration` and
   `IteratedOperation` with their existing names, definitions, and relations for now.
@@ -111,13 +111,6 @@ particular new identifier, definition, or hierarchy.
   specialization link remain deferred. Revisit the meaning together with the
   [dataset adoption and equal-addends follow-up](ontology-consolidation.md#deferred-iteration-consolidation-and-dataset-adoption);
   the dataset currently uses the arithmetic label for both repeated groups and two equal addends.
-
-- **Complex change, group 2 (`ONT-D4`, `ONT-S2`, `ONT-S3`):** `NumerationWithIntegers`,
-  `NumerationWithFractions`, and `NumerationWithDecimals` specialize `Numeration`, whose meaning
-  includes counting, ordering, and grouping numbers and relating them to representations.
-  `NumerationWithIntervals` instead represents sets through lower and upper bounds. Its
-  `BoundedIntervals` and `UnboundedIntervals` specializations do not resolve that parent
-  boundary. Review the intended meaning and placement while retaining the current identifiers.
 
 ---
 
@@ -164,8 +157,6 @@ changes, including sequence-theorem grouping, are recorded in
 Agreement concerns the issue to resolve; identifiers, definitions, and final graph changes still
 need a concrete proposal and review.
 
-- [Intuitive mathematics](#24-intuitivemathematics): interval numeration's meaning and parent
-  boundary.
 - [Number theory](#25-numbertheory): complex-number organization.
 - [Probability](#26-probability): finite-Markov/absorption topic organization.
 
