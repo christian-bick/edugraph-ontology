@@ -138,7 +138,7 @@ particular new identifier, definition, or hierarchy.
   `UnevenDivisibility` child conflict. Review the complete paths together with that parity work
   before implementation.
 
-#### 2. `NumberSense` (`FoundationalOperations`, `Numeration`, and `NumericComparison`):
+#### 2. `NumberSense` (`FoundationalOperations` and `Numeration`):
 
 - **Deferred, group 3 (`ONT-D1`, `ONT-D4`, `ONT-E1`, `ONT-W2`):** Retain `Iteration` and
   `IteratedOperation` with their existing names, definitions, and relations for now.
@@ -154,16 +154,6 @@ particular new identifier, definition, or hierarchy.
   `NumerationWithIntervals` instead represents sets through lower and upper bounds. Its
   `BoundedIntervals` and `UnboundedIntervals` specializations do not resolve that parent
   boundary. Review the intended meaning and placement while retaining the current identifiers.
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S2`, `ONT-S5`, `ONT-E7`):**
-  `NumericIdentity` concerns invariance of value across representations rather than comparison
-  of numerical values. Review the whole `NumericComparison` family: `NumericEquality` could
-  preserve its broader comparison meaning through specialization, but converting it alone
-  would mix child roles while `NumericInequality`, `NumericOrder`, and `NumericIdentity` remain
-  constituents. `NumericInequality` establishes only unequal values, `NumericOrder` arranges
-  multiple values by magnitude, and `NumericIdentity` concerns representation invariance.
-  Decide each boundary and the parent's role before any conversions or relocations;
-  `NumericComparison`'s present ineligibility does not establish the required change.
 
 ---
 
@@ -291,8 +281,7 @@ These items require a meaning or scope decision before implementation.
 - [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links.
 - [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links.
 - [Intuitive mathematics](#24-intuitivemathematics): deferred iteration consolidation and
-  dataset adoption, and the whole numeric-comparison family's boundaries, structural roles,
-  and eligibility consequences.
+  dataset adoption.
 - [Linear algebra](#25-linearalgebra): whether additional vector-topic organization is useful.
 - [Logic](#26-logic): formula construction vs. equivalence of formulas within propositional
   logic.
@@ -306,6 +295,13 @@ These items require a meaning or scope decision before implementation.
 
 No open actions remain in this group. Accepted differences in constituent roles, hierarchy depth,
 strategy organization, and overlapping classification axes have been removed from the findings.
+
+The `NumericComparison` family review is resolved as no change (`ONT-D4`, `ONT-S1`, `ONT-E7`):
+retain the organizer and its four `partOf` children, `NumericEquality`, `NumericInequality`,
+`NumericOrder`, and `NumericIdentity`, with all names, definitions, and relations unchanged.
+The proposed organizer-definition clarification and replacement of "magnitude" in
+`NumericOrder` are not being pursued. No specialization conversion or eligibility change is
+required by this review.
 
 The `ShapeReflection` review is resolved as no change (`ONT-D4`, `ONT-S1`, `ONT-S3`): retain
 its name, definition, `partOf ShapePartWholeRelations`, and all existing progression relations.
