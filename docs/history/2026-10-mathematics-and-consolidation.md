@@ -195,3 +195,8 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   graphs; `CompleteGraph` now specializes `SimpleGraph`, retaining its ancestry under
   `GraphStructure`. Existing labeling eligibility is unchanged. Resolved the graph-family
   review, removed its completed section, and renumbered the remaining families.
+- **October 26 — Iteration review deferred.** Retained `Iteration` and `IteratedOperation`
+  with all definitions and relations unchanged. Recorded the unresolved boundary and the
+  [conditional dataset adoption work](../plan/ontology-consolidation.md#deferred-iteration-consolidation-and-dataset-adoption),
+  including the distinction between repeated operations and two equal addends. No consolidation
+  or dataset migration was performed.

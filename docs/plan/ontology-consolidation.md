@@ -30,6 +30,38 @@ alongside plural organizers, based on their intended meanings under
 Source: [core-areas-math.ttl](../../core-areas-math.ttl).
 Rules: ONT-D4, ONT-S1, ONT-S2, ONT-W2.
 
+## Deferred iteration consolidation and dataset adoption
+
+Retain `Iteration` and `IteratedOperation` unchanged for now. Their overlap remains an open
+meaning decision; neither consolidation nor a new specialization link is approved. Review the
+general repetition meaning and the arithmetic descriptor's ambiguous "single operand value"
+boundary before changing definitions, identifiers, or ancestry.
+
+The dataset review at
+[commit `2e08f365`](https://github.com/christian-bick/edugraph-dataset/tree/2e08f3654d30cc1567f701c4bc78b1b68f60d568)
+found the arithmetic label in three generators and seven target permutations. Uses include
+[array equations and two-equal-addend tasks](https://github.com/christian-bick/edugraph-dataset/blob/2e08f3654d30cc1567f701c4bc78b1b68f60d568/src/spec/ccss/grade-02.ts#L89)
+and [whole-number multiples of fractions](https://github.com/christian-bick/edugraph-dataset/blob/2e08f3654d30cc1567f701c4bc78b1b68f60d568/src/spec/ccss/grade-04.ts#L578).
+The repeated-group cases support general iteration. The equal-addends case needs separate
+review: an expression such as `7 + 7` shows one addition, and equal operand values alone do not
+clearly establish repeated application. The existing label also enforces operand equality;
+simply dropping it would lose that task constraint.
+
+If consolidation is resumed, resolve that evidence issue before migrating annotations: either
+make repeated accumulation observable or represent the equal-addends requirement separately.
+Review the affected targets, capabilities, tests, and visual evidence in the dataset repository,
+then regenerate affected artifacts and validation records against the adopted ontology version.
+Label changes affect target identities, so existing generated metadata and validation judgments
+must not be treated as already migrated. Dataset implementation and release work remain owned
+by that repository; no consumer migration has been performed.
+
+A future merge must also review the arithmetic-specific ancestry and progression relations;
+they cannot be transferred automatically to the general `Iteration` concept. See the
+[family review](core-areas-family-consistency-review.md#24-intuitivemathematics) and
+[annotation migration guidance](../annotations-and-models.md#interpreting-annotations-across-ontology-versions).
+
+Rules: ONT-D1, ONT-D4, ONT-D6, ONT-E1, ONT-W2, ONT-W3.
+
 ## Unit-fraction endpoint
 
 `UnitFractions` allows numerator one and any positive integer denominator, so it includes 1/1.
