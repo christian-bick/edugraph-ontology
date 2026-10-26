@@ -114,17 +114,7 @@ particular new identifier, definition, or hierarchy.
 
 ### 2.4 `Geometry`
 
-#### 1. `GeometricRelations` (Right-triangle trigonometric ratios):
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-E1`, `ONT-E7`):** `TrigonometricRelations` includes
-  right-triangle ratios and circular trigonometry, and is an ineligible organizer.
-  `Cosine`, `Sine`, and `Tangent` are eligible; their definitions use the unit circle and their
-  comments already illustrate adjacent/hypotenuse, opposite/hypotenuse, and opposite/adjacent
-  ratios. There is no established absence of an eligible descriptor for elementary
-  right-triangle ratios. Reconcile definitions and examples, or establish the distinct
-  observable knowledge a separate ratio-family descriptor would add, before adding one.
-
-#### 2. `GeometricVisualization` (`CartesianPlane`):
+#### 1. `GeometricVisualization` (`CartesianPlane`):
 
 - **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S2`, `ONT-E7`):** `CartesianPlane` is
   ineligible because `CoordinateAxes`, `Origin`, and `Quadrants` are its `partOf` children.
@@ -340,8 +330,7 @@ These items require a meaning or scope decision before implementation.
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
 - [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links.
 - [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links.
-- [Geometry](#24-geometry): right-triangle ratio definitions/examples and the coordinate-plane
-  field vs. observable-concept role.
+- [Geometry](#24-geometry): the coordinate-plane field vs. observable-concept role.
 - [Graph theory](#25-graphtheory): concrete foundational graph-family proposals and conventions.
 - [Intuitive mathematics](#26-intuitivemathematics): iteration overlap, reflective-symmetry
   placement, and the whole numeric-comparison family's boundaries, structural roles, and

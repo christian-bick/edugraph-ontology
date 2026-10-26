@@ -180,3 +180,7 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   `SolidOfRevolution`. Clarified the `GeometricNet` example and resolved the family review;
   existing labeling eligibility is unchanged. `Cone`'s formerly general-base wording is now
   limited to circular bases, so prior annotations using noncircular bases need review.
+- **October 26 — Right-triangle trigonometric ratios.** Clarified `Sine`, `Cosine`, and
+  `Tangent` with their side-length ratios for acute angles in nondegenerate right triangles,
+  and made that context explicit in their examples. Retained their general definitions,
+  names, relations, and labeling eligibility. Resolved the review without adding a new family.

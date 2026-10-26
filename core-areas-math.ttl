@@ -669,8 +669,8 @@
     rdfs:comment "For integer n, 12 dividing 5n implies 12 divides n because gcd(12,5)=1; 6 divides 2*3 but does not divide 3.";
     edu:partOf :IntegerDivisibility.
 :Cosine a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The relationship between an angle measure and the horizontal coordinate of its corresponding point on the unit circle, using a specified angular unit.";
-    rdfs:comment "cos(0) = 1 and cos(pi) = -1 for radian measures; an adjacent side of length 4 and hypotenuse of length 5 give cosine 4/5 for the included acute angle.";
+    rdfs:isDefinedBy "The relationship between an angle measure and the horizontal coordinate of its corresponding point on the unit circle, using a specified angular unit. For an acute angle in a nondegenerate right triangle, this equals the adjacent leg's length divided by the hypotenuse's length.";
+    rdfs:comment "cos(0) = 1 and cos(pi) = -1 for radian measures; in a right triangle, an adjacent leg of length 4 and hypotenuse of length 5 give cosine 4/5 for the selected acute angle.";
     edu:specializes :TrigonometricFunction.
 :CountingPrinciples a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "General relationships and methods for counting finite configurations and deriving existence from cardinality bounds.";
@@ -3318,8 +3318,8 @@
     rdfs:comment "Samples of x^2 at 0, 1/2 and 1 give the exact integral 1/3.";
     edu:specializes :NumericalIntegration.
 :Sine a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The relationship between an angle measure and the vertical coordinate of its corresponding point on the unit circle, using a specified angular unit.";
-    rdfs:comment "sin(pi/2) = 1 and sin(3pi/2) = -1 for radian measures; an opposite side of length 3 and hypotenuse of length 5 give sine 3/5 for the acute angle.";
+    rdfs:isDefinedBy "The relationship between an angle measure and the vertical coordinate of its corresponding point on the unit circle, using a specified angular unit. For an acute angle in a nondegenerate right triangle, this equals the opposite leg's length divided by the hypotenuse's length.";
+    rdfs:comment "sin(pi/2) = 1 and sin(3pi/2) = -1 for radian measures; in a right triangle, an opposite leg of length 3 and hypotenuse of length 5 give sine 3/5 for the selected acute angle.";
     edu:specializes :TrigonometricFunction.
 :SkewLines a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The relationship between two lines in three-dimensional space that are not contained in a common plane and therefore neither intersect nor are parallel.";
@@ -3563,8 +3563,8 @@
     rdfs:comment "Rewriting {y = 2x + 1, x + y = 7} as {y = 2x + 1, 3x + 1 = 7}, then recovering x = 2 and y = 5.";
     edu:specializes :AlgebraicSubstitution, :SystemRewriting.
 :Tangent a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "The relationship between an angle measure and the quotient of its sine by its cosine, using a specified angular unit and excluding angles with zero cosine.";
-    rdfs:comment "tan(pi/4) = 1 and tan(3pi/4) = -1 for radian measures; opposite and adjacent sides of lengths 3 and 4 give tangent 3/4 for the acute angle.";
+    rdfs:isDefinedBy "The relationship between an angle measure and the quotient of its sine by its cosine, using a specified angular unit and excluding angles with zero cosine. For an acute angle in a nondegenerate right triangle, this equals the opposite leg's length divided by the adjacent leg's length.";
+    rdfs:comment "tan(pi/4) = 1 and tan(3pi/4) = -1 for radian measures; in a right triangle, opposite and adjacent legs of lengths 3 and 4 give tangent 3/4 for the selected acute angle.";
     edu:specializes :TrigonometricFunction.
 :TangentRadiusRelation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The equivalence, for a line in a circle's plane through a point of the circle, between tangency and perpendicularity to the radius at that point.";
