@@ -14,10 +14,9 @@ claims have been removed from the family findings; completed work is summarized 
   - [Arithmetic](#22-arithmetic)
   - [Combinatorics](#23-combinatorics)
   - [IntuitiveMathematics](#24-intuitivemathematics)
-  - [Logic](#25-logic)
-  - [NumberTheory](#26-numbertheory)
-  - [Probability](#27-probability)
-  - [Statistics](#28-statistics)
+  - [NumberTheory](#25-numbertheory)
+  - [Probability](#26-probability)
+  - [Statistics](#27-statistics)
 - [3. Priority actions](#3-summary-of-priority-action-items)
   - [1. Agreed simple changes](#1-agreed-simple-changes)
   - [2. Agreed complex changes](#2-agreed-complex-changes)
@@ -156,23 +155,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.5 `Logic`
-
-#### 1. `PropositionalLogic` (`LogicalEquivalence`):
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S3`):** `LogicalConjunction`,
-  `LogicalDisjunction`, `LogicalImplication`, and `LogicalNegation` construct compound formulas
-  with specified truth conditions, such as $p \land q$. `LogicalEquivalence` instead compares
-  formulas across all admissible interpretations: $p \land q$ and $q \land p$ have matching
-  truth values throughout. It has `ContrapositionEquivalence` and `DeMorganLaws` as narrower
-  equivalences. Both formula constructs and equivalence relationships fit the current
-  `PropositionalLogic` field. Decide whether a more explicit distinction would help before
-  proposing a rename, new family, or placement change; their differing roles alone do not make
-  the current `partOf` relations invalid.
-
----
-
-### 2.6 `NumberTheory`
+### 2.5 `NumberTheory`
 
 #### 1. `NumberSystems` (Complex-number organization):
 
@@ -186,7 +169,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.7 `Probability`
+### 2.6 `Probability`
 
 #### 1. `ProbabilityFoundations` and `RandomVariableTheory`:
 
@@ -210,7 +193,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.8 `Statistics`
+### 2.7 `Statistics`
 
 #### 1. `DescriptiveStatistics` (Location/central-tendency family):
 
@@ -254,8 +237,8 @@ need a concrete proposal and review.
   unchanged pending the separate meaning decision.
 - [Intuitive mathematics](#24-intuitivemathematics): interval numeration's meaning and parent
   boundary.
-- [Number theory](#26-numbertheory): complex-number organization.
-- [Probability](#27-probability): finite-Markov/absorption topic organization.
+- [Number theory](#25-numbertheory): complex-number organization.
+- [Probability](#26-probability): finite-Markov/absorption topic organization.
 
 ### 3. Discussion and conditional proposals
 
@@ -267,11 +250,9 @@ These items require a meaning or scope decision before implementation.
 - [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links.
 - [Intuitive mathematics](#24-intuitivemathematics): deferred iteration consolidation and
   dataset adoption.
-- [Logic](#25-logic): formula construction vs. equivalence of formulas within propositional
-  logic.
-- [Probability](#27-probability): whether broader random-variable organization is useful
+- [Probability](#26-probability): whether broader random-variable organization is useful
   beyond the current supported placements.
-- [Statistics](#28-statistics): a location/central-tendency family that accommodates
+- [Statistics](#27-statistics): a location/central-tendency family that accommodates
   categorical modes and preserves median's quantile role, and the shared inference context of
   sampling distributions and standard errors.
 
@@ -279,6 +260,13 @@ These items require a meaning or scope decision before implementation.
 
 No open actions remain in this group. Accepted differences in constituent roles, hierarchy depth,
 strategy organization, and overlapping classification axes have been removed from the findings.
+
+The `LogicalEquivalence` review is resolved as no change (`ONT-D4`, `ONT-S1`, `ONT-S2`):
+retain its name, definition, `partOf PropositionalLogic`, and the `ContrapositionEquivalence`
+and `DeMorganLaws` specializations. Formula construction and equivalence across admissible
+interpretations are both constituents of propositional logic. The existing definition already
+distinguishes equivalence from a biconditional that happens to be true in one interpretation;
+no additional organizer or relation change is needed.
 
 The `VectorAlgebra` organization review is resolved as no change (`ONT-D4`, `ONT-S1`, `ONT-S5`):
 retain its nine direct `partOf` constituents and all names, definitions, and relations.

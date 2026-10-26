@@ -211,3 +211,7 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   the nine direct `VectorAlgebra` constituents and the existing `OrthonormalBasis`
   specialization of `Basis`. Removed the completed linear-algebra review section and
   renumbered the remaining families; ontology names, definitions, and relations are unchanged.
+- **October 26 — Logical-equivalence review.** Closed the item as no change: retained
+  `LogicalEquivalence` under `PropositionalLogic`, with its existing definition and
+  contraposition and De Morgan specializations. Removed the completed logic review section
+  and renumbered the remaining families; no ontology changes were made.
