@@ -13,14 +13,13 @@ claims have been removed from the family findings; completed work is summarized 
   - [Algebra](#21-algebra)
   - [Arithmetic](#22-arithmetic)
   - [Combinatorics](#23-combinatorics)
-  - [Geometry](#24-geometry)
-  - [GraphTheory](#25-graphtheory)
-  - [IntuitiveMathematics](#26-intuitivemathematics)
-  - [LinearAlgebra](#27-linearalgebra)
-  - [Logic](#28-logic)
-  - [NumberTheory](#29-numbertheory)
-  - [Probability](#210-probability)
-  - [Statistics](#211-statistics)
+  - [GraphTheory](#24-graphtheory)
+  - [IntuitiveMathematics](#25-intuitivemathematics)
+  - [LinearAlgebra](#26-linearalgebra)
+  - [Logic](#27-logic)
+  - [NumberTheory](#28-numbertheory)
+  - [Probability](#29-probability)
+  - [Statistics](#210-statistics)
 - [3. Priority actions](#3-summary-of-priority-action-items)
   - [1. Agreed simple changes](#1-agreed-simple-changes)
   - [2. Agreed complex changes](#2-agreed-complex-changes)
@@ -112,21 +111,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.4 `Geometry`
-
-#### 1. `GeometricVisualization` (`CartesianPlane`):
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S2`, `ONT-E7`):** `CartesianPlane` is
-  ineligible because `CoordinateAxes`, `Origin`, and `Quadrants` are its `partOf` children.
-  Its sibling coordinate-system descriptors are eligible, but that asymmetry is not a defect.
-  Decide whether content needs an independent generic coordinate-plane claim and whether the
-  current node represents a field or a particular coordinate-system concept. Axes, origin,
-  and quadrants are constituents, not narrower kinds of coordinate plane; eligibility alone
-  does not justify converting their edges to specialization.
-
----
-
-### 2.5 `GraphTheory`
+### 2.4 `GraphTheory`
 
 #### 1. `GraphFoundations` (Possible foundational graph families):
 
@@ -144,7 +129,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.6 `IntuitiveMathematics`
+### 2.5 `IntuitiveMathematics`
 
 #### 1. `CollectionSense > DivisionOfCollections` (Remaining parity boundary and partition link):
 
@@ -207,7 +192,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.7 `LinearAlgebra`
+### 2.6 `LinearAlgebra`
 
 #### 1. `VectorAlgebra` (Optional organization review):
 
@@ -221,7 +206,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.8 `Logic`
+### 2.7 `Logic`
 
 #### 1. `PropositionalLogic` (`LogicalEquivalence`):
 
@@ -237,7 +222,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.9 `NumberTheory`
+### 2.8 `NumberTheory`
 
 #### 1. `NumberSystems` (Complex-number organization):
 
@@ -251,7 +236,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.10 `Probability`
+### 2.9 `Probability`
 
 #### 1. `ProbabilityFoundations` and `RandomVariableTheory`:
 
@@ -275,7 +260,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.11 `Statistics`
+### 2.10 `Statistics`
 
 #### 1. `DescriptiveStatistics` (Location/central-tendency family):
 
@@ -314,13 +299,13 @@ need a concrete proposal and review.
 
 - [Arithmetic](#22-arithmetic): `Modulo`'s number domain, divisor restrictions, and
   negative-input convention relative to `EuclideanDivision`.
-- [Intuitive mathematics](#26-intuitivemathematics): the exact-division/concrete-parity boundary
+- [Intuitive mathematics](#25-intuitivemathematics): the exact-division/concrete-parity boundary
   and deferred division/partition specialization. The concrete parity descriptors remain
   unchanged pending the separate meaning decision.
-- [Intuitive mathematics](#26-intuitivemathematics): interval numeration's meaning and parent
+- [Intuitive mathematics](#25-intuitivemathematics): interval numeration's meaning and parent
   boundary.
-- [Number theory](#29-numbertheory): complex-number organization.
-- [Probability](#210-probability): finite-Markov/absorption topic organization.
+- [Number theory](#28-numbertheory): complex-number organization.
+- [Probability](#29-probability): finite-Markov/absorption topic organization.
 
 ### 3. Discussion and conditional proposals
 
@@ -330,17 +315,16 @@ These items require a meaning or scope decision before implementation.
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
 - [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links.
 - [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links.
-- [Geometry](#24-geometry): the coordinate-plane field vs. observable-concept role.
-- [Graph theory](#25-graphtheory): concrete foundational graph-family proposals and conventions.
-- [Intuitive mathematics](#26-intuitivemathematics): iteration overlap, reflective-symmetry
+- [Graph theory](#24-graphtheory): concrete foundational graph-family proposals and conventions.
+- [Intuitive mathematics](#25-intuitivemathematics): iteration overlap, reflective-symmetry
   placement, and the whole numeric-comparison family's boundaries, structural roles, and
   eligibility consequences.
-- [Linear algebra](#27-linearalgebra): whether additional vector-topic organization is useful.
-- [Logic](#28-logic): formula construction vs. equivalence of formulas within propositional
+- [Linear algebra](#26-linearalgebra): whether additional vector-topic organization is useful.
+- [Logic](#27-logic): formula construction vs. equivalence of formulas within propositional
   logic.
-- [Probability](#210-probability): whether broader random-variable organization is useful
+- [Probability](#29-probability): whether broader random-variable organization is useful
   beyond the current supported placements.
-- [Statistics](#211-statistics): a location/central-tendency family that accommodates
+- [Statistics](#210-statistics): a location/central-tendency family that accommodates
   categorical modes and preserves median's quantile role, and the shared inference context of
   sampling distributions and standard errors.
 

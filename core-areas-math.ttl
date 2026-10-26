@@ -333,7 +333,7 @@
     rdfs:comment "Linearizing a function; estimating an integral by trapezoids.";
     edu:partOf :Calculus.
 :CartesianPlane a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A two-dimensional plane defined by a horizontal axis and a vertical axis intersecting at a right angle.";
+    rdfs:isDefinedBy "The foundational structure and conventions of two-dimensional Cartesian coordinate systems, including perpendicular coordinate axes, their common origin, scales and directions, and quadrants.";
     edu:expands :Plane;
     edu:partOf :GeometricVisualization.
 :CartesianProduct a owl:NamedIndividual, edu:Area;
