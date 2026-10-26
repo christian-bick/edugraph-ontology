@@ -1,8 +1,8 @@
 # Core Areas Family and Sibling Consistency Review
 
 Open family and sibling findings for [`core-areas-math.ttl`](../../core-areas-math.ttl).
-The remaining work is grouped in [section 3](#3-summary-of-priority-action-items) as complex
-changes or questions needing discussion. Completed changes, accepted nonissues, and stale
+The remaining work is grouped in [section 3](#3-summary-of-priority-action-items) as discussion
+items and deferred proposals. Completed changes, accepted nonissues, and stale
 claims have been removed from the family findings; completed work is summarized in
 [history](../history/2026-10-mathematics-and-consolidation.md).
 
@@ -14,7 +14,6 @@ claims have been removed from the family findings; completed work is summarized 
   - [Arithmetic](#22-arithmetic)
   - [Combinatorics](#23-combinatorics)
   - [IntuitiveMathematics](#24-intuitivemathematics)
-  - [Probability](#25-probability)
 - [3. Priority actions](#3-summary-of-priority-action-items)
   - [1. Agreed simple changes](#1-agreed-simple-changes)
   - [2. Agreed complex changes](#2-agreed-complex-changes)
@@ -34,8 +33,7 @@ eligibility (ONT-E7).
 Different sibling roles, missing parallel groups, or an ineligible organizer are review prompts;
 they do not justify a mechanical rename, new group, or relation conversion. Every remaining
 proposal needs review against definitions, incoming references, complete paths, and content
-evidence before implementation. Group 2 records agreement on the concern, not approval of a
-particular new identifier, definition, or hierarchy.
+evidence before implementation.
 
 ## 2. Family-by-Family Sibling Consistency Analysis
 
@@ -113,22 +111,6 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.5 `Probability`
-
-#### 1. `StochasticProcesses` (Finite Markov-chain organization):
-
-- **Complex change, group 2 (`ONT-D4`, `ONT-S1`, `ONT-S4`, `ONT-S5`):** All ten direct
-  constituents concern finite, time-homogeneous Markov chains: `FiniteMarkovChain`,
-  `MarkovTransitionMatrix`, `MarkovStateDistribution`, `MarkovChainIrreducibility`,
-  `MarkovChainPeriodicity`, `StationaryDistribution`, `FiniteMarkovConvergenceTheorem`,
-  `AbsorptionProbability`, `AbsorptionProbabilityEquations`, and
-  `FiniteMarkovAbsorptionTheorem`. `AbsorbingMarkovChain` specializes `FiniteMarkovChain`.
-  Consider a finite-Markov field organizer and a distinct absorption-topic grouping if useful;
-  do not attach constituent children beneath the specializing chain descriptors without
-  resolving the complete-path restrictions.
-
----
-
 ## 3. Summary of Priority Action Items
 
 ### 1. Agreed simple changes
@@ -139,10 +121,8 @@ changes, including sequence-theorem grouping, are recorded in
 
 ### 2. Agreed complex changes
 
-Agreement concerns the issue to resolve; identifiers, definitions, and final graph changes still
-need a concrete proposal and review.
-
-- [Probability](#25-probability): finite-Markov/absorption topic organization.
+No open items remain. Completed changes are recorded in
+[history](../history/2026-10-mathematics-and-consolidation.md).
 
 ### 3. Discussion and conditional proposals
 
