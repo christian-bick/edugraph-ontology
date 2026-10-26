@@ -187,18 +187,7 @@ particular new identifier, definition, or hierarchy.
 
 ### 2.7 `Statistics`
 
-#### 1. `DescriptiveStatistics` (Location/central-tendency family):
-
-- **Discussion, group 3 (`ONT-D1`, `ONT-D4`, `ONT-S2`, `ONT-S4`, `ONT-S5`, `ONT-E7`):**
-  `DispersionMeasure` provides an eligible family for spread summaries, while `Quantile` groups
-  order cutoffs, including `Median`. `WeightedArithmeticMean`, its `ArithmeticMean`
-  specialization, and `Mode` have no shared location/central-tendency family with `Median`.
-  Consider a reusable generic location-summary concept if its definition preserves each
-  member's meaning and supports useful content claims. Its boundary must accommodate a
-  categorical `Mode`, and `Median` must retain its valid `Quantile` specialization; review
-  overlapping families and all paths rather than replacing that existing relation.
-
-#### 2. `StatisticalEstimation` vs. `HypothesisTesting`:
+#### 1. `StatisticalEstimation` vs. `HypothesisTesting`:
 
 - **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S3`):** `SamplingDistribution` and
   `StandardError` are constituents of `StatisticalEstimation` and also support hypothesis
@@ -242,9 +231,8 @@ These items require a meaning or scope decision before implementation.
 - [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links.
 - [Intuitive mathematics](#24-intuitivemathematics): deferred iteration consolidation and
   dataset adoption.
-- [Statistics](#27-statistics): a location/central-tendency family that accommodates
-  categorical modes and preserves median's quantile role, and the shared inference context of
-  sampling distributions and standard errors.
+- [Statistics](#27-statistics): the shared inference context of sampling distributions and
+  standard errors.
 
 ### 4. Accepted no-change decisions
 

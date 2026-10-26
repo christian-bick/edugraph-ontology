@@ -219,3 +219,10 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   `RandomVariable` under `ProbabilityFoundations` and `RandomVariableTheory` under `Probability`,
   with all names, definitions, and relations unchanged. The foundational concept and the field
   organizing distributions, dependence, and numerical summaries retain their distinct roles.
+- **October 26 — Central-tendency measures.** Added `CentralTendencyMeasure` under
+  `DescriptiveStatistics`, covering central or typical values and categories, including ties.
+  `WeightedArithmeticMean`, `Median`, and `Mode` specialize the new concept, replacing the
+  weighted mean's and mode's direct `partOf DescriptiveStatistics` links. Retained
+  `ArithmeticMean`'s specialization of `WeightedArithmeticMean` and `Median`'s of `Quantile`.
+  Existing definitions and labeling eligibility are unchanged; the new concept is eligible.
+  Resolved the family review; review new specialization ancestry and direct-parent queries.
