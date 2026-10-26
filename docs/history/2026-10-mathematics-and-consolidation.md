@@ -215,3 +215,7 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   `LogicalEquivalence` under `PropositionalLogic`, with its existing definition and
   contraposition and De Morgan specializations. Removed the completed logic review section
   and renumbered the remaining families; no ontology changes were made.
+- **October 26 — Random-variable organization.** Closed the item as no change: retained
+  `RandomVariable` under `ProbabilityFoundations` and `RandomVariableTheory` under `Probability`,
+  with all names, definitions, and relations unchanged. The foundational concept and the field
+  organizing distributions, dependence, and numerical summaries retain their distinct roles.

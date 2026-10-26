@@ -171,15 +171,7 @@ particular new identifier, definition, or hierarchy.
 
 ### 2.6 `Probability`
 
-#### 1. `ProbabilityFoundations` and `RandomVariableTheory`:
-
-- **Discussion, group 3 (`ONT-D4`, `ONT-S1`, `ONT-S3`):** `ProbabilityFoundations` explicitly
-  includes random variables, so the current `RandomVariable` placement is supported.
-  `RandomVariableTheory` currently concerns their distributions, dependence, and numerical
-  summaries. Review whether a broader shared home would add useful organization before
-  redefining that field, relocating the concept, or adding a second parent.
-
-#### 2. `StochasticProcesses` (Finite Markov-chain organization):
+#### 1. `StochasticProcesses` (Finite Markov-chain organization):
 
 - **Complex change, group 2 (`ONT-D4`, `ONT-S1`, `ONT-S4`, `ONT-S5`):** All ten direct
   constituents concern finite, time-homogeneous Markov chains: `FiniteMarkovChain`,
@@ -250,8 +242,6 @@ These items require a meaning or scope decision before implementation.
 - [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links.
 - [Intuitive mathematics](#24-intuitivemathematics): deferred iteration consolidation and
   dataset adoption.
-- [Probability](#26-probability): whether broader random-variable organization is useful
-  beyond the current supported placements.
 - [Statistics](#27-statistics): a location/central-tendency family that accommodates
   categorical modes and preserves median's quantile role, and the shared inference context of
   sampling distributions and standard errors.
@@ -260,6 +250,13 @@ These items require a meaning or scope decision before implementation.
 
 No open actions remain in this group. Accepted differences in constituent roles, hierarchy depth,
 strategy organization, and overlapping classification axes have been removed from the findings.
+
+The `RandomVariable` and `RandomVariableTheory` review is resolved as no change (`ONT-D4`,
+`ONT-S1`, `ONT-S3`): retain both names, definitions, and all relations. The foundational
+outcome-to-number concept remains `partOf ProbabilityFoundations`, whose definition explicitly
+includes random variables. `RandomVariableTheory` remains `partOf Probability`, organizing
+distributions, dependence, and numerical summaries. Their distinct roles support the current
+placements; no broader organizer, second parent, or specialization link is needed.
 
 The `LogicalEquivalence` review is resolved as no change (`ONT-D4`, `ONT-S1`, `ONT-S2`):
 retain its name, definition, `partOf PropositionalLogic`, and the `ContrapositionEquivalence`
