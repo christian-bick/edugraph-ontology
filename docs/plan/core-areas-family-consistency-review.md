@@ -1,9 +1,10 @@
 # Core Areas Family and Sibling Consistency Review
 
-Open family and sibling findings for [`core-areas-math.ttl`](../../core-areas-math.ttl).
-The remaining work is grouped in [section 3](#3-summary-of-priority-action-items) as discussion
-items and deferred proposals. Completed changes, accepted nonissues, and stale
-claims have been removed from the family findings; completed work is summarized in
+Family and sibling review of [`core-areas-math.ttl`](../../core-areas-math.ttl).
+No active family corrections remain. The four topics retained in
+[section 3](#3-summary-of-priority-action-items) are parked and should be reopened only when
+concrete evidence establishes an actual defect. Optional coverage, additional links, and
+consolidation preferences are not outstanding implementation work. Completed work is summarized in
 [history](../history/2026-10-mathematics-and-consolidation.md).
 
 ## Contents
@@ -35,36 +36,43 @@ they do not justify a mechanical rename, new group, or relation conversion. Ever
 proposal needs review against definitions, incoming references, complete paths, and content
 evidence before implementation.
 
+For the four parked topics, require a concrete conflicting definition or authored relation,
+an incorrect inherited claim, or a demonstrated annotation failure before reopening work.
+Missing optional descriptors or links, overlap, and possible naming improvements alone do not
+establish a defect. Keep a consumer annotation issue distinct from a defect in the ontology
+(ONT-D4, ONT-S2, ONT-E1, ONT-W2).
+
 ## 2. Family-by-Family Sibling Consistency Analysis
 
 ### 2.1 `Algebra`
 
 #### 1. `AlgebraicFunctions` (`ExpressionBasedDependence` vs. `NumericFunction`):
 
-- **Discussion, group 3 (`ONT-D1`, `ONT-D4`, `ONT-S2`):**
+- **Parked, group 3 (`ONT-D1`, `ONT-D4`, `ONT-S2`):**
   `NumericFunction` specializes into `AbsoluteValueFunction`, `ComplexExponentialFunction`,
   `LogarithmicFunction`, `PowerFunction`, `TrigonometricFunction`, `ArithmeticSequence`, and
   `GeometricSequence`, but polynomial, affine/linear, quadratic, rational, and real exponential
   families are represented under `ExpressionBasedDependence`. The dependence family classifies
   governing expressions, including constraint residuals; `NumericFunction` requires exactly one
-  numerical output for each admissible input. Review whether dedicated function-family
-  descriptors add useful meanings or inheritance beyond supported combinations of existing
-  descriptors before introducing them.
+  numerical output for each admissible input. This difference in coverage does not establish
+  a defect. Retain the existing concepts and relations; additional function-family descriptors
+  are not an active action item.
 
-- **Deferred, group 3 (`ONT-D4`, `ONT-S2`, `ONT-S5`):** Review the proposed
+- **Parked, group 3 (`ONT-D4`, `ONT-S2`, `ONT-S5`):** The proposed
   `DirectProportionalDependence specializes NumericFunction`,
   `InverseProportionalDependence specializes NumericFunction`, and
-  `PowerFunction specializes ExpressionBasedDependence` links. The proportional concepts
+  `PowerFunction specializes ExpressionBasedDependence` links remain unapproved. The proportional concepts
   designate numerical inputs and outputs, while the power-function definition supplies a
-  governing expression. The naming cleanup preserves existing relations; review the intended
-  inheritance and complete affected paths before adding these links.
+  governing expression. Their possible applicability does not establish a defect in the
+  existing graph. Retain the current relations unless concrete evidence justifies reopening.
 
-- **Deferred, group 3 (`ONT-D4`, `ONT-S2`):** Review the proposed
-  `InverseProportionalDependence specializes PowerFunction` link with that family boundary.
+- **Parked, group 3 (`ONT-D4`, `ONT-S2`):** The proposed
+  `InverseProportionalDependence specializes PowerFunction` link remains unapproved.
   Inverse proportional dependence retains a general numerical domain with $k \ne 0$ and
   $x \ne 0$, while `PowerFunction` explicitly describes real input-output relationships.
   For real inputs and outputs, inverse proportional dependence has exponent $-1$; the additional
-  specialization remains deferred until the intended domain and family roles are settled.
+  specialization is not an active action item. Its absence does not establish an incorrect
+  authored relation or inherited claim.
 
 ---
 
@@ -72,9 +80,10 @@ evidence before implementation.
 
 #### 1. `ArithmeticOperations` (Deferred progression links):
 
-- **Deferred, group 3 (`ONT-R3`, `ONT-W2`):** The proposed
+- **Parked, group 3 (`ONT-R3`, `ONT-W2`):** The proposed
   `Factorial integrates Multiplication` and `Modulo integrates EuclideanDivision` links
-  remain unapproved. Revisit their conceptual meaning and progression paths separately;
+  remain unapproved; no defect is established by their absence. If concrete evidence warrants
+  reopening, review their conceptual meaning and progression paths separately;
   any modulo proposal must account for the general operation's contextual domain and remainder
   convention alongside `EuclideanDivision`'s explicit integer and positive-divisor boundary.
 
@@ -84,16 +93,15 @@ evidence before implementation.
 
 #### 1. `CombinatorialEnumeration` (Deferred unordered-selection specializations):
 
-- **Deferred, group 3 (`ONT-D4`, `ONT-S2`, `ONT-S5`, `ONT-W2`):** Review the proposed
+- **Parked, group 3 (`ONT-D4`, `ONT-S2`, `ONT-S5`, `ONT-W2`):** The proposed
   `BinomialCoefficient specializes UnorderedSelectionCounting` and
-  `StarsAndBars specializes UnorderedSelectionCounting` links separately. `BinomialCoefficient`
+  `StarsAndBars specializes UnorderedSelectionCounting` links remain unapproved. `BinomialCoefficient`
   defines the number of subsets, while the new parent concerns determining or interpreting
-  selection counts. Decide whether this supports specialization for the full coefficient meaning.
+  selection counts. This distinction does not establish a defect in the existing placement.
   `StarsAndBars` counts nonnegative integer solutions through a separator construction,
-  including allocation interpretations. Establish whether those meanings preserve the parent's
-  selection and multiplicity interpretation, rather than relying on a possible bijection alone. Review
-  definitions and complete affected paths before adding either specialization; existing
-  relations remain unchanged.
+  including allocation interpretations. A possible bijection alone does not establish that those
+  meanings preserve the proposed parent's selection and multiplicity interpretation. Existing
+  relations remain unchanged; reopen only against a demonstrated defect.
 
 ---
 
@@ -101,13 +109,14 @@ evidence before implementation.
 
 #### 1. `NumberSense > FoundationalOperations`:
 
-- **Deferred, group 3 (`ONT-D1`, `ONT-D4`, `ONT-E1`, `ONT-W2`):** Retain `Iteration` and
+- **Parked, group 3 (`ONT-D1`, `ONT-D4`, `ONT-E1`, `ONT-W2`):** Retain `Iteration` and
   `IteratedOperation` with their existing names, definitions, and relations for now.
   General repetition and its arithmetic application overlap, while the latter's phrase
-  "single operand value" leaves its intended boundary unclear. Consolidation and any new
-  specialization link remain deferred. Revisit the meaning together with the
-  [dataset adoption and equal-addends follow-up](ontology-consolidation.md#deferred-iteration-consolidation-and-dataset-adoption);
-  the dataset currently uses the arithmetic label for both repeated groups and two equal addends.
+  "single operand value" leaves its intended boundary unclear. Neither observation establishes
+  an ontology defect requiring consolidation or a new specialization link. The
+  [historical dataset evidence](ontology-consolidation.md#deferred-iteration-consolidation-and-dataset-adoption)
+  about repeated groups and two equal addends remains a conditional verification note; it is
+  not a confirmed current defect or authorization for an ontology merge.
 
 ---
 
@@ -126,14 +135,16 @@ No open items remain. Completed changes are recorded in
 
 ### 3. Discussion and conditional proposals
 
-These items require a meaning or scope decision before implementation.
+No active action items remain. No actual ontology defect has been established in the four
+topics below. Retain them as parked proposals and reopen only with concrete defect evidence
+under the review boundary above.
 
-- [Algebra](#21-algebra): function-family coverage and deferred specialization links connecting
+- [Algebra](#21-algebra): optional function-family coverage and specialization links connecting
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
-- [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links.
-- [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links.
-- [Intuitive mathematics](#24-intuitivemathematics): deferred iteration consolidation and
-  dataset adoption.
+- [Arithmetic](#22-arithmetic): optional factorial/modulo progression links.
+- [Combinatorics](#23-combinatorics): optional unordered-selection specialization links.
+- [Intuitive mathematics](#24-intuitivemathematics): possible iteration consolidation and
+  conditional verification of historical dataset evidence.
 
 ### 4. Accepted no-change decisions
 
