@@ -258,3 +258,11 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   unchanged; the new organizer is ineligible. Resolved the family review and renumbered the
   remaining section. Review direct-parent queries and the additional structural ancestor when
   adopting the change.
+- **October 26 — Finite Markov-chain families.** Added `FiniteMarkovChainTheory` under
+  `StochasticProcesses` and `MarkovChainAbsorption` beneath it. Moved seven general topics
+  into the theory family and the three absorption topics into its subgroup using `partOf`.
+  Existing definitions, progression links, specialization inheritance, and labeling eligibility
+  are unchanged; both new organizers are ineligible. The broad theory retains finite chains
+  without a time-homogeneity restriction, and the absorption subgroup does not assume absorption
+  is guaranteed. Closed the final group 2 finding; review direct-parent and structural-ancestor
+  queries when adopting the change.
