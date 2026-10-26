@@ -13,13 +13,12 @@ claims have been removed from the family findings; completed work is summarized 
   - [Algebra](#21-algebra)
   - [Arithmetic](#22-arithmetic)
   - [Combinatorics](#23-combinatorics)
-  - [GraphTheory](#24-graphtheory)
-  - [IntuitiveMathematics](#25-intuitivemathematics)
-  - [LinearAlgebra](#26-linearalgebra)
-  - [Logic](#27-logic)
-  - [NumberTheory](#28-numbertheory)
-  - [Probability](#29-probability)
-  - [Statistics](#210-statistics)
+  - [IntuitiveMathematics](#24-intuitivemathematics)
+  - [LinearAlgebra](#25-linearalgebra)
+  - [Logic](#26-logic)
+  - [NumberTheory](#27-numbertheory)
+  - [Probability](#28-probability)
+  - [Statistics](#29-statistics)
 - [3. Priority actions](#3-summary-of-priority-action-items)
   - [1. Agreed simple changes](#1-agreed-simple-changes)
   - [2. Agreed complex changes](#2-agreed-complex-changes)
@@ -111,25 +110,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.4 `GraphTheory`
-
-#### 1. `GraphFoundations` (Possible foundational graph families):
-
-- **Discussion, group 3 (`ONT-D1`, `ONT-D4`, `ONT-S2`, `ONT-S5`):**
-  `GraphStructure` currently has `CompleteGraph` as its sole specialization. That is valid and
-  does not require arbitrary siblings, but additional foundational graph families are a
-  supported direction for consideration. Concrete candidates include trees, bipartite graphs,
-  and directed/undirected graphs; no particular additions or identifiers are approved yet.
-
-- Candidate boundaries need explicit conventions: a tree as a connected acyclic undirected
-  graph, bipartiteness through two vertex classes with edges only between classes, and directed/
-  undirected families through edge orientation. Check loop and multiplicity conventions and
-  existing traversal concepts before choosing definitions or specialization parents. These
-  families can overlap; they are not proposed as disjoint or exhaustive categories.
-
----
-
-### 2.5 `IntuitiveMathematics`
+### 2.4 `IntuitiveMathematics`
 
 #### 1. `CollectionSense > DivisionOfCollections` (Remaining parity boundary and partition link):
 
@@ -192,7 +173,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.6 `LinearAlgebra`
+### 2.5 `LinearAlgebra`
 
 #### 1. `VectorAlgebra` (Optional organization review):
 
@@ -206,7 +187,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.7 `Logic`
+### 2.6 `Logic`
 
 #### 1. `PropositionalLogic` (`LogicalEquivalence`):
 
@@ -222,7 +203,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.8 `NumberTheory`
+### 2.7 `NumberTheory`
 
 #### 1. `NumberSystems` (Complex-number organization):
 
@@ -236,7 +217,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.9 `Probability`
+### 2.8 `Probability`
 
 #### 1. `ProbabilityFoundations` and `RandomVariableTheory`:
 
@@ -260,7 +241,7 @@ particular new identifier, definition, or hierarchy.
 
 ---
 
-### 2.10 `Statistics`
+### 2.9 `Statistics`
 
 #### 1. `DescriptiveStatistics` (Location/central-tendency family):
 
@@ -299,13 +280,13 @@ need a concrete proposal and review.
 
 - [Arithmetic](#22-arithmetic): `Modulo`'s number domain, divisor restrictions, and
   negative-input convention relative to `EuclideanDivision`.
-- [Intuitive mathematics](#25-intuitivemathematics): the exact-division/concrete-parity boundary
+- [Intuitive mathematics](#24-intuitivemathematics): the exact-division/concrete-parity boundary
   and deferred division/partition specialization. The concrete parity descriptors remain
   unchanged pending the separate meaning decision.
-- [Intuitive mathematics](#25-intuitivemathematics): interval numeration's meaning and parent
+- [Intuitive mathematics](#24-intuitivemathematics): interval numeration's meaning and parent
   boundary.
-- [Number theory](#28-numbertheory): complex-number organization.
-- [Probability](#29-probability): finite-Markov/absorption topic organization.
+- [Number theory](#27-numbertheory): complex-number organization.
+- [Probability](#28-probability): finite-Markov/absorption topic organization.
 
 ### 3. Discussion and conditional proposals
 
@@ -315,16 +296,15 @@ These items require a meaning or scope decision before implementation.
   expression dependence, proportionality, `NumericFunction`, and `PowerFunction`.
 - [Arithmetic](#22-arithmetic): deferred factorial/modulo progression links.
 - [Combinatorics](#23-combinatorics): deferred unordered-selection specialization links.
-- [Graph theory](#24-graphtheory): concrete foundational graph-family proposals and conventions.
-- [Intuitive mathematics](#25-intuitivemathematics): iteration overlap, reflective-symmetry
+- [Intuitive mathematics](#24-intuitivemathematics): iteration overlap, reflective-symmetry
   placement, and the whole numeric-comparison family's boundaries, structural roles, and
   eligibility consequences.
-- [Linear algebra](#26-linearalgebra): whether additional vector-topic organization is useful.
-- [Logic](#27-logic): formula construction vs. equivalence of formulas within propositional
+- [Linear algebra](#25-linearalgebra): whether additional vector-topic organization is useful.
+- [Logic](#26-logic): formula construction vs. equivalence of formulas within propositional
   logic.
-- [Probability](#29-probability): whether broader random-variable organization is useful
+- [Probability](#28-probability): whether broader random-variable organization is useful
   beyond the current supported placements.
-- [Statistics](#210-statistics): a location/central-tendency family that accommodates
+- [Statistics](#29-statistics): a location/central-tendency family that accommodates
   categorical modes and preserves median's quantile role, and the shared inference context of
   sampling distributions and standard errors.
 

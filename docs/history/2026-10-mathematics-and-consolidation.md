@@ -189,3 +189,9 @@ Dates below use UTC merge dates for pull requests and UTC committer dates for di
   name, relations, and `CoordinateAxes`, `Origin`, and `Quadrants` constituents; it remains
   ineligible for direct labeling. Resolved the last geometry finding and removed the completed
   section, renumbering the remaining review families.
+- **October 26 — Foundational graph families.** Added `DirectedGraph`, `UndirectedGraph`,
+  `SimpleGraph`, `BipartiteGraph`, and `TreeGraph` with unrestricted cardinality and explicit
+  direction, loop, and multiplicity boundaries. Trees specialize both simple and bipartite
+  graphs; `CompleteGraph` now specializes `SimpleGraph`, retaining its ancestry under
+  `GraphStructure`. Existing labeling eligibility is unchanged. Resolved the graph-family
+  review, removed its completed section, and renumbered the remaining families.

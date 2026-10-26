@@ -309,6 +309,10 @@
     rdfs:isDefinedBy "The identity expanding (a + b)^n as the sum of binom(n, k) a^(n-k) b^k over k = 0, ..., n, for real or complex a, b and nonnegative integer n, with zero powers interpreted as constant polynomial terms.";
     rdfs:comment "(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3.";
     edu:specializes :FiniteSumIdentity, :PolynomialRewriting.
+:BipartiteGraph a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "An undirected graph whose vertex set can be divided into two disjoint sets, with every edge joining a vertex in one set to a vertex in the other. Either set may be empty, and parallel edges are allowed.";
+    rdfs:comment "The undirected four-cycle A-B-C-D-A with vertex sets {A, C} and {B, D}; two vertices A and B joined by two parallel undirected edges, with vertex sets {A} and {B}.";
+    edu:specializes :UndirectedGraph.
 :BivariateStatistics a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Descriptions and models of relationships between two observed variables, including the limits of interpretation.";
     rdfs:comment "Relating height to arm span or comparing travel modes between year groups.";
@@ -486,7 +490,7 @@
 :CompleteGraph a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A simple undirected graph with an edge between every pair of distinct vertices.";
     rdfs:comment "The three-vertex triangle is complete.";
-    edu:specializes :GraphStructure.
+    edu:specializes :SimpleGraph.
 :CompletingSquare a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Rewriting a quadratic polynomial in one designated variable as a nonzero coefficient multiplied by a squared affine expression plus a constant, preserving its value for every admissible assignment.";
     rdfs:comment "x^2 + 6x + 5 = (x + 3)^2 - 4; 2x^2 + 8x + 3 = 2(x + 2)^2 - 5.";
@@ -903,6 +907,10 @@
     rdfs:isDefinedBy "The existence, structure, and determination of integer or rational solutions to polynomial equations with integer coefficients.";
     rdfs:comment "Integer solutions of 6x + 10y = 8; positive integer solutions of a^2 + b^2 = c^2.";
     edu:partOf :NumberTheory.
+:DirectedGraph a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A graph in which each edge has a designated source vertex and target vertex, allowing loops and parallel edges.";
+    rdfs:comment "A graph on A and B with two distinct edges from A to B and a loop from A to itself.";
+    edu:specializes :GraphStructure.
 :DirectProportionalDependence a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dependence in which a designated output quantity equals a fixed multiple k of one input quantity, with no constant offset, including k = 0.";
     rdfs:comment "y = 3x with input x and output y; the output expression 3x; f(t) = 4t; f(t) = 0.";
@@ -3309,6 +3317,10 @@
     edu:expands :ShapeResizingConservation;
     edu:partOf :ShapeEquivalenceRelations;
     edu:translates :ShapeRotationConservation.
+:SimpleGraph a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "An undirected graph with no loops and at most one edge between each pair of distinct vertices.";
+    rdfs:comment "The undirected triangle on A, B, and C with exactly the edges A-B, B-C, and C-A.";
+    edu:specializes :UndirectedGraph.
 :SimpleRandomSampling a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Selection of a fixed-size sample without replacement so that every subset of that size has the same probability of selection.";
     rdfs:comment "Selecting 20 distinct pupil identifiers uniformly from a register of 200.";
@@ -3627,6 +3639,10 @@
     rdfs:isDefinedBy "Approximating a definite integral by integrating the piecewise linear interpolant through ordered sampled inputs.";
     rdfs:comment "One trapezoid estimates integral_0^1 x^2 dx as 1/2.";
     edu:specializes :NumericalIntegration.
+:TreeGraph a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A nonempty connected simple undirected graph with no cycles, including the single-vertex graph with no edges.";
+    rdfs:comment "The graph on A, B, and C with exactly the edges A-B and B-C; the infinite undirected graph with all integers as vertices and exactly one edge between each pair of consecutive integers.";
+    edu:specializes :BipartiteGraph, :SimpleGraph.
 :Triangle a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The study of three-sided polygons, their properties, and related measurements.";
     edu:specializes :Polygon.
@@ -3738,6 +3754,10 @@
     rdfs:isDefinedBy "Intervals of numbers with no finite bound in at least one direction.";
     rdfs:comment "The interval of all real numbers greater than 3. Infinity indicates an unbounded direction rather than an included endpoint.";
     edu:specializes :NumerationWithIntervals.
+:UndirectedGraph a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A graph in which each edge joins endpoints without a designated direction, allowing loops and parallel edges.";
+    rdfs:comment "A graph on A and B with two distinct undirected edges joining A to B and a loop at A.";
+    edu:specializes :GraphStructure.
 :UnevenDivisibility a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A division of collections in which the divisor is two, precluding the source collection from being partitioned into exactly two subcollections of equal cardinality. The result identifies the source cardinality as an odd integer, consisting of a quotient that represents the shared cardinality of the subcollections and a remainder of one.";
     edu:contradicts :EvenDivisibility;
