@@ -361,6 +361,10 @@
     rdfs:comment "Standardized averages of many independent uniform draws have approximately a standard normal distribution.";
     edu:integrates :NormalDistribution;
     edu:partOf :ProbabilityLimitTheorems.
+:CentralTendencyMeasure a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "A statistical summary expressing a central or typical value or category of a data collection, with ties permitted where the defining criterion allows them.";
+    rdfs:comment "The data 1, 1, 2, 8 have mean 3, median 1.5, and mode 1; the travel modes walk, bus, walk, bus have tied modal categories walk and bus.";
+    edu:partOf :DescriptiveStatistics.
 :ChainRule a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The identity (f composed with g)'(x) = f'(g(x))g'(x) where g is differentiable at x and f is differentiable at g(x).";
     rdfs:comment "(sin(x^2))' = 2x cos(x^2).";
@@ -2126,7 +2130,7 @@
 :Median a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The middle location of ordered numerical data, using the central value for an odd count and the arithmetic mean of the two central values for an even count.";
     rdfs:comment "The median of 2, 4, and 9 is 4; the median of 2, 4, 8, and 10 is 6.";
-    edu:specializes :Quantile.
+    edu:specializes :CentralTendencyMeasure, :Quantile.
 :MidpointCalculation a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Determining the midpoint of a line segment in a Cartesian coordinate plane by averaging the corresponding coordinates of its endpoints.";
     rdfs:comment "The endpoints (2, 4) and (8, 10) have midpoint ((2 + 8)/2, (4 + 10)/2) = (5, 7).";
@@ -2138,7 +2142,7 @@
 :Mode a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "A value or category occurring with maximal frequency in observed data, allowing ties.";
     rdfs:comment "The modes of 1, 1, 2, 2, and 3 are 1 and 2.";
-    edu:partOf :DescriptiveStatistics.
+    edu:specializes :CentralTendencyMeasure.
 :ModularArithmetic a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Congruence classes of integers and the arithmetic, equations, and power relationships defined modulo a positive integer.";
     rdfs:comment "Adding residue classes modulo 5; finding a multiplicative inverse modulo 7; solving 6x congruent to 9 modulo 15.";
@@ -3884,7 +3888,7 @@
 :WeightedArithmeticMean a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "An average formed by dividing the sum of values multiplied by specified nonnegative weights by the positive total weight.";
     rdfs:comment "Scores 70 and 90 with weights 1 and 3 have weighted mean 85.";
-    edu:partOf :DescriptiveStatistics.
+    edu:specializes :CentralTendencyMeasure.
 :Zero a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Understanding zero as an integer expressing absence of quantity, the additive identity, and the origin between negative and positive values.";
     rdfs:comment "Recognizing that adding zero leaves a value unchanged, or using a zero digit as a placeholder in 305.";
