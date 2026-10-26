@@ -954,6 +954,10 @@
     rdfs:isDefinedBy "The role of the input being divided in a division expression.";
     rdfs:comment "Identifying x + 1 as the whole input being divided in (x + 1)/3; distinguishing the dividend 12 from the divisor 4 in 12 divided by 4.";
     edu:specializes :Operand.
+:DivisibilityOfCollections a owl:NamedIndividual, edu:Area;
+    rdfs:isDefinedBy "The possibility or impossibility of partitioning a bounded collection into equally sized groups of a specified size or number, with every object assigned and none left over.";
+    rdfs:comment "Nine counters can form three groups of three with none left over, but forming pairs leaves one counter unpaired.";
+    edu:partOf :CollectionSense.
 :DivisibilityRules a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Shorthand methods of determining whether a given integer is divisible by a fixed divisor without performing the division.";
     rdfs:comment "Using the digit sum 1 + 2 + 3 = 6 to establish that 123 is divisible by 3.";
@@ -982,7 +986,7 @@
 :DivisionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The physical, visual or symbolized act of splitting a single bounded collection into two or more distinct non-overlapping subcollections of equal cardinality. The source cardinality equals the number of subcollections multiplied by their shared cardinality, so either factor can be determined through division.";
     edu:expands :NumericEquality, :PartitionOfCollections;
-    edu:partOf :CollectionSense.
+    edu:specializes :PartitionOfCollections.
 :DivisionPartialQuotients a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Dividing by successively removing convenient multiples of the divisor and combining the associated partial quotients.";
     edu:expands :Division, :FactorsAndMultiples, :Multiplication, :Subtraction;
@@ -1084,9 +1088,10 @@
     rdfs:comment "Rewriting cos(theta) as the average of the two opposite-angle complex exponentials.";
     edu:specializes :TrigonometricIdentities.
 :EvenDivisibility a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A division of collections in which the divisor is two, permitting the source collection to be partitioned into exactly two subcollections of equal cardinality. The result identifies the source cardinality as an even integer, consisting of a quotient that represents the shared cardinality of the subcollections and a remainder of zero.";
+    rdfs:isDefinedBy "The possibility of arranging all objects in a bounded collection into complete pairs, equivalently sharing the collection completely between two groups of equal cardinality. The collection has even cardinality.";
+    rdfs:comment "Eight counters form four pairs or two groups of four, with none left over.";
     edu:expands :SetComparison, :Subitizing;
-    edu:specializes :DivisionOfCollections.
+    edu:specializes :DivisibilityOfCollections.
 :EvenFunctionIntegralReduction a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "Reduction of a proper definite integral of an even function on [-a,a], with a > 0, to twice its integral over [0,a].";
     rdfs:comment "integral_(-2)^2 x^2 dx = 2 integral_0^2 x^2 dx = 16/3.";
@@ -3767,9 +3772,10 @@
     rdfs:comment "A graph on A and B with two distinct undirected edges joining A to B and a loop at A.";
     edu:specializes :GraphStructure.
 :UnevenDivisibility a owl:NamedIndividual, edu:Area;
-    rdfs:isDefinedBy "A division of collections in which the divisor is two, precluding the source collection from being partitioned into exactly two subcollections of equal cardinality. The result identifies the source cardinality as an odd integer, consisting of a quotient that represents the shared cardinality of the subcollections and a remainder of one.";
+    rdfs:isDefinedBy "The impossibility of arranging all objects in a bounded collection into complete pairs, with exactly one object left unpaired after maximal pairing. Equivalently, the collection cannot be shared completely between two groups of equal cardinality and has odd cardinality.";
+    rdfs:comment "Nine counters form four pairs and one leftover counter, or two groups of four with one counter left over.";
     edu:contradicts :EvenDivisibility;
-    edu:specializes :DivisionOfCollections.
+    edu:specializes :DivisibilityOfCollections.
 :UnionOfCollections a owl:NamedIndividual, edu:Area;
     rdfs:isDefinedBy "The physical, visual or symbolized act of combining two or more distinct, bounded collections into a single larger collection, removing the boundaries between them.";
     edu:expands :GroupRecognition;
