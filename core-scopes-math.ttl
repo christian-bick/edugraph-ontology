@@ -62,6 +62,12 @@
 :AreaAbstraction a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Area or surface concepts.";
     edu:partOf :AbstractionScope.
+:AreaModel a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Numerical values, quantities, and arithmetic relationships represented by two-dimensional region areas relative to an identified area unit or reference whole.";
+    rdfs:comment "A unit rectangle partitioned into thirds horizontally and fourths vertically to represent 2/3 * 3/4; a 14 by 12 rectangle decomposed into four subrectangles to represent (10 + 4)(10 + 2).";
+    edu:expands :BarModel, :NumberArray;
+    edu:specializes :SpatialNumbers;
+    edu:translates :TwoDimensional.
 :AscendingOrder a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Arranging three or more entities in sequence from smallest to largest according to the relevant quantity, size, or value.";
     edu:inverts :DescendingOrder;
@@ -81,6 +87,11 @@
     rdfs:isDefinedBy "Categorical quantities represented by bars whose lengths or heights encode their values.";
     rdfs:comment "One bar per category showing the number of votes received.";
     edu:specializes :DataRepresentation.
+:BarModel a owl:NamedIndividual, edu:Scope;
+    rdfs:isDefinedBy "Numerical values, quantities, and arithmetic relationships represented by proportional bar or strip lengths relative to an identified unit or reference whole.";
+    rdfs:comment "A strip of total length 24 partitioned into three equal parts of 8; a unit bar divided into fifths with two parts shaded to represent 2/5.";
+    edu:specializes :SpatialNumbers;
+    edu:translates :OneDimensional.
 :Base10 a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Positional number representations in which successive place values differ by a factor of ten.";
     rdfs:comment "The numeral 234 represents two hundreds, three tens, and four ones.";
@@ -1371,8 +1382,8 @@
     rdfs:isDefinedBy "Relative or cardinal orientation and movement indicators.";
     edu:partOf :DirectionalAbstraction.
 :SpatialNumbers a owl:NamedIndividual, edu:Scope;
-    rdfs:isDefinedBy "Numerical values represented by positions or extents along a spatial dimension.";
-    rdfs:comment "Positions on a number line or lengths used to represent values.";
+    rdfs:isDefinedBy "Numerical values and arithmetic relationships represented by positions or extents across one or more spatial dimensions.";
+    rdfs:comment "Positions on a number line, proportional bar lengths, or partitioned region areas used to represent values.";
     edu:specializes :NumberRepresentation.
 :Spreadsheet a owl:NamedIndividual, edu:Scope;
     rdfs:isDefinedBy "Software with a grid of cells whose formulas reference values and recalculate dependent results.";
